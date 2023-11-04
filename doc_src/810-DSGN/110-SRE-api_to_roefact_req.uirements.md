@@ -1,4 +1,7 @@
-<small>**RENware Software Systems**</small>
+![api_to_roefact_logo](../pictures/api_to_roefact_logo.png){ width="55" align=left }
+<small markdown="1">**APItoROefact System**<br>
+*(c) 2023 RENware Software Systems*
+</small><br><br>
 
 [TOC]
 
