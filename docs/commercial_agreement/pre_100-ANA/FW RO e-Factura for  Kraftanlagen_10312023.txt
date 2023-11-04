@@ -1,0 +1,163 @@
+
+Subject:
+FW: RO e-Factura for Kraftanlagen
+From:
+"Neacsu, Liviu" <Liviu.Neacsu@kraftanlagen.com>
+Date:
+Tue, 31-Oct-23, 11:21
+To:
+"petre.iordanescu@gmail.com" <petre.iordanescu@gmail.com>
+CC:
+"Alexandru, Alexandru" <Alexandru.Alexandru@kraftanlagen.com>
+
+ 
+
+ 
+
+Salutare Petre!
+
+ 
+
+In mesajul de mai jos gasesti o o scurta descriere a solutiei asa cum o vedem noi pliata pe business-ul nostru curent
+
+In atasamente:
+
+    Standardul care reglementeaza si descrie dpdv tehnic platofma SPV (RO e-Factura). SPV stands for Spatiul Privat Virtual, platforma ANAF.
+    Un slide (are animatie, vezi slide show) care detaliaza o data in plus solutia.
+    Detalii privind versiunea de SAP pe care o folosim.
+
+ 
+
+In plus:
+
+    ERP ul folosit este SAP. Versiunea si ce detalii am gasit sunt in atasament si in pozele de mai jos . Cat despre domenii si web address, nu avem nici noi nici tu ce face: este gestionat in Munchen de IT-ul lor si cu mentenanta facuta de un alt provider local. Pentru orice incercare de sincronizare va trebui sa interactionam cu ei si sa le cerem suport. Inca suntem in negocieri pentru asta. Mai mult, nu este o prioritate, ci la final un eventual plus de valoare si eficienta. Cred ca o sa intelegi mai mult din descrierea de jos si din ppt, cu mentiunea ca sucursala din Romania a intrat mai tarziu in grup, iar SAP-uul era deja “in place” customizat pt limba si modelul germa. Foarte putine acomodari pt Romania au fost facute. (nu avem inventory, PO il folosim limitat, nu emitem facturi din el, nu avem autoaaccounting pt facturi primite ci doar un matching cu un PO, dupa ce inregistram manual factura, ca o nota contabila, iar documentele suport, inclusiv factura, le uploadam in format TIFF intro baza de date conexa SAP unde isi linkuieste inregistrare din SAP pe baza unui cod de bare aplicat de contabil pe factura si apoi scanate ☹ deci nu stam deloc bine.
+    Nu facturile emise sunt prioritatea, Avem putini clienti, dar mari. Gen OMV Petrom. Sunt maxim 50 oe luna si nu avem flux de aprobare. Tot ce ne trebuie este sa poate fi convertita din format XLSX in XML si apoi urcata in SPV (RO e-Factura, unde sa isi obtina sgiliul ANAF (o semnatura electronica, intrun fisier tot in format XML) care va insoti apoi factura catre client
+    Nevoia este pentru facturile primite. Multe. Cca 500 / luna, 50 pe hartie, restul pe mail.
+    Fluxul curent de aprobare a facturii este arhaic : pe factura primita si tiparita, se aplica o stamppila care indica cine tb sa aprobe factura pt plata. Apoi de la Procurement circula la departamentele vizate unde adunca semnaturi si documente suport (NRCD, Situatii de lucrari, certificate de calitate samd; documente care de altfel nu vor circula prin SPV. Aici ar fi “blue chip”-ul: sa mutam tot acest flux in mediu virtual/digital, fara hartii.
+    Inteleg ca solutia va trebui sa fie “cloud base” de tipul SaaS (Software as a Service) si va trebui sa suporte MFA (Multi Factor Authentication, precum Microsoft Authenticator sau Google Authenticator). Aici insa am sa il implic pe inginerul nostru IT pentru a explora optiunile.
+
+ 
+
+Intentionez sa antamez pentru joi o discutie pe Teams cu echipa de aici, iar atunci putem edifica tot.
+
+ 
+
+ 
+
+Rog citeste si detaliile de sub semnatura mea si apoi arunca un ochis si pe atasamente.
+
+ 
+
+Ne auzim oricand este nevoie.
+
+ 
+
+Multumesc si o zi buna!
+
+ 
+
+ 
+
+ 
+
+Liviu NEACSU
+Expert in Relatii Economice Internationale
+
+T. +40 344 4039xx – M. +40 728 132912
+
+Titel: Email - Beschreibung: email-icon   liviu.neacsu@kraftanlagen.com
+
+
+Kraftanlagen Romania
+Strada Libertatii, nr. 6A
+100283 Ploiesti – Romania
+
+www.kraftanlagen.com                    
+	
+
+ 
+
+Logo Description automatically generated
+	
+
+A blue sign with white text Description automatically generated with medium confidence
+
+ 
+
+ 
+
+ 
+
+Solutia de care avem nevoie se regaseste in 3 piloni care sa satisfaca cerinta legala legata de e-Factura (atasat standardul in .pdf) + digitalizarea interna in KARO si IPIP ( proces de aprobare interna a facturilor) + integrare cu SAP (atasat arhitectura si cerintele in .ppt).
+
+ 
+
+Pilonul 1: Implementarea si testarea platformei, de incarcare si descarcare facturi in/din SPV cu urmatoarele functionalitati:
+
+    Conectare prin API
+    Forma de incarcare facturi emise, generare si transmitere catre SPV, cu validarile solicitate privind continutul, semantica si formatul. Arhivarea/stocarea facturilor emise (si) in mediul intern in formatul si cu certifcarile impuse de norma legala. Posibilitatea de a trimite facturi si pe caile deja consacrate (e-mail) pentru clientii care solicita aceasta in continuare.
+    Descarcarea / extragerea facturilor primite precum si stocarea acestora
+    Autofacturarea
+    Trimiterea / primirea solicitarilor de corectie
+    Conversia facturilor intre diverse formate cerute pentru verificare si stocare: XML<>PDF<>TIFF<>ZIP
+    Conlucrare cu protocolul de recuperare in caz de dezastru
+
+ 
+
+Termen tinta: conform cerintelor legale, sa fie functional la data de 1 ianuarie 2024
+
+In masura in care sunt preexistente si doar necesita configurare, acest pilon ar fi de dorit sa includa si functiunile din pilonul/stagiul 2, descris in continuare:
+
+ 
+
+Pilonul 2: Implementarea proces digitalizat de aprobare facturi (primite si emise).Functionalitati:
+
+    Flux de aprobare interna facturi primite, avem aprobatori prestabiliti, in functie de centre de cost, proiecte, valori
+    Atentionare de aprobare prine alerte si view de urmarire a facturilor pe flux.
+    Posibilitatea atasarii de documente suport la factura / tranzactie (ex: acceptante/situatii de lucrari, Note de receptie samd), pe fluxul de aprobare, conform rolurilor si responsabilitatilor asociate utilizatorilor. Precizam ca ne-ar fi utila si  interconectarea cu sistemul nostru de gestiune a stocurilor. Aceesta ar ajuta la imperecherea facturilor de materiale cu documente de achizitie: Necesar / Comanda de aprovizionare, Nota de receptie
+    Stocarea facturii in formatul impus de standard, inclusiv certificarea ANAF
+    Posibilitatea transmiterii facturilor emise si prin canalele deja consacratre, in paralel cu RO e-Factura
+
+Termen tinta: preferabil in Q1 2024 (TBD)
+
+ 
+
+Pilonul 3: Integrare (partiala) cu ERP-ul nostru (SAP based) pentru importul facturilor
+
+Obiective:
+
+        facturile primite, cea mai importanta ca volum si timp de lucru. Tinta principala este generarea unor fisiere format .tiff, care sa includa un anumit cod de bare generat intern si incarcarea lor intrun sistem dedicat (“d3 tool”) unde se face legatura cu factura procesata in SAP pentru accounting si plata
+        import factura XML certificata ANAF si generarea de auto accounting la nivel de country code
+
+Termen tinta: va fi decis pe parcursul derularii pilonilor 1 si 2.
+
+ 
+
+Pentru RO e-Factura, atasat pentru referinta standardul aplicabul SR-EN-16931.
+
+Din ceea ce cunoasteti, rog confirmare daca este o preconditie din partea ANAF / M Finante ca platformele care vor interfera cu SPV/Ro e-factura sa fie certificate de catre ei si sa intruneasca o serie de functionalitati de validare a datelor transmise/extrase.
+
+Mai precizam ca asteptarile noastre sunt ca solutia sa fie axata pe aceasta platforma (SPV / RO e-factura). Astfel, multe din features prezentate (“OCR-izare”) nu isi vor mai gasi utilitatea in 99% din cazuri, factura in format XML aducand direct date in format “preluabil” si prelucrabil in solutia dvs. Restul de 1% (facturi primite externe) nu mai reprezinta o provocare, putand fi procesate si manual.
+
+ 
+
+In continuare va mai solicitam:
+
+    Cateva slide-uri de prezentare a companiei si solutiei dvs.
+    Clarificari privind infrastructura (Server rezident, protocoale de comunicatie, servicii asociate, mod de licentiere)
+
+ 
+
+Pt detalii tehnice persoana de contact Dl Liviu Neacsu 0728132912 . Pentru aspecte legate de infrastructura (server rezident, MFA, smad): Ristea Catalin Catalin.Ristea@kraftanlagen.com +40 734 554171
+
+ 
+
+A screenshot of a computer Description automatically generated
+
+ 
+
+ 
+Attachments:
+SR-EN-16931-12017.pdf	9.5 MB
+Ro e-factura.pptx	358 KB
+SAP version details.pdf	18.5 KB

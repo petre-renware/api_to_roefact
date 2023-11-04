@@ -5,19 +5,21 @@ copyright: 'Copyright (c) RENware Software Systems'
 
 
 nav:
+    #
+    # #FIXME -[this entry will be dropped after commercial terms are concluded] -------------------
+    - Comercial:
+        - Propuneri tehnice:
+            - Considerente tehnice generale: commercial_agreement/110-SRE-general_requirements.md
+            - Sistem API-to-ROefact: commercial_agreement/110-SRE-api_to_roefact_req.uirements.md
+            - Sistem payments_validation_board: commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
+    # #FIXME -------------------------------------------------------------------------------------------------
+    #
     - APItoROefact:
         - Acasa: index.md
         - ...Other entries here: wip.md
         # - Incarcare factura Excel: wip.md
         # - Procesare factura Excel: wip.md
         #NOTE - add more "first page" entries here
-    #
-    # #FIXME -[this entry will be dropped after commercial terms are concluded] -------------------
-    - Comercial:
-        - Propuneri tehnice:
-            - Cerintele API-to-ROefact: 810-DSGN/110-SRE-api_to_roefact_req.uirements.md
-    # #FIXME -------------------------------------------------------------------------------------------------
-    #
     - Help:
         - Manuale de utilizare:
             - Indexul manuale EUMA: help/880.30-EUMA_catalog.md
