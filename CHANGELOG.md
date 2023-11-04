@@ -17,17 +17,10 @@
 
 
 
-
-
-
-
-
-
-
-
-### 0.1.0
+### 0.1.0 System raw backbone
 
 * wip...
+* 231104piu_a create first raw system backbone & directories structure
 
 
 
