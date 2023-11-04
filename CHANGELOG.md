@@ -33,6 +33,7 @@
 ### 0.1.3 Enhancing `payments_validation_board` technical proposal (#NOTE_wip...)
 
 * wip...
+* 231104piu_g update general considerations propasal doc ref using `UTC` date and times in applications databases 
 * 231104piu_f add new top level component for administration of: users, e-mails, signature certificates, roles
 * 231104piu_e updated site server name to `apitoroefact.renware.eu` and `doc_src/CNAME` file
 * 231104piu_d `payments_validation_board` technical proposal - first / draft components decomposition
