@@ -52,7 +52,7 @@ Solutia `api_to_roefact` consta din urmatoarele componente:
 * `api_to_roefact`.**`SYSTEM_DB`** .Aceasta componente reprezita baza de date a sistemului **APItoROefact** atit partea relationala dar si partea `no-sql` a acesteia (utilizata pentru eventuale sincrnizari provenite din utilizarea CLI a componentei `BASE_PROC`). [Prezentarea detalita a acesteia se gaseste aici](#componenta-system_db).
 
 
-Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului `api_to_roefact`
+Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului `api_to_roefact`.
 
 ![arh-api_to_roefact](../pictures/api_to_roefact_architecture.png)
 
