@@ -10,8 +10,8 @@ nav:
     - Comercial:
         - Propuneri tehnice:
             - Considerente tehnice generale: commercial_agreement/110-SRE-general_requirements.md
-            - Sistem API-to-ROefact: commercial_agreement/110-SRE-api_to_roefact_req.uirements.md
-            - Sistem payments_validation_board: commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
+            - Sistem APItoROefact: commercial_agreement/110-SRE-api_to_roefact_req.uirements.md
+            - Sistem PayValBoa: commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
     # #FIXME -------------------------------------------------------------------------------------------------
     #
     - APItoROefact:
