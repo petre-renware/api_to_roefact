@@ -9,7 +9,7 @@
 * p/n: `0000-0094`
 * code-name: `payments_validation_board`
 * commercial name: **PayValBo**
-* url propunere tehnica: `http://api_to_roefact.renware.eu/commercial_agreement/110-SRE-payments_validation_board_req.uirements.html`
+* url propunere tehnica: `http://apitoroefact.renware.eu/commercial_agreement/110-SRE-payments_validation_board_req.uirements.html`
 * git: `n/a`
 
 ***Cuprins:***
