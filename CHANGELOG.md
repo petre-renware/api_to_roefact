@@ -16,19 +16,21 @@
 ## 0.1 -#TODO wip...
 
 
-### 0.1.2 Elaborating technical proposal
+### 0.1.2 Elaborating technical proposal (#NOTE_wip...)
 
 * wip...
 * 231104piu_c ...
 
 
 
-### 0.1.1 Elaborating technical proposal
+
+
+### 0.1.1 Elaborating technical proposal  (231104 08:45)
 
 * 231104piu_b got all commercial documents (including `110-SRE-general_requirements.md`) in directory `doc_src/commercial_agreement/`
 
 
-### 0.1.0 System raw backbone
+### 0.1.0 System raw backbone (231104 07:00)
 
 * 231104piu_a created first raw system backbone & directories structure
 
