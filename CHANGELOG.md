@@ -26,18 +26,18 @@
 
 
 
-### 0.1.3 #NOTE_wip...
-
-* wip...
 
 
 
 
+### 0.1.3 Enhancing `payments_validation_board` technical proposal (#NOTE_wip...)
+
+* wip... 231104piu_d `payments_validation_board` technical proposal - first / draft components decomposition
 
 
 
 
-### 0.1.2 Elaborating technical proposal (231104 10:30)
+### 0.1.2 Enhancing `APItoROefact` technical proposal (231104 10:30)
 
 * 231104piu_c `APItoROefact` technical proposal: closed a discussion version
 
@@ -51,6 +51,7 @@
 
 ### 0.1.0 System raw backbone (231104 07:00)
 
+* wip...
 * 231104piu_a created first raw system backbone & directories structure
 
 

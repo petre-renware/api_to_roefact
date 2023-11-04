@@ -1,6 +1,6 @@
 <small>**RENware Software Systems**</small>
 
-[TOC]
+
 
 # Propunere tehnica
 
@@ -10,6 +10,9 @@
 !!! info "Codificarea documentelor"
     * <small markdown="1">codificarea numelor documentelor si a proceselor este facuta in conformitate cu metodologia *[RENware SDEVEN](http://sdeven.renware.eu)*</small>
 
+***Cuprins:***
+
+[TOC]
 
 
 

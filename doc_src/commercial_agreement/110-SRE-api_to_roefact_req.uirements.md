@@ -3,7 +3,7 @@
 *(c) 2023 RENware Software Systems*
 </small><br><br>
 
-[TOC]
+
 
 
 # Propunere tehnica sistem APItoROefact
@@ -11,8 +11,12 @@
 * p/n: `0000-0095`
 * code-name: `api_to_roefact`
 * commercial name: **APItoROefact**
-* url: `http://api_to_roefact.renware.eu/`
-* git: `n/a`
+* url propunere tehnica: `http://api_to_roefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_req.uirements.html`
+* git: `https://github.com/petre-renware/api_to_roefact`
+
+***Cuprins:***
+
+[TOC]
 
 
 
