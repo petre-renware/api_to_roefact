@@ -17,11 +17,11 @@
 
 
 -#TODO ---------- short planning board ---------------------------------------------------------
-- ai exemplu de fact emisa catre Petrom in folder 100-ANA
-- ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
+* -ai exemplu de fact emisa catre Petrom in folder 100-ANA
+* -ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
 -------------------------------------------------------------------------------------------------
--#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
--#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
+* -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
+* -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
 -------------------------------------------------------------------------------------------------
 
 
@@ -30,9 +30,10 @@
 
 
 
-### 0.1.3 Enhancing `payments_validation_board` technical proposal (#NOTE_wip...)
+### 0.1.3 #NOTE_wip... Enhancing `payments_validation_board` technical proposal (...)
 
 * wip...
+* 231104piu_g update general considerations propasal doc ref using `UTC` date and times in applications databases 
 * 231104piu_f add new top level component for administration of: users, e-mails, signature certificates, roles
 * 231104piu_e updated site server name to `apitoroefact.renware.eu` and `doc_src/CNAME` file
 * 231104piu_d `payments_validation_board` technical proposal - first / draft components decomposition
