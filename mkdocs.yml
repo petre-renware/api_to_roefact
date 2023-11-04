@@ -1,11 +1,11 @@
-site_name: BookLab
+site_name: APItoROefact
 site_author: 'Petre Iordanescu, RENware Software Systems, petre.iordanescu@gmail.com'
 copyright: 'Copyright (c) RENware Software Systems'
 
 
 
 nav:
-    - BookLab:
+    - APItoROefact:
         - Acasa: index.md
         - Catalog carti: bcat/ #NOTE will direct-fwd to `http://<crt_server_name>/bcat/`
         - Carte noua: newb/ #NOTE will direct-fwd to `http://<crt_server_name>/newb/`
@@ -35,13 +35,13 @@ nav:
             - modul Organizare Carte (ORGM): 810-DSGN/810.05a-orgm_System_Process.md
             - modul Previzualizare Carte (PRVB): 810-DSGN/810.05a-prvb_System_Process.md
             - modul Generare Carte (DPLB): 810-DSGN/810.05a-dplb_System_Process.md
-        - Manual BookLab (PDF): pdfs/print_page.html/print_page.pdf
+        - Manual APItoROefact (PDF): pdfs/print_page.html/print_page.pdf
     - About:
         - Licenta mea: wip.md #TODO tbd... este un http catre o ruta dinamica din produs
         - Suport: https://www.renware.eu/support.html
         - Contact: https://www.renware.eu/contact.html
         - Cum cumpar: https://www.renware.eu/resources.html#how-to-buy-from-renware
-        - Despre BookLab: wip.md #TODO `about.md` eventual cu README din pj root, echipa, etc, ce ar tb sa fie acolo...
+        - Despre APItoROefact: wip.md #TODO `about.md` eventual cu README din pj root, echipa, etc, ce ar tb sa fie acolo...
 
 
 
@@ -103,7 +103,7 @@ plugins:
     # - pdf-export  #NOTE DO NOT USE this as does not render mermaid in PDF docs
     - print-site: #NOTE_IMPORTANT_#NOTE put `print-site` plug in BEFORE `pdf-with-js` in order to works the workaround wit a fake `print_page.md` that will determine generation of 'print_page.pdf' as any other page generated pdf by `pdf-with-js`; ingnore warning ` [mkdocs-print-site] 'print-site' should be defined as the *last* plugin,to ensure...`
         # add_to_navigation: true #NOTE not needed here
-        # print_page_title: 'Complete BookLab Manual' #NOTE not needed here
+        # print_page_title: 'Complete APItoROefact Manual' #NOTE not needed here
         add_full_urls: true
         add_table_of_contents: true
     - pdf-with-js:
@@ -150,7 +150,7 @@ plugins:
 #NOTE provide material theme
 theme:
     # language: en #NOTE FUTURE FEATURE - should first have a translation...
-    logo: pictures/booklab_logo.png
+    logo: pictures/api_to_roefact_logo.png
     name: material
     features:
         - navigation.tabs # left navigation side bar, all level 1 will be shown as top navigation bar
@@ -197,7 +197,7 @@ site_dir: './static_portal' #NOTE: [piu] this is the working directory; final is
 use_directory_urls: false # allow link between pages to work properly as static site an "callable" as `file:///...`
 
 
-#NOTE dirs to exclude at BookLab project creation
+#NOTE dirs to exclude at APItoROefact project creation
 exclude_docs: |
   pyenv/
 
