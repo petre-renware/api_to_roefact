@@ -30,7 +30,7 @@
 
 
 
-### 0.1.3 Enhancing `payments_validation_board` technical proposal (#NOTE_wip...)
+### 0.1.3 #NOTE_wip... Enhancing `payments_validation_board` technical proposal (...)
 
 * wip...
 * 231104piu_g update general considerations propasal doc ref using `UTC` date and times in applications databases 
