@@ -246,8 +246,18 @@ div.download-btn {
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#cerinte-functionale">
-    Cerinte functionale
+<a class="md-nav__link" href="#vedere-de-ansamblu-a-solutiei">
+    Vedere de ansamblu a solutiei
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cerinte-functionale-generale">
+    Cerinte functionale generale
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#componenta-xxx">
+    Componenta xxx
   </a>
 </li>
 </ul>
@@ -404,8 +414,18 @@ div.download-btn {
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#cerinte-functionale">
-    Cerinte functionale
+<a class="md-nav__link" href="#vedere-de-ansamblu-a-solutiei">
+    Vedere de ansamblu a solutiei
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cerinte-functionale-generale">
+    Cerinte functionale generale
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#componenta-xxx">
+    Componenta xxx
   </a>
 </li>
 </ul>
@@ -416,25 +436,46 @@ div.download-btn {
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset"><div class="download-btn"><a href="..\pdfs\commercial_agreement\110-SRE-payments_validation_board_req.uirements.html\110-SRE-payments_validation_board_req.uirements.pdf">Download PDF</a></div>
 <p><small><strong>RENware Software Systems</strong></small></p>
+<h1 id="propunere-tehnica-sistem-payments_validation_board">Propunere tehnica sistem payments_validation_board</h1>
+<ul>
+<li>p/n: <code>0000-0094</code></li>
+<li>code-name: <code>payments_validation_board</code></li>
+<li>commercial name: <strong>PayValBo</strong></li>
+<li>url propunere tehnica: <code>http://api_to_roefact.renware.eu/commercial_agreement/110-SRE-payments_validation_board_req.uirements.html</code></li>
+<li>git: <code>n/a</code></li>
+</ul>
+<p><strong><em>Cuprins:</em></strong></p>
 <div class="toc">
 <ul>
 <li><a href="#propunere-tehnica-sistem-payments_validation_board">Propunere tehnica sistem payments_validation_board</a><ul>
 <li><a href="#obiective">Obiective</a></li>
-<li><a href="#cerinte-functionale">Cerinte functionale</a></li>
+<li><a href="#vedere-de-ansamblu-a-solutiei">Vedere de ansamblu a solutiei</a></li>
+<li><a href="#cerinte-functionale-generale">Cerinte functionale generale</a></li>
+<li><a href="#componenta-xxx">Componenta xxx</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h1 id="propunere-tehnica-sistem-payments_validation_board">Propunere tehnica sistem <code>payments_validation_board</code></h1>
-<ul>
-<li>p/n: <code>0000-0094</code></li>
-<li>code-name: <code>payments_validation_board</code></li>
-<li>git: <code>n/a</code></li>
-</ul>
 <h2 id="obiective">Obiective</h2>
-<p>...<!--#TODO --></p>
-<h2 id="cerinte-functionale">Cerinte functionale</h2>
-<p>...<!--#TODO --></p>
+<p>Acest sistem asigura prezentarea unui "<em>dashboard</em>" cu lista facturilor primite si starea lor de <strong>verificare si aprobare interna</strong> in vederea ordonantarii lor la plata.</p>
+<h2 id="vedere-de-ansamblu-a-solutiei">Vedere de ansamblu a solutiei</h2>
+<p>Sistemul <code>payments_validation_board</code> consta din urmatoarele componente:</p>
+<ul>
+<li>
+<p><code>payments_validation_board</code>.<strong><code>INV_BRD</code></strong> - aceasta componenta prezinta <strong>pentru MANAGEMNTul tip CFO</strong> lista facturilor primite si starea lor referitor la validarea si aprobarea lor si un control pentru <em>APROBARE FINALA sau BUN DE PATA</em>. <!--#TODO wip... --></p>
+</li>
+<li>
+<p><code>payments_validation_board</code>.<strong><code>INV_CHK</code></strong> - aceasta componenta prezinta <strong>pentru VERIFICATORI si APROBABTORI</strong> lista facturilor primite si diverse controale pentru aprobarea si scrierea de diverse note si observatii. <!--#TODO wip... --></p>
+</li>
+<li>
+<p><code>payments_validation_board</code>.<strong><code>INV_NOTIF</code></strong> aceasta componenta prezinta notificari referitoare la <strong>diversele OBSERVATII si NOTE</strong> facture asupra facturilor primite in diverse stadii de aprobare de catre persoanele care efectueaza verificari asupra lor (prin componenta <code>INV_CHK</code>). Notificarile sunt disponibile atit in interfata aplicatiei iar <em>unele din ele pot fi transmise prin mail</em>. <!--#TODO wip... --></p>
+</li>
+</ul>
+<p>...IN PROGRESS... <img alt="wip-picture" src="../pictures/under_maintenance.png" width="150"> <!--#TODO --></img></p>
+<h2 id="cerinte-functionale-generale">Cerinte functionale generale</h2>
+<p>...INCOMING... <img alt="wip-picture" src="../pictures/under_maintenance.png" width="150"> <!--#TODO --></img></p>
+<h2 id="componenta-xxx">Componenta xxx</h2>
+<p>...INCOMING... <img alt="wip-picture" src="../pictures/under_maintenance.png" width="150"/> <!--#TODO --></p>
 <hr/>
 <div class="md-source-file">
 <small>
