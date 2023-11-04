@@ -22,7 +22,7 @@ nav:
             #NOTE - add here ADMA manuals as needed
         #
         - Documentatia tehnica:
-            - Cerintele sistemului: wip.md #TODO_req_file_here: 810-DSGN/810.02-System_Landscape.md
+            - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_req.uirements.md
         - Manual APItoROefact (PDF): pdfs/print_page.html/print_page.pdf
     - About:
         - Licenta mea: wip.md #TODO tbd... este un http catre o ruta dinamica din produs
