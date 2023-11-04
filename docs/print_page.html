@@ -982,7 +982,7 @@
 <li>p/n: <code>0000-0095</code></li>
 <li>code-name: <code>api_to_roefact</code></li>
 <li>commercial name: <strong>APItoROefact</strong></li>
-<li>url propunere tehnica: <code>http://api_to_roefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_req.uirements.html</code></li>
+<li>url propunere tehnica: <code>http://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_req.uirements.html</code></li>
 <li>git: <code>https://github.com/petre-renware/api_to_roefact</code></li>
 </ul>
 <p><strong><em>Cuprins:</em></strong></p>
@@ -1027,7 +1027,7 @@
 <p><code>api_to_roefact</code>.<strong><code>SYSTEM_DB</code></strong> .Aceasta componente reprezita baza de date a sistemului <strong>APItoROefact</strong> atit partea relationala dar si partea <code>no-sql</code> a acesteia (utilizata pentru eventuale sincrnizari provenite din utilizarea CLI a componentei <code>BASE_PROC</code>). <a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-componenta-system_db">Prezentarea detalita a acesteia se gaseste aici</a>.</p>
 </li>
 </ul>
-<p>Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului <code>api_to_roefact</code></p>
+<p>Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului <code>api_to_roefact</code>.</p>
 <p><img alt="arh-api_to_roefact" src="pictures/api_to_roefact_architecture.png" /></p>
 <h2 id="commercial_agreement-110-sre-api_to_roefact_req.uirements-componenta-base_proc">Componenta BASE_PROC</h2>
 <ul>
@@ -1124,7 +1124,7 @@
 <li>p/n: <code>0000-0094</code></li>
 <li>code-name: <code>payments_validation_board</code></li>
 <li>commercial name: <strong>PayValBo</strong></li>
-<li>url propunere tehnica: <code>http://api_to_roefact.renware.eu/commercial_agreement/110-SRE-payments_validation_board_req.uirements.html</code></li>
+<li>url propunere tehnica: <code>http://apitoroefact.renware.eu/commercial_agreement/110-SRE-payments_validation_board_req.uirements.html</code></li>
 <li>git: <code>n/a</code></li>
 </ul>
 <p><strong><em>Cuprins:</em></strong></p>
@@ -1145,20 +1145,33 @@
 <p>Sistemul <code>payments_validation_board</code> consta din urmatoarele componente:</p>
 <ul>
 <li>
-<p><code>payments_validation_board</code>.<strong><code>INV_BRD</code></strong> - aceasta componenta prezinta <strong>pentru MANAGEMNTul tip CFO</strong> lista facturilor primite si starea lor referitor la validarea si aprobarea lor si un control pentru <em>APROBARE FINALA sau BUN DE PATA</em>. <!--#TODO wip... --></p>
+<p><code>payments_validation_board</code>.<strong><code>INV_BRD</code></strong> - aceasta componenta prezinta <strong><em>pentru MANAGEMNTul tip CFO</em></strong> lista facturilor primite si starea lor referitor la <strong>validarea si aprobarea lor finala</strong> si un control pentru <em>APROBARE FINALA sau BUN DE PATA</em>. <!--#TODO wip... --></p>
 </li>
 <li>
-<p><code>payments_validation_board</code>.<strong><code>INV_CHK</code></strong> - aceasta componenta prezinta <strong>pentru VERIFICATORI si APROBABTORI</strong> lista facturilor primite si diverse controale pentru aprobarea si scrierea de diverse note si observatii. <!--#TODO wip... --></p>
+<p><code>payments_validation_board</code>.<strong><code>INV_CHK</code></strong> - aceasta componenta prezinta <strong><em>pentru VERIFICATORI si APROBABTORI</em></strong> lista facturilor primite si <strong>diverse controale pentru aprobarea si scrierea de diverse note</strong> si observatii. <!--#TODO wip... --></p>
 </li>
 <li>
 <p><code>payments_validation_board</code>.<strong><code>INV_NOTIF</code></strong> aceasta componenta prezinta notificari referitoare la <strong>diversele OBSERVATII si NOTE</strong> facture asupra facturilor primite in diverse stadii de aprobare de catre persoanele care efectueaza verificari asupra lor (prin componenta <code>INV_CHK</code>). Notificarile sunt disponibile atit in interfata aplicatiei iar <em>unele din ele pot fi transmise prin mail</em>. <!--#TODO wip... --></p>
 </li>
+<li>
+<p><code>payments_validation_board</code>.<strong><code>ADMIN_CFG</code></strong> aceasta componenta permite <strong><em>pentru ADMINISTRATORI</em></strong> diverse <strong>OPTIUNI DE CONFIGURARE</strong>:</p>
+<ul>
+<li>lista utilizatorilor ce fac parte dinfluxul de aprobare</li>
+<li>adresele e-mail ale utilizatorilor</li>
+<li>rolul utilizatorilor in accea ce priveste fluxul de aprobare facturile primite</li>
+<li>certificate si semnaturile de certificare a "semnaturilor" de aprobare</li>
+<li>... <!--#TODO wip... --></li>
 </ul>
+</li>
+</ul>
+<p>Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului <code>payments_validation_board</code>.</p>
+<!--#NOTE_update_me ![arh-api_to_roefact](../pictures/api_to_roefact_architecture.png) -->
 <p>...IN PROGRESS... <img alt="wip-picture" src="pictures/under_maintenance.png" width="150" /> <!--#TODO --></p>
 <h2 id="commercial_agreement-110-sre-payments_validation_board_req.uirements-cerinte-functionale-generale">Cerinte functionale generale</h2>
 <p>...INCOMING... <img alt="wip-picture" src="pictures/under_maintenance.png" width="150" /> <!--#TODO --></p>
 <h2 id="commercial_agreement-110-sre-payments_validation_board_req.uirements-componenta-xxx">Componenta xxx</h2>
-<p>...INCOMING... <img alt="wip-picture" src="pictures/under_maintenance.png" width="150" /> <!--#TODO --></p></section><h1 class='nav-section-title-end'>Ended: Propuneri tehnice</h1><h1 class='nav-section-title-end'>Ended: Comercial</h1>
+<p>...INCOMING... <img alt="wip-picture" src="pictures/under_maintenance.png" width="150" /> <!--#TODO --></p>
+<!--#TODO --></section><h1 class='nav-section-title-end'>Ended: Propuneri tehnice</h1><h1 class='nav-section-title-end'>Ended: Comercial</h1>
                         <h1 class='nav-section-title' id='section-apitoroefact'>
                             APItoROefact <a class='headerlink' href='#section-apitoroefact' title='Permanent link'>↵</a>
                         </h1>
