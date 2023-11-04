@@ -7,34 +7,22 @@ copyright: 'Copyright (c) RENware Software Systems'
 nav:
     - APItoROefact:
         - Acasa: index.md
-        - Catalog carti: bcat/ #NOTE will direct-fwd to `http://<crt_server_name>/bcat/`
-        - Carte noua: newb/ #NOTE will direct-fwd to `http://<crt_server_name>/newb/`
-        - Editare materiale: edtm/ #NOTE will direct-fwd to `http://<crt_server_name>/edtm/`
-        - Sectiuni carte: orgm/ #NOTE will direct-fwd to `http://<crt_server_name>/orgm/`
-        - Previzualizare carte: prvb/ #NOTE will direct-fwd to `http://<crt_server_name>/prvb/`
-        - Asamblare carte: dplb/ #NOTE will direct-fwd to `http://<crt_server_name>/dplb/`
+        - ...Other entries here: wip.md
+        - Incarcare factura Excel: wip.md
+        - Procesare factura Excel: wip.md
+        #NOTE - add more "first page" entries here
     - Help:
-        - Vedere de ansamblu: help/130.02-Overview.md
+        - Vedere de ansamblu: wip.md
         #
         - Manuale de utilizare:
             - Indexul manuale EUMA: help/880.30-EUMA_catalog.md
-            - Catalog carti: help/880.30-BCAT_usage.md
             #NOTE - add here EUMA manuals as needed
         - Manuale de configurare:
             - Indexul manuale ADMA: help/880.30-ADMA_catalog.md
-            - Fisierul de configurare a cartii: help/880.30-TMPL_usage.md
             #NOTE - add here ADMA manuals as needed
         #
         - Documentatia tehnica:
-            - Arhitectura sistemului: 810-DSGN/810.02-System_Landscape.md
-            - modul Initializare sistem (sysInit): 810-DSGN/810.05a-sysInit_System_Process.md
-            - modul Catalog Carti (BCAT): 810-DSGN/810.05a-bcat_System_Process.md
-            - modul Sablon Carti (TMPL): 810-DSGN/810.05a-btmpl_System_Process.md
-            - modul Carte Noua (NEWB): 810-DSGN/810.05a-newb_System_Process.md
-            - modul Editare Carte (EDTM): 810-DSGN/810.05a-edtm_System_Process.md
-            - modul Organizare Carte (ORGM): 810-DSGN/810.05a-orgm_System_Process.md
-            - modul Previzualizare Carte (PRVB): 810-DSGN/810.05a-prvb_System_Process.md
-            - modul Generare Carte (DPLB): 810-DSGN/810.05a-dplb_System_Process.md
+            - Cerintele sistemului: wip.md #TODO_req_file_here: 810-DSGN/810.02-System_Landscape.md
         - Manual APItoROefact (PDF): pdfs/print_page.html/print_page.pdf
     - About:
         - Licenta mea: wip.md #TODO tbd... este un http catre o ruta dinamica din produs
