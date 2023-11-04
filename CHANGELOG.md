@@ -20,7 +20,7 @@
 ### 0.1.1 Elaborating technical proposal
 
 * wip...
-* tbd... got general requirements doc ? I think is good to do that because it will be important for development phase
+* 231104piu_b got all comercial documents (including )
 
 
 

@@ -15,7 +15,9 @@ nav:
     # #FIXME -[this entry will be dropped after commercial terms are concluded] -------------------
     - Comercial:
         - Propuneri tehnice:
-            - Cerintele API-to-ROefact: 810-DSGN/110-SRE-api_to_roefact_req.uirements.md
+            - Considerente tehnica generale: commercial_agreement/110-SRE-general_requirements.md
+            - Sistem API-to-ROefact: commercial_agreement/110-SRE-api_to_roefact_req.uirements.md
+            - Sistem payments_validation_board: commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
     # #FIXME -------------------------------------------------------------------------------------------------
     #
     - Help:
