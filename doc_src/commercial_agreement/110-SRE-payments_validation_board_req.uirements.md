@@ -4,11 +4,11 @@
 
 
 
-# Propunere tehnica sistem payments_validation_board
+# Propunere tehnica sistem PayValidaBoa
 
 * p/n: `0000-0094`
 * code-name: `payments_validation_board`
-* commercial name: **PayValBo**
+* commercial name: **PayValidaBoa**
 * url propunere tehnica: `http://apitoroefact.renware.eu/commercial_agreement/110-SRE-payments_validation_board_req.uirements.html`
 * git: `n/a`
 
