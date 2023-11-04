@@ -21,7 +21,7 @@
 
 * wip...
 * tbd... got general requirements doc ? I think is good to do that because it will be important for development phase
-* 231104piu_a create first raw system backbone & directories structure
+* 231104piu_a created first raw system backbone & directories structure
 
 
 
