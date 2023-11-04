@@ -33,7 +33,7 @@
 ### 0.1.3 #NOTE_wip... Enhancing `payments_validation_board` technical proposal (...)
 
 * wip...
-* 231104piu_h `payments_validation_board` updated commercial name of system to **PayValBoa** and related documentation files
+* 231104piu_h `payments_validation_board` updated commercial name of system to **PayValidaBoa** and related documentation files
 * 231104piu_g update general considerations propasal doc ref using `UTC` date and times in applications databases 
 * 231104piu_f add new top level component for administration of: users, e-mails, signature certificates, roles
 * 231104piu_e updated site server name to `apitoroefact.renware.eu` and `doc_src/CNAME` file
