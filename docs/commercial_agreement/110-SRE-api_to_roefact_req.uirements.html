@@ -89,7 +89,7 @@ div.download-btn {
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#propunere-tehnica-sistem-api_to_roefact">
+<a class="md-skip" href="#propunere-tehnica-sistem-apitoroefact">
           Skip to content
         </a>
 </div>
@@ -260,8 +260,13 @@ div.download-btn {
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#cerinte-functionale">
-    Cerinte functionale
+<a class="md-nav__link" href="#componenta-web_dashb">
+    Componenta WEB_DASHB
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#componenta-system_db">
+    Componenta SYSTEM_DB
   </a>
 </li>
 </ul>
@@ -442,8 +447,13 @@ div.download-btn {
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#cerinte-functionale">
-    Cerinte functionale
+<a class="md-nav__link" href="#componenta-web_dashb">
+    Componenta WEB_DASHB
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#componenta-system_db">
+    Componenta SYSTEM_DB
   </a>
 </li>
 </ul>
@@ -459,19 +469,20 @@ div.download-btn {
 </small><br/><br/></img></p>
 <div class="toc">
 <ul>
-<li><a href="#propunere-tehnica-sistem-api_to_roefact">Propunere tehnica sistem api_to_roefact</a><ul>
+<li><a href="#propunere-tehnica-sistem-apitoroefact">Propunere tehnica sistem APItoROefact</a><ul>
 <li><a href="#obiective">Obiective</a></li>
 <li><a href="#vedere-de-ansamblu-a-solutiei">Vedere de ansamblu a solutiei</a></li>
 <li><a href="#componenta-base_proc">Componenta BASE_PROC</a><ul>
 <li><a href="#diagrama-logica-de-functionare-a-componentei">Diagrama logica de functionare a componentei</a></li>
 </ul>
 </li>
-<li><a href="#cerinte-functionale">Cerinte functionale</a></li>
+<li><a href="#componenta-web_dashb">Componenta WEB_DASHB</a></li>
+<li><a href="#componenta-system_db">Componenta SYSTEM_DB</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h1 id="propunere-tehnica-sistem-api_to_roefact">Propunere tehnica sistem <code>api_to_roefact</code></h1>
+<h1 id="propunere-tehnica-sistem-apitoroefact">Propunere tehnica sistem APItoROefact</h1>
 <ul>
 <li>p/n: <code>0000-0095</code></li>
 <li>code-name: <code>api_to_roefact</code></li>
@@ -492,19 +503,17 @@ div.download-btn {
 <p><a href="https://static.anaf.ro/static/10/Anaf/Informatii_R/API/Oauth_procedura_inregistrare_aplicatii_portal_ANAF.pdf">Instrucțiuni de utilizare</a></p>
 </li>
 </ul>
-<p>-#TODO ai exemplu de fact emisa catre Petrom in folder 100-ANA
--#TODO ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)</p>
 <h2 id="vedere-de-ansamblu-a-solutiei">Vedere de ansamblu a solutiei</h2>
 <p>Solutia <code>api_to_roefact</code> consta din urmatoarele componente:</p>
 <ul>
 <li>
-<p><code>api_to_roefact.</code><strong><code>BASE_PROC</code></strong> ...#TODO</p>
+<p><code>api_to_roefact</code>.<strong><code>BASE_PROC</code></strong> aceasta componenta are rolul de a implementa efectiv obiectivele principale ale sistemului <strong>APItoROefact</strong>. Componenta este capabila sa ruleze atit "<em>standalone</em>" (ca linie de comanda CLI) dar si prin utilizarea ei de catre componenta <code>WEB_DASHB</code> si astfel utilizarea ei in varianta de sistem prezentat "<em>over internet / intranet</em>". <a href="#componenta-base_proc">Prezentarea detalita a acesteia se gaseste aici</a>.</p>
 </li>
 <li>
-<p><code>api_to_roefact.</code><strong><code>WEB_DASHB</code></strong> ...#TODO</p>
+<p><code>api_to_roefact</code>.<strong><code>WEB_DASHB</code></strong> aceasta componenta are rolul de agrega componentele si de a prezenta solutia <strong>APItoROefact</strong> "<em>over internet / intranet</em>". De asemenea componenta asigura modulele UI necesare pentru administrarea sistemului. <a href="#componenta-web_dashb">Prezentarea detalita a acesteia se gaseste aici</a>.</p>
 </li>
 <li>
-<p><code>api_to_roefact.</code><strong><code>SYSTEM_DB</code></strong> ...#TODO</p>
+<p><code>api_to_roefact</code>.<strong><code>SYSTEM_DB</code></strong> .Aceasta componente reprezita baza de date a sistemului <strong>APItoROefact</strong> atit partea relationala dar si partea <code>no-sql</code> a acesteia (utilizata pentru eventuale sincrnizari provenite din utilizarea CLI a componentei <code>BASE_PROC</code>). <a href="#componenta-system_db">Prezentarea detalita a acesteia se gaseste aici</a>.</p>
 </li>
 </ul>
 <p>Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului <code>api_to_roefact</code></p>
@@ -582,10 +591,10 @@ div.download-btn {
 
     LDXML ---&gt; DBS</code></pre>
 <p>...#FIXME explicatii necesare ?...<!--#TODO --></p>
-<h2 id="cerinte-functionale">Cerinte functionale</h2>
-<p>-#TODO link Swagger servicii web: <code>https://mfinante.gov.ro/web/efactura/informatii-tehnice</code>
--#TODO link specif API incarcare fact: <code>https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest</code></p>
-<p>...<!--#TODO --></p>
+<h2 id="componenta-web_dashb">Componenta WEB_DASHB<!--#TODO --></h2>
+<p>...INCOMING... <img alt="wip-picture" src="../pictures/under_maintenance.png" width="150"/> <!--#TODO --></p>
+<h2 id="componenta-system_db">Componenta SYSTEM_DB<!--#TODO --></h2>
+<p>...INCOMING... <img alt="wip-picture" src="../pictures/under_maintenance.png" width="150"/> <!--#TODO --></p>
 <!-- #NOTE note generale / footnotes -->
 <div class="footnote">
 <hr/>

@@ -6,7 +6,7 @@
 [TOC]
 
 
-# Propunere tehnica sistem `api_to_roefact`
+# Propunere tehnica sistem APItoROefact
 
 * p/n: `0000-0095`
 * code-name: `api_to_roefact`
@@ -29,8 +29,7 @@ Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura]
 
 
 
--#TODO ai exemplu de fact emisa catre Petrom in folder 100-ANA
--#TODO ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
+
 
 
 
@@ -42,11 +41,12 @@ Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura]
 
 Solutia `api_to_roefact` consta din urmatoarele componente:
 
-* `api_to_roefact.`**`BASE_PROC`** ...#TODO
+* `api_to_roefact`.**`BASE_PROC`** aceasta componenta are rolul de a implementa efectiv obiectivele principale ale sistemului **APItoROefact**. Componenta este capabila sa ruleze atit "_standalone_" (ca linie de comanda CLI) dar si prin utilizarea ei de catre componenta `WEB_DASHB` si astfel utilizarea ei in varianta de sistem prezentat "_over internet / intranet_". [Prezentarea detalita a acesteia se gaseste aici](#componenta-base_proc).
 
-* `api_to_roefact.`**`WEB_DASHB`** ...#TODO
+* `api_to_roefact`.**`WEB_DASHB`** aceasta componenta are rolul de agrega componentele si de a prezenta solutia **APItoROefact** "_over internet / intranet_". De asemenea componenta asigura modulele UI necesare pentru administrarea sistemului. [Prezentarea detalita a acesteia se gaseste aici](#componenta-web_dashb).
 
-* `api_to_roefact.`**`SYSTEM_DB`** ...#TODO
+* `api_to_roefact`.**`SYSTEM_DB`** .Aceasta componente reprezita baza de date a sistemului **APItoROefact** atit partea relationala dar si partea `no-sql` a acesteia (utilizata pentru eventuale sincrnizari provenite din utilizarea CLI a componentei `BASE_PROC`). [Prezentarea detalita a acesteia se gaseste aici](#componenta-system_db).
+
 
 Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului `api_to_roefact`
 
@@ -128,13 +128,24 @@ flowchart TD
 
 
 
-## Cerinte functionale
-
--#TODO link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
--#TODO link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
 
 
-...<!--#TODO -->
+
+
+## Componenta WEB_DASHB<!--#TODO -->
+
+...INCOMING... ![wip-picture](../pictures/under_maintenance.png){ width="150" } <!--#TODO -->
+
+
+
+
+## Componenta SYSTEM_DB<!--#TODO -->
+
+...INCOMING... ![wip-picture](../pictures/under_maintenance.png){ width="150" } <!--#TODO -->
+
+
+
+
 
 
 

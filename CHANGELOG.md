@@ -16,18 +16,37 @@
 ## 0.1 -#TODO wip...
 
 
-### 0.1.2 Elaborating technical proposal (#NOTE_wip...)
+-#TODO ---------- short planning board ---------------------------------------------------------
+- ai exemplu de fact emisa catre Petrom in folder 100-ANA
+- ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
+-------------------------------------------------------------------------------------------------
+-#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
+-#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
+-------------------------------------------------------------------------------------------------
+
+
+
+### 0.1.3 #NOTE_wip...
 
 * wip...
-* 231104piu_c ...
 
 
 
 
 
-### 0.1.1 Elaborating technical proposal  (231104 08:45)
+
+
+
+### 0.1.2 Elaborating technical proposal (231104 10:30)
+
+* 231104piu_c `APItoROefact` technical proposal: closed a discussion version
+
+
+
+### 0.1.1 Elaborating technical proposal (231104 08:45)
 
 * 231104piu_b got all commercial documents (including `110-SRE-general_requirements.md`) in directory `doc_src/commercial_agreement/`
+
 
 
 ### 0.1.0 System raw backbone (231104 07:00)
@@ -37,9 +56,17 @@
 
 
 
+
+
+
+
+
+
+
+
 # Archived CHANGELOGs
 
-* ...
+* n/a
 
 
 # [Release Notes](RELNOTE.md) #TODO this file should be created
