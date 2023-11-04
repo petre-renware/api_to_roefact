@@ -1,0 +1,197 @@
+site_name: APItoROefact
+site_author: 'Petre Iordanescu, RENware Software Systems, petre.iordanescu@gmail.com'
+copyright: 'Copyright (c) RENware Software Systems'
+
+
+
+nav:
+    - APItoROefact:
+        - Acasa: index.md
+        - ...Other entries here: wip.md
+        # - Incarcare factura Excel: wip.md
+        # - Procesare factura Excel: wip.md
+        #NOTE - add more "first page" entries here
+    #
+    # #FIXME -[this entry will be dropped after commercial terms are concluded] -------------------
+    - Comercial:
+        - Propuneri tehnice:
+            - Cerintele API-to-ROefact: 810-DSGN/110-SRE-api_to_roefact_req.uirements.md
+    # #FIXME -------------------------------------------------------------------------------------------------
+    #
+    - Help:
+        - Manuale de utilizare:
+            - Indexul manuale EUMA: help/880.30-EUMA_catalog.md
+            #NOTE - add here EUMA manuals as needed
+        - Manuale de configurare:
+            - Indexul manuale ADMA: help/880.30-ADMA_catalog.md
+            #NOTE - add here ADMA manuals as needed
+        #
+        #- Documentatia tehnica: #FIXME will be reabilitateed after commercial agreement
+        #    - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_req.uirements.md #FIXME will be reabilitateed after commercial agreement
+        - Manual APItoROefact (PDF): pdfs/print_page.html/print_page.pdf
+    - About:
+        - Licenta mea: wip.md #TODO tbd... este un http catre o ruta dinamica din produs
+        - Suport: https://www.renware.eu/support.html
+        - Contact: https://www.renware.eu/contact.html
+        - Cum cumpar: https://www.renware.eu/resources.html#how-to-buy-from-renware
+        - Despre APItoROefact: wip.md #TODO `about.md` eventual cu README din pj root, echipa, etc, ce ar tb sa fie acolo...
+
+
+
+
+markdown_extensions:
+    - admonition
+    - tables
+    - pymdownx.details
+    - pymdownx.superfences:
+        custom_fences: #NOTE: [petre iordanescu]: is very important to respect syntax ref `-` character at beginning of items (otherwise not right JSON result !)
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+    - footnotes
+    - pymdownx.critic
+    - pymdownx.caret
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
+    - def_list
+    - attr_list
+    - md_in_html
+    - pymdownx.tasklist:
+        custom_checkbox: true
+
+
+
+
+extra:
+    arint_version: "0.1"
+#  alternate: #NOTE language options - FUTURE FEATURE - should first have a translation...
+#    - name: English
+#      link: /
+#      lang: en
+#    - name: Romanian
+#      link: /ro/
+#      lang: ro
+
+
+
+
+#NOTE required to render `mermaid` diagrams
+extra_javascript:
+  - optionalConfig.js
+  - https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js
+  - extra-loader.js
+
+
+
+
+
+plugins:
+    - search
+    - include-markdown
+    - table-reader #NOTE used for staic tables rendering from various sources (CSV, JSON, etc as available in Pandas)
+    - macros #NOTE use external jinja variables and macros (see `https://mkdocs-macros-plugin.readthedocs.io/en/latest/`)
+    - markdown-exec #NOTE Python execution inside markdown files (execution at build time, "compilation like" NOT dynamically NOT JavaScript)
+    - git-revision-date-localized
+    # - pdf-export  #NOTE DO NOT USE this as does not render mermaid in PDF docs
+    - print-site: #NOTE_IMPORTANT_#NOTE put `print-site` plug in BEFORE `pdf-with-js` in order to works the workaround wit a fake `print_page.md` that will determine generation of 'print_page.pdf' as any other page generated pdf by `pdf-with-js`; ingnore warning ` [mkdocs-print-site] 'print-site' should be defined as the *last* plugin,to ensure...`
+        # add_to_navigation: true #NOTE not needed here
+        # print_page_title: 'Complete APItoROefact Manual' #NOTE not needed here
+        add_full_urls: true
+        add_table_of_contents: true
+    - pdf-with-js:
+        enable: true
+        #NOTE - all next are examples...
+        #author: #NOTE defaulted from site_author item
+        #copyright: #NOTE defaulted from copyright item
+        #cover: false
+        #back_cover: true
+        #cover_title: TITLE TEXT
+        #cover_subtitle: SUBTITLE TEXT
+        #custom_template_path: TEMPLATES PATH
+        #
+        #toc_title: TOC TITLE TEXT
+        #heading_shift: false
+        #toc_level: 3
+        #ordered_chapter_level: 2
+        #excludes_children:
+        #    - 'release-notes/:upgrading'
+        #    - 'release-notes/:changelog'
+        #
+        #exclude_pages:
+        #    - 'bugs/'
+        #    - 'appendix/contribute/'
+        #convert_iframe:
+        #    - src: IFRAME SRC
+        #      img: POSTER IMAGE URL
+        #      text: ALTERNATE TEXT
+        #    - src: ...
+        #two_columns_level: 3
+        #
+        #render_js: true
+        #headless_chrome_path: headless-chromium
+        #
+        #output_path: any-place/document.pdf
+        #enabled_if_env: ENABLE_PDF_EXPORT
+        #
+        #debug_html: true
+        #show_anchors: true
+        #verbose: true
+
+
+
+#NOTE provide material theme
+theme:
+    # language: en #NOTE FUTURE FEATURE - should first have a translation...
+    logo: pictures/api_to_roefact_logo.png
+    name: material
+    features:
+        - navigation.tabs # left navigation side bar, all level 1 will be shown as top navigation bar
+        - navigation.tracking
+        - navigation.tabs.sticky
+        - navigation.path
+        #- toc.integrate #NOTE integrates all navigation only in left nav bar
+    palette:
+        primary: black # see https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/ for other color options
+        accent: blue
+    icon:
+        admonition:
+            note: fontawesome/solid/note-sticky
+            abstract: fontawesome/solid/book
+            info: fontawesome/solid/circle-info
+            tip: fontawesome/solid/bullhorn
+            success: fontawesome/solid/check
+            question: fontawesome/solid/circle-question
+            warning: fontawesome/solid/triangle-exclamation
+            failure: fontawesome/solid/bomb
+            danger: fontawesome/solid/skull
+            bug: fontawesome/solid/robot
+            example: fontawesome/solid/flask
+            quote: fontawesome/solid/quote-left
+
+
+
+
+
+
+
+
+# or can use readthedocstheme
+# theme: readthedocs
+
+
+# directory where start to search or markdown sources
+docs_dir: './doc_src'
+
+# root directory where to be generated portal
+site_dir: './static_portal' #NOTE: [piu] this is the working directory; final is in `docs/`` which is published through GitHub (chk but @ 230706 petre-dev branch)
+
+# other useful configurations
+use_directory_urls: false # allow link between pages to work properly as static site an "callable" as `file:///...`
+
+
+#NOTE dirs to exclude at APItoROefact project creation
+exclude_docs: |
+  pyenv/
+
+
