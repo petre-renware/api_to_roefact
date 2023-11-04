@@ -32,7 +32,9 @@
 
 ### 0.1.3 Enhancing `payments_validation_board` technical proposal (#NOTE_wip...)
 
-* wip... 231104piu_d `payments_validation_board` technical proposal - first / draft components decomposition
+* wip...
+* 231104piu_e updated site server name to `apitoroefact.renware.eu` and `doc_src/CNAME` file
+* 231104piu_d `payments_validation_board` technical proposal - first / draft components decomposition
 
 
 
