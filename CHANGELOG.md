@@ -20,6 +20,7 @@
 ### 0.1.0 System raw backbone
 
 * wip...
+* tbd... got general requirements doc ? I think is good to do that because it will be important for development phase
 * 231104piu_a create first raw system backbone & directories structure
 
 
