@@ -17,29 +17,48 @@
 
 
 -#TODO ---------- short planning board ---------------------------------------------------------
-- ai exemplu de fact emisa catre Petrom in folder 100-ANA
-- ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
+* -ai exemplu de fact emisa catre Petrom in folder 100-ANA
+* -ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
 -------------------------------------------------------------------------------------------------
--#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
--#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
+* -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
+* -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
 -------------------------------------------------------------------------------------------------
 
 
 
-### 0.1.3 #NOTE_wip...
-
-* wip...
 
 
 
+### 0.1.4 #NOTE_wip... Create system backbone structure (...)
+
+* wip... 231105piu_a last used
 
 
 
 
 
-### 0.1.2 Elaborating technical proposal (231104 10:30)
+
+
+
+
+
+### 0.1.3 Enhancing `payments_validation_board` technical proposal (231105 h05:30)
+
+* 231105piu_a review, update & publish site `apitoroefact.renware.eu`
+* 231104piu_i updated project README file
+* 231104piu_h `payments_validation_board` updated commercial name of system to **PayValidaBoa** and related documentation files
+* 231104piu_g update general considerations proposal doc ref using `UTC` date and times in applications databases
+* 231104piu_f add new top level component for administration of: users, e-mails, signature certificates, roles
+* 231104piu_e updated site server name to `apitoroefact.renware.eu` and `doc_src/CNAME` file
+* 231104piu_d `payments_validation_board` technical proposal - first / draft components decomposition
+
+
+
+
+### 0.1.2 Enhancing `APItoROefact` technical proposal (231104 10:30)
 
 * 231104piu_c `APItoROefact` technical proposal: closed a discussion version
+
 
 
 
@@ -49,9 +68,13 @@
 
 
 
+
 ### 0.1.0 System raw backbone (231104 07:00)
 
 * 231104piu_a created first raw system backbone & directories structure
+
+
+
 
 
 

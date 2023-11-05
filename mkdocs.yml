@@ -10,8 +10,8 @@ nav:
     - Comercial:
         - Propuneri tehnice:
             - Considerente tehnice generale: commercial_agreement/110-SRE-general_requirements.md
-            - Sistem API-to-ROefact: commercial_agreement/110-SRE-api_to_roefact_req.uirements.md
-            - Sistem payments_validation_board: commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
+            - Sistem APItoROefact: commercial_agreement/110-SRE-api_to_roefact_requirements.md
+            - Sistem PayValidaBoa: commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
     # #FIXME -------------------------------------------------------------------------------------------------
     #
     - APItoROefact:
@@ -29,7 +29,7 @@ nav:
             #NOTE - add here ADMA manuals as needed
         #
         #- Documentatia tehnica: #FIXME will be reabilitateed after commercial agreement
-        #    - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_req.uirements.md #FIXME will be reabilitateed after commercial agreement
+        #    - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_requirements.md #FIXME will be reabilitateed after commercial agreement
         - Manual APItoROefact (PDF): pdfs/print_page.html/print_page.pdf
     - About:
         - Licenta mea: wip.md #TODO tbd... este un http catre o ruta dinamica din produs

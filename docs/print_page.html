@@ -408,8 +408,8 @@
   
   
     <li class="md-nav__item">
-      <a href="commercial_agreement/110-SRE-api_to_roefact_req.uirements.html" class="md-nav__link">
-        Sistem API-to-ROefact
+      <a href="commercial_agreement/110-SRE-api_to_roefact_requirements.html" class="md-nav__link">
+        Sistem APItoROefact
       </a>
     </li>
   
@@ -423,7 +423,7 @@
   
     <li class="md-nav__item">
       <a href="commercial_agreement/110-SRE-payments_validation_board_req.uirements.html" class="md-nav__link">
-        Sistem payments_validation_board
+        Sistem PayValidaBoa
       </a>
     </li>
   
@@ -880,17 +880,6 @@
                             Propuneri tehnice <a class='headerlink' href='#section-propuneri-tehnice' title='Permanent link'>↵</a>
                         </h2>
                         <section class="print-page" id="commercial_agreement-110-sre-general_requirements"><p><small><strong>RENware Software Systems</strong></small></p>
-<div class="toc">
-<ul>
-<li><a href="#commercial_agreement-110-sre-general_requirements-propunere-tehnica">Propunere tehnica</a><ul>
-<li><a href="#commercial_agreement-110-sre-general_requirements-aria-de-cuprindere">Aria de cuprindere</a></li>
-<li><a href="#commercial_agreement-110-sre-general_requirements-considerente-generale-de-securitate">Considerente generale de securitate</a></li>
-<li><a href="#commercial_agreement-110-sre-general_requirements-considerente-generale-privind-bazele-de-date-proprii-sistemelor">Considerente generale privind bazele de date proprii sistemelor</a></li>
-<li><a href="#commercial_agreement-110-sre-general_requirements-considerente-generale-privind-auditarea-informatiilor">Considerente generale privind auditarea informatiilor</a></li>
-</ul>
-</li>
-</ul>
-</div>
 <h1 id="commercial_agreement-110-sre-general_requirements-propunere-tehnica">Propunere tehnica</h1>
 <ul>
 <li>Client: Kraftanlagen Romania SRL</li>
@@ -902,14 +891,26 @@
 <li><small markdown="1">codificarea numelor documentelor si a proceselor este facuta in conformitate cu metodologia <em><a href="http://sdeven.renware.eu">RENware SDEVEN</a></em></small></li>
 </ul>
 </div>
+<p><strong><em>Cuprins:</em></strong></p>
+<div class="toc">
+<ul>
+<li><a href="#commercial_agreement-110-sre-general_requirements-propunere-tehnica">Propunere tehnica</a><ul>
+<li><a href="#commercial_agreement-110-sre-general_requirements-aria-de-cuprindere">Aria de cuprindere</a></li>
+<li><a href="#commercial_agreement-110-sre-general_requirements-considerente-generale-de-securitate">Considerente generale de securitate</a></li>
+<li><a href="#commercial_agreement-110-sre-general_requirements-considerente-generale-privind-bazele-de-date-proprii-sistemelor">Considerente generale privind bazele de date proprii sistemelor</a></li>
+<li><a href="#commercial_agreement-110-sre-general_requirements-considerente-generale-privind-auditarea-informatiilor">Considerente generale privind auditarea informatiilor</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <h2 id="commercial_agreement-110-sre-general_requirements-aria-de-cuprindere">Aria de cuprindere</h2>
 <p>Solutiile propuse prin aceasta propunere tehnica sunt:</p>
 <ul>
 <li>
-<p><strong><code>api_to_roefact</code></strong> integrare Sistemul National de Facturi Emise <em>RO e-Factura</em> <a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements">descriere si cerinte aici</a></p>
+<p><strong>APItoROefact</strong> (<em>code-name</em> <strong><code>api_to_roefact</code></strong>) integrare Sistemul National de Facturi Emise <em>RO e-Factura</em> <a href="#commercial_agreement-110-sre-api_to_roefact_requirements">descriere si cerinte aici</a></p>
 </li>
 <li>
-<p><strong><code>payments_validation_board</code></strong> Flux aprobare facturi primite pentru ordonantare la plata <a href="#commercial_agreement-110-sre-payments_validation_board_req.uirements">descriere si cerinte aici</a></p>
+<p><strong>PayValidaBoa</strong> (<em>code-name</em> <strong><code>payments_validation_board</code></strong>) Flux aprobare facturi primite pentru ordonantare la plata <a href="#commercial_agreement-110-sre-payments_validation_board_req.uirements">descriere si cerinte aici</a></p>
 </li>
 </ul>
 <p>In continuare se prezinta o serie de considerente generale valabile pentru toate sistemele din aria de acoperire.</p>
@@ -959,6 +960,12 @@
 <li>
 <p><strong>(DBS-05)</strong> in cazul bazelor de date relationale, integritatile referentiale vor fi evitate la maximum prin intretinerea datelor numai cu ajutorul aplicatiei sau in cazull necesitatii modificarii manuale a datelor, aceasta modfica re sa fie efectuata numai de personal calificat</p>
 </li>
+<li>
+<p><strong>(DBS-06)</strong> informatiile de tip data-timp (data, ora, etc...) vor fi stocate de preferinta sub forma de <code>String</code> in formatul ISO: <code>YYYY-MM-DD HH:MM:SS.nnnnn</code>.</p>
+</li>
+<li>
+<p><strong>(DBS-07)</strong> informatii de data-timp vor fi stocate avind valori agnostice de "Time Zone" adica vor fi considerate <code>UTC</code> lucru care va permite comparabilitatea acestora indiferent de locatia /zpna de timp de unde au fost generate.</p>
+</li>
 </ul>
 <h2 id="commercial_agreement-110-sre-general_requirements-considerente-generale-privind-auditarea-informatiilor">Considerente generale privind auditarea informatiilor</h2>
 <ul>
@@ -972,34 +979,35 @@
 <li>
 <p><strong>(AUD-03)</strong> Cimpurile de audit ce indica date calendaristice vor respecta standardul ISO fiind in formatul maximal <code>YYYY-MM-DD hh:mm:ss</code></p>
 </li>
-</ul></section><section class="print-page" id="commercial_agreement-110-sre-api_to_roefact_req.uirements"><p><img align="left" alt="api_to_roefact_logo" src="pictures/api_to_roefact_logo.png" width="55" />
+</ul></section><section class="print-page" id="commercial_agreement-110-sre-api_to_roefact_requirements"><p><img align="left" alt="api_to_roefact_logo" src="pictures/api_to_roefact_logo.png" width="55" />
 <small markdown="1"><strong>APItoROefact System</strong><br>
 <em>(c) 2023 RENware Software Systems</em>
 </small><br><br></p>
-<div class="toc">
-<ul>
-<li><a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-propunere-tehnica-sistem-apitoroefact">Propunere tehnica sistem APItoROefact</a><ul>
-<li><a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-obiective">Obiective</a></li>
-<li><a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-vedere-de-ansamblu-a-solutiei">Vedere de ansamblu a solutiei</a></li>
-<li><a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-componenta-base_proc">Componenta BASE_PROC</a><ul>
-<li><a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-diagrama-logica-de-functionare-a-componentei">Diagrama logica de functionare a componentei</a></li>
-</ul>
-</li>
-<li><a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-componenta-web_dashb">Componenta WEB_DASHB</a></li>
-<li><a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-componenta-system_db">Componenta SYSTEM_DB</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<h1 id="commercial_agreement-110-sre-api_to_roefact_req.uirements-propunere-tehnica-sistem-apitoroefact">Propunere tehnica sistem APItoROefact</h1>
+<h1 id="commercial_agreement-110-sre-api_to_roefact_requirements-propunere-tehnica-sistem-apitoroefact">Propunere tehnica sistem APItoROefact</h1>
 <ul>
 <li>p/n: <code>0000-0095</code></li>
 <li>code-name: <code>api_to_roefact</code></li>
 <li>commercial name: <strong>APItoROefact</strong></li>
-<li>url: <code>http://api_to_roefact.renware.eu/</code></li>
-<li>git: <code>n/a</code></li>
+<li>url propunere tehnica: <code>http://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html</code></li>
+<li>git: <code>https://github.com/petre-renware/api_to_roefact</code></li>
 </ul>
-<h2 id="commercial_agreement-110-sre-api_to_roefact_req.uirements-obiective">Obiective</h2>
+<p><strong><em>Cuprins:</em></strong></p>
+<div class="toc">
+<ul>
+<li><a href="#commercial_agreement-110-sre-api_to_roefact_requirements-propunere-tehnica-sistem-apitoroefact">Propunere tehnica sistem APItoROefact</a><ul>
+<li><a href="#commercial_agreement-110-sre-api_to_roefact_requirements-obiective">Obiective</a></li>
+<li><a href="#commercial_agreement-110-sre-api_to_roefact_requirements-vedere-de-ansamblu-a-solutiei">Vedere de ansamblu a solutiei</a></li>
+<li><a href="#commercial_agreement-110-sre-api_to_roefact_requirements-componenta-base_proc">Componenta BASE_PROC</a><ul>
+<li><a href="#commercial_agreement-110-sre-api_to_roefact_requirements-diagrama-logica-de-functionare-a-componentei">Diagrama logica de functionare a componentei</a></li>
+</ul>
+</li>
+<li><a href="#commercial_agreement-110-sre-api_to_roefact_requirements-componenta-web_dashb">Componenta WEB_DASHB</a></li>
+<li><a href="#commercial_agreement-110-sre-api_to_roefact_requirements-componenta-system_db">Componenta SYSTEM_DB</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="commercial_agreement-110-sre-api_to_roefact_requirements-obiective">Obiective</h2>
 <p>Acest sistem va asigura incarcarea facturilor emise in sistemul <a href="https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura">ANAF E-Factura</a> cu respectarea reglementarilor publicate in acest sens (lista contine si legaturi catre fisierele publicate de catre ANAF):</p>
 <ul>
 <li>
@@ -1012,22 +1020,22 @@
 <p><a href="https://static.anaf.ro/static/10/Anaf/Informatii_R/API/Oauth_procedura_inregistrare_aplicatii_portal_ANAF.pdf">Instrucțiuni de utilizare</a></p>
 </li>
 </ul>
-<h2 id="commercial_agreement-110-sre-api_to_roefact_req.uirements-vedere-de-ansamblu-a-solutiei">Vedere de ansamblu a solutiei</h2>
+<h2 id="commercial_agreement-110-sre-api_to_roefact_requirements-vedere-de-ansamblu-a-solutiei">Vedere de ansamblu a solutiei</h2>
 <p>Solutia <code>api_to_roefact</code> consta din urmatoarele componente:</p>
 <ul>
 <li>
-<p><code>api_to_roefact</code>.<strong><code>BASE_PROC</code></strong> aceasta componenta are rolul de a implementa efectiv obiectivele principale ale sistemului <strong>APItoROefact</strong>. Componenta este capabila sa ruleze atit "<em>standalone</em>" (ca linie de comanda CLI) dar si prin utilizarea ei de catre componenta <code>WEB_DASHB</code> si astfel utilizarea ei in varianta de sistem prezentat "<em>over internet / intranet</em>". <a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-componenta-base_proc">Prezentarea detalita a acesteia se gaseste aici</a>.</p>
+<p><code>api_to_roefact</code>.<strong><code>BASE_PROC</code></strong> aceasta componenta are rolul de a implementa efectiv obiectivele principale ale sistemului <strong>APItoROefact</strong>. Componenta este capabila sa ruleze atit "<em>standalone</em>" (ca linie de comanda CLI) dar si prin utilizarea ei de catre componenta <code>WEB_DASHB</code> si astfel utilizarea ei in varianta de sistem prezentat "<em>over internet / intranet</em>". <a href="#commercial_agreement-110-sre-api_to_roefact_requirements-componenta-base_proc">Prezentarea detalita a acesteia se gaseste aici</a>.</p>
 </li>
 <li>
-<p><code>api_to_roefact</code>.<strong><code>WEB_DASHB</code></strong> aceasta componenta are rolul de agrega componentele si de a prezenta solutia <strong>APItoROefact</strong> "<em>over internet / intranet</em>". De asemenea componenta asigura modulele UI necesare pentru administrarea sistemului. <a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-componenta-web_dashb">Prezentarea detalita a acesteia se gaseste aici</a>.</p>
+<p><code>api_to_roefact</code>.<strong><code>WEB_DASHB</code></strong> aceasta componenta are rolul de agrega componentele si de a prezenta solutia <strong>APItoROefact</strong> "<em>over internet / intranet</em>". De asemenea componenta asigura modulele UI necesare pentru administrarea sistemului. <a href="#commercial_agreement-110-sre-api_to_roefact_requirements-componenta-web_dashb">Prezentarea detalita a acesteia se gaseste aici</a>.</p>
 </li>
 <li>
-<p><code>api_to_roefact</code>.<strong><code>SYSTEM_DB</code></strong> .Aceasta componente reprezita baza de date a sistemului <strong>APItoROefact</strong> atit partea relationala dar si partea <code>no-sql</code> a acesteia (utilizata pentru eventuale sincrnizari provenite din utilizarea CLI a componentei <code>BASE_PROC</code>). <a href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-componenta-system_db">Prezentarea detalita a acesteia se gaseste aici</a>.</p>
+<p><code>api_to_roefact</code>.<strong><code>SYSTEM_DB</code></strong> .Aceasta componente reprezita baza de date a sistemului <strong>APItoROefact</strong> atit partea relationala dar si partea <code>no-sql</code> a acesteia (utilizata pentru eventuale sincrnizari provenite din utilizarea CLI a componentei <code>BASE_PROC</code>). <a href="#commercial_agreement-110-sre-api_to_roefact_requirements-componenta-system_db">Prezentarea detalita a acesteia se gaseste aici</a>.</p>
 </li>
 </ul>
-<p>Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului <code>api_to_roefact</code></p>
+<p>Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului <code>api_to_roefact</code>.</p>
 <p><img alt="arh-api_to_roefact" src="pictures/api_to_roefact_architecture.png" /></p>
-<h2 id="commercial_agreement-110-sre-api_to_roefact_req.uirements-componenta-base_proc">Componenta BASE_PROC</h2>
+<h2 id="commercial_agreement-110-sre-api_to_roefact_requirements-componenta-base_proc">Componenta BASE_PROC</h2>
 <ul>
 <li>
 <p><strong>(RDINV)</strong> modul de procesare a fisierului format <code>XLSX</code> ce contine factura si colectare a datelor aferente</p>
@@ -1047,25 +1055,25 @@
 <p><strong>(CHKXML)</strong> modul de validare a facturii in sistemul <code>ANAF E-Factura</code></p>
 <ul>
 <li><em>INTRARI</em>: fisier <code>f-XML</code></li>
-<li><em>IESIRI</em>: raport cu eventualele erori de validare <sup id="fnref2:1"><a class="footnote-ref" href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-fn:1">1</a></sup></li>
+<li><em>IESIRI</em>: raport cu eventualele erori de validare <sup id="fnref2:1"><a class="footnote-ref" href="#commercial_agreement-110-sre-api_to_roefact_requirements-fn:1">1</a></sup></li>
 </ul>
 </li>
 <li>
 <p><strong>(LDXML)</strong> modul de incarcare a facturii in sistemul <code>ANAF E-Factura</code></p>
 <ul>
 <li><em>INTRARI</em>: fisier <code>f-XML</code></li>
-<li><em>IESIRI</em>: raport cu validarea si identificatorul incarcarii <sup id="fnref:1"><a class="footnote-ref" href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-fn:1">1</a></sup></li>
+<li><em>IESIRI</em>: raport cu validarea si identificatorul incarcarii <sup id="fnref:1"><a class="footnote-ref" href="#commercial_agreement-110-sre-api_to_roefact_requirements-fn:1">1</a></sup></li>
 </ul>
 </li>
 <li>
 <p><strong>(CHKISLD)</strong> modul de verificare a starii de incarcare a unei facturi emise</p>
 <ul>
 <li><em>INTRARI</em>: fisier <code>f-XLSX</code> sau numarul / cheia / codul facturii</li>
-<li><em>IESIRI</em>: valoarea echivalent <code>TRUE</code> daca factura a fost deja incarcata sau valoare echivalent <code>FALSE</code> daca factura nu a fost incarcata <sup id="fnref:2"><a class="footnote-ref" href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-fn:2">2</a></sup></li>
+<li><em>IESIRI</em>: valoarea echivalent <code>TRUE</code> daca factura a fost deja incarcata sau valoare echivalent <code>FALSE</code> daca factura nu a fost incarcata <sup id="fnref:2"><a class="footnote-ref" href="#commercial_agreement-110-sre-api_to_roefact_requirements-fn:2">2</a></sup></li>
 </ul>
 </li>
 </ul>
-<h3 id="commercial_agreement-110-sre-api_to_roefact_req.uirements-diagrama-logica-de-functionare-a-componentei">Diagrama logica de functionare a componentei</h3>
+<h3 id="commercial_agreement-110-sre-api_to_roefact_requirements-diagrama-logica-de-functionare-a-componentei">Diagrama logica de functionare a componentei</h3>
 <pre class="mermaid"><code>flowchart TD
     start(["start"])
     stop(["stop &amp; \nrepeta ciclul"])
@@ -1100,42 +1108,76 @@
 
     LDXML ---&gt; DBS</code></pre>
 <p>...#FIXME explicatii necesare ?...<!--#TODO --></p>
-<h2 id="commercial_agreement-110-sre-api_to_roefact_req.uirements-componenta-web_dashb">Componenta WEB_DASHB<!--#TODO --></h2>
+<h2 id="commercial_agreement-110-sre-api_to_roefact_requirements-componenta-web_dashb">Componenta WEB_DASHB<!--#TODO --></h2>
 <p>...INCOMING... <img alt="wip-picture" src="pictures/under_maintenance.png" width="150" /> <!--#TODO --></p>
-<h2 id="commercial_agreement-110-sre-api_to_roefact_req.uirements-componenta-system_db">Componenta SYSTEM_DB<!--#TODO --></h2>
+<h2 id="commercial_agreement-110-sre-api_to_roefact_requirements-componenta-system_db">Componenta SYSTEM_DB<!--#TODO --></h2>
 <p>...INCOMING... <img alt="wip-picture" src="pictures/under_maintenance.png" width="150" /> <!--#TODO --></p>
 <!-- #NOTE note generale / footnotes -->
 
 <div class="footnote">
 <hr />
 <ol>
-<li id="commercial_agreement-110-sre-api_to_roefact_req.uirements-fn:1">
-<p>raportul se scrie in baza de date a sistemului si in fisierul <code>f-XLSX</code> intr-un worksheet separat dedicat acestui scop&#160;<a class="footnote-backref" href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<li id="commercial_agreement-110-sre-api_to_roefact_requirements-fn:1">
+<p>raportul se scrie in baza de date a sistemului si in fisierul <code>f-XLSX</code> intr-un worksheet separat dedicat acestui scop&#160;<a class="footnote-backref" href="#commercial_agreement-110-sre-api_to_roefact_requirements-fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#commercial_agreement-110-sre-api_to_roefact_requirements-fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li id="commercial_agreement-110-sre-api_to_roefact_req.uirements-fn:2">
-<p>in cazul valorii echivalent <code>TRUE</code> se poate intoarce identificatorul incarcarii daca este disponibil&#160;<a class="footnote-backref" href="#commercial_agreement-110-sre-api_to_roefact_req.uirements-fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<li id="commercial_agreement-110-sre-api_to_roefact_requirements-fn:2">
+<p>in cazul valorii echivalent <code>TRUE</code> se poate intoarce identificatorul incarcarii daca este disponibil&#160;<a class="footnote-backref" href="#commercial_agreement-110-sre-api_to_roefact_requirements-fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></section><section class="print-page" id="commercial_agreement-110-sre-payments_validation_board_req.uirements"><p><small><strong>RENware Software Systems</strong></small></p>
+<h1 id="commercial_agreement-110-sre-payments_validation_board_req.uirements-propunere-tehnica-sistem-payvalidaboa">Propunere tehnica sistem PayValidaBoa</h1>
+<ul>
+<li>p/n: <code>0000-0094</code></li>
+<li>code-name: <code>payments_validation_board</code></li>
+<li>commercial name: <strong>PayValidaBoa</strong></li>
+<li>url propunere tehnica: <code>http://apitoroefact.renware.eu/commercial_agreement/110-SRE-payments_validation_board_req.uirements.html</code></li>
+<li>git: <code>n/a</code></li>
+</ul>
+<p><strong><em>Cuprins:</em></strong></p>
 <div class="toc">
 <ul>
-<li><a href="#commercial_agreement-110-sre-payments_validation_board_req.uirements-propunere-tehnica-sistem-payments_validation_board">Propunere tehnica sistem payments_validation_board</a><ul>
+<li><a href="#commercial_agreement-110-sre-payments_validation_board_req.uirements-propunere-tehnica-sistem-payvalidaboa">Propunere tehnica sistem PayValidaBoa</a><ul>
 <li><a href="#commercial_agreement-110-sre-payments_validation_board_req.uirements-obiective">Obiective</a></li>
-<li><a href="#commercial_agreement-110-sre-payments_validation_board_req.uirements-cerinte-functionale">Cerinte functionale</a></li>
+<li><a href="#commercial_agreement-110-sre-payments_validation_board_req.uirements-vedere-de-ansamblu-a-solutiei">Vedere de ansamblu a solutiei</a></li>
+<li><a href="#commercial_agreement-110-sre-payments_validation_board_req.uirements-cerinte-functionale-generale">Cerinte functionale generale</a></li>
+<li><a href="#commercial_agreement-110-sre-payments_validation_board_req.uirements-componenta-xxx">Componenta xxx</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h1 id="commercial_agreement-110-sre-payments_validation_board_req.uirements-propunere-tehnica-sistem-payments_validation_board">Propunere tehnica sistem <code>payments_validation_board</code></h1>
-<ul>
-<li>p/n: <code>0000-0094</code></li>
-<li>code-name: <code>payments_validation_board</code></li>
-<li>git: <code>n/a</code></li>
-</ul>
 <h2 id="commercial_agreement-110-sre-payments_validation_board_req.uirements-obiective">Obiective</h2>
-<p>...<!--#TODO --></p>
-<h2 id="commercial_agreement-110-sre-payments_validation_board_req.uirements-cerinte-functionale">Cerinte functionale</h2>
-<p>...<!--#TODO --></p></section><h1 class='nav-section-title-end'>Ended: Propuneri tehnice</h1><h1 class='nav-section-title-end'>Ended: Comercial</h1>
+<p>Acest sistem asigura prezentarea unui "<em>dashboard</em>" cu lista facturilor primite si starea lor de <strong>verificare si aprobare interna</strong> in vederea ordonantarii lor la plata.</p>
+<h2 id="commercial_agreement-110-sre-payments_validation_board_req.uirements-vedere-de-ansamblu-a-solutiei">Vedere de ansamblu a solutiei</h2>
+<p>Sistemul <code>payments_validation_board</code> consta din urmatoarele componente:</p>
+<ul>
+<li>
+<p><code>payments_validation_board</code>.<strong><code>INV_BRD</code></strong> - aceasta componenta prezinta <strong><em>pentru MANAGEMNTul tip CFO</em></strong> lista facturilor primite si starea lor referitor la <strong>validarea si aprobarea lor finala</strong> si un control pentru <em>APROBARE FINALA sau BUN DE PATA</em>. <!--#TODO wip... --></p>
+</li>
+<li>
+<p><code>payments_validation_board</code>.<strong><code>INV_CHK</code></strong> - aceasta componenta prezinta <strong><em>pentru VERIFICATORI si APROBABTORI</em></strong> lista facturilor primite si <strong>diverse controale pentru aprobarea si scrierea de diverse note</strong> si observatii. <!--#TODO wip... --></p>
+</li>
+<li>
+<p><code>payments_validation_board</code>.<strong><code>INV_NOTIF</code></strong> aceasta componenta prezinta notificari referitoare la <strong>diversele OBSERVATII si NOTE</strong> facture asupra facturilor primite in diverse stadii de aprobare de catre persoanele care efectueaza verificari asupra lor (prin componenta <code>INV_CHK</code>). Notificarile sunt disponibile atit in interfata aplicatiei iar <em>unele din ele pot fi transmise prin mail</em>. <!--#TODO wip... --></p>
+</li>
+<li>
+<p><code>payments_validation_board</code>.<strong><code>ADMIN_CFG</code></strong> aceasta componenta permite <strong><em>pentru ADMINISTRATORI</em></strong> diverse <strong>OPTIUNI DE CONFIGURARE</strong>:</p>
+<ul>
+<li>lista utilizatorilor ce fac parte dinfluxul de aprobare</li>
+<li>adresele e-mail ale utilizatorilor</li>
+<li>rolul utilizatorilor in accea ce priveste fluxul de aprobare facturile primite</li>
+<li>certificate si semnaturile de certificare a "semnaturilor" de aprobare</li>
+<li>... <!--#TODO wip... --></li>
+</ul>
+</li>
+</ul>
+<p>Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului <code>payments_validation_board</code>.</p>
+<!--#NOTE_update_me ![arh-api_to_roefact](../pictures/api_to_roefact_architecture.png) -->
+<p>...IN PROGRESS... <img alt="wip-picture" src="pictures/under_maintenance.png" width="150" /> <!--#TODO --></p>
+<h2 id="commercial_agreement-110-sre-payments_validation_board_req.uirements-cerinte-functionale-generale">Cerinte functionale generale</h2>
+<p>...INCOMING... <img alt="wip-picture" src="pictures/under_maintenance.png" width="150" /> <!--#TODO --></p>
+<h2 id="commercial_agreement-110-sre-payments_validation_board_req.uirements-componenta-xxx">Componenta xxx</h2>
+<p>...INCOMING... <img alt="wip-picture" src="pictures/under_maintenance.png" width="150" /> <!--#TODO --></p>
+<!--#TODO --></section><h1 class='nav-section-title-end'>Ended: Propuneri tehnice</h1><h1 class='nav-section-title-end'>Ended: Comercial</h1>
                         <h1 class='nav-section-title' id='section-apitoroefact'>
                             APItoROefact <a class='headerlink' href='#section-apitoroefact' title='Permanent link'>↵</a>
                         </h1>

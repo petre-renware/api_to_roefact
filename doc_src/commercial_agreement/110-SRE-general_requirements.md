@@ -1,6 +1,6 @@
 <small>**RENware Software Systems**</small>
 
-[TOC]
+
 
 # Propunere tehnica
 
@@ -10,6 +10,9 @@
 !!! info "Codificarea documentelor"
     * <small markdown="1">codificarea numelor documentelor si a proceselor este facuta in conformitate cu metodologia *[RENware SDEVEN](http://sdeven.renware.eu)*</small>
 
+***Cuprins:***
+
+[TOC]
 
 
 
@@ -18,9 +21,9 @@
 
 Solutiile propuse prin aceasta propunere tehnica sunt:
 
-* **`api_to_roefact`** integrare Sistemul National de Facturi Emise *RO e-Factura* [descriere si cerinte aici](./110-SRE-api_to_roefact_req.uirements.md)
+* **APItoROefact** (_code-name_ **`api_to_roefact`**) integrare Sistemul National de Facturi Emise *RO e-Factura* [descriere si cerinte aici](./110-SRE-api_to_roefact_requirements.md)
 
-* **`payments_validation_board`** Flux aprobare facturi primite pentru ordonantare la plata [descriere si cerinte aici](./110-SRE-payments_validation_board_req.uirements.md)
+* **PayValidaBoa** (_code-name_ **`payments_validation_board`**) Flux aprobare facturi primite pentru ordonantare la plata [descriere si cerinte aici](./110-SRE-payments_validation_board_req.uirements.md)
 
 
 In continuare se prezinta o serie de considerente generale valabile pentru toate sistemele din aria de acoperire.
@@ -67,6 +70,12 @@ In continuare se prezinta o serie de considerente generale valabile pentru toate
     * valori logice sub forma de caracter astfel: prima litera din lista `[Y, y, D, d, T, t]` pentru TRUE si orice altceva inclusiv `NULL` pentru FALSE
 
 * **(DBS-05)** in cazul bazelor de date relationale, integritatile referentiale vor fi evitate la maximum prin intretinerea datelor numai cu ajutorul aplicatiei sau in cazull necesitatii modificarii manuale a datelor, aceasta modfica re sa fie efectuata numai de personal calificat
+
+* **(DBS-06)** informatiile de tip data-timp (data, ora, etc...) vor fi stocate de preferinta sub forma de `String` in formatul ISO: `YYYY-MM-DD HH:MM:SS.nnnnn`.
+
+* **(DBS-07)** informatii de data-timp vor fi stocate avind valori agnostice de "Time Zone" adica vor fi considerate `UTC` lucru care va permite comparabilitatea acestora indiferent de locatia /zpna de timp de unde au fost generate.
+
+
 
 
 

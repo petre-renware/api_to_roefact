@@ -3,7 +3,7 @@
 *(c) 2023 RENware Software Systems*
 </small><br><br>
 
-[TOC]
+
 
 
 # Propunere tehnica sistem APItoROefact
@@ -11,8 +11,12 @@
 * p/n: `0000-0095`
 * code-name: `api_to_roefact`
 * commercial name: **APItoROefact**
-* url: `http://api_to_roefact.renware.eu/`
-* git: `n/a`
+* url propunere tehnica: `http://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html`
+* git: `https://github.com/petre-renware/api_to_roefact`
+
+***Cuprins:***
+
+[TOC]
 
 
 
@@ -48,7 +52,7 @@ Solutia `api_to_roefact` consta din urmatoarele componente:
 * `api_to_roefact`.**`SYSTEM_DB`** .Aceasta componente reprezita baza de date a sistemului **APItoROefact** atit partea relationala dar si partea `no-sql` a acesteia (utilizata pentru eventuale sincrnizari provenite din utilizarea CLI a componentei `BASE_PROC`). [Prezentarea detalita a acesteia se gaseste aici](#componenta-system_db).
 
 
-Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului `api_to_roefact`
+Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului `api_to_roefact`.
 
 ![arh-api_to_roefact](../pictures/api_to_roefact_architecture.png)
 
