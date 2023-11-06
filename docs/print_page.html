@@ -1151,16 +1151,25 @@
 <p>Sistemul <code>payments_validation_board</code> consta din urmatoarele componente:</p>
 <ul>
 <li>
-<p><code>payments_validation_board</code>.<strong><code>INV_BRD</code></strong> - aceasta componenta prezinta <strong><em>pentru MANAGEMNTul tip CFO</em></strong> lista facturilor primite si starea lor referitor la <strong>validarea si aprobarea lor finala</strong> si un control pentru <em>APROBARE FINALA sau BUN DE PATA</em>. <!--#TODO wip... --></p>
+<p><strong><code>INV_TOPMNG_BOARD</code></strong> - aceasta componenta prezinta <em>pentru MANAGEMNTul tip CFO</em> lista facturilor primite si starea lor referitor la <em>validarea si aprobarea lor finala</em> si un control pentru <em>APROBARE FINALA sau BUN DE PATA</em>. <!--#TODO wip... --></p>
 </li>
 <li>
-<p><code>payments_validation_board</code>.<strong><code>INV_CHK</code></strong> - aceasta componenta prezinta <strong><em>pentru VERIFICATORI si APROBABTORI</em></strong> lista facturilor primite si <strong>diverse controale pentru aprobarea si scrierea de diverse note</strong> si observatii. <!--#TODO wip... --></p>
+<p><strong><code>INV_CHK_BOARD</code></strong> - aceasta componenta prezinta <em>pentru VERIFICATORI si APROBABTORI</em> lista fa/turilor primite si <em>diverse controale pentru aprobarea si scrierea de diverse note</em> si observatii. <!--#TODO wip... --></p>
 </li>
 <li>
-<p><code>payments_validation_board</code>.<strong><code>INV_NOTIF</code></strong> aceasta componenta prezinta notificari referitoare la <strong>diversele OBSERVATII si NOTE</strong> facture asupra facturilor primite in diverse stadii de aprobare de catre persoanele care efectueaza verificari asupra lor (prin componenta <code>INV_CHK</code>). Notificarile sunt disponibile atit in interfata aplicatiei iar <em>unele din ele pot fi transmise prin mail</em>. <!--#TODO wip... --></p>
+<p><strong><code>INV_NOTIF_BOARD</code></strong> aceasta componenta prezinta notificari referitoare la <em>diversele OBSERVATII si NOTE</em> facture asupra facturilor primite in diverse stadii de aprobare de catre persoanele care efectueaza verificari asupra lor (prin componenta <code>INV_CHK</code>). Notificarile sunt disponibile atit in interfata aplicatiei iar <em>unele din ele pot fi transmise prin mail</em>. <!--#TODO wip... --></p>
 </li>
 <li>
-<p><code>payments_validation_board</code>.<strong><code>ADMIN_CFG</code></strong> aceasta componenta permite <strong><em>pentru ADMINISTRATORI</em></strong> diverse <strong>OPTIUNI DE CONFIGURARE</strong>:</p>
+<p><strong><code>INV_LD_FOR_APPRV</code></strong> - aceasta componenta permite <em>incarcarea facturilor in fluxul de aprobare</em>. Optiuni de incarcare:</p>
+<ul>
+<li>manuala (dintr-un board al aplicatiei)</li>
+<li>automata dintr-un director</li>
+<li>dintr-o baza de date externa sistemului (cu "marcarea" facturilor ce vor trebui incarcate)</li>
+<li>la incarcare (indiferent de metoda) vor trebui specificati (sau dedusi din alte informatii) DESTINATARII ce primesc documentul<!--#TODO wip... --></li>
+</ul>
+</li>
+<li>
+<p><strong><code>ADMIN_CFG</code></strong> aceasta componenta permite <em>pentru ADMINISTRATORI</em> diverse <em>OPTIUNI DE CONFIGURARE</em>:</p>
 <ul>
 <li>lista utilizatorilor ce fac parte dinfluxul de aprobare</li>
 <li>adresele e-mail ale utilizatorilor</li>

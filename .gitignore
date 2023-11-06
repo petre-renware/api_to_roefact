@@ -102,9 +102,8 @@ wenv/
 env.bak/
 venv.bak/
 
-# #NOTE BookLabb application environments
-doc_src/pyenv/
-docs/pyenv/
+# #NOTE APItoROefact application environments
+base_proc/.wenv_base_proc/
 
 
 
@@ -126,6 +125,8 @@ tmp/
 
 # static generated portal should not be in git, but just build locally
 static_portal/
+
+
 
 
 

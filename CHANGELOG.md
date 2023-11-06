@@ -25,16 +25,25 @@
 -------------------------------------------------------------------------------------------------
 
 
+### 0.1.6 #NOTE_wip... commercial agreement OPTIONS document (...)
 
-### 0.1.5 #NOTE_wip... Start CLI application for component *BASE_PROC* (...)
-
-* wip... (last used 231105piu_c)
-
+* wip...
 
 
 
 
 
+
+### 0.1.5 init component *BASE_PROC* for CLI application (231106 h06:30)
+
+* 231106piu_d published changed commercial documents
+* 231106piu_c get test invoices: from client, a RENware one, a 3rd party one ==> directory `base_proc/test_data_and_specs/`
+* 231106piu_b updated `doc_src/110-SRE-payments_validation_board_requirements.md` ref system decomposition & list of components
+* 231106piu_a prepare environment for *BASE_PROC* component:
+    * [x] make a distinct Python-Windows environment in `base_proc/`
+    * [x] set as git ignore the intended new environment directory: `.wenv_base_proc/`
+    * [x] install required modules in new environment (`pylightxl` core module)
+    * [x] create specific requirements file: `requirements_base_proc.txt`
 
 
 

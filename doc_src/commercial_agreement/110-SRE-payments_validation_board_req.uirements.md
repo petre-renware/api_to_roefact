@@ -34,13 +34,19 @@ Acest sistem asigura prezentarea unui "_dashboard_" cu lista facturilor primite 
 
 Sistemul `payments_validation_board` consta din urmatoarele componente:
 
-* `payments_validation_board`.**`INV_BRD`** - aceasta componenta prezinta ***pentru MANAGEMNTul tip CFO*** lista facturilor primite si starea lor referitor la **validarea si aprobarea lor finala** si un control pentru *APROBARE FINALA sau BUN DE PATA*. <!--#TODO wip... -->
+* **`INV_TOPMNG_BOARD`** - aceasta componenta prezinta *pentru MANAGEMNTul tip CFO* lista facturilor primite si starea lor referitor la *validarea si aprobarea lor finala* si un control pentru *APROBARE FINALA sau BUN DE PATA*. <!--#TODO wip... -->
 
-* `payments_validation_board`.**`INV_CHK`** - aceasta componenta prezinta ***pentru VERIFICATORI si APROBABTORI*** lista facturilor primite si **diverse controale pentru aprobarea si scrierea de diverse note** si observatii. <!--#TODO wip... -->
+* **`INV_CHK_BOARD`** - aceasta componenta prezinta *pentru VERIFICATORI si APROBABTORI* lista fa/turilor primite si *diverse controale pentru aprobarea si scrierea de diverse note* si observatii. <!--#TODO wip... -->
 
-* `payments_validation_board`.**`INV_NOTIF`** aceasta componenta prezinta notificari referitoare la **diversele OBSERVATII si NOTE** facture asupra facturilor primite in diverse stadii de aprobare de catre persoanele care efectueaza verificari asupra lor (prin componenta `INV_CHK`). Notificarile sunt disponibile atit in interfata aplicatiei iar *unele din ele pot fi transmise prin mail*. <!--#TODO wip... -->
+* **`INV_NOTIF_BOARD`** aceasta componenta prezinta notificari referitoare la *diversele OBSERVATII si NOTE* facture asupra facturilor primite in diverse stadii de aprobare de catre persoanele care efectueaza verificari asupra lor (prin componenta `INV_CHK`). Notificarile sunt disponibile atit in interfata aplicatiei iar *unele din ele pot fi transmise prin mail*. <!--#TODO wip... -->
 
-* `payments_validation_board`.**`ADMIN_CFG`** aceasta componenta permite ***pentru ADMINISTRATORI*** diverse **OPTIUNI DE CONFIGURARE**:
+* **`INV_LD_FOR_APPRV`** - aceasta componenta permite *incarcarea facturilor in fluxul de aprobare*. Optiuni de incarcare:
+    * manuala (dintr-un board al aplicatiei)
+    * automata dintr-un director
+    * dintr-o baza de date externa sistemului (cu "marcarea" facturilor ce vor trebui incarcate)
+    * la incarcare (indiferent de metoda) vor trebui specificati (sau dedusi din alte informatii) DESTINATARII ce primesc documentul<!--#TODO wip... -->
+
+* **`ADMIN_CFG`** aceasta componenta permite *pentru ADMINISTRATORI* diverse *OPTIUNI DE CONFIGURARE*:
     * lista utilizatorilor ce fac parte dinfluxul de aprobare
     * adresele e-mail ale utilizatorilor
     * rolul utilizatorilor in accea ce priveste fluxul de aprobare facturile primite
