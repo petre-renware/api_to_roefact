@@ -28,9 +28,10 @@
 
 
 
-### 0.1.7 #NOTE_wip... not_yet-defined (...)
+### 0.1.7 #NOTE_wip... component *BASE_PROC* for CLI application (...)
 
 * wip...
+* ... 230107piu_a made a first runnable CLI program with `Typer` (`https://typer.tiangolo.com/`)
 
 
 

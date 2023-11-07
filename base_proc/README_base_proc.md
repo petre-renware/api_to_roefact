@@ -18,3 +18,22 @@ This component is presented in document `.../doc_src/...110-SRE-api_to_roefact_r
 
 
 
+
+
+
+
+## Creating and deploying component
+
+### Building Windows executable
+
+* Change to `base-proc/` directory
+* Activate environment: `.\.wenv_base_proc\Scripts\activate`
+* Build the CLI version of component: `pyinstaller --onefile <source-file-name>`
+* As result will be created:
+    * `dist/<source-file-name>.exe` with the `Windows` executable
+    * `build/<source-file-name>/` directory which will contain intermediary files usable when rebuilding CLI application
+    * `<source-file-name>.spec` file with specifications used when building executable (usable when rebuilding CLI application)
+
+
+>NOTE: `<source-file-name>` id normally `xls2xml.py`
+
