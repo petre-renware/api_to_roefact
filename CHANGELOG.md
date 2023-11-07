@@ -31,6 +31,7 @@
 ### 0.1.7 #NOTE_wip... component *BASE_PROC* for CLI application (...)
 
 * wip...
+* 231107piu_b created physical modules according to decomposition (specs doc `110-SRE-api_to_roefact_requirements.md`)
 * 230107piu_a made a first DRAFT runnable CLI program with `Typer` (`https://typer.tiangolo.com/`) from `xls2xml.py` ==> `dist/xls2xml.exe`
 
 
