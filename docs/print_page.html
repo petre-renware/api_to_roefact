@@ -437,6 +437,68 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+          Agreements
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Agreements
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="commercial_agreement/agreed_options.html" class="md-nav__link">
+        Optiuni tehnice
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wip.html" class="md-nav__link">
+        Minute sedinte
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1186,7 +1248,104 @@
 <p>...INCOMING... <img alt="wip-picture" src="pictures/under_maintenance.png" width="150" /> <!--#TODO --></p>
 <h2 id="commercial_agreement-110-sre-payments_validation_board_req.uirements-componenta-xxx">Componenta xxx</h2>
 <p>...INCOMING... <img alt="wip-picture" src="pictures/under_maintenance.png" width="150" /> <!--#TODO --></p>
-<!--#TODO --></section><h1 class='nav-section-title-end'>Ended: Propuneri tehnice</h1><h1 class='nav-section-title-end'>Ended: Comercial</h1>
+<!--#TODO --></section><h1 class='nav-section-title-end'>Ended: Propuneri tehnice</h1>
+                        <h2 class='nav-section-title' id='section-agreements'>
+                            Agreements <a class='headerlink' href='#section-agreements' title='Permanent link'>↵</a>
+                        </h2>
+                        <section class="print-page" id="commercial_agreement-agreed_options"><p>s<small><strong>RENware Software Systems</strong></small></p>
+<h1 id="commercial_agreement-agreed_options-optiuni-tehnice">Optiuni tehnice</h1>
+<p><strong><em>Cuprins:</em></strong></p>
+<div class="toc">
+<ul>
+<li><a href="#commercial_agreement-agreed_options-optiuni-tehnice">Optiuni tehnice</a><ul>
+<li><a href="#commercial_agreement-agreed_options-optiuni-sistem-apitoroefact">Optiuni sistem APItoROefact</a><ul>
+<li><a href="#commercial_agreement-agreed_options-recomandari-sistem-apitoroefact">Recomandari sistem APItoROefact</a></li>
+</ul>
+</li>
+<li><a href="#commercial_agreement-agreed_options-optiuni-sistem-payvalidaboa">Optiuni sistem PayValidaBoa</a></li>
+<li><a href="#commercial_agreement-agreed_options-optiuni-generale-de-implementare">Optiuni generale de implementare</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Acest document prezinta posibilele optiuni tehnice la cele doua sisteme, optiuni care vor trebui agreate si (preferabil) planificate cel putin din punct de vedere al prioritatii.</p>
+<h2 id="commercial_agreement-agreed_options-optiuni-sistem-apitoroefact">Optiuni sistem APItoROefact</h2>
+<div class="admonition example">
+<p class="admonition-title">Forma de utilizare si interactionare</p>
+<ul>
+<li>&#x2610; (<strong>APItoROefact-RQ-01</strong>) -
+varianta CLI (command line) cu utilizare "individuala"</li>
+<li>&#x2610; (<strong>APItoROefact-RQ-02</strong>) -
+varianta WEB cu utilizare centralizata</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Configurabilitate</p>
+<ul>
+<li>&#x2610; (<strong>APItoROefact-RQ-03</strong>) -
+varianta in care se prelucreaza un model de fisier <code>Excel</code> in care sunt "fixate si blocate" locatiile celulelor ce contin date relevante</li>
+<li>&#x2610; (<strong>APItoROefact-RQ-04</strong>) -
+varianta in care structura si formatul fisierului <code>Excel</code> contin "cuvinte cheie" ce determina regasirea date relevante (de exemplu textul "Client:" intr-o celula semnifica inceperea unei zone cu datele clientului de la acea celula in jos si pina prima celula necompletata ce va fi gasita)</li>
+</ul>
+</div>
+<h3 id="commercial_agreement-agreed_options-recomandari-sistem-apitoroefact">Recomandari sistem APItoROefact</h3>
+<ul>
+<li>
+<p>varianta (APItoROefact-RQ-01) este recomandata ca fiind "aproape obligatorie" deoarece chiar si in varianta WEB ea va trebui scrisa intr-o forma neutilizabila direct (sub forma de functie a sistemlui). Transformarea acestei functii in varianta CLI va permite o executie portabila ("la purtator") si offline (in situatii extreme se poate folosi doar fisierul <code>XML</code> generat si acesta va putea fi manual incarcat in ANAF-SPV). Informatia privind "starea de incarcare a facturii" va fi oricum salvata si in fisierul Excel aferent facturii si va putea fi preluata de catre varianta WEB pentru centralizarea informatiilor- a se vedea si <a href="#commercial_agreement-110-sre-api_to_roefact_requirements-componenta-base_proc">modulul <code>LDXML</code> si notele de subsol aferente</a></p>
+</li>
+<li>
+<p>optiunea (APItoROefact-RQ-03) este recomandata ca varianta de start deoarece va permite realizarea unei variante OPERATIONALE (de lucru curent si testare) intr-un termen mai scurt, urmind ca aceasta optiune sa fie gradat extinsa si cu optiunea (APItoROefact-RQ-04). Aceasta "linie de lucru" nu va induce probleme, avind in vedere ca orice optiune / varianta aleasa ca varianta de start si planificata a fi extinsa va implica si MIGRAREA datelor deja produse la momentul extinderii ei</p>
+</li>
+</ul>
+<h2 id="commercial_agreement-agreed_options-optiuni-sistem-payvalidaboa">Optiuni sistem PayValidaBoa</h2>
+<div class="admonition example">
+<p class="admonition-title">Framework standardizat de orchestrare</p>
+<ul>
+<li>&#x2610; (<strong>PayValidaBoa-RQ-01</strong>) - utilizarea unui framework specializat de orchestrare si integrare cu alte sisteme "externe"<ul>
+<li><em>Implicatii:</em> poate mari durata de implementare</li>
+<li><em>Avantaje:</em> utilizarea ulterioara pentru integrare intre sisteme ce prezita interfata standardizata (REST, SOA, NTFS, EXT4, OAuth, ...)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Semnare electronica a facturilor verificate</p>
+<ul>
+<li>&#x2610; (<strong>PayValidaBoa-RQ-02</strong>) - utilizarea de certificat tip "semnatura electronica" pentru autentificarea verificarii facturilor <em>EMBEDDED IN FACTURA</em></li>
+<li>&#x2610; (<strong>PayValidaBoa-RQ-03</strong>) - utilizarea de certificat tip "semnatura electronica" pentru autentificarea verificarii facturilor <em>adiacet facturii - disponibil pentru consultare numai in sistemul PayValidaBoa</em></li>
+<li>&#x2610; (<strong>PayValidaBoa-RQ-04</strong>) - verificarea facturilor nu necesita certificat tip "semnatura electronica" ci simpla informatie existenta in sistemul PayValidaBoa este suficienta</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Baza de date 'interna / specifica' sistemului PayValidaBoa</p>
+<ul>
+<li>a se vedea <a href="#commercial_agreement-110-sre-general_requirements-considerente-generale-privind-bazele-de-date-proprii-sistemelor">documentul <em>"Considerente tehnice generale"</em>, sectiunea <em>"Considerente generale privind bazele de date proprii sistemelor"</em>, item <em>"(DBS-03)"</em></a> pentru opptiuni privind baza de date ce va fi utilizata "pentru operatiuni interne si specifice" de catre sistemul PayValidaBoa</li>
+</ul>
+</div>
+<h2 id="commercial_agreement-agreed_options-optiuni-generale-de-implementare">Optiuni generale de implementare</h2>
+<div class="admonition example">
+<p class="admonition-title">Sistemele tip infrastructura ce vor fi utilizate</p>
+<ul>
+<li>&#x2610; (<strong>general-RQ-01</strong>) - server web-HTTP pentru aplicatiile de tip WEB (<em>ATENTIE:</em> sistemele WEB ce vor fi implementate necesita interfata / mod de operare standard <code>WSGI</code>)</li>
+<li>&#x2610; (<strong>general-RQ-02</strong>) - sistem de autentificare utilizat (intern aplicatie, Google, Identity Management propriu, ...)</li>
+<li>&#x2610; (<strong>general-RQ-03</strong>) - sistemele vor rula pe infrastructura proprie sau aceastea vor rula in infrastructuri gazduite</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Alte optiuni 'ad-hoc' (in sedinta)</p>
+<ul>
+<li>...</li>
+<li>...</li>
+<li>...</li>
+<li>...</li>
+<li>...</li>
+<li>...</li>
+</ul>
+</div>
+<!--#NOTE special HTML characters to use:
+    - &#x2610; checkbox as NOT CHECKED
+    - &#x2611; checkbox as CHECKED
+--></section><h1 class='nav-section-title-end'>Ended: Agreements</h1><h1 class='nav-section-title-end'>Ended: Comercial</h1>
                         <h1 class='nav-section-title' id='section-apitoroefact'>
                             APItoROefact <a class='headerlink' href='#section-apitoroefact' title='Permanent link'>↵</a>
                         </h1>

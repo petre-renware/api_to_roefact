@@ -12,6 +12,9 @@ nav:
             - Considerente tehnice generale: commercial_agreement/110-SRE-general_requirements.md
             - Sistem APItoROefact: commercial_agreement/110-SRE-api_to_roefact_requirements.md
             - Sistem PayValidaBoa: commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
+        - Agreements:
+            - Optiuni tehnice: commercial_agreement/agreed_options.md
+            - Minute sedinte: wip.md #TODO - de completat pe masura ce se intimpla sedintele...
     # #FIXME -------------------------------------------------------------------------------------------------
     #
     - APItoROefact:
@@ -37,6 +40,7 @@ nav:
         - Contact: https://www.renware.eu/contact.html
         - Cum cumpar: https://www.renware.eu/resources.html#how-to-buy-from-renware
         - Despre APItoROefact: wip.md #TODO `about.md` eventual cu README din pj root, echipa, etc, ce ar tb sa fie acolo...
+
 
 
 

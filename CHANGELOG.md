@@ -25,12 +25,27 @@
 -------------------------------------------------------------------------------------------------
 
 
-### 0.1.6 #NOTE_wip... commercial agreement OPTIONS document (...)
+
+
+
+### 0.1.7 #NOTE_wip... not_yet-defined (...)
 
 * wip...
 
 
 
+
+
+
+
+
+
+### 0.1.6 commercial agreement OPTIONS document (231107 h07:00)
+
+* 231106piu_e document for TECHNICAL agreement with (a) agreed options, (b) estimated deadlines ==> published i `commercial_agreement/` as `agreed_options.md` under "Options": menu
+    * [x] (a.) for _APItoROefact_ system
+    * [x] (b.) for _PayValidaBoa_ system
+    * [x] (c.) publish updates
 
 
 
