@@ -3,7 +3,7 @@ import typer
 
 
 ''' #TODO plan
-- create `app` versiion to be able to create multiple commnads with same CLI executable
+- create `app` version to be able to create multiple commnads with same CLI executable
 - ...
 '''
 

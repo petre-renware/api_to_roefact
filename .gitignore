@@ -13,7 +13,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
+dist/ #NOTE #TODO [PetreI] consider to keep the win-x86 executable so will not be available on git
 downloads/
 eggs/
 .eggs/
