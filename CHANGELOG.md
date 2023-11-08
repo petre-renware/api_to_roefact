@@ -42,6 +42,8 @@
     * invoice header - invoice identification (number, date, oth important as "non VAT payer")
     * invoice footer
 
+* ... 231108piu_e#FIXME RDINV (`rdinv.py`) secure for "unwanted crashes" errors (missing info) & clean code
+* 2811080iu_e install `mkdocstrings`, update `mkdocsyml` and create a markdown document for BASE_PROC component (did) not succeeded search for 'FIXME temporary disabled because errs' ...longer_string_...
 * 231108piu_d documented that `XLSX` is the only Excel file format supported (in `110-SRE-api_to_roefact_requirements.md`) & published site
 * 231108piu_c BASE_PROC (`base_proc.py`) transformed in class & parametrized worksheet name containing invoice ==> **class BaseProc()**
 * 231108piu_b RDINV (`rdinv.py`) module set directories environment & open invoice

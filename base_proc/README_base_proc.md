@@ -6,6 +6,13 @@ This component is presented in document `.../doc_src/...110-SRE-api_to_roefact_r
 
 
 
+## Detailed technical documentation
+
+Component detailed specifications can be found at [xxx](../doc_src/810-DSGN/810.05a-base_proc_component.md)
+
+
+
+
 
 
 ## Working directories
@@ -14,7 +21,9 @@ This component is presented in document `.../doc_src/...110-SRE-api_to_roefact_r
     * __`specs/`__ contains specification documents + `_my_notes.md` with notes & comments made in analysis phase
     * __`test_fact_*/`__ test invoices: from client, a RENware one, a 3rd party one
 
-* ...
+* ___`build/<source-file-name>/` directory which will contain intermediary files usable when rebuilding CLI application
+
+* ___`dist/<source-file-name>.exe`___ executable generated file (format Windows x86)
 
 
 
