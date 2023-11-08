@@ -32,14 +32,15 @@
 
 * wip...
 
-* wip... 231108piu_??? start RDINV module ...just read file and identify big zones:
-    * set directories environment & open invoice
+* tbd... 231108piu_??? start RDINV module ...just read file and identify big zones:
+    * [x] DONE@`231108piu_b` set directories environment & open invoice
     * invoice header - issuer (owner)
     * invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
     * invoice header - invoice identification (number, date, oth important as "non VAT payer")
     * invoice lines
     * invoice footer
 
+* ... 231108piu_b set directories environment & open invoice
 * 231108piu_a consolidate decomposition (from `231107piu_c`) ==> directory `.../base_proc/modules/`
 * 231107piu_c transform decomposition (from `231107piu_b`) into complete Python modules (making directories for each)
 * 231107piu_b created module files according to decomposition (specs doc `110-SRE-api_to_roefact_requirements.md`)
