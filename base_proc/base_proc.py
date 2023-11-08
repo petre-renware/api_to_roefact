@@ -38,6 +38,7 @@ print(f"\nDEBUG-note: module directory is: {module_directory}") #NOTE for debug 
 tmp = "fact_RENF1004.xlsx"
 crt_xl_file_to_process = os.path.join(current_directory, "test_data_and_specs/test_fact_RENware/", tmp)
 print(f"\nDEBUG-note: excel file to process: {crt_xl_file_to_process}") #NOTE for debug purposes
+#FIXME -{TEST UP HERE & OK}-
 #_ = rdinv() #TODO return should be used but for now (test phase) is ok
 
 
