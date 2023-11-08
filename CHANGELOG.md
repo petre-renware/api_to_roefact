@@ -31,6 +31,7 @@
 ### 0.1.7 #NOTE_wip... component *BASE_PROC* for CLI application (...)
 
 * wip...
+* ... 231108piu_a consolidate decomposition (from `231107piu_c`) ==> directory `.../base_proc/modules/`
 * 231107piu_c transform decomposition (from `231107piu_b`) into complete Python modules (making directories for each)
 * 231107piu_b created module files according to decomposition (specs doc `110-SRE-api_to_roefact_requirements.md`)
 * 230107piu_a made a first DRAFT runnable CLI program with `Typer` (`https://typer.tiangolo.com/`) from `xls2xml.py` ==> `dist/xls2xml.exe`
