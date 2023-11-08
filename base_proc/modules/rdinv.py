@@ -3,7 +3,7 @@
 import pylightxl as xl
 
 
-def rdinv():
+def rdinv(file_to_process: str):
     """ RDINV - modul de procesare a fisierului format XLSX ce contine factura si colectare a datelor aferente
 
     Identification:
@@ -17,8 +17,9 @@ def rdinv():
         IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
     """
 
-
     import pylightxl as xl
+
+    print(f"DEBUG-note: entered in `rdinv` module with `file_to_process`: {file_to_process}") #NOTE for debug purposes
 
     ... #TODO my code here
     return None
