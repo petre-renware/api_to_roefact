@@ -34,12 +34,12 @@
 
 * tbd... 231108piu_??? start RDINV module ...just read file and identify big zones:
     * [x] DONE@`231108piu_b` set directories environment & open invoice
-    * [ ] DONE@`231108piu_c` parametrized worksheet name containing invoice (received as parameter)
-    * [ ] #FIXME problem: __xls binary format is not supported__
+    * [x] DONE@`231108piu_c` parametrized worksheet name containing invoice (received as parameter)
+    * [x] FIXED@`231108piu_d` problem: __xls binary format is not supported__
+    * invoice lines, then isolate header and footer
     * invoice header - issuer (owner)
     * invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
     * invoice header - invoice identification (number, date, oth important as "non VAT payer")
-    * invoice lines
     * invoice footer
 
 * 231108piu_d documented that `XLSX` is the only Excel file format supported (in `110-SRE-api_to_roefact_requirements.md`) & published site
