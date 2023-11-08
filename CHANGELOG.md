@@ -42,6 +42,7 @@
     * invoice lines
     * invoice footer
 
+* 231108piu_d documented that `XLSX` is the only Excel file format supported (in `110-SRE-api_to_roefact_requirements.md`) & published site
 * 231108piu_c BASE_PROC (`base_proc.py`) transformed in class & parametrized worksheet name containing invoice ==> **class BaseProc()**
 * 231108piu_b RDINV (`rdinv.py`) module set directories environment & open invoice
 * 231108piu_a consolidate decomposition (from `231107piu_c`) ==> directory `.../base_proc/modules/`
