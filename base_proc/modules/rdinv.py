@@ -3,7 +3,7 @@
 
 
 
-def rdinv(file_to_process: str, invoice_data_worksheet: str):
+def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
     """ RDINV - modul de procesare a fisierului format XLSX ce contine factura si colectare a datelor aferente
 
     Identification:
@@ -26,14 +26,31 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str):
 
     import pylightxl as xl
 
-    print(f"\n*** Module {Fore.RED} RDINV (code-name: `rdinv`) {Style.RESET_ALL} started at {Fore.GREEN} {datetime.now()} {Style.RESET_ALL} to process file {Fore.GREEN} {file_to_process} {Style.RESET_ALL}")
+    print(f"\n*** Module {Fore.RED} RDINV (code-name: `rdinv`){Style.RESET_ALL} started at {Fore.GREEN}{datetime.now()} {Style.RESET_ALL} to process file {Fore.GREEN} {file_to_process} {Style.RESET_ALL}")
 
-    # read Excel file, the worksheed with Invoice data
-    db = xl.readxl(fn=file_to_process)
-    print(f"DEBUG-note: `rdinv` module, Excel database read (`db` variable) as: {db}") #NOTE for debug purposes
+    # read Excel file with Invoice data
+    try:
+        db = xl.readxl(fn=file_to_process)
+    except:
+        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel file {file_to_process} (possible problems: file corruted, wrong type only XLSX accetpted, file does not exists or was deleted, operating system vilotation) in Module {Fore.RED} RDINV (code-name: `rdinv`) {Style.RESET_ALL}. Process terminated {Style.RESET_ALL}")
+        return False
+    #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel database read (`db` variable) as: {db}{Style.RESET_ALL}") #NOTE for debug purposes
+
+    # read the workshetd with Invoice data
     invoice_worksheet_name = invoice_data_worksheet
-    ws = db.ws(invoice_worksheet_name)
-    print(f"DEBUG-note: `rdinv` module, Excel worksheet read (`ws` variable) as: {ws}") #NOTE for debug purposes
+    if invoice_worksheet_name is None: # if parameter `invoice_data_worksheet` not specified try to open first worksheet from Excel worksheets - order is given by worksheets order in Excel file
+        list_of_excel_worksheets = db.ws_names
+        print(f"{Fore.YELLOW}INFO note:{Style.RESET_ALL} `rdinv` module, no worksheet specified so will open firts from this list {list_of_excel_worksheets}")
+        invoice_worksheet_name = list_of_excel_worksheets[0]
+
+    try:
+        ws = db.ws(invoice_worksheet_name)
+    except:
+        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel specified Worksheet ({invoice_data_worksheet}) in Module {Fore.RED} RDINV (code-name: `rdinv`) {Style.RESET_ALL}. Process terminated {Style.RESET_ALL}")
+        return False
+    #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel worksheet read (`ws` variable) as: {ws} {Style.RESET_ALL}") #NOTE for debug purposes
+
+
 
     #FIXME for test read cell B13 which should contain text "Cota TVA: 19%"
     tmp = ws.address(address="B13")
@@ -41,6 +58,7 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str):
     #FIXME -------------------------------------------------------------------------------------- END OF TEST here {#NOTEOK-PASSED}
 
     ... #TODO ...hereuare...
-    return None
+
+    return True
 
 

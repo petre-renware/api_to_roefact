@@ -36,13 +36,15 @@
     * [x] DONE@`231108piu_b` set directories environment & open invoice
     * [x] DONE@`231108piu_c` parametrized worksheet name containing invoice (received as parameter)
     * [x] FIXED@`231108piu_d` problem: __xls binary format is not supported__
+    * [x] DONE@`231108piu_f` secured "unwanted crashes" and defaulted to first worksheet found when not specified #TODO up comment must be subject to documentation update
     * invoice lines, then isolate header and footer
     * invoice header - issuer (owner)
     * invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
     * invoice header - invoice identification (number, date, oth important as "non VAT payer")
     * invoice footer
 
-* ... 231108piu_e#FIXME RDINV (`rdinv.py`) secure for "unwanted crashes" errors (missing info) & clean code
+
+* 231108piu_f RDINV (`rdinv.py`) secure for "unwanted crashes" errors (missing info) & clean code
 * 2811080iu_e install `mkdocstrings`, update `mkdocsyml` and create a markdown document for BASE_PROC component (did) not succeeded search for 'FIXME temporary disabled because errs' ...longer_string_...
 * 231108piu_d documented that `XLSX` is the only Excel file format supported (in `110-SRE-api_to_roefact_requirements.md`) & published site
 * 231108piu_c BASE_PROC (`base_proc.py`) transformed in class & parametrized worksheet name containing invoice ==> **class BaseProc()**
