@@ -28,7 +28,7 @@
 
 
 
-### 0.1.7 #NOTE_wip... component *BASE_PROC* for CLI application (...)
+### 0.1.7 #NOTE_wip... component *BASE_PROC* mocule *RDINV* for CLI application (...#NOTE_see_if_mk_only_RDINV_in_this_version...)
 
 * wip...
 
@@ -40,7 +40,7 @@
     * invoice lines
     * invoice footer
 
-* ... 231108piu_b set directories environment & open invoice
+* ... 231108piu_b RDINV module set directories environment & open invoice
 * 231108piu_a consolidate decomposition (from `231107piu_c`) ==> directory `.../base_proc/modules/`
 * 231107piu_c transform decomposition (from `231107piu_b`) into complete Python modules (making directories for each)
 * 231107piu_b created module files according to decomposition (specs doc `110-SRE-api_to_roefact_requirements.md`)
