@@ -17,7 +17,7 @@ from colorama import Fore, Back, Style
 
 
 if __name__ == "__main__": #NOTE for debug purposes - used only when directly launched (not from a wrapper or other sysetem)
-    print(f"*** Module BASE_PROC launched on {Fore.GREEN} {datetime.now()} {Style.RESET_ALL}")
+    print(f"\n*** Module {Fore.RED} BASE_PROC {Style.RESET_ALL} launched on {Fore.GREEN} {datetime.now()} {Style.RESET_ALL}")
 
 
 #TODO CLASS_TRANSFORM_FUTURE_ACTIONS: this should be transformed in a class (including specific imports)
