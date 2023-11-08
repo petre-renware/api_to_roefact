@@ -3,7 +3,7 @@
 
 
 
-def rdinv(file_to_process: str):
+def rdinv(file_to_process: str, invoice_data_worksheet: str):
     """ RDINV - modul de procesare a fisierului format XLSX ce contine factura si colectare a datelor aferente
 
     Identification:
@@ -15,6 +15,10 @@ def rdinv(file_to_process: str):
         document: `110-SRE-api_to_roefact_requirements.md` section `Componenta BASE_PROC`
         INTRARI: fisier format XLSX ce contine factura emisa (cod: `f-XLSX`)
         IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
+
+    Arguments:
+        file_to_process: the invoice file (exact file with path)
+        invoice_data_worksheet: the worksheet containing invoice
     """
     # general modules (should be already imported by BaseProc class)
     from datetime import datetime
@@ -26,10 +30,10 @@ def rdinv(file_to_process: str):
 
     # read Excel file, the worksheed with Invoice data
     db = xl.readxl(fn=file_to_process)
-    print(f"DEBUG-note: Excel database read (`db` variable) as: {db}") #NOTE for debug purposes
-    invoice_worksheet_name = "FACTURA FINALA" #TODO workshhet ("FACTURA FINALA" now) should be subject of configuration
+    print(f"DEBUG-note: `rdinv` module, Excel database read (`db` variable) as: {db}") #NOTE for debug purposes
+    invoice_worksheet_name = invoice_data_worksheet
     ws = db.ws(invoice_worksheet_name)
-    print(f"DEBUG-note: Excel worksheet read (`ws` variable) as: {ws}") #NOTE for debug purposes
+    print(f"DEBUG-note: `rdinv` module, Excel worksheet read (`ws` variable) as: {ws}") #NOTE for debug purposes
 
     #FIXME for test read cell B13 which should contain text "Cota TVA: 19%"
     tmp = ws.address(address="B13")

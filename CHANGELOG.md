@@ -34,13 +34,16 @@
 
 * tbd... 231108piu_??? start RDINV module ...just read file and identify big zones:
     * [x] DONE@`231108piu_b` set directories environment & open invoice
+    * [ ] DONE@`231108piu_c` parametrized worksheet name containing invoice (received as parameter)
+    * [ ] #FIXME problem: __xls binary format is not supported__
     * invoice header - issuer (owner)
     * invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
     * invoice header - invoice identification (number, date, oth important as "non VAT payer")
     * invoice lines
     * invoice footer
 
-* 231108piu_b RDINV module set directories environment & open invoice
+* 231108piu_c BASE_PROC (`base_proc.py`) transformed in class & parametrized worksheet name containing invoice ==> **class BaseProc()**
+* 231108piu_b RDINV (`rdinv.py`) module set directories environment & open invoice
 * 231108piu_a consolidate decomposition (from `231107piu_c`) ==> directory `.../base_proc/modules/`
 * 231107piu_c transform decomposition (from `231107piu_b`) into complete Python modules (making directories for each)
 * 231107piu_b created module files according to decomposition (specs doc `110-SRE-api_to_roefact_requirements.md`)
