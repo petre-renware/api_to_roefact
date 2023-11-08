@@ -23,10 +23,8 @@ import modules.ldxml as ldxml
 import modules.chkisld as chkisld
 
 
-#TODO CLASS_TRANSFORM_FUTURE_ACTIONS: this should be transformed in a class (including specific imports)
 class BaseProc():
 
-    #TODO CLASS_TRANSFORM_FUTURE_ACTIONS: __init()__ method
     def __init__(self):
         """set directories environment: #NOTE CURRENT directory (as returned by OS `pwd` where from application is launched)
         """
@@ -60,7 +58,6 @@ class BaseProc():
         self.invoice_worksheet = invoice_worksheet
 
 
-    #TODO CLASS_TRANSFORM_FUTURE_ACTIONS: read_invoice() method
     def read_invoice(self):
         """implement module `RDINV`
         """
@@ -77,17 +74,17 @@ class BaseProc():
 if __name__ == "__main__":
     print(f"\n*** Module {Fore.RED} BASE_PROC {Style.RESET_ALL} launched on {Fore.GREEN}{datetime.now()}{Style.RESET_ALL}")
 
-    _unknown_udefined_yet_name = BaseProc() #FIXME set an usefull variable name here
-    _crt_dir, _mdl_dir = _unknown_udefined_yet_name.get_directories()
+    _invoice_processor = BaseProc() #FIXME set an usefull variable name here
+    _crt_dir, _mdl_dir = _invoice_processor.get_directories()
 
 
     #FIXME for test --- RENware invoice
     tmp = "fact_RENF1004.xlsx"
     tmp = os.path.join(_crt_dir, "test_data_and_specs/test_fact_RENware/", tmp)
     #---------------------------------------
-    _unknown_udefined_yet_name.set_invoice_to(tmp)
-    # _unknown_udefined_yet_name.set_invoice_worksheet_to("FACTURA FINALA") #NOTE if not specified should open firts one...
-    _unknown_udefined_yet_name.read_invoice()
+    _invoice_processor.set_invoice_to(tmp)
+    # _invoice_processor.set_invoice_worksheet_to("FACTURA FINALA") #NOTE if not specified should open firts one...
+    _invoice_processor.read_invoice()
     #FIXME ------------------------------------------------------------- end test area :: SHOULD DISPLAY "Cota TVA: 19%" #NOTE OK-PASS
 
 
@@ -96,9 +93,9 @@ if __name__ == "__main__":
     tmp = "Fact _Petrom_11017969.xlsx"
     tmp = os.path.join(_crt_dir, "test_data_and_specs/test_fact_client/", tmp)
     #---------------------------------------
-    _unknown_udefined_yet_name.set_invoice_to(tmp)
-    # _unknown_udefined_yet_name.set_invoice_worksheet_to("Factura(Invoice)") #NOTE if not specified should open firts one...
-    _unknown_udefined_yet_name.read_invoice()
+    _invoice_processor.set_invoice_to(tmp)
+    # _invoice_processor.set_invoice_worksheet_to("Factura(Invoice)") #NOTE if not specified should open firts one...
+    _invoice_processor.read_invoice()
     #FIXME ------------------------------------------------------------- end test area :: SHOULD DISPLAY "Bucuresti / Sector 1 PETROM CITY" #NOTE OK-PASS
 
     #FIXME PROBLEM HERE: xls binary format is not supported
