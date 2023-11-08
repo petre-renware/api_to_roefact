@@ -32,7 +32,8 @@
 
 * wip...
 
-* wip... 231108piu_??? start RDINV module ...just read file and idenfy big zones:
+* wip... 231108piu_??? start RDINV module ...just read file and identify big zones:
+    * set directories environment & open invoice
     * invoice header - issuer (owner)
     * invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
     * invoice header - invoice identification (number, date, oth important as "non VAT payer")
