@@ -12,13 +12,12 @@ Identification:
 # general libraries
 import os
 # from pathlib import Path #NOTE see if keep / need it
-from datetime import date, datetime
+from datetime import datetime
+from colorama import Fore, Back, Style
 
 
 if __name__ == "__main__": #NOTE for debug purposes - used only when directly launched (not from a wrapper or other sysetem)
-    print(f"*** Module BASE_PROC launched on {datetime.now()}")
-
-
+    print(f"*** Module BASE_PROC launched on {Fore.GREEN} {datetime.now()} {Style.RESET_ALL}")
 
 
 #TODO CLASS_TRANSFORM_FUTURE_ACTIONS: this should be transformed in a class (including specific imports)

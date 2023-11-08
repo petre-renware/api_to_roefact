@@ -1,7 +1,8 @@
 #!../.wenv_base_proc/bin/python3
 
 import pylightxl as xl
-
+from datetime import datetime
+from colorama import Fore, Back, Style
 
 def rdinv(file_to_process: str):
     """ RDINV - modul de procesare a fisierului format XLSX ce contine factura si colectare a datelor aferente
@@ -19,7 +20,7 @@ def rdinv(file_to_process: str):
 
     import pylightxl as xl
 
-    print(f"DEBUG-note: entered in `rdinv` module with `file_to_process`: {file_to_process}") #NOTE for debug purposes
+    print(f"*** Module `rdinv` started at {Fore.GREEN} {datetime.now()} {Style.RESET_ALL} to process file {Fore.GREEN} {file_to_process} {Style.RESET_ALL}")
 
     ... #TODO my code here
     return None
