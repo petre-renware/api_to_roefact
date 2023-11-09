@@ -49,11 +49,23 @@
 
 
 
-### Fctori decizionali:
+
+
+
+### Factori decizionali
 
 * sist tb sa permita pe viitor math fact din SPV (primita mai ales) cu documentele primare din sistemul propriu (NIR, doc justificative, PVuri, ...)
 acest match ar trebui sa fie un flow (pentru ca sunt mai multe persoane)
+
 * idem pentru aprobare (cred ca PayValidaBoa ar trebui deja sa faca)
+
+* din 1 Iulie 2024 toate fact XML din SPV vor fi "cu sigiliu"
+
+* facturile vor trebui sa ajunga in SAP - acum se trimit prin intermediul unei arhive (speciala...) pentru a fi incarcate automatizat de Germania in SAP
+solutia tb sa fie suficient de versatila astfel incit daca se schimba SAP sa ramina valida informatia trimisa
+ASTFEL un format intermediar (dedicat Romania) ar fi de dorit
+
+* .
 
 
 
