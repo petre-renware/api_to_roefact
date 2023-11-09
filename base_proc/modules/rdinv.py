@@ -70,7 +70,7 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
     #tmp_items_table_marker_string = "Nr. crt" #NOTE RENware invoice
 
     #FIXME #FIXME 
-    #FIXME #FIXME @IMP  try and let only one of row/col markers - see in wxample data-in, in one option it join the two values when search !!! #FIXME
+    #FIXME #FIXME @IMP  try and set as EMPTY STRING one of row/col markers - see in wxample data-in, in one option it join the two values when search !!! #FIXME
     invoice_lines_area = ws.ssd(keycols = tmp_items_table_marker_string, keyrows = tmp_items_table_marker_string)
     if (invoice_lines_area is None or ((isinstance(invoice_lines_area, list)) and len(invoice_lines_area) < 1)): # there was not detected any area candidate to "invoice items / lines", so will exit rasing error
         print(f"{Fore.RED}***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - ({invoice_data_worksheet}) in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
