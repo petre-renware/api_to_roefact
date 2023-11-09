@@ -30,13 +30,13 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
 
     import pylightxl as xl
 
-    print(f"\n*** Module {Fore.RED} RDINV (code-name: `rdinv`){Style.RESET_ALL} started at {Fore.GREEN}{datetime.now()} {Style.RESET_ALL} to process file {Fore.GREEN} {file_to_process} {Style.RESET_ALL}")
+    print(f"\n*** Module {Fore.RED} RDINV (code-name: `rdinv`){Style.RESET_ALL} started at {Fore.GREEN}{datetime.now()}{Style.RESET_ALL} to process file {Fore.GREEN} {file_to_process}{Style.RESET_ALL}")
 
     # read Excel file with Invoice data
     try:
         db = xl.readxl(fn=file_to_process)
     except:
-        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel file {file_to_process} (possible problems: file corruted, wrong type only XLSX accetpted, file does not exists or was deleted, operating system vilotation) in Module {Fore.RED} RDINV (code-name: `rdinv`) {Style.RESET_ALL}. Process terminated {Style.RESET_ALL}")
+        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel file {file_to_process} (possible problems: file corrupted, wrong type only XLSX accetpted, file does not exists or was deleted, operating system vilotation) in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
         return False
     #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel database read (`db` variable) as: {db}{Style.RESET_ALL}") #NOTE for debug purposes
 
@@ -50,9 +50,9 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
     try:
         ws = db.ws(invoice_worksheet_name)
     except:
-        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel specified Worksheet ({invoice_data_worksheet}) in Module {Fore.RED} RDINV (code-name: `rdinv`) {Style.RESET_ALL}. Process terminated {Style.RESET_ALL}")
+        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel specified Worksheet ({invoice_worksheet_name}) in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
         return False
-    #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel worksheet read (`ws` variable) as: {ws} {Style.RESET_ALL}") #NOTE for debug purposes
+    #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel worksheet read (`ws` variable) as: {ws}{Style.RESET_ALL}") #NOTE for debug purposes
 
 
     ''' #NOTE quick plan:
@@ -69,15 +69,35 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
     tmp_items_table_marker_string = "No. crt." #NOTE Kraftlangen invoice
     #tmp_items_table_marker_string = "Nr. crt" #NOTE RENware invoice
     invoice_lines_area = ws.ssd(keycols = tmp_items_table_marker_string, keyrows = tmp_items_table_marker_string)
-    #FIXME test if list because will contain ALL DETECTECTED AREAS, so retain only first one [0]
-    #FIXME if not list then kkep it as is...
+    if (invoice_lines_area is None or ((isinstance(invoice_lines_area, list)) and len(invoice_lines_area) < 1)): # there was not detected any area candidate to "invoice items / lines", so will exit rasing error
+        print(f"{Fore.RED}***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - ({invoice_data_worksheet}) in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
+        return False
+    #FIXME test if list has more items, because will contain ALL DETECTECTED AREAS, so retain only first one [0]
+    if isinstance(invoice_lines_area, list) and len(invoice_lines_area) > 0:
+        invoice_lines_area = invoice_lines_area[0] #FIXME next code suppose that retain only first one [0]
+    #
+    # get the 3 sections (keywords) of `invoice_lines_area` dictionary: "keyrows", "keycols" and "data"
+    invoice_lines_area_keyrows = invoice_lines_area["keyrows"]
+    invoice_lines_area_keycols = invoice_lines_area["keycols"]
+    invoice_lines_area_data = invoice_lines_area["data"]
 
 
-
-    print(f"---> TEST-note: tabel 0 linii factura contine: {invoice_lines_area}") #FIXME test should be an array of arrays (matrix) with invoice items
+    #FIXME --------------------------------------- TEST area
+    print(f"{Fore.RED}")
+    print(f"---> TEST-note: tabel 0 linii factura contine:") #NOTE test should be an array of arrays (matrix) with invoice items
+    print(invoice_lines_area)
+    print()
+    print(f"---> TEST-note: keyword KEYROWS contine: {invoice_lines_area_keyrows}")
+    print(f"---> TEST-note: keyword KEYCOLS contine: {invoice_lines_area_keycols}")
+    print(f"---> TEST-note: keyword DATA contine: {invoice_lines_area_data}")
+    print()
     ''' rezultat obtinut
-    [{'keyrows': [], 'keycols': ['Denumirea lucrarii                                  (Request description)'], 'data': []}]
+    KEYROWS: `[]`
+    KEYCOLS: `['Denumirea lucrarii                                  (Request description)']`
+    DATA: `[]`
     '''
+    print(f"{Style.RESET_ALL}")
+    #FIXME --------------------------------------- TEST area
 
 
 
