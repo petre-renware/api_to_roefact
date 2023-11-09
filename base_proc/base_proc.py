@@ -69,12 +69,12 @@ class BaseProc():
 
 
 
-
-#NOTE here test the main job of this module
+#
+# this section run only at direct call and is intended to test the main job of this module
 if __name__ == "__main__":
     print(f"\n*** Module {Fore.RED} BASE_PROC {Style.RESET_ALL} launched on {Fore.GREEN}{datetime.now()}{Style.RESET_ALL}")
 
-    _invoice_processor = BaseProc() #FIXME set an usefull variable name here
+    _invoice_processor = BaseProc()
     _crt_dir, _mdl_dir = _invoice_processor.get_directories()
 
 
