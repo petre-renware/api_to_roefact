@@ -28,31 +28,20 @@
 
 
 
-### APItoROefact
+
+
+
+### Discutii si factori decizionali
 
 * 3 elemente:
     * comunicarea cu SPV (cca 40 buc/luna, servicii, mayteriale)
     * facturile vor ramine in Excel
     * facturi Kraflangen merg si la 700/luna
 
-
-
-
-### PayValidaBoa
-
-* tipuri fact
+* tipuri fact (emise?)
     * facturi materiale
     * facturi lucrari de la furnizori
     * alte facturi (telefoane, etc)
-
-
-
-
-
-
-
-
-### Factori decizionali
 
 * sist tb sa permita pe viitor math fact din SPV (primita mai ales) cu documentele primare din sistemul propriu (NIR, doc justificative, PVuri, ...)
 acest match ar trebui sa fie un flow (pentru ca sunt mai multe persoane)
@@ -65,7 +54,7 @@ acest match ar trebui sa fie un flow (pentru ca sunt mai multe persoane)
 solutia tb sa fie suficient de versatila astfel incit daca se schimba SAP sa ramina valida informatia trimisa
 ASTFEL un format intermediar (dedicat Romania) ar fi de dorit
 
-* .
+*
 
 
 
