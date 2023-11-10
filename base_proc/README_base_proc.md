@@ -1,3 +1,8 @@
+<!--#FIXME -[ README ]-----------------------------------------------------------------------------------------------
+- when ready, this doc should become `810.05a-base_proc_component.md` in directory `doc_src/810-DSGN/`
+- and set here a note / link to point it
+-------------------------------------------------------------------------------------------------------------------->
+
 
 # BASE_PROC component
 

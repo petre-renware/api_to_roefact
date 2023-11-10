@@ -1,5 +1,8 @@
 
-# Meeting minute
+# Meeting minute <!--#NOTE not distributed - just internal RENware usage - READONLY -->
+
+
+
 
 * Data: 2023-11-09
 * Participants:
@@ -54,7 +57,7 @@ acest match ar trebui sa fie un flow (pentru ca sunt mai multe persoane)
 solutia tb sa fie suficient de versatila astfel incit daca se schimba SAP sa ramina valida informatia trimisa
 ASTFEL un format intermediar (dedicat Romania) ar fi de dorit
 
-*
+* ...
 
 
 
