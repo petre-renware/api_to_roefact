@@ -1,9 +1,9 @@
-#!./.wenv_base_proc/bin/python3 #FIXME attn to this path if intend to move in modules/
+#!./.wenv_xl2roefact/bin/python3 #FIXME attn to this path if intend to move in modules/
 
-""" BASE_PROC - module to create a unified class for all BASE_PROC and to be used as liibrary by any other external systems
+""" xl2roefact - module to create a unified class for all xl2roefact and to be used as liibrary by any other external systems
 
 Identification:
-    code-name: `base_proc`
+    code-name: `xl2roefact`
     copyright: (c) 2023 RENWare Software Systems
     author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
@@ -15,7 +15,7 @@ import os
 from datetime import datetime
 from colorama import Fore, Back, Style
 
-# BASE_PROC specific libraries
+# xl2roefact specific libraries
 import modules.rdinv as rdinv
 import modules.wrxml as wrxml
 import modules.chkxml as chkxml
@@ -72,7 +72,7 @@ class BaseProc():
 #
 # this section run only at direct call and is intended to test the main job of this module
 if __name__ == "__main__":
-    print(f"\n*** Module {Fore.RED} BASE_PROC {Style.RESET_ALL} launched on {Fore.GREEN}{datetime.now()}{Style.RESET_ALL}")
+    print(f"\n*** Module {Fore.RED} xl2roefact {Style.RESET_ALL} launched on {Fore.GREEN}{datetime.now()}{Style.RESET_ALL}")
 
     _invoice_processor = BaseProc()
     _crt_dir, _mdl_dir = _invoice_processor.get_directories() #TODO working directories should be subject of CONFIG

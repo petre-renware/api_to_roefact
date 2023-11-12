@@ -32,7 +32,7 @@ nav:
             #NOTE - add here ADMA manuals as needed
         #
         # - Documentatia tehnica: #FIXME will be reabilitateed after commercial agreement
-        #     - Specificatii componenta BASE_PROC: 810-DSGN/810.05a-base_proc_component.md #FIXME temporary disabled because errs supposing of directory level/position (which is not under doc_src/)
+        #     - Specificatii componenta xl2roefact: 810-DSGN/810.05a-xl2roefact_component.md #FIXME temporary disabled because errs supposing of directory level/position (which is not under doc_src/)
         #     - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_requirements.md #FIXME will be reabilitateed after commercial agreement
         - Manual APItoROefact (PDF): pdfs/print_page.html/print_page.pdf
     - About:
@@ -105,7 +105,7 @@ plugins:
     #     default_handler: python
     #     handlers:
     #         python:
-    #         paths: [base_proc]
+    #         paths: [xl2roefact]
     #                                   #FIXME temporary disabled ------- ALL UP
     # - pdf-export  #NOTE DO NOT USE this as does not render mermaid in PDF docs
     - print-site: #NOTE_IMPORTANT_#NOTE put `print-site` plug in BEFORE `pdf-with-js` in order to works the workaround wit a fake `print_page.md` that will determine generation of 'print_page.pdf' as any other page generated pdf by `pdf-with-js`; ingnore warning ` [mkdocs-print-site] 'print-site' should be defined as the *last* plugin,to ensure...`

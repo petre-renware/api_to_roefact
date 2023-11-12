@@ -1,4 +1,4 @@
-#!../.wenv_base_proc/bin/python3
+#!../.wenv_xl2roefact/bin/python3
 """  RDINV - modul de procesare a fisierului format XLSX ce contine factura si colectare a datelor aferente
 
     Identification:
@@ -7,7 +7,7 @@
         author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
     Specifications:
-        document: `110-SRE-api_to_roefact_requirements.md` section `Componenta BASE_PROC`
+        document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
         INTRARI: fisier format XLSX ce contine factura emisa (cod: `f-XLSX`)
         IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
 """

@@ -1,10 +1,10 @@
 <!--#FIXME -[ README ]-----------------------------------------------------------------------------------------------
-- when ready, this doc should become `810.05a-base_proc_component.md` in directory `doc_src/810-DSGN/`
+- when ready, this doc should become `810.05a-xl2roefact_component.md` in directory `doc_src/810-DSGN/`
 - and set here a note / link to point it
 -------------------------------------------------------------------------------------------------------------------->
 
 
-# BASE_PROC component
+# xl2roefact component
 
 This component is presented in document `.../doc_src/...110-SRE-api_to_roefact_requirements.md``
 
@@ -13,7 +13,7 @@ This component is presented in document `.../doc_src/...110-SRE-api_to_roefact_r
 
 ## Detailed technical documentation
 
-Component detailed specifications can be found at [xxx](../doc_src/810-DSGN/810.05a-base_proc_component.md)
+Component detailed specifications can be found at [xxx](../doc_src/810-DSGN/810.05a-xl2roefact_component.md)
 
 
 
@@ -41,7 +41,7 @@ Component detailed specifications can be found at [xxx](../doc_src/810-DSGN/810.
 ### Building Windows executable
 
 * Change to `base-proc/` directory
-* Activate environment: `.\.wenv_base_proc\Scripts\activate`
+* Activate environment: `.\.wenv_xl2roefact\Scripts\activate`
 * Build the CLI version of component: `pyinstaller --onefile <source-file-name>`
 * As result will be created:
     * `dist/<source-file-name>.exe` with the `Windows` executable
@@ -67,7 +67,7 @@ Modul de procesare a fisierului format XLSX ce contine factura si colectare a da
     * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 * Specifications:
-    * document: `110-SRE-api_to_roefact_requirements.md` section `Componenta BASE_PROC`
+    * document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
     * INTRARI: fisier format XLSX ce contine factura emisa (cod: `f-XLSX`)
     * IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
 

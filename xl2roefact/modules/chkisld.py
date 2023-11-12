@@ -1,4 +1,4 @@
-#!../.wenv_base_proc/bin/python3
+#!../.wenv_xl2roefact/bin/python3
 
 import pylightxl as xl
 
@@ -12,7 +12,7 @@ def chkisld():
         author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
     Specifications:
-        document: `110-SRE-api_to_roefact_requirements.md` section `Componenta BASE_PROC`
+        document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
         INTRARI: fisier `f-XLSX` sau numarul / cheia / codul facturii
         IESIRI: valoarea echivalent `TRUE` daca factura a fost deja incarcata sau valoare echivalent `FALSE` daca factura nu a fost incarcata
     """
