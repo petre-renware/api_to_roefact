@@ -22,13 +22,17 @@ Component detailed specifications can be found at [xxx](../doc_src/810-DSGN/810.
 
 ## Working directories
 
-* __`test_data_and_specs/`__ contains test invoices: from client, a RENware one, a 3rd party one:
-    * __`specs/`__ contains specification documents + `_my_notes.md` with notes & comments made in analysis phase
-    * __`test_fact_*/`__ test invoices: from client, a RENware one, a 3rd party one
+* __`excel_invoices/`__ normal directory for Excel files to be processed (here will be searched Excel files if not foud in current directory)
 
 * ___`build/<source-file-name>/` directory which will contain intermediary files usable when rebuilding CLI application
 
 * ___`dist/<source-file-name>.exe`___ executable generated file (format Windows x86)
+
+* __`test_data_and_specs_originals/`__ contains test invoices: from client, a RENware one, a 3rd party one:
+    * __`specs/`__ contains specification documents + `_my_notes.md` with notes & comments made in analysis phase
+    * __`fact_*/`__ original test invoices: from Kraftanlagen, from RENware, from 3rd party
+
+
 
 
 
@@ -49,7 +53,7 @@ Component detailed specifications can be found at [xxx](../doc_src/810-DSGN/810.
     * `<source-file-name>.spec` file with specifications used when building executable (usable when rebuilding CLI application)
 
 
->NOTE: `<source-file-name>` id normally `xls2xml.py`
+>NOTE: `<source-file-name>` is normally `xls2xml.py`
 
 
 

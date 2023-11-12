@@ -80,25 +80,17 @@ if __name__ == "__main__":
 
 
     #FIXME for test --- RENware invoice
-    tmp = "fact_RENF1004.xlsx"
-    tmp = os.path.join(_crt_directory, "test_data_and_specs/test_fact_RENware/", tmp)
-    #---------------------------------------
-    _invoice_processor.set_invoice_to(tmp)
+    invvoice_to_process = "fact_RENF1004.xlsx"
+    _invoice_processor.set_invoice_to(os.path.join(_crt_directory, _excel_files_directory, invvoice_to_process))
     # _invoice_processor.set_invoice_worksheet_to("FACTURA FINALA") #NOTE if not specified should open firts one...
     _invoice_processor.read_invoice()
-    #FIXME ------------------------------------------------------------- end test area :: SHOULD DISPLAY "Cota TVA: 19%" #NOTE OK-PASS
-
 
 
     #FIXME another test --- Kraftanlagen invoice
-    tmp = "Fact _Petrom_11017969.xlsx" #NOTE original document name, next is my test for splitting
-    tmp = os.path.join(_crt_directory, "test_data_and_specs/test_fact_client/", tmp)
-    #---------------------------------------
-    _invoice_processor.set_invoice_to(tmp)
+    invvoice_to_process = "Fact _Petrom_11017969.xlsx" #NOTE original document name, next is my test for splitting
+    _invoice_processor.set_invoice_to(os.path.join(_crt_directory, _excel_files_directory, invvoice_to_process))
     # _invoice_processor.set_invoice_worksheet_to("Factura(Invoice)") #NOTE if not specified should open firts one...
     _invoice_processor.read_invoice()
-    #FIXME ------------------------------------------------------------- end test area :: SHOULD DISPLAY "Bucuresti / Sector 1 PETROM CITY" #NOTE OK-PASS
 
-    #FIXME PROBLEM HERE: xls binary format is not supported
 
 
