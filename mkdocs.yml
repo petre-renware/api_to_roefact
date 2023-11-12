@@ -31,8 +31,9 @@ nav:
             - Indexul manuale ADMA: help/880.30-ADMA_catalog.md
             #NOTE - add here ADMA manuals as needed
         #
-        #- Documentatia tehnica: #FIXME will be reabilitateed after commercial agreement
-        #    - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_requirements.md #FIXME will be reabilitateed after commercial agreement
+        # - Documentatia tehnica: #FIXME will be reabilitateed after commercial agreement
+        #     - Specificatii componenta BASE_PROC: 810-DSGN/810.05a-base_proc_component.md #FIXME temporary disabled because errs supposing of directory level/position (which is not under doc_src/)
+        #     - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_requirements.md #FIXME will be reabilitateed after commercial agreement
         - Manual APItoROefact (PDF): pdfs/print_page.html/print_page.pdf
     - About:
         - Licenta mea: wip.md #TODO tbd... este un http catre o ruta dinamica din produs
@@ -99,6 +100,13 @@ plugins:
     - macros #NOTE use external jinja variables and macros (see `https://mkdocs-macros-plugin.readthedocs.io/en/latest/`)
     - markdown-exec #NOTE Python execution inside markdown files (execution at build time, "compilation like" NOT dynamically NOT JavaScript)
     - git-revision-date-localized
+    #                                   #FIXME temporary disabled because errs supposing of directory level/position (which is not under doc_src/)
+    # - mkdocstrings: #NOTE to collect docstring(s) from Python code and to embed in markdown as technical documentation
+    #     default_handler: python
+    #     handlers:
+    #         python:
+    #         paths: [base_proc]
+    #                                   #FIXME temporary disabled ------- ALL UP
     # - pdf-export  #NOTE DO NOT USE this as does not render mermaid in PDF docs
     - print-site: #NOTE_IMPORTANT_#NOTE put `print-site` plug in BEFORE `pdf-with-js` in order to works the workaround wit a fake `print_page.md` that will determine generation of 'print_page.pdf' as any other page generated pdf by `pdf-with-js`; ingnore warning ` [mkdocs-print-site] 'print-site' should be defined as the *last* plugin,to ensure...`
         # add_to_navigation: true #NOTE not needed here

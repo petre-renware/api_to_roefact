@@ -28,15 +28,34 @@
 
 
 
-### 0.1.7 #NOTE_wip... not_yet-defined (...)
+### 0.1.7 #NOTE_wip... component *BASE_PROC* module *RDINV* for CLI application (...#NOTE_see_if_mk_only_RDINV_in_this_version...)
 
 * wip...
 
+* tbd... 231108piu_??? start RDINV module ...just read file and identify big zones:
+    * [x] DONE@`231108piu_b` set directories environment & open invoice
+    * [x] DONE@`231108piu_c` parametrized worksheet name containing invoice (received as parameter)
+    * [x] FIXED@`231108piu_d` problem: __xls binary format is not supported__
+    * [x] DONE@`231108piu_f` secured "unwanted crashes" and defaulted to first worksheet found when not specified #TODO up comment must be subject to documentation update
+    * ... invoice lines, then isolate header and footer
+    * invoice header - issuer (owner)
+    * invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
+    * invoice header - invoice identification (number, date, oth important as "non VAT payer")
+    * invoice footer
+    * ... consider to refactor `base_proc` to `xl2xml` (#FIXME not yet sure - must think more because name is very restrictive as what module does)
 
 
-
-
-
+* wip... 231112piu_a #TODO invoice lines, then isolate header and footer ==> set variable for these zones: `invoice_header_area`, `invoice_lines_area`, `invoice_footer_area`
+* 231109piu_a installed module `pylightxl` in base environment (ie, in project root) to allow modules calling from root for future web components & updated requirements.txt
+* 231108piu_f RDINV (`rdinv.py`) secure for "unwanted crashes" errors (missing info) & clean code
+* 2811080iu_e install `mkdocstrings`, update `mkdocs.yml` and create a markdown document for BASE_PROC component (did) not succeeded search for 'FIXME temporary disabled because errs' ...longer_string_...
+* 231108piu_d documented that `XLSX` is the only Excel file format supported (in `110-SRE-api_to_roefact_requirements.md`) & published site
+* 231108piu_c BASE_PROC (`base_proc.py`) transformed in class & parametrized worksheet name containing invoice ==> **class BaseProc()**
+* 231108piu_b RDINV (`rdinv.py`) module set directories environment & open invoice
+* 231108piu_a consolidate decomposition (from `231107piu_c`) ==> directory `.../base_proc/modules/`
+* 231107piu_c transform decomposition (from `231107piu_b`) into complete Python modules (making directories for each)
+* 231107piu_b created module files according to decomposition (specs doc `110-SRE-api_to_roefact_requirements.md`)
+* 230107piu_a made a first DRAFT runnable CLI program with `Typer` (`https://typer.tiangolo.com/`) from `xls2xml.py` ==> `dist/xls2xml.exe`
 
 
 

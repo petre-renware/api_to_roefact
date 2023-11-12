@@ -13,7 +13,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
+dist/ #NOTE #TODO [PetreI] consider to keep the win-x86 executable so will not be available on git
 downloads/
 eggs/
 .eggs/
@@ -117,6 +117,9 @@ dmypy.json
 
 # temporary files
 tmp/
+test_data_and_specs/test_fact_3rdparty/.~lock.* #NOTE these are file produced by LibreOffice Calc (Excel) at file opening
+test_data_and_specs/test_fact_client/.~lock.* #NOTE these are file produced by LibreOffice Calc (Excel) at file opening
+test_data_and_specs/test_fact_RENware/.~lock.* #NOTE these are file produced by LibreOffice Calc (Excel) at file opening
 
 # VS Code files
 .vscode

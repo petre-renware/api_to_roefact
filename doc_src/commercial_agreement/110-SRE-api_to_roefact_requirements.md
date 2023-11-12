@@ -86,6 +86,10 @@ Figura urmatoare prezinta schematic rolul general al componentelor precum si int
     * _IESIRI_: valoarea echivalent `TRUE` daca factura a fost deja incarcata sau valoare echivalent `FALSE` daca factura nu a fost incarcata [^2]
 
 
+!!! danger "Formatul fisierelor Excel cu factura"
+    `XLSX` este sigurul format de fisier acceptat
+
+
 ### Diagrama logica de functionare a componentei
 
 ``` mermaid
