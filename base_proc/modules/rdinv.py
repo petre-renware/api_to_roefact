@@ -16,6 +16,7 @@
 from datetime import datetime
 from colorama import Fore, Back, Style
 import copy
+from pprint import pprint
 
 # specific modules
 import pylightxl as xl
@@ -63,7 +64,7 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
     #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel worksheet read (`ws` variable) as: {ws}{Style.RESET_ALL}") #NOTE for debug purposes
 
     ''' #NOTE quick plan:
-    - [ ] identifiy invoice table with its lines (products, services, ..., items) - start of table (as known KEYROWS/KEYCOLS) should be things like:
+    - [x] identifiy invoice table with its lines (products, services, ..., items) - start of table (as known KEYROWS/KEYCOLS) should be things like:
         - "No. crt." in Kraftlangen invoice, "Nr. crt" in RENware invoice
         - generally **containig "crt" string** or "#" string as single or delimited LR with spaces
 
@@ -84,64 +85,50 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
     for _cell_index in detected_cells_which_will_be_fake_filled:
         _cell_row = _cell_index[0]
         _cell_col = _cell_index[1]
-        #print(f"to update cell {_cell_index} @ row={_cell_row} col={_cell_col}") #FIXME drop after test
         ws.update_index(row = _cell_row, col = _cell_col, val = SYS_FILLED_EMPTY_CELL)
         #print(f"cell {_cell_index} updated. new read va is: {ws.index(row = _cell_row, col = _cell_col)}") #FIXME drop after test
-    '''#NOTE: RESULTS obtained for Kraftlangen invoice:
----> TEST-note: tabel 0 linii factura contine:
-{   'keyrows': ['___sys_filled_empty_cell', 1],
-    'keycols': ['Denumirea lucrarii                                  (Request description)', '___sys_filled_empty_cell', 'Cantitatea (Quantity)', 'Pret unitar (Unit price)', 'Cota TVA (VAT %)', 'Valoare fara TVA (Value without VAT)', 'Valoare TVA (Value VAT)'],
-    'data': [['___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell'], ['Inlocuit conducta PSI coloana C2 DAV.', '___sys_filled_empty_cell', 1, 42756.08, 0.19, 42756.08, 8123.6552]]
-}
 
----> TEST-note: keyword KEYROWS contine: ['___sys_filled_empty_cell', 1]
----> TEST-note: keyword KEYCOLS contine: ['Denumirea lucrarii                                  (Request description)', '___sys_filled_empty_cell', 'Cantitatea (Quantity)', 'Pret unitar (Unit price)', 'Cota TVA (VAT %)', 'Valoare fara TVA (Value without VAT)', 'Valoare TVA (Value VAT)']
----> TEST-note: keyword DATA contine: [['___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell'], ['Inlocuit conducta PSI coloana C2 DAV.', '___sys_filled_empty_cell', 1, 42756.08, 0.19, 42756.08, 8123.6552]]
-    ''' #TODO ...hereuare... to analyze & clean
-    print("-------------------------GATA TEST") #FIXME drop me && DO NOT FORGET @ FINAL OF PROCESS to "re-empty" all cells containing SYS_FILLED_EMPTY_CELL - that's because you'll need original xl file to write a new sheet with returne ANAF receipt number & text
-
-
+    # obtain table with invoice items ==> `invoice_lines_area`
     invoice_lines_area = ws.ssd(keycols = tmp_items_table_marker_string, keyrows = tmp_items_table_marker_string)
     if (invoice_lines_area is None or ((isinstance(invoice_lines_area, list)) and len(invoice_lines_area) < 1)): # there was not detected any area candidate to "invoice items / lines", so will exit rasing error
         print(f"{Fore.RED}***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - ({invoice_data_worksheet}) in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
         return False
-    #FIXME test if list has more items, because will contain ALL DETECTECTED AREAS, so retain only first one [0]
+
+    #TODO test if list has more items (ie, that means more item tables that will need to be consolidated)
     if isinstance(invoice_lines_area, list) and len(invoice_lines_area) > 0:
-        invoice_lines_area = invoice_lines_area[0] #FIXME next code suppose that retain only first one [0]
-    #
-    # get the 3 sections (keywords) of `invoice_lines_area` dictionary: "keyrows", "keycols" and "data"
-    invoice_lines_area_keyrows = invoice_lines_area["keyrows"]
-    invoice_lines_area_keycols = invoice_lines_area["keycols"]
-    invoice_lines_area_data = invoice_lines_area["data"]
+        #NOTE `invoice_lines_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
+        invoice_lines_area = invoice_lines_area[0] #NOTE NOW will suppose is just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
 
-
-    #FIXME --------------------------------------- TEST area
-    print(f"{Fore.YELLOW}")
-    print(f"---> TEST-note: tabel 0 linii factura contine:") #NOTE test should be an array of arrays (matrix) with invoice items
-    print(invoice_lines_area)
+    print(f"{Fore.YELLOW}---> TEST-note: tabel 0 linii factura contine:{Style.RESET_ALL}") #NOTE test should be an array of arrays (matrix) with invoice items #FIXME drop after test
+    pprint(invoice_lines_area, width = 132) #FIXME drop after test
     print()
-    print(f"---> TEST-note: keyword KEYROWS contine: {invoice_lines_area_keyrows}")
-    print(f"---> TEST-note: keyword KEYCOLS contine: {invoice_lines_area_keycols}")
-    print(f"---> TEST-note: keyword DATA contine: {invoice_lines_area_data}")
-    print()
-    ''' rezultat obtinut
-    KEYROWS: `[]`
-    KEYCOLS: `['Denumirea lucrarii                                  (Request description)']`
-    DATA: `[]`
+    ''' rezultat obtinut: "---> TEST-note: tabel 0 linii factura contine:...(nxt lines)..." #NOTE PASS ok for Kraftlangen invoice, only one line and data is OK
+{
+    'keycols': [
+        'Denumirea lucrarii                                  (Request description)',
+        '___sys_filled_empty_cell',
+        'Cantitatea (Quantity)',
+        'Pret unitar (Unit price)',
+        'Cota TVA (VAT %)',
+        'Valoare fara TVA (Value without VAT)',
+        'Valoare TVA (Value VAT)'
+    ],
+    'keyrows': [
+        '___sys_filled_empty_cell',
+        1
+    ],
+    'data': [
+        ['___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell', '___sys_filled_empty_cell'],
+        ['Inlocuit conducta PSI coloana C2 DAV.', '___sys_filled_empty_cell', 1, 42756.08, 0.19, 42756.08, 8123.6552]
+    ],
+}
     '''
-    print(f"{Style.RESET_ALL}")
-    #FIXME --------------------------------------- TEST area
+    #TODO ...hereuare... @IMP==> need to clean cells with data with SYS_FILLED_EMPTY_CELL
 
 
-
-    #FIXME for test read cell B13 which should contain text "Cota TVA: 19%"
-    #tmp = ws.address(address="B13")
-    #print(f"---> TEST-note: cell read contains: {tmp}")
-    #FIXME -------------------------------------------------------------------------------------- END OF TEST here {#NOTE OK-PASSED}
-
-    ... #TODO ...hereuare...
 
     return True #TODO here should return an usful result such a list with invoice identified areas...
+
 
 
 
