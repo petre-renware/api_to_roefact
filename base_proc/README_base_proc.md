@@ -75,26 +75,28 @@ Modul de procesare a fisierului format XLSX ce contine factura si colectare a da
 
     * `rdinv(file_to_process: str, invoice_data_worksheet: str = None)`
     main function of RDINV module
-    Arguments:
+    - Arguments:
         - `file_to_process`: the invoice file (exact file with path)
         - `invoice_data_worksheet`: the worksheet containing invoice
+    - Return:
+        - tuple of `(invoice_header_area, invoice_lines_area, invoice_footer_area)`
 
 
     * `_get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name)`
     scan Excel file to detect all merged ranges
-    Identification:
-        code-name: `_get_merged_cells_tobe_changed`
-        copyright: (c) 2023 RENWare Software Systems
-        author: Petre Iordanescu (petre.iordanescu@gmail.com)
-    Arguments:
-        `file_to_scan`: the excel file to be scanned
-        `invoice_worksheet_name`: the worksheet to be scanned
-        `only_cells_tobe_changed`: boolean indicating to
-    Return:
-        cells_to_be_changed: list ONLY with cells that need to be chaged (ie, filled with string SYS_FILLED_EMPTY_CELL)
-    Notes:
-        function is intended to be used ONLY internal in this module
-        use `openpyxl` library to do its job
+    - Identification:
+        - code-name: `_get_merged_cells_tobe_changed`
+        - copyright: (c) 2023 RENWare Software Systems
+        - author: Petre Iordanescu (petre.iordanescu@gmail.com)
+    - Arguments:
+        - `file_to_scan`: the excel file to be scanned
+        - `invoice_worksheet_name`: the worksheet to be scanned
+        - `only_cells_tobe_changed`: boolean indicating to
+    - Return:
+        - cells_to_be_changed: list ONLY with cells that need to be chaged (ie, filled with string SYS_FILLED_EMPTY_CELL)
+    - Notes:
+        - function is intended to be used ONLY internal in this module
+        - use `openpyxl` library to do its job
 
 
 
