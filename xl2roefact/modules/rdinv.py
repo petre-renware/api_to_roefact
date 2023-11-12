@@ -23,7 +23,7 @@ import pylightxl as xl
 import openpyxl as oxl
 
 # constants
-SYS_FILLED_EMPTY_CELL = "___sys_filled_empty_cell" #TODO should be subject of CONFIG
+SYS_FILLED_EMPTY_CELL = "___sys_filled_empty_cell" #TODO subject of CONFIG
 
 
 
