@@ -35,7 +35,7 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
         - `invoice_data_worksheet`: the worksheet containing invoice
 
     Return:
-        - tuple of `(invoice_header_area, invoice_lines_area, invoice_footer_area)`
+        - tuple of `(invoice_header_area: #FIXME_unknown_yet, invoice_lines_area: dict, invoice_footer_area: #FIXME_unknown_yet)`
 
     Important variables:
         - `db`: htxl object with invoice EXCEL (as a whole)
@@ -78,12 +78,9 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
         #print(f"cell {_cell_index} updated. new read va is: {ws.index(row = _cell_row, col = _cell_col)}") #FIXME drop after test
 
     ''' #NOTE quick plan:
-    - [x] identifiy invoice table with its lines (products, services, ..., items) - start of table (as known KEYROWS/KEYCOLS) should be things like:
-        - "No. crt." in Kraftlangen invoice, "Nr. crt" in RENware invoice
-        - generally **containig "crt" string** or "#" string as single or delimited LR with spaces
-
-    - [ ] then isolate header and footer
-            ==> set variable for these zones: `invoice_header_area`, `invoice_lines_area`, `invoice_footer_area`
+    - [x] detected `invoice_lines_area`
+    - [ ] isolate header and footer after clean `invoice_lines_area`
+    - [x] variable names for zones: `invoice_header_area`, `invoice_lines_area`, `invoice_footer_area`
     '''
     # -----------------
     # string-markers to search for to isolate `invoice_lines_area` #TODO to be unified (how? - search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
