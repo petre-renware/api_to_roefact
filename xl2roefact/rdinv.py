@@ -1,4 +1,4 @@
-#!../.wenv_xl2roefact/bin/python3
+#!./.wenv_xl2roefact/bin/python3
 """  RDINV - modul de procesare a fisierului format XLSX ce contine factura si colectare a datelor aferente
 
     Identification:

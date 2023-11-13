@@ -16,11 +16,11 @@ from datetime import datetime
 from colorama import Fore, Back, Style
 
 # xl2roefact specific libraries
-import modules.rdinv as rdinv
-import modules.wrxml as wrxml
-import modules.chkxml as chkxml
-import modules.ldxml as ldxml
-import modules.chkisld as chkisld
+import rdinv as rdinv
+import wrxml as wrxml
+import chkxml as chkxml
+import ldxml as ldxml
+import chkisld as chkisld
 
 
 class BaseProc():

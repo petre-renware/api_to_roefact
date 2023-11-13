@@ -1,4 +1,4 @@
-#!../.wenv_xl2roefact/bin/python3
+#!./.wenv_xl2roefact/bin/python3
 
 import pylightxl as xl
 
