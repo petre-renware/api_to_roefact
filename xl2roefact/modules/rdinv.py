@@ -124,8 +124,18 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
             if _tmp_test_row_if_full_zero == 0:
                 del invoice_lines_area["keyrows"][_tmp_row_index] # drop that row from "keyrows" keyword list
                 del invoice_lines_area["data"][_tmp_row_index]  # drop that row from "data" keyword list
-
-
+    '''RESULT OBTAINED: PASS, OK, very good, 10xG!
+        {'data': [['Inlocuit conducta PSI coloana C2 DAV.', '', 1, 42756.08, 0.19, 42756.08, 8123.6552]],
+        'keycols': ['Denumirea lucrarii                                  (Request description)',
+                    '',
+                    'Cantitatea (Quantity)',
+                    'Pret unitar (Unit price)',
+                    'Cota TVA (VAT %)',
+                    'Valoare fara TVA (Value without VAT)',
+                    'Valoare TVA (Value VAT)'],
+        'keyrows': [1]}
+    '''
+    #TODO ...hereuare... identify relevant data and write to file `f-JSON` (factura emisa in format JSON intermediar pentru generare - vezi documentatia)
 
 
 
