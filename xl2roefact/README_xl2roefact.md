@@ -77,11 +77,11 @@ Modul de procesare a fisierului format XLSX ce contine factura si colectare a da
 
 * Components:
 
-    * `rdinv(file_to_process: str, invoice_data_worksheet: str = None)`
+    * `rdinv(file_to_process: str, : str = None)`
     main function of RDINV module
     - Arguments:
         - `file_to_process`: the invoice file (exact file with path)
-        - `invoice_data_worksheet`: the worksheet containing invoice
+        - ``: the worksheet containing invoice
     - Return:
         - tuple of `(invoice_header_area, invoice_lines_area, invoice_footer_area)`
 

@@ -27,12 +27,12 @@ SYS_FILLED_EMPTY_CELL = "___sys_filled_empty_cell" #TODO subject of CONFIG
 
 
 
-def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
+def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     """ main function of RDINV module
 
     Arguments:
         - `file_to_process`: the invoice file (exact file with path)
-        - `invoice_data_worksheet`: the worksheet containing invoice
+        - `invoice_worksheet_name`: the worksheet containing invoice
 
     Return:
         - tuple of `(invoice_header_area: dict, invoice_lines_area: dict, invoice_footer_area: dict)`
@@ -53,8 +53,7 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
     #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel database read (`db` variable) as: {db}{Style.RESET_ALL}") #NOTE for debug purposes
 
     # read the workshetd with Invoice data
-    invoice_worksheet_name = invoice_data_worksheet
-    if invoice_worksheet_name is None: # if parameter `invoice_data_worksheet` not specified try to open first worksheet from Excel worksheets - order is given by worksheets order in Excel file
+    if invoice_worksheet_name is None: # if parameter `invoice_worksheet_name` not specified try to open first worksheet from Excel worksheets - order is given by worksheets order in Excel file
         list_of_excel_worksheets = db.ws_names
         print(f"{Fore.YELLOW}INFO note:{Style.RESET_ALL} `rdinv` module, no worksheet specified so will open firts from this list {list_of_excel_worksheets}")
         invoice_worksheet_name = list_of_excel_worksheets[0]
@@ -62,11 +61,11 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
     try:
         ws = db.ws(invoice_worksheet_name)
     except:
-        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel specified Worksheet ({invoice_worksheet_name}) in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
+        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel specified Worksheet \"{invoice_worksheet_name}\" in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
         return False
     #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel worksheet read (`ws` variable) as: {ws}{Style.RESET_ALL}") #NOTE for debug purposes
 
-    # -----------------
+    #
     # detect all cells that should be changed to SYS_FILLED_EMPTY_CELL (these are cells id merged groups where first cell in merged group is relevant (diff from empty))
     detected_cells_which_will_be_fake_filled = _get_merged_cells_tobe_changed(file_to_process, invoice_worksheet_name)
     #print(f"----------DETECTED RANGES: {detected_cells_which_will_be_fake_filled}") #NOTE for debug purposes
@@ -76,23 +75,32 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
         _cell_col = _cell_index[1]
         ws.update_index(row = _cell_row, col = _cell_col, val = SYS_FILLED_EMPTY_CELL)
 
-    ''' #NOTE quick plan:
-    - [x] variable names for zones: `invoice_header_area`, `invoice_lines_area`, `invoice_footer_area`
-    - [x] detected `invoice_lines_area`
-    - [ ] isolate header and footer after clean `invoice_lines_area`
-    '''
-    #
-    # #NOTE ---------[ work for `invoice_lines_area` ]---------
-    #
-    # string-markers to search for to isolate `invoice_lines_area` #TODO to be unified (how? - search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
-    # #NOTE_ATT_README: tmp_items_table_marker_string = "crt" #FIXME drop me - DOES NOT WORK, search is exact... TRY THIS as "unified string"
-    tmp_items_table_marker_string = "No. crt." #NOTE Kraftlangen invoice
-    #tmp_items_table_marker_string = "Nr. crt" #NOTE RENware invoice
+    """ #NOTE section `invoice_lines_area` to scan invoice to process `invoice_lines_area`
+        - Description:
+            - find invoice items subtable
+            - clean invoice items subtable
+            - extract relevenat data
+        - Return / generate: `invoice_lines_area`
+        - Notes:
+            - to find invoice items subtable, code search for keyword defined in `keyword_for_items_table_marker`
+            - normally this 'marker' will vary from invoice to invoice but usual cases contain strings 'crt', 'no', 'nr', so a proposal is:
+            (#TODO to be unified (how? - search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter))
+                - search for a cell that contains any combination of that 'potential markers'
+                - consider for case insensitive and without punctuation symbols)
+        - section ends with comment "------ END OF section `invoice_lines_area`"
+        - MASTER PLAN:
+            - [x] variable names for zones: `invoice_header_area`, `invoice_lines_area`, `invoice_footer_area`
+            - [x] detected `invoice_lines_area`
+            - [ ] isolate header and footer after clean `invoice_lines_area`
+    """
+    # string-markers to search for to isolate `invoice_lines_area`
+    keyword_for_items_table_marker = "No. crt." #NOTE Kraftlangen invoice
+    #keyword_for_items_table_marker = "Nr. crt" #NOTE RENware invoice
 
     # obtain table with invoice items ==> `invoice_lines_area`
-    invoice_lines_area = ws.ssd(keycols = tmp_items_table_marker_string, keyrows = tmp_items_table_marker_string)
+    invoice_lines_area = ws.ssd(keycols = keyword_for_items_table_marker, keyrows = keyword_for_items_table_marker)
     if (invoice_lines_area is None or ((isinstance(invoice_lines_area, list)) and len(invoice_lines_area) < 1)): # there was not detected any area candidate to "invoice items / lines", so will exit rasing error
-        print(f"{Fore.RED}***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - ({invoice_data_worksheet}) in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
+        print(f"{Fore.RED}***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - \"{invoice_worksheet_name}\" in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
         return False
 
     #TODO test if list has more items (ie, that means more item tables that will need to be consolidated)
@@ -100,14 +108,26 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
         #NOTE `invoice_lines_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
         invoice_lines_area = invoice_lines_area[0] #NOTE NOW will suppose found just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
 
+    ''' CLEANING section '''
     # clean cells that contains `SYS_FILLED_EMPTY_CELL`
     invoice_lines_area["keycols"] = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in invoice_lines_area["keycols"]] # loop for 'keycols' keyword
     invoice_lines_area["keyrows"] = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in invoice_lines_area["keyrows"]] # loop for 'keyrows' keyword
     for _tmp_row_index, _tmp_row in enumerate(invoice_lines_area["data"]): # # loop for 'data' keyword (first loop table rows, "data" key is matrix of lines & cells, ie as [][])
         _tmp_row = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in _tmp_row]
         invoice_lines_area["data"][_tmp_row_index] = _tmp_row
+    # clean full empty rows & columns
+    for _tmp_row_index, _tmp_row in enumerate(invoice_lines_area["keyrows"]): # scan all rows and those with empty name/title are first candidates
+        if _tmp_row == "":
+            # inspect all row cells to see if all are empty (aid: `row(row, formula=False, output='v')`)
+            _all_row_cells_empty = False
+            _tmp_test_row_if_full_zero = sum([0 if _i == "" else 1 for _i in ws.row(_tmp_row_index + 1)])
+            if _tmp_test_row_if_full_zero == 0:
+                del invoice_lines_area["keyrows"][_tmp_row_index] # drop that row from "keyrows" keyword list
+                del invoice_lines_area["data"][_tmp_row_index]  # drop that row from "data" keyword list
 
-    #TODO ...hereuare... @IMP==> need to clean empty rows
+
+
+
 
 
     #FIXME test area & notes starts here
@@ -166,7 +186,7 @@ def rdinv(file_to_process: str, invoice_data_worksheet: str = None):
     '''
 
     #
-    # #NOTE END of ---------[ work for `invoice_lines_area` ]---------
+    # #NOTE ------ END OF section `invoice_lines_area`
     #
 
 
