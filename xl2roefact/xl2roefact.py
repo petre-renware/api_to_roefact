@@ -16,11 +16,11 @@ from datetime import datetime
 from colorama import Fore, Back, Style
 
 # xl2roefact specific libraries
-import rdinv as rdinv
-import wrxml as wrxml
-import chkxml as chkxml
-import ldxml as ldxml
-import chkisld as chkisld
+import rdinv as rdinv           # status #TODO: wip
+import wrxml as wrxml           # status #FIXME: not started
+import chkxml as chkxml         # status #FIXME: not started
+import ldxml as ldxml           # status #FIXME: not started
+import chkisld as chkisld       # status #FIXME: not started
 
 
 class BaseProc():
@@ -58,10 +58,10 @@ class BaseProc():
         self.invoice_worksheet = invoice_worksheet
 
 
-    def read_invoice(self):
+    def rdinv(self):
         """implement module `RDINV`
         """
-        # print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} class `BaseProc`, method `read_invoice`, excel file to process: {self.crt_xl_file_to_process}") #NOTE for debug purposes
+        # print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} class `BaseProc`, method `rdinv`, excel file to process: {self.crt_xl_file_to_process}") #NOTE for debug purposes
         _ = rdinv.rdinv(self.crt_xl_file_to_process, self.invoice_worksheet) #TODO return should be used but for now (test phase) is ok #FIXME - ...hereuare...wip... !!!
 
 
@@ -83,14 +83,14 @@ if __name__ == "__main__":
     invvoice_to_process = "fact_RENF1004.xlsx"
     _invoice_processor.set_invoice_to(os.path.join(_crt_directory, _excel_files_directory, invvoice_to_process))
     # _invoice_processor.set_invoice_worksheet_to("FACTURA FINALA") #NOTE if not specified should open firts one...
-    _invoice_processor.read_invoice()
+    _invoice_processor.rdinv()
 
 
     #FIXME another test --- Kraftanlagen invoice
     invvoice_to_process = "Fact _Petrom_11017969.xlsx" #NOTE original document name, next is my test for splitting
     _invoice_processor.set_invoice_to(os.path.join(_crt_directory, _excel_files_directory, invvoice_to_process))
     # _invoice_processor.set_invoice_worksheet_to("Factura(Invoice)") #NOTE if not specified should open firts one...
-    _invoice_processor.read_invoice()
+    _invoice_processor.rdinv()
 
 
 
