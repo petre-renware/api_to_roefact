@@ -1,12 +1,19 @@
-
-# #NOTE: see `https://github.com/pypa/sampleproject/blob/main/pyproject.toml` for all keywords description
+[build-system]
+requires = ["setuptools ~= 58.0", "cython ~= 0.29.0"]
+build-backend = "setuptools.build_meta:__legacy__"
 
 
 [project]
 name = "xl2roefact"
 description = "Excel invoice upload to RO E-Fact system"
-version = "0.1.0"
+version = "1.0.0"
 requires-python = ">=3.7" #NOTE check if lower is possible or need >= 3.10
+classifiers = [
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+]
 authors = [
     { name = "RENware Software Systems", email = "renware.systems@gmail.com" },
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" }
@@ -16,8 +23,4 @@ readme = "README_xl2roefact.md"
 
 
 
-[build-system]
-requires = ["setuptools ~= 58.0", "cython ~= 0.29.0"]
-build-backend = "setuptools.build_meta:__legacy__"
-
-
+# #NOTE: see `https://github.com/pypa/sampleproject/blob/main/pyproject.toml` for all keywords description

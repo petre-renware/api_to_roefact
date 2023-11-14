@@ -83,7 +83,7 @@ Modul de procesare a fisierului format XLSX ce contine factura si colectare a da
         - `file_to_process`: the invoice file (exact file with path)
         - ``: the worksheet containing invoice
     - Return:
-        - tuple of `(invoice_header_area, invoice_lines_area, invoice_footer_area)`
+        - tuple of `(invoice_header_area, invoice_items_area, invoice_footer_area)`
 
 
     * `_get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name)`

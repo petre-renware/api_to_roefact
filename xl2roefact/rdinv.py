@@ -35,7 +35,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         - `invoice_worksheet_name`: the worksheet containing invoice
 
     Return:
-        - tuple of `(invoice_header_area: dict, invoice_lines_area: dict, invoice_footer_area: dict)`
+        - tuple of `(invoice_header_area: dict, invoice_items_area: dict, invoice_footer_area: dict)`
 
     Important variables:
         - `db`: htxl object with invoice EXCEL (as a whole)
@@ -55,7 +55,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     # read the workshetd with Invoice data
     if invoice_worksheet_name is None: # if parameter `invoice_worksheet_name` not specified try to open first worksheet from Excel worksheets - order is given by worksheets order in Excel file
         list_of_excel_worksheets = db.ws_names
-        print(f"{Fore.YELLOW}INFO note:{Style.RESET_ALL} `rdinv` module, no worksheet specified so will open firts from this list {list_of_excel_worksheets}")
+        print(f"{Fore.YELLOW}INFO note:{Style.RESET_ALL} `rdinv` module, no worksheet specified so will open first from this list {list_of_excel_worksheets}")
         invoice_worksheet_name = list_of_excel_worksheets[0]
 
     try:
@@ -75,84 +75,109 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         _cell_col = _cell_index[1]
         ws.update_index(row = _cell_row, col = _cell_col, val = SYS_FILLED_EMPTY_CELL)
 
-    """ #NOTE section `invoice_lines_area` to scan invoice to process `invoice_lines_area`
+    """ #NOTE section `invoice_items_area` to scan invoice to process `invoice_items_area`
         - Description:
             - find invoice items subtable
             - clean invoice items subtable
             - extract relevenat data
-        - Return / generate: `invoice_lines_area`
+        - Return / generate: `invoice_items_area`
         - Notes:
             - to find invoice items subtable, code search for keyword defined in `keyword_for_items_table_marker`
             - normally this 'marker' will vary from invoice to invoice but usual cases contain strings 'crt', 'no', 'nr', so a proposal is:
             (#TODO to be unified (how? - search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter))
                 - search for a cell that contains any combination of that 'potential markers'
                 - consider for case insensitive and without punctuation symbols)
-        - section ends with comment "------ END OF section `invoice_lines_area`"
+        - section ends with comment "------ END OF section `invoice_items_area`"
         - MASTER PLAN:
-            - [x] variable names for zones: `invoice_header_area`, `invoice_lines_area`, `invoice_footer_area`
-            - [x] detected `invoice_lines_area`
-            - [ ] isolate header and footer after clean `invoice_lines_area`
+            - [x] variable names for zones: `invoice_header_area`, `invoice_items_area`, `invoice_footer_area`
+            - [x] detected `invoice_items_area`
+            - [ ] isolate header and footer after clean `invoice_items_area`
     """
-    # string-markers to search for to isolate `invoice_lines_area`
-    #keyword_for_items_table_marker = "No. crt." #NOTE Kraftlangen invoice
-    keyword_for_items_table_marker = "Nr. crt" #NOTE RENware invoice
+    # string-markers to search for to isolate `invoice_items_area`
+    keyword_for_items_table_marker = "No. crt." #NOTE Kraftlangen invoice #FIXME#FIXME#FIXME quik find me here
+    #keyword_for_items_table_marker = "Nr. crt" #NOTE RENware invoice #FIXME#FIXME#FIXME quik find me here
 
-    # obtain table with invoice items ==> `invoice_lines_area`
-    invoice_lines_area = ws.ssd(keycols = keyword_for_items_table_marker, keyrows = keyword_for_items_table_marker)
-    if (invoice_lines_area is None or ((isinstance(invoice_lines_area, list)) and len(invoice_lines_area) < 1)): # there was not detected any area candidate to "invoice items / lines", so will exit rasing error
+    # obtain table with invoice items ==> `invoice_items_area`
+    invoice_items_area = ws.ssd(keycols = keyword_for_items_table_marker, keyrows = keyword_for_items_table_marker)
+    if (invoice_items_area is None or ((isinstance(invoice_items_area, list)) and len(invoice_items_area) < 1)): # there was not detected any area candidate to "invoice items / lines", so will exit rasing error
         print(f"{Fore.RED}***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - \"{invoice_worksheet_name}\" in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
         return False
 
     #TODO test if list has more items (ie, that means more item tables that will need to be consolidated)
-    if isinstance(invoice_lines_area, list) and len(invoice_lines_area) > 0:
-        #NOTE `invoice_lines_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
-        invoice_lines_area = invoice_lines_area[0] #NOTE NOW will suppose found just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
+    if isinstance(invoice_items_area, list) and len(invoice_items_area) > 0:
+        #NOTE `invoice_items_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
+        invoice_items_area = invoice_items_area[0] #NOTE NOW will suppose found just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
 
-    ''' CLEANING section '''
-    # clean cells that contains `SYS_FILLED_EMPTY_CELL`
-    invoice_lines_area["keycols"] = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in invoice_lines_area["keycols"]] # loop for 'keycols' keyword
-    invoice_lines_area["keyrows"] = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in invoice_lines_area["keyrows"]] # loop for 'keyrows' keyword
-    for _tmp_row_index, _tmp_row in enumerate(invoice_lines_area["data"]): # # loop for 'data' keyword (first loop table rows, "data" key is matrix of lines & cells, ie as [][])
-        _tmp_row = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in _tmp_row]
-        invoice_lines_area["data"][_tmp_row_index] = _tmp_row
-
+    """ CLEANING & CLEARING section """
     # clean full empty rows
-    for _tmp_row_index, _tmp_row in enumerate(invoice_lines_area["keyrows"]): # scan all rows and those with empty name/title are first candidates
-        if _tmp_row == "":
+    for _tmp_row_index, _tmp_row in enumerate(invoice_items_area["keyrows"]): # scan all rows and those with empty name/title are first candidates
+        if _tmp_row == SYS_FILLED_EMPTY_CELL:
             # inspect all row cells to see if all are empty (aid: `row(row, formula=False, output='v')`)
-            _all_row_cells_empty = False
-            _tmp_test_row_if_full_zero = sum([0 if _i == "" else 1 for _i in ws.row(_tmp_row_index + 1)])
-            if _tmp_test_row_if_full_zero == 0:
-                del invoice_lines_area["keyrows"][_tmp_row_index] # drop that row from "keyrows" keyword list
-                del invoice_lines_area["data"][_tmp_row_index]  # drop that row from "data" keyword list
+            _tmp_test_row_if_full_zero = sum([0 if _i == SYS_FILLED_EMPTY_CELL else 1 for _i in invoice_items_area["data"][_tmp_row_index]])
+            if _tmp_test_row_if_full_zero == 0: # efectivelly delete in subject objects
+                del invoice_items_area["keyrows"][_tmp_row_index] # drop that row from "keyrows" keyword list
+                del invoice_items_area["data"][_tmp_row_index]  # drop that row from "data" keyword list
 
-    # clean full empty columns
-    #TODO --->[tests will be made for RENware invoice because it contains empty cols]<---
+    # clean empty columns: columns without a name will be completly dropped as they are unusable anyway (ie, do not know what to do with them...)
+    _tmp_cells_to_drop_in_data_key = list()
+    _tmp_items_to_drop_in_keycols_key = list()
+    for _tmp_col_index, _tmp_col in enumerate(invoice_items_area["keycols"]): # scan all cols and those with empty name/title are first candidates
+        if _tmp_col == SYS_FILLED_EMPTY_CELL:
+            # inspect all col cells to see if all are empty (aid: `col(col, formula=False, output='v')`)
+            # efectivelly delete in subject objects
+            _tmp_items_to_drop_in_keycols_key.append(_tmp_col_index)
+            for _data_row_index, _data_row in enumerate(invoice_items_area["data"]): # scan all rows to find out cells that are part of in subject columns
+                # find out DATA all cells that corresponding to columns to be dropped ==> `_tmp_cells_to_drop_in_data_key: list[(row, col)]`
+                _tmp_tmp = (_data_row_index, _tmp_col_index)
+                _tmp_cells_to_drop_in_data_key.append(_tmp_tmp)
+    # drop collected objects (column heads from KEYCOLS & correcsponding cell from DATA)
+    for _obj_to_delete in reversed(_tmp_items_to_drop_in_keycols_key): # from KEYCOLS... (start with last item to not remain "in air" due to deletions :))
+        del invoice_items_area["keycols"][_obj_to_delete]
+    for _object_to_delete in reversed(_tmp_cells_to_drop_in_data_key): # from DATA... (start with last item to not remain "in air" due to deletions :))
+        del invoice_items_area["data"][_object_to_delete[0]][_object_to_delete[1]]  # drop that col from "data" keyword list
 
     #TODO ...hereuare...
 
+    # if first column is empty then set it to `keyword_for_items_table_marker` (as is the only reasonable possibility of "invoice layout format")
+    #FIXME_#FIXME uncomment up to finish task: "clean full empty columns" --(up to text "END of uncommenta area")
+    '''
+    if len(invoice_items_area["keycols"]) < 1: # this code should never be entered - probably is a system error
+        print(f"{Fore.RED}***SYSTEM ERROR - Invoice items subtable does not have any columns. Worksheet - \"{invoice_worksheet_name}\" in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
+        return False
+    if invoice_items_area["keycols"][0] == SYS_FILLED_EMPTY_CELL:
+        invoice_items_area["keycols"][0] = keyword_for_items_table_marker
 
-    # #TODO_nxt_atep still empty col & row headers, repplace them with "?"
+    # #TODO_nxt_step still remained empty col & row headers, replace them with "?"
+
+    # set back to empty cells that remained to `SYS_FILLED_EMPTY_CELL`
+    invoice_items_area["keycols"] = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in invoice_items_area["keycols"]] # loop for 'keycols' keyword
+    invoice_items_area["keyrows"] = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in invoice_items_area["keyrows"]] # loop for 'keyrows' keyword
+    for _tmp_row_index, _tmp_row in enumerate(invoice_items_area["data"]): # # loop for 'data' keyword (first loop table rows, "data" key is matrix of lines & cells, ie as [][])
+        _tmp_row = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in _tmp_row]
+        invoice_items_area["data"][_tmp_row_index] = _tmp_row
+
     # #TODO_nxt_atep identify relevant data and write to file `f-JSON` (factura emisa in format JSON intermediar pentru generare - vezi documentatia)
 
+    ''' #FIXME ---------------------------- END of uncommenta area
+
+
     #
-    # #NOTE ------ END OF section `invoice_lines_area`
+    # #NOTE ------ END OF section `invoice_items_area`
     #
 
 
 
     #FIXME test area & notes starts here
     print(f"{Fore.YELLOW}---> TEST-note: sub-tabel[0], factura contine:{Style.RESET_ALL}") #NOTE test should be an array of arrays (matrix) with invoice items #FIXME drop after test
-    pprint(invoice_lines_area, width = 132) #FIXME drop after test
+    pprint(invoice_items_area, width = 132) #FIXME drop after test
     print()
-    '''#NOTE rezultat obtinut __for Kraftlangen invoice__: "---> TEST-note:  sub-tabel[0], factura contine: ..."
+    '''#NOTE rezultat obtinut __Kraftlangen invoice__: "---> TEST-note:  sub-tabel[0], factura contine: ..."
         {
             'data': [
-                ['Inlocuit conducta PSI coloana C2 DAV.', '', 1, 42756.08, 0.19, 42756.08, 8123.6552]
+                ['Inlocuit conducta PSI coloana C2 DAV.', 1, 42756.08, 0.19, 42756.08, 8123.6552]
             ],
             'keycols': [
                 'Denumirea lucrarii                                  (Request description)',
-                '',
                 'Cantitatea (Quantity)',
                 'Pret unitar (Unit price)',
                 'Cota TVA (VAT %)',
@@ -165,25 +190,19 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         }
     '''
 
-    '''#NOTE rezultat obtinut __for RENware invoice__: "---> TEST-note: ssub-tabel[0],.. sub-tabel[0], factura contine: ..."
+    '''#NOTE rezultat obtinut __RENware invoice__: "---> TEST-note: ssub-tabel[0],.. sub-tabel[0], factura contine: ..."
         {
             'data': [
-                ['', 1, '', '', '', 2, 3, '', 4, '5 = 3 x 4', '6 = 5 x 19%', ''],
-                ['', 'Elaborare documentatie tehnica aplicatie NEXGEN.AI', '', '', '', 'buc', 1, '', 14807.4, 14807.4, 2813.41, '']
+                [1, 2, 3, 4, '5 = 3 x 4', '6 = 5 x 19%'],
+                ['Elaborare documentatie tehnica aplicatie NEXGEN.AI', 'buc', 1, 14807.4, 14807.4, 2813.41]
             ],
             'keycols': [
-                '',
                 'Denumirea produselor sau a serviciilor',
-                '',
-                '',
-                '',
                 'UM',
                 'Cant.',
-                '',
                 'Pret unitar\n(fara TVA)\n- RON -',
                 'Valoarea\n(fara TVA)\n- RON -',
-                'TVA\n- RON -',
-                ''
+                'TVA\n- RON -'
             ],
             'keyrows': [
                 '0',
@@ -195,8 +214,8 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
 
 
 
-    #NOTE result is: (`invoice_header_area`, `invoice_lines_area`, `invoice_footer_area`)
-    return (None, invoice_lines_area, None) #FIXME update with the other zones whene ready
+    #NOTE result is: (`invoice_header_area`, `invoice_items_area`, `invoice_footer_area`)
+    return (None, invoice_items_area, None) #FIXME update with the other zones whene ready
 
 
 
