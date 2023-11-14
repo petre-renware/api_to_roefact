@@ -94,8 +94,8 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
             - [ ] isolate header and footer after clean `invoice_lines_area`
     """
     # string-markers to search for to isolate `invoice_lines_area`
-    keyword_for_items_table_marker = "No. crt." #NOTE Kraftlangen invoice
-    #keyword_for_items_table_marker = "Nr. crt" #NOTE RENware invoice
+    #keyword_for_items_table_marker = "No. crt." #NOTE Kraftlangen invoice
+    keyword_for_items_table_marker = "Nr. crt" #NOTE RENware invoice
 
     # obtain table with invoice items ==> `invoice_lines_area`
     invoice_lines_area = ws.ssd(keycols = keyword_for_items_table_marker, keyrows = keyword_for_items_table_marker)
@@ -115,7 +115,8 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     for _tmp_row_index, _tmp_row in enumerate(invoice_lines_area["data"]): # # loop for 'data' keyword (first loop table rows, "data" key is matrix of lines & cells, ie as [][])
         _tmp_row = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in _tmp_row]
         invoice_lines_area["data"][_tmp_row_index] = _tmp_row
-    # clean full empty rows & columns
+
+    # clean full empty rows
     for _tmp_row_index, _tmp_row in enumerate(invoice_lines_area["keyrows"]): # scan all rows and those with empty name/title are first candidates
         if _tmp_row == "":
             # inspect all row cells to see if all are empty (aid: `row(row, formula=False, output='v')`)
@@ -124,30 +125,29 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
             if _tmp_test_row_if_full_zero == 0:
                 del invoice_lines_area["keyrows"][_tmp_row_index] # drop that row from "keyrows" keyword list
                 del invoice_lines_area["data"][_tmp_row_index]  # drop that row from "data" keyword list
-    '''RESULT OBTAINED: PASS, OK, very good, 10xG!
-        {'data': [['Inlocuit conducta PSI coloana C2 DAV.', '', 1, 42756.08, 0.19, 42756.08, 8123.6552]],
-        'keycols': ['Denumirea lucrarii                                  (Request description)',
-                    '',
-                    'Cantitatea (Quantity)',
-                    'Pret unitar (Unit price)',
-                    'Cota TVA (VAT %)',
-                    'Valoare fara TVA (Value without VAT)',
-                    'Valoare TVA (Value VAT)'],
-        'keyrows': [1]}
-    '''
-    #TODO ...hereuare... identify relevant data and write to file `f-JSON` (factura emisa in format JSON intermediar pentru generare - vezi documentatia)
 
+    # clean full empty columns
+    #TODO --->[tests will be made for RENware invoice because it contains empty cols]<---
+
+    #TODO ...hereuare...
+
+
+    # #TODO_nxt_atep still empty col & row headers, repplace them with "?"
+    # #TODO_nxt_atep identify relevant data and write to file `f-JSON` (factura emisa in format JSON intermediar pentru generare - vezi documentatia)
+
+    #
+    # #NOTE ------ END OF section `invoice_lines_area`
+    #
 
 
 
     #FIXME test area & notes starts here
-    print(f"{Fore.YELLOW}---> TEST-note: tabel 0 linii factura contine:{Style.RESET_ALL}") #NOTE test should be an array of arrays (matrix) with invoice items #FIXME drop after test
+    print(f"{Fore.YELLOW}---> TEST-note: sub-tabel[0], factura contine:{Style.RESET_ALL}") #NOTE test should be an array of arrays (matrix) with invoice items #FIXME drop after test
     pprint(invoice_lines_area, width = 132) #FIXME drop after test
     print()
-    '''#NOTE rezultat obtinut: "---> TEST-note: tabel 0 linii factura contine:...(nxt lines)..." #NOTE PASS OK for Kraftlangen invoice, only one line and data is OK
+    '''#NOTE rezultat obtinut __for Kraftlangen invoice__: "---> TEST-note:  sub-tabel[0], factura contine: ..."
         {
             'data': [
-                ['', '', '', '', '', '', ''],
                 ['Inlocuit conducta PSI coloana C2 DAV.', '', 1, 42756.08, 0.19, 42756.08, 8123.6552]
             ],
             'keycols': [
@@ -160,16 +160,14 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
                 'Valoare TVA (Value VAT)'
             ],
             'keyrows': [
-                '',
                 1
             ]
         }
     '''
 
-    '''#NOTE rezultat obtinut: "---> TEST-note: tabel 0 linii factura contine:...(nxt lines)..." #NOTE PASS OK for RENware invoice, only one line and data is OK
+    '''#NOTE rezultat obtinut __for RENware invoice__: "---> TEST-note: ssub-tabel[0],.. sub-tabel[0], factura contine: ..."
         {
             'data': [
-                ['', '', '', '', '', '', '', '', '', '', '', ''],
                 ['', 1, '', '', '', 2, 3, '', 4, '5 = 3 x 4', '6 = 5 x 19%', ''],
                 ['', 'Elaborare documentatie tehnica aplicatie NEXGEN.AI', '', '', '', 'buc', 1, '', 14807.4, 14807.4, 2813.41, '']
             ],
@@ -188,16 +186,12 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
                 ''
             ],
             'keyrows': [
-                '',
                 '0',
                 1
             ]
         }
     '''
 
-    #
-    # #NOTE ------ END OF section `invoice_lines_area`
-    #
 
 
 
