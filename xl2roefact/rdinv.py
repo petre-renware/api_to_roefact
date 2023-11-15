@@ -85,7 +85,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         - Return / generate: `invoice_items_area`
         - Notes:
             - to find invoice items subtable, code search for keyword defined in `keyword_for_items_table_marker`
-            - normally this 'marker' will vary from invoice to invoice but usual cases contain strings 'crt', 'no', 'nr' #TODO but this will be unified
+            - normally this 'marker' will vary from invoice to invoice but usual cases contain strings 'crt', 'no', 'nr'
                 - search for a cell that contains any combination of that 'potential markers'
                 - consider for case insensitive and without punctuation symbols)
         - section ends with comment "------ END OF section `invoice_items_area`"
@@ -93,21 +93,32 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
             - [x] variable names for zones: `invoice_header_area`, `invoice_items_area`, `invoice_footer_area`
             - [x] detected `invoice_items_area`
             - [x] clean `invoice_items_area`
-            - [ ] #TODO improve serach of `keyword_for_items_table_marker` (search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
+            - [x] improve serach of `keyword_for_items_table_marker` (search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
             - [ ] #TODO transform `invoice_items_area` (dataset format) to `invoice_items_area_JSON` (JSON format)
     """
-    # string-markers to search for to isolate `invoice_items_area`
-    '''#TODO working area 23-11-15 ...hereuare...
-        - OBJECTIVE: improve serach of `keyword_for_items_table_marker`:
-            - search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter
-            return a `ssd` usaable keyword specific for opened Excel & Worksheet
-        - HELPERS in `Worksheet` class:
-            - `index(row, col, formula=False, output='v')` - Takes an excel row and col starting at index 1 and returns the worksheet stored value
-            - property `size` - Returns the size of the worksheet as: `list[maxrow, maxcol]`
-        - RESULT: `keyword_for_items_table_marker` specific for opened Excel & Worksheet
-    '''
-    keyword_for_items_table_marker = "No. crt." #NOTE Kraftlangen invoice #FIXME#FIXME#FIXME quik find me here
-    #keyword_for_items_table_marker = "Nr. crt" #NOTE RENware invoice #FIXME#FIXME#FIXME quik find me here
+    # string-markers to search for to isolate `invoice_items_area` (#NOTE partial END result: `_found_cell = (row, col, val)`)
+    _ws_max_rows, _ws_max_cols = ws.size[0], ws.size[1]
+    _FOUND_RELEVANT_CELL = False
+    for _crt_row in range(1, _ws_max_rows + 1): # traverse all rows (start from 1 as Excel style)
+        for _crt_col in range(1, _ws_max_cols + 1): # traverse all cols (start from 1 as Excel style)
+            _crt_cell_val = ws.index(_crt_row, _crt_col)
+            if (_crt_cell_val == "") or (_crt_cell_val == "___sys_filled_empty_cell") or (_crt_cell_val is None): # skip empty cells and continue with next cells
+                continue
+            # search ONLY STRINGS for ["crt", "no.", "nr."] / if not sjkip to next cell
+            _cell_val_to_test = str(_crt_cell_val).lower()
+            if (" crt" in _cell_val_to_test) or ("#" in _cell_val_to_test):
+                _found_cell = (_crt_row, _crt_col, _crt_cell_val)
+                _FOUND_RELEVANT_CELL = True
+            else:
+                continue
+            if _FOUND_RELEVANT_CELL: # if found a relevant cell then exit
+                break
+        if _FOUND_RELEVANT_CELL: # if found a relevant cell then exit
+            break
+    if not _FOUND_RELEVANT_CELL:
+        print(f"{Fore.RED}***FATAL ERROR - Cannot find a relevant cell where invoice items table start (basically containing string \" crt\"). File processing terminated{Style.RESET_ALL}")
+        return False
+    keyword_for_items_table_marker = _found_cell[2] #NOTE here you have `_found_cell = (row, col, val)` so set variable `keyword_for_items_table_marker`
 
     # obtain table with invoice items ==> `invoice_items_area`
     invoice_items_area = ws.ssd(keycols = keyword_for_items_table_marker, keyrows = keyword_for_items_table_marker)
@@ -117,7 +128,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
 
     #TODO test if list has more items (ie, that means more item tables that will need to be consolidated)
     if isinstance(invoice_items_area, list) and len(invoice_items_area) > 0:
-        #NOTE `invoice_items_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
+        #   #NOTE `invoice_items_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
         invoice_items_area = invoice_items_area[0] #NOTE NOW will suppose found just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
 
     """ CLEANING & CLEARING section """
@@ -148,7 +159,9 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     for _object_to_delete in reversed(_tmp_cells_to_drop_in_data_key): # from DATA... (start with last item to not remain "in air" due to deletions :))
         del invoice_items_area["data"][_object_to_delete[0]][_object_to_delete[1]]  # drop that col from "data" keyword list
 
-    #TODO see if keep these CLEANING steps
+
+
+    #TODO ...hereuare... | see if keep these CLEANING steps
 
     # if first column is empty then set it to `keyword_for_items_table_marker` (as is the only reasonable possibility of "invoice layout format")
     #FIXME_#FIXME uncomment up to finish task: "clean full empty columns" --(up to text "END of uncommenta area")
@@ -186,26 +199,8 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     print(f"{Fore.YELLOW}---> TEST-note: sub-tabel[0], factura contine:{Style.RESET_ALL}") #NOTE test should be an array of arrays (matrix) with invoice items #FIXME drop after test
     pprint(invoice_items_area, width = 132) #FIXME drop after test
     print()
-    '''#NOTE rezultat obtinut __Kraftlangen invoice__: "---> TEST-note:  sub-tabel[0], factura contine: ..."
-        {
-            'data': [
-                ['Inlocuit conducta PSI coloana C2 DAV.', 1, 42756.08, 0.19, 42756.08, 8123.6552]
-            ],
-            'keycols': [
-                'Denumirea lucrarii                                  (Request description)',
-                'Cantitatea (Quantity)',
-                'Pret unitar (Unit price)',
-                'Cota TVA (VAT %)',
-                'Valoare fara TVA (Value without VAT)',
-                'Valoare TVA (Value VAT)'
-            ],
-            'keyrows': [
-                1
-            ]
-        }
     '''
-
-    '''#NOTE rezultat obtinut __RENware invoice__: "---> TEST-note: ssub-tabel[0],.. sub-tabel[0], factura contine: ..."
+    #NOTE rezultat obtinut __RENware invoice__: "---> TEST-note: ssub-tabel[0],.. sub-tabel[0], factura contine: ..."
         {
             'data': [
                 [1, 2, 3, 4, '5 = 3 x 4', '6 = 5 x 19%'],
@@ -224,8 +219,24 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
                 1
             ]
         }
+    #NOTE rezultat obtinut __Kraftlangen invoice__: "---> TEST-note:  sub-tabel[0], factura contine: ..."
+        {
+            'data': [
+                ['Inlocuit conducta PSI coloana C2 DAV.', 1, 42756.08, 0.19, 42756.08, 8123.6552]
+            ],
+            'keycols': [
+                'Denumirea lucrarii                                  (Request description)',
+                'Cantitatea (Quantity)',
+                'Pret unitar (Unit price)',
+                'Cota TVA (VAT %)',
+                'Valoare fara TVA (Value without VAT)',
+                'Valoare TVA (Value VAT)'
+            ],
+            'keyrows': [
+                1
+            ]
+        }
     '''
-
 
     #NOTE result is: (`invoice_header_area`, `invoice_items_area`, `invoice_footer_area`)
     return (None, invoice_items_area, None) #FIXME update with the other zones whene ready

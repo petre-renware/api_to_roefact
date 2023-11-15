@@ -37,7 +37,7 @@
     * [x] DONE@`231108piu_c` parametrized worksheet name containing invoice (received as parameter)
     * [x] FIXED@`231108piu_d` problem: __xls binary format is not supported__
     * [x] DONE@`231108piu_f` secured "unwanted crashes" and defaulted to first worksheet found when not specified #TODO up comment must be subject to documentation update
-    * ... invoice lines, then isolate header and footer
+    * [...] #NOTE_issue_code_here_#NOTE invoice lines #TODO wip... almost final ... just a final check and clean code --- RELEASE a patch here ???
     * invoice header - issuer (owner)
     * invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
     * invoice header - invoice identification (number, date, oth important as "non VAT payer")
