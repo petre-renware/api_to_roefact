@@ -97,16 +97,19 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
             - [ ] #TODO transform `invoice_items_area` (dataset format) to `invoice_items_area_JSON` (JSON format)
     """
     # string-markers to search for to isolate `invoice_items_area`
+    '''#TODO working area 23-11-15 ...hereuare...
+        - OBJECTIVE: improve serach of `keyword_for_items_table_marker`:
+            - search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter
+            return a `ssd` usaable keyword specific for opened Excel & Worksheet
+        - HELPERS in `Worksheet` class:
+            - `index(row, col, formula=False, output='v')` - Takes an excel row and col starting at index 1 and returns the worksheet stored value
+            - property `size` - Returns the size of the worksheet as: `list[maxrow, maxcol]`
+        - RESULT: `keyword_for_items_table_marker` specific for opened Excel & Worksheet
+    '''
     keyword_for_items_table_marker = "No. crt." #NOTE Kraftlangen invoice #FIXME#FIXME#FIXME quik find me here
     #keyword_for_items_table_marker = "Nr. crt" #NOTE RENware invoice #FIXME#FIXME#FIXME quik find me here
 
     # obtain table with invoice items ==> `invoice_items_area`
-    '''#TODO working area 23-11-15 ...hereuare...
-        - OBJECTIVE: improve serach of `keyword_for_items_table_marker` (search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
-        - HELPERS in `Worksheet` class:
-            - `index(row, col, formula=False, output='v')` - Takes an excel row and col starting at index 1 and returns the worksheet stored value
-            - property `size` - Returns the size of the worksheet as: `list[maxrow, maxcol]`
-    '''
     invoice_items_area = ws.ssd(keycols = keyword_for_items_table_marker, keyrows = keyword_for_items_table_marker)
     if (invoice_items_area is None or ((isinstance(invoice_items_area, list)) and len(invoice_items_area) < 1)): # there was not detected any area candidate to "invoice items / lines", so will exit rasing error
         print(f"{Fore.RED}***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - \"{invoice_worksheet_name}\" in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
