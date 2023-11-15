@@ -75,6 +75,8 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         _cell_col = _cell_index[1]
         ws.update_index(row = _cell_row, col = _cell_col, val = SYS_FILLED_EMPTY_CELL)
 
+
+
     """ #NOTE section `invoice_items_area` to scan invoice to process `invoice_items_area`
         - Description:
             - find invoice items subtable
@@ -83,21 +85,28 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         - Return / generate: `invoice_items_area`
         - Notes:
             - to find invoice items subtable, code search for keyword defined in `keyword_for_items_table_marker`
-            - normally this 'marker' will vary from invoice to invoice but usual cases contain strings 'crt', 'no', 'nr', so a proposal is:
-            (#TODO to be unified (how? - search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter))
+            - normally this 'marker' will vary from invoice to invoice but usual cases contain strings 'crt', 'no', 'nr' #TODO but this will be unified
                 - search for a cell that contains any combination of that 'potential markers'
                 - consider for case insensitive and without punctuation symbols)
         - section ends with comment "------ END OF section `invoice_items_area`"
         - MASTER PLAN:
             - [x] variable names for zones: `invoice_header_area`, `invoice_items_area`, `invoice_footer_area`
             - [x] detected `invoice_items_area`
-            - [ ] isolate header and footer after clean `invoice_items_area`
+            - [x] clean `invoice_items_area`
+            - [ ] #TODO improve serach of `keyword_for_items_table_marker` (search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
+            - [ ] #TODO transform `invoice_items_area` (dataset format) to `invoice_items_area_JSON` (JSON format)
     """
     # string-markers to search for to isolate `invoice_items_area`
     keyword_for_items_table_marker = "No. crt." #NOTE Kraftlangen invoice #FIXME#FIXME#FIXME quik find me here
     #keyword_for_items_table_marker = "Nr. crt" #NOTE RENware invoice #FIXME#FIXME#FIXME quik find me here
 
     # obtain table with invoice items ==> `invoice_items_area`
+    '''#TODO working area 23-11-15 ...hereuare...
+        - OBJECTIVE: improve serach of `keyword_for_items_table_marker` (search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
+        - HELPERS in `Worksheet` class:
+            - `index(row, col, formula=False, output='v')` - Takes an excel row and col starting at index 1 and returns the worksheet stored value
+            - property `size` - Returns the size of the worksheet as: `list[maxrow, maxcol]`
+    '''
     invoice_items_area = ws.ssd(keycols = keyword_for_items_table_marker, keyrows = keyword_for_items_table_marker)
     if (invoice_items_area is None or ((isinstance(invoice_items_area, list)) and len(invoice_items_area) < 1)): # there was not detected any area candidate to "invoice items / lines", so will exit rasing error
         print(f"{Fore.RED}***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - \"{invoice_worksheet_name}\" in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
@@ -136,7 +145,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     for _object_to_delete in reversed(_tmp_cells_to_drop_in_data_key): # from DATA... (start with last item to not remain "in air" due to deletions :))
         del invoice_items_area["data"][_object_to_delete[0]][_object_to_delete[1]]  # drop that col from "data" keyword list
 
-    #TODO ...hereuare...
+    #TODO see if keep these CLEANING steps
 
     # if first column is empty then set it to `keyword_for_items_table_marker` (as is the only reasonable possibility of "invoice layout format")
     #FIXME_#FIXME uncomment up to finish task: "clean full empty columns" --(up to text "END of uncommenta area")
@@ -160,10 +169,13 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
 
     ''' #FIXME ---------------------------- END of uncommenta area
 
-
-    #
+    '''#===============================================================================
     # #NOTE ------ END OF section `invoice_items_area`
-    #
+    #==============================================================================='''
+
+
+
+
 
 
 
@@ -212,10 +224,11 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     '''
 
 
-
-
     #NOTE result is: (`invoice_header_area`, `invoice_items_area`, `invoice_footer_area`)
     return (None, invoice_items_area, None) #FIXME update with the other zones whene ready
+
+
+
 
 
 
