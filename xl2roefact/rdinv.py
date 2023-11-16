@@ -161,25 +161,35 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
 
 
 
-    #TODO ...hereuare... | see if keep these CLEANING steps
-
-    # if first column is empty then set it to `keyword_for_items_table_marker` (as is the only reasonable possibility of "invoice layout format")
-    #FIXME_#FIXME uncomment up to finish task: "clean full empty columns" --(up to text "END of uncommenta area")
+    #TODO ...hereuare...
+    ''' #NOTE___<<< quick action plan then come back to **line 80 PLAN** >>>___#NOTE
+        - [ ] preserve actual rows index in a separated structure (`invoice_items_area["keyrows_index"]`).
+              Intention: to scan rows and and for thoses where are "rows between (ie, the index between 2 consecutive rows is > 1)"
+              scan description column to find more text that will become "extended description" (example for Kraftlangen invoice is text "SES 8105685514")
+        - [ ] refactor `"keycols"` as:
+            - actual value becomes --> `name_displayable`
+            - map with an invoice real fields as `name`
+        - [ ] see if keep these CLEANING steps
     '''
+
+
+
+    ''' #FIXME_#FIXME uncomment up to finish task: "clean full empty columns" --(up to text "END of uncommenta area")
+    # if first column is empty then set it to `keyword_for_items_table_marker` (as is the only reasonable possibility of "invoice layout format")
     if len(invoice_items_area["keycols"]) < 1: # this code should never be entered - probably is a system error
         print(f"{Fore.RED}***SYSTEM ERROR - Invoice items subtable does not have any columns. Worksheet - \"{invoice_worksheet_name}\" in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
         return False
     if invoice_items_area["keycols"][0] == SYS_FILLED_EMPTY_CELL:
         invoice_items_area["keycols"][0] = keyword_for_items_table_marker
+    '''
 
-    # #TODO_nxt_step still remained empty col & row headers, replace them with "?"
-
-    # set back to empty cells that remained to `SYS_FILLED_EMPTY_CELL`
+    ''' # #TODO set back to empty cells that remained to `SYS_FILLED_EMPTY_CELL`
     invoice_items_area["keycols"] = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in invoice_items_area["keycols"]] # loop for 'keycols' keyword
     invoice_items_area["keyrows"] = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in invoice_items_area["keyrows"]] # loop for 'keyrows' keyword
     for _tmp_row_index, _tmp_row in enumerate(invoice_items_area["data"]): # # loop for 'data' keyword (first loop table rows, "data" key is matrix of lines & cells, ie as [][])
         _tmp_row = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in _tmp_row]
         invoice_items_area["data"][_tmp_row_index] = _tmp_row
+    '''
 
     # #TODO_nxt_atep identify relevant data and write to file `f-JSON` (factura emisa in format JSON intermediar pentru generare - vezi documentatia)
 
