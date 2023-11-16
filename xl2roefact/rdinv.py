@@ -92,8 +92,9 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         - MASTER PLAN:
             - [x] variable names for zones: `invoice_header_area`, `invoice_items_area`, `invoice_footer_area`
             - [x] detected `invoice_items_area`
-            - [x] clean `invoice_items_area`
-            - [x] improve serach of `keyword_for_items_table_marker` (search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
+            - [x] clean `invoice_items_area` &
+            - [x] preserved rows index in a separated structure (`invoice_items_area["keyrows_index"]`) & updated corresponding `del <keyrows>` to maintain it
+            - [x] improve search of `keyword_for_items_table_marker` (search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
             - [ ] #TODO transform `invoice_items_area` (dataset format) to `invoice_items_area_JSON` (JSON format)
     """
     # string-markers to search for to isolate `invoice_items_area` (#NOTE partial END result: `_found_cell = (row, col, val)`)
@@ -132,13 +133,16 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         invoice_items_area = invoice_items_area[0] #NOTE NOW will suppose found just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
 
     """ CLEANING & CLEARING section """
-    # clean full empty rows
+    # clean full empty rows & preserve actual rows index in a separated structure (`invoice_items_area["keyrows_index"]`)
+    invoice_items_area["keyrows_index"] = list()
     for _tmp_row_index, _tmp_row in enumerate(invoice_items_area["keyrows"]): # scan all rows and those with empty name/title are first candidates
+        invoice_items_area["keyrows_index"].append(_tmp_row_index)
         if _tmp_row == SYS_FILLED_EMPTY_CELL:
             # inspect all row cells to see if all are empty (aid: `row(row, formula=False, output='v')`)
             _tmp_test_row_if_full_zero = sum([0 if _i == SYS_FILLED_EMPTY_CELL else 1 for _i in invoice_items_area["data"][_tmp_row_index]])
             if _tmp_test_row_if_full_zero == 0: # efectivelly delete in subject objects
                 del invoice_items_area["keyrows"][_tmp_row_index] # drop that row from "keyrows" keyword list
+                # del invoice_items_area["keyrows_index"][_tmp_row_index] # drop that row from "keyrows" keyword list #NOTE there is no need, you just enumerated this index and dropeed it in the same for-loop step
                 del invoice_items_area["data"][_tmp_row_index]  # drop that row from "data" keyword list
 
     # clean empty columns: columns without a name will be completly dropped as they are unusable anyway (ie, do not know what to do with them...)
@@ -163,8 +167,8 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
 
     #TODO ...hereuare...
     ''' #NOTE___<<< quick action plan then come back to **line 80 PLAN** >>>___#NOTE
-        - [ ] preserve actual rows index in a separated structure (`invoice_items_area["keyrows_index"]`).
-              Intention: to scan rows and and for thoses where are "rows between (ie, the index between 2 consecutive rows is > 1)"
+        - [x] (DONE-marked in line 80 plan) preserve actual rows index in a separated structure (`invoice_items_area["keyrows_index"]`).
+              [ ] Intention: to scan rows and and for thoses where are "rows between (ie, the index between 2 consecutive rows is > 1)"
               scan description column to find more text that will become "extended description" (example for Kraftlangen invoice is text "SES 8105685514")
         - [ ] refactor `"keycols"` as:
             - actual value becomes --> `name_displayable`
@@ -210,39 +214,32 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     '''
     #NOTE rezultat obtinut __RENware invoice__: "---> TEST-note: ssub-tabel[0],.. sub-tabel[0], factura contine: ..."
         {
-            'data': [
-                [1, 2, 3, 4, '5 = 3 x 4', '6 = 5 x 19%'],
-                ['Elaborare documentatie tehnica aplicatie NEXGEN.AI', 'buc', 1, 14807.4, 14807.4, 2813.41]
-            ],
-            'keycols': [
-                'Denumirea produselor sau a serviciilor',
-                'UM',
-                'Cant.',
-                'Pret unitar\n(fara TVA)\n- RON -',
-                'Valoarea\n(fara TVA)\n- RON -',
-                'TVA\n- RON -'
-            ],
-            'keyrows': [
-                '0',
-                1
-            ]
+                'data': [
+                    [1, 2, 3, 4, '5 = 3 x 4', '6 = 5 x 19%'],
+                    ['Elaborare documentatie tehnica aplicatie NEXGEN.AI', 'buc', 1, 14807.4, 14807.4, 2813.41]
+                ],
+                'keycols': ['Denumirea produselor sau a serviciilor',
+                            'UM',
+                            'Cant.',
+                            'Pret unitar\n(fara TVA)\n- RON -',
+                            'Valoarea\n(fara TVA)\n- RON -',
+                            'TVA\n- RON -'],
+                'keyrows': ['0', 1],
+                'keyrows_index': [0, 1]
         }
     #NOTE rezultat obtinut __Kraftlangen invoice__: "---> TEST-note:  sub-tabel[0], factura contine: ..."
         {
             'data': [
                 ['Inlocuit conducta PSI coloana C2 DAV.', 1, 42756.08, 0.19, 42756.08, 8123.6552]
             ],
-            'keycols': [
-                'Denumirea lucrarii                                  (Request description)',
-                'Cantitatea (Quantity)',
-                'Pret unitar (Unit price)',
-                'Cota TVA (VAT %)',
-                'Valoare fara TVA (Value without VAT)',
-                'Valoare TVA (Value VAT)'
-            ],
-            'keyrows': [
-                1
-            ]
+            'keycols': ['Denumirea lucrarii                                  (Request description)',
+                        'Cantitatea (Quantity)',
+                        'Pret unitar (Unit price)',
+                        'Cota TVA (VAT %)',
+                        'Valoare fara TVA (Value without VAT)',
+                        'Valoare TVA (Value VAT)'],
+            'keyrows': [1],
+            'keyrows_index': [0]
         }
     '''
 
