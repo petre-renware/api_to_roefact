@@ -169,10 +169,8 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         - [ ] refactor `"keycols"` as:
             - actual value becomes --> `name_displayable`
             - map with an invoice real fields as `name`
-        - [ ] see if keep these CLEANING steps
+        - [ ] see if keep next CLEANING steps
     '''
-
-
 
     ''' #FIXME_#FIXME uncomment up to finish task: "clean full empty columns" --(up to text "END of uncommenta area")
     # if first column is empty then set it to `keyword_for_items_table_marker` (as is the only reasonable possibility of "invoice layout format")
