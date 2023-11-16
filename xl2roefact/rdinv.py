@@ -167,8 +167,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
 
     #TODO ...hereuare...
     ''' #NOTE___<<< quick action plan then come back to **line 80 PLAN** >>>___#NOTE
-        - [x] (DONE-marked in line 80 plan) preserve actual rows index in a separated structure (`invoice_items_area["keyrows_index"]`).
-              [ ] Intention: to scan rows and and for thoses where are "rows between (ie, the index between 2 consecutive rows is > 1)"
+        - [ ] scan rows and and for thoses where are "rows between (ie, the index between 2 consecutive rows is > 1)" (index is in `invoice_items_area["keyrows_index"]`)
               scan description column to find more text that will become "extended description" (example for Kraftlangen invoice is text "SES 8105685514")
         - [ ] refactor `"keycols"` as:
             - actual value becomes --> `name_displayable`
