@@ -94,7 +94,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
             - [x] detected `invoice_items_area`
             - [x] clean `invoice_items_area` &
             - [x] preserved rows index in a separated structure (`invoice_items_area["keyrows_index"]`) & updated corresponding `del <keyrows>` to maintain it
-            - [x] improve search of `keyword_for_items_table_marker` (search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
+            - [...#FIXME... GRESIT PTR CA TREBUIE INDEXUL REAL AL LINIEI, NU RELATIV LA `ssd`] improve search of `keyword_for_items_table_marker` (search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
             - [ ] #TODO transform `invoice_items_area` (dataset format) to `invoice_items_area_JSON` (JSON format)
     """
     # string-markers to search for to isolate `invoice_items_area` (#NOTE partial END result: `_found_cell = (row, col, val)`)
@@ -136,7 +136,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     # clean full empty rows & preserve actual rows index in a separated structure (`invoice_items_area["keyrows_index"]`)
     invoice_items_area["keyrows_index"] = list()
     for _tmp_row_index, _tmp_row in enumerate(invoice_items_area["keyrows"]): # scan all rows and those with empty name/title are first candidates
-        invoice_items_area["keyrows_index"].append(_tmp_row_index)
+        invoice_items_area["keyrows_index"].append(_tmp_row_index) #FIXME_#FIXME_#FIXME GRESIT PTR CA TREBUIE INDEXUL REAL AL LINIEI, NU RELATIV LA `ssd`
         if _tmp_row == SYS_FILLED_EMPTY_CELL:
             # inspect all row cells to see if all are empty (aid: `row(row, formula=False, output='v')`)
             _tmp_test_row_if_full_zero = sum([0 if _i == SYS_FILLED_EMPTY_CELL else 1 for _i in invoice_items_area["data"][_tmp_row_index]])
