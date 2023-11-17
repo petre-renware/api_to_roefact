@@ -137,6 +137,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     invoice_items_area["keyrows_index"] = list()
     for _tmp_row_index, _tmp_row in enumerate(invoice_items_area["keyrows"]): # scan all rows and those with empty name/title are first candidates
         invoice_items_area["keyrows_index"].append(_tmp_row_index) #FIXME_#FIXME_#FIXME GRESIT PTR CA TREBUIE INDEXUL REAL AL LINIEI, NU RELATIV LA `ssd`
+
         if _tmp_row == SYS_FILLED_EMPTY_CELL:
             # inspect all row cells to see if all are empty (aid: `row(row, formula=False, output='v')`)
             _tmp_test_row_if_full_zero = sum([0 if _i == SYS_FILLED_EMPTY_CELL else 1 for _i in invoice_items_area["data"][_tmp_row_index]])
