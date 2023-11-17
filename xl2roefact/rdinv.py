@@ -13,6 +13,7 @@
 """
 
 # general modules (should be already imported by BaseProc class)
+import os
 from datetime import datetime
 from colorama import Fore, Back, Style
 import copy
@@ -91,10 +92,12 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         - section ends with comment "------ END OF section `invoice_items_area`"
         - MASTER PLAN:
             - [x] variable names for zones: `invoice_header_area`, `invoice_items_area`, `invoice_footer_area`
+            - [ ] store in `invoice_items_area["meta_info"]` details about `invoice_items_area ssd`: start address, size. NOTE: all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file)
             - [x] detected `invoice_items_area`
             - [x] clean `invoice_items_area` &
             - [x] preserved rows index in a separated structure (`invoice_items_area["keyrows_index"]`) & updated corresponding `del <keyrows>` to maintain it
-            - [...#FIXME... GRESIT PTR CA TREBUIE INDEXUL REAL AL LINIEI, NU RELATIV LA `ssd`] improve search of `keyword_for_items_table_marker` (search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
+            - [x] improved search of `keyword_for_items_table_marker` (search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter)
+                    #TODO [#NOTE_ID_ROW_IDX] ... if possible get REAL ROW INDEX, as absolute index in Excel file (actual ersion get relative in `ssd`)
             - [ ] #TODO transform `invoice_items_area` (dataset format) to `invoice_items_area_JSON` (JSON format)
     """
     # string-markers to search for to isolate `invoice_items_area` (#NOTE partial END result: `_found_cell = (row, col, val)`)
@@ -132,12 +135,24 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         #   #NOTE `invoice_items_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
         invoice_items_area = invoice_items_area[0] #NOTE NOW will suppose found just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
 
+    """ preserve `ssd` meta information: in `invoice_items_area["meta_info"]`start address, size.
+        NOTE: all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file)
+    """
+    invoice_items_area["meta_info"] = dict()
+    invoice_items_area["meta_info"]["file"] = os.path.basename(file_to_process)
+    invoice_items_area["meta_info"]["invoice_worksheet"] = invoice_worksheet_name
+    invoice_items_area["meta_info"]["max_rows"] = _ws_max_rows
+    invoice_items_area["meta_info"]["max_cols"] = _ws_max_cols
+    invoice_items_area["meta_info"]["start_marker_value"] = keyword_for_items_table_marker
+    invoice_items_area["meta_info"]["start_cell"] = (_found_cell[0], _found_cell[1])
+
     """ CLEANING & CLEARING section """
-    # clean full empty rows & preserve actual rows index in a separated structure (`invoice_items_area["keyrows_index"]`)
+    # preserve actual rows index in a separated structure (`invoice_items_area["keyrows_index"]`)
     invoice_items_area["keyrows_index"] = list()
     for _tmp_row_index, _tmp_row in enumerate(invoice_items_area["keyrows"]): # scan all rows and those with empty name/title are first candidates
-        invoice_items_area["keyrows_index"].append(_tmp_row_index) #FIXME_#FIXME_#FIXME GRESIT PTR CA TREBUIE INDEXUL REAL AL LINIEI, NU RELATIV LA `ssd`
+        invoice_items_area["keyrows_index"].append(_tmp_row_index) #TODO here - see note: [#NOTE_ID_ROW_IDX]
 
+        # clean full empty rows
         if _tmp_row == SYS_FILLED_EMPTY_CELL:
             # inspect all row cells to see if all are empty (aid: `row(row, formula=False, output='v')`)
             _tmp_test_row_if_full_zero = sum([0 if _i == SYS_FILLED_EMPTY_CELL else 1 for _i in invoice_items_area["data"][_tmp_row_index]])
@@ -226,6 +241,12 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
                             'TVA\n- RON -'],
                 'keyrows': ['0', 1],
                 'keyrows_index': [0, 1]
+                'meta_info': {'file': 'fact_RENF1004.xlsx',
+                            'invoice_worksheet': 'FACTURA FINALA',
+                            'max_cols': 13,
+                            'max_rows': 37,
+                            'start_cell': (14, 1),
+                            'start_marker_value': 'Nr. crt'}
         }
     #NOTE rezultat obtinut __Kraftlangen invoice__: "---> TEST-note:  sub-tabel[0], factura contine: ..."
         {
@@ -240,6 +261,12 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
                         'Valoare TVA (Value VAT)'],
             'keyrows': [1],
             'keyrows_index': [0]
+            'meta_info': {'file': 'Fact _Petrom_11017969.xlsx',
+               'invoice_worksheet': 'Factura(Invoice)',
+               'max_cols': 8,
+               'max_rows': 49,
+               'start_cell': (29, 1),
+               'start_marker_value': 'No. crt.'}}
         }
     '''
 
