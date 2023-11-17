@@ -45,7 +45,7 @@
     * ... consider to refactor `xl2roefact` to `xl2xml` (#FIXME not yet sure - must think more because name is very restrictive as what module does)
 
 
-* wip... 231116piu_a #TODO invoice lines, then isolate header and footer ==> set variable for these zones: `invoice_header_area`, `invoice_items_area`, `invoice_footer_area`
+* wip... 231117piu_a #TODO invoice lines, then isolate header and footer ==> set variable for these zones: `invoice_header_area`, `invoice_items_area`, `invoice_footer_area`
 
 * 231112piu_a refactor:
     *  [x] `base_proc` to `xl2roefact`
