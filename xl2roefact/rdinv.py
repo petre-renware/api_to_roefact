@@ -320,7 +320,8 @@ def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name):
         _crt_range_START_ROW = _crt_range.bounds[1]
         _crt_range_END_ROW = _crt_range.bounds[3]
         #print(f"\t/*** -start COL {_crt_range_START_COL} -end COL {_crt_range_END_COL} -start ROW {_crt_range_START_ROW} -end ROW {_crt_range_END_ROW}") #FIXME drop me
-        # traversing range for all cells in
+        #
+        # traversing merged range for all cells in
         _first_entry = True # if is first entry in rage traversing
         _full_break = False # if range is ireveant and need to leave & forget it
         for c in range(_crt_range_START_COL, _crt_range_END_COL + 1): # traverse all COLS ...
@@ -335,9 +336,10 @@ def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name):
                         _full_break = True
                         break
                     #print(f"\t/***** RELEVANT cell (row,col = {r},{c}) has value {_crt_cell_value}") # #FIXME drop me
-                if not _first_entry: # here the cell has a relevant value, store all next to be marked with SYS_FILLED_EMPTY_CELL
-                    _cells_to_be_changed.append((r, c))
-                    #print(f"\t/***** cell {(r, c)} marked for '___sys_filled_empty_cell' / {Fore.YELLOW}all list is {_cells_to_be_changed}{Style.RESET_ALL}") # #FIXME drop me
+                    # #FIXME changed nxt `if`, indented it to make part of EXACTLY WHAT DID FOR because here you're on a relevant case (the `print` before me exactly that says !! :)
+                    if not _first_entry: # here the cell has a relevant value, store all next to be marked with SYS_FILLED_EMPTY_CELL
+                        _cells_to_be_changed.append((r, c))
+                        #print(f"\t/***** cell {(r, c)} marked for '___sys_filled_empty_cell' / {Fore.YELLOW}all list is {_cells_to_be_changed}{Style.RESET_ALL}") # #FIXME drop me
                 _first_entry = False
             if _full_break:
                 break
