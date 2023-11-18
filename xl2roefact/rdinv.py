@@ -320,6 +320,7 @@ def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name):
         _crt_range_START_ROW = _crt_range.bounds[1]
         _crt_range_END_ROW = _crt_range.bounds[3]
         #print(f"\t/*** -start COL {_crt_range_START_COL} -end COL {_crt_range_END_COL} -start ROW {_crt_range_START_ROW} -end ROW {_crt_range_END_ROW}") #FIXME drop me
+        #
         # traversing merged range for all cells in
         _first_entry = True # if is first entry in rage traversing
         _full_break = False # if range is ireveant and need to leave & forget it
