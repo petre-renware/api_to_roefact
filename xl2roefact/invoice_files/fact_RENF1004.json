@@ -1,0 +1,205 @@
+{
+    "cac:InvoiceLine": [
+        {
+            "cac:Item": {
+                "cac:ClassifiedTaxCategory": {
+                    "cac:TaxScheme": {
+                        "cbc:ID": "VAT"
+                    },
+                    "cbc:Percent": 0.19
+                },
+                "cbc:Name": "1"
+            },
+            "cac:Price": {
+                "cbc:PriceAmount": 4.0,
+                "cbc:currencyID": "RON"
+            },
+            "cbc:ID": "0",
+            "cbc:InvoicedQuantity": 3,
+            "cbc:LineExtensionAmount": 12.0,
+            "cbc:unitCode": 2
+        },
+        {
+            "cac:Item": {
+                "cac:ClassifiedTaxCategory": {
+                    "cac:TaxScheme": {
+                        "cbc:ID": "VAT"
+                    },
+                    "cbc:Percent": 0.19
+                },
+                "cbc:Name": "Elaborare documentatie tehnica aplicatie NEXGEN.AI"
+            },
+            "cac:Price": {
+                "cbc:PriceAmount": 11111.5,
+                "cbc:currencyID": "RON"
+            },
+            "cbc:ID": "1",
+            "cbc:InvoicedQuantity": 3.5,
+            "cbc:LineExtensionAmount": 38890.25,
+            "cbc:unitCode": "buc"
+        },
+        {
+            "cac:Item": {
+                "cac:ClassifiedTaxCategory": {
+                    "cac:TaxScheme": null,
+                    "cbc:Percent": null
+                },
+                "cbc:Name": "conf Comanda 1/30.06.2023, Contract 3662.1/ 30.06.2023"
+            },
+            "cac:Price": {
+                "cbc:PriceAmount": null,
+                "cbc:currencyID": null
+            },
+            "cbc:ID": "1.NOTE-a",
+            "cbc:InvoicedQuantity": null,
+            "cbc:LineExtensionAmount": null,
+            "cbc:unitCode": ""
+        },
+        {
+            "cac:Item": {
+                "cac:ClassifiedTaxCategory": {
+                    "cac:TaxScheme": null,
+                    "cbc:Percent": null
+                },
+                "cbc:Name": "si PV acceptanta 1/24.08.2023"
+            },
+            "cac:Price": {
+                "cbc:PriceAmount": null,
+                "cbc:currencyID": null
+            },
+            "cbc:ID": "1.NOTE-b",
+            "cbc:InvoicedQuantity": null,
+            "cbc:LineExtensionAmount": null,
+            "cbc:unitCode": ""
+        },
+        {
+            "cac:Item": {
+                "cac:ClassifiedTaxCategory": {
+                    "cac:TaxScheme": null,
+                    "cbc:Percent": null
+                },
+                "cbc:Name": "'*** valoare 3000EUR la curs BNR"
+            },
+            "cac:Price": {
+                "cbc:PriceAmount": null,
+                "cbc:currencyID": null
+            },
+            "cbc:ID": "1.NOTE-c",
+            "cbc:InvoicedQuantity": null,
+            "cbc:LineExtensionAmount": null,
+            "cbc:unitCode": ""
+        },
+        {
+            "cac:Item": {
+                "cac:ClassifiedTaxCategory": {
+                    "cac:TaxScheme": {
+                        "cbc:ID": "VAT"
+                    },
+                    "cbc:Percent": 0.19
+                },
+                "cbc:Name": "Acciza 1%"
+            },
+            "cac:Price": {
+                "cbc:PriceAmount": 111.115,
+                "cbc:currencyID": "RON"
+            },
+            "cbc:ID": "2",
+            "cbc:InvoicedQuantity": 1,
+            "cbc:LineExtensionAmount": 111.11,
+            "cbc:unitCode": ""
+        }
+    ],
+    "excel_data": {
+        "invoice_footer_area": "...to be done",
+        "invoice_header_area": "...owner, partner, invoice identification",
+        "invoice_items_area": {
+            "data": [
+                [
+                    1,
+                    2,
+                    3,
+                    4,
+                    "5 = 3 x 4",
+                    "6 = 5 x 19%"
+                ],
+                [
+                    "Elaborare documentatie tehnica aplicatie NEXGEN.AI",
+                    "buc",
+                    3.5,
+                    11111.5,
+                    38890.25,
+                    7389.15
+                ],
+                [
+                    "conf Comanda 1/30.06.2023, Contract 3662.1/ 30.06.2023",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "si PV acceptanta 1/24.08.2023",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "'*** valoare 3000EUR la curs BNR",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "Acciza 1%",
+                    "",
+                    1,
+                    111.115,
+                    111.12,
+                    0
+                ]
+            ],
+            "keycols": [
+                "Denumirea produselor sau a serviciilor",
+                "UM",
+                "Cant.",
+                "Pret unitar\n(fara TVA)\n- RON -",
+                "Valoarea\n(fara TVA)\n- RON -",
+                "TVA\n- RON -"
+            ],
+            "keyrows": [
+                "0",
+                1,
+                "1.NOTE-a",
+                "1.NOTE-b",
+                "1.NOTE-c",
+                2
+            ]
+        }
+    },
+    "meta_info": {
+        "file": "fact_RENF1004.xlsx",
+        "file_CRC": "...file CRC (uniquely identify the invoice file used)",
+        "invoice_XML_schemes": {
+            "xmlns": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+            "xmlns:cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+            "xmlns:cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+            "xmlns:ns4": "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2",
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xsi:schemaLocation": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"
+        },
+        "invoice_max_cols": 12,
+        "invoice_max_rows": 35,
+        "invoice_worksheet": "FACTURA FINALA",
+        "items_table_start_cell": [
+            14,
+            1
+        ],
+        "items_table_start_marker": "Nr. crt",
+        "last_processing_UTCtime": "2023-11-26T01:59:43.597226+00:00"
+    }
+}

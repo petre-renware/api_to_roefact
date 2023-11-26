@@ -45,11 +45,11 @@ Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura]
 
 Solutia `api_to_roefact` consta din urmatoarele componente:
 
-* `api_to_roefact`.**`BASE_PROC`** aceasta componenta are rolul de a implementa efectiv obiectivele principale ale sistemului **APItoROefact**. Componenta este capabila sa ruleze atit "_standalone_" (ca linie de comanda CLI) dar si prin utilizarea ei de catre componenta `WEB_DASHB` si astfel utilizarea ei in varianta de sistem prezentat "_over internet / intranet_". [Prezentarea detalita a acesteia se gaseste aici](#componenta-base_proc).
+* `api_to_roefact`.**`xl2roefact`** aceasta componenta are rolul de a implementa efectiv obiectivele principale ale sistemului **APItoROefact**. Componenta este capabila sa ruleze atit "_standalone_" (ca linie de comanda CLI) dar si prin utilizarea ei de catre componenta `WEB_DASHB` si astfel utilizarea ei in varianta de sistem prezentat "_over internet / intranet_". [Prezentarea detalita a acesteia se gaseste aici](#componenta-xl2roefact).
 
 * `api_to_roefact`.**`WEB_DASHB`** aceasta componenta are rolul de agrega componentele si de a prezenta solutia **APItoROefact** "_over internet / intranet_". De asemenea componenta asigura modulele UI necesare pentru administrarea sistemului. [Prezentarea detalita a acesteia se gaseste aici](#componenta-web_dashb).
 
-* `api_to_roefact`.**`SYSTEM_DB`** .Aceasta componente reprezita baza de date a sistemului **APItoROefact** atit partea relationala dar si partea `no-sql` a acesteia (utilizata pentru eventuale sincrnizari provenite din utilizarea CLI a componentei `BASE_PROC`). [Prezentarea detalita a acesteia se gaseste aici](#componenta-system_db).
+* `api_to_roefact`.**`SYSTEM_DB`** .Aceasta componente reprezita baza de date a sistemului **APItoROefact** atit partea relationala dar si partea `no-sql` a acesteia (utilizata pentru eventuale sincrnizari provenite din utilizarea CLI a componentei `xl2roefact`). [Prezentarea detalita a acesteia se gaseste aici](#componenta-system_db).
 
 
 Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului `api_to_roefact`.
@@ -63,7 +63,7 @@ Figura urmatoare prezinta schematic rolul general al componentelor precum si int
 
 
 
-## Componenta BASE_PROC
+## Componenta xl2roefact
 
 * **(RDINV)** modul de procesare a fisierului format `XLSX` ce contine factura si colectare a datelor aferente
     * _INTRARI_: fisier format `XLSX` ce contine factura emisa (cod: **`f-XLSX`**)
@@ -84,6 +84,10 @@ Figura urmatoare prezinta schematic rolul general al componentelor precum si int
 * **(CHKISLD)** modul de verificare a starii de incarcare a unei facturi emise
     * _INTRARI_: fisier `f-XLSX` sau numarul / cheia / codul facturii
     * _IESIRI_: valoarea echivalent `TRUE` daca factura a fost deja incarcata sau valoare echivalent `FALSE` daca factura nu a fost incarcata [^2]
+
+
+!!! danger "Formatul fisierelor Excel cu factura"
+    `XLSX` este sigurul format de fisier acceptat
 
 
 ### Diagrama logica de functionare a componentei

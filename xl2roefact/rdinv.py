@@ -1,0 +1,451 @@
+#!./.wenv_xl2roefact/bin/python3
+"""  RDINV - modul de procesare a fisierului format XLSX ce contine factura si colectare a datelor aferente
+
+    Identification:
+        code-name: `rdinv`
+        copyright: (c) 2023 RENWare Software Systems
+        author: Petre Iordanescu (petre.iordanescu@gmail.com)
+
+    Specifications:
+        document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
+        INTRARI: fisier format XLSX ce contine factura emisa (cod: `f-XLSX`)
+        IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
+"""
+
+import os
+from datetime import datetime, timezone, tzinfo
+from colorama import Fore, Back, Style
+import copy
+from pprint import pprint
+from string import ascii_lowercase
+import json
+from libutils import isnumber, find_str_in_list # local library
+import pylightxl as xl
+import openpyxl as opnxl
+
+
+# constants (all constants are #TODO subject of CONFIG #TODO subject of documentation update)
+SYS_FILLED_EMPTY_CELL = "_sys_keep_cell"
+DEFAULT_VAT_PERCENT = 0.19
+DEFAULT_UNKNOWN_ITEM_NAME = "--- n/a ---"
+DEFAULT_UNKNOWN_UOM = None
+DEFAULT_CURRENCY = "RON"
+INVOICE_ITEMS_SUBTABLE_MARKER = [" crt", "no. crt", "nr. crt", "#"]
+
+
+def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
+    """ main function of RDINV module
+
+    Arguments:
+        - `file_to_process`: the invoice file (exact file with path)
+        - `invoice_worksheet_name`: the worksheet containing invoice
+
+    Return:
+        - `invoice`: the invoice extracted information from Excel file as
+                     `dict(meta_info: dict, invoice_header_area: dict, invoice_items_area: dict, invoice_footer_area: dict)`  #TODO subject of documentation update
+
+    Important variables:
+        - `db`: htxl object with invoice EXCEL (as a whole)
+        - `ws`: pylightxl object with invoice WORKSHEET
+    """
+
+    print(f"\n*** Module {Fore.CYAN} RDINV (code-name: `rdinv`){Style.RESET_ALL} started at {Fore.GREEN}{datetime.now()}{Style.RESET_ALL} to process file {Fore.GREEN} {file_to_process}{Style.RESET_ALL}")
+
+    # read Excel file with Invoice data
+    try:
+        db = xl.readxl(fn=file_to_process)
+    except:
+        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel file {file_to_process} (possible problems: file corrupted, wrong type only XLSX accetpted, file does not exists or was deleted, operating system vilotation) in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
+        return False
+    #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel database read (`db` variable) as: {db}{Style.RESET_ALL}")  #NOTE for debug purposes
+
+    # read the workshet with Invoice data
+    if invoice_worksheet_name is None:  # if parameter `invoice_worksheet_name` not specified try to open first worksheet from Excel worksheets - order is given by worksheets order in Excel file
+        list_of_excel_worksheets = db.ws_names
+        print(f"{Fore.YELLOW}INFO note:{Style.RESET_ALL} `rdinv` module, no worksheet specified so will open first from this list {list_of_excel_worksheets}")
+        invoice_worksheet_name = list_of_excel_worksheets[0]
+
+    try:
+        ws = db.ws(invoice_worksheet_name)
+    except:
+        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel specified Worksheet \"{invoice_worksheet_name}\" in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
+        return False
+    #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel worksheet read (`ws` variable) as: {ws}{Style.RESET_ALL}")  #NOTE for debug purposes
+
+    """ #NOTE: section for search of `invoice_items_area` (ie `pylightxl.ssd` object)
+        - how: search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter
+        - result: `keyword_for_items_table_marker` = string marker to search for in oredr to isolate `invoice_items_area`
+        - NOTE: partial result: `_found_cell = (row, col, val)`
+    """
+    _ws_max_rows, _ws_max_cols = ws.size[0], ws.size[1]
+    _FOUND_RELEVANT_CELL = False
+    for _crt_row in range(1, _ws_max_rows + 1):  # traverse all rows (start from 1 as Excel style)
+        for _crt_col in range(1, _ws_max_cols + 1):  # traverse all cols (start from 1 as Excel style)
+            _crt_cell_val = ws.index(_crt_row, _crt_col)
+            if (_crt_cell_val == "") or (_crt_cell_val == SYS_FILLED_EMPTY_CELL) or (_crt_cell_val is None):  # skip empty cells and continue with next cells
+                continue
+            # search for all strings from INVOICE_ITEMS_SUBTABLE_MARKER
+            _cell_val_to_test = str(_crt_cell_val).lower()
+            for i in INVOICE_ITEMS_SUBTABLE_MARKER:   # search in current cell contains one the strings potential to identify items subtable
+                if i in _cell_val_to_test:
+                    _found_cell = (_crt_row, _crt_col, _crt_cell_val)
+                    _FOUND_RELEVANT_CELL = True
+                    break  # found a relevant cell ==> exit
+                else:
+                    continue
+            if _FOUND_RELEVANT_CELL:
+                break
+        if _FOUND_RELEVANT_CELL:
+            break
+    if not _FOUND_RELEVANT_CELL:
+        print(f"{Fore.RED}***FATAL ERROR - Cannot find a relevant cell where invoice items table start (basically containing string \" crt\"). File processing terminated{Style.RESET_ALL}")
+        return False
+    keyword_for_items_table_marker = _found_cell[2]  #NOTE here you have `_found_cell = (row, col, val)` so can set variable `keyword_for_items_table_marker`
+
+    # detect all cells that should be changed to SYS_FILLED_EMPTY_CELL (these are cells id merged groups where first cell in merged group is relevant (diff from empty))
+    detected_cells_which_will_be_fake_filled = _get_merged_cells_tobe_changed(
+        file_to_scan=file_to_process,
+        invoice_worksheet_name=invoice_worksheet_name,
+        keep_cells_of_items_ssd_marker=_found_cell)  # call specify that cells with some description but not real invoice lines but probably just details / supplimentary explanations to last real invoce line, will be kept (to be preserved in final invoice as: extended description)
+    #print(f"----------DETECTED RANGES: {detected_cells_which_will_be_fake_filled}")  #NOTE for debug purposes
+    # scan all detectected cell and change them
+    for _cell_index in detected_cells_which_will_be_fake_filled:
+        _cell_row = _cell_index[0]
+        _cell_col = _cell_index[1]
+        ws.update_index(row = _cell_row, col = _cell_col, val = SYS_FILLED_EMPTY_CELL)
+
+    """ solve `invoice_items_area` in 2 steps:
+        - first process it as Excel format (row & colomns datale (aka Data Frame))
+        - transform it in "canonical JSON format" (as kv pairs)
+    """
+    # process invoice to detect its items / lines ('invoice_items_area'), clean and extract data
+    invoice_items_area = _get_invoice_items_area(
+        worksheet=ws,
+        invoice_items_area_marker=keyword_for_items_table_marker,
+        wks_name=invoice_worksheet_name
+    )
+    # transform `invoice_items_area` in "canonical JSON format" (as kv pairs)
+    invoice_items_as_kv_pairs = __mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
+    #FIXME ...hereuare... review what was done and drop this line (continued when build final `invoice` dict ~line 143)
+
+
+
+    """ preserve processed Excel file meta information: start address, size.
+        NOTE: all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update
+    """
+    meta_info = dict()
+    meta_info["file"] = os.path.basename(file_to_process)
+    meta_info["file_CRC"] = "...file CRC (uniquely identify the invoice file used)"  #TODO to be done... #NOTE this calculation should be done as last step after final XLSX file writing
+    meta_info["last_processing_UTCtime"] = datetime.now(timezone.utc).isoformat()  # set to ISO 8601 format
+    meta_info["invoice_worksheet"] = invoice_worksheet_name
+    meta_info["invoice_max_rows"] = _ws_max_rows
+    meta_info["invoice_max_cols"] = _ws_max_cols
+    meta_info["items_table_start_marker"] = keyword_for_items_table_marker
+    meta_info["items_table_start_cell"] = (_found_cell[0], _found_cell[1])
+    meta_info["invoice_XML_schemes"] = {
+        "xmlns": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+        "xmlns:cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+        "xmlns:cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+        "xmlns:ns4": "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2",
+        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "xsi:schemaLocation": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"
+    }
+
+    # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
+    invoice = {
+        "meta_info": copy.deepcopy(meta_info),
+        "excel_data": dict(
+            invoice_items_area = copy.deepcopy(invoice_items_area),
+            invoice_header_area = "...owner, partner, invoice identification, currency, invoice id/number, issued date",  #TODO to be done...
+            invoice_footer_area = "...to be done"  #TODO to be done...
+        ),
+        "cac:InvoiceLine": [_i for _i in invoice_items_as_kv_pairs]  #NOTE_1 `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard #NOTE_2 cannot use dict() function because the keys that go to XML tags must be qualified with scheme name (ie: schema:key)
+    }
+
+    # write `invoice` dict to `f-JSON`
+    """ useful NOTE(s):
+        - ref `f-JSON` file, see doc: `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#vedere-de-ansamblu-a-solutiei`
+        - set `f-JSON` filename as Excel filename but with json extention
+        - helpers:
+                - os.split gets @[0] directory & @[1] filename
+                - os.splitext @[0] filename w/o ext, @[1] extention woth dot char included
+    """
+    _fjson_filename = os.path.splitext(os.path.basename(file_to_process))[0] + ".json"
+    _fjson_fileobject = os.path.join(os.path.split(file_to_process)[0], _fjson_filename)
+    with open(_fjson_fileobject, 'w', encoding='utf-8') as _f:
+        json.dump(invoice, _f, ensure_ascii = False, sort_keys = True, indent = 4)
+    print(f"{Fore.YELLOW}INFO note:{Style.RESET_ALL} `rdinv` module, written invoice JSON data to: {Fore.GREEN}{_fjson_fileobject}{Style.RESET_ALL}")
+
+
+
+    #TODO check for more TODOs, clean &&-->
+    #TODO wip...(@231125) TRANSFORM JSON FILE from Excel (row,col) format in a relational one (but respecting ROefact tags from used scheme)
+    #FIXME ------------ FINAL TEST area & notes starts here  #FIXME drop me at final
+    print(f"{Fore.YELLOW}---> TEST-note: sub-tabel[0], factura contine:{Style.RESET_ALL}")  #NOTE test should be an array of arrays (matrix) with invoice items #FIXME drop after test
+    pprint(invoice, width = 132)  #NOTE see generated JSON files for content #FIXME drop me at final
+    print()
+
+    return invoice
+
+
+
+
+
+
+# #NOTE - ready, test PASS @ 231126 by [piu]
+def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
+    """ transform `invoice_items_area` in "canonical JSON format" (as kv pairs)
+
+    Arguments:
+        - `invoice_items_area_xl_format` - invoice items area in Excel format (ie, DataFrame with row, col, data)
+
+    Return:
+        - `invoice_items_area_xl_format` - dictionary with invoice items in Excel format (ie, rows, columns)
+    Notes:
+        - for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`
+    """
+    _invoice_items_data_key = copy.deepcopy(invoice_items_area_xl_format["data"])
+    _invoice_items_cols_key = copy.deepcopy(invoice_items_area_xl_format["keycols"])
+    _invoice_items_rows_key = copy.deepcopy(invoice_items_area_xl_format["keyrows"])
+
+    _invoice_items_area_json_format = list()
+    for _i, _line in enumerate (_invoice_items_rows_key):
+        """ identify usual invoice columns: item desc, item UOM, item VAT_percent, item unit_price, item line_value, itemline_ VAT_value
+        """
+        if True:  # ---- find item quantity column ==> (`cbc:InvoicedQuantity`)
+            _col_index = find_str_in_list(["qty", "cant", "quantity"], _invoice_items_cols_key)
+            if _col_index is None:  # did not find a suitable column to represent number, so return None probably raising an error
+                print(f"{Fore.RED}***FATAL ERROR - module 'RDINV', function `__mk_kv_invoice_items_area(...)`. Cannot find a 'QUANTITY' column in items table. Processing terminated{Style.RESET_ALL}")
+                return False
+            else:
+                _item_quantity = _invoice_items_data_key[_i][_col_index] if isnumber(str(_invoice_items_data_key[_i][_col_index])) else None
+
+        """ #NOTE-1: from here, the following columns are considered "valid" only if a quantity is specified (otherwise is considered an extended description)
+        """
+
+        if True:  # ---- find item VAT percent (if exists..., some invoices do noy specify percent itself but just value) ==> (`cbc:Percent`)
+            _col_index = find_str_in_list(["cota", "vat %", "% vat"], _invoice_items_cols_key)
+            if _col_index is None: # did not find a suitable column to represent number, so return None probably raising an error
+                _vat_percent = DEFAULT_VAT_PERCENT if _item_quantity else None  # see #NOTE-1
+            else:
+                #FIXME `_vat_percent` calculation should also consider a simplified invoice where only VAT value is specificed AND THEN SHOULD BE CALCULATED AS_IS in document (see "acciza line on REN... invoice")
+                _vat_percent = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_VAT_PERCENT if _item_quantity else None)  # see #NOTE-1 #FIXME fix it considering previous comment
+
+        if True:  # ---- find item description / name ==> (`cbc:Name`)
+            _col_index = find_str_in_list(["denumire", "name", "nume", "item", "desc"], _invoice_items_cols_key)
+            if _col_index is None: # did not find a suitable column to represent number, so return None probably raising an error
+                _name_description = DEFAULT_UNKNOWN_ITEM_NAME if _item_quantity else None  # see #NOTE-1
+            else:
+                _name_description = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_UNKNOWN_ITEM_NAME if _item_quantity else None)  # see #NOTE-1
+
+        if True:  # --- find unit of measure ==> (`cbc:unitCode`)
+            _col_index = find_str_in_list(["uom", "um", "masura", "measure"], _invoice_items_cols_key)
+            if _col_index is None: # did not find a suitable column to represent number, so return None probably raising an error
+                _unif_of_measure = DEFAULT_UNKNOWN_UOM if _item_quantity else None  # see #NOTE-1
+            else:
+                _unif_of_measure = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_UNKNOWN_UOM if _item_quantity else None)  # see #NOTE-1
+
+        if True:  # --- find unit price ==> (`cbc:PriceAmount`)
+            _col_index = find_str_in_list(["price", "pret"], _invoice_items_cols_key)
+            if _col_index is None:  # did not find a suitable column to represent number, so return None probably raising an error
+                _unit_price = 0 if _item_quantity else None  # see #NOTE-1
+            else:
+                _tmp = float(_invoice_items_data_key[_i][_col_index]) if isnumber(str(_invoice_items_data_key[_i][_col_index])) else None  # convert it to numer if possible
+                _unit_price = _tmp if (_tmp is not None) else (_tmp if _item_quantity else None)  # see #NOTE-1
+
+        if True:  # --- find CURRENCY ==> (`cbc:currencyID`) (#FIXME this will be identifyed in `invoice_header_area` ==> should be changed accordingly)
+            ...
+
+        if True:  # --- calculate line totals ==> (`cbc:LineExtensionAmount`)
+            _item_total = None
+            if (_item_quantity is not None) and (_unit_price is not None):
+                _item_total = round(_item_quantity * _unit_price, 2)
+
+
+        # build dictionary with usual invoice columns (respecting as possible the XSD schemes listed in [`meta_info`][`invoice_XML_schemes`] key)
+        _line_info = {
+            "cac:InvoiceLine": {
+                "cbc:ID": str(_line),
+                "cbc:InvoicedQuantity": _item_quantity,
+                "cbc:unitCode": _unif_of_measure,
+                "cac:Item": {  #-NOTE these are the item specifications (uom, vat)
+                    "cbc:Name": str(_name_description),
+                    "cac:ClassifiedTaxCategory": {
+                        "cbc:Percent": _vat_percent,
+                        "cac:TaxScheme": {"cbc:ID": "VAT"} if _item_quantity else None
+                    }
+                },
+                "cac:Price": {
+                    "cbc:PriceAmount" : _unit_price,
+                    "cbc:currencyID": DEFAULT_CURRENCY if _unit_price else None  #FIXME this will be identifyed in `invoice_header_area` ==> should be changed accordingly
+                },
+                "cbc:LineExtensionAmount": _item_total
+            }
+        }
+        _invoice_items_area_json_format.append(_line_info["cac:InvoiceLine"])
+    return copy.deepcopy(_invoice_items_area_json_format)
+
+
+
+
+
+
+# #NOTE - ready, test PASS @ 231121 by [piu]
+def _get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
+    """ get invoice for `invoice_items_area`, process it and return its Excel format
+
+    Description:
+        - find invoice items subtable
+        - clean invoice items subtable
+        - extract relevenat data
+        - NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
+
+    Arguments:
+        - `worksheet` - the worksheet containing invoice (as object of `pyxllight` library)
+        - `invoice_items_area_marker` - string with exact marker of invoice items table
+            NOTE: this is the UPPER-LEFT corner and is determined before calling this procedure
+        - `wks_name` the wroksheet name (string) of the `worksheet` object
+
+    Return:
+        - `invoice_items_area` - dictionary with invoice items in Excel format (ie, rows, columns)
+    """
+    # obtain table with invoice items ==> `invoice_items_area`
+    invoice_items_area = worksheet.ssd(keycols = invoice_items_area_marker, keyrows = invoice_items_area_marker)
+    if (invoice_items_area is None or ((isinstance(invoice_items_area, list)) and len(invoice_items_area) < 1)):  # there was not detected any area candidate to "invoice items / lines", so will exit rasing error
+        print(f"{Fore.RED}***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - \"{wks_name}\" in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
+        return False
+
+    #TODO test if list has more items (ie, that means more item tables that will need to be consolidated)
+    if isinstance(invoice_items_area, list) and len(invoice_items_area) > 0:
+        #   #NOTE `invoice_items_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
+        invoice_items_area = invoice_items_area[0]  #NOTE NOW will suppose found just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
+
+    """ CLEANING & CLEARING section
+    """
+    if True:  # preserve actual rows index in a separated structure (`invoice_items_area["keyrows_index"]`)
+        invoice_items_area["keyrows_index"] = list()
+        for _tmp_row_index, _tmp_row in enumerate(invoice_items_area["keyrows"]):  # scan all rows and those with empty name/title are first candidates
+            invoice_items_area["keyrows_index"].append(_tmp_row_index)
+            # clean full empty rows
+            if _tmp_row == SYS_FILLED_EMPTY_CELL:
+                # inspect all row cells to see if all are empty
+                _tmp_test_row_if_full_zero = sum([0 if _i == SYS_FILLED_EMPTY_CELL else 1 for _i in invoice_items_area["data"][_tmp_row_index]])
+                if _tmp_test_row_if_full_zero == 0:  # efectivelly delete in subject objects
+                    del invoice_items_area["keyrows"][_tmp_row_index]  # drop that row from "keyrows" keyword list
+                    # del invoice_items_area["keyrows_index"][_tmp_row_index]  # drop that row from "keyrows" keyword list #NOTE there is no need, you just enumerated this index and dropeed it in the same for-loop step
+                    del invoice_items_area["data"][_tmp_row_index]  # drop that row from "data" keyword list
+        del invoice_items_area["keyrows_index"]  # cleanup after do job ... :)
+
+    if True:  # clean empty columns: columns without a name will be completly dropped as they are unusable anyway (ie, do not know what to do with them...)
+        _tmp_cells_to_drop_in_data_key = list()
+        _tmp_items_to_drop_in_keycols_key = list()
+        for _tmp_col_index, _tmp_col in enumerate(invoice_items_area["keycols"]):  # scan all cols and those with empty name/title are first candidates
+            if _tmp_col == SYS_FILLED_EMPTY_CELL:
+                # inspect all col cells to see if all are empty & efectivelly delete in subject objects
+                _tmp_items_to_drop_in_keycols_key.append(_tmp_col_index)
+                for _data_row_index, _data_row in enumerate(invoice_items_area["data"]):  # scan all rows to find out cells that are part of in subject columns
+                    # find out DATA all cells that corresponding to columns to be dropped ==> `_tmp_cells_to_drop_in_data_key: list[(row, col)]`
+                    _tmp_tmp = (_data_row_index, _tmp_col_index)
+                    _tmp_cells_to_drop_in_data_key.append(_tmp_tmp)
+        # drop collected objects (column heads from KEYCOLS & correcsponding cell from DATA)
+        for _obj_to_delete in reversed(_tmp_items_to_drop_in_keycols_key):  # from KEYCOLS... (start with last item to not remain "in air" due to deletions :))
+            del invoice_items_area["keycols"][_obj_to_delete]
+        for _object_to_delete in reversed(_tmp_cells_to_drop_in_data_key):  # from DATA... (start with last item to not remain "in air" due to deletions :))
+            del invoice_items_area["data"][_object_to_delete[0]][_object_to_delete[1]]  # drop that col from "data" keyword list
+
+    if True:  # unknown header rows: set as a descriptive using format: `<current line number>.NOTE-<seq>`, where `seq` is an ordered sequence of letters (ie, resulting something like: `1.a, 1.b, ...`)
+        _prev_row_number = None
+        __letter_seq_idx = 0  # used for next letter sequence (will reset after "a normal one" row (ie, has a value))
+        for _crt_row_idx, _crt_row_val in enumerate(invoice_items_area["keyrows"]):
+            #
+            # if current row is "a normal one", then preserve index and reset letter sequencer
+            if _crt_row_val != SYS_FILLED_EMPTY_CELL:
+                _prev_row_number = _crt_row_val  # preserve row business index (ie, value shown invoice data not array index)
+                __letter_seq_idx = 0   # reset letter sequence generator
+            #
+            # if current row is "a unknown one" set its header as `<prev line number>.NOTE-<seq>`, where `seq` is an ordered sequence of letters (ie, resulting something like: `1.a, 1.b, ...`)
+            if _crt_row_val == SYS_FILLED_EMPTY_CELL:
+                _crt_row_seq = f"{_prev_row_number}.NOTE-{ascii_lowercase[__letter_seq_idx]}"  # build a sequence-text for current item (see #NOTE_format)
+                # update line header
+                invoice_items_area["keyrows"][_crt_row_idx] = str(_crt_row_seq)
+                __letter_seq_idx += 1
+
+    if True:  # set back to empty cells that remained to `SYS_FILLED_EMPTY_CELL` (only in `invoice_items_area`)
+        invoice_items_area["keycols"] = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in invoice_items_area["keycols"]]  # loop for 'keycols' keyword
+        invoice_items_area["keyrows"] = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in invoice_items_area["keyrows"]]  # loop for 'keyrows' keyword
+        for _tmp_row_index, _tmp_row in enumerate(invoice_items_area["data"]):  # # loop for 'data' keyword (first loop table rows, "data" key is matrix of lines & cells, ie as [][])
+            _tmp_row = ["" if _i == SYS_FILLED_EMPTY_CELL else _i for _i in _tmp_row]
+            invoice_items_area["data"][_tmp_row_index] = _tmp_row
+    return copy.deepcopy(invoice_items_area)
+
+
+
+
+
+
+# #NOTE - ready, test PASS @ 231111 by [piu]
+def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name, keep_cells_of_items_ssd_marker = None):
+    """ scan Excel file to detect all merged ranges
+
+    Arguments:
+        - `file_to_scan`: the excel file to be scanned
+        - `invoice_worksheet_name`: the worksheet to be scanned
+        - `keep_cells_of_items_ssd_marker`: tuple with cells that will be marked IN ANY CASE to be preserved
+            - use case: to keep all potential invoice items ssd rows
+            - format: `tuple(row, col, val)` where row & col are relevant here
+            - default: `None`
+
+    Return:
+        - `cells_to_be_changed`: list with cells that need to be chaged in format `(row,col)`
+
+    Notes:
+        - function is intended to be used ONLY internal in this module
+        - use `openpyxl` library to do its job
+    """
+    all_detected_ranges = []
+    # open Excel file & worksheet
+    workbook_opnxl= opnxl.load_workbook(file_to_scan)
+    worksheet_opnxl = workbook_opnxl[invoice_worksheet_name]
+    all_detected_ranges = worksheet_opnxl.merged_cells.ranges  # get all merged ranges
+    _cells_to_be_changed = list()  # will retaing cells that should be marked with SYS_FILLED_EMPTY_CELL
+    for _crt_range in all_detected_ranges:
+        # range coordinates
+        _crt_range_START_COL = _crt_range.bounds[0]
+        _crt_range_END_COL = _crt_range.bounds[2]
+        _crt_range_START_ROW = _crt_range.bounds[1]
+        _crt_range_END_ROW = _crt_range.bounds[3]
+        # traverse merged range for all cells in / set flags for first entry and when to completly break loop
+        _first_entry = True;
+        _full_break = False
+        for c in range(_crt_range_START_COL, _crt_range_END_COL + 1):  # traverse all COLS ...
+            for r in range(_crt_range_START_ROW, _crt_range_END_ROW + 1):  # traverse all ROWS ...
+                _crt_cell_value = worksheet_opnxl.cell(r, c).value
+                #print(f"\t/***** processing cell (row,col = {r},{c}) has value {_crt_cell_value}")  #NOTE for debug purposes
+                if _first_entry:  # at first pass, see if relevant (ie, not empty or empty string) AND if NOT then break all loops
+                    if _crt_cell_value is None:
+                        _full_break = True
+                        break
+                    if isinstance(_crt_cell_value, str) and _crt_cell_value.strip() == "":  # if is a string test if cell is a real empty string
+                        _full_break = True
+                        break
+                    #print(f"\t/***** RELEVANT cell (row,col = {r},{c}) has value {_crt_cell_value}")  #NOTE for debug purposes
+                    """ section applicable only when `keep_cells_of_items_ssd_marker` is note None
+                        * (r1) in this case, if found a relevant entry in a merged range and and first entry in merged range scan
+                        * (r2) to preserve cell @(`row=current_row`, `col=keep_cells_of_items_ssd_marker[1]`)
+                        * (r3) if that cell is empty, them add in `_cells_to_be_changed` list to be marked with SYS_FILLED_EMPTY_CELL
+                    """
+                    if keep_cells_of_items_ssd_marker:
+                        _potential_ROW_INDEX_address = (r, keep_cells_of_items_ssd_marker[1])
+                        __this_cell_value = worksheet_opnxl.cell(*_potential_ROW_INDEX_address).value
+                        if not (__this_cell_value) and (_potential_ROW_INDEX_address not in _cells_to_be_changed):  # apply (r3) rule - see long comment before this section
+                            _cells_to_be_changed.append(_potential_ROW_INDEX_address)
+                if not _first_entry:  # here the cell has a relevant value, store all next to be marked with SYS_FILLED_EMPTY_CELL
+                    _cells_to_be_changed.append((r, c))
+                    #print(f"\t/***** cell {(r, c)} marked for '___sys_filled_empty_cell' / {Fore.YELLOW}all list is {_cells_to_be_changed}{Style.RESET_ALL}") #NOTE for debug purposes
+                _first_entry = False
+            if _full_break:
+                break
+    return tuple(copy.deepcopy(_cells_to_be_changed))  # always return a tuple as being immutable
+
+
+
