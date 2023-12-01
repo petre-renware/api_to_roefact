@@ -20,6 +20,15 @@ Component detailed specifications can be found at [xxx](../doc_src/810-DSGN/810.
 
 
 
+## Configuration & settings
+
+Configuration constants and variables are placed in file **`config_settings.py`**. These are in Python form presented using constants PEP recommendations (all upper case) and accompanied by some help lines to understand and maintain them.
+
+
+
+
+
+
 
 
 ## Working directories
@@ -48,14 +57,12 @@ Component detailed specifications can be found at [xxx](../doc_src/810-DSGN/810.
 
 * Change to `base-proc/` directory
 * Activate environment: `.\.wenv_xl2roefact\Scripts\activate`
-* Build the CLI version of component: `pyinstaller --onefile <source-file-name>`
+* Build the CLI version of component: `cxfreeze -c xl2roefact.py --target-dir dist`
 * As result will be created:
-    * `dist/<source-file-name>.exe` with the `Windows` executable
-    * `build/<source-file-name>/` directory which will contain intermediary files usable when rebuilding CLI application
-    * `<source-file-name>.spec` file with specifications used when building executable (usable when rebuilding CLI application)
+    * `dist/*` with the `Windows` executable and other files (including `DLL` libraries) which need to be deployed
 
 
->NOTE: `<source-file-name>` is normally `xls2xml.py`
+
 
 
 

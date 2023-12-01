@@ -27,7 +27,7 @@
 
 
 
-### 0.1.8 #TODO_future... `xl2roefact.RDINV` ???-[invoice header, invoice IDs, owner & partner?] (...)
+### 0.1.9 #TODO_future... `xl2roefact.RDINV` ???-[invoice header, invoice IDs, owner & partner?] (...)
 
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * [x] DONE@`231108piu_b` set directories environment & open invoice
@@ -37,18 +37,55 @@
     * [x] DONE@'231119piu_a' created `meta_info` key ref processed Excel file
     * [x] DONE@`231119piu_b` invoice_items_area ready
     * [x] DONE@`231119piu_a` written `invoice` dict to `f-JSON` file
-    * [ ] update documentation for all `rdinv` module
     * invoice header
+        * [ ] invoice header - invoice identification (number, date, currency (+ see left OPEN ISSUES), oth important as "non VAT payer")
         * [ ] invoice header - issuer (owner)
         * [ ] invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
-        * [ ] invoice header - invoice identification (number, date, currency oth important as "non VAT payer")
     * invoice footer
+    * [ ] update documentation for all `rdinv` module
+    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
+        * [ ] _file `xl2roefact/rdinv.py`, function `__mk_kv_invoice_items_area(...)`:_ `FIXME this will be identified in `invoice_header_area` ==> should be changed accordingly`
+        * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
     * ... consider to refactor `xl2roefact` to `xl2xml` (#FIXME not yet sure - must think more because name is very restrictive as what module does)
-    * [ ] left OPEN ISSUES on: `0.1.7` release
+    * ... consolidate _environments & requirements_ with system root ones to make a single system with two components: xl2roefact as library & CLI + potential future web application
+    * ... future intention is to make commands: `xl2json - RDINV`, `json2xml - WRXML`, `json2pdf`, `xml2roefact - LDXML` and other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
 
-* wip... last used 231126piu_a
+
+* wip... last used 231201piu_b
 
 
+
+
+
+
+
+
+
+
+
+### 0.1.8 improved application structure and first executable release (231201 h07:30)
+
+* 231201piu_b installed `cx-Freeze` library and build a new Windows executable, update documentation - need future improvement to make `msi` package, but TEST PASSED and works perfectly
+
+* 231201piu_a improve CLI application structure (`xl2roefact.py`) and commands: `xl2json`, `about`
+
+* 231130piu_a `xl2roefact.py`, `——excel_files_directory`: option, make it of type pathlib.Path, dealut remain as is, validators; is dir, exists, writable, readable, resolve_path
+
+* 231129piu_b updated `xl2roefact.py` (main application) changed command `run` --> `xl2json` and add parameter `excel_files_directory` (future intention is to make commands: `xl2json - RDINV`, `json2xml - WRXML`, `json2pdf`, `xml2roefact - LDXML`)
+
+* 231129piu_a adopted new REN invoice template (test with data from RENF-1004)
+
+* 231128piu_b made `config_settings.py` for general application configuration purposes and an application command (`xl2roefact settings`) to print them
+
+* 231128piu_a made `xl2roefact.py` (main library file) as CLI executable structure (with `Typer` library)
+
+* 231127piu_c introduced **key `Invoice`** in  invoice JSON generated structure (also representing the "entity" in XML representation)
+
+* 231127piu_b module `rdinv` crated a distinct function for building of `meta_info` key (main `invoice` dictionary)
+
+* 231127piu_a created in invoice JSON map JSON key --> XML property (`meta_info["map_JSONkeys_XMLtags"]`) as `list of tuple(JSONkey: str, XMLtag: str)`
+
+* 231127piu_a created draft data models for: invoice (exportable as JSON and XML) and other entities (owner, customer) ==> `data_models.py`
 
 
 

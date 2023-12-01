@@ -19,18 +19,22 @@ import copy
 from pprint import pprint
 from string import ascii_lowercase
 import json
-from libutils import isnumber, find_str_in_list # local library
+from libutils import isnumber, find_str_in_list  # application misc/general utilities
+import config_settings  # application configuration parameters
 import pylightxl as xl
 import openpyxl as opnxl
 
 
-# constants (all constants are #TODO subject of CONFIG #TODO subject of documentation update)
-SYS_FILLED_EMPTY_CELL = "_sys_keep_cell"
-DEFAULT_VAT_PERCENT = 0.19
-DEFAULT_UNKNOWN_ITEM_NAME = "--- n/a ---"
-DEFAULT_UNKNOWN_UOM = None
-DEFAULT_CURRENCY = "RON"
-INVOICE_ITEMS_SUBTABLE_MARKER = [" crt", "no. crt", "nr. crt", "#"]
+SYS_FILLED_EMPTY_CELL = "_sys_keep_cell"  # this is not a changeale constant
+
+# application configurable constants
+DEFAULT_VAT_PERCENT = config_settings.DEFAULT_VAT_PERCENT
+DEFAULT_UNKNOWN_ITEM_NAME = config_settings.DEFAULT_UNKNOWN_ITEM_NAME
+DEFAULT_UNKNOWN_UOM = config_settings.DEFAULT_UNKNOWN_UOM
+DEFAULT_CURRENCY = config_settings.DEFAULT_CURRENCY
+INVOICE_ITEMS_SUBTABLE_MARKER = config_settings.INVOICE_ITEMS_SUBTABLE_MARKER
+
+
 
 
 def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
@@ -49,7 +53,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
         - `ws`: pylightxl object with invoice WORKSHEET
     """
 
-    print(f"\n*** Module {Fore.CYAN} RDINV (code-name: `rdinv`){Style.RESET_ALL} started at {Fore.GREEN}{datetime.now()}{Style.RESET_ALL} to process file {Fore.GREEN} {file_to_process}{Style.RESET_ALL}")
+    print(f"\n*** Module {Fore.CYAN}RDINV(code-name: `rdinv`){Style.RESET_ALL} started at {Fore.GREEN}{datetime.now()}{Style.RESET_ALL} to process file {Fore.GREEN} {file_to_process}{Style.RESET_ALL}")
 
     # read Excel file with Invoice data
     try:
@@ -126,40 +130,26 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     )
     # transform `invoice_items_area` in "canonical JSON format" (as kv pairs)
     invoice_items_as_kv_pairs = __mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
-    #FIXME ...hereuare... review what was done and drop this line (continued when build final `invoice` dict ~line 143)
 
-
-
-    """ preserve processed Excel file meta information: start address, size.
-        NOTE: all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update
-    """
-    meta_info = dict()
-    meta_info["file"] = os.path.basename(file_to_process)
-    meta_info["file_CRC"] = "...file CRC (uniquely identify the invoice file used)"  #TODO to be done... #NOTE this calculation should be done as last step after final XLSX file writing
-    meta_info["last_processing_UTCtime"] = datetime.now(timezone.utc).isoformat()  # set to ISO 8601 format
-    meta_info["invoice_worksheet"] = invoice_worksheet_name
-    meta_info["invoice_max_rows"] = _ws_max_rows
-    meta_info["invoice_max_cols"] = _ws_max_cols
-    meta_info["items_table_start_marker"] = keyword_for_items_table_marker
-    meta_info["items_table_start_cell"] = (_found_cell[0], _found_cell[1])
-    meta_info["invoice_XML_schemes"] = {
-        "xmlns": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
-        "xmlns:cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
-        "xmlns:cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
-        "xmlns:ns4": "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2",
-        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-        "xsi:schemaLocation": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"
-    }
+    # preserve processed Excel file meta information: start address, size.
+    meta_info = _build_meta_info_key(
+        excel_file_to_process=file_to_process,
+        invoice_worksheet_name=invoice_worksheet_name,
+        ws_size=tuple(ws.size),
+        keyword_for_items_table_marker=keyword_for_items_table_marker,
+        found_cell=tuple(_found_cell))
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
     invoice = {
+        "Invoice": {
+            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs]  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
+        },
         "meta_info": copy.deepcopy(meta_info),
-        "excel_data": dict(
+        "excel_original_data": dict(
             invoice_items_area = copy.deepcopy(invoice_items_area),
-            invoice_header_area = "...owner, partner, invoice identification, currency, invoice id/number, issued date",  #TODO to be done...
+            invoice_header_area = "...owner, partner, invoice identification, currency, invoice id/number, issued date",  #TODO to be done... ...hereuare...
             invoice_footer_area = "...to be done"  #TODO to be done...
-        ),
-        "cac:InvoiceLine": [_i for _i in invoice_items_as_kv_pairs]  #NOTE_1 `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard #NOTE_2 cannot use dict() function because the keys that go to XML tags must be qualified with scheme name (ie: schema:key)
+        )
     }
 
     # write `invoice` dict to `f-JSON`
@@ -173,7 +163,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     _fjson_filename = os.path.splitext(os.path.basename(file_to_process))[0] + ".json"
     _fjson_fileobject = os.path.join(os.path.split(file_to_process)[0], _fjson_filename)
     with open(_fjson_fileobject, 'w', encoding='utf-8') as _f:
-        json.dump(invoice, _f, ensure_ascii = False, sort_keys = True, indent = 4)
+        json.dump(invoice, _f, ensure_ascii = False, indent = 4)
     print(f"{Fore.YELLOW}INFO note:{Style.RESET_ALL} `rdinv` module, written invoice JSON data to: {Fore.GREEN}{_fjson_fileobject}{Style.RESET_ALL}")
 
 
@@ -185,7 +175,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     pprint(invoice, width = 132)  #NOTE see generated JSON files for content #FIXME drop me at final
     print()
 
-    return invoice
+    return copy.deepcopy(invoice)
 
 
 
@@ -212,7 +202,7 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
     for _i, _line in enumerate (_invoice_items_rows_key):
         """ identify usual invoice columns: item desc, item UOM, item VAT_percent, item unit_price, item line_value, itemline_ VAT_value
         """
-        if True:  # ---- find item quantity column ==> (`cbc:InvoicedQuantity`)
+        if True:  # ---- find item quantity column ==> (`cbc_InvoicedQuantity`)
             _col_index = find_str_in_list(["qty", "cant", "quantity"], _invoice_items_cols_key)
             if _col_index is None:  # did not find a suitable column to represent number, so return None probably raising an error
                 print(f"{Fore.RED}***FATAL ERROR - module 'RDINV', function `__mk_kv_invoice_items_area(...)`. Cannot find a 'QUANTITY' column in items table. Processing terminated{Style.RESET_ALL}")
@@ -223,29 +213,30 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
         """ #NOTE-1: from here, the following columns are considered "valid" only if a quantity is specified (otherwise is considered an extended description)
         """
 
-        if True:  # ---- find item VAT percent (if exists..., some invoices do noy specify percent itself but just value) ==> (`cbc:Percent`)
+        if True:  # ---- find item VAT percent (if exists..., some invoices do noy specify percent itself but just value) ==> (`cbc_Percent`)
             _col_index = find_str_in_list(["cota", "vat %", "% vat"], _invoice_items_cols_key)
             if _col_index is None: # did not find a suitable column to represent number, so return None probably raising an error
                 _vat_percent = DEFAULT_VAT_PERCENT if _item_quantity else None  # see #NOTE-1
             else:
                 #FIXME `_vat_percent` calculation should also consider a simplified invoice where only VAT value is specificed AND THEN SHOULD BE CALCULATED AS_IS in document (see "acciza line on REN... invoice")
                 _vat_percent = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_VAT_PERCENT if _item_quantity else None)  # see #NOTE-1 #FIXME fix it considering previous comment
+                _vat_percent = None if (str(_vat_percent).split() == "") else (float(_vat_percent) if isnumber(str(_vat_percent)) else None)  # finally make it None if remained empty string
 
-        if True:  # ---- find item description / name ==> (`cbc:Name`)
+        if True:  # ---- find item description / name ==> (`cbc_Name`)
             _col_index = find_str_in_list(["denumire", "name", "nume", "item", "desc"], _invoice_items_cols_key)
             if _col_index is None: # did not find a suitable column to represent number, so return None probably raising an error
                 _name_description = DEFAULT_UNKNOWN_ITEM_NAME if _item_quantity else None  # see #NOTE-1
             else:
                 _name_description = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_UNKNOWN_ITEM_NAME if _item_quantity else None)  # see #NOTE-1
 
-        if True:  # --- find unit of measure ==> (`cbc:unitCode`)
+        if True:  # --- find unit of measure ==> (`cbc_unitCode`)
             _col_index = find_str_in_list(["uom", "um", "masura", "measure"], _invoice_items_cols_key)
             if _col_index is None: # did not find a suitable column to represent number, so return None probably raising an error
                 _unif_of_measure = DEFAULT_UNKNOWN_UOM if _item_quantity else None  # see #NOTE-1
             else:
                 _unif_of_measure = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_UNKNOWN_UOM if _item_quantity else None)  # see #NOTE-1
 
-        if True:  # --- find unit price ==> (`cbc:PriceAmount`)
+        if True:  # --- find unit price ==> (`cbc_PriceAmount`)
             _col_index = find_str_in_list(["price", "pret"], _invoice_items_cols_key)
             if _col_index is None:  # did not find a suitable column to represent number, so return None probably raising an error
                 _unit_price = 0 if _item_quantity else None  # see #NOTE-1
@@ -253,10 +244,10 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
                 _tmp = float(_invoice_items_data_key[_i][_col_index]) if isnumber(str(_invoice_items_data_key[_i][_col_index])) else None  # convert it to numer if possible
                 _unit_price = _tmp if (_tmp is not None) else (_tmp if _item_quantity else None)  # see #NOTE-1
 
-        if True:  # --- find CURRENCY ==> (`cbc:currencyID`) (#FIXME this will be identifyed in `invoice_header_area` ==> should be changed accordingly)
-            ...
+        if True:  # --- find CURRENCY ==> (`cbc_currencyID`) (#FIXME this will be identifyed in `invoice_header_area` ==> should be changed accordingly)
+            pass #FIXME this will be identifyed in `invoice_header_area` ==> should be changed accordingly
 
-        if True:  # --- calculate line totals ==> (`cbc:LineExtensionAmount`)
+        if True:  # --- calculate line totals ==> (`cbc_LineExtensionAmount`)
             _item_total = None
             if (_item_quantity is not None) and (_unit_price is not None):
                 _item_total = round(_item_quantity * _unit_price, 2)
@@ -264,25 +255,27 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
 
         # build dictionary with usual invoice columns (respecting as possible the XSD schemes listed in [`meta_info`][`invoice_XML_schemes`] key)
         _line_info = {
-            "cac:InvoiceLine": {
-                "cbc:ID": str(_line),
-                "cbc:InvoicedQuantity": _item_quantity,
-                "cbc:unitCode": _unif_of_measure,
-                "cac:Item": {  #-NOTE these are the item specifications (uom, vat)
-                    "cbc:Name": str(_name_description),
-                    "cac:ClassifiedTaxCategory": {
-                        "cbc:Percent": _vat_percent,
-                        "cac:TaxScheme": {"cbc:ID": "VAT"} if _item_quantity else None
+            "cac_InvoiceLine": {
+                "cbc_ID": str(_line),
+                "cbc_InvoicedQuantity": _item_quantity,
+                "cbc_unitCode": None if (_item_quantity is None or str(_item_quantity).split() == "") else _unif_of_measure,
+                "cac_Item": {  #-NOTE these are the item specifications (uom, vat)
+                    "cbc_Name": str(_name_description),
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": _vat_percent,
+                        "cac_TaxScheme": {
+                            "cbc_ID": None if (_vat_percent is None or str(_vat_percent).split() == "") else "VAT"
+                        }
                     }
                 },
-                "cac:Price": {
-                    "cbc:PriceAmount" : _unit_price,
-                    "cbc:currencyID": DEFAULT_CURRENCY if _unit_price else None  #FIXME this will be identifyed in `invoice_header_area` ==> should be changed accordingly
+                "cac_Price": {
+                    "cbc_PriceAmount" : _unit_price,
+                    "cbc_currencyID": None if (_item_quantity is None or str(_item_quantity).split() == "") else DEFAULT_CURRENCY  #FIXME this will be identifyed in `invoice_header_area` ==> should be changed accordingly
                 },
-                "cbc:LineExtensionAmount": _item_total
+                "cbc_LineExtensionAmount": _item_total
             }
         }
-        _invoice_items_area_json_format.append(_line_info["cac:InvoiceLine"])
+        _invoice_items_area_json_format.append(_line_info["cac_InvoiceLine"])
     return copy.deepcopy(_invoice_items_area_json_format)
 
 
@@ -446,6 +439,70 @@ def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name, keep_ce
             if _full_break:
                 break
     return tuple(copy.deepcopy(_cells_to_be_changed))  # always return a tuple as being immutable
+
+
+
+
+
+
+# #NOTE - ready, test PASS @ 231127 by [piu]
+def _build_meta_info_key(excel_file_to_process: str,
+                         invoice_worksheet_name: str,
+                         ws_size: list,
+                         keyword_for_items_table_marker: str,
+                         found_cell: list) -> dict:
+    """ build meta_info key to preserve processed Excel file meta information: start address, size.
+
+    NOTE(s):
+        - all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update
+        - this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality')
+
+    Arguments:
+        - `excel_file_to_process`: name of file to process as would appear in `meta_info` key
+        - `invoice_worksheet_name`: the worksheet name as would appear in `meta_info` key
+        - `ws_size`: worksheet size as would appear in `meta_info` key (index 0 max rows, index 1 max columns)
+        - `keyword_for_items_table_marker`: the content of cell used as start of invoice items subtable as would appear in `meta_info`
+        - `found_cell`: position of cell used as start of invoice items subtable as would appear in `meta_info` key (index 0 row, index 1 column)
+
+    Return:
+        - `meta_info` dictionary built with meta information to be incorpoarted in final invoice dict
+    """
+    _tmp_meta_info = dict()
+
+    _tmp_meta_info["file"] = os.path.basename(excel_file_to_process)
+    _tmp_meta_info["file_CRC"] = "...file CRC (uniquely identify the invoice file used)"  #TODO to be done... #NOTE this calculation should be done as last step after final XLSX file writing
+    _tmp_meta_info["last_processing_time"] = datetime.now(timezone.utc).isoformat()  # set to ISO 8601 format
+    _tmp_meta_info["invoice_worksheet"] = invoice_worksheet_name
+    _tmp_meta_info["invoice_max_rows"] = ws_size[0]
+    _tmp_meta_info["invoice_max_cols"] = ws_size[1]
+    _tmp_meta_info["items_table_start_marker"] = keyword_for_items_table_marker
+    _tmp_meta_info["items_table_start_cell"] = (found_cell[0], found_cell[1])
+    _tmp_meta_info["invoice_XML_schemes"] = {
+        "xmlns": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+        "xmlns:cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+        "xmlns:cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+        "xmlns:ns4": "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2",
+        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "xsi:schemaLocation": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"
+    }
+    _tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str) #TODO subject of documentation update
+        ("cac_InvoiceLine", "cac:InvoiceLine"),
+        ("cac_Item", "cac:Item"),
+        ("cac_ClassifiedTaxCategory", "cac:ClassifiedTaxCategory"),
+        ("cac_TaxScheme", "cac:TaxScheme"),
+        ("cac_Price", "cac:Price"),
+        ("cbc_ID", "cbc:ID"),
+        ("cbc_InvoicedQuantity", "cbc:InvoicedQuantity"),
+        ("cbc_unitCode", "cbc:unitCode"),  # this is attribute of tag InvoicedQuantity
+        ("cbc_Name", "cbc:Name"),
+        ("cbc_Percent", "cbc:Percent"),
+        ("cbc_PriceAmount", "cbc:PriceAmount"),
+        ("cbc_currencyID", "cbc:currencyID"),  # this is attribute of more tags (all monetary tags)
+        ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount")
+    ]
+
+    return copy.deepcopy(_tmp_meta_info)
+
 
 
 
