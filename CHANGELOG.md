@@ -42,11 +42,10 @@
         * [ ] invoice header - issuer (owner)
         * [ ] invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
     * invoice footer
-    * [ ] update documentation for all `rdinv` module
+    * [ ] update documentation for whole `rdinv` module
     * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
         * [ ] _file `xl2roefact/rdinv.py`, function `__mk_kv_invoice_items_area(...)`:_ `FIXME this will be identified in `invoice_header_area` ==> should be changed accordingly`
         * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
-    * ... consider to refactor `xl2roefact` to `xl2xml` (#FIXME not yet sure - must think more because name is very restrictive as what module does)
     * ... consolidate _environments & requirements_ with system root ones to make a single system with two components: xl2roefact as library & CLI + potential future web application
     * ... future intention is to make commands: `xl2json - RDINV`, `json2xml - WRXML`, `json2pdf`, `xml2roefact - LDXML` and other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
 
