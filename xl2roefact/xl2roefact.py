@@ -86,8 +86,9 @@ def xl2json(
 
     print(f"{Fore.YELLOW}INFO note:{Style.RESET_ALL} ARGUMENT {Fore.GREEN}{file_name=}{Style.RESET_ALL}")  #NOTE for debug purposes
     #raise typer.Abort()  #FIXME - drop me after tests
-    #TODO here to use `excel_files_directory` + / + `file_name` to find all files and process them in a loop
-    #NOTE processing will be done as for RENware invoice && Kraftanlagen invoice (next code lines, #100..#105):
+    #TODO use `excel_files_directory` + / + `file_name` to find all files and process them in a loop
+    #TODO use `glob.glob(....)` as here `https://docs.python.org/2/library/glob.html`
+    #NOTE processing is like for RENware invoice && Kraftanlagen invoice (next code lines, #100..#105):
 
     #NOTE for test --- RENware invoice #FIXME solve it when set ARGUMENT `file_name`
     invoice_to_process = os.path.join(excel_files_directory, "fact_RENF1004.xlsx")
