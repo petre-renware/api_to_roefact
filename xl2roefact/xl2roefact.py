@@ -88,8 +88,8 @@ def xl2json(
     #raise typer.Abort()  #FIXME - drop me after tests
     #TODO use `excel_files_directory` + / + `file_name` to find all files and process them in a loop
     #TODO use `glob.glob(....)` as here `https://docs.python.org/2/library/glob.html`
+    #NOTE Path.glob() example in file `./example_use_Path.glob.py`
     #NOTE processing is like for RENware invoice && Kraftanlagen invoice (next code lines, #100..#105):
-
     #NOTE for test --- RENware invoice #FIXME solve it when set ARGUMENT `file_name`
     invoice_to_process = os.path.join(excel_files_directory, "fact_RENF1004.xlsx")
     rdinv(file_to_process=invoice_to_process)
