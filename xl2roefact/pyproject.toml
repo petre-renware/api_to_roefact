@@ -22,4 +22,11 @@ dev-dependencies = []
 allow-direct-references = true
 
 
+#NOTE section add for `cxFreeze` - intention what is expected for, is obvious - source: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
+[tool.distutils.build_exe]
+excludes = ["tkinter", "unittest"]
+zip_include_packages = ["encodings", "PySide6"]
+
+
+
 # #NOTE: see `https://github.com/pypa/sampleproject/blob/main/pyproject.toml` for all keywords description

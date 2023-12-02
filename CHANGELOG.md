@@ -52,7 +52,10 @@
 
 * wip... last used 231201piu_b
 
-
+* 231202piu_a build complete `cxFreeze` configuration in order to build Windows executable and installer package (as `msi` package):
+    * [x] create a minimal setup (`setup.py`)
+    * [x] create `build/` directory with all building commands for _xl2roefact_ app: `python setup.py build` (see official doc here `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
+    * **CONCLUSION** `msi` package OK, `exe` file NOK - see `setup.py` for a detailed comment marked `NOTE-[piu@231202]`
 
 
 
