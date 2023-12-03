@@ -57,9 +57,14 @@ Configuration constants and variables are placed in file **`config_settings.py`*
 
 * Change to `base-proc/` directory
 * Activate environment: `.\.wenv_xl2roefact\Scripts\activate`
-* Build the CLI version of component: `cxfreeze -c xl2roefact.py --target-dir dist`
-* As result will be created:
-    * `dist/*` with the `Windows` executable and other files (including `DLL` libraries) which need to be deployed
+* run `python setup.py bdist_msi` which will build a temporary `EXE` (not usable as is) and `MSI` Windows install package ==> `build/bdist.win-amd64/`
+* run `cxfreeze -c xl2roefact.py` which will build final `EXE` file(s) ==> `build/exe.win-amd64-3.10/`
+* As result will be created `build/` directory with the `Windows` files for deployment:
+    ```
+    build/
+        bdist.win-amd64/ - containing the msi type installer
+        exe.win-amd64-3.10/ - containing the executable file(s)
+    ```
 
 
 

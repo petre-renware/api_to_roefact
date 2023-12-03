@@ -27,7 +27,7 @@
 
 
 
-### 0.1.9 #TODO_future... `xl2roefact.RDINV` ???-[invoice header, invoice IDs, owner & partner?] (...)
+### 0.1.10 #TODO_future... `xl2roefact.RDINV` ???-[invoice header, invoice IDs, owner & partner?] (...)
 
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * [x] DONE@`231108piu_b` set directories environment & open invoice
@@ -41,17 +41,17 @@
         * [ ] invoice header - invoice identification (number, date, currency (+ see left OPEN ISSUES), oth important as "non VAT payer")
         * [ ] invoice header - issuer (owner)
         * [ ] invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
+        * [ ] RENAME / REFACTOR `rdinv` --> `xl2json` (future intention for `web2json` and potentially `gui2json`)
     * invoice footer
-    * [ ] update documentation for all `rdinv` module
+    * [ ] update documentation for whole `rdinv` module
     * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
         * [ ] _file `xl2roefact/rdinv.py`, function `__mk_kv_invoice_items_area(...)`:_ `FIXME this will be identified in `invoice_header_area` ==> should be changed accordingly`
         * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
-    * ... consider to refactor `xl2roefact` to `xl2xml` (#FIXME not yet sure - must think more because name is very restrictive as what module does)
     * ... consolidate _environments & requirements_ with system root ones to make a single system with two components: xl2roefact as library & CLI + potential future web application
     * ... future intention is to make commands: `xl2json - RDINV`, `json2xml - WRXML`, `json2pdf`, `xml2roefact - LDXML` and other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
 
 
-* wip... last used 231201piu_b
+* wip... last use 231103piu_b
 
 
 
@@ -59,6 +59,23 @@
 
 
 
+
+
+### 0.1.9 `xl2roefact.RDINV` running executable and distribution kit (231203 h07:00)
+
+* 231103piu_b releasing ==> made `dist/0.1.9-exe.win-amd64-3.10.zip` with executable file
+
+* 231103piu_a `xl2roefact.py` more updates:
+    * [x] set verbose flag for debugging mode
+    * [x] made `file_name` argument as file(s) to be processed with wildcards like Python standard function `os.glob.glob()` (reference here `https://docs.python.org/2/library/glob.html`)
+    * [x] build a new fresh executable in `build/exe.win-amd64-3.10/`
+
+* 231202piu_b `xl2roefact.py` started a skeleton for `file_name` argument - see code-in-file @"TODO here to use `excel_files_directory` + / + `file_name` to find all files and process them in a loop"
+
+* 231202piu_a build complete `cxFreeze` configuration in order to build Windows executable and installer package (as `msi` package):
+    * [x] create a minimal setup (`setup.py`)
+    * [x] create `build/` directory with all building commands for _xl2roefact_ app: `python setup.py build` (see official doc here `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
+    * **CONCLUSION** `msi` package OK, `exe` file NOK - see `setup.py` for a detailed comment marked `NOTE-[piu@231202]`
 
 
 

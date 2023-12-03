@@ -37,12 +37,13 @@ INVOICE_ITEMS_SUBTABLE_MARKER = config_settings.INVOICE_ITEMS_SUBTABLE_MARKER
 
 
 
-def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
+def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: bool = False):
     """ main function of RDINV module
 
     Arguments:
         - `file_to_process`: the invoice file (exact file with path)
         - `invoice_worksheet_name`: the worksheet containing invoice
+        - `debug_info`: bool to show debugging information, default `False`
 
     Return:
         - `invoice`: the invoice extracted information from Excel file as
@@ -167,13 +168,13 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None):
     print(f"{Fore.YELLOW}INFO note:{Style.RESET_ALL} `rdinv` module, written invoice JSON data to: {Fore.GREEN}{_fjson_fileobject}{Style.RESET_ALL}")
 
 
-
     #TODO check for more TODOs, clean &&-->
     #TODO wip...(@231125) TRANSFORM JSON FILE from Excel (row,col) format in a relational one (but respecting ROefact tags from used scheme)
-    #FIXME ------------ FINAL TEST area & notes starts here  #FIXME drop me at final
-    print(f"{Fore.YELLOW}---> TEST-note: sub-tabel[0], factura contine:{Style.RESET_ALL}")  #NOTE test should be an array of arrays (matrix) with invoice items #FIXME drop after test
-    pprint(invoice, width = 132)  #NOTE see generated JSON files for content #FIXME drop me at final
-    print()
+
+    if debug_info:  # NOTE DEBUG area print
+        print(f"{Fore.YELLOW}DEBUG note: sub-tabel[0], factura contine:{Style.RESET_ALL}")  #NOTE test should be an array of arrays (matrix) with invoice items #FIXME drop after test
+        pprint(invoice, width = 132)  #NOTE see generated JSON files for content #FIXME drop me at final
+        print()
 
     return copy.deepcopy(invoice)
 

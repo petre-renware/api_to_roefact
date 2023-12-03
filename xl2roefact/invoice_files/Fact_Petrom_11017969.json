@@ -1,0 +1,183 @@
+{
+    "Invoice": {
+        "cac_InvoiceLine": [
+            {
+                "cbc_ID": "1",
+                "cbc_InvoicedQuantity": 1,
+                "cbc_unitCode": null,
+                "cac_Item": {
+                    "cbc_Name": "Inlocuit conducta PSI coloana C2 DAV.",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": 0.19,
+                        "cac_TaxScheme": {
+                            "cbc_ID": "VAT"
+                        }
+                    }
+                },
+                "cac_Price": {
+                    "cbc_PriceAmount": 42756.08,
+                    "cbc_currencyID": "RON"
+                },
+                "cbc_LineExtensionAmount": 42756.08
+            },
+            {
+                "cbc_ID": "1.NOTE-a",
+                "cbc_InvoicedQuantity": null,
+                "cbc_unitCode": null,
+                "cac_Item": {
+                    "cbc_Name": "SES 8105685514",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": null,
+                        "cac_TaxScheme": {
+                            "cbc_ID": null
+                        }
+                    }
+                },
+                "cac_Price": {
+                    "cbc_PriceAmount": null,
+                    "cbc_currencyID": null
+                },
+                "cbc_LineExtensionAmount": null
+            },
+            {
+                "cbc_ID": "2",
+                "cbc_InvoicedQuantity": 1,
+                "cbc_unitCode": null,
+                "cac_Item": {
+                    "cbc_Name": "Acciza de test (2%)",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": 0.0,
+                        "cac_TaxScheme": {
+                            "cbc_ID": "VAT"
+                        }
+                    }
+                },
+                "cac_Price": {
+                    "cbc_PriceAmount": 855.1216,
+                    "cbc_currencyID": "RON"
+                },
+                "cbc_LineExtensionAmount": 855.12
+            }
+        ]
+    },
+    "meta_info": {
+        "file": "Fact_Petrom_11017969.xlsx",
+        "file_CRC": "...file CRC (uniquely identify the invoice file used)",
+        "last_processing_time": "2023-12-03T04:18:38.105869+00:00",
+        "invoice_worksheet": "Factura(Invoice)",
+        "invoice_max_rows": 49,
+        "invoice_max_cols": 8,
+        "items_table_start_marker": "No. crt.",
+        "items_table_start_cell": [
+            29,
+            1
+        ],
+        "invoice_XML_schemes": {
+            "xmlns": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+            "xmlns:cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+            "xmlns:cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+            "xmlns:ns4": "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2",
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xsi:schemaLocation": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"
+        },
+        "map_JSONkeys_XMLtags": [
+            [
+                "cac_InvoiceLine",
+                "cac:InvoiceLine"
+            ],
+            [
+                "cac_Item",
+                "cac:Item"
+            ],
+            [
+                "cac_ClassifiedTaxCategory",
+                "cac:ClassifiedTaxCategory"
+            ],
+            [
+                "cac_TaxScheme",
+                "cac:TaxScheme"
+            ],
+            [
+                "cac_Price",
+                "cac:Price"
+            ],
+            [
+                "cbc_ID",
+                "cbc:ID"
+            ],
+            [
+                "cbc_InvoicedQuantity",
+                "cbc:InvoicedQuantity"
+            ],
+            [
+                "cbc_unitCode",
+                "cbc:unitCode"
+            ],
+            [
+                "cbc_Name",
+                "cbc:Name"
+            ],
+            [
+                "cbc_Percent",
+                "cbc:Percent"
+            ],
+            [
+                "cbc_PriceAmount",
+                "cbc:PriceAmount"
+            ],
+            [
+                "cbc_currencyID",
+                "cbc:currencyID"
+            ],
+            [
+                "cbc_LineExtensionAmount",
+                "cbc:LineExtensionAmount"
+            ]
+        ]
+    },
+    "excel_original_data": {
+        "invoice_items_area": {
+            "keyrows": [
+                1,
+                "1.NOTE-a",
+                2
+            ],
+            "keycols": [
+                "Denumirea lucrarii                                  (Request description)",
+                "Cantitatea (Quantity)",
+                "Pret unitar (Unit price)",
+                "Cota TVA (VAT %)",
+                "Valoare fara TVA (Value without VAT)",
+                "Valoare TVA (Value VAT)"
+            ],
+            "data": [
+                [
+                    "Inlocuit conducta PSI coloana C2 DAV.",
+                    1,
+                    42756.08,
+                    0.19,
+                    42756.08,
+                    8123.6552
+                ],
+                [
+                    "SES 8105685514",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "Acciza de test (2%)",
+                    1,
+                    855.1216,
+                    0,
+                    855.1216,
+                    0
+                ]
+            ]
+        },
+        "invoice_header_area": "...owner, partner, invoice identification, currency, invoice id/number, issued date",
+        "invoice_footer_area": "...to be done"
+    }
+}
