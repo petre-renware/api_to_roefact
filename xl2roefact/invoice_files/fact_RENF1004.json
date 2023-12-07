@@ -101,7 +101,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2023-12-03T04:18:38.250482+00:00",
+        "last_processing_time": "2023-12-07T02:41:12.745627+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 30,
         "invoice_max_cols": 9,

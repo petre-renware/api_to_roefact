@@ -12,11 +12,11 @@
         IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
 """
 
-import os
+import os, sys
 from datetime import datetime, timezone, tzinfo
-from colorama import Fore, Back, Style
+from rich import print
 import copy
-from pprint import pprint
+from rich.pretty import pprint
 from string import ascii_lowercase
 import json
 from libutils import isnumber, find_str_in_list  # application misc/general utilities
@@ -26,15 +26,6 @@ import openpyxl as opnxl
 
 
 SYS_FILLED_EMPTY_CELL = "_sys_keep_cell"  # this is not a changeale constant
-
-# application configurable constants
-DEFAULT_VAT_PERCENT = config_settings.DEFAULT_VAT_PERCENT
-DEFAULT_UNKNOWN_ITEM_NAME = config_settings.DEFAULT_UNKNOWN_ITEM_NAME
-DEFAULT_UNKNOWN_UOM = config_settings.DEFAULT_UNKNOWN_UOM
-DEFAULT_CURRENCY = config_settings.DEFAULT_CURRENCY
-INVOICE_ITEMS_SUBTABLE_MARKER = config_settings.INVOICE_ITEMS_SUBTABLE_MARKER
-
-
 
 
 def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: bool = False):
@@ -54,28 +45,28 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
         - `ws`: pylightxl object with invoice WORKSHEET
     """
 
-    print(f"\n*** Module {Fore.CYAN}RDINV(code-name: `rdinv`){Style.RESET_ALL} started at {Fore.GREEN}{datetime.now()}{Style.RESET_ALL} to process file {Fore.GREEN} {file_to_process}{Style.RESET_ALL}")
+    print(f"*** Module [red]rdinv[/] started at {datetime.now()} to process file [green]{file_to_process}[/]")
 
     # read Excel file with Invoice data
     try:
         db = xl.readxl(fn=file_to_process)
     except:
-        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel file {file_to_process} (possible problems: file corrupted, wrong type only XLSX accetpted, file does not exists or was deleted, operating system vilotation) in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
+        print(f"[red]---***FATAL ERROR - Cannot open Excel file {file_to_process} (possible problems: file corrupted, wrong type only XLSX accetpted, file does not exists or was deleted, operating system vilotation) in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
         return False
-    #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel database read (`db` variable) as: {db}{Style.RESET_ALL}")  #NOTE for debug purposes
+    #print(f"[yellow]DEBUG-note:[/] `rdinv` module, Excel database read (`db` variable) as: {db}[/]")  #NOTE for debug purposes
 
     # read the workshet with Invoice data
     if invoice_worksheet_name is None:  # if parameter `invoice_worksheet_name` not specified try to open first worksheet from Excel worksheets - order is given by worksheets order in Excel file
         list_of_excel_worksheets = db.ws_names
-        print(f"{Fore.YELLOW}INFO note:{Style.RESET_ALL} `rdinv` module, no worksheet specified so will open first from this list {list_of_excel_worksheets}")
+        print(f"[yellow]INFO note:[/] `rdinv` module, no worksheet specified so will open [cyan]'{list_of_excel_worksheets[0]}'[/]")
         invoice_worksheet_name = list_of_excel_worksheets[0]
 
     try:
         ws = db.ws(invoice_worksheet_name)
     except:
-        print(f"{Fore.RED}***FATAL ERROR - Cannot open Excel specified Worksheet \"{invoice_worksheet_name}\" in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
+        print(f"[red]***FATAL ERROR - Cannot open Excel specified Worksheet \"{invoice_worksheet_name}\" in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
         return False
-    #print(f"{Fore.YELLOW}DEBUG-note:{Style.RESET_ALL} `rdinv` module, Excel worksheet read (`ws` variable) as: {ws}{Style.RESET_ALL}")  #NOTE for debug purposes
+    #print(f"[yellow]DEBUG-note:[/] `rdinv` module, Excel worksheet read (`ws` variable) as: {ws}[/]")  #NOTE for debug purposes
 
     """ #NOTE: section for search of `invoice_items_area` (ie `pylightxl.ssd` object)
         - how: search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter
@@ -89,9 +80,9 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
             _crt_cell_val = ws.index(_crt_row, _crt_col)
             if (_crt_cell_val == "") or (_crt_cell_val == SYS_FILLED_EMPTY_CELL) or (_crt_cell_val is None):  # skip empty cells and continue with next cells
                 continue
-            # search for all strings from INVOICE_ITEMS_SUBTABLE_MARKER
+            # search for all strings from config_settings.INVOICE_ITEMS_SUBTABLE_MARKER
             _cell_val_to_test = str(_crt_cell_val).lower()
-            for i in INVOICE_ITEMS_SUBTABLE_MARKER:   # search in current cell contains one the strings potential to identify items subtable
+            for i in config_settings.INVOICE_ITEMS_SUBTABLE_MARKER:   # search in current cell contains one the strings potential to identify items subtable
                 if i in _cell_val_to_test:
                     _found_cell = (_crt_row, _crt_col, _crt_cell_val)
                     _FOUND_RELEVANT_CELL = True
@@ -103,7 +94,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
         if _FOUND_RELEVANT_CELL:
             break
     if not _FOUND_RELEVANT_CELL:
-        print(f"{Fore.RED}***FATAL ERROR - Cannot find a relevant cell where invoice items table start (basically containing string \" crt\"). File processing terminated{Style.RESET_ALL}")
+        print(f"[red]***FATAL ERROR - Cannot find a relevant cell where invoice items table start (basically containing string \" crt\"). File processing terminated[/]")
         return False
     keyword_for_items_table_marker = _found_cell[2]  #NOTE here you have `_found_cell = (row, col, val)` so can set variable `keyword_for_items_table_marker`
 
@@ -165,15 +156,15 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     _fjson_fileobject = os.path.join(os.path.split(file_to_process)[0], _fjson_filename)
     with open(_fjson_fileobject, 'w', encoding='utf-8') as _f:
         json.dump(invoice, _f, ensure_ascii = False, indent = 4)
-    print(f"{Fore.YELLOW}INFO note:{Style.RESET_ALL} `rdinv` module, written invoice JSON data to: {Fore.GREEN}{_fjson_fileobject}{Style.RESET_ALL}")
+    print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
 
 
     #TODO check for more TODOs, clean &&-->
     #TODO wip...(@231125) TRANSFORM JSON FILE from Excel (row,col) format in a relational one (but respecting ROefact tags from used scheme)
 
     if debug_info:  # NOTE DEBUG area print
-        print(f"{Fore.YELLOW}DEBUG note: sub-tabel[0], factura contine:{Style.RESET_ALL}")  #NOTE test should be an array of arrays (matrix) with invoice items #FIXME drop after test
-        pprint(invoice, width = 132)  #NOTE see generated JSON files for content #FIXME drop me at final
+        print(f"[yellow]DEBUG note: sub-tabel[0], factura contine:[/]")
+        pprint(invoice)
         print()
 
     return copy.deepcopy(invoice)
@@ -206,7 +197,7 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
         if True:  # ---- find item quantity column ==> (`cbc_InvoicedQuantity`)
             _col_index = find_str_in_list(["qty", "cant", "quantity"], _invoice_items_cols_key)
             if _col_index is None:  # did not find a suitable column to represent number, so return None probably raising an error
-                print(f"{Fore.RED}***FATAL ERROR - module 'RDINV', function `__mk_kv_invoice_items_area(...)`. Cannot find a 'QUANTITY' column in items table. Processing terminated{Style.RESET_ALL}")
+                print(f"[red]***FATAL ERROR - module 'RDINV', function `__mk_kv_invoice_items_area(...)`. Cannot find a 'QUANTITY' column in items table. Processing terminated[/]")
                 return False
             else:
                 _item_quantity = _invoice_items_data_key[_i][_col_index] if isnumber(str(_invoice_items_data_key[_i][_col_index])) else None
@@ -217,25 +208,25 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
         if True:  # ---- find item VAT percent (if exists..., some invoices do noy specify percent itself but just value) ==> (`cbc_Percent`)
             _col_index = find_str_in_list(["cota", "vat %", "% vat"], _invoice_items_cols_key)
             if _col_index is None: # did not find a suitable column to represent number, so return None probably raising an error
-                _vat_percent = DEFAULT_VAT_PERCENT if _item_quantity else None  # see #NOTE-1
+                _vat_percent = config_settings.DEFAULT_VAT_PERCENT if _item_quantity else None  # see #NOTE-1
             else:
                 #FIXME `_vat_percent` calculation should also consider a simplified invoice where only VAT value is specificed AND THEN SHOULD BE CALCULATED AS_IS in document (see "acciza line on REN... invoice")
-                _vat_percent = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_VAT_PERCENT if _item_quantity else None)  # see #NOTE-1 #FIXME fix it considering previous comment
+                _vat_percent = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (config_settings.DEFAULT_VAT_PERCENT if _item_quantity else None)  # see #NOTE-1 #FIXME fix it considering previous comment
                 _vat_percent = None if (str(_vat_percent).split() == "") else (float(_vat_percent) if isnumber(str(_vat_percent)) else None)  # finally make it None if remained empty string
 
         if True:  # ---- find item description / name ==> (`cbc_Name`)
             _col_index = find_str_in_list(["denumire", "name", "nume", "item", "desc"], _invoice_items_cols_key)
             if _col_index is None: # did not find a suitable column to represent number, so return None probably raising an error
-                _name_description = DEFAULT_UNKNOWN_ITEM_NAME if _item_quantity else None  # see #NOTE-1
+                _name_description = config_settings.DEFAULT_UNKNOWN_ITEM_NAME if _item_quantity else None  # see #NOTE-1
             else:
-                _name_description = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_UNKNOWN_ITEM_NAME if _item_quantity else None)  # see #NOTE-1
+                _name_description = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (config_settings.DEFAULT_UNKNOWN_ITEM_NAME if _item_quantity else None)  # see #NOTE-1
 
         if True:  # --- find unit of measure ==> (`cbc_unitCode`)
             _col_index = find_str_in_list(["uom", "um", "masura", "measure"], _invoice_items_cols_key)
             if _col_index is None: # did not find a suitable column to represent number, so return None probably raising an error
-                _unif_of_measure = DEFAULT_UNKNOWN_UOM if _item_quantity else None  # see #NOTE-1
+                _unif_of_measure = config_settings.DEFAULT_UNKNOWN_UOM if _item_quantity else None  # see #NOTE-1
             else:
-                _unif_of_measure = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_UNKNOWN_UOM if _item_quantity else None)  # see #NOTE-1
+                _unif_of_measure = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (config_settings.DEFAULT_UNKNOWN_UOM if _item_quantity else None)  # see #NOTE-1
 
         if True:  # --- find unit price ==> (`cbc_PriceAmount`)
             _col_index = find_str_in_list(["price", "pret"], _invoice_items_cols_key)
@@ -252,7 +243,6 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
             _item_total = None
             if (_item_quantity is not None) and (_unit_price is not None):
                 _item_total = round(_item_quantity * _unit_price, 2)
-
 
         # build dictionary with usual invoice columns (respecting as possible the XSD schemes listed in [`meta_info`][`invoice_XML_schemes`] key)
         _line_info = {
@@ -271,7 +261,7 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
                 },
                 "cac_Price": {
                     "cbc_PriceAmount" : _unit_price,
-                    "cbc_currencyID": None if (_item_quantity is None or str(_item_quantity).split() == "") else DEFAULT_CURRENCY  #FIXME this will be identifyed in `invoice_header_area` ==> should be changed accordingly
+                    "cbc_currencyID": None if (_item_quantity is None or str(_item_quantity).split() == "") else config_settings.DEFAULT_CURRENCY  #FIXME this will be identifyed in `invoice_header_area` ==> should be changed accordingly
                 },
                 "cbc_LineExtensionAmount": _item_total
             }
@@ -306,13 +296,13 @@ def _get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
     # obtain table with invoice items ==> `invoice_items_area`
     invoice_items_area = worksheet.ssd(keycols = invoice_items_area_marker, keyrows = invoice_items_area_marker)
     if (invoice_items_area is None or ((isinstance(invoice_items_area, list)) and len(invoice_items_area) < 1)):  # there was not detected any area candidate to "invoice items / lines", so will exit rasing error
-        print(f"{Fore.RED}***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - \"{wks_name}\" in Module {Fore.RED} RDINV (code-name: `rdinv`). File processing terminated{Style.RESET_ALL}")
+        print(f"[red]***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - \"{wks_name}\" in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
         return False
 
     #TODO test if list has more items (ie, that means more item tables that will need to be consolidated)
     if isinstance(invoice_items_area, list) and len(invoice_items_area) > 0:
-        #   #NOTE `invoice_items_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
-        invoice_items_area = invoice_items_area[0]  #NOTE NOW will suppose found just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
+        # NOTE `invoice_items_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
+        invoice_items_area = invoice_items_area[0]  # will suppose found just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
 
     """ CLEANING & CLEARING section
     """
@@ -435,7 +425,7 @@ def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name, keep_ce
                             _cells_to_be_changed.append(_potential_ROW_INDEX_address)
                 if not _first_entry:  # here the cell has a relevant value, store all next to be marked with SYS_FILLED_EMPTY_CELL
                     _cells_to_be_changed.append((r, c))
-                    #print(f"\t/***** cell {(r, c)} marked for '___sys_filled_empty_cell' / {Fore.YELLOW}all list is {_cells_to_be_changed}{Style.RESET_ALL}") #NOTE for debug purposes
+                    #print(f"\t/***** cell {(r, c)} marked for '___sys_filled_empty_cell' / [yellow]all list is {_cells_to_be_changed}[/]") #NOTE for debug purposes
                 _first_entry = False
             if _full_break:
                 break

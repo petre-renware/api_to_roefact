@@ -8,7 +8,10 @@
 
     Components:
         - `isnumber(a_string: str) -> bool`
+            Test a string if it could be used as number (int or float)
+
         - `find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int`
+            Search more strings (ie, a list) in list of strings
 """
 
 from fractions import Fraction

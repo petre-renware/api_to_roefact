@@ -8,37 +8,36 @@
         - do not add supplementary parameters, they will not be used without software changes (also risk to induce potential errors)
 
     Identification:
-        code-name: `rdinv`
+        code-name: `config_settings`
         copyright: (c) 2023 RENWare Software Systems
         author: Petre Iordanescu (petre.iordanescu@gmail.com)
 """
 
-# coeficientul TVA implicit
-#   este utilizat de catre aplicatie in toate conditiile in care nu este gasit unul in fiserul de intrare
-DEFAULT_VAT_PERCENT = 0.19
+"""---------------------------------------------------------------------------------------------------------------------------
+# NOTE: parametrii utilizati in modulul `rdinv` (comanda: `xl2json`, functionalitate: extragere date Excel si export in JSON)
+---------------------------------------------------------------------------------------------------------------------------"""
 
+# --- coeficientul TVA implicit
+# este utilizat de catre aplicatie in toate conditiile in care nu este gasit unul in fiserul de intrare
+DEFAULT_VAT_PERCENT: float = 0.19
 
-# denumirea unui produs ce nu poate fi identificat
-#   este utilizat de catre aplicatie in toate conditiile in care denumirea unui produs sau serviciu (liniile facturii) nu este specifcata
-#   denumirea este considerta necunoscuta atunci cind este lasata 'blank' sau pur si simplu celula respectiva este goala
-DEFAULT_UNKNOWN_ITEM_NAME = "--- n/a ---"
+# --- denumirea unui produs ce nu poate fi identificat
+# este utilizat de catre aplicatie in toate conditiile in care denumirea unui produs sau serviciu (liniile facturii) nu este specifcata
+# denumirea este considerta necunoscuta atunci cind este lasata 'blank' sau pur si simplu celula respectiva este goala
+DEFAULT_UNKNOWN_ITEM_NAME: str = "--- n/a ---"
 
+# --- unitatea de masura implicita
+# este utilizat de catre aplicatie in toate conditiile in care unitatea de masura unui produs sau serviciu (liniile facturii) nu este cunoscuta
+# unitatea de masura este considerta necunoscuta atunci cind este lasata 'blank' sau pur si simplu celula respectiva este goala
+DEFAULT_UNKNOWN_UOM: str|None = None
 
-# unitatea de masura implicita
-#   este utilizat de catre aplicatie in toate conditiile in care unitatea de masura unui produs sau serviciu (liniile facturii) nu este cunoscuta
-#   unitatea de masura este considerta necunoscuta atunci cind este lasata 'blank' sau pur si simplu celula respectiva este goala
-DEFAULT_UNKNOWN_UOM = None
+# --- moneda implicita
+# este utilizat de catre aplicatie in toate conditiile in care pe factura nu este specifcata in clar o moneda
+# specifcarea monedei ca sau in titlurile coloanelor nu este luata in considerare (nu este garantat ca este moneda reala a facturii !)
+DEFAULT_CURRENCY: str = "RON"
 
-
-# moneda implicita
-#   este utilizat de catre aplicatie in toate conditiile in care pe factura nu este specifcata in clar o moneda
-#   specifcarea monedei ca sau in titlurile coloanelor nu este luata in considerare (nu este garantat ca este moneda reala a facturii !)
-DEFAULT_CURRENCY = "RON"
-
-
-
-# contine secventele de caractere care permit inceputul zonei (sub-tabelului) ce contine liniile facturii
-INVOICE_ITEMS_SUBTABLE_MARKER = [" crt", "no. crt", "nr. crt", "#"]
+# --- contine secventele de caractere care permit inceputul zonei (sub-tabelului) ce contine liniile facturii
+INVOICE_ITEMS_SUBTABLE_MARKER: list[str] = [" crt", "no. crt", "nr. crt", "#"]
 
 
 

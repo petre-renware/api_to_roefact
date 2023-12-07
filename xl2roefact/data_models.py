@@ -20,7 +20,7 @@
 
 import os
 from datetime import datetime, timezone, tzinfo
-from colorama import Fore, Back, Style
+from rich import print
 from typing import TypedDict  #NOTE: doc helper `https://mypy.readthedocs.io/en/stable/typed_dict.html`
 import copy
 from pprint import pprint

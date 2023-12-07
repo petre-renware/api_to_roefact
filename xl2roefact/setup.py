@@ -11,6 +11,10 @@
         - *helper*: see official doc here `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`
 """
 
+import sys
+from cx_Freeze import setup, Executable
+
+
 '''#FIXME NOTE-[piu@231202]
     1.- `build/` directory contains an executanble that not run !!!
     2.- it generates the msi package (`dist/xl2roefact-0.1.0-win64.msi`)
@@ -18,12 +22,19 @@
 '''
 
 
-import sys
-from cx_Freeze import setup, Executable
 
-# base="Win32GUI" should be used only for Windows GUI app
-base = "Win32GUI" if sys.platform == "win32" else None
+# Dependencies are automatically detected, but it might need
+# fine tuning.
+build_options = {'packages': [], 'excludes': []}
 
-setup(executables=[Executable("xl2roefact.py", base=base)])
+base = 'console'
 
+executables = [
+    Executable('xl2roefact.py', base=base)
+]
 
+setup(name='xl2roefact',
+      version = '0.1',
+      description = 'Excel invoice upload to RO E-Fact system',
+      options = {'build_exe': build_options},
+      executables = executables)

@@ -27,36 +27,69 @@
 
 
 
-### 0.1.10 #TODO_future... `xl2roefact.RDINV` ???-[invoice header, invoice IDs, owner & partner?] (...)
+### 0.1.11 #TODO_future... `xl2roefact.RDINV` ???-[invoice header, invoice IDs, owner & partner?] (...)
 
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
-    * [x] DONE@`231108piu_b` set directories environment & open invoice
-    * [x] DONE@`231108piu_c` parametrized worksheet name containing invoice (received as parameter)
-    * [x] FIXED@`231108piu_d` problem: __xls binary format is not supported__
-    * [x] DONE@`231108piu_f` secured "unwanted crashes" and defaulted to first worksheet found when not specified #TODO up comment must be subject of documentation update
-    * [x] DONE@'231119piu_a' created `meta_info` key ref processed Excel file
-    * [x] DONE@`231119piu_b` invoice_items_area ready
-    * [x] DONE@`231119piu_a` written `invoice` dict to `f-JSON` file
     * invoice header
         * [ ] invoice header - invoice identification (number, date, currency (+ see left OPEN ISSUES), oth important as "non VAT payer")
         * [ ] invoice header - issuer (owner)
         * [ ] invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
         * [ ] RENAME / REFACTOR `rdinv` --> `xl2json` (future intention for `web2json` and potentially `gui2json`)
     * invoice footer
-    * [ ] update documentation for whole `rdinv` module
+    -
+    * [ ] update documentation for:
+        * [ ] `rdinv` module
+        * [ ] `xl2roefact` CLI application
+        * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md`
+    -
     * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
         * [ ] _file `xl2roefact/rdinv.py`, function `__mk_kv_invoice_items_area(...)`:_ `FIXME this will be identified in `invoice_header_area` ==> should be changed accordingly`
         * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
-    * ... consolidate _environments & requirements_ with system root ones to make a single system with two components: xl2roefact as library & CLI + potential future web application
-    * ... future intention is to make commands: `xl2json - RDINV`, `json2xml - WRXML`, `json2pdf`, `xml2roefact - LDXML` and other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
+    -
+    * ... future intention is to make commands:
+        * `config` - new... to set INTERACTIVELY configuration options (HINT: to use `Rich prompt`)
+        * `xl2json - RDINV`,
+        * `json2xml - WRXML`,
+        * `json2pdf` - new...,
+        * `xml2roefact - LDXML`
+        * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
+
+* wip... last used 231207piu_a
 
 
-* wip... last use 231103piu_b
 
 
 
 
 
+
+
+### 0.1.10 command interface improved, `msi` package building, invoice template & updated documentation
+
+* 231207piu_a FIXED errors due to Excel files directory duplication in `xl2roefact` & `rdinv()`
+
+* 231206piu_a clean code for `rdinv` & `xl2roefact`, reviewed cnd closed some open issues (todos, notes, ...)
+
+* 231205piu_b made a directory for INVOICE TEMPLATE (`excel_invoice_template/`) to be delivered with solutions "for who need a simple template", also write here a `README_excel_invoice_rules.md` to describe all required conditions in order to be "RECOGNIZED & TRANSLATED to JSON"
+
+* 231205piu_a change all solution to use `rich` library instead of `colorama` (Rich library ref `https://rich.readthedocs.io/en/stable/index.html`)
+    * [x] drop all `from colorama import Fore, Back, Style`
+    * [x] add new `from rich import print`
+    * [x] update all places where `{Fore....}` with `[...]` as:
+        * [x] `{Fore.YELLOW}` with `[yellow]`
+        * [x] `{Fore.GREEN}` with `[green]`
+        * [x] `{Fore.MAGENTA}` with `[magenta]`
+        * [x] `{Fore.BLUE}` with `[blue]`
+        * [x] `{Fore.CYAN}` with `[cyan]`
+        * [x] `{Fore.RED}` with `[red]`
+    * [x] change all `typer.echo` with `print`
+    * [x] update all places where `{Style.RESET_ALL}` with `[/]`
+
+* 231204piu_c build new executable and installer ==> `dist/0.1.10.231204piu_a-xl2roefact-0.1-win64.msi`
+
+* 231204piu_b created `./doc/` renamed and moved all documentation documents - intention to keep clean `xl2roefact root`
+
+* 231204piu_a `xl2roefact xl2json` check rdinv() result and if return False, ONLY print a message of "INFO note" then continue with next file (the effective error was print by module itself) && build a new executable package ==> `dist/0.1.10.231204piu_a-exe.win-amd64-3.10.zip`
 
 
 
