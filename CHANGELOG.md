@@ -54,7 +54,9 @@
         * `xml2roefact - LDXML`
         * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
 
-* wip... last used 231207piu_a
+* wip... last used 231207piu_b
+
+
 
 
 
@@ -65,6 +67,8 @@
 
 
 ### 0.1.10 command interface improved, `msi` package building, invoice template & updated documentation
+
+* 231207piu_b build a `MSI` package for `0.1.10` version ==> **`0.1.10-xl2roefact-0.1-win64.msi`**, also installed `Python 3.11` + `cx-Freeze` & updated `requirements_xl2roefact.txt`
 
 * 231207piu_a FIXED errors due to Excel files directory duplication in `xl2roefact` & `rdinv()`
 
