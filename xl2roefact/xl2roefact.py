@@ -61,8 +61,7 @@ def settings():
 def xl2json(
     file_name: Annotated[
         str,
-        typer.Option(
-            default="*.xlsx",
+        typer.Argument(
             help="files to process (wildcards allowed)"
         )
     ] = "*.xlsx",
@@ -93,17 +92,24 @@ def xl2json(
 
     # process files as requested in command line
     tmp_files_to_process = Path(excel_files_directory)
-    print(f"[yellow]INFO note:[/] files to process: [yellow]{Path(tmp_files_to_process, file_name)}[/]")
+    print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
     list_of_files_to_process = list(tmp_files_to_process.glob(file_name))
     if verbose:
         print(f"[yellow]DEBUG note:[/] list object with files to process: [green]{list_of_files_to_process}[/]")
     for a_file in list_of_files_to_process:
         if verbose:
             print(f"[yellow]DEBUG note:[/] to process now: [green]{a_file}[/]")
+        #
         invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `excel_files_directory` is already contained in)
-        ret_val = rdinv(file_to_process=invoice_to_process, debug_info=verbose)
-        if not ret_val:
+        invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose)
+        if not invoice_datadict:
             print(f"[yellow]INFO note:[/] last step returned an error and process could be incomplete. Please review previous messages.")
+        #
+        if verbose:
+            print(f"[yellow]DEBUG note:[/] `xl2roefact` module, content of resulted `invoice` data dictionary:")
+            pprint(invoice_datadict)
+            print()
+
 
 
 if __name__ == "__main__":

@@ -6,9 +6,9 @@ authors = [
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" }
 ]
 dependencies = []
-readme = "README_xl2roefact.md"
-# #TODO_uncomment_and_test: license = {file = "../LICENSE.txt"}
-requires-python = ">= 3.8"
+readme = "README.md"
+#FIXME.cxFreeze.reports.err.with.this:`2 values found...` license = "LICENSE"
+requires-python = ">= 3.10"
 
 [build-system]
 requires = ["hatchling"]

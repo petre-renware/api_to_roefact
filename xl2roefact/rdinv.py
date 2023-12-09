@@ -45,7 +45,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
         - `ws`: pylightxl object with invoice WORKSHEET
     """
 
-    print(f"*** Module [red]rdinv[/] started at {datetime.now()} to process file [green]{file_to_process}[/]")
+    print(f"*** Module [red]rdinv[/] started at {datetime.now()} to process file [green]{os.path.split(file_to_process)[1]}[/] (full path: {file_to_process})")
 
     # read Excel file with Invoice data
     try:
@@ -53,7 +53,6 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     except:
         print(f"[red]---***FATAL ERROR - Cannot open Excel file {file_to_process} (possible problems: file corrupted, wrong type only XLSX accetpted, file does not exists or was deleted, operating system vilotation) in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
         return False
-    #print(f"[yellow]DEBUG-note:[/] `rdinv` module, Excel database read (`db` variable) as: {db}[/]")  #NOTE for debug purposes
 
     # read the workshet with Invoice data
     if invoice_worksheet_name is None:  # if parameter `invoice_worksheet_name` not specified try to open first worksheet from Excel worksheets - order is given by worksheets order in Excel file
@@ -66,7 +65,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     except:
         print(f"[red]***FATAL ERROR - Cannot open Excel specified Worksheet \"{invoice_worksheet_name}\" in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
         return False
-    #print(f"[yellow]DEBUG-note:[/] `rdinv` module, Excel worksheet read (`ws` variable) as: {ws}[/]")  #NOTE for debug purposes
+
 
     """ #NOTE: section for search of `invoice_items_area` (ie `pylightxl.ssd` object)
         - how: search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter
@@ -103,14 +102,14 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
         file_to_scan=file_to_process,
         invoice_worksheet_name=invoice_worksheet_name,
         keep_cells_of_items_ssd_marker=_found_cell)  # call specify that cells with some description but not real invoice lines but probably just details / supplimentary explanations to last real invoce line, will be kept (to be preserved in final invoice as: extended description)
-    #print(f"----------DETECTED RANGES: {detected_cells_which_will_be_fake_filled}")  #NOTE for debug purposes
     # scan all detectected cell and change them
     for _cell_index in detected_cells_which_will_be_fake_filled:
         _cell_row = _cell_index[0]
         _cell_col = _cell_index[1]
         ws.update_index(row = _cell_row, col = _cell_col, val = SYS_FILLED_EMPTY_CELL)
 
-    """ solve `invoice_items_area` in 2 steps:
+
+    """ #NOTE: section for solve `invoice_items_area` in 2 steps:
         - first process it as Excel format (row & colomns datale (aka Data Frame))
         - transform it in "canonical JSON format" (as kv pairs)
     """
@@ -122,6 +121,16 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     )
     # transform `invoice_items_area` in "canonical JSON format" (as kv pairs)
     invoice_items_as_kv_pairs = __mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
+
+
+    """ #NOTE: section for solve `invoice_items_area`
+        - #TODO ...hereuare... ...short plan here... owner, partner, invoice identification, currency, invoice id/number, issued date
+        - @final write them to:
+            - (1) ==> `invoice["excel_original_data"]["invoice_header_area"]` then
+            - (2) transform them to canonocal form (as @invoice lines, see line ~122) ==> `invoice["Invoice"]`
+    """
+    #TODO ...hereuare...
+
 
     # preserve processed Excel file meta information: start address, size.
     meta_info = _build_meta_info_key(
@@ -139,7 +148,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
             invoice_items_area = copy.deepcopy(invoice_items_area),
-            invoice_header_area = "...owner, partner, invoice identification, currency, invoice id/number, issued date",  #TODO to be done... ...hereuare...
+            invoice_header_area = "...to be done",  #TODO to be done...
             invoice_footer_area = "...to be done"  #TODO to be done...
         )
     }
@@ -147,10 +156,10 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     # write `invoice` dict to `f-JSON`
     """ useful NOTE(s):
         - ref `f-JSON` file, see doc: `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#vedere-de-ansamblu-a-solutiei`
-        - set `f-JSON` filename as Excel filename but with json extention
+        - create `f-JSON` filename as Excel filename but with json extention
         - helpers:
-                - os.split gets @[0] directory & @[1] filename
-                - os.splitext @[0] filename w/o ext, @[1] extention woth dot char included
+                - os.path.split gets @[0] directory & @[1] filename
+                - os.path.splitext @[0] filename w/o ext, @[1] extention woth dot char included
     """
     _fjson_filename = os.path.splitext(os.path.basename(file_to_process))[0] + ".json"
     _fjson_fileobject = os.path.join(os.path.split(file_to_process)[0], _fjson_filename)
@@ -162,10 +171,12 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     #TODO check for more TODOs, clean &&-->
     #TODO wip...(@231125) TRANSFORM JSON FILE from Excel (row,col) format in a relational one (but respecting ROefact tags from used scheme)
 
+    '''  #NOTE [@231208] moved in `xl2roefact` as debog-verbose option  #FIXME drop me after a while...
     if debug_info:  # NOTE DEBUG area print
-        print(f"[yellow]DEBUG note: sub-tabel[0], factura contine:[/]")
+        print(f"[yellow]DEBUG note:[/] content of `invoice` data dictionary:")
         pprint(invoice)
         print()
+    '''
 
     return copy.deepcopy(invoice)
 

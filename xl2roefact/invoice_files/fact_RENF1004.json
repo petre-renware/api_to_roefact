@@ -101,7 +101,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2023-12-07T04:01:08.944523+00:00",
+        "last_processing_time": "2023-12-09T05:35:08.402451+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 30,
         "invoice_max_cols": 9,
@@ -239,7 +239,7 @@
                 ]
             ]
         },
-        "invoice_header_area": "...owner, partner, invoice identification, currency, invoice id/number, issued date",
+        "invoice_header_area": "...to be done",
         "invoice_footer_area": "...to be done"
     }
 }

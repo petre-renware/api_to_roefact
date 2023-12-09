@@ -27,34 +27,41 @@
 
 
 
-### 0.1.11 #TODO_future... `xl2roefact.RDINV` ???-[invoice header, invoice IDs, owner & partner?] (...)
+### 0.1.12 #TODO_future... `xl2roefact.RDINV` ???-[invoice header, invoice IDs, owner & partner?] (...)
 
+* [ ] update documentation for:
+    * [ ] `rdinv` module
+    * [ ] `xl2roefact` CLI application
+    * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md`
+-
+* left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
+    * [ ] _file `xl2roefact/rdinv.py`, function `__mk_kv_invoice_items_area(...)`:_ `FIXME this will be identified in `invoice_header_area` ==> should be changed accordingly`
+    * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
+-
+* ... future intention is to make commands:
+    * `config` - new... to set INTERACTIVELY configuration options (HINT: to use `Rich prompt`)
+    * `xl2json - wip... RDINV` read Excel data and crate a JSON file (with map to convert to RO-EFact XML) with invoice data,
+    * `json2xml - WRXML`,
+    * `json2pdf` - new...,
+    * `xml2roefact - LDXML`
+    * create a **`build.bat`** & include in `MSI` package 'data' directories as: `excel_invoice_template/`, empty `invoice_files/` (see `cx-Freeze`, options `--directories` of `bdist_msi`cmd, option `--include_files` of `build_exe`cmd, ref URL: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
+    * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
+-
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
-        * [ ] invoice header - invoice identification (number, date, currency (+ see left OPEN ISSUES), oth important as "non VAT payer")
+        * [...wip `231209piu_b`...] invoice header - invoice identification (number, date, currency (+ see left OPEN ISSUES), oth important as "non VAT payer")
         * [ ] invoice header - issuer (owner)
         * [ ] invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
         * [ ] RENAME / REFACTOR `rdinv` --> `xl2json` (future intention for `web2json` and potentially `gui2json`)
     * invoice footer
-    -
-    * [ ] update documentation for:
-        * [ ] `rdinv` module
-        * [ ] `xl2roefact` CLI application
-        * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md`
-    -
-    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
-        * [ ] _file `xl2roefact/rdinv.py`, function `__mk_kv_invoice_items_area(...)`:_ `FIXME this will be identified in `invoice_header_area` ==> should be changed accordingly`
-        * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
-    -
-    * ... future intention is to make commands:
-        * `config` - new... to set INTERACTIVELY configuration options (HINT: to use `Rich prompt`)
-        * `xl2json - RDINV`,
-        * `json2xml - WRXML`,
-        * `json2pdf` - new...,
-        * `xml2roefact - LDXML`
-        * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
 
-* wip... last used 231207piu_b
+
+
+* wip...
+
+* ...231209piu_? invoice header:
+    * [ ] invoice number & updated `config_settings.py` ref how to find it: string labels to search, direction to search effective info starting from label
+    * [ ]
 
 
 
@@ -62,11 +69,31 @@
 
 
 
+### 0.1.11 (231209 h08:00)
+
+* 231209piu_c build packages for:
+    * [x] application deployment package ==> `dist/0.1.11-xl2roefact-0.1-win64.msi`
+    * [x] excel invoice template package ==> `dist/0.1.11-excel_invoice_template.zip`
+    * [x] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
+
+* 231209piu_b **fixed `xl2roefact` CLI options, help, defaults, short names** and __STABILIZED EXECUTION__
+
+* closed `231209piu_a` more actions:
+    * changed `README.md`: translated to RO, updated installation & usage information
+    * dropped old, obsolete deployment packages
+    * test PASS
+
+* 231208piu_b add an INVOICE TEMPLATE (`excel_invoice_template/invoice_template_CU_tva.xlsx`) as deliverable with application
+
+* 231208piu_a review, cleaning and formatting code (generalized & moved some debug-verbose code from `rdinv` to `xl2roefact.xl2json`), test PASS
+* 231207piu_b cleaned `rdinv` of "...for debug purposes..." prints, test PASS
+
+* 231207piu_c reviewed and updated `xl2roefact`: README, LICENSE, pyproject.toml
 
 
 
 
-### 0.1.10 command interface improved, `msi` package building, invoice template & updated documentation
+### 0.1.10 command interface improved, `msi` package building, invoice template & updated documentation (231207 h12:00)
 
 * 231207piu_b build a `MSI` package for `0.1.10` version ==> **`0.1.10-xl2roefact-0.1-win64.msi`**, also installed `Python 3.11` + `cx-Freeze` & updated `requirements_xl2roefact.txt`
 
