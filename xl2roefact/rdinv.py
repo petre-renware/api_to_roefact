@@ -120,7 +120,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
         worksheet=ws,
         invoice_items_area_marker=keyword_for_items_table_marker,
         wks_name=invoice_worksheet_name
-    )  #FIXME #FIXME move creation of `ssd = invoice_items_area` @line 101, just after `keyword_for_items_table_marker` establish
+    )  #FIXME #FIXME move creation of `ssd = invoice_items_area` @line 101, just after `keyword_for_items_table_marker` establish && IMMEDIATELY move line @ issue marked `#FIXME_MOVE_ME_2nd` (~line 162)
     # transform `invoice_items_area` in "canonical JSON format" (as kv pairs)
     invoice_items_as_kv_pairs = __mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
 
@@ -152,14 +152,14 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
             - follow: ** invoice number (RDY), issued date, owner, customer, currency **
             - (0) build `invoice["excel_original_data"]["invoice_header_area"]`
             - (1) transform them to canonical form and create `invoice["Invoice"]["cbc_ID"]
-    """
+    """ #FIXME #FIXME issue.`#FIXME_MOVE_ME_3rd` move `invoice_header_area` creation just after `ssd, invoice_items_area` determination (to have DEFAULT_CURRENCY set when build items area...)
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
         issued_date = "...future NEXT TO APPROACH ...",
         currency = "...future...",
         owner = "...future...",
         customer = "...future..."
-    )
+    )  #FIXME #FIXME issue.`#FIXME_MOVE_ME_2nd` move `invoice_header_area` creation just after `ssd, invoice_items_area` determination (to have DEFAULT_CURRENCY set when build items area...) && all header section, see up line mark `#FIXME_MOVE_ME_3rd`
     # find invoice number
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])
     invoice_number_info = __get_excel_data_at_label(
