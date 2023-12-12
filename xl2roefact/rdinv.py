@@ -120,7 +120,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
         worksheet=ws,
         invoice_items_area_marker=keyword_for_items_table_marker,
         wks_name=invoice_worksheet_name
-    )
+    )  #FIXME #FIXME move creation of `ssd = invoice_items_area` @line 101, just after `keyword_for_items_table_marker` establish
     # transform `invoice_items_area` in "canonical JSON format" (as kv pairs)
     invoice_items_as_kv_pairs = __mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
 
