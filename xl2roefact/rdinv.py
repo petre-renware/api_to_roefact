@@ -169,7 +169,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
         targeted_type=int)  #NOTE_keep_this_comment.FOR_invoice_date_use_as_callable: `targeted_type==pendulum.parse` && if can mk a partial function for `pendulum.parse(..., tz="Europe/Bucharest")`
     # NOTE returned info by prev all is: {"value": ..., "location": (row..., col...)}
     invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
-    #TODO ...hereuare... .............................................NEXT invoice issued_date
+    #TODO ...hereuare... .............................................NEXT invoice issued_date (ATTN pendulum was disabled due to build err, see line #17)
 
     """ #FIXME ----------------- END OF section for solve `invoice_items_area`"""
 

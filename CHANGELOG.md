@@ -58,8 +58,8 @@
     * invoice footer
 
 
-
 * wip... last used 231212piu_b
+* tbd... invoice header, issue date (&& ATTN pendulum was disabled due to build err, see line #17)
 
 
 
