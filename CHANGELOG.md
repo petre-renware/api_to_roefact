@@ -27,7 +27,7 @@
 
 
 
-### 0.1.12 #TODO_future... `xl2roefact.RDINV` ???-[invoice header, invoice IDs, owner & partner?] (...)
+### 0.1.13 #TODO_future... `xl2roefact.RDINV` ???-[invoice issue date, invoice owner & partner?] (...)
 
 * [ ] update documentation for:
     * [ ] `rdinv` module
@@ -49,20 +49,39 @@
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
-        * [...wip `231209piu_b`...] invoice header - invoice identification (number, date, currency (+ see left OPEN ISSUES), oth important as "non VAT payer")
-        * [ ] invoice header - issuer (owner)
+        * [x] DONE@231212piu_a invoice header - invoice number
+        * [ ] invoice header - issue date
+        * [ ] invoice header - currency (+ see left OPEN ISSUES), oth important as "non VAT payer")
+        * [ ] invoice header - issuer / owner
         * [ ] invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
         * [ ] RENAME / REFACTOR `rdinv` --> `xl2json` (future intention for `web2json` and potentially `gui2json`)
     * invoice footer
 
 
 
-* wip...
+* wip... last used 231212piu_b
 
-* ...231209piu_? invoice header:
-    * [ ] invoice number & updated `config_settings.py` ref how to find it: string labels to search, direction to search effective info starting from label
-    * [ ]
 
+
+
+
+
+
+
+### 0.1.12 (231212 07:30)
+
+* 231212piu_b write canonical form (as @invoice lines, see line ~122) ==> `invoice["Invoice"]["cbc_ID"]` and released `0.1.12-xl2roefact-0.1-win64.msi`
+
+* 231212piu_a `rdinv.rdinv()` invoice header, invoice number as: `{"value": ..., "location": (row..., col...)}`
+
+* 231211piu_b `rdinv.rdinv()` create a function special to get "one key Excel values", like invoice number or invoice issue date.  Signature:
+    - `pattern_to_search_for: list[str]` - for inv number will pass the `INVOICE_NUMBER_IDENTIFICATION_LABELS`
+    - `area_to_scan: list[start_cell, end_cell]` - for inv number will pass `(invoice_header_area["start_cell"], invoice_header_area["end_cell"])`
+    - targeted_tye: type - what type expect (will try to convert to, if cannot will return str)
+
+* 231211piu_a updated `config_settings.py` ref how to find it: string labels to search, direction to search effective info starting from label
+
+* 231210piu_a localized and marked areas for invoice header (`invoice_header_area`) & invoice footer (`invoice_footer_area`) ==> dicts for header and footer with structure `{ start_cell = (row, col), end_cell = (row, col) }`
 
 
 

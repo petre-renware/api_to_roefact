@@ -14,7 +14,7 @@
 """
 
 """---------------------------------------------------------------------------------------------------------------------------
-# NOTE: parametrii utilizati in modulul `rdinv` (comanda: `xl2json`, functionalitate: extragere date Excel si export in JSON)
+# NOTE: parametrii utilizati in de comanda: `xl2json`, functionalitate: extragere date Excel si export in JSON (modul `rdinv)
 ---------------------------------------------------------------------------------------------------------------------------"""
 
 # --- coeficientul TVA implicit
@@ -38,6 +38,13 @@ DEFAULT_CURRENCY: str = "RON"
 
 # --- contine secventele de caractere care permit inceputul zonei (sub-tabelului) ce contine liniile facturii
 INVOICE_ITEMS_SUBTABLE_MARKER: list[str] = [" crt", "no. crt", "nr. crt", "#"]
+
+# --- numarul facturii
+# acest parametru permit identificarea numarului facturii, astfel sistemul va cauta dupa secventele din parametrul
+# `INVOICE_NUMBER_IDENTIFICATION_LABELS`,... (cautarea fiind indiferenta de marimea caracterelor).
+# Aceasta reprezentind "eticheta" unde se presupune a fi numarul facturii.  Pentru a gasi numarul efectiv al facturii,
+# sistemul va cauta in directiile DREAPTA (UP) si apoi daca nu gaseste JOS (DOWN)
+INVOICE_NUMBER_IDENTIFICATION_LABELS: list[str] = ["nr. fact", "nr fact", "numar fact", "fact nr", "factura num", "invoice number", "invoice no", "invoice:"]
 
 
 

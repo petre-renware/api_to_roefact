@@ -58,12 +58,13 @@
                 },
                 "cbc_LineExtensionAmount": 855.12
             }
-        ]
+        ],
+        "cbc_ID": 11017969
     },
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2023-12-09T05:35:08.174745+00:00",
+        "last_processing_time": "2023-12-12T05:24:13.841353+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -130,6 +131,10 @@
                 "cbc:currencyID"
             ],
             [
+                "cbc_ID",
+                "cbc:ID"
+            ],
+            [
                 "cbc_LineExtensionAmount",
                 "cbc:LineExtensionAmount"
             ]
@@ -177,7 +182,36 @@
                 ]
             ]
         },
-        "invoice_header_area": "...to be done",
-        "invoice_footer_area": "...to be done"
+        "invoice_header_area": {
+            "start_cell": [
+                1,
+                1
+            ],
+            "end_cell": [
+                28,
+                8
+            ],
+            "invoice_number": {
+                "value": 11017969,
+                "location": [
+                    10,
+                    6
+                ]
+            },
+            "issued_date": "...future NEXT TO APPROACH ...",
+            "currency": "...future...",
+            "owner": "...future...",
+            "customer": "...future..."
+        },
+        "invoice_footer_area": {
+            "start_cell": [
+                34,
+                1
+            ],
+            "end_cell": [
+                49,
+                8
+            ]
+        }
     }
 }

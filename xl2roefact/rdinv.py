@@ -14,11 +14,13 @@
 
 import os, sys
 from datetime import datetime, timezone, tzinfo
+#import pendulum  #FIXME raise an error on executable built (`File "...\.wenv_xl2roefact\Lib\site-packages\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 from rich import print
 import copy
 from rich.pretty import pprint
 from string import ascii_lowercase
 import json
+from typing import Callable, Any
 from libutils import isnumber, find_str_in_list  # application misc/general utilities
 import config_settings  # application configuration parameters
 import pylightxl as xl
@@ -123,13 +125,55 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     invoice_items_as_kv_pairs = __mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
 
 
-    """ #NOTE: section for solve `invoice_items_area`
-        - #TODO ...hereuare... ...short plan here... owner, partner, invoice identification, currency, invoice id/number, issued date
-        - @final write them to:
-            - (1) ==> `invoice["excel_original_data"]["invoice_header_area"]` then
-            - (2) transform them to canonocal form (as @invoice lines, see line ~122) ==> `invoice["Invoice"]`
+    """ #NOTE: section for localize and mark areas for invoice header (`invoice_header_area`) & invoice footer (`invoice_footer_area`)
     """
-    #TODO ...hereuare...
+    ulc_header = (1, 1)
+    lrc_header = (_found_cell[0] - 1, ws.size[1],)  # info where header ends: row = from items data table start location `_found_cell[0]-1` && col = las col of worksheet
+    invoice_header_area = dict(
+        start_cell = ulc_header,
+        end_cell = lrc_header
+    )
+    #
+    _ulc_footer_row = _found_cell[0] + len(invoice_items_area["keyrows"]) + 1  # this is located at: row = items data table start row  (_found_cell[0]) + # of items data table rows + 1 (invoice_items_area["data"]) && col = 1
+    _start_cell_val = ws.index(_ulc_footer_row, 1)
+    while (_start_cell_val != "") and (_ulc_footer_row <= ws.size[0]): # but if that cell is not blank repeatedly to go une more row down... (why could happen? because ietms data table header was composed of more rows by merging cells...)
+        _ulc_footer_row += 1
+        _start_cell_val = ws.index(_ulc_footer_row, 1)
+    ulc_footer = (_ulc_footer_row, 1)
+    lrc_footer =( ws.size[0], ws.size[1])  # end of worksheet
+    invoice_footer_area = dict(
+        start_cell = ulc_footer,
+        end_cell = lrc_footer
+    )
+
+
+    """ #NOTE: section for solve `invoice_items_area`
+        - @final write them to:
+            - follow: ** invoice number (RDY), issued date, owner, customer, currency **
+            - (0) build `invoice["excel_original_data"]["invoice_header_area"]`
+            - (1) transform them to canonical form and create `invoice["Invoice"]["cbc_ID"]
+    """
+    invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
+        invoice_number = None,
+        issued_date = "...future NEXT TO APPROACH ...",
+        currency = "...future...",
+        owner = "...future...",
+        customer = "...future..."
+    )
+    # find invoice number
+    _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])
+    invoice_number_info = __get_excel_data_at_label(
+        pattern_to_search_for=config_settings.INVOICE_NUMBER_IDENTIFICATION_LABELS,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+        targeted_type=int)  #NOTE_keep_this_comment.FOR_invoice_date_use_as_callable: `targeted_type==pendulum.parse` && if can mk a partial function for `pendulum.parse(..., tz="Europe/Bucharest")`
+    # NOTE returned info by prev all is: {"value": ..., "location": (row..., col...)}
+    invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
+    #TODO ...hereuare... .............................................NEXT invoice issued_date
+
+    """ #FIXME ----------------- END OF section for solve `invoice_items_area`"""
+
+
 
 
     # preserve processed Excel file meta information: start address, size.
@@ -143,13 +187,14 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
     invoice = {
         "Invoice": {
-            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs]  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
+            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
+            "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"])  # create `cbc_ID`
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
             invoice_items_area = copy.deepcopy(invoice_items_area),
-            invoice_header_area = "...to be done",  #TODO to be done...
-            invoice_footer_area = "...to be done"  #TODO to be done...
+            invoice_header_area = copy.deepcopy(invoice_header_area),  #TODO wip...
+            invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO to be done... (just localized `invoice_footer_area`)
         )
     }
 
@@ -179,6 +224,95 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     '''
 
     return copy.deepcopy(invoice)
+
+
+
+
+
+
+# #NOTE - ready, test PASS @ 231212 by [piu]
+def __get_excel_data_at_label(
+        pattern_to_search_for: list[str],
+        worksheet: xl.Database.ws,
+        area_to_scan: list[list[int]],
+        targeted_type: Callable = str
+    ) -> dict:
+    """ get "one key Excel values", like invoice number or invoice issue date.
+        scan is made in order *left->right, top->down* given area and search for cell_value in `pattern_to_search_for`
+
+    Arguments:
+        - `pattern_to_search_for: list[str]` - for inv number will pass the `INVOICE_NUMBER_IDENTIFICATION_LABELS`
+        - `worksheet` - the worksheet containing invoice (as object of `pyxllight` library)
+        - `area_to_scan: list[start_cell, end_cell]` - for inv number will pass `(invoice_header_area["start_cell"], invoice_header_area["end_cell"])`
+        - `targeted_type`: type - what type expect (will try to convert to, if cannot will return str), default `str`
+
+    Return:
+        - `None` if not found OR `dictionary` containing:
+            - `"value": int | float | str` - the value found covenrted to requested `targeted_type` if possible or `str` otherwise; if "out of space" then returns `None`
+            - `"location": (row, col)` - adrees of cell where found value
+
+    Notes:
+        - scan is made in order *left->right, top->down* given area and search for cell_value in `pattern_to_search_for`
+    """
+    def __check_value(val: Any) -> bool:
+        """ return `True` if a `val` is different of None or empty string or SYS_FILLED_EMPTY_CELL, otherwise return `False`
+        """
+        if val is None:
+            return False
+        if isinstance(val, str) and val.strip() == "":
+            return False
+        if val == SYS_FILLED_EMPTY_CELL:
+            return False
+        return True
+
+    #print(f"\n----> function `__get_excel_data_at_label()` called with params:\n\t{pattern_to_search_for=}\n\t{worksheet=}\n\t{area_to_scan=}\n\t{targeted_type=}")  #FIXME drop me, test purposes
+    ret_val = dict(  # initialize structure for what will return if information is found
+        value = None,
+        location = (None, None)
+    )
+    for i in range(area_to_scan[0][0], area_to_scan[1][0] + 1):
+        for j in range(area_to_scan[0][1], area_to_scan[1][1] + 1):
+            _crt_cell_val = [worksheet.index(i, j)]  # make it list to be iterable (of 1 element, but iterable)
+            # test if crt cell is in pattern_to_search_for
+            _found = find_str_in_list(list_of_str_to_find=pattern_to_search_for, list_to_search=_crt_cell_val)
+            if _found is not None:
+                #print(f"----> FOUND something @cell {i=} {j=} = {_crt_cell_val=}")  #FIXME drop me, test purposes
+                value_found = None
+                index_of_value_found = None
+                # NOTE-LOGIC: test for RIGHT cell @(i,j+1) if cell exists in ws range AND if has a value then continue loop (to find other potential cell)
+                if j < area_to_scan[1][1]:  # if still in range if test (ie, exists cell @ (i, j+1))
+                    check_for_index = (i, j + 1)
+                    check_for = worksheet.index(check_for_index[0], check_for_index[1])
+                    #print(f"---->  TEST-RIGHT for value: {check_for=} @ {check_for_index=}")  ##FIXME srop me, test purpose
+                    if __check_value(check_for):
+                        #print("---->  test PASS (at RIGHT), so break loop")  #FIXME drop me, test purposes
+                        value_found = check_for
+                        index_of_value_found = check_for_index
+                if not (value_found and index_of_value_found):  # if NOT found somethinng at RIGHT check ...
+                    # NOTE-LOGIC: then test for DOWN cell @(i+1,j) if cell exists in ws range AND if has a value then continue loop (to find other potential cell)
+                    if i < area_to_scan[1][0] :  # if still in range if test (ie, exists cell @ (i+1, j))
+                        check_for_index = (i + 1, j)
+                        check_for = worksheet.index(check_for_index[0], check_for_index[1])
+                        #print(f"---->  TEST-DOWN for value: {check_for=} @ {check_for_index=}")  ##FIXME srop me, test purpose
+                        if __check_value(check_for):
+                            #print("---->  test PASS (at DOWN), so break loop")  #FIXME drop me, test purposes
+                            value_found = check_for
+                            index_of_value_found = check_for_index
+                if not (value_found and index_of_value_found):  # nothing found, nor @RIGHT, nor @DOWN, so break the loop and try for other poatential cell
+                    #print("("==================> IES deoarece AM AJUNS IN AFARA TOATE RANGE-urile")  #FIXME drop me, test purposes
+                    return ret_val  # will return the empty structure (as initialized)
+                if value_found and index_of_value_found:  # if found something will break all loops
+                    #print("==================> EXIT LOOPS")  #FIXME drop me, test purposes
+                    # all things are ok here, so return found data and its location
+                    ret_val["location"] = index_of_value_found
+                    try:  # converting to requested `targeted_type` (will not test is isinstance(obj, Callable) because if not will raise `except` and convert to str)
+                        ret_val["value"] = targeted_type(value_found)
+                    except:  # noqa: E722
+                        ret_val["value"] = str(value_found)
+                    return ret_val
+    return ret_val  # if get here then will return the empty structure (as initialized)
+
+
 
 
 
@@ -500,6 +634,7 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_Percent", "cbc:Percent"),
         ("cbc_PriceAmount", "cbc:PriceAmount"),
         ("cbc_currencyID", "cbc:currencyID"),  # this is attribute of more tags (all monetary tags)
+        ("cbc_ID", "cbc:ID"),  # invoice number
         ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount")
     ]
 
