@@ -1,5 +1,7 @@
 {
     "Invoice": {
+        "cbc_ID": "RENF-1004",
+        "cbc_DocumentCurrencyCode": "RON",
         "cac_InvoiceLine": [
             {
                 "cbc_ID": "1",
@@ -96,13 +98,12 @@
                 },
                 "cbc_LineExtensionAmount": 111.11
             }
-        ],
-        "cbc_ID": "RENF-1004"
+        ]
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2023-12-12T05:24:14.004457+00:00",
+        "last_processing_time": "2023-12-13T04:25:09.680248+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 30,
         "invoice_max_cols": 9,
@@ -169,12 +170,16 @@
                 "cbc:currencyID"
             ],
             [
+                "cbc_LineExtensionAmount",
+                "cbc:LineExtensionAmount"
+            ],
+            [
                 "cbc_ID",
                 "cbc:ID"
             ],
             [
-                "cbc_LineExtensionAmount",
-                "cbc:LineExtensionAmount"
+                "cbc_DocumentCurrencyCode",
+                "cbc:DocumentCurrencyCode"
             ]
         ]
     },
@@ -260,8 +265,14 @@
                     3
                 ]
             },
-            "issued_date": "...future NEXT TO APPROACH ...",
-            "currency": "...future...",
+            "issued_date": "...future ...",
+            "currency": {
+                "value": "RON",
+                "location": [
+                    6,
+                    9
+                ]
+            },
             "owner": "...future...",
             "customer": "...future..."
         },

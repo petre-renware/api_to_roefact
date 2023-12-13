@@ -97,7 +97,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     if not _FOUND_RELEVANT_CELL:
         print(f"[red]***FATAL ERROR - Cannot find a relevant cell where invoice items table start (basically containing string \" crt\"). File processing terminated[/]")
         return False
-    keyword_for_items_table_marker = _found_cell[2]  #NOTE here you have `_found_cell = (row, col, val)` so can set variable `keyword_for_items_table_marker`
+    keyword_for_items_table_marker = _found_cell[2]  # NOTE here you have `_found_cell = (row, col, val)` so can set variable `keyword_for_items_table_marker`
 
     # detect all cells that should be changed to SYS_FILLED_EMPTY_CELL (these are cells id merged groups where first cell in merged group is relevant (diff from empty))
     detected_cells_which_will_be_fake_filled = _get_merged_cells_tobe_changed(
@@ -121,11 +121,12 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
         invoice_items_area_marker=keyword_for_items_table_marker,
         wks_name=invoice_worksheet_name
     )
-    # transform `invoice_items_area` in "canonical JSON format" (as kv pairs)
-    invoice_items_as_kv_pairs = __mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
 
 
-    """ #NOTE: section for localize and mark areas for invoice header (`invoice_header_area`) & invoice footer (`invoice_footer_area`)
+    """ #NOTE: section for localize and mark areas for:
+            - invoice header (`invoice_header_area`) &
+            - invoice footer (`invoice_footer_area`)
+            NOTE: this section is based on fact that `invoice_items_area` is already determined (as location) and will be used as reference in logic of localization of "header" & "footer"
     """
     ulc_header = (1, 1)
     lrc_header = (_found_cell[0] - 1, ws.size[1],)  # info where header ends: row = from items data table start location `_found_cell[0]-1` && col = las col of worksheet
@@ -147,34 +148,51 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     )
 
 
-    """ #NOTE: section for solve `invoice_items_area`
+    """ #NOTE: section for solve `invoice_header_area`  #FIXME in progress...
         - @final write them to:
-            - follow: ** invoice number (RDY), issued date, owner, customer, currency **
-            - (0) build `invoice["excel_original_data"]["invoice_header_area"]`
-            - (1) transform them to canonical form and create `invoice["Invoice"]["cbc_ID"]
+            - finished: invoice number, currency
+            - to do: issued date, owner, customer   #TODO these are in progress
     """
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
-        issued_date = "...future NEXT TO APPROACH ...",
-        currency = "...future...",
+        issued_date = "...future ...",
+        currency = None,
         owner = "...future...",
         customer = "...future..."
     )
-    # find invoice number
-    _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])
+    _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
+    #
+    # find invoice number ==> `cbc:ID`
     invoice_number_info = __get_excel_data_at_label(
         pattern_to_search_for=config_settings.INVOICE_NUMBER_IDENTIFICATION_LABELS,
         worksheet=ws,
         area_to_scan=_area_to_search,
-        targeted_type=int)  #NOTE_keep_this_comment.FOR_invoice_date_use_as_callable: `targeted_type==pendulum.parse` && if can mk a partial function for `pendulum.parse(..., tz="Europe/Bucharest")`
-    # NOTE returned info by prev all is: {"value": ..., "location": (row..., col...)}
+        targeted_type=str
+    )  # returned info by prev all is: {"value": ..., "location": (row..., col...)}
     invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
-    #TODO ...hereuare... .............................................NEXT invoice issued_date
+    #
+    # invoice_currency_info ==> `cbc:DocumentCurrencyCode`
+    invoice_currency_info = __get_excel_data_at_label(
+        pattern_to_search_for=config_settings.INVOICE_CURRENCY_IDENTIFICATION_LABELS,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+        targeted_type=str #NOTE_keep_this_comment.FOR_invoice_date_use_as_callable: `targeted_type==pendulum.parse` && if can mk a partial function for `pendulum.parse(..., tz="Europe/Bucharest")`
+    )  # returned info by prev all is: {"value": ..., "location": (row..., col...)}
+    if (invoice_currency_info["value"] is not None) and (invoice_currency_info["value"] != ""):  # if found a relevant currency this MUST ALTER config_settings.DEFAULT_CURRENCY to be properly used in items data
+        config_settings.DEFAULT_CURRENCY = invoice_currency_info["value"]
+    invoice_header_area["currency"] = copy.deepcopy(invoice_currency_info)
+    #
+    #TODO invoice issued_date ==> `cbc:IssueDate` (ATTN pendulum was disabled due to build err, see line #17)
+    #TODO ...hereuare... .............................................
 
-    """ #FIXME ----------------- END OF section for solve `invoice_items_area`"""
+    """ #FIXME ----------------- END OF section for solve `invoice_header_area`"""
 
 
-
+    """#NOTE: section to ( Excel data )--->( JSON ) format preparation and finishing
+        this is required to be after header determination (because CURRENCY could be known here and will impact config param `DEFAULT_CURRENCY`)
+    """
+    # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
+    invoice_items_as_kv_pairs = __mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
 
     # preserve processed Excel file meta information: start address, size.
     meta_info = _build_meta_info_key(
@@ -187,12 +205,14 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
     invoice = {
         "Invoice": {
-            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
-            "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"])  # create `cbc_ID`
+            "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
+            "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
+            #TODO ...here to add rest of `invoice_header_area`...
+            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs]  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
-            invoice_items_area = copy.deepcopy(invoice_items_area),
+            invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE ready, test PASS @ 231205 by [piu]
             invoice_header_area = copy.deepcopy(invoice_header_area),  #TODO wip...
             invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO to be done... (just localized `invoice_footer_area`)
         )
@@ -212,16 +232,8 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
         json.dump(invoice, _f, ensure_ascii = False, indent = 4)
     print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
 
-
     #TODO check for more TODOs, clean &&-->
     #TODO wip...(@231125) TRANSFORM JSON FILE from Excel (row,col) format in a relational one (but respecting ROefact tags from used scheme)
-
-    '''  #NOTE [@231208] moved in `xl2roefact` as debog-verbose option  #FIXME drop me after a while...
-    if debug_info:  # NOTE DEBUG area print
-        print(f"[yellow]DEBUG note:[/] content of `invoice` data dictionary:")
-        pprint(invoice)
-        print()
-    '''
 
     return copy.deepcopy(invoice)
 
@@ -634,8 +646,9 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_Percent", "cbc:Percent"),
         ("cbc_PriceAmount", "cbc:PriceAmount"),
         ("cbc_currencyID", "cbc:currencyID"),  # this is attribute of more tags (all monetary tags)
+        ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount"),
         ("cbc_ID", "cbc:ID"),  # invoice number
-        ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount")
+        ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode")  # invoice currency
     ]
 
     return copy.deepcopy(_tmp_meta_info)

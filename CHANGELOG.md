@@ -27,7 +27,7 @@
 
 
 
-### 0.1.13 #TODO_future... `xl2roefact.RDINV` ???-[invoice issue date, invoice owner & partner?] (...)
+### 0.1.14 #TODO_future... `xl2roefact.RDINV` ???-[invoice issue date, invoice owner & partner?] (...)
 
 * [ ] update documentation for:
     * [ ] `rdinv` module
@@ -51,24 +51,41 @@
     * invoice header
         * [x] DONE@231212piu_a invoice header - invoice number
         * [ ] invoice header - issue date
-        * [ ] invoice header - currency (+ see left OPEN ISSUES), oth important as "non VAT payer")
+        * [ ] invoice header - currency (see left OPEN ISSUES), oth important as "non VAT payer"
         * [ ] invoice header - issuer / owner
         * [ ] invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
         * [ ] RENAME / REFACTOR `rdinv` --> `xl2json` (future intention for `web2json` and potentially `gui2json`)
     * invoice footer
 
 
-
-* wip... last used 231212piu_b
-
-
+* wip... last used 231223piu_b
+* tbd... invoice header, issue date (&& ATTN pendulum was disabled due to build err, see line #17)
 
 
 
 
 
 
-### 0.1.12 (231212 07:30)
+
+
+
+
+
+
+
+### 0.1.13 invoice currency (231213 h07:00)
+
+* 231213piu_b build packages for:
+    * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
+    * [ ] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
+* 231213piu_a get invoice header - invoice currency
+
+
+
+
+
+
+### 0.1.12 invoice number (231212 07:30)
 
 * 231212piu_b write canonical form (as @invoice lines, see line ~122) ==> `invoice["Invoice"]["cbc_ID"]` and released `0.1.12-xl2roefact-0.1-win64.msi`
 
