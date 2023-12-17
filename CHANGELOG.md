@@ -27,7 +27,7 @@
 
 
 
-### 0.1.14 #TODO_future... `xl2roefact.RDINV` ???-[invoice issue date, invoice owner & partner?] (...)
+### #TODO_PLAN_TODO... `xl2roefact.RDINV` ???-[invoice issue date, invoice owner & partner?] (...)
 
 * [ ] update documentation for:
     * [ ] `rdinv` module
@@ -35,7 +35,6 @@
     * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md`
 -
 * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
-    * [ ] _file `xl2roefact/rdinv.py`, function `__mk_kv_invoice_items_area(...)`:_ `FIXME this will be identified in `invoice_header_area` ==> should be changed accordingly`
     * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
 -
 * ... future intention is to make commands:
@@ -46,27 +45,44 @@
     * `xml2roefact - LDXML`
     * create a **`build.bat`** & include in `MSI` package 'data' directories as: `excel_invoice_template/`, empty `invoice_files/` (see `cx-Freeze`, options `--directories` of `bdist_msi`cmd, option `--include_files` of `build_exe`cmd, ref URL: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
     * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
+    * FINISHING_SOLUTION_TBD... publish `xl2roefact` package --> read `TODO_packaging.md`
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
-        * [x] DONE@231212piu_a invoice header - invoice number
-        * [ ] invoice header - issue date
-        * [ ] invoice header - currency (see left OPEN ISSUES), oth important as "non VAT payer"
+        * [x] (DONE@0.1.12) invoice header - invoice number
+        * [x] (DONE@231217piu_a) invoice header - issue date
+        * [x] (DONE@0.1.13) invoice header - currency
         * [ ] invoice header - issuer / owner
-        * [ ] invoice header - partner (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
-        * [ ] RENAME / REFACTOR `rdinv` --> `xl2json` (future intention for `web2json` and potentially `gui2json`)
-    * invoice footer
-
-
-* wip... last used 231223piu_b
-* tbd... invoice header, issue date (&& ATTN pendulum was disabled due to build err, see line #17)
+        * [ ] invoice header - partners (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
 
 
 
+### 0.1.15 invoice issue date  (#TODO_WIP...)
+
+* wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231217piu_b
 
 
 
 
+
+
+
+### 0.1.14 invoice issue date  (231217 h07:00)
+
+* 231217piu_b build packages for:
+    * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
+    * [x] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
+    * [x] updated `pyproject.toml`
+
+* 231217piu_a invoice header, issue date (&& ATTN pendulum raise error, see `rdinv.py` line #17, ==> MAYBE JUST TRY `Arrow` or standard `datetime`)
+
+* 231216piu_a review, improve & clean code for: `xl_invoices/config_settings.py`, `xl_invoices/rdinv.py`
+
+* 231215piu_b FIXED configs loaded from config_settings: `rdinv` module load (init) all constants as global variables (because they are subject to change / "improve" values as reading Excel file, for example `DEFAULT_CURRENCY`)
+
+* 231215piu_a changed dir name **`xl_invoice_modules/`** to `xl_invoices` or classic `xl2roefact`  as this will be the package name. This is a Python official RECOMMENDATION not a constraint
+
+* 231214piu_a made xl2roefact Python standard package (moved `xl2roefact` modules to a dedicated directory (`xl_invoice_modules/`) with intention to publish package)
 
 
 
@@ -77,7 +93,7 @@
 
 * 231213piu_b build packages for:
     * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
-    * [ ] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
+    * [x] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
 * 231213piu_a get invoice header - invoice currency
 
 
@@ -92,7 +108,7 @@
 * 231212piu_a `rdinv.rdinv()` invoice header, invoice number as: `{"value": ..., "location": (row..., col...)}`
 
 * 231211piu_b `rdinv.rdinv()` create a function special to get "one key Excel values", like invoice number or invoice issue date.  Signature:
-    - `pattern_to_search_for: list[str]` - for inv number will pass the `INVOICE_NUMBER_IDENTIFICATION_LABELS`
+    - `pattern_to_search_for: list[str]` - for inv number will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`
     - `area_to_scan: list[start_cell, end_cell]` - for inv number will pass `(invoice_header_area["start_cell"], invoice_header_area["end_cell"])`
     - targeted_tye: type - what type expect (will try to convert to, if cannot will return str)
 
@@ -210,8 +226,8 @@
 ### 0.1.7 `xl2roefact.RDINV` invoice items & metadata (231126 h05:00)
 
 * **left OPEN ISSUES in this release** [piu@231126: marked on todo plan of `0.1.8` version]
-    * --> _file `xl2roefact/rdinv.py`, function `__mk_kv_invoice_items_area(...)`:_ `FIXME this will be identified in `invoice_header_area` ==> should be changed accordingly`
-    * --> _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
+    * [x] (CLOSED@231213) _file `xl2roefact/rdinv.py`, function `__mk_kv_invoice_items_area(...)`:_ `FIXME this will be identified in `invoice_header_area` ==> should be changed accordingly`
+    * [ ] --> _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
 
 
 * 231126piu_a item(s) line extensions == item VAT total, item VALUE total

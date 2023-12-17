@@ -27,11 +27,11 @@ from rich import print
 from rich.pretty import pprint
 
 # xl2roefact specific libraries
-from rdinv import rdinv  # status #TODO: wip
-from wrxml import wrxml  # status #FIXME: not yet started
-from chkxml import chkxml  # status #FIXME: not yet started
-from ldxml import ldxml  # status #FIXME: not yet started
-from chkisld import chkisld  # status #FIXME: not yet started
+from xl_invoices.rdinv import rdinv  # status #TODO: wip
+from xl_invoices.wrxml import wrxml  # status #FIXME: not yet started
+from xl_invoices.chkxml import chkxml  # status #FIXME: not yet started
+from xl_invoices.ldxml import ldxml  # status #FIXME: not yet started
+from xl_invoices.chkisld import chkisld  # status #FIXME: not yet started
 
 
 """ CLI builder section
@@ -53,7 +53,8 @@ def about():
 @app_cli.command()
 def settings():
     """display application configuration parameters and settings - subject to be changed by user"""
-    with open("config_settings.py") as f:
+    #FIXME when run from MSI installed package ==> `FileNotFoundError: [Errno 2] No such file or directory: 'xl_invoice_modules/config_settings.py'`
+    with open("xl_invoice_modules/config_settings.py") as f:
         print(f.read())
 
 

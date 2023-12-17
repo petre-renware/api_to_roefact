@@ -1,18 +1,23 @@
 [project]
 name = "xl2roefact"
-version = "0.1"
+version = "0.1.14"  #NOTE this entry is subject to be periodically updated
 description = "Excel invoice upload to RO E-Fact system"
 authors = [
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" }
 ]
-dependencies = []
+dependencies = [
+    "pendulum"
+]  #FIXME @231217 still raise error when import `pendulum` package (`File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 readme = "README.md"
-#FIXME.cxFreeze.reports.err.with.this:`2 values found...` license = "LICENSE"
+#license = "LICENSE"  #FIXME.cxFreeze.reports.err.with.this:`2 values found...`, probably need a standard value, like "MIT"; better see in GitHub what accepts it (!)
 requires-python = ">= 3.10"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["hatchling"]  #FIXME this line apecify the building backend ? If so, intention is for `PDM` tool
+build-backend = "hatchling.build"  #FIXME this line apecify the building backend ? If so, intention is for `PDM` tool
+product_code = "0000-0095"  #NOTE introduced @ 231217 by [piu] - should be tested #TODO-test-me
+#directories = ["invoie_files"]  #NOTE this entry is supposed to create these directories on installation #TODO-tests:
+#           - test @ 231217: try `invoice_files/` - result FAIL, directory was not created  - meybe entry place is not here, but build was exec with no err
 
 [tool.rye]
 managed = true
