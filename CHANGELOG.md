@@ -45,7 +45,9 @@
     * `xml2roefact - LDXML`
     * create a **`build.bat`** & include in `MSI` package 'data' directories as: `excel_invoice_template/`, empty `invoice_files/` (see `cx-Freeze`, options `--directories` of `bdist_msi`cmd, option `--include_files` of `build_exe`cmd, ref URL: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
     * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-    * FINISHING_SOLUTION_TBD... publish `xl2roefact` package --> read `TODO_packaging.md`
+    * FINISHING_SOLUTION_TBD:
+        * [ ] consider refactor `xl2roefact` --> `xl-invoices` (hyphen as PEP 503 `https://peps.python.org/pep-0503/#normalized-names`) ...
+        * [ ] && publish `xl2roefact` package --> read `TODO_packaging.md`
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
@@ -60,9 +62,12 @@
 ### 0.1.15 invoice issue date  (#TODO_WIP...)
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`
-* tbd... solve PDM structure of directories, eliminating generation of `...src/xl2roefact/` (helper `https://backend.pdm-project.org/build_config/`)
+* #FIXME...still...tbd... solve PDM structure of directories, eliminating generation of `...src/xl2roefact/` (helper `https://backend.pdm-project.org/build_config/#the-src-layout`)
+
+* 231218piu_c `PDM` environment manager, updated `pyproject.toml` structures ref package building, still preps to create env, generate lock file...
 
 * 231218piu_b CLI application, fixed bug of print settings when deployed from a package (command: `xl2roefact.py settings`)
+
 * 231218piu_a installed `PDM` environment manager, updated `pyproject.toml` structures, nxt to create env, generate lock file...
 
 

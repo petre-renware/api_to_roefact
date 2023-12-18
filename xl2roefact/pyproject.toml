@@ -1,6 +1,6 @@
 [project]
 name = "xl2roefact"
-version = "0.1.14"  #NOTE this entry is subject to be periodically updated
+version = "0.1.15"  #NOTE this entry is subject to be periodically updated
 description = "Excel invoice creation, generate JSON, XML, PDF and upload to RO E-Fact system"
 authors = [
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" },
@@ -33,7 +33,7 @@ dependencies = [
     "pytzdata",
     "pywin32-ctypes",
     "rich",
-    "setuptools",
+    "setuptools>=69.0.2",
     "shellingham",
     "six",
     "tomli",
@@ -41,13 +41,12 @@ dependencies = [
     "typing_extensions",
     "userpath",
     "wheel",
+    # "pendulum"  #FIXME @231217 still raise error when import `pendulum` package (`File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 ]
-# [
-#     "pendulum"
-# ]  #FIXME @231217 still raise error when import `pendulum` package (`File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 readme = "README.md"
 license = {text = "GNU"}
 requires-python = ">=3.11"
+
 
 [build-system]
 requires = ["pdm-backend"]
@@ -56,6 +55,7 @@ build-backend = "pdm.backend"
 [tool.rye]
 managed = true
 dev-dependencies = []
+
 
 [tool.hatch.metadata]
 allow-direct-references = true
@@ -67,16 +67,13 @@ excludes = ["tkinter", "unittest"]
 zip_include_packages = ["encodings", "PySide6"]
 
 
-
-# #NOTE: see `https://github.com/pypa/sampleproject/blob/main/pyproject.toml` for all keywords description
-
 [tool.pdm]
 package-type = "library"
 
 
 [tool.pdm.build]
-#TODO this should be completed in order to have a PDM dir structure without `.../src/xl2roefact/...` (helper `https://backend.pdm-project.org/build_config/`)
-
-
+package-dir = "."  #NOTE this should avoid creation of `src/` directory #FIXME @231218 does not work ... see carefully at `https://backend.pdm-project.org/build_config/#the-src-layout`
+includes = ["xl2roefact/"]  #NOTE this item contain directories list with packages
+source-includes = ["tests/", ]  #TODO intended for things that should not "appear" in installed package, but are neccesarry and are ther..., for ex: "scripts/" which will contain Python executable scripts
 
 
