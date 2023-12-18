@@ -47,13 +47,14 @@ DEFAULT_UNKNOWN_UOM: str|None = None
 # specifcarea monedei ca sau in titlurile coloanelor nu este luata in considerare (nu este garantat ca este moneda reala a facturii !)
 DEFAULT_CURRENCY: str = "RON"
 
-# --- contine secventele de caractere care permit inceputul zonei (sub-tabelului) ce contine liniile facturii
-INVOICE_ITEMS_SUBTABLE_MARKER: list[str] = [" crt", "no. crt", "nr. crt", "#"]
 
 """---------------------------------------------------------------------------------------------------------------------------
 # NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor utilizati in
 #   comanda `xl2json`, functionalitate: extragere date Excel si export in JSON (modul `rdinv)
 ---------------------------------------------------------------------------------------------------------------------------"""
+
+# --- contine secventele de caractere care permit inceputul zonei (sub-tabelului) ce contine liniile facturii
+PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER: list[str] = [" crt", "no. crt", "nr. crt", "#"]
 
 # --- numarul facturii
 # acest parametru permit identificarea numarului facturii, astfel sistemul va cauta dupa secventele din parametrul

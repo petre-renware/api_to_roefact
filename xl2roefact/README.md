@@ -30,7 +30,7 @@ Excel invoice creation, generate JSON, XML, PDF and upload to RO E-Fact system.
 Acest sistem consta din doua componente:
 
 - o aplicatie de tip *linie de comanda consola* ce permite realizarea operatiilor necesare de procesare a facturilor in Excel (**`xl2roefact`** CLI application)
-- o biblioteca (**`xl_invoices`**) ce permite utilizarea functionalitatilor de procesare a facturilor in Excel in mod programatic prin inglobarea acesteia in alt cod si utilizarea ei corespunzatoare.  Biblioteca este realizata in Python 3 iar instalarea ei se poate face cu instrumentele standard Python
+- o biblioteca (**`xl2roefact`**) ce permite utilizarea functionalitatilor de procesare a facturilor in Excel in mod programatic prin inglobarea acesteia in alt cod si utilizarea ei corespunzatoare.  Biblioteca este realizata in Python 3 iar instalarea ei se poate face cu instrumentele standard Python
 
 
 
@@ -43,7 +43,7 @@ Pachetele contin un script de instalare sub forma standard `MSI` pentru Windows 
 
 ### Instalarea bliotecii xl-invoices
 
-Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl-invoices`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl_invoices).
+Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl-invoices`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
 
 
 

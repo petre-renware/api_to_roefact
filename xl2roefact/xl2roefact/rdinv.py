@@ -33,7 +33,7 @@ DEFAULT_VAT_PERCENT = config_settings.DEFAULT_VAT_PERCENT
 DEFAULT_UNKNOWN_ITEM_NAME = config_settings.DEFAULT_UNKNOWN_ITEM_NAME
 DEFAULT_UNKNOWN_UOM = config_settings.DEFAULT_UNKNOWN_UOM
 DEFAULT_CURRENCY = config_settings.DEFAULT_CURRENCY
-INVOICE_ITEMS_SUBTABLE_MARKER = config_settings.INVOICE_ITEMS_SUBTABLE_MARKER
+PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER
 PATTERN_FOR_INVOICE_NUMBER_LABEL = config_settings.PATTERN_FOR_INVOICE_NUMBER_LABEL
 PATTERN_FOR_INVOICE_CURRENCY_LABEL = config_settings.PATTERN_FOR_INVOICE_CURRENCY_LABEL
 PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL = config_settings.PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL
@@ -99,9 +99,9 @@ def rdinv(
             _crt_cell_val = ws.index(_crt_row, _crt_col)
             if (_crt_cell_val == "") or (_crt_cell_val == SYS_FILLED_EMPTY_CELL) or (_crt_cell_val is None):  # skip empty cells and continue with next cells
                 continue
-            # search for all strings from INVOICE_ITEMS_SUBTABLE_MARKER  #TODO use __get_excel_data_at_label(...) after you modify it to return "label" key in returned dictionary (and then param `return only label`)
+            # search for all strings from PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER  #TODO use __get_excel_data_at_label(...) after you modify it to return "label" key in returned dictionary (and then param `return only label`)
             _cell_val_to_test = str(_crt_cell_val).lower()
-            for i in INVOICE_ITEMS_SUBTABLE_MARKER:   # search in current cell contains one the strings potential to identify items subtable
+            for i in PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER:   # search in current cell contains one the strings potential to identify items subtable
                 if i in _cell_val_to_test:
                     _found_cell = (_crt_row, _crt_col, _crt_cell_val)
                     _FOUND_RELEVANT_CELL = True

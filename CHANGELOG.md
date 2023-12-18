@@ -60,8 +60,11 @@
 ### 0.1.15 invoice issue date  (#TODO_WIP...)
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`
+* tbd... solve PDM structure of directories, eliminating generation of `...src/xl2roefact/` (helper `https://backend.pdm-project.org/build_config/`)
 
+* 231218piu_b CLI application, fixed bug of print settings when deployed from a package (command: `xl2roefact.py settings`)
 * 231218piu_a installed `PDM` environment manager, updated `pyproject.toml` structures, nxt to create env, generate lock file...
+
 
 
 

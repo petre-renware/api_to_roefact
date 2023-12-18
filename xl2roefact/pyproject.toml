@@ -72,3 +72,11 @@ zip_include_packages = ["encodings", "PySide6"]
 
 [tool.pdm]
 package-type = "library"
+
+
+[tool.pdm.build]
+#TODO this should be completed in order to have a PDM dir structure without `.../src/xl2roefact/...` (helper `https://backend.pdm-project.org/build_config/`)
+
+
+
+

@@ -27,11 +27,13 @@ from rich import print
 from rich.pretty import pprint
 
 # xl2roefact specific libraries
-from xl_invoices.rdinv import rdinv  # status #TODO: wip
-from xl_invoices.wrxml import wrxml  # status #FIXME: not yet started
-from xl_invoices.chkxml import chkxml  # status #FIXME: not yet started
-from xl_invoices.ldxml import ldxml  # status #FIXME: not yet started
-from xl_invoices.chkisld import chkisld  # status #FIXME: not yet started
+import xl2roefact.config_settings as configs  # configuration elements to use with `settings` command
+from xl2roefact.rdinv import rdinv  # status #TODO: wip
+from xl2roefact.wrxml import wrxml  # status #FIXME: not yet started
+from xl2roefact.chkxml import chkxml  # status #FIXME: not yet started
+from xl2roefact.ldxml import ldxml  # status #FIXME: not yet started
+from xl2roefact.chkisld import chkisld  # status #FIXME: not yet started
+
 
 
 """ CLI builder section
@@ -53,9 +55,12 @@ def about():
 @app_cli.command()
 def settings():
     """display application configuration parameters and settings - subject to be changed by user"""
-    #FIXME when run from MSI installed package ==> `FileNotFoundError: [Errno 2] No such file or directory: 'xl_invoice_modules/config_settings.py'`
-    with open("xl_invoice_modules/config_settings.py") as f:
-        print(f.read())
+    print("\nApplication current settings are:\n---------------------------------------")
+    list_of_settings = dir(configs)
+    for i in list_of_settings:
+        if i == i.upper():  # preserve only items supposed to be defined like CONSTANTS
+            val_of_i_item = eval("configs." + i)
+            print(f"[yellow]{i}[/] = {val_of_i_item}")
 
 
 @app_cli.command()
