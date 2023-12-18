@@ -59,9 +59,9 @@
 
 ### 0.1.15 invoice issue date  (#TODO_WIP...)
 
-* wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231217piu_b
+* wip... WHEN RELEASE UPDATE `pyproject.toml`
 
-
+* 231218piu_a installed `PDM` environment manager, updated `pyproject.toml` structures, nxt to create env, generate lock file...
 
 
 

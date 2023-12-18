@@ -1,9 +1,13 @@
 
 [TOC]
 
-# xl2roefact
+# xl2roefact | xl-invoices
 
-Module to create a unified class for all xl2roefact and to be used as library by any other external systems
+Excel invoice creation, generate JSON, XML, PDF and upload to RO E-Fact system.
+
+* Components
+    * **`xl2roefact`** command line application to create, manipulate and upload to RO E-Fact system Excel invoices
+    * **`xl-invoices`** Python library to use functions to create, manipulate and upload to RO E-Fact system Excel invoices
 
 * Identification
     - code-name: `xl2roefact`
