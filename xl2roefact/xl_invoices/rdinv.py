@@ -39,20 +39,21 @@ PATTERN_FOR_INVOICE_CURRENCY_LABEL = config_settings.PATTERN_FOR_INVOICE_CURRENC
 PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL = config_settings.PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL
 
 
+#FIXME_try_this_with_only_positional_params_#FIXME def rdinv(file_to_process: str, invoice_worksheet_name: str = None, *, debug_info: bool = False):
 def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: bool = False):
     """ main function of RDINV module
 
     Arguments:
-        - `file_to_process`: the invoice file (exact file with path)
-        - `invoice_worksheet_name`: the worksheet containing invoice
-        - `debug_info`: bool to show debugging information, default `False`
+        - `file_to_process`: str, the invoice file (exact file with path)
+        - `invoice_worksheet_name`: str, the worksheet containing invoice
+        - `debug_info`: positional only bool, show debugging information, default `False`
 
     Return:
-        - `invoice`: the invoice extracted information from Excel file as
-                     `dict(meta_info: dict, invoice_header_area: dict, invoice_items_area: dict, invoice_footer_area: dict)`  #TODO subject of documentation update
+        - `invoice`: dict, the invoice extracted information from Excel file as
+                     `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update
 
-    Important variables:
-        - `db`: htxl object with invoice EXCEL (as a whole)
+    NOTE: important variables:
+        - `db`: pylightxl object with invoice EXCEL (as a whole)
         - `ws`: pylightxl object with invoice WORKSHEET
     """
     # use as global only those constants that is known that will be changed by this function
