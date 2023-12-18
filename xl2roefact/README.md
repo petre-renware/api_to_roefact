@@ -15,7 +15,7 @@ Module to create a unified class for all xl2roefact and to be used as library by
     - Linux: `xl2roefact` executable CLI shell
 
 * Specifications
-    - command general format: `xl2roefact [file(s)-to-convert] COMMAND [OPTIONS]`
+    - command general format: `xl2roefact [COMMAND] [OPTIONS]`
     - help: `xl2roefact [COMMAND] --help`
 
 
@@ -23,21 +23,38 @@ Module to create a unified class for all xl2roefact and to be used as library by
 
 ## Instalarea
 
+Acest sistem consta din doua componente:
+
+- o aplicatie de tip *linie de comanda consola* ce permite realizarea operatiilor necesare de procesare a facturilor in Excel (**`xl2roefact`** CLI application)
+- o biblioteca (**`xl_invoices`**) ce permite utilizarea functionalitatilor de procesare a facturilor in Excel in mod programatic prin inglobarea acesteia in alt cod si utilizarea ei corespunzatoare.  Biblioteca este realizata in Python 3 iar instalarea ei se poate face cu instrumentele standard Python
+
+
+
+### Instalarea aplicatiei xl2roefact
+
 Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si versiunea sistemului de operare pentru care sunt disponibile.  (_EN: Installation package is found in `dist/` directory in archive (zip) files. Available packages are identified by released versions and operating systems._)
 
 Pachetele contin un script de instalare sub forma standard `MSI` pentru Windows si `DEB` pentru Linux Debian (verificati disponibilitatea pentru sistemul de operare folosit de dvs).  (_EN: Packages contains an installation script as `MSI` for Windows and `DEB` for Debian Linux based systems (check availability for your operating system)_).
 
 
+### Instalarea bliotecii xl-invoices
 
-
-## Configuration & settings
-
-Parametriidde configurare a plicatiei se gasesc in fisierul **`config_settings.py`**. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.  (_EN: Configuration parameters are placed in file **`config_settings.py`**. These are in Python form presented using constants PEP recommendations (all upper case) and accompanied by some help lines to understand and maintain them)_.
+Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl-invoices`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl_invoices).
 
 
 
 
-## Commands
+## Configurarea aplicatieii xl2roefact
+
+Parametrii de configurare a plicatiei se gasesc in fisierul **`config_settings.py`**. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.  (_EN: Configuration parameters are placed in file **`config_settings.py`**. These are in Python form presented using constants PEP recommendations (all upper case) and accompanied by some help lines to understand and maintain them)_.
+
+
+
+
+## Comenzile aplicatiei
+
+Interfata aplicatie este realizata utilizind conventiile si practicile uzuale pentru aplicatii tip linie de comanda consola. Pentru informatii privind comenzile se poate folosi optiunea de **help**, dispobilia atit la nivelul general: `xl2roefact --help`, cit si la nivel detaliat penrtur fiecare comanda: `xl2roefact [COMANDA] --help`.
+
 
 ### about
 

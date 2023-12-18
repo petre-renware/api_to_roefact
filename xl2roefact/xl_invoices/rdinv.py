@@ -39,22 +39,25 @@ PATTERN_FOR_INVOICE_CURRENCY_LABEL = config_settings.PATTERN_FOR_INVOICE_CURRENC
 PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL = config_settings.PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL
 
 
-#FIXME_try_this_with_only_positional_params_#FIXME def rdinv(file_to_process: str, invoice_worksheet_name: str = None, *, debug_info: bool = False):
-def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: bool = False):
-    """ main function of RDINV module
+def rdinv(
+        file_to_process: str,
+        invoice_worksheet_name: str = None,
+        *,
+        debug_info: bool = False
+    ) -> dict:
+    """ read Excel file and produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data
 
     Arguments:
-        - `file_to_process`: str, the invoice file (exact file with path)
-        - `invoice_worksheet_name`: str, the worksheet containing invoice
-        - `debug_info`: positional only bool, show debugging information, default `False`
+        - `file_to_process: str` - the invoice file (exact file with path)
+        - `invoice_worksheet_name: str` - the worksheet containing invoice
+        - `debug_info: bool, positional only` - show debugging information, default `False`
 
     Return:
-        - `invoice`: dict, the invoice extracted information from Excel file as
-                     `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update
+        - `dict` - the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update
 
     NOTE: important variables:
-        - `db`: pylightxl object with invoice EXCEL (as a whole)
-        - `ws`: pylightxl object with invoice WORKSHEET
+        - `db: pylightxl object` with invoice EXCEL (as a whole)
+        - `ws: pylightxl object` with invoice WORKSHEET
     """
     # use as global only those constants that is known that will be changed by this function
     global DEFAULT_VAT_PERCENT
@@ -84,7 +87,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
         return False
 
 
-    """ #NOTE: section for search of `invoice_items_area` (ie `pylightxl.ssd` object)
+    """ #NOTE: section for search of `invoice_items_area` subtable (ie `pylightxl.ssd` object)
         - how: search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter
         - result: `keyword_for_items_table_marker` = string marker to search for in oredr to isolate `invoice_items_area`
         - NOTE: partial result: `_found_cell = (row, col, val)`
@@ -96,7 +99,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
             _crt_cell_val = ws.index(_crt_row, _crt_col)
             if (_crt_cell_val == "") or (_crt_cell_val == SYS_FILLED_EMPTY_CELL) or (_crt_cell_val is None):  # skip empty cells and continue with next cells
                 continue
-            # search for all strings from INVOICE_ITEMS_SUBTABLE_MARKER
+            # search for all strings from INVOICE_ITEMS_SUBTABLE_MARKER  #TODO use __get_excel_data_at_label(...) after you modify it to return "label" key in returned dictionary (and then param `return only label`)
             _cell_val_to_test = str(_crt_cell_val).lower()
             for i in INVOICE_ITEMS_SUBTABLE_MARKER:   # search in current cell contains one the strings potential to identify items subtable
                 if i in _cell_val_to_test:
@@ -270,7 +273,7 @@ def rdinv(file_to_process: str, invoice_worksheet_name: str = None, debug_info: 
 
 
 # #NOTE - ready, test PASS @ 231212 by [piu]
-def __get_excel_data_at_label(
+def __get_excel_data_at_label(  #TODO modify it to return "label" key in returned dictionary (and then param `return only label`) #FIXME_THIS_is_recommended_update
         pattern_to_search_for: list[str],
         worksheet: xl.Database.ws,
         area_to_scan: list[list[int]],
@@ -314,6 +317,7 @@ def __get_excel_data_at_label(
             # test if crt cell is in pattern_to_search_for
             _found = find_str_in_list(list_of_str_to_find=pattern_to_search_for, list_to_search=_crt_cell_val)
             if _found is not None:
+                #TODO here you have a found label so modify it to return "label" key in returned dictionary (and then param `return only label`) #FIXME_THIS_is_recommended_update
                 value_found = None
                 index_of_value_found = None
                 # NOTE-LOGIC: test for RIGHT cell @(i,j+1) if cell exists in ws range AND if has a value then continue loop (to find other potential cell)
