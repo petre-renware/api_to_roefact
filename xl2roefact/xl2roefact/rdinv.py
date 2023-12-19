@@ -59,7 +59,7 @@ def rdinv(
         - `db: pylightxl object` with invoice EXCEL (as a whole)
         - `ws: pylightxl object` with invoice WORKSHEET
     """
-    # use as global only those constants that is known that will be changed by this function
+    # use as global only those constants that is known could be changed by this function
     global DEFAULT_VAT_PERCENT
     global DEFAULT_UNKNOWN_ITEM_NAME
     global DEFAULT_UNKNOWN_UOM
@@ -175,7 +175,7 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
-        owner = "...future...",
+        supplier = "...future...",
         customer = "...future..."
     )
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
@@ -211,9 +211,17 @@ def rdinv(
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)  #NOTE keep for future: update map2XML and right name for JSON (for example here is `cbc_IssueDate`) --> search for "TODO ...here to add rest of `invoice_header_area`..."
     #
     #TODO_next invoice customer ==> `cac:AccountingSupplierParty` (#NOTE dar vezi cum diferentiezi supplier de customer, la "primul ochi / in fuga" nu am vazut ceva)
+    '''#NOTE - before start: update line 178 '''
+    '''#NOTE - before end:
+                    - update this section: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
+                    - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)" '''
     #TODO ...hereuare... ............................................. #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
     """ #FIXME ----------------- END OF section for solve `invoice_header_area`"""
+
+
+
+
 
 
     """#NOTE: section to ( Excel data )--->( JSON ) format preparation and finishing

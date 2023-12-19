@@ -54,15 +54,17 @@
         * [x] (DONE@0.1.12) invoice header - invoice number
         * [x] (DONE@231217piu_a) invoice header - issue date
         * [x] (DONE@0.1.13) invoice header - currency
-        * [ ] invoice header - issuer / owner
-        * [ ] invoice header - partners (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
+        * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
+        * [ ] invoice header - customer (`<cac:AccountingCustomerParty>`)
 
 
 
 ### 0.1.15 invoice issue date  (#TODO_WIP...)
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`
-* #FIXME...still...tbd... solve PDM structure of directories, eliminating generation of `...src/xl2roefact/` (helper `https://backend.pdm-project.org/build_config/#the-src-layout`)
+
+* tbd... make a PDM build (helper `https://backend.pdm-project.org/build_config/`)
+
 
 * 231218piu_c `PDM` environment manager, updated `pyproject.toml` structures ref package building, still preps to create env, generate lock file...
 
