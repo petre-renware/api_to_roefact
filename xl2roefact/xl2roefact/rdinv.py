@@ -94,13 +94,25 @@ def rdinv(
     """
     _ws_max_rows, _ws_max_cols = ws.size[0], ws.size[1]
     _FOUND_RELEVANT_CELL = False
+    #TODO use __get_excel_data_at_label(...) for returned "label_value" key
+    _area_to_search = ((1, 1), (_ws_max_rows, _ws_max_cols))  # search full worksheet
+    _found_cell = __get_excel_data_at_label(
+        pattern_to_search_for=PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+    )
+    print(f"[red](1)---> found {_found_cell=} in {_area_to_search=}, also {_FOUND_RELEVANT_CELL=}[/]")  #FIXME drop me
+    _found_cell = _found_cell["label_value"]  # perserve label
+    _FOUND_RELEVANT_CELL = bool(_found_cell)
+    print(f"[red](2)---> found {_found_cell=} in {_area_to_search=}, also {_FOUND_RELEVANT_CELL=}[/]")  #FIXME drop me
+    sys.exit()  #FIXME drop me
+    """
     for _crt_row in range(1, _ws_max_rows + 1):  # traverse all rows (start from 1 as Excel style)
         for _crt_col in range(1, _ws_max_cols + 1):  # traverse all cols (start from 1 as Excel style)
             _crt_cell_val = ws.index(_crt_row, _crt_col)
             if (_crt_cell_val == "") or (_crt_cell_val == SYS_FILLED_EMPTY_CELL) or (_crt_cell_val is None):  # skip empty cells and continue with next cells
                 continue
             # search for all strings from PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER
-            #TODO use __get_excel_data_at_label(...) for returned "label_value" key
             _cell_val_to_test = str(_crt_cell_val).lower()
             for i in PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER:   # search in current cell contains one the strings potential to identify items subtable
                 if i in _cell_val_to_test:
@@ -113,6 +125,7 @@ def rdinv(
                 break
         if _FOUND_RELEVANT_CELL:
             break
+    """
     if not _FOUND_RELEVANT_CELL:
         print(f"[red]***FATAL ERROR - Cannot find a relevant cell where invoice items table start (basically containing string \" crt\"). File processing terminated[/]")
         return False
@@ -292,9 +305,9 @@ def __get_excel_data_at_label(
         scan is made in order *left->right, top->down* given area and search for cell_value in `pattern_to_search_for`
 
     Arguments:
-        - `pattern_to_search_for: list[str]` - for inv number will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`
+        - `pattern_to_search_for: list[str]` - for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`
         - `worksheet` - the worksheet containing invoice (as object of `pyxllight` library)
-        - `area_to_scan: list[start_cell, end_cell]` - for inv number will pass `(invoice_header_area["start_cell"], invoice_header_area["end_cell"])`
+        - `area_to_scan: list[start_cell, end_cell]` - for example, for inv number will pass `(invoice_header_area["start_cell"], invoice_header_area["end_cell"])`
         - `targeted_type`: type - what type expect (will try to convert to, if cannot will return str), default `str`
 
     Return:

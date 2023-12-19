@@ -65,6 +65,7 @@
 
 * tbd... make a PDM build (helper `https://backend.pdm-project.org/build_config/`)
 
+* ...231219piu_b refactor `rdinv(...)` section "section for search of `invoice_items_area` ..." to use `__get_excel_data_at_label(...)` function`
 
 * 231219piu_a update `rdinv.__get_excel_data_at_label(...)` to return found label value in dictionary as key `"label_value"`
 
