@@ -66,6 +66,8 @@
 * tbd... make a PDM build (helper `https://backend.pdm-project.org/build_config/`)
 
 
+* 231219piu_a update `rdinv.__get_excel_data_at_label(...)` to return found label value in dictionary as key `"label_value"`
+
 * 231218piu_c `PDM` environment manager, updated `pyproject.toml` structures ref package building, still preps to create env, generate lock file...
 
 * 231218piu_b CLI application, fixed bug of print settings when deployed from a package (command: `xl2roefact.py settings`)

@@ -99,7 +99,8 @@ def rdinv(
             _crt_cell_val = ws.index(_crt_row, _crt_col)
             if (_crt_cell_val == "") or (_crt_cell_val == SYS_FILLED_EMPTY_CELL) or (_crt_cell_val is None):  # skip empty cells and continue with next cells
                 continue
-            # search for all strings from PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER  #TODO use __get_excel_data_at_label(...) after you modify it to return "label" key in returned dictionary (and then param `return only label`)
+            # search for all strings from PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER
+            #TODO use __get_excel_data_at_label(...) for returned "label_value" key
             _cell_val_to_test = str(_crt_cell_val).lower()
             for i in PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER:   # search in current cell contains one the strings potential to identify items subtable
                 if i in _cell_val_to_test:
@@ -281,7 +282,7 @@ def rdinv(
 
 
 # #NOTE - ready, test PASS @ 231212 by [piu]
-def __get_excel_data_at_label(  #TODO modify it to return "label" key in returned dictionary (and then param `return only label`) #FIXME_THIS_is_recommended_update
+def __get_excel_data_at_label(
         pattern_to_search_for: list[str],
         worksheet: xl.Database.ws,
         area_to_scan: list[list[int]],
@@ -317,7 +318,8 @@ def __get_excel_data_at_label(  #TODO modify it to return "label" key in returne
 
     ret_val = dict(  # initialize structure for what will return if information is found
         value = None,
-        location = (None, None)
+        location = (None, None),
+        label_value = None
     )
     for i in range(area_to_scan[0][0], area_to_scan[1][0] + 1):
         for j in range(area_to_scan[0][1], area_to_scan[1][1] + 1):
@@ -325,31 +327,36 @@ def __get_excel_data_at_label(  #TODO modify it to return "label" key in returne
             # test if crt cell is in pattern_to_search_for
             _found = find_str_in_list(list_of_str_to_find=pattern_to_search_for, list_to_search=_crt_cell_val)
             if _found is not None:
-                #TODO here you have a found label so modify it to return "label" key in returned dictionary (and then param `return only label`) #FIXME_THIS_is_recommended_update
-                value_found = None
-                index_of_value_found = None
-                # NOTE-LOGIC: test for RIGHT cell @(i,j+1) if cell exists in ws range AND if has a value then continue loop (to find other potential cell)
-                if j < area_to_scan[1][1]:  # if still in range if test (ie, exists cell @ (i, j+1))
-                    check_for_index = (i, j + 1)
-                    check_for = worksheet.index(check_for_index[0], check_for_index[1])
-                    if __check_value(check_for):
-                        value_found = check_for
-                        index_of_value_found = check_for_index
-                if not (value_found and index_of_value_found):  # if NOT found somethinng at RIGHT check ...
-                    # NOTE-LOGIC: then test for DOWN cell @(i+1,j) if cell exists in ws range AND if has a value then continue loop (to find other potential cell)
-                    if i < area_to_scan[1][0] :  # if still in range if test (ie, exists cell @ (i+1, j))
-                        check_for_index = (i + 1, j)
+                if True:  # process label
+                    label_value = _crt_cell_val[0]  # preserve only first value (this will be next proccessed and if pass will remain)
+                if True:  # process value
+                    value_found = None
+                    index_of_value_found = None
+                    # NOTE-LOGIC: test for RIGHT cell @(i,j+1) if cell exists in ws range AND if has a value then continue loop (to find other potential cell)
+                    if j < area_to_scan[1][1]:  # if still in range if test (ie, exists cell @ (i, j+1))
+                        check_for_index = (i, j + 1)
                         check_for = worksheet.index(check_for_index[0], check_for_index[1])
                         if __check_value(check_for):
                             value_found = check_for
                             index_of_value_found = check_for_index
-                    #TODO in future versions (>=1.0.0) here intention to introduce search IN-LABEL itself - idea is to identify values that are already "concatenated" in label, for example "Currency: RON" ...
-                    #TODO ...cont... some rules when doing: (1) do it only if "label part of string ends with `:` char" ...
-                    #TODO ...cont... some rules when doing: (2) do it only last part (potential value) convert without error to `targeted_type`
+                    if not (value_found and index_of_value_found):  # if NOT found somethinng at RIGHT check ...
+                        # NOTE-LOGIC: then test for DOWN cell @(i+1,j) if cell exists in ws range AND if has a value then continue loop (to find other potential cell)
+                        if i < area_to_scan[1][0] :  # if still in range if test (ie, exists cell @ (i+1, j))
+                            check_for_index = (i + 1, j)
+                            check_for = worksheet.index(check_for_index[0], check_for_index[1])
+                            if __check_value(check_for):
+                                value_found = check_for
+                                index_of_value_found = check_for_index
+                        #TODO in future versions (>=1.0.0) here intention to introduce search IN-LABEL itself - idea is to identify values that are already "concatenated" in label, for example "Currency: RON" ...
+                        #TODO ...cont... processing will be done over __ `label_value` __ variable
+                        #TODO ...cont... some rules when doing: (1) do it only if "label part of string ends with `:` char" ...
+                        #TODO ...cont... some rules when doing: (2) do it only last part (potential value) convert without error to `targeted_type`
+                # create return dictionary for: label, value found, location of value foun
+                ret_val["label_value"] = label_value  # if found a matching label, the label of info found will appear regardles of effective value found status
                 if not (value_found and index_of_value_found):  # nothing found, nor @RIGHT, nor @DOWN, so break the loop and try for other poatential cell
                     return ret_val  # will return the empty structure (as initialized)
                 if value_found and index_of_value_found:  # if found something will break all loops
-                    # all things are ok here, so return found data and its location
+                    # all things are ok here (ref effective value), so return found data an, its location
                     ret_val["location"] = index_of_value_found
                     try:  # converting to requested `targeted_type` (will not test is isinstance(obj, Callable) because if not will raise `except` and convert to str)
                         ret_val["value"] = targeted_type(value_found)
