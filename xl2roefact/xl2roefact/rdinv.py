@@ -92,6 +92,7 @@ def rdinv(
         - result: `keyword_for_items_table_marker` = string marker to search for in oredr to isolate `invoice_items_area`
         - NOTE: partial result: `_found_cell = (row, col, val)`
     """
+    #FIXME comment and start to find `keyword...for...items...table` from here and up to line#117, exclusive ... NOTE also keep in mind that `_found_cell` is array of `start_cell, end_cell, _value`
     _ws_max_rows, _ws_max_cols = ws.size[0], ws.size[1]
     _FOUND_RELEVANT_CELL = False
     #TODO use __get_excel_data_at_label(...) for returned "label_value" key
@@ -113,10 +114,10 @@ def rdinv(
                 break
         if _FOUND_RELEVANT_CELL:
             break
-    if not _FOUND_RELEVANT_CELL:
+    if not _FOUND_RELEVANT_CELL:  #FIXME here the line up to comment old code that will ne replaced
         print(f"[red]***FATAL ERROR - Cannot find a relevant cell where invoice items table start (basically containing string \" crt\"). File processing terminated[/]")
         return False
-    keyword_for_items_table_marker = _found_cell[2]  # NOTE here you have `_found_cell = (row, col, val)` so can set variable `keyword_for_items_table_marker`
+    keyword_for_items_table_marker = _found_cell[2]  # NOTE here you have `_found_cell = (row, col, val)` so can set variable `keyword_for_items_table_marker` #FIXME NOTE also set its location @line 668 in metadata info
 
     # detect all cells that should be changed to SYS_FILLED_EMPTY_CELL (these are cells id merged groups where first cell in merged group is relevant (diff from empty))
     detected_cells_which_will_be_fake_filled = _get_merged_cells_tobe_changed(
