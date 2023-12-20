@@ -286,7 +286,7 @@ def rdinv(
 def __get_excel_data_at_label(
         pattern_to_search_for: list[str],
         worksheet: xl.Database.ws,
-        area_to_scan: list[list[int]],
+        area_to_scan: list[list[int]] = None,  #TODO test for a typehint like `list[[int, int], [int, int]]`
         targeted_type: Callable = str
     ) -> dict:
     """ get "one key Excel values", like invoice number or invoice issue date.
@@ -295,7 +295,7 @@ def __get_excel_data_at_label(
     Arguments:
         - `pattern_to_search_for: list[str]` - for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`
         - `worksheet` - the worksheet containing invoice (as object of `pyxllight` library)
-        - `area_to_scan: list[start_cell, end_cell]` - for example, for inv number will pass `(invoice_header_area["start_cell"], invoice_header_area["end_cell"])`
+        - `area_to_scan: list[start_cell, end_cell]` - area of cells to be searched, default whole worksheet
         - `targeted_type`: type - what type expect (will try to convert to, if cannot will return str), default `str`
 
     Return:
@@ -317,10 +317,16 @@ def __get_excel_data_at_label(
             return False
         return True
 
+    if area_to_scan is None:
+        area_to_scan = (
+            (1, 1),
+            (ws.size[0], ws.size[1])
+        )  # the default value make the whole worksheet
     ret_val = dict(  # initialize structure for what will return if information is found
         value = None,
         location = (None, None),
-        label_value = None
+        label_value = None,
+        label_location = None,
     )
     for i in range(area_to_scan[0][0], area_to_scan[1][0] + 1):
         for j in range(area_to_scan[0][1], area_to_scan[1][1] + 1):
@@ -330,6 +336,7 @@ def __get_excel_data_at_label(
             if _found is not None:
                 if True:  # process label
                     label_value = _crt_cell_val[0]  # preserve only first value (this will be next proccessed and if pass will remain)
+                    label_location = (i, j)
                 if True:  # process value
                     value_found = None
                     index_of_value_found = None
@@ -353,7 +360,8 @@ def __get_excel_data_at_label(
                         #TODO ...cont... some rules when doing: (1) do it only if "label part of string ends with `:` char" ...
                         #TODO ...cont... some rules when doing: (2) do it only last part (potential value) convert without error to `targeted_type`
                 # create return dictionary for: label, value found, location of value foun
-                ret_val["label_value"] = label_value  # if found a matching label, the label of info found will appear regardles of effective value found status
+                ret_val["label_value"] = label_value  # rule: if found a matching label, the label of info found will appear regardles of effective value found status
+                ret_val["label_location"] = label_location  # rule: same as for "label_value" key
                 if not (value_found and index_of_value_found):  # nothing found, nor @RIGHT, nor @DOWN, so break the loop and try for other poatential cell
                     return ret_val  # will return the empty structure (as initialized)
                 if value_found and index_of_value_found:  # if found something will break all loops
