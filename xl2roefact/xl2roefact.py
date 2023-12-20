@@ -1,5 +1,5 @@
 #!./.wenv_xl2roefact/bin/python3 #FIXME attn to this path if intend to move in modules/
-""" xl2roefact - module to create a unified class for all xl2roefact and to be used as library by any other external systems
+"""xl2roefact - module to create a unified class for all xl2roefact and to be used as library by any other external systems.
 
 Identification:
     code-name: `xl2roefact`
@@ -43,7 +43,8 @@ app_cli = typer.Typer(name="xl2roefact")
 
 @app_cli.command()
 def about():
-    """short application description"""
+    """short application description.
+    """
     print("[cyan]xl2roefact[/] application - convert invoice files from Excel format to JSON and XML")
     print("Support: [yellow]www.renware.eu, petre.iordanescu@gmail.com[/]")
     print("Copyright (c) 2023 RENware Software Systems.")
@@ -54,7 +55,8 @@ def about():
 
 @app_cli.command()
 def settings():
-    """display application configuration parameters and settings - subject to be changed by user"""
+    """display application configuration parameters and settings that are subject to be changed by user.
+    """
     print("\nApplication current settings are:\n---------------------------------------")
     list_of_settings = dir(configs)
     for i in list_of_settings:
@@ -92,7 +94,7 @@ def xl2json(
         ),
     ] = False
 ):  #TODO all args are subject of CONFIG and DOCUMENTATION
-    """extract data from an Excel file (save data to JSON format file with the same name as original file but `.json` extension)
+    """extract data from an Excel file (save data to JSON format file with the same name as original file but `.json` extension).
     """
     print(f"*** Component [red]xl2roefact[/] launched at {datetime.now()}")
 
