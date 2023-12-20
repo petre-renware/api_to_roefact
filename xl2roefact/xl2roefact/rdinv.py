@@ -45,19 +45,21 @@ def rdinv(
         *,
         debug_info: bool = False
     ) -> dict:
-    """ read Excel file and produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data
+    """read Excel file for invoice data.
+    
+    Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data
 
-    Arguments:
-        - `file_to_process: str` - the invoice file (exact file with path)
-        - `invoice_worksheet_name: str` - the worksheet containing invoice
-        - `debug_info: bool, positional only` - show debugging information, default `False`
+    Args:
+        - `file_to_process`; the invoice file (exact file with path)
+        - `invoice_worksheet_name`: the worksheet containing invoice
+        - `debug_info`: positional only, show debugging information, default `False`
 
     Return:
-        - `dict` - the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update
+        - `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update
 
-    NOTE: important variables:
-        - `db: pylightxl object` with invoice EXCEL (as a whole)
-        - `ws: pylightxl object` with invoice WORKSHEET
+    NOTE ref important variables:
+        - `db: pylightxl object`: EXCEL object with invoice (as a whole)
+        - `ws: pylightxl object`: WORKSHEET object with invoice
     """
     # use as global only those constants that is known could be changed by this function
     global DEFAULT_VAT_PERCENT
@@ -368,13 +370,13 @@ def __get_excel_data_at_label(
 
 # #NOTE - ready, test PASS @ 231126 by [piu]
 def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
-    """ transform `invoice_items_area` in "canonical JSON format" (as kv pairs)
+    """transform `invoice_items_area` in "canonical JSON format" (as kv pairs).
 
-    Arguments:
-        - `invoice_items_area_xl_format` - invoice items area in Excel format (ie, DataFrame with row, col, data)
+    Args:
+        - `invoice_items_area_xl_format`: invoice items area in Excel format (ie, DataFrame with row, col, data)
 
     Return:
-        - `invoice_items_area_xl_format` - dictionary with invoice items in Excel format (ie, rows, columns)
+        - `invoice_items_area_xl_format`: dictionary with invoice items in Excel format (ie, rows, columns)
     Notes:
         - for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`
     """
@@ -468,22 +470,21 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
 
 # #NOTE - ready, test PASS @ 231121 by [piu]
 def _get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
-    """ get invoice for `invoice_items_area`, process it and return its Excel format
+    """get invoice for `invoice_items_area`, process it and return its Excel format.
 
-    Description:
-        - find invoice items subtable
-        - clean invoice items subtable
-        - extract relevenat data
-        - NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
+    - find invoice items subtable
+    - clean invoice items subtable
+    - extract relevenat data
+    - NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
 
-    Arguments:
-        - `worksheet` - the worksheet containing invoice (as object of `pyxllight` library)
-        - `invoice_items_area_marker` - string with exact marker of invoice items table
-            NOTE: this is the UPPER-LEFT corner and is determined before calling this procedure
-        - `wks_name` the wroksheet name (string) of the `worksheet` object
+    Args:
+        - `worksheet`: the worksheet containing invoice (as object of `pyxllight` library)
+        - `invoice_items_area_marker`: string with exact marker of invoice items table
+            — NOTE: this is the UPPER-LEFT corner and is determined before calling this procedure
+        - `wks_name`: the wroksheet name (string) of the `worksheet` object
 
     Return:
-        - `invoice_items_area` - dictionary with invoice items in Excel format (ie, rows, columns)
+        - `invoice_items_area`: dictionary with invoice items in Excel format (ie, rows, columns)
     """
     # obtain table with invoice items ==> `invoice_items_area`
     invoice_items_area = worksheet.ssd(keycols = invoice_items_area_marker, keyrows = invoice_items_area_marker)
@@ -561,9 +562,9 @@ def _get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
 
 # #NOTE - ready, test PASS @ 231111 by [piu]
 def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name, keep_cells_of_items_ssd_marker = None):
-    """ scan Excel file to detect all merged ranges
+    """scan Excel file to detect all merged ranges.
 
-    Arguments:
+    Args:
         - `file_to_scan`: the excel file to be scanned
         - `invoice_worksheet_name`: the worksheet to be scanned
         - `keep_cells_of_items_ssd_marker`: tuple with cells that will be marked IN ANY CASE to be preserved
@@ -634,13 +635,12 @@ def _build_meta_info_key(excel_file_to_process: str,
                          ws_size: list,
                          keyword_for_items_table_marker: str,
                          found_cell: list) -> dict:
-    """ build meta_info key to preserve processed Excel file meta information: start address, size.
+    """build meta_info key to preserve processed Excel file meta information: start address, size.
 
-    NOTE(s):
-        - all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update
-        - this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality')
+    - NOTE 1: all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update
+    - NOTE 2: this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality')
 
-    Arguments:
+    Args:
         - `excel_file_to_process`: name of file to process as would appear in `meta_info` key
         - `invoice_worksheet_name`: the worksheet name as would appear in `meta_info` key
         - `ws_size`: worksheet size as would appear in `meta_info` key (index 0 max rows, index 1 max columns)
