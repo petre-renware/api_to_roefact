@@ -48,6 +48,9 @@
     * FINISHING_SOLUTION_TBD:
         * [ ] consider refactor `xl2roefact` --> `xl-invoices` (hyphen as PEP 503 `https://peps.python.org/pep-0503/#normalized-names`) ...
         * [ ] && publish `xl2roefact` package --> read `TODO_packaging.md`
+        * [x] make a PDM build: [FIRST TRY @ 231220 h09:55]
+            * [x] commend: `pdm build -v --no-clean`
+            * [x] resulted: `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
@@ -61,9 +64,12 @@
 
 ### 0.1.15 invoice issue date  (#TODO_WIP...)
 
-* wip... WHEN RELEASE UPDATE `pyproject.toml`
-* tbd... make a PDM build (helper `https://backend.pdm-project.org/build_config/`)
+* wip... ---------------- TODO: when release UPDATE VERSION: `pyproject.toml - project.version`
+
 * tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
+
+
+* 231220piu_b made a first PDM build: [@ 231220 h09:55] ==> test PASS (both created files in `dist/` was "git-ignored")
 
 * 231220piu_b refactored `rdinv(...)` section "section for search of `invoice_items_area` ..." to use `__get_excel_data_at_label(...)` function`
 
