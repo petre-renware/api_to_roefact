@@ -91,20 +91,20 @@ def rdinv(
         - result: `keyword_for_items_table_marker` = string marker to search for in oredr to isolate `invoice_items_area`
         - NOTE: partial result: `_found_cell = (row, col, val)`
     """
-    _FOUND_RELEVANT_CELL = False
+    #FIXME_kepttotest_drop_me    _FOUND_RELEVANT_CELL = False
     _tmp_label_info = __get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER,
         worksheet=ws,
         targeted_type=str
     )
     if _tmp_label_info:
-        _FOUND_RELEVANT_CELL = True
+        #FIXME_kepttotest_drop_me    _FOUND_RELEVANT_CELL = True
         _found_cell = (
             _tmp_label_info["label_location"][0],
             _tmp_label_info["label_location"][1],
             _tmp_label_info["label_value"]
-        )  # NOTE here you need  to have `_found_cell = (row, col, val)`
-    if not _FOUND_RELEVANT_CELL:
+        )  # NOTE here you need to construct `_found_cell = (row, col, val)` as it remained used in prev code before `231220piu_a` issue change
+    else:  #FIXME_kepttotest_drop_me    if not _FOUND_RELEVANT_CELL:
         print(f"[red]***FATAL ERROR - Cannot find a relevant cell where invoice items table start (basically containing string \" crt\"). File processing terminated[/]")
         return False
     keyword_for_items_table_marker = _found_cell[2]  # NOTE here you have `_found_cell = (row, col, val)` so can set variable `keyword_for_items_table_marker` #FIXME NOTE also set its location @line 668 in metadata info
