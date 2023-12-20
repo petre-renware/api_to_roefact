@@ -1,5 +1,5 @@
 #!./.wenv_xl2roefact/bin/python3
-"""  LIBUTILS - general utilities library
+""" LIBUTILS - general utilities library
 
     Identification:
         code-name: `libutils`
@@ -19,10 +19,10 @@ from fractions import Fraction
 
 # NOTE - ready, test PASS @231123
 def isnumber(a_string: str) -> bool:
-    """ test is a string is valid as any kind of number
+    """test if a string is valid as any kind of number.
 
-    Arguments:
-        - `a_string` input string
+    Args:
+        - `a_string`: input string
 
     Returns:
         - `True` if input string is valid as any kind of number, orherwise `False`
@@ -41,14 +41,14 @@ def isnumber(a_string: str) -> bool:
 
 # NOTE - ready, test PASS @231123
 def find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int:
-    """ find a substring from `list_of_str_to_find` in elements of `list_to_search`
+    """find a substring from `list_of_str_to_find` in elements of `list_to_search`.
 
-    Arguments:
-        - `list_of_str_to_find` - list of strings to search for
-        - `list_to_search` - liste where to search for substrings
+    Args:
+        - `list_of_str_to_find`: list of strings to search for
+        - `list_to_search`: liste where to search for substrings
 
     Returns:
-        - `index` - the index of list item which contains `str_to_find` (first found) or `None` if not found
+        - `index`: the index of list item which contains `str_to_find` (first found) or `None` if not found
     """
     __found = False
     for __crt_str_to_search_for in list_of_str_to_find:
