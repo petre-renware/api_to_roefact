@@ -66,7 +66,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2023-12-19T05:49:30.446988+00:00",
+        "last_processing_time": "2023-12-20T03:15:09.107708+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -207,7 +207,11 @@
                     10,
                     6
                 ],
-                "label_value": "Nr. Facturii"
+                "label_value": "Nr. Facturii",
+                "label_location": [
+                    10,
+                    5
+                ]
             },
             "issued_date": {
                 "value": "2023-10-17",
@@ -215,7 +219,11 @@
                     11,
                     6
                 ],
-                "label_value": "Data Factura"
+                "label_value": "Data Factura",
+                "label_location": [
+                    11,
+                    5
+                ]
             },
             "currency": {
                 "value": null,
@@ -223,7 +231,11 @@
                     null,
                     null
                 ],
-                "label_value": "Currency: RON"
+                "label_value": "Currency: RON",
+                "label_location": [
+                    28,
+                    8
+                ]
             },
             "supplier": "...future...",
             "customer": "...future..."

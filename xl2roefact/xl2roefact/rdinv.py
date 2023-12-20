@@ -317,11 +317,8 @@ def __get_excel_data_at_label(
             return False
         return True
 
-    if area_to_scan is None:
-        area_to_scan = (
-            (1, 1),
-            (ws.size[0], ws.size[1])
-        )  # the default value make the whole worksheet
+    if area_to_scan is None:  # if arg "passed" was default value then make it as the whole worksheet area
+        area_to_scan = ((1, 1), (worksheet.size[0], worksheet.size[1]))
     ret_val = dict(  # initialize structure for what will return if information is found
         value = None,
         location = (None, None),
