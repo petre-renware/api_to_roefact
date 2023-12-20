@@ -1,4 +1,5 @@
 """  Application configuration and setting parameters  #TODO all of these are subject to documentation update
+
     NOTE english "README_me" before making changes:
         - each parameter has a short help (lines starting with `#` character) - read it before changing that parameter
         - do not change parametrs name as specified before equal (`=`) sign
@@ -24,8 +25,8 @@
 """
 
 """---------------------------------------------------------------------------------------------------------------------------
-# NOTE: parametrii de 'default' utilizati in
-#   comanda `xl2json`, functionalitate: extragere date Excel si export in JSON (modul `rdinv)
+# NOTE: urmatorii parametri utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
+#   Uzual ei sunt folositi de comanda `xl2json` reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)
 ---------------------------------------------------------------------------------------------------------------------------"""
 
 # --- coeficientul TVA implicit
@@ -49,8 +50,8 @@ DEFAULT_CURRENCY: str = "RON"
 
 
 """---------------------------------------------------------------------------------------------------------------------------
-# NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor utilizati in
-#   comanda `xl2json`, functionalitate: extragere date Excel si export in JSON (modul `rdinv)
+# NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de
+#   comanda `xl2json` reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)
 ---------------------------------------------------------------------------------------------------------------------------"""
 
 # --- contine secventele de caractere care permit inceputul zonei (sub-tabelului) ce contine liniile facturii
