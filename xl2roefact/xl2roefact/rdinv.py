@@ -282,7 +282,7 @@ def __get_excel_data_at_label(
     """ get "one key Excel values", like invoice number or invoice issue date.
         scan is made in order *left->right, top->down* given area and search for cell_value in `pattern_to_search_for`
 
-    Arguments:
+    Args:
         - `pattern_to_search_for: list[str]` - for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`
         - `worksheet` - the worksheet containing invoice (as object of `pyxllight` library)
         - `area_to_scan: list[start_cell, end_cell]` - area of cells to be searched, default whole worksheet
