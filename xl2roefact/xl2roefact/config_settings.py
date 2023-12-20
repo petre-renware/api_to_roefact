@@ -25,7 +25,7 @@
 """
 
 """---------------------------------------------------------------------------------------------------------------------------
-# NOTE: urmatorii parametri utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
+# NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
 #   Uzual ei sunt folositi de comanda `xl2json` reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)
 ---------------------------------------------------------------------------------------------------------------------------"""
 
