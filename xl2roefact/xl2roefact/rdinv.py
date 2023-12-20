@@ -88,33 +88,23 @@ def rdinv(
 
 
     """ #NOTE: section for search of `invoice_items_area` subtable (ie `pylightxl.ssd` object)
-        - how: search the cell containg text fragments --> get text from that cell --> use it as `ssd()` parameter
         - result: `keyword_for_items_table_marker` = string marker to search for in oredr to isolate `invoice_items_area`
         - NOTE: partial result: `_found_cell = (row, col, val)`
     """
-    #FIXME comment and start to find `keyword...for...items...table` from here and up to line#117, exclusive ... NOTE also keep in mind that `_found_cell` is array of `start_cell, end_cell, _value`
-    _ws_max_rows, _ws_max_cols = ws.size[0], ws.size[1]
     _FOUND_RELEVANT_CELL = False
-    #TODO use __get_excel_data_at_label(...) for returned "label_value" key
-    for _crt_row in range(1, _ws_max_rows + 1):  # traverse all rows (start from 1 as Excel style)
-        for _crt_col in range(1, _ws_max_cols + 1):  # traverse all cols (start from 1 as Excel style)
-            _crt_cell_val = ws.index(_crt_row, _crt_col)
-            if (_crt_cell_val == "") or (_crt_cell_val == SYS_FILLED_EMPTY_CELL) or (_crt_cell_val is None):  # skip empty cells and continue with next cells
-                continue
-            # search for all strings from PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER
-            _cell_val_to_test = str(_crt_cell_val).lower()
-            for i in PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER:   # search in current cell contains one the strings potential to identify items subtable
-                if i in _cell_val_to_test:
-                    _found_cell = (_crt_row, _crt_col, _crt_cell_val)
-                    _FOUND_RELEVANT_CELL = True
-                    break  # found a relevant cell ==> exit
-                else:
-                    continue
-            if _FOUND_RELEVANT_CELL:
-                break
-        if _FOUND_RELEVANT_CELL:
-            break
-    if not _FOUND_RELEVANT_CELL:  #FIXME here the line up to comment old code that will ne replaced
+    _tmp_label_info = __get_excel_data_at_label(
+        pattern_to_search_for=PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER,
+        worksheet=ws,
+        targeted_type=str
+    )
+    if _tmp_label_info:
+        _FOUND_RELEVANT_CELL = True
+        _found_cell = (
+            _tmp_label_info["label_location"][0],
+            _tmp_label_info["label_location"][1],
+            _tmp_label_info["label_value"]
+        )  # NOTE here you need  to have `_found_cell = (row, col, val)`
+    if not _FOUND_RELEVANT_CELL:
         print(f"[red]***FATAL ERROR - Cannot find a relevant cell where invoice items table start (basically containing string \" crt\"). File processing terminated[/]")
         return False
     keyword_for_items_table_marker = _found_cell[2]  # NOTE here you have `_found_cell = (row, col, val)` so can set variable `keyword_for_items_table_marker` #FIXME NOTE also set its location @line 668 in metadata info
@@ -286,7 +276,7 @@ def rdinv(
 def __get_excel_data_at_label(
         pattern_to_search_for: list[str],
         worksheet: xl.Database.ws,
-        area_to_scan: list[list[int]] = None,  #TODO test for a typehint like `list[[int, int], [int, int]]`
+        area_to_scan: list[list[int]] = None,
         targeted_type: Callable = str
     ) -> dict:
     """ get "one key Excel values", like invoice number or invoice issue date.

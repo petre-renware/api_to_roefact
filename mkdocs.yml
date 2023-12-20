@@ -96,7 +96,7 @@ extra_javascript:
 plugins:
     - search
     - include-markdown
-    - table-reader #NOTE used for staic tables rendering from various sources (CSV, JSON, etc as available in Pandas)
+    - table-reader #NOTE used for static tables rendering from various sources (CSV, JSON, etc as available in Pandas)
     - macros #NOTE use external jinja variables and macros (see `https://mkdocs-macros-plugin.readthedocs.io/en/latest/`)
     - markdown-exec #NOTE Python execution inside markdown files (execution at build time, "compilation like" NOT dynamically NOT JavaScript)
     - git-revision-date-localized

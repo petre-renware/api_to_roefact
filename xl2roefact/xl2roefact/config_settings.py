@@ -54,24 +54,38 @@ DEFAULT_CURRENCY: str = "RON"
 ---------------------------------------------------------------------------------------------------------------------------"""
 
 # --- contine secventele de caractere care permit inceputul zonei (sub-tabelului) ce contine liniile facturii
-PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER: list[str] = [" crt", "no. crt", "nr. crt", "#"]
+PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER: list[str] = [
+    " crt", " crt.",
+    "no. crt.", "no crt", "no. crt", "no crt.",
+    "nr. crt.", "nr crt", "nr. crt", "nr crt.",
+    "#",
+]
 
 # --- numarul facturii
 # acest parametru permit identificarea numarului facturii, astfel sistemul va cauta dupa secventele din parametrul
 # `PATTERN_FOR_INVOICE_NUMBER_LABEL`,... (cautarea fiind indiferenta de marimea caracterelor).
 # Aceasta reprezentind "eticheta" unde se presupune a fi numarul facturii.  Pentru a gasi numarul efectiv al facturii,
 # sistemul va cauta in directiile DREAPTA (UP) si apoi daca nu gaseste JOS (DOWN)
-PATTERN_FOR_INVOICE_NUMBER_LABEL: list[str] = ["nr. fact", "nr fact", "numar fact", "fact nr", "factura num", "invoice number", "invoice no", "invoice:"]
+PATTERN_FOR_INVOICE_NUMBER_LABEL: list[str] = [
+    "nr. fact", "nr fact", "numar fact", "fact nr", "factura num",
+    "invoice number", "invoice no", "invoice:",
+]
 
 # --- moneda facturii
 # pattern utilizat pentru a gasi moneda facturii (daca a fost specificata iar daca nu gaseste se va utiliza DEFAULT_CURRENCY)
-PATTERN_FOR_INVOICE_CURRENCY_LABEL: list[str] = ["mone", "curr", "ccy"]
+PATTERN_FOR_INVOICE_CURRENCY_LABEL: list[str] = [
+    "mone",
+    "curr", "ccy"
+]
 
 # --- data facturii
 # pattern utilizat pentru a gasi data facturii
 # NOTE-1 in XML formatul utilizat este YYYY-MM-DD
 # NOTE-2 in celula Excel aferenta datei se asteapta ca formatul sa fie cel stadard de data calendaristica (ATENTIE: NU string)
-PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: list[str] = ["data", "data fact", "data emit", "date", "invoice date", "issue date"]
+PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: list[str] = [
+    "data", "data fact", "data emit",
+    "date", "invoice date", "issue date",
+]
 
 
 

@@ -62,10 +62,10 @@
 ### 0.1.15 invoice issue date  (#TODO_WIP...)
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`
-
 * tbd... make a PDM build (helper `https://backend.pdm-project.org/build_config/`)
+* tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
 
-* ...231220piu_b refactored `rdinv(...)` section "section for search of `invoice_items_area` ..." to use `__get_excel_data_at_label(...)` function`
+* 231220piu_b refactored `rdinv(...)` section "section for search of `invoice_items_area` ..." to use `__get_excel_data_at_label(...)` function`
 
 * 231220piu_a refactored `rdinv.__get_excel_data_at_label(...)`` for returned "label_position" key`
 
