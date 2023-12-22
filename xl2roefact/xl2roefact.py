@@ -1,3 +1,5 @@
+*** ERROR to README: FILE WAS COPIED AS `xl2roefact/__main__.py` ***
+
 #!./.wenv_xl2roefact/bin/python3 #FIXME attn to this path if intend to move in modules/
 """xl2roefact - module to create a unified class for all xl2roefact and to be used as library by any other external systems.
 
