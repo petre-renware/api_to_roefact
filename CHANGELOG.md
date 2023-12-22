@@ -64,7 +64,7 @@
 
 ### 0.1.17 invoice partners customer  (#TODO_WIP...)
 
-* wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231222piu_a
+* wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231222piu_b
 
 * tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
 
@@ -82,7 +82,7 @@
 # 0.1.16 improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
 
 * 231222piu_b build packages for:
-    * [ ] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
+    * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
     * [x] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
     * [x] updated `pyproject.toml`
 
