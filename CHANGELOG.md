@@ -45,25 +45,62 @@
     * `xml2roefact - LDXML`
     * create a **`build.bat`** & include in `MSI` package 'data' directories as: `excel_invoice_template/`, empty `invoice_files/` (see `cx-Freeze`, options `--directories` of `bdist_msi`cmd, option `--include_files` of `build_exe`cmd, ref URL: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
     * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-    * FINISHING_SOLUTION_TBD... publish `xl2roefact` package --> read `TODO_packaging.md`
+    * PACKAGE SOLUTION:
+        * [ ] consider refactor `xl2roefact` --> `xl-invoices` (hyphen as PEP 503 `https://peps.python.org/pep-0503/#normalized-names`) ...
+        * [ ] && publish `xl2roefact` package --> read `TODO_packaging.md`
+        * [x] make a PDM build: [FIRST TRY @ 231220 h09:55]
+            * [x] ___command___: `pdm build -v --no-clean`
+            * [x] resulted: `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
         * [x] (DONE@0.1.12) invoice header - invoice number
         * [x] (DONE@231217piu_a) invoice header - issue date
         * [x] (DONE@0.1.13) invoice header - currency
-        * [ ] invoice header - issuer / owner
-        * [ ] invoice header - partners (supplier or customer) (#NOTE supplier will be good for `PayValidaBoa` to get suppliers invoices)
+        * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
+        * [ ] invoice header - customer (`<cac:AccountingCustomerParty>`)
 
 
 
-### 0.1.16 invoice issue date  (#TODO_WIP...)
+### 0.1.17 invoice partners customer  (#TODO_WIP...)
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231222piu_a
 
+* tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
 
 
 
+
+
+
+
+
+
+
+
+
+# 0.1.16 improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
+
+* 231222piu_b build packages for:
+    * [ ] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
+    * [x] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
+    * [x] updated `pyproject.toml`
+
+* 231222piu_a refactor `rdinv.__get_excel_data_at_label(...)` to search in label (named "IN-LABEL" method)
+
+* 231220piu_b made a first PDM build: [@ 231220 h09:55] ==> test PASS (both created files in `dist/` was "git-ignored")
+
+* 231220piu_b refactored `rdinv(...)` section "section for search of `invoice_items_area` ..." to use `__get_excel_data_at_label(...)` function`
+
+* 231220piu_a refactored `rdinv.__get_excel_data_at_label(...)` for returned "label_position" key`
+
+* 231219piu_a update `rdinv.__get_excel_data_at_label(...)` to return found label value in dictionary as key `"label_value"`
+
+* 231218piu_c `PDM` environment manager, updated `pyproject.toml` structures ref package building, still preps to create env, generate lock file...
+
+* 231218piu_b CLI application, fixed bug of print settings when deployed from a package (command: `xl2roefact.py settings`)
+
+* 231218piu_a installed `PDM` environment manager, updated `pyproject.toml` structures, nxt to create env, generate lock file...
 
 
 
@@ -235,160 +272,25 @@
 
 
 
-### 0.1.7 `xl2roefact.RDINV` invoice items & metadata (231126 h05:00)
-
-* **left OPEN ISSUES in this release** [piu@231126: marked on todo plan of `0.1.8` version]
-    * [x] (CLOSED@231213) _file `xl2roefact/rdinv.py`, function `__mk_kv_invoice_items_area(...)`:_ `FIXME this will be identified in `invoice_header_area` ==> should be changed accordingly`
-    * [ ] --> _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
-
-
-* 231126piu_a item(s) line extensions == item VAT total, item VALUE total
-
-* 231125piu_c changed dir `excel_invoices/` with `invoice_files/`
-
-* 231125piu_b make a plan from `__model_test_factura_generat_anaf.xml` marking TODOs & DONE tags & renaming as `_PLAN_...idem...`
-
-* 231125piu_a final review, complete find of invoice relevant columns and write them in `invoice` dict:
-    * quantity (cbc:InvoicedQuantity),
-    * VAT percent (cbc:Percent),
-    * description (cbc:Name),
-    * uom (cbc:unitCode),
-    * unit price (cbc:PriceAmount),
-    * currency (c:currencyID)
-
-* 231224piu_a FIXED VAT calculation for lines which specify a VAT as 0% - USE CASE lines for other taxes like "acciza"... - still unsolved for very simplified invoices (see code line containing text "`_vat_percent` calculation should also")
-
-* 231123piu_c `rdinv` module, defined function `libutils.isnumber(a_string: str) -> bool` to test is a string is valid as any kind of number
-
-* 231123piu_b `rdinv` module, function to search for a list of string in a list items (suitable to identify useful / relevant invoice columns from Excel format) ==> **`__find_str_in_list(str_to_find: str, list_to_search: list)`**
-
-* 231123piu_a prepared function `__mk_kv_invoice_items_area(...)` to transform `invoice_items_area` in "canonical JSON format" (as kv pairs)
-
-* 231122piu_a  `invoice_items_area` & `meta_info` review, check and clean code
-
-* 231121piu_a final `invoice` dict / JSON data: moved all effective data under key `"excel_data"` (preparing so for final storable invoice "real keys")
-
-* 231119piu_b `invoice_items_area` set unknown rows header to `<current line number>.NOTE-<seq>`, where `seq` is an ordered sequence of letters (ie, resulting something like: `1.a, 1.b, ...`)
-\* 231119piu_a closed:
-    * [x] invoice `meta_info` area
-    * [x] a more defined, clean & clear `invoice_items_area`
-    * [x] add `last_processing_UTCtime` in `meta_info` dictionary
-    * [x] written `invoice` dict to a JSON (`f-JSON` file, see doc: `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#vedere-de-ansamblu-a-solutiei`)
-
-* 231112piu_a refactor:
-    *  [x] `base_proc` to `xl2roefact`
-    *  [x] `BASE_PROC` to `xl2roefact`
-    *  [x] update documentation
-    *  [x] publish site
-
-* 231109piu_a installed module `pylightxl` in base environment (ie, in project root) to allow modules calling from root for future web components & updated requirements.txt
-
-* 231108piu_f RDINV (`rdinv.py`) secure for "unwanted crashes" errors (missing info) & clean code
-
-* 2811080iu_e install `mkdocstrings`, update `mkdocs.yml` and create a markdown document for xl2roefact component (did) not succeeded search for 'FIXME temporary disabled because errs' ...longer_string_...
-
-* 231108piu_d documented that `XLSX` is the only Excel file format supported (in `110-SRE-api_to_roefact_requirements.md`) & published site
-
-* 231108piu_c xl2roefact (`xl2roefact.py`) transformed in class & parametrized worksheet name containing invoice ==> **class BaseProc()**
-
-* 231108piu_b RDINV (`rdinv.py`) module set directories environment & open invoice
-
-* 231108piu_a consolidate decomposition (from `231107piu_c`) ==> directory `.../xl2roefact/modules/`
-
-* 231107piu_c transform decomposition (from `231107piu_b`) into complete Python modules (making directories for each)
-
-* 231107piu_b created module files according to decomposition (specs doc `110-SRE-api_to_roefact_requirements.md`)
-
-* 230107piu_a made a first DRAFT runnable CLI program with `Typer` (`https://typer.tiangolo.com/`) from `xls2xml.py` ==> `dist/xls2xml.exe`
-
-
-
-
-### 0.1.6 commercial agreement OPTIONS document (231107 h07:00)
-
-* 231106piu_e document for TECHNICAL agreement with (a) agreed options, (b) estimated deadlines ==> published i `commercial_agreement/` as `agreed_options.md` under "Options": menu
-    * [x] (a.) for _APItoROefact_ system
-    * [x] (b.) for _PayValidaBoa_ system
-    * [x] (c.) publish updates
-
-
-
-### 0.1.5 init component *xl2roefact* for CLI application (231106 h06:30)
-
-* 231106piu_d published changed commercial documents
-* 231106piu_c get test invoices: from client, a RENware one, a 3rd party one ==> directory `xl2roefact/test_data_and_specs/`
-* 231106piu_b updated `doc_src/110-SRE-payments_validation_board_requirements.md` ref system decomposition & list of components
-* 231106piu_a prepare environment for *xl2roefact* component:
-    * [x] make a distinct Python-Windows environment in `xl2roefact/`
-    * [x] set as git ignore the intended new environment directory: `.wenv_xl2roefact/`
-    * [x] install required modules in new environment (`pylightxl` core module)
-    * [x] create specific requirements file: `requirements_xl2roefact.txt`
-
-
-
-### 0.1.4 Create system backbone structure (231105 h08:15)
-
-* 231105piu_c create system backbone as directories structure (and initialized min with a `README_xxx.md` file):
-    * `web_dashb_app/` for component *WEB_DASHB* (as renaming actual `api_to_roefact_app/`)
-    * `xl2roefact/` for component *xl2roefact*
-    * `data/` for component *SYSTEM_DB*
-* 231105piu_b revisit and review existing directories and refactored:
-    * `sysInit/` --> `sys_init/`
-    * `setup/` --> `setup_web_sys/`
-    * published site
-
-
-
-### 0.1.3 Enhancing `payments_validation_board` technical proposal (231105 h05:30)
-
-* 231105piu_a review, update & publish site `apitoroefact.renware.eu`
-* 231104piu_i updated project README file
-* 231104piu_h `payments_validation_board` updated commercial name of system to **PayValidaBoa** and related documentation files
-* 231104piu_g update general considerations proposal doc ref using `UTC` date and times in applications databases
-* 231104piu_f add new top level component for administration of: users, e-mails, signature certificates, roles
-* 231104piu_e updated site server name to `apitoroefact.renware.eu` and `doc_src/CNAME` file
-* 231104piu_d `payments_validation_board` technical proposal - first / draft components decomposition
-
-
-
-
-### 0.1.2 Enhancing `APItoROefact` technical proposal (231104 10:30)
-
-* 231104piu_c `APItoROefact` technical proposal: closed a discussion version
-
-
-
-
-### 0.1.1 Elaborating technical proposal (231104 08:45)
-
-* 231104piu_b got all commercial documents (including `110-SRE-general_requirements.md`) in directory `doc_src/commercial_agreement/`
-
-
-
-
-### 0.1.0 System raw backbone (231104 07:00)
-
-* 231104piu_a created first raw system backbone & directories structure
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Archived CHANGELOGs
 
-* n/a
+* [0.1.7 `xl2roefact.RDINV` invoice items & metadata + *OPEN ISSUES*](./changelog_history/CHANGELOG-0.1.7.md)
+* [0.1.6 commercial agreement OPTIONS document](changelog_history/CHANGELOG-0.1.6.md)
+* [0.1.5 init component *xl2roefact* for CLI application](./changelog_history/CHANGELOG-0.1.5.md)
+* [0.1.4 Create system backbone structure](./changelog_history/CHANGELOG-0.1.4.md)
+* [0.1.3 Enhancing `payments_validation_board` technical proposal](./changelog_history/CHANGELOG-0.1.3.md)
+* [0.1.2 Enhancing `APItoROefact` technical proposal](./changelog_history/CHANGELOG-0.1.2.md)
+* [0.1.1 Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.md)
+* [0.1.0 System raw backbone](./changelog_history/CHANGELOG-0.1.0.md)
+
+
+
+
+
 
 
 # [Release Notes](RELNOTE.md) #TODO this file should be created
 
-
+* wip... [not_yet_created... 0.1](./changelog_history/...)

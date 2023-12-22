@@ -1,12 +1,51 @@
 [project]
 name = "xl2roefact"
-version = "0.1.15"  #NOTE this entry is subject to be periodically updated
+version = "0.1.16"  #NOTE this entry is subject to be periodically updated
 description = "Excel invoice upload to RO E-Fact system"
 authors = [
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" }
 ]
 dependencies = [
-    "pendulum"
+    "pdoc>=14.2.0",
+    "altgraph==0.17.4",
+    "argcomplete==3.2.1",
+    "build==1.0.3",
+    "click==8.1.7",
+    "colorama==0.4.6",
+    "commonmark==0.9.1",
+    "cx-Freeze==6.15.12",
+    "cx-Logging==3.1.0",
+    "et-xmlfile==1.1.0",
+    "Fraction==2.2.0",
+    "Jinja2==3.1.2",
+    "lief==0.13.2",
+    "markdown-it-py==3.0.0",
+    "MarkupSafe==2.1.3",
+    "mdurl==0.1.2",
+    "openpyxl==3.1.2",
+    "packaging==23.2",
+    "pdoc==14.2.0",
+    "pefile==2023.2.7",
+    "pip==23.3.2",
+    "platformdirs==4.1.0",
+    "Pygments==2.17.2",
+    "pyinstaller-hooks-contrib==2023.10",
+    "pylightxl==1.61",
+    "pyproject-hooks==1.0.0",
+    "python-dateutil==2.8.2",
+    "pytzdata==2020.1",
+    "pywin32-ctypes==0.2.2",
+    "rich==13.7.0",
+    "setuptools==69.0.2",
+    "shellingham==1.5.4",
+    "six==1.16.0",
+    "time-machine==2.13.0",
+    "tomli==2.0.1",
+    "typer==0.9.0",
+    "typing-extensions==4.9.0",
+    "tzdata==2023.3",
+    "userpath==1.9.1",
+    "wheel==0.42.0"
 ]  #FIXME @231217 still raise error when import `pendulum` package (`File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 readme = "README.md"
 #license = "LICENSE"  #FIXME.cxFreeze.reports.err.with.this:`2 values found...`, probably need a standard value, like "MIT"; better see in GitHub what accepts it (!)

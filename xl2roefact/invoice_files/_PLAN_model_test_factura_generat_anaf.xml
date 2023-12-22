@@ -16,17 +16,17 @@
     <cbc:TaxPointDate>2013-11-20</cbc:TaxPointDate>  #TODO tbd...
     <cbc:DocumentCurrencyCode>RON</cbc:DocumentCurrencyCode>  #NOTE DONE / RDY
 
-    <cac:OrderReference>  #TODO tbd...
+    <cac:OrderReference>  #NOTE_??? do not know if simple Excel processing can give this info - NEEED ERP   #NOTE `COMANDA FERMA`
         <cbc:ID>referinta_comanda</cbc:ID>
     </cac:OrderReference>
 
-    <cac:BillingReference>  #TODO tbd...  #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
+    <cac:BillingReference>  #NOTE_??? do not know if simple Excel processing can give this info - NEEED ERP  #NOTE `FACTURA PRECEDENTA - face sens cu un contract sau comanda`
         <cac:InvoiceDocumentReference>
             <cbc:ID>referinta_factura_precedenta</cbc:ID>
         </cac:InvoiceDocumentReference>
     </cac:BillingReference>
 
-    <cac:ContractDocumentReference>  #TODO tbd...  #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
+    <cac:ContractDocumentReference>  #NOTE_??? do not know if simple Excel processing can give this info - NEEED ERP  #NOTE `CONTRACT`
         <cbc:ID>referinta_contract</cbc:ID>
     </cac:ContractDocumentReference>
 
