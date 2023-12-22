@@ -57,10 +57,22 @@
 
 
 
-### 0.1.15 invoice issue date  (#TODO_WIP...)
+### 0.1.16 invoice issue date  (#TODO_WIP...)
 
-* wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231217piu_b
+* wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231222piu_a
 
+
+
+
+
+
+
+
+
+
+### 0.1.15 updated solution portal `http://invoicetoroefact.renware.eu/` (231222 h05:00)
+
+* 231222piu_a updated CNAME to `invoicetoroefact.renware.eu`
 
 
 
