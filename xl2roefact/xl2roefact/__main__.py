@@ -29,8 +29,9 @@ from rich.pretty import pprint
 # xl2roefact specific libraries
 '''#FIXME imports should be checked...
     ... and changed for example as:
-        - `from . import config_settings [as configs]` or
+        - `from . import config_settings as configs`
         - `from . import rdinv as rdinv`
+        - ...repeat.for.all...
 '''
 import xl2roefact.config_settings as configs  # configuration elements to use with `settings` command
 from xl2roefact.rdinv import rdinv  # status #TODO: wip
