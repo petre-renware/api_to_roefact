@@ -1,4 +1,9 @@
-*** ERROR to README: FILE WAS COPIED AS `xl2roefact/__main__.py` ***
+import sys
+print(*** FILE WAS COPIED AS `xl2roefact/__main__.py`.)
+print(*** IT SHOULD BE ABLE TO RUN AS `python xl2roefact ...` without .py extension ***)
+ERROR: README PREVIOUS PRINTS
+sys.exit()
+
 
 #!./.wenv_xl2roefact/bin/python3 #FIXME attn to this path if intend to move in modules/
 """xl2roefact - module to create a unified class for all xl2roefact and to be used as library by any other external systems.
