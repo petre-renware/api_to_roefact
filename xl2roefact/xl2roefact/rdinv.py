@@ -1,4 +1,4 @@
-#!./.wenv_xl2roefact/bin/python3
+#!../.venv/bin/python3
 """  RDINV - modul de procesare a fisierului format XLSX ce contine factura si colectare a datelor aferente
 
     Identification:
@@ -22,6 +22,7 @@ import json
 from typing import Callable, Any
 import pylightxl as xl
 import openpyxl as opnxl
+
 # local modules (built in and part of package)
 from .libutils import isnumber, find_str_in_list  # application misc/general utilities
 from . import config_settings  # application configuration parameters

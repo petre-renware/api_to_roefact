@@ -1,9 +1,10 @@
 [project]
 name = "xl2roefact"
-version = "0.1.16"  #NOTE this entry is subject to be periodically updated
+version = "0.1.18"  #NOTE this entry is subject to be periodically updated
 description = "Excel invoice upload to RO E-Fact system"
 authors = [
-    { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" }
+    { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" },
+    { name = "RENware Software Systems", email = "renware.systems@gmail.com" }
 ]
 dependencies = [
     "pdoc>=14.2.0",
@@ -51,18 +52,27 @@ readme = "README.md"
 #license = "LICENSE"  #FIXME.cxFreeze.reports.err.with.this:`2 values found...`, probably need a standard value, like "MIT"; better see in GitHub what accepts it (!)
 requires-python = ">= 3.10"
 
+
 [build-system]
-requires = ["hatchling"]  #FIXME this line apecify the building backend ? If so, intention is for `PDM` tool
-build-backend = "hatchling.build"  #FIXME this line apecify the building backend ? If so, intention is for `PDM` tool
+requires = ["pdm-backend"]  #FIXME this line apecify the building backend ? If so, intention is for `PDM` tool
+build-backend = "pdm.backend"  #FIXME this line apecify the building backend ? If so, intention is for `PDM` tool
 product_code = "0000-0095"  #NOTE introduced @ 231217 by [piu] - should be tested #TODO-test-me
 #directories = ["invoie_files"]  #NOTE this entry is supposed to create these directories on installation #TODO-tests:
 #           - test @ 231217: try `invoice_files/` - result FAIL, directory was not created  - meybe entry place is not here, but build was exec with no err
 
-[tool.rye]
-managed = true
-dev-dependencies = []
 
-[tool.hatch.metadata]
+[tool.pdm.scripts]
+#TODO this table should contain commands for:
+#TODO   - build MSI package
+#TODO   - build PyPy packages (wheel and sdist)
+#TODO   - execute `xl2rofact` command
+#TODO   - build documentation (with `pdoc` ? or meanwhile found a better one...)
+#NOTE: attn, here can also put `shell` commands, so if needed can install things with `sudo apt install ...`
+#TODO   - ...
+
+
+
+[tool.hatch.metadata]  #FIXME piu: i think this is related to `Hatchling builder` so is useless with `PDM builder` - DROP this table after some tests
 allow-direct-references = true
 
 

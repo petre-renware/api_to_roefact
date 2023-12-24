@@ -103,7 +103,7 @@ env.bak/
 venv.bak/
 
 # #NOTE APItoROefact application environments
-xl2roefact/.wenv_xl2roefact/
+xl2roefact/.venv/
 
 
 

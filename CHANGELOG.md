@@ -62,9 +62,9 @@
 
 
 
-### 0.1.17 invoice partners customer  (#TODO_WIP...)
+### 0.1.18 invoice partners customer  (#TODO_WIP...)
 
-* wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231222piu_a
+* wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231224piu_a
 
 * tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
 
@@ -75,6 +75,25 @@
 
 
 
+### 0.1.17 fixed all application & package running standard ways (231224 h05:30)
+
+* RELEASES:
+    * `.<PROJECT>/xl2roefact/dist/xl2roefact-0.1.17-win64.msi`
+    * `<PROJECT>/xl2roefact/dist/xl2roefact-0.1.17.tar.gz`
+    * `<PROJECT>/xl2roefact/dist/xl2roefact-0.1.17-py3-none-any.whl`
+
+* 231224piu_a made cli app to run as: Python package main app (`python -m xl2roefact`) and as script (`python xl2roefact.py`) while still letting the Python library `xl2roefact` as importable and use in a programmatic way:
+    * [x] make `.../xl2roefact/app_cli.py` (from actual `.../xl2roefact/__main__.py`) which is complete code of CLI app plus a `run()` function that just launch it
+    * [x] make `.../xl2roefact/__main__.py` that just import `app_cli` for `run()` function and call it
+    * [x] change actual `<xl2roefact ROOT/>xl2roefact.py` to import `xl2roefact.app_cli` for `run()` function and call it
+    * [x] test for MSI package builds ref `<xl2roefact ROOT/>xl2roefact.py`
+    * [x] clean code, test and close issue:
+        * `python xl2roefact.py [OPTIONS] COMMAND [ARGS]...`
+        * `python -m xl2roefact [OPTIONS] COMMAND [ARGS]...`
+
+* 231223piu_a multiple changes ref main code: `xl2roefact.py` and library `xl2roefact`, MAINLY created `xl2roefact/__main__.py` as normal of xl2roefact.py
+
+
 
 
 
@@ -82,7 +101,7 @@
 # 0.1.16 improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
 
 * 231222piu_b build packages for:
-    * [ ] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
+    * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
     * [x] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
     * [x] updated `pyproject.toml`
 

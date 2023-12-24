@@ -1,4 +1,4 @@
-#!./.wenv_xl2roefact/bin/python3
+#!../.venv/bin/python3
 """  INVOICE JSON STRUCTURE - the JSON format of invoice
 
     Identification:
