@@ -47,10 +47,10 @@
     * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
     * PACKAGE SOLUTION:
         * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
-        * [ ] make some useful PDM scripts (ref `pyroject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
+        * [ ] make some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
             * [ ] Python package,
             * [ ] MSI package
-            * [ ] single file EXE (with `pyinstaller`) for use as "super portable tool = no-install just use from stick"  
+            * [ ] single file EXE (with `pyinstaller`) for use as "super portable tool = no-install just use from stick"
         * [x] make a PDM build: OK, currently is done @ each release, results ==> `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:

@@ -62,12 +62,14 @@ product_code = "0000-0095"  #NOTE introduced @ 231217 by [piu] - should be teste
 
 
 [tool.pdm.scripts]
+#NOTE types: `cmd` (Python commands, `shell` Bash shell commands, `call` (Python direct callables) and `composite` (to run multiple scropts in sequence)
+#NOTE ref: `https://pdm-project.org/latest/usage/scripts/`
 #TODO this table should contain commands for:
 #TODO   - build MSI package
 #TODO   - build PyPy packages (wheel and sdist)
 #TODO   - execute `xl2rofact` command
 #TODO   - build documentation (with `pdoc` ? or meanwhile found a better one...)
-#NOTE: attn, here can also put `shell` commands, so if needed can install things with `sudo apt install ...`
+# NOTE: attn, here can also put `shell` commands, so if needed can install things with `sudo apt install ...`
 #TODO   - ...
 
 
@@ -75,12 +77,6 @@ product_code = "0000-0095"  #NOTE introduced @ 231217 by [piu] - should be teste
 [tool.hatch.metadata]  #FIXME piu: i think this is related to `Hatchling builder` so is useless with `PDM builder` - DROP this table after some tests
 allow-direct-references = true
 
-
-
-[tool.pdm.scripts]
-#TODO setction dedicated to PDM scripts:
-#    types: `cmd` (Python commands, `shell` Bash shell commands, `call` (Python direct callables) and `composite` (to run multiple scropts in sequence)
-#    ref: `https://pdm-project.org/latest/usage/scripts/`
 
 
 
