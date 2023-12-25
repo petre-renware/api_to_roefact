@@ -76,7 +76,15 @@ product_code = "0000-0095"  #NOTE introduced @ 231217 by [piu] - should be teste
 allow-direct-references = true
 
 
-#NOTE section add for `cxFreeze` - intention what is expected for, is obvious - source: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
+
+[tool.pdm.scripts]
+#TODO setction dedicated to PDM scripts:
+#    types: `cmd` (Python commands, `shell` Bash shell commands, `call` (Python direct callables) and `composite` (to run multiple scropts in sequence)
+#    ref: `https://pdm-project.org/latest/usage/scripts/`
+
+
+
+#NOTE section add for `cxFreeze`, for details see here: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
 [tool.distutils.build_exe]
 excludes = ["tkinter", "unittest"]
 zip_include_packages = ["encodings", "PySide6"]
