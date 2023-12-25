@@ -46,11 +46,12 @@
     * create a **`build.bat`** & include in `MSI` package 'data' directories as: `excel_invoice_template/`, empty `invoice_files/` (see `cx-Freeze`, options `--directories` of `bdist_msi`cmd, option `--include_files` of `build_exe`cmd, ref URL: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
     * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
     * PACKAGE SOLUTION:
-        * [ ] consider refactor `xl2roefact` --> `xl-invoices` (hyphen as PEP 503 `https://peps.python.org/pep-0503/#normalized-names`) ...
-        * [ ] && publish `xl2roefact` package --> read `TODO_packaging.md`
-        * [x] make a PDM build: [FIRST TRY @ 231220 h09:55]
-            * [x] ___command___: `pdm build -v --no-clean`
-            * [x] resulted: `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
+        * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
+        * [ ] make some useful PDM scripts (ref `pyroject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
+            * [ ] Python package,
+            * [ ] MSI package
+            * [ ] single file EXE (with `pyinstaller`) for use as "super portable tool = no-install just use from stick"  
+        * [x] make a PDM build: OK, currently is done @ each release, results ==> `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
