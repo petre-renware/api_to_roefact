@@ -33,6 +33,7 @@
     * [ ] `rdinv` module
     * [ ] `xl2roefact` CLI application
     * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md`
+    * [ ] use  Pydoc Markdown `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
 -
 * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
     * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
@@ -62,9 +63,11 @@
 
 ### 0.1.18 invoice partners customer  (#TODO_WIP...)
 
-* wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231224piu_a
+* wip... WHEN RELEASE UPDATE `pyproject.toml`
 
 * tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
+
+* tbd... test Pydoc Markdown @ `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
 
 * 231229piu_a made some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
     * [x] **`pdm build_wheel`** Python package,
