@@ -1,18 +1,18 @@
 #!../.venv/bin/python3 #FIXME attn to this path if intend to move in modules/
-"""**xl2roefact.app_cli** - the command line application for all xl2roefact functionalities.
+"""**xl2roefact.app_cli**: the command line application for all xl2roefact functionalities.
 
 Identification:
-    code-name: `xl2roefact`
-    copyright: (c) 2023 RENWare Software Systems
-    author: Petre Iordanescu (petre.iordanescu@gmail.com)
+    * code-name: `xl2roefact`
+    * copyright: (c) 2023 RENWare Software Systems
+    * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 Deployments:
-    Windows:  MSI installer with EXE application
-    Linux: `xl2roefact` executable shell as wrapper for `xl2roefact.py`
+    * Windows:  MSI installer with EXE application.
+    * Linux: `xl2roefact` executable shell as wrapper for `xl2roefact.py`.
 
 Specifications:
-    command general format: `xl2roefact [file(s)-to-convert] COMMAND [OPTIONS]`
-    help: `xl2roefact [COMMAND] --help`
+    * command general format: `xl2roefact [file(s)-to-convert] COMMAND [OPTIONS]`.
+    * help: `xl2roefact [COMMAND] --help`.
 """
 
 
@@ -36,17 +36,18 @@ from xl2roefact.chkisld import chkisld  # status #FIXME: not yet started
 
 
 
-""" CLI builder section
+""" CLI builder section.
 """
 app_cli = typer.Typer(name="xl2roefact")
 
 
 @app_cli.command()
 def about():
-    """short application description.
+    """provide a short application description.
     """
     print("[cyan]xl2roefact[/] application - convert invoice files from Excel format to JSON and XML")
     print("Support: [yellow]www.renware.eu, petre.iordanescu@gmail.com[/]")
+    print("Product code: [yellow]0000-0095[/]")
     print("Copyright (c) 2023 RENware Software Systems.")
     print("[yellow]Usage:[/]")
     print("\tExtract Excel data into a JSON file with default configs: xl2roefact xl2json")
