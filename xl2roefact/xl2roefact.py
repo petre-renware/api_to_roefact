@@ -1,5 +1,5 @@
 #!./.venv/bin/python3 #FIXME attn to this path if intend to move in modules/
-"""xl2roefact - module to create a unified class for all xl2roefact and to be used as library by any other external systems.
+"""xl2roefact: module to unify all xl2roefact and to be used as executable CLI by any users.
 
 Identification:
     code-name: `xl2roefact`
