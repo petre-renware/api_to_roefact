@@ -285,7 +285,7 @@ def __get_excel_data_at_label(
         area_to_scan: list[list[int]] = None,
         targeted_type: Callable = str
     ) -> dict:
-    """ get "one key Excel values", like invoice number or invoice issue date.
+    """get "one key Excel values", like invoice number or invoice issue date.
     
     Args:
         `pattern_to_search_for: list[str]`: for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`.
