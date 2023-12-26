@@ -69,7 +69,9 @@
 
 * tbd... test Pydoc Markdown @ `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
 
-* 231229piu_a made some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
+* 231226piu_b reviewed `xl2roefact` all "in use" code and updated `docstrings`
+
+* 231226piu_a made some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
     * [x] **`pdm build_wheel`** Python package,
     * [x] **`pdm build_msi`** MSI package,
     * [x] **`pdm build_all`** build all packages
