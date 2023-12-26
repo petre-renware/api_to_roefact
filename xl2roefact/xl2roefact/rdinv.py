@@ -1,5 +1,7 @@
 #!../.venv/bin/python3
-"""  RDINV - modul de procesare a fisierului format XLSX ce contine factura si colectare a datelor aferente
+"""rdinv: modul de procesare a fisierului Excel ce contine factura si colectare a datelor aferente.
+
+Formatul acceptat fisier Excel este `XLSX`.
 
     Identification:
         code-name: `rdinv`
@@ -50,19 +52,19 @@ def rdinv(
     ) -> dict:
     """read Excel file for invoice data.
 
-    Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data
+    Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data.
 
     Args:
-        - `file_to_process`: the invoice file (exact file with path)
-        - `invoice_worksheet_name`: the worksheet containing invoice
-        - `debug_info`: positional only, show debugging information, default `False`
+        `file_to_process`: the invoice file (exact file with path).
+        `invoice_worksheet_name`: the worksheet containing invoice.
+        `debug_info`: positional only, show debugging information, default `False`.
 
     Return:
-        - `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update
+        `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update.
 
     NOTE ref important variables:
-        - `db: pylightxl object`: EXCEL object with invoice (as a whole)
-        - `ws: pylightxl object`: WORKSHEET object with invoice
+        * `db: pylightxl object`: EXCEL object with invoice (as a whole)
+        * `ws: pylightxl object`: WORKSHEET object with invoice
     """
     # use as global only those constants that is known could be changed by this function
     global DEFAULT_VAT_PERCENT
@@ -284,21 +286,20 @@ def __get_excel_data_at_label(
         targeted_type: Callable = str
     ) -> dict:
     """ get "one key Excel values", like invoice number or invoice issue date.
-        scan is made in order *left->right, top->down* given area and search for cell_value in `pattern_to_search_for`
-
+    
     Args:
-        - `pattern_to_search_for: list[str]`: for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`
-        - `worksheet`: the worksheet containing invoice (as object of `pyxllight` library)
-        - `area_to_scan: list[start_cell, end_cell]`: area of cells to be searched, default whole worksheet
-        - `targeted_type: type`: what type expect (will try to convert to, if cannot will return str), default `str`
+        `pattern_to_search_for: list[str]`: for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`.
+        `worksheet`: the worksheet containing invoice (as object of `pyxllight` library).
+        `area_to_scan: list[start_cell, end_cell]`: area of cells to be searched, default whole worksheet.
+        `targeted_type: type`: what type expect (will try to convert to, if cannot will return str), default `str`.
 
     Return:
-        - `None` if not found OR `dictionary` containing:
-            - `"value": int | float | str` - the value found covenrted to requested `targeted_type` if possible or `str` otherwise; if "out of space" then returns `None`
-            - `"location": (row, col)` - adrees of cell where found value
+        `None` if not found OR `dictionary` containing:
+            * `"value": int | float | str` - the value found covenrted to requested `targeted_type` if possible or `str` otherwise; if "out of space" then returns `None`
+            * `"location": (row, col)` - adrees of cell where found value
 
     Notes:
-        - scan is made in order *left->right, top->down* given area and search for cell_value in `pattern_to_search_for`
+        * scan is made in order *left->right, top->down* given area and search for cell_value in `pattern_to_search_for`.
     """
     def __check_value(val: Any) -> bool:
         """ return `True` if a `val` is different of None or empty string or SYS_FILLED_EMPTY_CELL, otherwise return `False`
@@ -381,12 +382,13 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
     """transform `invoice_items_area` in "canonical JSON format" (as kv pairs).
 
     Args:
-        - `invoice_items_area_xl_format`: invoice items area in Excel format (ie, DataFrame with row, col, data)
+        `invoice_items_area_xl_format`: invoice items area in Excel format (ie, DataFrame with row, col, data).
 
     Return:
-        - `invoice_items_area_xl_format`: dictionary with invoice items in Excel format (ie, rows, columns)
+        `invoice_items_area_xl_format`: dictionary with invoice items in Excel format (ie, rows, columns).
+
     Notes:
-        - for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`
+        * for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`.
     """
     _invoice_items_data_key = copy.deepcopy(invoice_items_area_xl_format["data"])
     _invoice_items_cols_key = copy.deepcopy(invoice_items_area_xl_format["keycols"])
@@ -480,19 +482,20 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
 def _get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
     """get invoice for `invoice_items_area`, process it and return its Excel format.
 
-    - find invoice items subtable
-    - clean invoice items subtable
-    - extract relevenat data
-    - NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
+    Process steps & notes:
+        * find invoice items subtable.
+        * clean invoice items subtable.
+        * extract relevenat data.
+        * NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
 
     Args:
-        - `worksheet`: the worksheet containing invoice (as object of `pyxllight` library)
-        - `invoice_items_area_marker`: string with exact marker of invoice items table
-            — NOTE: this is the UPPER-LEFT corner and is determined before calling this procedure
-        - `wks_name`: the wroksheet name (string) of the `worksheet` object
+        `worksheet`: the worksheet containing invoice (as object of `pyxllight` library).
+        `invoice_items_area_marker`: string with exact marker of invoice items table.
+            NOTE: this is the UPPER-LEFT corner and is determined before calling this procedure.
+        `wks_name`: the wroksheet name (string) of the `worksheet` object.
 
     Return:
-        - `invoice_items_area`: dictionary with invoice items in Excel format (ie, rows, columns)
+        `invoice_items_area`: dictionary with invoice items in Excel format (ie, rows, columns).
     """
     # obtain table with invoice items ==> `invoice_items_area`
     invoice_items_area = worksheet.ssd(keycols = invoice_items_area_marker, keyrows = invoice_items_area_marker)
@@ -573,19 +576,19 @@ def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name, keep_ce
     """scan Excel file to detect all merged ranges.
 
     Args:
-        - `file_to_scan`: the excel file to be scanned
-        - `invoice_worksheet_name`: the worksheet to be scanned
-        - `keep_cells_of_items_ssd_marker`: tuple with cells that will be marked IN ANY CASE to be preserved
-            - use case: to keep all potential invoice items ssd rows
-            - format: `tuple(row, col, val)` where row & col are relevant here
-            - default: `None`
+        `file_to_scan`: the excel file to be scanned.
+        `invoice_worksheet_name`: the worksheet to be scanned.
+        `keep_cells_of_items_ssd_marker`: tuple with cells that will be marked IN ANY CASE to be preserved:
+            * use case: to keep all potential invoice items ssd rows.
+            * format: `tuple(row, col, val)` where row & col are relevant here
+            * default: `None`
 
     Return:
-        - `cells_to_be_changed`: list with cells that need to be chaged in format `(row,col)`
+        `cells_to_be_changed`: list with cells that need to be chaged in format `(row,col)`.
 
     Notes:
-        - function is intended to be used ONLY internal in this module
-        - use `openpyxl` library to do its job
+        * function is intended to be used ONLY internal in this module.
+        * use `openpyxl` library to do its job.
     """
     all_detected_ranges = []
     # open Excel file & worksheet
@@ -645,18 +648,19 @@ def _build_meta_info_key(excel_file_to_process: str,
                          found_cell: list) -> dict:
     """build meta_info key to preserve processed Excel file meta information: start address, size.
 
-    - NOTE 1: all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update
-    - NOTE 2: this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality')
+    Notes:
+        1: all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update.
+        2: this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality').
 
     Args:
-        - `excel_file_to_process`: name of file to process as would appear in `meta_info` key
-        - `invoice_worksheet_name`: the worksheet name as would appear in `meta_info` key
-        - `ws_size`: worksheet size as would appear in `meta_info` key (index 0 max rows, index 1 max columns)
-        - `keyword_for_items_table_marker`: the content of cell used as start of invoice items subtable as would appear in `meta_info`
-        - `found_cell`: position of cell used as start of invoice items subtable as would appear in `meta_info` key (index 0 row, index 1 column)
+        `excel_file_to_process`: name of file to process as would appear in `meta_info` key.
+        `invoice_worksheet_name`: the worksheet name as would appear in `meta_info` key.
+        `ws_size`: worksheet size as would appear in `meta_info` key (index 0 max rows, index 1 max columns).
+        `keyword_for_items_table_marker`: the content of cell used as start of invoice items subtable as would appear in `meta_info`.
+        `found_cell`: position of cell used as start of invoice items subtable as would appear in `meta_info` key (index 0 row, index 1 column).
 
     Return:
-        - `meta_info` dictionary built with meta information to be incorpoarted in final invoice dict
+        `meta_info` dictionary built with meta information to be incorpoarted in final invoice dict
     """
     _tmp_meta_info = dict()
 
