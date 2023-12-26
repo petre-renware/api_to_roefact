@@ -1,4 +1,4 @@
-"""  Application configuration and setting parameters  #TODO all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel")
+"""Application configuration and setting parameters.  #TODO all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel")
 
     NOTE english "README_me" before making changes:
         - each parameter has a short help (lines starting with `#` character) - read it before changing that parameter
@@ -19,9 +19,9 @@
         - pentru datele calendaristice in celulul Excel a se utiliza formatul standard de data (`date`) si modificati formatul de afisare in formatul dorit pe factura tiparibila
 
     Identification:
-        code-name: `config_settings`
-        copyright: (c) 2023 RENWare Software Systems
-        author: Petre Iordanescu (petre.iordanescu@gmail.com)
+        * code-name: `config_settings`
+        * copyright: (c) 2023 RENWare Software Systems
+        * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 """
 
 """---------------------------------------------------------------------------------------------------------------------------
