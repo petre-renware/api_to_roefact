@@ -53,7 +53,7 @@ def rdinv(
     Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data
 
     Args:
-        - `file_to_process`; the invoice file (exact file with path)
+        - `file_to_process`: the invoice file (exact file with path)
         - `invoice_worksheet_name`: the worksheet containing invoice
         - `debug_info`: positional only, show debugging information, default `False`
 

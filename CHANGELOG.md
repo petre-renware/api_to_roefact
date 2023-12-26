@@ -47,11 +47,8 @@
     * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
     * PACKAGE SOLUTION:
         * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
-        * [ ] make some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
-            * [ ] Python package,
-            * [ ] MSI package
-            * [ ] single file EXE (with `pyinstaller`) for use as "super portable tool = no-install just use from stick"
-        * [x] make a PDM build: OK, currently is done @ each release, results ==> `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
+        * [x] (DONE@231229piu_a) make some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
+        * [x] (DONE@0.1.17) make a PDM build: OK, currently is done @ each release, results ==> `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
@@ -68,6 +65,14 @@
 * wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231224piu_a
 
 * tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
+
+* 231229piu_a made some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
+    * [x] **`pdm build_wheel`** Python package,
+    * [x] **`pdm build_msi`** MSI package,
+    * [x] **`pdm build_all`** build all packages
+    * [x] **`pdm xl2roefact`** run xl2roefact command
+    * [x] updated `doc/810.05a-xl2roefact_component.md`
+
 
 
 

@@ -49,28 +49,37 @@ dependencies = [
     "wheel==0.42.0"
 ]  #FIXME @231217 still raise error when import `pendulum` package (`File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 readme = "README.md"
-#license = "LICENSE"  #FIXME.cxFreeze.reports.err.with.this:`2 values found...`, probably need a standard value, like "MIT"; better see in GitHub what accepts it (!)
+license = {file = "LICENSE"}
 requires-python = ">= 3.10"
+classifiers = [  #  [piu@231226] just informative key at this moment
+    "Product code :: 0000-0095",  # [piu @ 231226] to test if accepted here
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End users",
+    "Topic :: Invoices :: Upload invoices :: RO EFact",
+    "License :: GNU License",
+    # Specify the Python versions you support here.
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+
+
+
 
 
 [build-system]
 requires = ["pdm-backend"]  #FIXME this line apecify the building backend ? If so, intention is for `PDM` tool
 build-backend = "pdm.backend"  #FIXME this line apecify the building backend ? If so, intention is for `PDM` tool
-product_code = "0000-0095"  #NOTE introduced @ 231217 by [piu] - should be tested #TODO-test-me
 #directories = ["invoie_files"]  #NOTE this entry is supposed to create these directories on installation #TODO-tests:
 #           - test @ 231217: try `invoice_files/` - result FAIL, directory was not created  - meybe entry place is not here, but build was exec with no err
 
 
-[tool.pdm.scripts]
-#NOTE types: `cmd` (Python commands, `shell` Bash shell commands, `call` (Python direct callables) and `composite` (to run multiple scropts in sequence)
-#NOTE ref: `https://pdm-project.org/latest/usage/scripts/`
-#TODO this table should contain commands for:
-#TODO   - build MSI package
-#TODO   - build PyPy packages (wheel and sdist)
-#TODO   - execute `xl2rofact` command
-#TODO   - build documentation (with `pdoc` ? or meanwhile found a better one...)
-# NOTE: attn, here can also put `shell` commands, so if needed can install things with `sudo apt install ...`
-#TODO   - ...
+[tool.pdm.scripts]  #NOTE ref: `https://pdm-project.org/latest/usage/scripts/` #TODO all of these are subject to documentation update #NOTE-1: [piu@231226] updated `doc/810.05a-xl2roefact_component.md`
+build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
+build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
+build_all = {composite = ["build_wheel", "build_msi"]}  # build all packages (MSI, python package wheel, python package sdist)
+xl2roefact ={shell = "python xl2roefact"}  # run main `xl2roefact` command
+#TODO - cmd for build documentation: `pdoc` ? or meanwhile found a better one...
 
 
 
