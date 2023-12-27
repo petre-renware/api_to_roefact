@@ -113,7 +113,7 @@
 
 
 
-# 0.1.16 improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
+### 0.1.16 improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
 
 * 231222piu_b build packages for:
     * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
@@ -228,80 +228,7 @@
 
 
 
-### 0.1.10 command interface improved, `msi` package building, invoice template & updated documentation (231207 h12:00)
 
-* 231207piu_b build a `MSI` package for `0.1.10` version ==> **`0.1.10-xl2roefact-0.1-win64.msi`**, also installed `Python 3.11` + `cx-Freeze` & updated `requirements_xl2roefact.txt`
-
-* 231207piu_a FIXED errors due to Excel files directory duplication in `xl2roefact` & `rdinv()`
-
-* 231206piu_a clean code for `rdinv` & `xl2roefact`, reviewed cnd closed some open issues (todos, notes, ...)
-
-* 231205piu_b made a directory for INVOICE TEMPLATE (`excel_invoice_template/`) to be delivered with solutions "for who need a simple template", also write here a `README_excel_invoice_rules.md` to describe all required conditions in order to be "RECOGNIZED & TRANSLATED to JSON"
-
-* 231205piu_a change all solution to use `rich` library instead of `colorama` (Rich library ref `https://rich.readthedocs.io/en/stable/index.html`)
-    * [x] drop all `from colorama import Fore, Back, Style`
-    * [x] add new `from rich import print`
-    * [x] update all places where `{Fore....}` with `[...]` as:
-        * [x] `{Fore.YELLOW}` with `[yellow]`
-        * [x] `{Fore.GREEN}` with `[green]`
-        * [x] `{Fore.MAGENTA}` with `[magenta]`
-        * [x] `{Fore.BLUE}` with `[blue]`
-        * [x] `{Fore.CYAN}` with `[cyan]`
-        * [x] `{Fore.RED}` with `[red]`
-    * [x] change all `typer.echo` with `print`
-    * [x] update all places where `{Style.RESET_ALL}` with `[/]`
-
-* 231204piu_c build new executable and installer ==> `dist/0.1.10.231204piu_a-xl2roefact-0.1-win64.msi`
-
-* 231204piu_b created `./doc/` renamed and moved all documentation documents - intention to keep clean `xl2roefact root`
-
-* 231204piu_a `xl2roefact xl2json` check rdinv() result and if return False, ONLY print a message of "INFO note" then continue with next file (the effective error was print by module itself) && build a new executable package ==> `dist/0.1.10.231204piu_a-exe.win-amd64-3.10.zip`
-
-
-
-
-### 0.1.9 `xl2roefact.RDINV` running executable and distribution kit (231203 h07:00)
-
-* 231103piu_b releasing ==> made `dist/0.1.9-exe.win-amd64-3.10.zip` with executable file
-
-* 231103piu_a `xl2roefact.py` more updates:
-    * [x] set verbose flag for debugging mode
-    * [x] made `file_name` argument as file(s) to be processed with wildcards like Python standard function `os.glob.glob()` (reference here `https://docs.python.org/2/library/glob.html`)
-    * [x] build a new fresh executable in `build/exe.win-amd64-3.10/`
-
-* 231202piu_b `xl2roefact.py` started a skeleton for `file_name` argument - see code-in-file @"TODO here to use `excel_files_directory` + / + `file_name` to find all files and process them in a loop"
-
-* 231202piu_a build complete `cxFreeze` configuration in order to build Windows executable and installer package (as `msi` package):
-    * [x] create a minimal setup (`setup.py`)
-    * [x] create `build/` directory with all building commands for _xl2roefact_ app: `python setup.py build` (see official doc here `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
-    * **CONCLUSION** `msi` package OK, `exe` file NOK - see `setup.py` for a detailed comment marked `NOTE-[piu@231202]`
-
-
-
-
-### 0.1.8 improved application structure and first executable release (231201 h07:30)
-
-* 231201piu_b installed `cx-Freeze` library and build a new Windows executable, update documentation - need future improvement to make `msi` package, but TEST PASSED and works perfectly
-
-* 231201piu_a improve CLI application structure (`xl2roefact.py`) and commands: `xl2json`, `about`
-
-* 231130piu_a `xl2roefact.py`, `——excel_files_directory`: option, make it of type pathlib.Path, dealut remain as is, validators; is dir, exists, writable, readable, resolve_path
-
-* 231129piu_b updated `xl2roefact.py` (main application) changed command `run` --> `xl2json` and add parameter `excel_files_directory` (future intention is to make commands: `xl2json - RDINV`, `json2xml - WRXML`, `json2pdf`, `xml2roefact - LDXML`)
-
-* 231129piu_a adopted new REN invoice template (test with data from RENF-1004)
-
-* 231128piu_b made `config_settings.py` for general application configuration purposes and an application command (`xl2roefact settings`) to print them
-
-* 231128piu_a made `xl2roefact.py` (main library file) as CLI executable structure (with `Typer` library)
-
-* 231127piu_c introduced **key `Invoice`** in  invoice JSON generated structure (also representing the "entity" in XML representation)
-
-* 231127piu_b module `rdinv` crated a distinct function for building of `meta_info` key (main `invoice` dictionary)
-
-* 231127piu_a created in invoice JSON map JSON key --> XML property (`meta_info["map_JSONkeys_XMLtags"]`) as `list of tuple(JSONkey: str, XMLtag: str)`
-
-* 231127piu_a created draft data models for: invoice (exportable as JSON and XML) and other entities (owner, customer) ==> `data_models.py`
 
 
 
@@ -310,6 +237,9 @@
 
 # Archived CHANGELOGs
 
+* [0.1.10 command interface improved, `msi` package building, invoice template & updated documentation](./changelog_history/CHANGELOG-0.1.10.md)
+* [0.1.9 `xl2roefact.RDINV` running executable and distribution kit](./changelog_history/CHANGELOG-0.1.9.md)
+* [0.1.8 improved application structure and first executable release](./changelog_history/CHANGELOG-0.1.8.md)
 * [0.1.7 `xl2roefact.RDINV` invoice items & metadata + *OPEN ISSUES*](./changelog_history/CHANGELOG-0.1.7.md)
 * [0.1.6 commercial agreement OPTIONS document](changelog_history/CHANGELOG-0.1.6.md)
 * [0.1.5 init component *xl2roefact* for CLI application](./changelog_history/CHANGELOG-0.1.5.md)
