@@ -32,8 +32,8 @@
 * [ ] update documentation for:
     * [ ] `rdinv` module
     * [ ] `xl2roefact` CLI application
-    * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md`
-    * [ ] use  Pydoc Markdown `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
+    * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md` first ref "Cum sa utilizeti sablonul, reguli de urmat in completarea datelor"
+    * [x] (DONE: 0.1.18-231227piu_a) used Pydoc Markdown `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
 -
 * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
     * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
@@ -48,14 +48,14 @@
     * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
     * PACKAGE SOLUTION:
         * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
-        * [x] (DONE@231229piu_a) make some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
-        * [x] (DONE@0.1.17) make a PDM build: OK, currently is done @ each release, results ==> `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
+        * [x] (DONE: 0.1.18-231226piu_a) make some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
+        * [x] (DONE: 0.1.17) make a PDM build: OK, currently is done @ each release, results ==> `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
-        * [x] (DONE@0.1.12) invoice header - invoice number
-        * [x] (DONE@231217piu_a) invoice header - issue date
-        * [x] (DONE@0.1.13) invoice header - currency
+        * [x] (DONE: 0.1.12) invoice header - invoice number
+        * [x] (DONE: 0.1.14-231217piu_a) invoice header - issue date
+        * [x] (DONE: 0.1.13) invoice header - currency
         * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
         * [ ] invoice header - customer (`<cac:AccountingCustomerParty>`)
 
