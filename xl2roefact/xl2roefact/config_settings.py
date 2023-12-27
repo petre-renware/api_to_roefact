@@ -14,7 +14,7 @@
         - nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (`=`)
         - listele sunt incluse intre paranteze drepte (`[...]`) si elementele lor sunt separate prin caracterul virgula (`,`)
         - sirurile de caractere sunt incluse intre ghilimele (caracterul `"`)
-        -daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune pentru acea lista) doar lasati acel parametru cu valoarea `[]` - nu stergeti in nici un caz acel parametru
+        - daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune pentru acea lista) doar lasati acel parametru cu valoarea `[]` - nu stergeti in nici un caz acel parametru
         - nu adaugati parametrii suplimentari (altii decit cei specificati aici), acestia nu vor fi utilizati fara a modifica aplicatia (de asemenea riscati sa induceti erori in cod)
         - pentru datele calendaristice in celulul Excel a se utiliza formatul standard de data (`date`) si modificati formatul de afisare in formatul dorit pe factura tiparibila
 
@@ -23,6 +23,9 @@
         * copyright: (c) 2023 RENWare Software Systems
         * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 """
+
+
+
 
 """---------------------------------------------------------------------------------------------------------------------------
 # NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.

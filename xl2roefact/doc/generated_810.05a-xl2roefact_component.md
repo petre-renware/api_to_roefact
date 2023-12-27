@@ -18,6 +18,9 @@
 * [rdinv](#rdinv)
   * [SYS\_FILLED\_EMPTY\_CELL](#rdinv.SYS_FILLED_EMPTY_CELL)
   * [rdinv](#rdinv.rdinv)
+  * [get\_excel\_data\_at\_label](#rdinv.get_excel_data_at_label)
+  * [mk\_kv\_invoice\_items\_area](#rdinv.mk_kv_invoice_items_area)
+  * [get\_invoice\_items\_area](#rdinv.get_invoice_items_area)
 * [wrxml](#wrxml)
   * [wrxml](#wrxml.wrxml)
 * [\_\_init\_\_](#__init__)
@@ -163,7 +166,7 @@ NOTE romana "README_me" inainte de a face modificari:  `TODO` all of these are s
     - nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (`=`)
     - listele sunt incluse intre paranteze drepte (`[...]`) si elementele lor sunt separate prin caracterul virgula (`,`)
     - sirurile de caractere sunt incluse intre ghilimele (caracterul `"`)
-    -daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune pentru acea lista) doar lasati acel parametru cu valoarea `[]` - nu stergeti in nici un caz acel parametru
+    - daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune pentru acea lista) doar lasati acel parametru cu valoarea `[]` - nu stergeti in nici un caz acel parametru
     - nu adaugati parametrii suplimentari (altii decit cei specificati aici), acestia nu vor fi utilizati fara a modifica aplicatia (de asemenea riscati sa induceti erori in cod)
     - pentru datele calendaristice in celulul Excel a se utiliza formatul standard de data (`date`) si modificati formatul de afisare in formatul dorit pe factura tiparibila
 
@@ -271,15 +274,15 @@ rdinv: modul de procesare a fisierului Excel ce contine factura si colectare a d
 
 Formatul acceptat fisier Excel este `XLSX`.
 
-    Identification:
-        code-name: `rdinv`
-        copyright: (c) 2023 RENWare Software Systems
-        author: Petre Iordanescu (petre.iordanescu@gmail.com)
+Identification:
+    code-name: `rdinv`
+    copyright: (c) 2023 RENWare Software Systems
+    author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
-    Specifications:
-        document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
-        INTRARI: fisier format XLSX ce contine factura emisa (cod: `f-XLSX`)
-        IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
+Specifications:
+    document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
+    INTRARI: fisier format XLSX ce contine factura emisa (cod: `f-XLSX`)
+    IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
 
 <a id="rdinv.SYS_FILLED_EMPTY_CELL"></a>
 
@@ -305,8 +308,8 @@ Produce a dictionary structure + JSON file with all data regarding read invoice:
 **Arguments**:
 
 - ``file_to_process`` - the invoice file (exact file with path).
-- ``invoice_worksheet_name`` - the worksheet containing invoice.
-- ``debug_info`` - positional only, show debugging information, default `False`.
+- ``invoice_worksheet_name`` - the worksheet containing invoice, optional, defaults to first found worksheet.
+- ``debug_info`` - key only, show debugging information, default `False`.
   
 
 **Returns**:
@@ -316,6 +319,90 @@ Produce a dictionary structure + JSON file with all data regarding read invoice:
   NOTE ref important variables:
   * `db: pylightxl object`: EXCEL object with invoice (as a whole)
   * `ws: pylightxl object`: WORKSHEET object with invoice
+
+<a id="rdinv.get_excel_data_at_label"></a>
+
+#### get\_excel\_data\_at\_label
+
+```python
+def get_excel_data_at_label(pattern_to_search_for: list[str],
+                            worksheet: xl.Database.ws,
+                            area_to_scan: list[list[int]] = None,
+                            targeted_type: Callable = str) -> dict
+```
+
+get "one key Excel values", like invoice number or invoice issue date.
+
+**Arguments**:
+
+- ``pattern_to_search_for` - list[str]`: for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`.
+- ``worksheet`` - the worksheet containing invoice (as object of `pyxllight` library).
+- ``area_to_scan` - list[start_cell, end_cell]`: area of cells to be searched, default whole worksheet.
+- ``targeted_type` - type`: what type expect (will try to convert to, if cannot will return str), default `str`.
+  
+
+**Returns**:
+
+  `None` if not found OR `dictionary` containing:
+  * `"value": int | float | str` - the value found covenrted to requested `targeted_type` if possible or `str` otherwise; if "out of space" then returns `None`
+  * `"location": (row, col)` - adrees of cell where found value
+  
+
+**Notes**:
+
+  * scan is made in order *left->right, top->down* given area and search for cell_value in `pattern_to_search_for`.
+
+<a id="rdinv.mk_kv_invoice_items_area"></a>
+
+#### mk\_kv\_invoice\_items\_area
+
+```python
+def mk_kv_invoice_items_area(invoice_items_area_xl_format)
+```
+
+transform `invoice_items_area` in "canonical JSON format" (as kv pairs).
+
+**Arguments**:
+
+- ``invoice_items_area_xl_format`` - invoice items area in Excel format (ie, DataFrame with row, col, data).
+  
+
+**Returns**:
+
+- ``invoice_items_area_xl_format`` - dictionary with invoice items in Excel format (ie, rows, columns).
+  
+
+**Notes**:
+
+  * for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`.
+
+<a id="rdinv.get_invoice_items_area"></a>
+
+#### get\_invoice\_items\_area
+
+```python
+def get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name)
+```
+
+get invoice for `invoice_items_area`, process it and return its Excel format.
+
+Process steps & notes:
+* find invoice items subtable.
+* clean invoice items subtable.
+* extract relevenat data.
+* NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
+
+**Arguments**:
+
+- ``worksheet`` - the worksheet containing invoice (as object of `pyxllight` library).
+- ``invoice_items_area_marker`` - string with exact marker of invoice items table.
+- `NOTE` - this is the UPPER-LEFT corner and is determined before calling this procedure.
+- ``wks_name`` - the wroksheet name (string) of the `worksheet` object.
+  
+
+**Returns**:
+
+- ``invoice_items_area`` - dictionary with invoice items in Excel format (ie, rows, columns).
 
 <a id="wrxml"></a>
 

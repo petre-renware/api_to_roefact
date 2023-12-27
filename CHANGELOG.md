@@ -66,6 +66,8 @@
 * wip... WHEN RELEASE UPDATE `pyproject.toml`
 * tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
 
+* 231227piu_b updated `xl2roefact.rdinv` module ref dropped `_` chars from internal function names to allow doc generation by PyDoc until will produce a YAML file for PyDoc generator (where will be able to specify concrete list of objects regarding their names)
+
 * 231227piu_a generated a first draft of markdown documentation:
     * [x] used Pydoc Markdown @ `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
     * [x] results ==> `<PJ_ROOT>/xl2roefact/doc/generated_810.05a-xl2roefact_component.md`

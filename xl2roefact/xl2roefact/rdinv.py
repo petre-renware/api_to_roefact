@@ -3,15 +3,15 @@
 
 Formatul acceptat fisier Excel este `XLSX`.
 
-    Identification:
-        code-name: `rdinv`
-        copyright: (c) 2023 RENWare Software Systems
-        author: Petre Iordanescu (petre.iordanescu@gmail.com)
+Identification:
+    code-name: `rdinv`
+    copyright: (c) 2023 RENWare Software Systems
+    author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
-    Specifications:
-        document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
-        INTRARI: fisier format XLSX ce contine factura emisa (cod: `f-XLSX`)
-        IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
+Specifications:
+    document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
+    INTRARI: fisier format XLSX ce contine factura emisa (cod: `f-XLSX`)
+    IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
 """
 
 import os, sys
@@ -56,8 +56,8 @@ def rdinv(
 
     Args:
         `file_to_process`: the invoice file (exact file with path).
-        `invoice_worksheet_name`: the worksheet containing invoice.
-        `debug_info`: positional only, show debugging information, default `False`.
+        `invoice_worksheet_name`: the worksheet containing invoice, optional, defaults to first found worksheet.
+        `debug_info`: key only, show debugging information, default `False`.
 
     Return:
         `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update.
@@ -97,7 +97,7 @@ def rdinv(
         - main result: `keyword_for_items_table_marker` = string marker to search for in oredr to isolate `invoice_items_area`
         - other results: `_found_cell_for_invoice_items_area_marker = (row, col, val)`
     """
-    _tmp_label_info = __get_excel_data_at_label(
+    _tmp_label_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER,
         worksheet=ws,
         targeted_type=str
@@ -128,7 +128,7 @@ def rdinv(
         - transform it in "canonical JSON format" (as kv pairs)
     """
     # process invoice to detect its items / lines ('invoice_items_area'), clean and extract data
-    invoice_items_area = _get_invoice_items_area(
+    invoice_items_area = get_invoice_items_area(
         worksheet=ws,
         invoice_items_area_marker=keyword_for_items_table_marker,
         wks_name=invoice_worksheet_name
@@ -173,7 +173,7 @@ def rdinv(
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
-    invoice_number_info = __get_excel_data_at_label(
+    invoice_number_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_NUMBER_LABEL,
         worksheet=ws,
         area_to_scan=_area_to_search,
@@ -182,7 +182,7 @@ def rdinv(
     invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
     #
     # find invoice currency ==> `cbc:DocumentCurrencyCode`
-    invoice_currency_info = __get_excel_data_at_label(
+    invoice_currency_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CURRENCY_LABEL,
         worksheet=ws,
         area_to_scan=_area_to_search,
@@ -193,7 +193,7 @@ def rdinv(
     invoice_header_area["currency"] = copy.deepcopy(invoice_currency_info)
     #
     # find invoice issued date ==> `cbc:IssueDate`
-    issued_date_info = __get_excel_data_at_label(
+    issued_date_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL,
         worksheet=ws,
         area_to_scan=_area_to_search,
@@ -226,7 +226,7 @@ def rdinv(
         this is required to be after header determination (because CURRENCY could be known here and will impact config param `DEFAULT_CURRENCY`)
     """
     # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
-    invoice_items_as_kv_pairs = __mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
+    invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
 
     # preserve processed Excel file meta information: start address, size.
     meta_info = _build_meta_info_key(
@@ -279,14 +279,14 @@ def rdinv(
 
 
 # #NOTE - ready, test PASS @ 231212 by [piu]
-def __get_excel_data_at_label(
+def get_excel_data_at_label(
         pattern_to_search_for: list[str],
         worksheet: xl.Database.ws,
         area_to_scan: list[list[int]] = None,
         targeted_type: Callable = str
     ) -> dict:
     """get "one key Excel values", like invoice number or invoice issue date.
-    
+
     Args:
         `pattern_to_search_for: list[str]`: for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`.
         `worksheet`: the worksheet containing invoice (as object of `pyxllight` library).
@@ -378,7 +378,7 @@ def __get_excel_data_at_label(
 
 
 # #NOTE - ready, test PASS @ 231126 by [piu]
-def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
+def mk_kv_invoice_items_area(invoice_items_area_xl_format):
     """transform `invoice_items_area` in "canonical JSON format" (as kv pairs).
 
     Args:
@@ -401,7 +401,7 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
         if True:  # ---- find item quantity column ==> (`cbc_InvoicedQuantity`)
             _col_index = find_str_in_list(["qty", "cant", "quantity"], _invoice_items_cols_key)
             if _col_index is None:  # did not find a suitable column to represent number, so return None probably raising an error
-                print(f"[red]***FATAL ERROR - module 'RDINV', function `__mk_kv_invoice_items_area(...)`. Cannot find a 'QUANTITY' column in items table. Processing terminated[/]")
+                print(f"[red]***FATAL ERROR - module 'RDINV', function `mk_kv_invoice_items_area(...)`. Cannot find a 'QUANTITY' column in items table. Processing terminated[/]")
                 return False
             else:
                 _item_quantity = _invoice_items_data_key[_i][_col_index] if isnumber(str(_invoice_items_data_key[_i][_col_index])) else None
@@ -479,7 +479,7 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
 
 
 # #NOTE - ready, test PASS @ 231121 by [piu]
-def _get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
+def get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
     """get invoice for `invoice_items_area`, process it and return its Excel format.
 
     Process steps & notes:
