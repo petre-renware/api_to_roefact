@@ -64,10 +64,12 @@
 ### 0.1.18 invoice partners customer  (#TODO_WIP...)
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`
-
 * tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
 
-* tbd... test Pydoc Markdown @ `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
+* 231227piu_a generated a first draft of markdown documentation:
+    * [x] used Pydoc Markdown @ `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
+    * [x] results ==> `<PJ_ROOT>/xl2roefact/doc/generated_810.05a-xl2roefact_component.md`
+    * [x] created PDM shell command `pdm run` (command just for quick remembers: `pydoc-markdown -I xl2roefact --render-toc >doc/generated_810.05a-xl2roefact_component.md`)
 
 * 231226piu_b reviewed `xl2roefact` all "in use" code and updated `docstrings`
 
