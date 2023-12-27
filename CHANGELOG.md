@@ -61,10 +61,14 @@
 
 
 
-### 0.1.18 invoice partners customer  (#TODO_WIP...)
+### 0.1.18 invoice partners customer  (#NOTE TODO: wip...)
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`
 * tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
+
+* tbd... update PDM script for doc (do not gen TOC as generated `md` docs will be included / not copied into project in web doc)...
+* ...cont.tbd... also chk & consider a right representation for markdown bullets - no indentation at 1st level, but check google standard used by `pydoc` when gen doc... YAML config (or PYPROJECT.TOML) could be a solution ?
+
 
 * 231227piu_b updated `xl2roefact.rdinv` module ref dropped `_` chars from internal function names to allow doc generation by PyDoc until will produce a YAML file for PyDoc generator (where will be able to specify concrete list of objects regarding their names)
 
