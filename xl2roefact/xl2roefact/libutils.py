@@ -1,16 +1,16 @@
 #!../.venv/bin/python3
 """libutils: general utilities library.
 
-    Identification:
-        * code-name: `libutils`
-        * copyright: (c) 2023 RENWare Software Systems
-        * author: Petre Iordanescu (petre.iordanescu@gmail.com)
+Identification:
+* code-name: `libutils`
+* copyright: (c) 2023 RENWare Software Systems
+* author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
-    Components:
-        `isnumber(a_string: str) -> bool`
-            Test a string if it could be used as number (int or float)
-        `find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int`
-            Search more strings (ie, a list) in list of strings
+Components:
+* `isnumber(a_string: str) -> bool`
+    Test a string if it could be used as number (int or float)
+* `find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int`
+    Search more strings (ie, a list) in list of strings
 """
 
 from fractions import Fraction
@@ -24,7 +24,7 @@ def isnumber(a_string: str) -> bool:
         `a_string`: input string.
 
     Returns:
-        `True` if input string is valid as any kind of number, orherwise `False`.
+        `True`: if input string is valid as any kind of number, orherwise `False`.
     """
     try:
         float(a_string)

@@ -1,17 +1,18 @@
+#!../.venv/bin/python3 #FIXME attn to this path if intend to move in modules/
 """**xl2roefact.__main__**: Python package standard file to assure run as `python -m xl2roefact`.
 
 Identification:
-    * code-name: `__main__`
-    * copyright: (c) 2023 RENWare Software Systems
-    * author: Petre Iordanescu (petre.iordanescu@gmail.com)
+* code-name: `__main__`
+* copyright: (c) 2023 RENWare Software Systems
+* author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 Deployments:
-    * Windows:  MSI installer with EXE application.
-    * Linux: `xl2roefact` executable shell as wrapper for `xl2roefact.py`.
+* Windows:  MSI installer with EXE application.
+* Linux: `xl2roefact` executable shell as wrapper for `xl2roefact.py`.
 
 Specifications:
-    * command general format: `python -m xl2roefact [OPTIONS] COMMAND [ARGS]... `.
-    * help: `python -m xl2roefact --help`.
+* command general format: `python -m xl2roefact [OPTIONS] COMMAND [ARGS]... `.
+* help: `python -m xl2roefact --help`.
 """
 
 

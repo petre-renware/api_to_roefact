@@ -1,18 +1,18 @@
 #!../.venv/bin/python3 #FIXME attn to this path if intend to move in modules/
-"""**xl2roefact.app_cli**: the command line application for all xl2roefact functionalities.
+"""app_cli: the command line application for all xl2roefact functionalities.
 
 Identification:
-    * code-name: `xl2roefact`
-    * copyright: (c) 2023 RENWare Software Systems
-    * author: Petre Iordanescu (petre.iordanescu@gmail.com)
+* code-name: `xl2roefact`
+* copyright: (c) 2023 RENWare Software Systems
+* author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 Deployments:
-    * Windows:  MSI installer with EXE application.
-    * Linux: `xl2roefact` executable shell as wrapper for `xl2roefact.py`.
+* Windows:  MSI installer with EXE application.
+* Linux: `xl2roefact` executable shell as wrapper for `xl2roefact.py`.
 
 Specifications:
-    * command general format: `xl2roefact [file(s)-to-convert] COMMAND [OPTIONS]`.
-    * help: `xl2roefact [COMMAND] --help`.
+* command general format: `xl2roefact [file(s)-to-convert] COMMAND [OPTIONS]`.
+* help: `xl2roefact [COMMAND] --help`.
 """
 
 
@@ -96,6 +96,11 @@ def xl2json(
     ] = False
 ):  #TODO all args are subject of CONFIG and DOCUMENTATION
     """extract data from an Excel file (save data to JSON format file with the same name as original file but `.json` extension).
+
+    Args:
+        `file_name (str)`: files to process (wildcards allowed).
+        `excel_files_directory (Path)`: directory to be used to look for Excel files. Defaults to `invoice_files/`.
+        `verbose (bool)`: show detailed processing messages" Defaults to `False`.
     """
     print(f"*** Component [red]xl2roefact[/] launched at {datetime.now()}")
 

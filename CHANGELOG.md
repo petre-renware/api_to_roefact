@@ -66,9 +66,11 @@
 * wip... WHEN RELEASE UPDATE `pyproject.toml`
 * tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
 
-* tbd... update PDM script for doc (do not gen TOC as generated `md` docs will be included / not copied into project in web doc)...
-* ...cont.tbd... also chk & consider a right representation for markdown bullets - no indentation at 1st level, but check google standard used by `pydoc` when gen doc... YAML config (or PYPROJECT.TOML) could be a solution ?
 
+* 231228piu_a improved documentation generation:
+    * [x] updated all modules docstring(s) to a right markdown representation in generated documentation (ex: when use bullets THEN DO NOT indent at 1st level)
+    * [x] __@IMP_NOTE:__ Changed generated documentation file to `doc/810.05a-xl2roefact_DLD_specs.md` and referred in main `doc/810.05a-xl2roefact_component.md` as this being a final solution for whole project documentation (that generated with `mkdocs`)
+    * [x] updated `pyproject.toml, [tool.pdm.scripts]` table with new generated doc file name (810.05a-xl2roefact_DLD_specs.md)
 
 * 231227piu_b updated `xl2roefact.rdinv` module ref dropped `_` chars from internal function names to allow doc generation by PyDoc until will produce a YAML file for PyDoc generator (where will be able to specify concrete list of objects regarding their names)
 

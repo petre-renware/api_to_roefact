@@ -1,7 +1,9 @@
 
 [TOC]
 
-# xl2roefact | xl-invoices
+# xl2roefact
+
+## Features
 
 Excel invoice creation, generate JSON, XML, PDF and upload to RO E-Fact system.
 
@@ -41,7 +43,7 @@ Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetel
 Pachetele contin un script de instalare sub forma standard `MSI` pentru Windows si `DEB` pentru Linux Debian (verificati disponibilitatea pentru sistemul de operare folosit de dvs).  (_EN: Packages contains an installation script as `MSI` for Windows and `DEB` for Debian Linux based systems (check availability for your operating system)_).
 
 
-### Instalarea bliotecii xl-invoices
+### Instalarea pachetului (bliotecii Python) xl2roefact
 
 Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl-invoices`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
 
