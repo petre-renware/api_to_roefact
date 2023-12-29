@@ -63,9 +63,11 @@
 
 ### 0.1.18 invoice partners customer  (#NOTE TODO: wip...)
 
-* wip... WHEN RELEASE UPDATE `pyproject.toml`
-* tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
+* wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
 
+* ...wip... 231229piu_a invoice customer (`<cac:AccountingCustomerParty>`)
+    * [x] 1. established AREA TO SEARCH for PARTNER data an `_area_to_search` (~line 244)
+    * [ ] 2. search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
 
 * 231228piu_a improved documentation generation:
     * [x] updated all modules docstring(s) to a right markdown representation in generated documentation (ex: when use bullets THEN DO NOT indent at 1st level)

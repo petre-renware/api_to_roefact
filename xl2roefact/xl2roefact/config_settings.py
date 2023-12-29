@@ -92,7 +92,7 @@ PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: list[str] = [
 ]
 
 
-# FIXME: in factura Petrom nu ai nici ref furnizor nici client, ci ai numele firmelor lor, dar ai C.U.I.
+# FIXME: in factura Petrom nu ai nici ref furnizor nici client, ci ai numele firmelor lor, dar ai C.U.I.  #FIXME tried something @line 110...
 # FIXME: ci alte texte COMPLET "OUT-OF-UDERSTANDING" chiar si pentru humans !
 # TODO: decide something, most probably set this kind of issue in documentation section for: "RULES FOR INVOICE data in Excel"
 # --- furnizor (supplier)
@@ -105,8 +105,9 @@ PATTERN_FOR_INVOICE_SUPPLIER_LABEL: list[str] = [
 # --- client (customer)
 # pattern utilizat pentru a gasi datele furnizorului
 PATTERN_FOR_INVOICE_CUSTOMER_LABEL: list[str] = [
-    "clien",   # #TODO: list patterns here
+    "clien",
     "custo",
+    "sc", "s.c.", "diviz", "depart", "srl", "s.r.l.", "sa", "s.a.",  # acestea sunt sanse suplimentare de gasire "a ceva relevant..." in caz ca nu a folosit un "label" de tip "Client..." sau asemenator
 ]
 
 

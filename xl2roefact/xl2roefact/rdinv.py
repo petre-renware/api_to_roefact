@@ -167,8 +167,8 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
-        supplier = "...future...",
-        customer = "...future..."
+        customer = "...wip here...",
+        supplier = "...future..."
     )
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
@@ -203,21 +203,50 @@ def rdinv(
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)  #NOTE keep for future: update map2XML, helper search str "TODO ...here to add rest of `invoice_header_area`..."
     #
     #TODO_next invoice customer ==> `cac:AccountingSupplierParty` (#NOTE dar vezi cum diferentiezi supplier de customer, la "primul ochi / in fuga" nu am vazut ceva)
-    '''#NOTE - before start: update line 178 '''
+    '''NOTE: fragment with rest of plan of actions:
+        - now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
+        - NUMELE FIRMEI PARTENERULUI se asteapta sa fie exact sub labelul gasit, ...
+            de ex: "Furnizor: REN CONSULTING ..." sau "Furnizor..." si dedesubt pe linia urmatoare "REN CONSULTING ..."
+        '''
+    invoice_customer_info = get_excel_data_at_label(
+        pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_LABEL,
+        worksheet=ws,
+        area_to_scan=(invoice_header_area["start_cell"], invoice_header_area["end_cell"]),
+        targeted_type=str
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    # set a dedicated AREAs TO SEARCH for partner
+    _area_to_search_start_cell = [  # here always use `label_location` as being "most far away" from good info, so more chances to find info
+        0 if invoice_customer_info["label_location"][0] <= 0 else invoice_customer_info["label_location"][0] - 1,  # set one line up if this line exists
+        invoice_customer_info["label_location"][1],
+    ]
+    if ws.index(*_area_to_search_start_cell).strip() == "":  # prev set was for one line up but if that cell is blank remake it (ie, do a +1)
+        _area_to_search_start_cell[0] += 1
+    #print(f"[red]=***=======>*** START {_area_to_search_start_cell=} [/]")  #FIXME DBG can be dropped
+    # from `_area_to_search_start_cell` go down up a blank (empty cell)
+    _last_ok_position = list([0, 0])
+    for __i in range(_area_to_search_start_cell[0], ws.size[0] + 1):  # scan rest of lines for a blank one
+        _crt_scanned_cell_idx = (__i, _area_to_search_start_cell[1])
+        _crt_scanned_cell_val = ws.index(*_crt_scanned_cell_idx)
+        #print(f"[red]========> scanned cell: {_crt_scanned_cell_val=} @ {_crt_scanned_cell_idx} {_last_ok_position=} [/]")  #FIXME DBG can be dropped
+        if _crt_scanned_cell_val.strip() == "":  # here you must stop
+            #print(f"[red]========> stopping for: {_crt_scanned_cell_val=} @ {_crt_scanned_cell_idx}  WITH LAST AREA GOOD @ {_last_ok_position=} [/]")  #FIXME DBG can be dropped
+            break
+        # save current position to be used after break
+        _last_ok_position = copy.deepcopy(_crt_scanned_cell_idx)
+    #print(f"[red]========> @end of loop: {_last_ok_position=} [/]")  #FIXME DBG can be dropped
+    _area_to_search_end_cell = [
+        _last_ok_position[0],
+        ws.size[1] if _last_ok_position[1] > ws.size[1] else _last_ok_position[1] + 1,  # set one row right if this row exists
+    ]
+    #print(f"[red]=***=======>*** END {_area_to_search_end_cell=} [/]")  #FIXME DBG can be dropped
+    '''TODO: here we have a right `_area_to_search_end_cell` so can continue '''
+    _area_to_search = [_area_to_search_start_cell, _area_to_search_end_cell]
+    print(f"[red]========> AREA TO SEARCH for PARTNER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped)
+    #TODO ...hereuare...
     '''NOTE: - before end:
         - update this section: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
         - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)" '''
-    '''NOTE: general plan of actions:
-        - identify AREAs TO SEARCH for partners:
-            - search for `PATTERN_FOR_INVOICE_SUPPLIER_LABEL`, respectively `PATTERN_FOR_INVOICE_CUSTOMER_LABEL`:   `(i,j)`
-            - from this cell go down up a blank (empty cell)                 `(i+n,j)`
-            - consider one more column to the right                          `(i+n, j+1)`
-        - this will be `xxx_area_to_search` (where `<xxx>` is `supplier` or `customer`) ...
-        - ... and here will search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
-        - NUMELE FIRMEI PARTENERULUI se asteapta sa fie exact sub labelul gasit, ...
-            de ex: "Furnizor: REN CONSULTING ..." sau "Furnizor..." si dedesubt pe linia urmatoare "REN CONSULTING ..."
-    '''
-    #TODO ...hereuare... ............................................. #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
+    #TODO ...&& end here ............................................. #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 

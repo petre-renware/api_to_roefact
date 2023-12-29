@@ -66,7 +66,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2023-12-28T01:42:18.591781+00:00",
+        "last_processing_time": "2023-12-29T05:45:32.967302+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -237,8 +237,8 @@
                     8
                 ]
             },
-            "supplier": "...future...",
-            "customer": "...future..."
+            "customer": "...wip here...",
+            "supplier": "...future..."
         },
         "invoice_footer_area": {
             "start_cell": [
