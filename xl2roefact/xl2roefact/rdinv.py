@@ -159,16 +159,14 @@ def rdinv(
     )
 
     """#NOTE: section for solve `invoice_header_area`
-        - @final write them to:
-            - finished: invoice number, currency, issued date
-            - to do: supplier (owner), customer   TODO:... work in progress items ...
+        - @final write them to: invoice number, currency, issued date, supplier (owner), customer   
     """
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = "...wip here...",
-        supplier_area = "...future..."
+        customer_area = "...wip here...",  #TODO:... work in progress items ...
+        supplier_area = "...future..."  #TODO:... work in progress items ...
     )
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
@@ -203,10 +201,6 @@ def rdinv(
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
     #TODO_wip_here find invoice customer ==> `cac:AccountingSupplierParty`
-    '''NOTE: fragment with rest of plan of actions:
-        - NUMELE FIRMEI PARTENERULUI se asteapta sa fie exact sub labelul gasit, ...
-            de ex: "Furnizor: REN CONSULTING ..." sau "Furnizor..." si dedesubt pe linia urmatoare "REN CONSULTING ..."
-        '''
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
         worksheet=ws,
@@ -249,7 +243,7 @@ def rdinv(
     '''TODO: here we have a right TUPLE OF (imutable) `_area_to_search_end_cell` so can continue '''
     print(f"[red]========> AREA TO SEAR CH for PARTNER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped)
     #TODO ...hereuare...
-    # find xxx NOTE: prep for getting customer keys TODO: ...now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
+    # find customer keys TODO: ...now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
         "CUI":  {
             "value": "...TODO: as str ...wip...work_here...",  #FIXME CUI is just as example of next FIRST step in getting CUSTOMER info - #FIXME there will follow rest
@@ -257,6 +251,10 @@ def rdinv(
             "label_value": "TODO: as str ...ce am gasit in Excel...",  #FIXME...
             "label_location": "...TODO: as [int,int] ...wip...work_here..."  #FIXME all (0,0) cell indexes will become real after finding key(s)
         },
+        ''' #TODO #FIXME write `cac:AccountingSupplierParty` here to avoid "a lot of items accumulation"
+            && maybe start with name of company with a pattern like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r,a.
+            && keep in mind; all customer KVs, >90% of cases, are IN-LABEL delimited by `:` char 
+        '''
         "OTHER_CUSTOMER_KEYS": {  #FIXME.../#TODO.../#NOTE...
             "value": "...future...",
             "location": "...future...",
@@ -296,6 +294,7 @@ def rdinv(
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
             #TODO ...here to add rest of `invoice_header_area`...
+            #TODO ...treat customer area like invoice line, by traversing all raw structure `invoice_header_area["customer_area"]`
             "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs]  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
         },
         "meta_info": copy.deepcopy(meta_info),
