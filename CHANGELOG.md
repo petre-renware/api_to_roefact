@@ -67,7 +67,12 @@
 
 * ...wip... 231229piu_a invoice customer (`<cac:AccountingCustomerParty>`)
     * [x] 1. established AREA TO SEARCH for PARTNER data an `_area_to_search` (~line 244)
-    * [ ] 2. search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
+    * [x] 2. updated `config_settings.py` changed: (for a clear understating of constant scope, because will follow others for specific keys like: "reg com", "CUI", "bank / IBAN / cont", ...)
+        - `PATTERN_FOR_INVOICE_CUSTOMER_LABEL` --> `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER`
+        - `PATTERN_FOR_INVOICE_SUPPLIER_LABEL` --> `PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER`
+    * [x] 3. set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references) - `rdinv()` ~line 239
+    * [x] 4. updated main xl2roefact README.md document ref latter changes and app structuring, concepts, ...(ideas evolving :)...
+    * [ ] ???. search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
 
 * 231228piu_a improved documentation generation:
     * [x] updated all modules docstring(s) to a right markdown representation in generated documentation (ex: when use bullets THEN DO NOT indent at 1st level)

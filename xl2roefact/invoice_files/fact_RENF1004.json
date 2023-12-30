@@ -104,7 +104,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2023-12-29T05:45:33.083552+00:00",
+        "last_processing_time": "2023-12-30T01:46:28.916207+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 30,
         "invoice_max_cols": 9,
@@ -299,7 +299,21 @@
                     8
                 ]
             },
-            "customer": "...wip here...",
+            "customer": {
+                "area_info": {
+                    "value": "Client",
+                    "location": [
+                        [
+                            8,
+                            5
+                        ],
+                        [
+                            16,
+                            6
+                        ]
+                    ]
+                }
+            },
             "supplier": "...future..."
         },
         "invoice_footer_area": {

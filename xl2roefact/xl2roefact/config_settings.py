@@ -96,15 +96,16 @@ PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: list[str] = [
 # FIXME: ci alte texte COMPLET "OUT-OF-UDERSTANDING" chiar si pentru humans !
 # TODO: decide something, most probably set this kind of issue in documentation section for: "RULES FOR INVOICE data in Excel"
 # --- furnizor (supplier)
-# pattern utilizat pentru a gasi datele furnizorului
-PATTERN_FOR_INVOICE_SUPPLIER_LABEL: list[str] = [
+# pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
+PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
     "furniz", "proprie",  # TODO: list patterns here
     "suppl", "owne",
 ]
 
 # --- client (customer)
-# pattern utilizat pentru a gasi datele furnizorului
-PATTERN_FOR_INVOICE_CUSTOMER_LABEL: list[str] = [
+# pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
+##FIXME chege me from: `PATTERN_FOR_INVOICE_CUSTOMER_LABEL` --> `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER`
+PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
     "clien",
     "custo",
     "sc", "s.c.", "diviz", "depart", "srl", "s.r.l.", "sa", "s.a.",  # acestea sunt sanse suplimentare de gasire "a ceva relevant..." in caz ca nu a folosit un "label" de tip "Client..." sau asemenator

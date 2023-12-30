@@ -40,8 +40,8 @@ PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_
 PATTERN_FOR_INVOICE_NUMBER_LABEL = config_settings.PATTERN_FOR_INVOICE_NUMBER_LABEL
 PATTERN_FOR_INVOICE_CURRENCY_LABEL = config_settings.PATTERN_FOR_INVOICE_CURRENCY_LABEL
 PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL = config_settings.PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL
-PATTERN_FOR_INVOICE_SUPPLIER_LABEL = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_LABEL
-PATTERN_FOR_INVOICE_CUSTOMER_LABEL = config_settings.PATTERN_FOR_INVOICE_CUSTOMER_LABEL
+PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
+PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
 
 
 def rdinv(
@@ -200,16 +200,16 @@ def rdinv(
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
-    invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)  #NOTE keep for future: update map2XML, helper search str "TODO ...here to add rest of `invoice_header_area`..."
+    invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
-    #TODO_next invoice customer ==> `cac:AccountingSupplierParty` (#NOTE dar vezi cum diferentiezi supplier de customer, la "primul ochi / in fuga" nu am vazut ceva)
+    #TODO_wip_here find invoice customer ==> `cac:AccountingSupplierParty`
     '''NOTE: fragment with rest of plan of actions:
         - now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
         - NUMELE FIRMEI PARTENERULUI se asteapta sa fie exact sub labelul gasit, ...
             de ex: "Furnizor: REN CONSULTING ..." sau "Furnizor..." si dedesubt pe linia urmatoare "REN CONSULTING ..."
         '''
     invoice_customer_info = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_LABEL,
+        pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
         worksheet=ws,
         area_to_scan=(invoice_header_area["start_cell"], invoice_header_area["end_cell"]),
         targeted_type=str
@@ -239,13 +239,23 @@ def rdinv(
         ws.size[1] if _last_ok_position[1] > ws.size[1] else _last_ok_position[1] + 1,  # set one row right if this row exists
     ]
     #print(f"[red]=***=======>*** END {_area_to_search_end_cell=} [/]")  #FIXME DBG can be dropped
-    '''TODO: here we have a right `_area_to_search_end_cell` so can continue '''
-    _area_to_search = [_area_to_search_start_cell, _area_to_search_end_cell]
-    print(f"[red]========> AREA TO SEARCH for PARTNER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped)
+    # set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
+    _area_to_search = (tuple(_area_to_search_start_cell), tuple(_area_to_search_end_cell))
+    invoice_header_area["customer"] = {
+        "area_info": {
+            "value": ws.index(*_area_to_search[0]),  # ie, the value at area start position
+            "location": copy.deepcopy(_area_to_search),
+        }
+    }
+    '''TODO: here we have a right TUPLE OF (imutable) `_area_to_search_end_cell` so can continue '''
+    print(f"[red]========> AREA TO SEAR CH for PARTNER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped)
     #TODO ...hereuare...
     '''NOTE: - before end:
-        - update this section: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
-        - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)" '''
+        - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
+        - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)"
+                for combination: `cac:AccountingSupplierParty` ---- `cac_AccountingSupplierParty`
+        - helper search str "TODO ...here to add rest of `invoice_header_area`..."
+    '''
     #TODO ...&& end here ............................................. #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''

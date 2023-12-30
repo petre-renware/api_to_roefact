@@ -8,8 +8,9 @@
 Excel invoice creation, generate JSON, XML, PDF and upload to RO E-Fact system.
 
 * Components
-    * **`xl2roefact`** command line application to create, manipulate and upload to RO E-Fact system Excel invoices
-    * **`xl-invoices`** Python library to use functions to create, manipulate and upload to RO E-Fact system Excel invoices
+    * `xl2roefact` **command line application** to create, manipulate and upload to RO E-Fact system Excel invoices
+    * `xl2roefact` **Python library** to use functions to create, manipulate and upload to RO E-Fact system Excel invoices
+    * `excel_invoice_template` an **invoice template**
 
 * Identification
     - code-name: `xl2roefact`
@@ -29,11 +30,11 @@ Excel invoice creation, generate JSON, XML, PDF and upload to RO E-Fact system.
 
 ## Instalarea
 
-Acest sistem consta din doua componente:
+Acest sistem consta din trei componente:
 
-- o aplicatie de tip *linie de comanda consola* ce permite realizarea operatiilor necesare de procesare a facturilor in Excel (**`xl2roefact`** CLI application)
-- o biblioteca (**`xl2roefact`**) ce permite utilizarea functionalitatilor de procesare a facturilor in Excel in mod programatic prin inglobarea acesteia in alt cod si utilizarea ei corespunzatoare.  Biblioteca este realizata in Python 3 iar instalarea ei se poate face cu instrumentele standard Python
-
+- o aplicatie de tip *linie de comanda / consola* ce permite realizarea operatiilor necesare de procesare a facturilor in Excel (**`xl2roefact`** CLI application)
+- o biblioteca (**`xl2roefact`**) ce permite utilizarea functionalitatilor de procesare a facturilor Excel in mod programatic in alte sisteme.  Biblioteca este realizata in Python 3 iar instalarea ei se poate face cu instrumentele standard Python
+- un sablon de factura emisa (**`excel_invoice_template`**) ce poate fi utilizat "ca atare" pentru emitere facturi
 
 
 ### Instalarea aplicatiei xl2roefact
@@ -43,14 +44,23 @@ Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetel
 Pachetele contin un script de instalare sub forma standard `MSI` pentru Windows si `DEB` pentru Linux Debian (verificati disponibilitatea pentru sistemul de operare folosit de dvs).  (_EN: Packages contains an installation script as `MSI` for Windows and `DEB` for Debian Linux based systems (check availability for your operating system)_).
 
 
-### Instalarea pachetului (bliotecii Python) xl2roefact
+### Instalarea bliotecii Python (package) xl2roefact
 
 Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl-invoices`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
 
 
+### Instalarea sablonului de factura emisa excel_invoice_template
+
+Acest "pachet" este un director (ce nu necesita instalare speciala ci simpla copiere locala acolo unde va fi utilizat). El contine:
+- fisierul pentru factura [invoice_template_CU_tva.xlsx](./excel_invoice_template/invoice_template_CU_tva.xlsx)
+- un document descriptiv cu "reguli" recomandate in tulizarea acestui sablon [README_excel_invoice_rules.md](./excel_invoice_template/README_excel_invoice_rules.md)
 
 
-## Configurarea aplicatieii xl2roefact
+
+
+
+
+## Configurarea aplicatiei xl2roefact
 
 Parametrii de configurare a plicatiei se gasesc in fisierul **`config_settings.py`**. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.  (_EN: Configuration parameters are placed in file **`config_settings.py`**. These are in Python form presented using constants PEP recommendations (all upper case) and accompanied by some help lines to understand and maintain them)_.
 
