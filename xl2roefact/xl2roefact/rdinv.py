@@ -167,8 +167,8 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer = "...wip here...",
-        supplier = "...future..."
+        customer_area = "...wip here...",
+        supplier_area = "...future..."
     )
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
@@ -204,7 +204,6 @@ def rdinv(
     #
     #TODO_wip_here find invoice customer ==> `cac:AccountingSupplierParty`
     '''NOTE: fragment with rest of plan of actions:
-        - now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
         - NUMELE FIRMEI PARTENERULUI se asteapta sa fie exact sub labelul gasit, ...
             de ex: "Furnizor: REN CONSULTING ..." sau "Furnizor..." si dedesubt pe linia urmatoare "REN CONSULTING ..."
         '''
@@ -241,7 +240,7 @@ def rdinv(
     #print(f"[red]=***=======>*** END {_area_to_search_end_cell=} [/]")  #FIXME DBG can be dropped
     # set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
     _area_to_search = (tuple(_area_to_search_start_cell), tuple(_area_to_search_end_cell))
-    invoice_header_area["customer"] = {
+    invoice_header_area["customer_area"] = {
         "area_info": {
             "value": ws.index(*_area_to_search[0]),  # ie, the value at area start position
             "location": copy.deepcopy(_area_to_search),
@@ -250,6 +249,21 @@ def rdinv(
     '''TODO: here we have a right TUPLE OF (imutable) `_area_to_search_end_cell` so can continue '''
     print(f"[red]========> AREA TO SEAR CH for PARTNER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped)
     #TODO ...hereuare...
+    # find xxx NOTE: prep for getting customer keys TODO: ...now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
+    invoice_header_area["customer_area"].update({
+        "CUI":  {
+            "value": "...TODO: as str ...wip...work_here...",  #FIXME CUI is just as example of next FIRST step in getting CUSTOMER info - #FIXME there will follow rest
+            "location": "...TODO: as [int,int] ...wip...work_here...",  #FIXME to respect previous used format for keys, diffbeing that this is a "CUSTOMER AREA" embedded key...
+            "label_value": "TODO: as str ...ce am gasit in Excel...",  #FIXME...
+            "label_location": "...TODO: as [int,int] ...wip...work_here..."  #FIXME all (0,0) cell indexes will become real after finding key(s)
+        },
+        "OTHER_CUSTOMER_KEYS": {  #FIXME.../#TODO.../#NOTE...
+            "value": "...future...",
+            "location": "...future...",
+            "label_value": "...future...",
+            "label_location": "...future..."
+        },
+    })
     '''NOTE: - before end:
         - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
         - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)"
