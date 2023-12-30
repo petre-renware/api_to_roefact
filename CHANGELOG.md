@@ -74,6 +74,11 @@
     * [x] 4. updated main xl2roefact README.md document ref latter changes and app structuring, concepts, ...(ideas evolving :)...
     * [ ] ???. search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
 
+* tbd... move all `cx-freeze` packages to `wk-dev` dependencies group
+* tbd... remove package `colorama`
+
+* ...#FIXME MOVE here 231229piu_a issue when rdy
+
 * 231228piu_a improved documentation generation:
     * [x] updated all modules docstring(s) to a right markdown representation in generated documentation (ex: when use bullets THEN DO NOT indent at 1st level)
     * [x] __@IMP_NOTE:__ Changed generated documentation file to `doc/810.05a-xl2roefact_DLD_specs.md` and referred in main `doc/810.05a-xl2roefact_component.md` as this being a final solution for whole project documentation (that generated with `mkdocs`)
