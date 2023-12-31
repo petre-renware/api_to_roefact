@@ -10,10 +10,7 @@ dependencies = [
     "altgraph==0.17.4",
     "argcomplete==3.2.1",
     "build==1.0.3",
-    "colorama==0.4.6",
     "commonmark==0.9.1",
-    "cx-Freeze==6.15.12",
-    "cx-Logging==3.1.0",
     "et-xmlfile==1.1.0",
     "Fraction==2.2.0",
     "Jinja2==3.1.2",
@@ -84,6 +81,8 @@ wk_dev = [
     "click==8.1.7",
     "typer==0.9.0",
     "pydoc-markdown>=4.8.2",
+    "cx-Freeze==6.15.12",
+    "cx-Logging==3.1.0",
 ]
 
 

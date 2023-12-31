@@ -72,10 +72,8 @@
         - `PATTERN_FOR_INVOICE_SUPPLIER_LABEL` --> `PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER`
     * [x] 3. set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references) - `rdinv()` ~line 239
     * [x] 4. updated main xl2roefact README.md document ref latter changes and app structuring, concepts, ...(ideas evolving :)...
+    * [x] 5. done code for `cac_AccountingSupplierParty` key by iterating full `invoice_header_area["customer_area"]` structure
     * [ ] ???. search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
-
-* tbd... move all `cx-freeze` packages to `wk-dev` dependencies group
-* tbd... remove package `colorama`
 
 * ...#FIXME MOVE here 231229piu_a issue when rdy
 

@@ -125,7 +125,7 @@ def rdinv(
 
     """#NOTE: section for solve `invoice_items_area` in 2 steps:
         - first process it as Excel format (row & colomns datale (aka Data Frame))
-        - transform it in "canonical JSON format" (as kv pairs)
+        - transform it in "canonical JSON format" (as kv pairs) and update `cac_InvoiceLine` key creation
     """
     # process invoice to detect its items / lines ('invoice_items_area'), clean and extract data
     invoice_items_area = get_invoice_items_area(
@@ -159,7 +159,7 @@ def rdinv(
     )
 
     """#NOTE: section for solve `invoice_header_area`
-        - @final write them to: invoice number, currency, issued date, supplier (owner), customer   
+        - @final write them to: invoice number, currency, issued date, supplier (owner), customer
     """
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
@@ -245,16 +245,12 @@ def rdinv(
     #TODO ...hereuare...
     # find customer keys TODO: ...now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
-        "CUI":  {
+        "CUI":  {  #FIXME try to directly use equivalent LM tags
             "value": "...TODO: as str ...wip...work_here...",  #FIXME CUI is just as example of next FIRST step in getting CUSTOMER info - #FIXME there will follow rest
             "location": "...TODO: as [int,int] ...wip...work_here...",  #FIXME to respect previous used format for keys, diffbeing that this is a "CUSTOMER AREA" embedded key...
             "label_value": "TODO: as str ...ce am gasit in Excel...",  #FIXME...
             "label_location": "...TODO: as [int,int] ...wip...work_here..."  #FIXME all (0,0) cell indexes will become real after finding key(s)
         },
-        ''' #TODO #FIXME write `cac:AccountingSupplierParty` here to avoid "a lot of items accumulation"
-            && maybe start with name of company with a pattern like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r,a.
-            && keep in mind; all customer KVs, >90% of cases, are IN-LABEL delimited by `:` char 
-        '''
         "OTHER_CUSTOMER_KEYS": {  #FIXME.../#TODO.../#NOTE...
             "value": "...future...",
             "location": "...future...",
@@ -262,7 +258,10 @@ def rdinv(
             "label_location": "...future..."
         },
     })
-    '''NOTE: - before end:
+    '''
+    TODO_#FIXME here an important thing is to convert all keys from "normal" to "CANONICAL" representation as for XML tags (as did for items data / area)
+    TODO_#FIXME     and then can be safe converted & saved in JSON (thing probably doe by iterating it) ===> GO TO line ~280
+    NOTE: - before end:
         - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
         - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)"
                 for combination: `cac:AccountingSupplierParty` ---- `cac_AccountingSupplierParty`
@@ -278,6 +277,8 @@ def rdinv(
     """
     # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
     invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
+    #FIXME_here_should_be_done_as_part_of_customer_area_info:   invoice_header_area["customer_area"] = ...mk_canonical_form...
+    #FIXME ...cont... && keep only onformation that is really neccesary not all Excel original info like: location(s), label text,
 
     # preserve processed Excel file meta information: start address, size.
     meta_info = _build_meta_info_key(
@@ -288,14 +289,21 @@ def rdinv(
         found_cell=tuple(_found_cell_for_invoice_items_area_marker))
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
+    ''' #TODO #FIXME write `cac:AccountingSupplierParty --map2-- cac_AccountingSupplierParty` here to avoid "a lot of items accumulation"
+            && maybe start with name of company with a pattern like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r,a.
+            && keep in mind; all customer KVs, >90% of cases, are IN-LABEL delimited by `:` char
+    '''
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
+            #FIXME key `cac_AccountingCustomerParty` (nxt line) is not made as conaonical form
+            #FIXME          see also ~line ~261 let with a FIXME marker ref canonical form)
+            #FIXME          && line ~~279 where should be done and let a FIXME
+            "cac_AccountingCustomerParty": { _i[0]:_i[1] for _i in invoice_header_area["customer_area"].items() if _i[0] != "area_info" },  # make a dict with all items except the information key which remain as otiginal Excel info (in deficated key)
             #TODO ...here to add rest of `invoice_header_area`...
-            #TODO ...treat customer area like invoice line, by traversing all raw structure `invoice_header_area["customer_area"]`
-            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs]  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
+            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
@@ -748,7 +756,8 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount"),
         ("cbc_ID", "cbc:ID"),  # invoice number
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
-        ("cbc_IssueDate", "cbc:IssueDate")  # invoice issue date
+        ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
+        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty")  # invoice customer inforation
     ]
 
     return copy.deepcopy(_tmp_meta_info)
