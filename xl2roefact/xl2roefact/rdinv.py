@@ -84,7 +84,7 @@ def rdinv(
     # read the workshet with Invoice data
     if invoice_worksheet_name is None:  # if parameter `invoice_worksheet_name` not specified try to open first worksheet from Excel worksheets - order is given by worksheets order in Excel file
         list_of_excel_worksheets = db.ws_names
-        print(f"[yellow]INFO note:[/] `rdinv` module, no worksheet specified so will open [cyan]'{list_of_excel_worksheets[0]}'[/]")
+        print(f"[yellow]INFO note:[/] `rdinv` module, no worksheet specified, will open first one: [cyan]'{list_of_excel_worksheets[0]}'[/]")
         invoice_worksheet_name = list_of_excel_worksheets[0]
 
     try:
@@ -240,9 +240,8 @@ def rdinv(
             "location": copy.deepcopy(_area_to_search),
         }
     }
-    '''TODO: here we have a right TUPLE OF (imutable) `_area_to_search_end_cell` so can continue '''
-    print(f"[red]========> AREA TO SEAR CH for PARTNER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped)
-    #TODO ...hereuare...
+    #TODO ...hereuare...  ... START HERE -------------->>>
+    print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped)
     # find customer keys TODO: ...now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
         "CUI":  {  #FIXME try to directly use equivalent LM tags
@@ -267,7 +266,7 @@ def rdinv(
                 for combination: `cac:AccountingSupplierParty` ---- `cac_AccountingSupplierParty`
         - helper search str "TODO ...here to add rest of `invoice_header_area`..."
     '''
-    #TODO ...&& end here ............................................. #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
+    #TODO ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 

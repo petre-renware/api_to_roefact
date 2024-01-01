@@ -65,7 +65,10 @@
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
 
-* ...wip... 231229piu_a invoice customer (`<cac:AccountingCustomerParty>`)
+* tbd... search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
+
+
+* 231229piu_a invoice customer (`<cac:AccountingCustomerParty>`) detect & set area to search for specific keys (like CUI, RegCom, IBAN, ...)
     * [x] 1. established AREA TO SEARCH for PARTNER data an `_area_to_search` (~line 244)
     * [x] 2. updated `config_settings.py` changed: (for a clear understating of constant scope, because will follow others for specific keys like: "reg com", "CUI", "bank / IBAN / cont", ...)
         - `PATTERN_FOR_INVOICE_CUSTOMER_LABEL` --> `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER`
@@ -73,9 +76,6 @@
     * [x] 3. set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references) - `rdinv()` ~line 239
     * [x] 4. updated main xl2roefact README.md document ref latter changes and app structuring, concepts, ...(ideas evolving :)...
     * [x] 5. done code for `cac_AccountingSupplierParty` key by iterating full `invoice_header_area["customer_area"]` structure
-    * [ ] ???. search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
-
-* ...#FIXME MOVE here 231229piu_a issue when rdy
 
 * 231228piu_a improved documentation generation:
     * [x] updated all modules docstring(s) to a right markdown representation in generated documentation (ex: when use bullets THEN DO NOT indent at 1st level)

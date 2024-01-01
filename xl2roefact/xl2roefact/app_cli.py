@@ -45,13 +45,12 @@ app_cli = typer.Typer(name="xl2roefact")
 def about():
     """provide a short application description.
     """
-    print("[cyan]xl2roefact[/] application - convert invoice files from Excel format to JSON and XML")
+    print("xl2roefact application by RENware Software Systems (c) 2023, 2024")
+    print("[yellow]extract & convert Excel invoice files to JSON, XML and upload info to [cyan]RO ANAF e-Fact[/] system")
     print("Support: [yellow]www.renware.eu, petre.iordanescu@gmail.com[/]")
     print("Product code: [yellow]0000-0095[/]")
-    print("Copyright (c) 2023 RENware Software Systems.")
-    print("[yellow]Usage:[/]")
-    print("\tExtract Excel data into a JSON file with default configs: xl2roefact xl2json")
-    print("\tObtain more help: xl2roefact --help")
+    #print("Copyright (c) 2023, 2024 RENware Software Systems.")
+    print("Usage: for detailed help use [yellow]xl2roefact --help[/]")
 
 
 @app_cli.command()
