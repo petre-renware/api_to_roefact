@@ -65,8 +65,10 @@
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
 
-* tbd... search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
+* tbd... invoice customer search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
+* tbd... invoice customer create in `config_settings.py` PATTERNs for search keys, like: "reg com", "CUI", "bank / IBAN / cont"
 
+* 240101piu_a clean useless & obsolete project files, test new full build (MSI, Python wheel, documentation) ==> PASS OK
 
 * 231229piu_a invoice customer (`<cac:AccountingCustomerParty>`) detect & set area to search for specific keys (like CUI, RegCom, IBAN, ...)
     * [x] 1. established AREA TO SEARCH for PARTNER data an `_area_to_search` (~line 244)
