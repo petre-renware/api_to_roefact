@@ -244,13 +244,13 @@ def rdinv(
     print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped)
     # find customer keys TODO: ...now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
-        "CUI":  {  #FIXME try to directly use equivalent LM tags
+        "CUI": {
             "value": "...TODO: as str ...wip...work_here...",  #FIXME CUI is just as example of next FIRST step in getting CUSTOMER info - #FIXME there will follow rest
             "location": "...TODO: as [int,int] ...wip...work_here...",  #FIXME to respect previous used format for keys, diffbeing that this is a "CUSTOMER AREA" embedded key...
             "label_value": "TODO: as str ...ce am gasit in Excel...",  #FIXME...
             "label_location": "...TODO: as [int,int] ...wip...work_here..."  #FIXME all (0,0) cell indexes will become real after finding key(s)
         },
-        "OTHER_CUSTOMER_KEYS": {  #FIXME.../#TODO.../#NOTE...
+        "OTHER_CUSTOMER_KEYS": {  #FIXME.../#TODO...#NOTE...
             "value": "...future...",
             "location": "...future...",
             "label_value": "...future...",
@@ -276,8 +276,12 @@ def rdinv(
     """
     # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
     invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
-    #FIXME_here_should_be_done_as_part_of_customer_area_info:   invoice_header_area["customer_area"] = ...mk_canonical_form...
-    #FIXME ...cont... && keep only onformation that is really neccesary not all Excel original info like: location(s), label text,
+    #FIXME NOT NEEDED NXT because: (long comment down is old strategy)
+    #FIXME ... the PartnerArea is not really an array but a grouping of info into a dict (XML tag), thing that can be seen eben in mode how created object in "Invoice" final structure
+    ''' #FIXME old strategy 
+        - here_should_be_done_as_part_of_customer_area_info:   invoice_header_area["customer_area"] = ...mk_canonical_form...
+        - ...cont... && keep only onformation that is really neccesary not all Excel original info like: location(s), label text,
+    '''
 
     # preserve processed Excel file meta information: start address, size.
     meta_info = _build_meta_info_key(
@@ -297,10 +301,12 @@ def rdinv(
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
-            #FIXME key `cac_AccountingCustomerParty` (nxt line) is not made as conaonical form
-            #FIXME          see also ~line ~261 let with a FIXME marker ref canonical form)
-            #FIXME          && line ~~279 where should be done and let a FIXME
-            "cac_AccountingCustomerParty": { _i[0]:_i[1] for _i in invoice_header_area["customer_area"].items() if _i[0] != "area_info" },  # make a dict with all items except the information key which remain as otiginal Excel info (in deficated key)
+            #FIXME      see line 279 ref used construction of `cac_AccountingCustomerParty` FIXME
+            "cac_AccountingCustomerParty": {
+                "XML key for CUI" = copy.deepcopy(invoice_header_area["customer_area"]|"CUI"]["value"]),  #FIXME correct XML key name && chk if not need to be more "imbricated" OR more "adjacent" keys
+                #TODO ...cont here to creata Customer final dict...
+            },
+            #FIXME drop me as prev strategy: { _i[0]:_i[1] for _i in invoice_header_area["customer_area"].items() if _i[0] != "area_info" },  # make a dict with all items except the information key which remain as otiginal Excel info (in deficated key)
             #TODO ...here to add rest of `invoice_header_area`...
             "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
         },
