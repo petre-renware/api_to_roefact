@@ -301,7 +301,7 @@ def rdinv(
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
-            #FIXME      see line 279 ref used construction of `cac_AccountingCustomerParty` FIXME
+            #FIXME      see line 279 ref used construction of `cac_AccountingCustomerParty` #FIXME
             "cac_AccountingCustomerParty": {
                 "XML key for CUI" = copy.deepcopy(invoice_header_area["customer_area"]|"CUI"]["value"]),  #FIXME correct XML key name && chk if not need to be more "imbricated" OR more "adjacent" keys - see down long comment:
                 ''' #NOTE: XML sub structure for <cac:AccountingCustomerParty> (just as info, there is another one for address so embed CUI, NAME in that key && ADDRESS in the other
