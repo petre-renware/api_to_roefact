@@ -303,7 +303,13 @@ def rdinv(
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
             #FIXME      see line 279 ref used construction of `cac_AccountingCustomerParty` FIXME
             "cac_AccountingCustomerParty": {
-                "XML key for CUI" = copy.deepcopy(invoice_header_area["customer_area"]|"CUI"]["value"]),  #FIXME correct XML key name && chk if not need to be more "imbricated" OR more "adjacent" keys
+                "XML key for CUI" = copy.deepcopy(invoice_header_area["customer_area"]|"CUI"]["value"]),  #FIXME correct XML key name && chk if not need to be more "imbricated" OR more "adjacent" keys - see down long comment:
+                ''' #NOTE: XML sub structure for <cac:AccountingCustomerParty> (just as info, there is another one for address so embed CUI, NAME in that key && ADDRESS in the other
+                <cac:PartyLegalEntity>
+                    <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
+                    <cbc:CompanyID>21986376</cbc:CompanyID>
+                </cac:PartyLegalEntity>
+                '''
                 #TODO ...cont here to creata Customer final dict...
             },
             #FIXME drop me as prev strategy: { _i[0]:_i[1] for _i in invoice_header_area["customer_area"].items() if _i[0] != "area_info" },  # make a dict with all items except the information key which remain as otiginal Excel info (in deficated key)
