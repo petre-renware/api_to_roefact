@@ -304,7 +304,9 @@ def rdinv(
             #FIXME      see line 279 ref used construction of `cac_AccountingCustomerParty` #FIXME
             "cac_AccountingCustomerParty": {
                 "XML key for CUI" = copy.deepcopy(invoice_header_area["customer_area"]|"CUI"]["value"]),  #FIXME correct XML key name && chk if not need to be more "imbricated" OR more "adjacent" keys - see down long comment:
-                ''' #NOTE: XML sub structure for <cac:AccountingCustomerParty> (just as info, there is another one for address so embed CUI, NAME in that key && ADDRESS in the other
+                ''' #NOTE: XML sub structure for <cac:AccountingCustomerParty> && ...
+                    - just as info, there is another one for address so embed CUI, NAME in that key && ADDRESS in the other
+                    - add new keys to XML-JSON map
                 <cac:PartyLegalEntity>
                     <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
                     <cbc:CompanyID>21986376</cbc:CompanyID>
