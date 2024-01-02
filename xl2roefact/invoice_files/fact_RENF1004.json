@@ -4,17 +4,12 @@
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-08-28",
         "cac_AccountingCustomerParty": {
-            "CUI": {
-                "value": "...TODO: as str ...wip...work_here...",
-                "location": "...TODO: as [int,int] ...wip...work_here...",
-                "label_value": "TODO: as str ...ce am gasit in Excel...",
-                "label_location": "...TODO: as [int,int] ...wip...work_here..."
+            "cac_PartyLegalEntity": {
+                "cbc_CompanyID": "...TODO: as str ...wip...work_here...",
+                "cbc_RegistrationName": "TODO...tbd in nxt operations..."
             },
-            "OTHER_CUSTOMER_KEYS": {
-                "value": "...future...",
-                "location": "...future...",
-                "label_value": "...future...",
-                "label_location": "...future..."
+            "...incoming_structure_for_ADDRESSS": {
+                "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations..."
             }
         },
         "cac_InvoiceLine": [
@@ -118,7 +113,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-01-01T00:17:52.478240+00:00",
+        "last_processing_time": "2024-01-02T05:34:20.260362+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 30,
         "invoice_max_cols": 9,

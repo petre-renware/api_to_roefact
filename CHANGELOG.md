@@ -68,6 +68,14 @@
 * tbd... invoice customer search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 * tbd... invoice customer create in `config_settings.py` PATTERNs for search keys, like: "reg com", "CUI", "bank / IBAN / cont"
 
+* 240102piu_a `rdinv.rdinv()` upd & improved a clear Customer specific XML compliant structure. Targeted this XML structure:
+                ```
+                    <cac:PartyLegalEntity>
+                        <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
+                        <cbc:CompanyID>21986376</cbc:CompanyID>
+                    </cac:PartyLegalEntity>
+                ```
+
 * 240101piu_a clean useless & obsolete project files, test new full build (MSI, Python wheel, documentation) ==> PASS OK
 
 * 231229piu_a invoice customer (`<cac:AccountingCustomerParty>`) detect & set area to search for specific keys (like CUI, RegCom, IBAN, ...)

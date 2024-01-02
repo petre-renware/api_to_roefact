@@ -250,7 +250,7 @@ def rdinv(
             "label_value": "TODO: as str ...ce am gasit in Excel...",  #FIXME...
             "label_location": "...TODO: as [int,int] ...wip...work_here..."  #FIXME all (0,0) cell indexes will become real after finding key(s)
         },
-        "OTHER_CUSTOMER_KEYS": {  #FIXME.../#TODO...#NOTE...
+        "OTHER_CUSTOMER_KEYS": {  # TODO: for name of comany use patterns like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r,a.
             "value": "...future...",
             "location": "...future...",
             "label_value": "...future...",
@@ -258,12 +258,10 @@ def rdinv(
         },
     })
     '''
-    TODO_#FIXME here an important thing is to convert all keys from "normal" to "CANONICAL" representation as for XML tags (as did for items data / area)
-    TODO_#FIXME     and then can be safe converted & saved in JSON (thing probably doe by iterating it) ===> GO TO line ~280
     NOTE: - before end:
         - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
-        - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)"
-                for combination: `cac:AccountingSupplierParty` ---- `cac_AccountingSupplierParty`
+        - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)" ...->
+          ...-> for combination: `cac:AccountingSupplierParty` ---- `cac_AccountingSupplierParty`
         - helper search str "TODO ...here to add rest of `invoice_header_area`..."
     '''
     #TODO ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
@@ -276,12 +274,6 @@ def rdinv(
     """
     # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
     invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
-    #FIXME NOT NEEDED NXT because: (long comment down is old strategy)
-    #FIXME ... the PartnerArea is not really an array but a grouping of info into a dict (XML tag), thing that can be seen eben in mode how created object in "Invoice" final structure
-    ''' #FIXME old strategy 
-        - here_should_be_done_as_part_of_customer_area_info:   invoice_header_area["customer_area"] = ...mk_canonical_form...
-        - ...cont... && keep only onformation that is really neccesary not all Excel original info like: location(s), label text,
-    '''
 
     # preserve processed Excel file meta information: start address, size.
     meta_info = _build_meta_info_key(
@@ -292,29 +284,31 @@ def rdinv(
         found_cell=tuple(_found_cell_for_invoice_items_area_marker))
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
-    ''' #TODO #FIXME write `cac:AccountingSupplierParty --map2-- cac_AccountingSupplierParty` here to avoid "a lot of items accumulation"
-            && maybe start with name of company with a pattern like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r,a.
-            && keep in mind; all customer KVs, >90% of cases, are IN-LABEL delimited by `:` char
-    '''
+    ''' FIXME: XML reuired structure for `cac_AccountingCustomerParty`  FIXME: drop me after ... see full comment down
+                    <cac:PartyLegalEntity>
+                        <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
+                        <cbc:CompanyID>21986376</cbc:CompanyID>
+                    </cac:PartyLegalEntity>
+    '''#FIXME: after a check ref JSON --> XML convrsion uodate PLAN_XML_file and can drop this info
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
-            #FIXME      see line 279 ref used construction of `cac_AccountingCustomerParty` #FIXME
             "cac_AccountingCustomerParty": {
-                "XML key for CUI" = copy.deepcopy(invoice_header_area["customer_area"]|"CUI"]["value"]),  #FIXME correct XML key name && chk if not need to be more "imbricated" OR more "adjacent" keys - see down long comment:
-                ''' #NOTE: XML sub structure for <cac:AccountingCustomerParty> && ...
-                    - just as info, there is another one for address so embed CUI, NAME in that key && ADDRESS in the other
-                    - add new keys to XML-JSON map
-                <cac:PartyLegalEntity>
-                    <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
-                    <cbc:CompanyID>21986376</cbc:CompanyID>
-                </cac:PartyLegalEntity>
-                '''
-                #TODO ...cont here to create rest of Customer dict...
+                "cac_PartyLegalEntity": {
+                    "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
+                    "cbc_RegistrationName": "TODO...tbd in nxt operations...",  # TODO: ...tbd in nxt operations...
+                    #NOTE    - add new keys to XML-JSON map
+                    #NOTE       cac:PartyLegalEntity -- cac_PartyLegalEntity
+                    #NOTE       cbc:CompanyID -- cbc_CompanyID
+                    #NOTE       cbc:RegistrationName -- cbc_RegistrationName
+                    #FIXME after a check ref JSON --> XML convrsion uodate PLAN_XML_file and can drop this info
+                },
+                "...incoming_structure_for_ADDRESSS": {
+                    "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations...",
+                }
             },
-            #FIXME drop me as prev strategy: { _i[0]:_i[1] for _i in invoice_header_area["customer_area"].items() if _i[0] != "area_info" },  # make a dict with all items except the information key which remain as otiginal Excel info (in deficated key)
             #TODO ...here to add rest of `invoice_header_area`...
             "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
         },
