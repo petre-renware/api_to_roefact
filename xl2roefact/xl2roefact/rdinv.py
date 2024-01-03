@@ -440,8 +440,13 @@ def get_excel_data_at_label(
                                 index_of_value_found = check_for_index
                     # continue with IN-LABEL test if NOT found somethinng at DOWN
                     if not (value_found and index_of_value_found):  # try IN-LABEL test only if a relevant value not found or value is located in a wrong area
-                        # NOTE-LOGIC: test for IN-LABEL cell
-                        check_for = label_value.split()[-1].strip()  # clean and keep only last word
+                        # NOTE-LOGIC: test for IN-LABEL cell (label is supposed only first word separated by space)
+                        check_for = label_value.strip()
+                        # keep all except first word (supposed to be label)
+                        if len(check_for) > 1:
+                            check_for = ' '.join(check_for.split()[1:])  # clean and keep all string except first word
+                        else:
+                            chech_for = ""
                         if __check_value(check_for):
                             value_found = check_for
                             index_of_value_found = label_location
