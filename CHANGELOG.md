@@ -61,13 +61,15 @@
 
 
 
-### 0.1.18 invoice partners customer  (#NOTE TODO: wip...)
+### 0.1.18 invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
 
 * tbd... invoice customer search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 * tbd... invoice customer create in `config_settings.py` PATTERNs for search keys, like: "reg com", "CUI", "bank / IBAN / cont"
 
+
+* 240103piu_b calculated item lines VAT amount as `cac_InvoiceLine.LineVatAmmount` as raw float value (not rounded to be able to round just invoice TOTAL)
 
 * 240103piu_a `rdinv.rdinv()` updated JSON -- XML map (part of function `_build_meta_info_key(...)`)
 

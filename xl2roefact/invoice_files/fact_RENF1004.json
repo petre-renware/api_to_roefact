@@ -30,7 +30,8 @@
                     "cbc_PriceAmount": 11111.5,
                     "cbc_currencyID": "RON"
                 },
-                "cbc_LineExtensionAmount": 38890.25
+                "cbc_LineExtensionAmount": 38890.25,
+                "LineVatAmmount": 7389.1475
             },
             {
                 "cbc_ID": "1.NOTE-a",
@@ -49,7 +50,8 @@
                     "cbc_PriceAmount": null,
                     "cbc_currencyID": null
                 },
-                "cbc_LineExtensionAmount": null
+                "cbc_LineExtensionAmount": null,
+                "LineVatAmmount": null
             },
             {
                 "cbc_ID": "1.NOTE-b",
@@ -68,7 +70,8 @@
                     "cbc_PriceAmount": null,
                     "cbc_currencyID": null
                 },
-                "cbc_LineExtensionAmount": null
+                "cbc_LineExtensionAmount": null,
+                "LineVatAmmount": null
             },
             {
                 "cbc_ID": "1.NOTE-c",
@@ -87,7 +90,8 @@
                     "cbc_PriceAmount": null,
                     "cbc_currencyID": null
                 },
-                "cbc_LineExtensionAmount": null
+                "cbc_LineExtensionAmount": null,
+                "LineVatAmmount": null
             },
             {
                 "cbc_ID": "2",
@@ -106,14 +110,15 @@
                     "cbc_PriceAmount": 111.115,
                     "cbc_currencyID": "RON"
                 },
-                "cbc_LineExtensionAmount": 111.11
+                "cbc_LineExtensionAmount": 111.11,
+                "LineVatAmmount": 0.0
             }
         ]
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-01-03T02:05:34.488501+00:00",
+        "last_processing_time": "2024-01-03T03:17:26.831912+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 30,
         "invoice_max_cols": 9,

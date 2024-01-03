@@ -321,13 +321,18 @@ def rdinv(
         )
     }
     ''' #NOTE: TOTAL_invoice_strucuture (NOTE: refered by line "TODO: need  to contsruct TOTAL invoice structure ...", line ~>= 314)
-                    <cac:LegalMonetaryTotal>
-                        <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
-                        <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
-                        <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
-                        <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
-                    </cac:LegalMonetaryTotal>
-            - NOTE: can be obtained from already calculated key `cbc_LineExtensionAmount`
+                <cac:LegalMonetaryTotal>
+                    <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
+                        -NOTE SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
+                    <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
+                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
+                    <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
+                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmmount`)
+                    <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
+                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
+                </cac:LegalMonetaryTotal>
+            - NOTE-IMPORTANT-NOTE: only TOTALIZED values need to be rounded 2 decimals (because LineVatAmmount is let raw calculation to ve able to round here after SUM)
+            - NOTE: TOTAL invoice VAT can be obtained as `SUM(from existing key cac_InvoiceLine.LineVatAmmount`) adding lines VAT
     '''
 
     # write `invoice` dict to `f-JSON`
@@ -524,6 +529,11 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format):
             _item_total = None
             if (_item_quantity is not None) and (_unit_price is not None):
                 _item_total = round(_item_quantity * _unit_price, 2)
+                # line VAT calculation is subject of VAT existence and right calculation as number, otherwise it is set to NULL
+                if _item_total and _vat_percent:
+                    _item_VAT = float(_item_quantity * _unit_price * _vat_percent)  # this line does not round info to be able to round only the total
+                else:
+                    _item_VAT = 0.0
 
         # build dictionary with usual invoice columns (respecting as possible the XSD schemes listed in [`meta_info`][`invoice_XML_schemes`] key)
         _line_info = {
@@ -544,7 +554,8 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format):
                     "cbc_PriceAmount" : _unit_price,
                     "cbc_currencyID": None if (_item_quantity is None or str(_item_quantity).split() == "") else DEFAULT_CURRENCY
                 },
-                "cbc_LineExtensionAmount": _item_total
+                "cbc_LineExtensionAmount": _item_total,
+                "LineVatAmmount": None if _item_total is None else _item_VAT,  # line VAT calculation is subject of some ammount existence
             }
         }
         _invoice_items_area_json_format.append(_line_info["cac_InvoiceLine"])
