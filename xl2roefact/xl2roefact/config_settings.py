@@ -111,5 +111,17 @@ PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
     "sc", "s.c.", "diviz", "depart", "srl", "s.r.l.", "sa", "s.a.",  # acestea sunt sanse suplimentare de gasire "a ceva relevant..." in caz ca nu a folosit un "label" de tip "Client..." sau asemenator
 ]
 
-
-
+# --- pattern-uri utilizate in regasirea informatiiolor referitoare la partener (client sau furnizor)
+# codul unic de inregistrare
+PATTERN_FOR_PARTNER_ID = [
+    "cui", "c.u.i",
+    "cif", "c.i.f",
+    "id",
+]
+# numele legal al companiei
+PATTERN_FOR_PARTNER_LEGAL_NAME = [
+    "sa", "s.a",
+    "srl", "s.r.l",
+    "pfa", "p.f.a",
+    "ra", "r.a",
+]

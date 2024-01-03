@@ -42,6 +42,8 @@ PATTERN_FOR_INVOICE_CURRENCY_LABEL = config_settings.PATTERN_FOR_INVOICE_CURRENC
 PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL = config_settings.PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
+PATTERN_FOR_PARTNER_ID = config_settings.PATTERN_FOR_PARTNER_ID
+PATTERN_FOR_PARTNER_LEGAL_NAME = config_settings.PATTERN_FOR_PARTNER_LEGAL_NAME
 
 
 def rdinv(
@@ -66,7 +68,7 @@ def rdinv(
         * `db: pylightxl object`: EXCEL object with invoice (as a whole)
         * `ws: pylightxl object`: WORKSHEET object with invoice
     """
-    # use as global only those constants that is known could be changed by this function
+    # use as global only for those constants that could be changed by this function
     global DEFAULT_VAT_PERCENT
     global DEFAULT_UNKNOWN_ITEM_NAME
     global DEFAULT_UNKNOWN_UOM
@@ -250,7 +252,13 @@ def rdinv(
             "label_value": "TODO: as str ...ce am gasit in Excel...",  #FIXME...
             "label_location": "...TODO: as [int,int] ...wip...work_here..."  #FIXME all (0,0) cell indexes will become real after finding key(s)
         },
-        "OTHER_CUSTOMER_KEYS": {  # TODO: for name of comany use patterns like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r,a.
+        "RegistrationName": {  # TODO: for name of comany use patterns like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r.a.
+            "value": "...future...",
+            "location": "...future...",
+            "label_value": "...future...",
+            "label_location": "...future..."
+        },
+        "other_customer_keys_IF_NEED_MORE": {
             "value": "...future...",
             "location": "...future...",
             "label_value": "...future...",

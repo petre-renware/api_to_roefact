@@ -69,7 +69,7 @@
             </cac:PostalAddress>
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
-                <cbc:CompanyID>21986376</cbc:CompanyID>
+                <cbc:CompanyID>21986376</cbc:CompanyID>  #NOTE this is "CUI"
             </cac:PartyLegalEntity>
         </cac:Party>
     </cac:AccountingCustomerParty>
