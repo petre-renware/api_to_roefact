@@ -68,6 +68,9 @@
 * tbd... invoice customer search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 * tbd... invoice customer create in `config_settings.py` PATTERNs for search keys, like: "reg com", "CUI", "bank / IBAN / cont"
 
+
+* 240103piu_a `rdinv.rdinv()` updated JSON -- XML map (part of function `_build_meta_info_key(...)`)
+
 * 240102piu_a `rdinv.rdinv()` upd & improved a clear Customer specific XML compliant structure. Targeted this XML structure:
                 ```
                     <cac:PartyLegalEntity>

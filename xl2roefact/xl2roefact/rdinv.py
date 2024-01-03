@@ -241,7 +241,7 @@ def rdinv(
         }
     }
     #TODO ...hereuare...  ... START HERE -------------->>>
-    print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped)
+    print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
     # find customer keys TODO: ...now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
         "CUI": {
@@ -299,11 +299,11 @@ def rdinv(
                 "cac_PartyLegalEntity": {
                     "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
                     "cbc_RegistrationName": "TODO...tbd in nxt operations...",  # TODO: ...tbd in nxt operations...
-                    #NOTE    - add new keys to XML-JSON map
-                    #NOTE       cac:PartyLegalEntity -- cac_PartyLegalEntity
-                    #NOTE       cbc:CompanyID -- cbc_CompanyID
-                    #NOTE       cbc:RegistrationName -- cbc_RegistrationName
-                    #FIXME after a check ref JSON --> XML convrsion uodate PLAN_XML_file and can drop this info
+                    #NOTE    - add these keys to XML-JSON map
+                    # NOTE:_DONE  cac_PartyLegalEntity -- cac:PartyLegalEntity  #FIXME can be dropped
+                    # NOTE:_DONE  cbc_CompanyID -- cbc:CompanyID  #FIXME can be dropped
+                    # NOTE:_DONE  cbc_RegistrationName -- cbc:RegistrationName  #FIXME can be dropped
+                    #NOTE         ...add more keys to write in map...
                 },
                 "...incoming_structure_for_ADDRESSS": {
                     "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations...",
@@ -311,6 +311,7 @@ def rdinv(
             },
             #TODO ...here to add rest of `invoice_header_area`...
             "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
+            #TODO: need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
@@ -319,6 +320,16 @@ def rdinv(
             invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO to be done... (just localized `invoice_footer_area`)
         )
     }
+    ''' #NOTE: TOTAL_invoice_strucuture
+                    <cac:LegalMonetaryTotal>
+                        <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
+                        <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
+                        <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
+                        <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
+                    </cac:LegalMonetaryTotal>
+        - NOTE: refered by line "TODO: need  to contsruct TOTAL invoice structure ...", line ~>= 314
+        - NOTE: can be obtained from already calculated key `cbc_LineExtensionAmount`
+    '''
 
     # write `invoice` dict to `f-JSON`
     """ useful NOTE(s):
@@ -764,7 +775,11 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_ID", "cbc:ID"),  # invoice number
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
         ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
-        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty")  # invoice customer inforation
+        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer inforation - MASTER RECORD
+        ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL RECORD
+        ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL RECORD
+        ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL RECORD
+
     ]
 
     return copy.deepcopy(_tmp_meta_info)
