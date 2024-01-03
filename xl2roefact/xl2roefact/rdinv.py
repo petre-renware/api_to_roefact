@@ -320,15 +320,14 @@ def rdinv(
             invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO to be done... (just localized `invoice_footer_area`)
         )
     }
-    ''' #NOTE: TOTAL_invoice_strucuture
+    ''' #NOTE: TOTAL_invoice_strucuture (NOTE: refered by line "TODO: need  to contsruct TOTAL invoice structure ...", line ~>= 314)
                     <cac:LegalMonetaryTotal>
                         <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
                         <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
                         <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
                         <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
                     </cac:LegalMonetaryTotal>
-        - NOTE: refered by line "TODO: need  to contsruct TOTAL invoice structure ...", line ~>= 314
-        - NOTE: can be obtained from already calculated key `cbc_LineExtensionAmount`
+            - NOTE: can be obtained from already calculated key `cbc_LineExtensionAmount`
     '''
 
     # write `invoice` dict to `f-JSON`
