@@ -242,9 +242,11 @@ def rdinv(
             "location": copy.deepcopy(_area_to_search),
         }
     }
-    #TODO ...hereuare...  ... START HERE -------------->>>
+    #TODO ...CUSTOMER AREA  ...START HERE -------------->>>
     print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
-    # find customer keys TODO: ...now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
+    # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
+    #TODO ...hereuare... to continue with other CUTOMER fields / invoice info
+    # TODO: ...now search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
         "CUI": {
             "value": "...TODO: as str ...wip...work_here...",  #FIXME CUI is just as example of next FIRST step in getting CUSTOMER info - #FIXME there will follow rest
