@@ -249,7 +249,7 @@ def rdinv(
             1. find key
             2. write to `invoice_header_area["customer_area"].update({.....` (see dow code) ONLY for this key
     '''
-    ...   #TODO ...hereuare... to continue with other CUTOMER fields / invoice info
+    ...# code here   #TODO ...hereuare... to continue with other CUTOMER fields / invoice info
     # TODO: ...now search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
         "CUI": {
