@@ -242,9 +242,26 @@ def rdinv(
             "location": copy.deepcopy(_area_to_search),
         }
     }
-    #TODO ...hereuare...  ... START HERE -------------->>>
+    #TODO: ...CUSTOMER AREA  ...START HERE -------------->>>
     print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
-    # find customer keys TODO: ...now to search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
+    # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
+    _temp_found_data = get_excel_data_at_label(
+        pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+        targeted_type=str
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    print(f"[red]========> CUI find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
+    '''NOTE: info found for Petrom invoice - NOTE: as can be see real info is in labels becase "not roght structuerd" but got as value the next row info ...
+            - because this the search implemented algoritm...
+            - maybe a "heature improvement" like "search only IN-LABEL" is not becausse ... see REN invoice info which is right...
+    * Petrom invoice: `_temp_found_data={'value': 'R.C. J40/8302/1997', 'location': (11, 2), 'label_value': 'C.U.I. RO1590082', 'label_location': (10, 2)}`
+    * REN invoice: `_temp_found_data={'value': '17753763', 'location': (11, 6), 'label_value': 'CIF:', 'label_location': (11, 5)}`
+    '''  #FIXME DBG can be dropped
+    ...
+    ... # code here   #TODO: ...hereuare... to continue with other CUTOMER fields / invoice info
+    ...
+    # TODO:: ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
         "CUI": {
             "value": "...TODO: as str ...wip...work_here...",  #FIXME CUI is just as example of next FIRST step in getting CUSTOMER info - #FIXME there will follow rest

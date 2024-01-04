@@ -67,6 +67,10 @@
 
 * tbd... invoice customer search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
+
+
+* WIP... 2401??piu_? invoice customer search for "CUI"  #NOTE: rdinv() lines 255 - 261
+
 * 240103piu_d `rdinv.def get_excel_data_at_label(...)` changed strategy for IN-LABEL strategy to return all string except first word (supposed to be label) separated by space character (old strategy was to get only last work from all string)
 
 * 240103piu_c ref invoice customer create in `config_settings.py` PATTERNs for search keys `PATTERN_FOR_PARTNER_ID` (CUI or ID), `PATTERN_FOR_PARTNER_LEGAL_NAME`
