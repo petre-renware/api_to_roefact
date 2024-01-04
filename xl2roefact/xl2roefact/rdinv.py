@@ -258,9 +258,9 @@ def rdinv(
     * Petrom invoice: `_temp_found_data={'value': 'R.C. J40/8302/1997', 'location': (11, 2), 'label_value': 'C.U.I. RO1590082', 'label_location': (10, 2)}`
     * REN invoice: `_temp_found_data={'value': '17753763', 'location': (11, 6), 'label_value': 'CIF:', 'label_location': (11, 5)}`
     '''  #FIXME DBG can be dropped
-    ...# code here   TODO: ...hereuare... to continue with other CUTOMER fields / invoice info
-
-    # TODO: ...now search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
+    ... # code here   #TODO: ...hereuare... to continue with other CUTOMER fields / invoice info
+    ...
+    # TODO:: ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
         "CUI": {
             "value": "...TODO: as str ...wip...work_here...",  #FIXME CUI is just as example of next FIRST step in getting CUSTOMER info - #FIXME there will follow rest
