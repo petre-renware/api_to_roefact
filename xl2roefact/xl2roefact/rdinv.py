@@ -245,6 +245,10 @@ def rdinv(
     #TODO ...CUSTOMER AREA  ...START HERE -------------->>>
     print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
     # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
+    ''' QUICK plan:
+            1. find key
+            2. write to `invoice_header_area["customer_area"].update({.....` (see dow code) ONLY for this key
+    '''
     #TODO ...hereuare... to continue with other CUTOMER fields / invoice info
     # TODO: ...now search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
