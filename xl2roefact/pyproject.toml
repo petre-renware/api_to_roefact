@@ -7,15 +7,10 @@ authors = [
     { name = "RENware Software Systems", email = "renware.systems@gmail.com" }
 ]
 dependencies = [
-    "pdoc>=14.2.0",
     "altgraph==0.17.4",
     "argcomplete==3.2.1",
     "build==1.0.3",
-    "click==8.1.7",
-    "colorama==0.4.6",
     "commonmark==0.9.1",
-    "cx-Freeze==6.15.12",
-    "cx-Logging==3.1.0",
     "et-xmlfile==1.1.0",
     "Fraction==2.2.0",
     "Jinja2==3.1.2",
@@ -25,7 +20,6 @@ dependencies = [
     "mdurl==0.1.2",
     "openpyxl==3.1.2",
     "packaging==23.2",
-    "pdoc==14.2.0",
     "pefile==2023.2.7",
     "pip==23.3.2",
     "platformdirs==4.1.0",
@@ -42,41 +36,63 @@ dependencies = [
     "six==1.16.0",
     "time-machine==2.13.0",
     "tomli==2.0.1",
-    "typer==0.9.0",
     "typing-extensions==4.9.0",
     "tzdata==2023.3",
     "userpath==1.9.1",
-    "wheel==0.42.0"
+    "wheel==0.42.0",
 ]  #FIXME @231217 still raise error when import `pendulum` package (`File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 readme = "README.md"
-#license = "LICENSE"  #FIXME.cxFreeze.reports.err.with.this:`2 values found...`, probably need a standard value, like "MIT"; better see in GitHub what accepts it (!)
+license = {file = "LICENSE"}
 requires-python = ">= 3.10"
+classifiers = [  #  [piu@231226] just informative key at this moment
+    "Product code :: 0000-0095",  # [piu @ 231226] to test if accepted here
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End users",
+    "Topic :: Invoices :: Upload invoices :: RO EFact",
+    "License :: GNU License",
+    # Specify the Python versions you support here.
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+
+
+
 
 
 [build-system]
 requires = ["pdm-backend"]  #FIXME this line apecify the building backend ? If so, intention is for `PDM` tool
 build-backend = "pdm.backend"  #FIXME this line apecify the building backend ? If so, intention is for `PDM` tool
-product_code = "0000-0095"  #NOTE introduced @ 231217 by [piu] - should be tested #TODO-test-me
-#directories = ["invoie_files"]  #NOTE this entry is supposed to create these directories on installation #TODO-tests:
+#directories = ["invoie_files"]  #NOTE this entry is supposed to create these directories on installation #TODO-test me, HINT: follow all messages when run build MSI, there are more but some with really good indications
 #           - test @ 231217: try `invoice_files/` - result FAIL, directory was not created  - meybe entry place is not here, but build was exec with no err
 
 
-[tool.pdm.scripts]
-#TODO this table should contain commands for:
-#TODO   - build MSI package
-#TODO   - build PyPy packages (wheel and sdist)
-#TODO   - execute `xl2rofact` command
-#TODO   - build documentation (with `pdoc` ? or meanwhile found a better one...)
-#NOTE: attn, here can also put `shell` commands, so if needed can install things with `sudo apt install ...`
-#TODO   - ...
+[tool.pdm.scripts]  #NOTE ref: `https://pdm-project.org/latest/usage/scripts/` #TODO all of these are subject to documentation update #NOTE: [piu@231227] updated `doc/810.05a-xl2roefact_component.md`
+build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
+build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
+build_all = {composite = ["build_wheel", "build_msi"]}  # build all packages (MSI, python package wheel, python package sdist)
+build_doc = {shell = "pydoc-markdown -I xl2roefact --render-toc >doc/810.05a-xl2roefact_DLD_specs.md"}  # build technical documentation. NOTE-ATTN name of markdown generated file
+xl2roefact ={shell = "python xl2roefact"}  # run main `xl2roefact` command
 
+
+
+[tool.pdm.dev-dependencies]  # dependencies used only in develeopment and not transfered in Pythn package building
+wk_dev = [
+    "click==8.1.7",
+    "typer==0.9.0",
+    "pydoc-markdown>=4.8.2",
+    "cx-Freeze==6.15.12",
+    "cx-Logging==3.1.0",
+]
 
 
 [tool.hatch.metadata]  #FIXME piu: i think this is related to `Hatchling builder` so is useless with `PDM builder` - DROP this table after some tests
 allow-direct-references = true
 
 
-#NOTE section add for `cxFreeze` - intention what is expected for, is obvious - source: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
+
+
+#NOTE section add for `cxFreeze`, for details see here: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
 [tool.distutils.build_exe]
 excludes = ["tkinter", "unittest"]
 zip_include_packages = ["encodings", "PySide6"]

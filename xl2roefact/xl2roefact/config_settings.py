@@ -1,28 +1,31 @@
-"""  Application configuration and setting parameters  #TODO all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel")
+"""Application configuration and setting parameters.  #TODO all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel")
 
-    NOTE english "README_me" before making changes:
-        - each parameter has a short help (lines starting with `#` character) - read it before changing that parameter
-        - do not change parametrs name as specified before equal (`=`) sign
-        - lists are enclosed in sqaured brackets (`[...]`) and items are separated by comma character (`,`)
-        - strings are enclosed in `"` characters
-        - if you want to clear a list (for example you do not wants any options inside) just let it as `<PARAMETR NAME> = []` - do not drop that parameter
-        - do not add supplementary parameters, they will not be used without software changes (also risk to induce potential errors)
-        - for calendaristic dates Excel cells use `date` format and change it as display option to show wanted format
+NOTE english "README_me" before making changes:
+* each parameter has a short help (lines starting with `#` character) - read it before changing that parameter
+* do not change parametrs name as specified before equal (`=`) sign
+* lists are enclosed in sqaured brackets (`[...]`) and items are separated by comma character (`,`)
+* strings are enclosed in `"` characters
+* if you want to clear a list (for example you do not wants any options inside) just let it as `<PARAMETR NAME> = []` - do not drop that parameter
+* do not add supplementary parameters, they will not be used without software changes (also risk to induce potential errors)
+* for calendaristic dates Excel cells use `date` format and change it as display option to show wanted format
 
-    NOTE romana "README_me" inainte de a face modificari:  #TODO all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel")
-        - fiecare parametru are un hep scurt (liniile ce incep cu caracterul `#`) - citi-l inainte de a modofica uun parametru
-        - nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (`=`)
-        - listele sunt incluse intre paranteze drepte (`[...]`) si elementele lor sunt separate prin caracterul virgula (`,`)
-        - sirurile de caractere sunt incluse intre ghilimele (caracterul `"`)
-        -daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune pentru acea lista) doar lasati acel parametru cu valoarea `[]` - nu stergeti in nici un caz acel parametru
-        - nu adaugati parametrii suplimentari (altii decit cei specificati aici), acestia nu vor fi utilizati fara a modifica aplicatia (de asemenea riscati sa induceti erori in cod)
-        - pentru datele calendaristice in celulul Excel a se utiliza formatul standard de data (`date`) si modificati formatul de afisare in formatul dorit pe factura tiparibila
+NOTE romana "README_me" inainte de a face modificari:  #TODO all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel")
+* fiecare parametru are un hep scurt (liniile ce incep cu caracterul `#`) - citi-l inainte de a modofica uun parametru
+* nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (`=`)
+* listele sunt incluse intre paranteze drepte (`[...]`) si elementele lor sunt separate prin caracterul virgula (`,`)
+* sirurile de caractere sunt incluse intre ghilimele (caracterul `"`)
+* daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune pentru acea lista) doar lasati acel parametru cu valoarea `[]` - nu stergeti in nici un caz acel parametru
+* nu adaugati parametrii suplimentari (altii decit cei specificati aici), acestia nu vor fi utilizati fara a modifica aplicatia (de asemenea riscati sa induceti erori in cod)
+* pentru datele calendaristice in celulul Excel a se utiliza formatul standard de data (`date`) si modificati formatul de afisare in formatul dorit pe factura tiparibila
 
-    Identification:
-        code-name: `config_settings`
-        copyright: (c) 2023 RENWare Software Systems
-        author: Petre Iordanescu (petre.iordanescu@gmail.com)
+Identification:
+* code-name: `config_settings`
+* copyright: (c) 2023 RENWare Software Systems
+* author: Petre Iordanescu (petre.iordanescu@gmail.com)
 """
+
+
+
 
 """---------------------------------------------------------------------------------------------------------------------------
 # NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
@@ -89,22 +92,36 @@ PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: list[str] = [
 ]
 
 
-# FIXME: in factura Petrom nu ai nici ref furnizor nici client, ci ai numele firmelor lor, dar ai C.U.I.
+# FIXME: in factura Petrom nu ai nici ref furnizor nici client, ci ai numele firmelor lor, dar ai C.U.I.  #FIXME tried something @line 110...
 # FIXME: ci alte texte COMPLET "OUT-OF-UDERSTANDING" chiar si pentru humans !
 # TODO: decide something, most probably set this kind of issue in documentation section for: "RULES FOR INVOICE data in Excel"
 # --- furnizor (supplier)
-# pattern utilizat pentru a gasi datele furnizorului
-PATTERN_FOR_INVOICE_SUPPLIER_LABEL: list[str] = [
+# pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
+PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
     "furniz", "proprie",  # TODO: list patterns here
     "suppl", "owne",
 ]
 
 # --- client (customer)
-# pattern utilizat pentru a gasi datele furnizorului
-PATTERN_FOR_INVOICE_CUSTOMER_LABEL: list[str] = [
-    "clien",   # #TODO: list patterns here
+# pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
+##FIXME chege me from: `PATTERN_FOR_INVOICE_CUSTOMER_LABEL` --> `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER`
+PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
+    "clien",
     "custo",
+    "sc", "s.c.", "diviz", "depart", "srl", "s.r.l.", "sa", "s.a.",  # acestea sunt sanse suplimentare de gasire "a ceva relevant..." in caz ca nu a folosit un "label" de tip "Client..." sau asemenator
 ]
 
-
-
+# --- pattern-uri utilizate in regasirea informatiiolor referitoare la partener (client sau furnizor)
+# codul unic de inregistrare
+PATTERN_FOR_PARTNER_ID = [
+    "cui", "c.u.i",
+    "cif", "c.i.f",
+    "id",
+]
+# numele legal al companiei
+PATTERN_FOR_PARTNER_LEGAL_NAME = [
+    "sa", "s.a",
+    "srl", "s.r.l",
+    "pfa", "p.f.a",
+    "ra", "r.a",
+]

@@ -1,15 +1,17 @@
 #!../.venv/bin/python3
-"""  RDINV - modul de procesare a fisierului format XLSX ce contine factura si colectare a datelor aferente
+"""rdinv: modul de procesare a fisierului Excel ce contine factura si colectare a datelor aferente.
 
-    Identification:
-        code-name: `rdinv`
-        copyright: (c) 2023 RENWare Software Systems
-        author: Petre Iordanescu (petre.iordanescu@gmail.com)
+Formatul acceptat fisier Excel este `XLSX`.
 
-    Specifications:
-        document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
-        INTRARI: fisier format XLSX ce contine factura emisa (cod: `f-XLSX`)
-        IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
+Identification:
+* code-name: `rdinv`
+* copyright: (c) 2023 RENWare Software Systems
+* author: Petre Iordanescu (petre.iordanescu@gmail.com)
+
+Specifications:
+* document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
+* INTRARI: fisier format XLSX ce contine factura emisa (cod: `f-XLSX`)
+* IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
 """
 
 import os, sys
@@ -38,8 +40,10 @@ PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_
 PATTERN_FOR_INVOICE_NUMBER_LABEL = config_settings.PATTERN_FOR_INVOICE_NUMBER_LABEL
 PATTERN_FOR_INVOICE_CURRENCY_LABEL = config_settings.PATTERN_FOR_INVOICE_CURRENCY_LABEL
 PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL = config_settings.PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL
-PATTERN_FOR_INVOICE_SUPPLIER_LABEL = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_LABEL
-PATTERN_FOR_INVOICE_CUSTOMER_LABEL = config_settings.PATTERN_FOR_INVOICE_CUSTOMER_LABEL
+PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
+PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
+PATTERN_FOR_PARTNER_ID = config_settings.PATTERN_FOR_PARTNER_ID
+PATTERN_FOR_PARTNER_LEGAL_NAME = config_settings.PATTERN_FOR_PARTNER_LEGAL_NAME
 
 
 def rdinv(
@@ -50,21 +54,21 @@ def rdinv(
     ) -> dict:
     """read Excel file for invoice data.
 
-    Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data
+    Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data.
 
     Args:
-        - `file_to_process`; the invoice file (exact file with path)
-        - `invoice_worksheet_name`: the worksheet containing invoice
-        - `debug_info`: positional only, show debugging information, default `False`
+        `file_to_process`: the invoice file (exact file with path).
+        `invoice_worksheet_name`: the worksheet containing invoice, optional, defaults to first found worksheet.
+        `debug_info`: key only, show debugging information, default `False`.
 
     Return:
-        - `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update
+        `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update.
 
     NOTE ref important variables:
-        - `db: pylightxl object`: EXCEL object with invoice (as a whole)
-        - `ws: pylightxl object`: WORKSHEET object with invoice
+        * `db: pylightxl object`: EXCEL object with invoice (as a whole)
+        * `ws: pylightxl object`: WORKSHEET object with invoice
     """
-    # use as global only those constants that is known could be changed by this function
+    # use as global only for those constants that could be changed by this function
     global DEFAULT_VAT_PERCENT
     global DEFAULT_UNKNOWN_ITEM_NAME
     global DEFAULT_UNKNOWN_UOM
@@ -82,7 +86,7 @@ def rdinv(
     # read the workshet with Invoice data
     if invoice_worksheet_name is None:  # if parameter `invoice_worksheet_name` not specified try to open first worksheet from Excel worksheets - order is given by worksheets order in Excel file
         list_of_excel_worksheets = db.ws_names
-        print(f"[yellow]INFO note:[/] `rdinv` module, no worksheet specified so will open [cyan]'{list_of_excel_worksheets[0]}'[/]")
+        print(f"[yellow]INFO note:[/] `rdinv` module, no worksheet specified, will open first one: [cyan]'{list_of_excel_worksheets[0]}'[/]")
         invoice_worksheet_name = list_of_excel_worksheets[0]
 
     try:
@@ -95,7 +99,7 @@ def rdinv(
         - main result: `keyword_for_items_table_marker` = string marker to search for in oredr to isolate `invoice_items_area`
         - other results: `_found_cell_for_invoice_items_area_marker = (row, col, val)`
     """
-    _tmp_label_info = __get_excel_data_at_label(
+    _tmp_label_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER,
         worksheet=ws,
         targeted_type=str
@@ -123,10 +127,10 @@ def rdinv(
 
     """#NOTE: section for solve `invoice_items_area` in 2 steps:
         - first process it as Excel format (row & colomns datale (aka Data Frame))
-        - transform it in "canonical JSON format" (as kv pairs)
+        - transform it in "canonical JSON format" (as kv pairs) and update `cac_InvoiceLine` key creation
     """
     # process invoice to detect its items / lines ('invoice_items_area'), clean and extract data
-    invoice_items_area = _get_invoice_items_area(
+    invoice_items_area = get_invoice_items_area(
         worksheet=ws,
         invoice_items_area_marker=keyword_for_items_table_marker,
         wks_name=invoice_worksheet_name
@@ -157,21 +161,19 @@ def rdinv(
     )
 
     """#NOTE: section for solve `invoice_header_area`
-        - @final write them to:
-            - finished: invoice number, currency, issued date
-            - to do: supplier (owner), customer   TODO:... work in progress items ...
+        - @final write them to: invoice number, currency, issued date, supplier (owner), customer
     """
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
         issued_date = None,
         currency = None,
-        supplier = "...future...",
-        customer = "...future..."
+        customer_area = "...wip here...",  #TODO:... work in progress items ...
+        supplier_area = "...future..."  #TODO:... work in progress items ...
     )
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
-    invoice_number_info = __get_excel_data_at_label(
+    invoice_number_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_NUMBER_LABEL,
         worksheet=ws,
         area_to_scan=_area_to_search,
@@ -180,7 +182,7 @@ def rdinv(
     invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
     #
     # find invoice currency ==> `cbc:DocumentCurrencyCode`
-    invoice_currency_info = __get_excel_data_at_label(
+    invoice_currency_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CURRENCY_LABEL,
         worksheet=ws,
         area_to_scan=_area_to_search,
@@ -191,31 +193,95 @@ def rdinv(
     invoice_header_area["currency"] = copy.deepcopy(invoice_currency_info)
     #
     # find invoice issued date ==> `cbc:IssueDate`
-    issued_date_info = __get_excel_data_at_label(
+    issued_date_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL,
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
-    invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)  #NOTE keep for future: update map2XML, helper search str "TODO ...here to add rest of `invoice_header_area`..."
+    invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
-    #TODO_next invoice customer ==> `cac:AccountingSupplierParty` (#NOTE dar vezi cum diferentiezi supplier de customer, la "primul ochi / in fuga" nu am vazut ceva)
-    '''#NOTE - before start: update line 178 '''
-    '''NOTE: - before end:
-        - update this section: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
-        - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)" '''
-    '''NOTE: general plan of actions:
-        - identify AREAs TO SEARCH for partners:
-            - search for `PATTERN_FOR_INVOICE_SUPPLIER_LABEL`, respectively `PATTERN_FOR_INVOICE_CUSTOMER_LABEL`:   `(i,j)`
-            - from this cell go down up a blank (empty cell)                 `(i+n,j)`
-            - consider one more column to the right                          `(i+n, j+1)`
-        - this will be `xxx_area_to_search` (where `<xxx>` is `supplier` or `customer`) ...
-        - ... and here will search for different keys, like: "reg com", "CUI", "bank / IBAN / cont", and more...
-        - NUMELE FIRMEI PARTENERULUI se asteapta sa fie exact sub labelul gasit, ...
-            de ex: "Furnizor: REN CONSULTING ..." sau "Furnizor..." si dedesubt pe linia urmatoare "REN CONSULTING ..."
+    #FIXME: ...wip TODO: CUSTOMER AREA  ...START HERE -------------->>> (...ALL CODE MUST BE CLEAN FROM HERE when release "invoice customer" version...)
+    # find invoice customer ==> `cac:AccountingSupplierParty`
+    invoice_customer_info = get_excel_data_at_label(
+        pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
+        worksheet=ws,
+        area_to_scan=(invoice_header_area["start_cell"], invoice_header_area["end_cell"]),
+        targeted_type=str
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    # set a dedicated AREAs TO SEARCH for partner
+    _area_to_search_start_cell = [  # here always use `label_location` as being "most far away" from good info, so more chances to find info
+        0 if invoice_customer_info["label_location"][0] <= 0 else invoice_customer_info["label_location"][0] - 1,  # set one line up if this line exists
+        invoice_customer_info["label_location"][1],
+    ]
+    if ws.index(*_area_to_search_start_cell).strip() == "":  # prev set was for one line up but if that cell is blank remake it (ie, do a +1)
+        _area_to_search_start_cell[0] += 1
+    #print(f"[red]=***=======>*** START {_area_to_search_start_cell=} [/]")  #FIXME DBG can be dropped
+    # from `_area_to_search_start_cell` go down up a blank (empty cell)
+    _last_ok_position = list([0, 0])
+    for __i in range(_area_to_search_start_cell[0], ws.size[0] + 1):  # scan rest of lines for a blank one
+        _crt_scanned_cell_idx = (__i, _area_to_search_start_cell[1])
+        _crt_scanned_cell_val = ws.index(*_crt_scanned_cell_idx)
+        #print(f"[red]========> scanned cell: {_crt_scanned_cell_val=} @ {_crt_scanned_cell_idx} {_last_ok_position=} [/]")  #FIXME DBG can be dropped
+        if _crt_scanned_cell_val.strip() == "":  # here you must stop
+            #print(f"[red]========> stopping for: {_crt_scanned_cell_val=} @ {_crt_scanned_cell_idx}  WITH LAST AREA GOOD @ {_last_ok_position=} [/]")  #FIXME DBG can be dropped
+            break
+        # save current position to be used after break
+        _last_ok_position = copy.deepcopy(_crt_scanned_cell_idx)
+    #print(f"[red]========> @end of loop: {_last_ok_position=} [/]")  #FIXME DBG can be dropped
+    _area_to_search_end_cell = [
+        _last_ok_position[0],
+        ws.size[1] if _last_ok_position[1] > ws.size[1] else _last_ok_position[1] + 1,  # set one row right if this row exists
+    ]
+    #print(f"[red]=***=======>*** END {_area_to_search_end_cell=} [/]")  #FIXME DBG can be dropped
+    # set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
+    _area_to_search = (tuple(_area_to_search_start_cell), tuple(_area_to_search_end_cell))
+    invoice_header_area["customer_area"] = {
+        "area_info": {
+            "value": ws.index(*_area_to_search[0]),  # ie, the value at area start position
+            "location": copy.deepcopy(_area_to_search),
+        }
+    }
+    ''' #TODO: ...CUSTOMER AREA  ...CONTINUE WITH specific KVs  -------------->>>
+        #FIXME: all searches for partner KV items are made with `down_search_try=False` becase is expected to be a list of KVs not some isolated ones in Excel
+            NOTE: keep up comment until finish customer area
     '''
-    #TODO ...hereuare... ............................................. #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
+    #print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
+    # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
+    _temp_found_data = get_excel_data_at_label(  #FIXME: all searches for partner KV items should be made with `down_search_try=False`  #FIXME drop me after 1 more search / is in section comment
+        pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+        targeted_type=str,
+        down_search_try=False
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    #print(f"[red]========> CUI find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
+    invoice_header_area["customer_area"]["CUI"] = {
+        "value": _temp_found_data["value"],
+        "location": _temp_found_data["location"],
+        "label_value": _temp_found_data["label_value"],
+        "label_location": _temp_found_data["label_location"]
+    }
+    ... # continue code here   #TODO: ...hereuare... to continue with ... # find customer key "RegistrationName" ==> `cbc_RegistrationName`
+    ...
+    # TODO:: ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
+    invoice_header_area["customer_area"].update({
+        "RegistrationName": {  # TODO: for name of comany use patterns like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r.a.
+            "value": "...future...",
+            "location": "...future...",
+            "label_value": "...future...",
+            "label_location": "...future..."
+        },
+    })
+    '''
+    NOTE: - before end:
+        - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
+        - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)" ...->
+          ...-> for combination: `cac:AccountingSupplierParty` ---- `cac_AccountingSupplierParty`
+        - helper search str "TODO ...here to add rest of `invoice_header_area`..."
+    '''
+    #TODO ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 
@@ -224,7 +290,7 @@ def rdinv(
         this is required to be after header determination (because CURRENCY could be known here and will impact config param `DEFAULT_CURRENCY`)
     """
     # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
-    invoice_items_as_kv_pairs = __mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
+    invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
 
     # preserve processed Excel file meta information: start address, size.
     meta_info = _build_meta_info_key(
@@ -235,13 +301,34 @@ def rdinv(
         found_cell=tuple(_found_cell_for_invoice_items_area_marker))
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
+    ''' FIXME: XML reuired structure for `cac_AccountingCustomerParty`  FIXME: drop me after ... see full comment down
+                    <cac:PartyLegalEntity>
+                        <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
+                        <cbc:CompanyID>21986376</cbc:CompanyID>
+                    </cac:PartyLegalEntity>
+    '''#FIXME: after a check ref JSON --> XML convrsion uodate PLAN_XML_file and can drop this info
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
+            "cac_AccountingCustomerParty": {
+                "cac_PartyLegalEntity": {
+                    "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
+                    "cbc_RegistrationName": "TODO...tbd in nxt operations...",  # TODO: ...tbd in nxt operations...
+                    #NOTE    - add these keys to XML-JSON map
+                    # NOTE:_DONE  cac_PartyLegalEntity -- cac:PartyLegalEntity  #FIXME can be dropped
+                    # NOTE:_DONE  cbc_CompanyID -- cbc:CompanyID  #FIXME can be dropped
+                    # NOTE:_DONE  cbc_RegistrationName -- cbc:RegistrationName  #FIXME can be dropped
+                    #NOTE         ...add more keys to write in map...
+                },
+                "...incoming_structure_for_ADDRESSS": {
+                    "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations...",
+                }
+            },
             #TODO ...here to add rest of `invoice_header_area`...
-            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs]  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
+            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
+            #TODO: need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
@@ -250,6 +337,20 @@ def rdinv(
             invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO to be done... (just localized `invoice_footer_area`)
         )
     }
+    ''' #NOTE: TOTAL_invoice_strucuture (NOTE: refered by line "TODO: need  to contsruct TOTAL invoice structure ...", line ~>= 314)
+                <cac:LegalMonetaryTotal>
+                    <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
+                        -NOTE SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
+                    <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
+                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
+                    <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
+                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmmount`)
+                    <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
+                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
+                </cac:LegalMonetaryTotal>
+            - NOTE-IMPORTANT-NOTE: only TOTALIZED values need to be rounded 2 decimals (because LineVatAmmount is let raw calculation to ve able to round here after SUM)
+            - NOTE: TOTAL invoice VAT can be obtained as `SUM(from existing key cac_InvoiceLine.LineVatAmmount`) adding lines VAT
+    '''
 
     # write `invoice` dict to `f-JSON`
     """ useful NOTE(s):
@@ -277,28 +378,29 @@ def rdinv(
 
 
 # #NOTE - ready, test PASS @ 231212 by [piu]
-def __get_excel_data_at_label(
+def get_excel_data_at_label(
         pattern_to_search_for: list[str],
         worksheet: xl.Database.ws,
         area_to_scan: list[list[int]] = None,
-        targeted_type: Callable = str
+        targeted_type: Callable = str,
+        down_search_try: bool = True
     ) -> dict:
-    """ get "one key Excel values", like invoice number or invoice issue date.
-        scan is made in order *left->right, top->down* given area and search for cell_value in `pattern_to_search_for`
+    """get "one key Excel values", like invoice number or invoice issue date.
 
     Args:
-        - `pattern_to_search_for: list[str]`: for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`
-        - `worksheet`: the worksheet containing invoice (as object of `pyxllight` library)
-        - `area_to_scan: list[start_cell, end_cell]`: area of cells to be searched, default whole worksheet
-        - `targeted_type: type`: what type expect (will try to convert to, if cannot will return str), default `str`
+        `pattern_to_search_for`: for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`.
+        `worksheet`: the worksheet containing invoice (as object of `pyxllight` library).
+        `area_to_scan`: area of cells to be searched, default whole worksheet.
+        `targeted_type`: what type expect (will try to convert to, if cannot will return str), default `str`.
+        `down_search_try`: establish if DOWN search method is tried, default `True`.
 
     Return:
-        - `None` if not found OR `dictionary` containing:
-            - `"value": int | float | str` - the value found covenrted to requested `targeted_type` if possible or `str` otherwise; if "out of space" then returns `None`
-            - `"location": (row, col)` - adrees of cell where found value
+        `None` if not found OR `dictionary` containing:
+            * `"value": int | float | str` - the value found covenrted to requested `targeted_type` if possible or `str` otherwise; if "out of space" then returns `None`
+            * `"location": (row, col)` - adrees of cell where found value
 
     Notes:
-        - scan is made in order *left->right, top->down* given area and search for cell_value in `pattern_to_search_for`
+        * normal scan order is 1.RIGHT, 2.DOWN (if allowed), 3.IN-LABEL only in given area and pattern.
     """
     def __check_value(val: Any) -> bool:
         """ return `True` if a `val` is different of None or empty string or SYS_FILLED_EMPTY_CELL, otherwise return `False`
@@ -338,8 +440,8 @@ def __get_excel_data_at_label(
                         if __check_value(check_for):
                             value_found = check_for
                             index_of_value_found = check_for_index
-                    # continue with DOWN test if NOT found somethinng at RIGHT
-                    if not (value_found and index_of_value_found):  # try DOWN test only if a relevant value not found or value is located in a wrong area
+                    # continue with DOWN test if NOT found somethinng at RIGHT and if this strategy is allowed to be used
+                    if down_search_try and not (value_found and index_of_value_found):  # try DOWN test only if method is allowed AND a relevant value not found or value is located in a wrong area
                         # NOTE-LOGIC: test for DOWN cell @(i+1,j) if cell exists in ws range AND if has a value then continue loop (to find other potential cell)
                         if i < area_to_scan[1][0] :  # if still in range if test (ie, exists cell @ (i+1, j))
                             check_for_index = (i + 1, j)
@@ -349,8 +451,13 @@ def __get_excel_data_at_label(
                                 index_of_value_found = check_for_index
                     # continue with IN-LABEL test if NOT found somethinng at DOWN
                     if not (value_found and index_of_value_found):  # try IN-LABEL test only if a relevant value not found or value is located in a wrong area
-                        # NOTE-LOGIC: test for IN-LABEL cell
-                        check_for = label_value.split()[-1].strip()  # clean and keep only last word
+                        # NOTE-LOGIC: test for IN-LABEL cell (label is supposed only first word separated by space)
+                        check_for = label_value.strip()
+                        # keep all except first word (supposed to be label)
+                        if len(check_for) > 1:
+                            check_for = ' '.join(check_for.split()[1:])  # clean and keep all string except first word
+                        else:
+                            chech_for = ""
                         if __check_value(check_for):
                             value_found = check_for
                             index_of_value_found = label_location
@@ -377,16 +484,17 @@ def __get_excel_data_at_label(
 
 
 # #NOTE - ready, test PASS @ 231126 by [piu]
-def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
+def mk_kv_invoice_items_area(invoice_items_area_xl_format):
     """transform `invoice_items_area` in "canonical JSON format" (as kv pairs).
 
     Args:
-        - `invoice_items_area_xl_format`: invoice items area in Excel format (ie, DataFrame with row, col, data)
+        `invoice_items_area_xl_format`: invoice items area in Excel format (ie, DataFrame with row, col, data).
 
     Return:
-        - `invoice_items_area_xl_format`: dictionary with invoice items in Excel format (ie, rows, columns)
+        `invoice_items_area_xl_format`: dictionary with invoice items in Excel format (ie, rows, columns).
+
     Notes:
-        - for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`
+        * for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`.
     """
     _invoice_items_data_key = copy.deepcopy(invoice_items_area_xl_format["data"])
     _invoice_items_cols_key = copy.deepcopy(invoice_items_area_xl_format["keycols"])
@@ -399,7 +507,7 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
         if True:  # ---- find item quantity column ==> (`cbc_InvoicedQuantity`)
             _col_index = find_str_in_list(["qty", "cant", "quantity"], _invoice_items_cols_key)
             if _col_index is None:  # did not find a suitable column to represent number, so return None probably raising an error
-                print(f"[red]***FATAL ERROR - module 'RDINV', function `__mk_kv_invoice_items_area(...)`. Cannot find a 'QUANTITY' column in items table. Processing terminated[/]")
+                print(f"[red]***FATAL ERROR - module 'RDINV', function `mk_kv_invoice_items_area(...)`. Cannot find a 'QUANTITY' column in items table. Processing terminated[/]")
                 return False
             else:
                 _item_quantity = _invoice_items_data_key[_i][_col_index] if isnumber(str(_invoice_items_data_key[_i][_col_index])) else None
@@ -445,6 +553,11 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
             _item_total = None
             if (_item_quantity is not None) and (_unit_price is not None):
                 _item_total = round(_item_quantity * _unit_price, 2)
+                # line VAT calculation is subject of VAT existence and right calculation as number, otherwise it is set to NULL
+                if _item_total and _vat_percent:
+                    _item_VAT = float(_item_quantity * _unit_price * _vat_percent)  # this line does not round info to be able to round only the total
+                else:
+                    _item_VAT = 0.0
 
         # build dictionary with usual invoice columns (respecting as possible the XSD schemes listed in [`meta_info`][`invoice_XML_schemes`] key)
         _line_info = {
@@ -465,7 +578,8 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
                     "cbc_PriceAmount" : _unit_price,
                     "cbc_currencyID": None if (_item_quantity is None or str(_item_quantity).split() == "") else DEFAULT_CURRENCY
                 },
-                "cbc_LineExtensionAmount": _item_total
+                "cbc_LineExtensionAmount": _item_total,
+                "LineVatAmmount": None if _item_total is None else _item_VAT,  # line VAT calculation is subject of some ammount existence
             }
         }
         _invoice_items_area_json_format.append(_line_info["cac_InvoiceLine"])
@@ -477,22 +591,23 @@ def __mk_kv_invoice_items_area(invoice_items_area_xl_format):
 
 
 # #NOTE - ready, test PASS @ 231121 by [piu]
-def _get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
+def get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
     """get invoice for `invoice_items_area`, process it and return its Excel format.
 
-    - find invoice items subtable
-    - clean invoice items subtable
-    - extract relevenat data
-    - NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
+    Process steps & notes:
+        * find invoice items subtable.
+        * clean invoice items subtable.
+        * extract relevenat data.
+        * NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
 
     Args:
-        - `worksheet`: the worksheet containing invoice (as object of `pyxllight` library)
-        - `invoice_items_area_marker`: string with exact marker of invoice items table
-            — NOTE: this is the UPPER-LEFT corner and is determined before calling this procedure
-        - `wks_name`: the wroksheet name (string) of the `worksheet` object
+        `worksheet`: the worksheet containing invoice (as object of `pyxllight` library).
+        `invoice_items_area_marker`: string with exact marker of invoice items table.
+            NOTE: this is the UPPER-LEFT corner and is determined before calling this procedure.
+        `wks_name`: the wroksheet name (string) of the `worksheet` object.
 
     Return:
-        - `invoice_items_area`: dictionary with invoice items in Excel format (ie, rows, columns)
+        `invoice_items_area`: dictionary with invoice items in Excel format (ie, rows, columns).
     """
     # obtain table with invoice items ==> `invoice_items_area`
     invoice_items_area = worksheet.ssd(keycols = invoice_items_area_marker, keyrows = invoice_items_area_marker)
@@ -573,19 +688,19 @@ def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name, keep_ce
     """scan Excel file to detect all merged ranges.
 
     Args:
-        - `file_to_scan`: the excel file to be scanned
-        - `invoice_worksheet_name`: the worksheet to be scanned
-        - `keep_cells_of_items_ssd_marker`: tuple with cells that will be marked IN ANY CASE to be preserved
-            - use case: to keep all potential invoice items ssd rows
-            - format: `tuple(row, col, val)` where row & col are relevant here
-            - default: `None`
+        `file_to_scan`: the excel file to be scanned.
+        `invoice_worksheet_name`: the worksheet to be scanned.
+        `keep_cells_of_items_ssd_marker`: tuple with cells that will be marked IN ANY CASE to be preserved:
+            * use case: to keep all potential invoice items ssd rows.
+            * format: `tuple(row, col, val)` where row & col are relevant here
+            * default: `None`
 
     Return:
-        - `cells_to_be_changed`: list with cells that need to be chaged in format `(row,col)`
+        `cells_to_be_changed`: list with cells that need to be chaged in format `(row,col)`.
 
     Notes:
-        - function is intended to be used ONLY internal in this module
-        - use `openpyxl` library to do its job
+        * function is intended to be used ONLY internal in this module.
+        * use `openpyxl` library to do its job.
     """
     all_detected_ranges = []
     # open Excel file & worksheet
@@ -645,18 +760,19 @@ def _build_meta_info_key(excel_file_to_process: str,
                          found_cell: list) -> dict:
     """build meta_info key to preserve processed Excel file meta information: start address, size.
 
-    - NOTE 1: all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update
-    - NOTE 2: this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality')
+    Notes:
+        1: all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update.
+        2: this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality').
 
     Args:
-        - `excel_file_to_process`: name of file to process as would appear in `meta_info` key
-        - `invoice_worksheet_name`: the worksheet name as would appear in `meta_info` key
-        - `ws_size`: worksheet size as would appear in `meta_info` key (index 0 max rows, index 1 max columns)
-        - `keyword_for_items_table_marker`: the content of cell used as start of invoice items subtable as would appear in `meta_info`
-        - `found_cell`: position of cell used as start of invoice items subtable as would appear in `meta_info` key (index 0 row, index 1 column)
+        `excel_file_to_process`: name of file to process as would appear in `meta_info` key.
+        `invoice_worksheet_name`: the worksheet name as would appear in `meta_info` key.
+        `ws_size`: worksheet size as would appear in `meta_info` key (index 0 max rows, index 1 max columns).
+        `keyword_for_items_table_marker`: the content of cell used as start of invoice items subtable as would appear in `meta_info`.
+        `found_cell`: position of cell used as start of invoice items subtable as would appear in `meta_info` key (index 0 row, index 1 column).
 
     Return:
-        - `meta_info` dictionary built with meta information to be incorpoarted in final invoice dict
+        `meta_info` dictionary built with meta information to be incorpoarted in final invoice dict
     """
     _tmp_meta_info = dict()
 
@@ -692,7 +808,12 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount"),
         ("cbc_ID", "cbc:ID"),  # invoice number
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
-        ("cbc_IssueDate", "cbc:IssueDate")  # invoice issue date
+        ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
+        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer inforation - MASTER RECORD
+        ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL RECORD
+        ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL RECORD
+        ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL RECORD
+
     ]
 
     return copy.deepcopy(_tmp_meta_info)

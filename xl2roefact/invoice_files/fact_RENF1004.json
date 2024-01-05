@@ -3,6 +3,15 @@
         "cbc_ID": "RENF-1004",
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-08-28",
+        "cac_AccountingCustomerParty": {
+            "cac_PartyLegalEntity": {
+                "cbc_CompanyID": "17753763",
+                "cbc_RegistrationName": "TODO...tbd in nxt operations..."
+            },
+            "...incoming_structure_for_ADDRESSS": {
+                "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations..."
+            }
+        },
         "cac_InvoiceLine": [
             {
                 "cbc_ID": "1",
@@ -21,7 +30,8 @@
                     "cbc_PriceAmount": 11111.5,
                     "cbc_currencyID": "RON"
                 },
-                "cbc_LineExtensionAmount": 38890.25
+                "cbc_LineExtensionAmount": 38890.25,
+                "LineVatAmmount": 7389.1475
             },
             {
                 "cbc_ID": "1.NOTE-a",
@@ -40,7 +50,8 @@
                     "cbc_PriceAmount": null,
                     "cbc_currencyID": null
                 },
-                "cbc_LineExtensionAmount": null
+                "cbc_LineExtensionAmount": null,
+                "LineVatAmmount": null
             },
             {
                 "cbc_ID": "1.NOTE-b",
@@ -59,7 +70,8 @@
                     "cbc_PriceAmount": null,
                     "cbc_currencyID": null
                 },
-                "cbc_LineExtensionAmount": null
+                "cbc_LineExtensionAmount": null,
+                "LineVatAmmount": null
             },
             {
                 "cbc_ID": "1.NOTE-c",
@@ -78,7 +90,8 @@
                     "cbc_PriceAmount": null,
                     "cbc_currencyID": null
                 },
-                "cbc_LineExtensionAmount": null
+                "cbc_LineExtensionAmount": null,
+                "LineVatAmmount": null
             },
             {
                 "cbc_ID": "2",
@@ -97,14 +110,15 @@
                     "cbc_PriceAmount": 111.115,
                     "cbc_currencyID": "RON"
                 },
-                "cbc_LineExtensionAmount": 111.11
+                "cbc_LineExtensionAmount": 111.11,
+                "LineVatAmmount": 0.0
             }
         ]
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2023-12-24T03:03:34.765095+00:00",
+        "last_processing_time": "2024-01-05T05:35:08.578230+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 30,
         "invoice_max_cols": 9,
@@ -185,6 +199,22 @@
             [
                 "cbc_IssueDate",
                 "cbc:IssueDate"
+            ],
+            [
+                "cac_AccountingCustomerParty",
+                "cac:AccountingCustomerParty"
+            ],
+            [
+                "cac_PartyLegalEntity",
+                "cac:PartyLegalEntity"
+            ],
+            [
+                "cbc_CompanyID",
+                "cbc:CompanyID"
+            ],
+            [
+                "cbc_RegistrationName",
+                "cbc:RegistrationName"
             ]
         ]
     },
@@ -299,8 +329,40 @@
                     8
                 ]
             },
-            "supplier": "...future...",
-            "customer": "...future..."
+            "customer_area": {
+                "area_info": {
+                    "value": "Client",
+                    "location": [
+                        [
+                            8,
+                            5
+                        ],
+                        [
+                            16,
+                            6
+                        ]
+                    ]
+                },
+                "CUI": {
+                    "value": "17753763",
+                    "location": [
+                        11,
+                        6
+                    ],
+                    "label_value": "CIF:",
+                    "label_location": [
+                        11,
+                        5
+                    ]
+                },
+                "RegistrationName": {
+                    "value": "...future...",
+                    "location": "...future...",
+                    "label_value": "...future...",
+                    "label_location": "...future..."
+                }
+            },
+            "supplier_area": "...future..."
         },
         "invoice_footer_area": {
             "start_cell": [

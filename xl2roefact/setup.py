@@ -1,14 +1,14 @@
-""" a minimal setup for `cxFreeze` configuration in order to build Windows executable and installer package (as `msi` package)
+""" setup for `xl2roefact` package configuration in order to build Windows MSI & EXE and PyPy package.
 
-    Identification:
-        code-name: `setup.py`
-        copyright: (c) 2023 RENWare Software Systems
-        author: Petre Iordanescu (petre.iordanescu@gmail.com)
+Identification:
+* code-name: `setup.py`
+* copyright: (c) 2023 RENWare Software Systems
+* author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
-    Specifications:
-        - INITIAL create `build/` directory with all building commands for _xl2roefact_ app: `python setup.py build`
-        - @RELEASE create MSI package in `dist/`: `python setup.py bdist_msi`
-        - *helper*: see official doc here `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`
+Specifications:
+* INITIAL create `build/` directory with all building commands for _xl2roefact_ app: `python setup.py build`
+* @RELEASE create MSI package in `dist/`: `python setup.py bdist_msi`
+* *helper*: see official doc here `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`
 """
 
 import sys

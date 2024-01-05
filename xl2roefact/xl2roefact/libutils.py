@@ -1,17 +1,16 @@
 #!../.venv/bin/python3
-""" LIBUTILS - general utilities library
+"""libutils: general utilities library.
 
-    Identification:
-        code-name: `libutils`
-        copyright: (c) 2023 RENWare Software Systems
-        author: Petre Iordanescu (petre.iordanescu@gmail.com)
+Identification:
+* code-name: `libutils`
+* copyright: (c) 2023 RENWare Software Systems
+* author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
-    Components:
-        - `isnumber(a_string: str) -> bool`
-            Test a string if it could be used as number (int or float)
-
-        - `find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int`
-            Search more strings (ie, a list) in list of strings
+Components:
+* `isnumber(a_string: str) -> bool`
+    Test a string if it could be used as number (int or float)
+* `find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int`
+    Search more strings (ie, a list) in list of strings
 """
 
 from fractions import Fraction
@@ -22,10 +21,10 @@ def isnumber(a_string: str) -> bool:
     """test if a string is valid as any kind of number.
 
     Args:
-        - `a_string`: input string
+        `a_string`: input string.
 
     Returns:
-        - `True` if input string is valid as any kind of number, orherwise `False`
+        `True`: if input string is valid as any kind of number, orherwise `False`.
     """
     try:
         float(a_string)
@@ -44,11 +43,11 @@ def find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int:
     """find a substring from `list_of_str_to_find` in elements of `list_to_search`.
 
     Args:
-        - `list_of_str_to_find`: list of strings to search for
-        - `list_to_search`: liste where to search for substrings
+        `list_of_str_to_find`: list of strings to search for.
+        `list_to_search`: liste where to search for substrings.
 
     Returns:
-        - `index`: the index of list item which contains `str_to_find` (first found) or `None` if not found
+        `index`: the index of list item which contains `str_to_find` (first found) or `None` if not found.
     """
     __found = False
     for __crt_str_to_search_for in list_of_str_to_find:

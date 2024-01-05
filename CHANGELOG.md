@@ -32,7 +32,8 @@
 * [ ] update documentation for:
     * [ ] `rdinv` module
     * [ ] `xl2roefact` CLI application
-    * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md`
+    * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md` first ref "Cum sa utilizeti sablonul, reguli de urmat in completarea datelor"
+    * [x] (DONE: 0.1.18-231227piu_a) used Pydoc Markdown `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
 -
 * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
     * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
@@ -46,29 +47,97 @@
     * create a **`build.bat`** & include in `MSI` package 'data' directories as: `excel_invoice_template/`, empty `invoice_files/` (see `cx-Freeze`, options `--directories` of `bdist_msi`cmd, option `--include_files` of `build_exe`cmd, ref URL: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
     * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
     * PACKAGE SOLUTION:
-        * [ ] consider refactor `xl2roefact` --> `xl-invoices` (hyphen as PEP 503 `https://peps.python.org/pep-0503/#normalized-names`) ...
-        * [ ] && publish `xl2roefact` package --> read `TODO_packaging.md`
-        * [x] make a PDM build: [FIRST TRY @ 231220 h09:55]
-            * [x] ___command___: `pdm build -v --no-clean`
-            * [x] resulted: `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
+        * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
+        * [x] (DONE: 0.1.18-231226piu_a) make some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
+        * [x] (DONE: 0.1.17) make a PDM build: OK, currently is done @ each release, results ==> `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
-        * [x] (DONE@0.1.12) invoice header - invoice number
-        * [x] (DONE@231217piu_a) invoice header - issue date
-        * [x] (DONE@0.1.13) invoice header - currency
+        * [x] (DONE: 0.1.12) invoice header - invoice number
+        * [x] (DONE: 0.1.14-231217piu_a) invoice header - issue date
+        * [x] (DONE: 0.1.13) invoice header - currency
         * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
         * [ ] invoice header - customer (`<cac:AccountingCustomerParty>`)
 
 
 
-### 0.1.18 invoice partners customer  (#TODO_WIP...)
-
-* wip... WHEN RELEASE UPDATE `pyproject.toml` / last item used 231224piu_a
-
-* tbd... invoice header - supplier (`<cac:AccountingSupplierParty>`)
 
 
+
+### 0.1.19 invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
+
+* wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
+
+* tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
+
+* tbd... invoice customer search and persist for "RegistrationName"
+
+* wip... (last item used `240105piu_c`)
+
+
+
+
+
+
+
+
+
+
+### 0.1.18 invoice customer CUI partial invoice total values calculations  (240105 h08:00)
+
+* 240105piu_c updated `xl2roefact` package `README.md` file (with new sections for intro to Excel invoice content rules, tutorial TODO, reference to technical doc)
+
+* 240105piu_b invoice customer search and persist for "CUI"
+
+* 240105piu_a `rdinv.def get_excel_data_at_label(...)` changed strategy for DOWN search-method made it optional with default True (useful for Partners set-of KVs where is supposed to be or IN-LABEL or in RIGHT but NOT DOWN because there is a list of KVs not just one placed anywhere in Excel doc)  #TODO tgis is subject of doc update
+
+* 240103piu_d `rdinv.def get_excel_data_at_label(...)` changed strategy for IN-LABEL search-method to return all string except first word (supposed to be label) separated by space character (old strategy was to get only last work from all string)
+
+* 240103piu_c ref invoice customer created in `config_settings.py` PATTERNs for search keys `PATTERN_FOR_PARTNER_ID` (CUI or ID), `PATTERN_FOR_PARTNER_LEGAL_NAME`
+
+* 240103piu_b calculated item lines VAT amount as `cac_InvoiceLine.LineVatAmmount` as raw float value (not rounded to be able to round just invoice TOTAL)
+
+* 240103piu_a `rdinv.rdinv()` updated JSON -- XML map (part of function `_build_meta_info_key(...)`)
+
+* 240102piu_a `rdinv.rdinv()` upd & improved a clear Customer specific XML compliant structure. Targeted this XML structure:
+                ```
+                    <cac:PartyLegalEntity>
+                        <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
+                        <cbc:CompanyID>21986376</cbc:CompanyID>
+                    </cac:PartyLegalEntity>
+                ```
+
+* 240101piu_a clean useless & obsolete project files, test new full build (MSI, Python wheel, documentation) ==> PASS OK
+
+* 231229piu_a invoice customer (`<cac:AccountingCustomerParty>`) detect & set area to search for specific keys (like CUI, RegCom, IBAN, ...)
+    * [x] 1. established AREA TO SEARCH for PARTNER data an `_area_to_search` (~line 244)
+    * [x] 2. updated `config_settings.py` changed: (for a clear understating of constant scope, because will follow others for specific keys like: "reg com", "CUI", "bank / IBAN / cont", ...)
+        - `PATTERN_FOR_INVOICE_CUSTOMER_LABEL` --> `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER`
+        - `PATTERN_FOR_INVOICE_SUPPLIER_LABEL` --> `PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER`
+    * [x] 3. set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references) - `rdinv()` ~line 239
+    * [x] 4. updated main xl2roefact README.md document ref latter changes and app structuring, concepts, ...(ideas evolving :)...
+    * [x] 5. done code for `cac_AccountingSupplierParty` key by iterating full `invoice_header_area["customer_area"]` structure
+
+* 231228piu_a improved documentation generation:
+    * [x] updated all modules docstring(s) to a right markdown representation in generated documentation (ex: when use bullets THEN DO NOT indent at 1st level)
+    * [x] __@IMP_NOTE:__ Changed generated documentation file to `doc/810.05a-xl2roefact_DLD_specs.md` and referred in main `doc/810.05a-xl2roefact_component.md` as this being a final solution for whole project documentation (that generated with `mkdocs`)
+    * [x] updated `pyproject.toml, [tool.pdm.scripts]` table with new generated doc file name (810.05a-xl2roefact_DLD_specs.md)
+
+* 231227piu_b updated `xl2roefact.rdinv` module ref dropped `_` chars from internal function names to allow doc generation by PyDoc until will produce a YAML file for PyDoc generator (where will be able to specify concrete list of objects regarding their names)
+
+* 231227piu_a generated a first draft of markdown documentation:
+    * [x] used Pydoc Markdown @ `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
+    * [x] results ==> `<PJ_ROOT>/xl2roefact/doc/generated_810.05a-xl2roefact_component.md`
+    * [x] created PDM shell command `pdm run` (command just for quick remembers: `pydoc-markdown -I xl2roefact --render-toc >doc/generated_810.05a-xl2roefact_component.md`)
+
+* 231226piu_b reviewed `xl2roefact` all "in use" code and updated `docstrings`
+
+* 231226piu_a made some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
+    * [x] **`pdm build_wheel`** Python package,
+    * [x] **`pdm build_msi`** MSI package,
+    * [x] **`pdm build_all`** build all packages
+    * [x] **`pdm xl2roefact`** run xl2roefact command
+    * [x] updated `doc/810.05a-xl2roefact_component.md`
 
 
 
@@ -98,7 +167,7 @@
 
 
 
-# 0.1.16 improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
+### 0.1.16 improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
 
 * 231222piu_b build packages for:
     * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
@@ -213,80 +282,7 @@
 
 
 
-### 0.1.10 command interface improved, `msi` package building, invoice template & updated documentation (231207 h12:00)
 
-* 231207piu_b build a `MSI` package for `0.1.10` version ==> **`0.1.10-xl2roefact-0.1-win64.msi`**, also installed `Python 3.11` + `cx-Freeze` & updated `requirements_xl2roefact.txt`
-
-* 231207piu_a FIXED errors due to Excel files directory duplication in `xl2roefact` & `rdinv()`
-
-* 231206piu_a clean code for `rdinv` & `xl2roefact`, reviewed cnd closed some open issues (todos, notes, ...)
-
-* 231205piu_b made a directory for INVOICE TEMPLATE (`excel_invoice_template/`) to be delivered with solutions "for who need a simple template", also write here a `README_excel_invoice_rules.md` to describe all required conditions in order to be "RECOGNIZED & TRANSLATED to JSON"
-
-* 231205piu_a change all solution to use `rich` library instead of `colorama` (Rich library ref `https://rich.readthedocs.io/en/stable/index.html`)
-    * [x] drop all `from colorama import Fore, Back, Style`
-    * [x] add new `from rich import print`
-    * [x] update all places where `{Fore....}` with `[...]` as:
-        * [x] `{Fore.YELLOW}` with `[yellow]`
-        * [x] `{Fore.GREEN}` with `[green]`
-        * [x] `{Fore.MAGENTA}` with `[magenta]`
-        * [x] `{Fore.BLUE}` with `[blue]`
-        * [x] `{Fore.CYAN}` with `[cyan]`
-        * [x] `{Fore.RED}` with `[red]`
-    * [x] change all `typer.echo` with `print`
-    * [x] update all places where `{Style.RESET_ALL}` with `[/]`
-
-* 231204piu_c build new executable and installer ==> `dist/0.1.10.231204piu_a-xl2roefact-0.1-win64.msi`
-
-* 231204piu_b created `./doc/` renamed and moved all documentation documents - intention to keep clean `xl2roefact root`
-
-* 231204piu_a `xl2roefact xl2json` check rdinv() result and if return False, ONLY print a message of "INFO note" then continue with next file (the effective error was print by module itself) && build a new executable package ==> `dist/0.1.10.231204piu_a-exe.win-amd64-3.10.zip`
-
-
-
-
-### 0.1.9 `xl2roefact.RDINV` running executable and distribution kit (231203 h07:00)
-
-* 231103piu_b releasing ==> made `dist/0.1.9-exe.win-amd64-3.10.zip` with executable file
-
-* 231103piu_a `xl2roefact.py` more updates:
-    * [x] set verbose flag for debugging mode
-    * [x] made `file_name` argument as file(s) to be processed with wildcards like Python standard function `os.glob.glob()` (reference here `https://docs.python.org/2/library/glob.html`)
-    * [x] build a new fresh executable in `build/exe.win-amd64-3.10/`
-
-* 231202piu_b `xl2roefact.py` started a skeleton for `file_name` argument - see code-in-file @"TODO here to use `excel_files_directory` + / + `file_name` to find all files and process them in a loop"
-
-* 231202piu_a build complete `cxFreeze` configuration in order to build Windows executable and installer package (as `msi` package):
-    * [x] create a minimal setup (`setup.py`)
-    * [x] create `build/` directory with all building commands for _xl2roefact_ app: `python setup.py build` (see official doc here `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
-    * **CONCLUSION** `msi` package OK, `exe` file NOK - see `setup.py` for a detailed comment marked `NOTE-[piu@231202]`
-
-
-
-
-### 0.1.8 improved application structure and first executable release (231201 h07:30)
-
-* 231201piu_b installed `cx-Freeze` library and build a new Windows executable, update documentation - need future improvement to make `msi` package, but TEST PASSED and works perfectly
-
-* 231201piu_a improve CLI application structure (`xl2roefact.py`) and commands: `xl2json`, `about`
-
-* 231130piu_a `xl2roefact.py`, `——excel_files_directory`: option, make it of type pathlib.Path, dealut remain as is, validators; is dir, exists, writable, readable, resolve_path
-
-* 231129piu_b updated `xl2roefact.py` (main application) changed command `run` --> `xl2json` and add parameter `excel_files_directory` (future intention is to make commands: `xl2json - RDINV`, `json2xml - WRXML`, `json2pdf`, `xml2roefact - LDXML`)
-
-* 231129piu_a adopted new REN invoice template (test with data from RENF-1004)
-
-* 231128piu_b made `config_settings.py` for general application configuration purposes and an application command (`xl2roefact settings`) to print them
-
-* 231128piu_a made `xl2roefact.py` (main library file) as CLI executable structure (with `Typer` library)
-
-* 231127piu_c introduced **key `Invoice`** in  invoice JSON generated structure (also representing the "entity" in XML representation)
-
-* 231127piu_b module `rdinv` crated a distinct function for building of `meta_info` key (main `invoice` dictionary)
-
-* 231127piu_a created in invoice JSON map JSON key --> XML property (`meta_info["map_JSONkeys_XMLtags"]`) as `list of tuple(JSONkey: str, XMLtag: str)`
-
-* 231127piu_a created draft data models for: invoice (exportable as JSON and XML) and other entities (owner, customer) ==> `data_models.py`
 
 
 
@@ -295,6 +291,9 @@
 
 # Archived CHANGELOGs
 
+* [0.1.10 command interface improved, `msi` package building, invoice template & updated documentation](./changelog_history/CHANGELOG-0.1.10.md)
+* [0.1.9 `xl2roefact.RDINV` running executable and distribution kit](./changelog_history/CHANGELOG-0.1.9.md)
+* [0.1.8 improved application structure and first executable release](./changelog_history/CHANGELOG-0.1.8.md)
 * [0.1.7 `xl2roefact.RDINV` invoice items & metadata + *OPEN ISSUES*](./changelog_history/CHANGELOG-0.1.7.md)
 * [0.1.6 commercial agreement OPTIONS document](changelog_history/CHANGELOG-0.1.6.md)
 * [0.1.5 init component *xl2roefact* for CLI application](./changelog_history/CHANGELOG-0.1.5.md)

@@ -1,6 +1,3 @@
-*.log
-/logs/*.log
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -13,7 +10,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/ #NOTE #TODO [PetreI] consider to keep the win-x86 executable so will not be available on git
+# dist/  # TODO: [piu@231221] let to sync a period (until the package will be published on `PyPy` THEN uncomment and let be ignored
 downloads/
 eggs/
 .eggs/
@@ -49,8 +46,10 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
+*.py,cover
 .hypothesis/
 .pytest_cache/
+cover/
 
 # Translations
 *.mo
@@ -60,6 +59,7 @@ coverage.xml
 *.log
 local_settings.py
 db.sqlite3
+db.sqlite3-journal
 
 # Flask stuff:
 instance/
@@ -68,8 +68,11 @@ instance/
 # Scrapy stuff:
 .scrapy
 
+# Sphinx documentation
+docs/_build/
 
 # PyBuilder
+.pybuilder/
 target/
 
 # Jupyter Notebook
@@ -80,32 +83,64 @@ profile_default/
 ipython_config.py
 
 # pyenv
-.python-version
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
 
-# celery beat schedule file
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+#poetry.lock
+
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#pdm.lock
+#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+#   in version control.
+#   https://pdm-project.org/#use-with-ide
+.pdm.toml
+.pdm-python
+.pdm-build/
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
 celerybeat-schedule
+celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
 
 # Environments
-.env
-.venv
-.lenv
-.wenv
-
-env/
-venv/
-lenv/
-wenv/
-
-env.bak/
-venv.bak/
-
-# #NOTE APItoROefact application environments
-xl2roefact/.venv/
+.env*
+.venv*
+.wenv*
+.lenv*
+env*
+venv*
+wenv*
+lenv*
 
 
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
 
 # mypy
 .mypy_cache/
@@ -115,19 +150,23 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
 # temporary files
 tmp/
 xxx*
+
+# #NOTE APItoROefact application environments
+xl2roefact/.venv*
+xl2roefact/.wenv*
 
 # VS Code files
 .vscode
 .vscode/
 
-
 # static generated portal should not be in git, but just build locally
 static_portal/
-
-
-
-
-

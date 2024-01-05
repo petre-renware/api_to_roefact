@@ -3,6 +3,15 @@
         "cbc_ID": "11017969",
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-10-17",
+        "cac_AccountingCustomerParty": {
+            "cac_PartyLegalEntity": {
+                "cbc_CompanyID": "RO1590082",
+                "cbc_RegistrationName": "TODO...tbd in nxt operations..."
+            },
+            "...incoming_structure_for_ADDRESSS": {
+                "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations..."
+            }
+        },
         "cac_InvoiceLine": [
             {
                 "cbc_ID": "1",
@@ -21,7 +30,8 @@
                     "cbc_PriceAmount": 42756.08,
                     "cbc_currencyID": "RON"
                 },
-                "cbc_LineExtensionAmount": 42756.08
+                "cbc_LineExtensionAmount": 42756.08,
+                "LineVatAmmount": 8123.6552
             },
             {
                 "cbc_ID": "1.NOTE-a",
@@ -40,7 +50,8 @@
                     "cbc_PriceAmount": null,
                     "cbc_currencyID": null
                 },
-                "cbc_LineExtensionAmount": null
+                "cbc_LineExtensionAmount": null,
+                "LineVatAmmount": null
             },
             {
                 "cbc_ID": "2",
@@ -59,14 +70,15 @@
                     "cbc_PriceAmount": 855.1216,
                     "cbc_currencyID": "RON"
                 },
-                "cbc_LineExtensionAmount": 855.12
+                "cbc_LineExtensionAmount": 855.12,
+                "LineVatAmmount": 0.0
             }
         ]
     },
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2023-12-24T03:03:34.696088+00:00",
+        "last_processing_time": "2024-01-05T05:35:08.364230+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -147,6 +159,22 @@
             [
                 "cbc_IssueDate",
                 "cbc:IssueDate"
+            ],
+            [
+                "cac_AccountingCustomerParty",
+                "cac:AccountingCustomerParty"
+            ],
+            [
+                "cac_PartyLegalEntity",
+                "cac:PartyLegalEntity"
+            ],
+            [
+                "cbc_CompanyID",
+                "cbc:CompanyID"
+            ],
+            [
+                "cbc_RegistrationName",
+                "cbc:RegistrationName"
             ]
         ]
     },
@@ -237,8 +265,40 @@
                     8
                 ]
             },
-            "supplier": "...future...",
-            "customer": "...future..."
+            "customer_area": {
+                "area_info": {
+                    "value": "OMV Petrom S.A.",
+                    "location": [
+                        [
+                            8,
+                            2
+                        ],
+                        [
+                            18,
+                            3
+                        ]
+                    ]
+                },
+                "CUI": {
+                    "value": "RO1590082",
+                    "location": [
+                        10,
+                        2
+                    ],
+                    "label_value": "C.U.I. RO1590082",
+                    "label_location": [
+                        10,
+                        2
+                    ]
+                },
+                "RegistrationName": {
+                    "value": "...future...",
+                    "location": "...future...",
+                    "label_value": "...future...",
+                    "label_location": "...future..."
+                }
+            },
+            "supplier_area": "...future..."
         },
         "invoice_footer_area": {
             "start_cell": [
