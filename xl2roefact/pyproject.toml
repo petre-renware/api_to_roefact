@@ -1,6 +1,6 @@
 [project]
 name = "xl2roefact"
-version = "0.1.18"  #NOTE this entry is subject to be periodically updated
+version = "0.1.19"  #NOTE this entry is subject to be periodically updated
 description = "Excel invoice upload to RO E-Fact system"
 authors = [
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" },
