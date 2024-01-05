@@ -69,6 +69,8 @@
 
 * tbd... invoice customer search and persist for "RegistrationName"
 
+* 240105piu_c updated `xl2roefact` package `README.md` file (with new sections for intro to Excel invoice content rules, tutorial TODO, reference to technical doc)
+
 * 240105piu_b invoice customer search and persist for "CUI"
 
 * 240105piu_a `rdinv.def get_excel_data_at_label(...)` changed strategy for DOWN search-method made it optional with default True (useful for Partners set-of KVs where is supposed to be or IN-LABEL or in RIGHT but NOT DOWN because there is a list of KVs not just one placed anywhere in Excel doc)  #TODO tgis is subject of doc update
