@@ -123,9 +123,11 @@ PATTERN_FOR_PARTNER_ID = [
     "id",
 ]
 # numele legal al companiei
-PATTERN_FOR_PARTNER_LEGAL_NAME = [
+PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
+'''#FIXME drop this after tests
+[
     "sa", "s.a",
     "srl", "s.r.l",
     "pfa", "p.f.a",
     "ra", "r.a",
-]
+] '''
