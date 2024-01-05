@@ -265,9 +265,12 @@ def rdinv(
     }
     ... # continue code here   #TODO: ...hereuare... to continue with ... # find customer key "RegistrationName" ==> `cbc_RegistrationName`
     ''' NOTE: strategy :-
-        1. search for the same PATTERN as used for header area
+        1. search for PATTERN_FOR_PARTNER_LEGAL_NAME
         2. if VALUE found has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
-            ==> keep 
+            ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]
+        3. else
+            ==> keep value returned by search from step 1.
+        NOTE: review & clean `config_settings.py`
     '''
     ...
     # TODO:: ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
