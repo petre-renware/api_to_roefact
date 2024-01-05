@@ -94,5 +94,19 @@ Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara 
 
 
 
+## Practici si regului referitoare la continutul facturilor din Excel
+
+Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".
+
+-#TODO ...tbd
+
+
+
+
+## ...
+
+-#TODO ...tbd
+
+
 
 
