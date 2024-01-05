@@ -263,15 +263,16 @@ def rdinv(
         "label_value": _temp_found_data["label_value"],
         "label_location": _temp_found_data["label_location"]
     }
-    ... # continue code here   #TODO: ...hereuare... to continue with ... # find customer key "RegistrationName" ==> `cbc_RegistrationName`
-    ''' NOTE: strategy :-
-        1. search for PATTERN_FOR_PARTNER_LEGAL_NAME
-        2. if VALUE found has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
-            ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]
-        3. else
-            ==> keep value returned by search from step 1.
+    ... #TODO: ...hereuare... to continue with ... # find customer key "RegistrationName" ==> `cbc_RegistrationName`
+    ''' NOTE: proposed strategy @240106 h01:00
+          1. search for PATTERN_FOR_PARTNER_LEGAL_NAME
+          2. if VALUE found has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
+              ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]
+          3. else
+              ==> keep value returned by search from step 1.
         NOTE: review & clean `config_settings.py`
     '''
+    ... # RegistrationName code here
     ...
     # TODO:: ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
