@@ -5,7 +5,7 @@
         "cbc_IssueDate": "2023-10-17",
         "cac_AccountingCustomerParty": {
             "cac_PartyLegalEntity": {
-                "cbc_CompanyID": "...TODO: as str ...wip...work_here...",
+                "cbc_CompanyID": "RO1590082",
                 "cbc_RegistrationName": "TODO...tbd in nxt operations..."
             },
             "...incoming_structure_for_ADDRESSS": {
@@ -78,7 +78,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-01-05T02:40:31.763773+00:00",
+        "last_processing_time": "2024-01-05T03:19:49.004733+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -280,18 +280,18 @@
                     ]
                 },
                 "CUI": {
-                    "value": "...TODO: as str ...wip...work_here...",
-                    "location": "...TODO: as [int,int] ...wip...work_here...",
-                    "label_value": "TODO: as str ...ce am gasit in Excel...",
-                    "label_location": "...TODO: as [int,int] ...wip...work_here..."
+                    "value": "RO1590082",
+                    "location": [
+                        10,
+                        2
+                    ],
+                    "label_value": "C.U.I. RO1590082",
+                    "label_location": [
+                        10,
+                        2
+                    ]
                 },
                 "RegistrationName": {
-                    "value": "...future...",
-                    "location": "...future...",
-                    "label_value": "...future...",
-                    "label_location": "...future..."
-                },
-                "other_customer_keys_IF_NEED_MORE": {
                     "value": "...future...",
                     "location": "...future...",
                     "label_value": "...future...",

@@ -5,7 +5,7 @@
         "cbc_IssueDate": "2023-08-28",
         "cac_AccountingCustomerParty": {
             "cac_PartyLegalEntity": {
-                "cbc_CompanyID": "...TODO: as str ...wip...work_here...",
+                "cbc_CompanyID": "17753763",
                 "cbc_RegistrationName": "TODO...tbd in nxt operations..."
             },
             "...incoming_structure_for_ADDRESSS": {
@@ -118,7 +118,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-01-05T02:40:32.106408+00:00",
+        "last_processing_time": "2024-01-05T03:19:49.116725+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 30,
         "invoice_max_cols": 9,
@@ -344,18 +344,18 @@
                     ]
                 },
                 "CUI": {
-                    "value": "...TODO: as str ...wip...work_here...",
-                    "location": "...TODO: as [int,int] ...wip...work_here...",
-                    "label_value": "TODO: as str ...ce am gasit in Excel...",
-                    "label_location": "...TODO: as [int,int] ...wip...work_here..."
+                    "value": "17753763",
+                    "location": [
+                        11,
+                        6
+                    ],
+                    "label_value": "CIF:",
+                    "label_location": [
+                        11,
+                        5
+                    ]
                 },
                 "RegistrationName": {
-                    "value": "...future...",
-                    "location": "...future...",
-                    "label_value": "...future...",
-                    "label_location": "...future..."
-                },
-                "other_customer_keys_IF_NEED_MORE": {
                     "value": "...future...",
                     "location": "...future...",
                     "label_value": "...future...",

@@ -202,7 +202,8 @@ def rdinv(
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
-    #TODO_wip_here find invoice customer ==> `cac:AccountingSupplierParty`
+    #FIXME: ...wip TODO: CUSTOMER AREA  ...START HERE -------------->>> (...ALL CODE MUST BE CLEAN FROM HERE when release "invoice customer" version...)
+    # find invoice customer ==> `cac:AccountingSupplierParty`
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
         worksheet=ws,
@@ -242,35 +243,31 @@ def rdinv(
             "location": copy.deepcopy(_area_to_search),
         }
     }
-    #TODO: ...CUSTOMER AREA  ...START HERE -------------->>>
-    print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
+    ''' #TODO: ...CUSTOMER AREA  ...CONTINUE WITH specific KVs  -------------->>>
+        #FIXME: all searches for partner KV items are made with `down_search_try=False` becase is expected to be a list of KVs not some isolated ones in Excel
+            NOTE: keep up comment until finish customer area
+    '''
+    #print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
     # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
-    _temp_found_data = get_excel_data_at_label(  #FIXME: all searches for partner KV items should be made with `down_search_try=False`  #FIXME DBG can be dropped
+    _temp_found_data = get_excel_data_at_label(  #FIXME: all searches for partner KV items should be made with `down_search_try=False`  #FIXME drop me after 1 more search / is in section comment
         pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
         down_search_try=False
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    print(f"[red]========> CUI find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
-    ...
-    ... # code here   #TODO: ...hereuare... to continue with other CUTOMER fields / invoice info
+    #print(f"[red]========> CUI find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
+    invoice_header_area["customer_area"]["CUI"] = {
+        "value": _temp_found_data["value"],
+        "location": _temp_found_data["location"],
+        "label_value": _temp_found_data["label_value"],
+        "label_location": _temp_found_data["label_location"]
+    }
+    ... # continue code here   #TODO: ...hereuare... to continue with ... # find customer key "RegistrationName" ==> `cbc_RegistrationName`
     ...
     # TODO:: ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
-        "CUI": {
-            "value": "...TODO: as str ...wip...work_here...",  #FIXME CUI is just as example of next FIRST step in getting CUSTOMER info - #FIXME there will follow rest
-            "location": "...TODO: as [int,int] ...wip...work_here...",  #FIXME to respect previous used format for keys, diffbeing that this is a "CUSTOMER AREA" embedded key...
-            "label_value": "TODO: as str ...ce am gasit in Excel...",  #FIXME...
-            "label_location": "...TODO: as [int,int] ...wip...work_here..."  #FIXME all (0,0) cell indexes will become real after finding key(s)
-        },
         "RegistrationName": {  # TODO: for name of comany use patterns like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r.a.
-            "value": "...future...",
-            "location": "...future...",
-            "label_value": "...future...",
-            "label_location": "...future..."
-        },
-        "other_customer_keys_IF_NEED_MORE": {
             "value": "...future...",
             "location": "...future...",
             "label_value": "...future...",
