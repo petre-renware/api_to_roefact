@@ -123,7 +123,7 @@ PATTERN_FOR_PARTNER_ID = [
     "id",
 ]
 # numele legal al companiei
-#FIXME_this_will_raise_err_in_rdinv_ PATTERN_FOR_PARTNER_LEGAL_NAME = [
+PATTERN_FOR_PARTNER_LEGAL_NAME = [
     "sa", "s.a",
     "srl", "s.r.l",
     "pfa", "p.f.a",
