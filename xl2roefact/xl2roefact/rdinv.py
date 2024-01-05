@@ -264,6 +264,10 @@ def rdinv(
         "label_location": _temp_found_data["label_location"]
     }
     ... # continue code here   #TODO: ...hereuare... to continue with ... # find customer key "RegistrationName" ==> `cbc_RegistrationName`
+    ''' NOTE: strategy :-
+        1. search for the same PATTERN as used for header area
+        2. if VALUE found has the same location as xxxxxx
+    '''
     ...
     # TODO:: ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
