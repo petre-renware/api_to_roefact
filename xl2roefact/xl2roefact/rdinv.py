@@ -245,19 +245,14 @@ def rdinv(
     #TODO: ...CUSTOMER AREA  ...START HERE -------------->>>
     print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
     # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
-    _temp_found_data = get_excel_data_at_label(
+    _temp_found_data = get_excel_data_at_label(  #FIXME: all searches for partner KV items should be made with `down_search_try=False`  #FIXME DBG can be dropped
         pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
         worksheet=ws,
         area_to_scan=_area_to_search,
-        targeted_type=str
+        targeted_type=str,
+        down_search_try=False
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     print(f"[red]========> CUI find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
-    '''NOTE: info found for Petrom invoice - NOTE: as can be see real info is in labels becase "not roght structuerd" but got as value the next row info ...
-            - because this the search implemented algoritm...
-            - maybe a "heature improvement" like "search only IN-LABEL" is not becausse ... see REN invoice info which is right...
-    * Petrom invoice: `_temp_found_data={'value': 'R.C. J40/8302/1997', 'location': (11, 2), 'label_value': 'C.U.I. RO1590082', 'label_location': (10, 2)}`
-    * REN invoice: `_temp_found_data={'value': '17753763', 'location': (11, 6), 'label_value': 'CIF:', 'label_location': (11, 5)}`
-    '''  #FIXME DBG can be dropped
     ...
     ... # code here   #TODO: ...hereuare... to continue with other CUTOMER fields / invoice info
     ...
@@ -390,7 +385,8 @@ def get_excel_data_at_label(
         pattern_to_search_for: list[str],
         worksheet: xl.Database.ws,
         area_to_scan: list[list[int]] = None,
-        targeted_type: Callable = str
+        targeted_type: Callable = str,
+        down_search_try: bool = True
     ) -> dict:
     """get "one key Excel values", like invoice number or invoice issue date.
 
@@ -399,6 +395,7 @@ def get_excel_data_at_label(
         `worksheet`: the worksheet containing invoice (as object of `pyxllight` library).
         `area_to_scan: list[start_cell, end_cell]`: area of cells to be searched, default whole worksheet.
         `targeted_type: type`: what type expect (will try to convert to, if cannot will return str), default `str`.
+        `down_search_try: bool` establish if DOWN search method is tried, default `True`
 
     Return:
         `None` if not found OR `dictionary` containing:
@@ -406,7 +403,7 @@ def get_excel_data_at_label(
             * `"location": (row, col)` - adrees of cell where found value
 
     Notes:
-        * scan is made in order *left->right, top->down* given area and search for cell_value in `pattern_to_search_for`.
+        * normal scan order is 1.RIGHT, 2.DOWN (if allowed), 3.IN-LABEL only in given area and pattern.
     """
     def __check_value(val: Any) -> bool:
         """ return `True` if a `val` is different of None or empty string or SYS_FILLED_EMPTY_CELL, otherwise return `False`
@@ -446,8 +443,8 @@ def get_excel_data_at_label(
                         if __check_value(check_for):
                             value_found = check_for
                             index_of_value_found = check_for_index
-                    # continue with DOWN test if NOT found somethinng at RIGHT
-                    if not (value_found and index_of_value_found):  # try DOWN test only if a relevant value not found or value is located in a wrong area
+                    # continue with DOWN test if NOT found somethinng at RIGHT and if this strategy is allowed to be used
+                    if down_search_try and not (value_found and index_of_value_found):  # try DOWN test only if method is allowed AND a relevant value not found or value is located in a wrong area
                         # NOTE-LOGIC: test for DOWN cell @(i+1,j) if cell exists in ws range AND if has a value then continue loop (to find other potential cell)
                         if i < area_to_scan[1][0] :  # if still in range if test (ie, exists cell @ (i+1, j))
                             check_for_index = (i + 1, j)

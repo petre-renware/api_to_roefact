@@ -71,7 +71,9 @@
 
 * WIP... 2401??piu_? invoice customer search for "CUI"  #NOTE: rdinv() lines 255 - 261
 
-* 240103piu_d `rdinv.def get_excel_data_at_label(...)` changed strategy for IN-LABEL strategy to return all string except first word (supposed to be label) separated by space character (old strategy was to get only last work from all string)
+* 240105piu_a `rdinv.def get_excel_data_at_label(...)` changed strategy for DOWN search-method made it optional with default True (useful for Partners set-of KVs where is supposed to be or IN-LABEL or in RIGHT but NOT DOWN because there is a list of KVs not just one placed anywhere in Excel doc)  #TODO tgis is subject of doc update
+
+* 240103piu_d `rdinv.def get_excel_data_at_label(...)` changed strategy for IN-LABEL search-method to return all string except first word (supposed to be label) separated by space character (old strategy was to get only last work from all string)
 
 * 240103piu_c ref invoice customer create in `config_settings.py` PATTERNs for search keys `PATTERN_FOR_PARTNER_ID` (CUI or ID), `PATTERN_FOR_PARTNER_LEGAL_NAME`
 
