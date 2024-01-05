@@ -98,12 +98,19 @@ Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara 
 
 Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".
 
+Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ESTE O VARIANTA DE LUCRU RECOMANDATA**, dar nu obligatorie. Chiar si in cazul utilizarii acestuia, prin modificarea "structurii" acestuia, informatia poate ajunge *nerecognoscibila / neidentificabila* total sau partial daca nu sunt urmate regulile expuse.
+
+!!! warning "De avut in vedere"
+    In general trebuie inteles ca trebuie facuta diferenta intre datele facturii si modul in care aceasta va a pi are tiparita.
+    Mai exact **continutul informational** al facturii
+nu trebuie nici confundat si nici mixat cu **formatul de afisare al acesteia** (layout). Pentru acesta din urma se recomanda a fi folosite cu precadere regulile de *formatare* din Excel si nu cele stocare a datelor. Un exemplu este un numar zecimal oarecare unde una este valoarea introdusa intr-o celula (de ex cu 3 zecimale) si valoarea afisata (cu 2 zecimale) - aceasta din urma trebuie obtinuta prin formatarea celulei respective de a afisa 2 zecimale prin rotunjire insa valoarea efectiva trebuie sa fie cea originala cu 3 zecimale, lucru (diferenta) care se poate vedea la editarea continutului celulei.
+
 -#TODO ...tbd
 
 
 
 
-## ...
+## Tutorial utilizare aplicatie
 
 -#TODO ...tbd
 
