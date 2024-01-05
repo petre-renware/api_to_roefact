@@ -107,7 +107,7 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 >* una este valoarea introdusa intr-o celula (de ex cu 3 zecimale) si
 >* alta este valoarea afisata (cu 2 zecimale) - aceasta din urma trebuie obtinuta prin formatarea celulei respective de a afisa 2 zecimale prin rotunjire insa valoarea efectiva trebuie sa fie cea originala cu 3 zecimale, lucru (diferenta) care se poate vedea la editarea continutului celulei.
 
--#TODO ...tbd
+-#TODO ...tbd (se va lua din `_docstring_` aferent `config.settings.py`)
 
 
 
@@ -116,6 +116,11 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 
 -#TODO ...tbd
 
+
+
+
+
+## [Documentatia tehnica](./xl2roefact/doc/810.05a-xl2roefact_component.md)
 
 
 
