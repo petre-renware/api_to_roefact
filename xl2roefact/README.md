@@ -120,7 +120,7 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 
 
 
-## [Documentatia tehnica](./xl2roefact/doc/810.05a-xl2roefact_component.md)
+## [Documentatia tehnica](./doc/810.05a-xl2roefact_component.md)
 
 
 
