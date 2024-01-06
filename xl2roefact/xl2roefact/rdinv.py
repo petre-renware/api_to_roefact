@@ -256,7 +256,6 @@ def rdinv(
         targeted_type=str,
         down_search_try=False
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    #print(f"[red]========> CUI find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
     invoice_header_area["customer_area"]["CUI"] = {
         "value": _temp_found_data["value"],
         "location": _temp_found_data["location"],
@@ -267,10 +266,10 @@ def rdinv(
 
 
 
-
+    ...  #FIXME ...current work here... =========> START OF CODE
     # find customer key "RegistrationName" ==> `cbc_RegistrationName`
     ''' NOTE: proposed strategy @240106 h01:00
-          1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
+          ok1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
           2. if VALUE found has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
               ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]
           3. else
@@ -278,20 +277,32 @@ def rdinv(
         NOTE: review & clean `config_settings.py`
     '''
     _temp_found_data = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
+        pattern_to_search_for=PATTERN_FOR_CUSTOMER_LEGAL_NAME,
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
         down_search_try=False
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    #print(f"[red]========> CUI find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
-    invoice_header_area["customer_area"]["CUI"] = {
+    print(f"[red]========> RegistrationName find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
+    _location_of_value_found = invoice_header_area["customer_area"]["area_info"]["location"][0]
+    print(f"[red]========> {_location_of_value_found=} [/]")  #FIXME DBG can be dropped
+    ''' INFO FOUND HERE:  #FIXME DBG can be dropped
+    * Petrom:
+    ========> RegistrationName find as: _temp_found_data={'value': 'Rafinare 1R01', 'location': (9, 2), 'label_value': 'Divizia Rafinare 1R01', 'label_location': (9, 2)}
+    ========> _location_of_value_found=(8, 2)
+    * RENware:
+    ========> RegistrationName find as: _temp_found_data={'value': None, 'location': (None, None), 'label_value': 'Client', 'label_location': (8, 5)}
+    ========> _location_of_value_found=(8, 5)
+    '''  #FIXME DBG can be dropped
+    #
+    '''  TODO nxt after test & clarify strategy
+    invoice_header_area["customer_area"]["RegistrationName"] = {
         "value": _temp_found_data["value"],
         "location": _temp_found_data["location"],
         "label_value": _temp_found_data["label_value"],
         "label_location": _temp_found_data["label_location"]
-    }
-    ...
+    } '''
+    ...  #FIXME ...current work here... <========= END OF CODE
 
 
 

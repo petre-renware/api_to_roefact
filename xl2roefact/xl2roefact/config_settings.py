@@ -96,11 +96,11 @@ PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: list[str] = [
 PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
     "clien",
     "custo",
-    "sc", "s.c.", "diviz", "depart",
-    "sa", "s.a.",
-    "srl", "s.r.l.",
-    "pfa", "p.f.a.",
-    "ra", "r.a.",
+    "sc", "s.c", "diviz", "depart",
+    "sa", "s.a",
+    "srl", "s.r.l",
+    "pfa", "p.f.a",
+    "ra", "r.a",
 ]
 
 # --- numele legal al companiei
