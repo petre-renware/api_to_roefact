@@ -281,7 +281,7 @@ def rdinv(
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
-        down_search_try=False
+        down_search_try=False  #FIXME_#FIXME try without this because initial search was done without it (default `True` val) and use same initial conditions - when strategy was elaborated I belive this was in my mind, as I "seen in mind" the data
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     print(f"[red]========> RegistrationName find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
     _location_of_value_found = invoice_header_area["customer_area"]["area_info"]["location"][0]
