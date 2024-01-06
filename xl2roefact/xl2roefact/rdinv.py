@@ -290,8 +290,9 @@ def rdinv(
         "label_value": "n/a",
         "label_location": "n/a"
     }
-
-    # TODO:: ...hereuare... to continue with .. ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
+    ...
+    # TODO: ...hereuare... to continue with search for rest of keys, like: "reg com", "bank / IBAN / cont", and more...
+    # TODO: ... but before make a code clean up (from line #205)
     '''
     NOTE: - before end:
         - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"

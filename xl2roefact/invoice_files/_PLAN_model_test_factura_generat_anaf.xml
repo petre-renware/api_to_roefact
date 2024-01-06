@@ -68,7 +68,7 @@
                 </cac:Country>
             </cac:PostalAddress>
             <cac:PartyLegalEntity>  #TODO tbd...
-                <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>  #TODO tbd...
+                <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>  #NOTE DONE / RDY
                 <cbc:CompanyID>21986376</cbc:CompanyID>  # this is "CUI" #NOTE DONE / RDY
             </cac:PartyLegalEntity>
         </cac:Party>
