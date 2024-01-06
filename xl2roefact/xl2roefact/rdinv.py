@@ -269,7 +269,7 @@ def rdinv(
     ...  #FIXME ...current work here... =========> START OF CODE
     # find customer key "RegistrationName" ==> `cbc_RegistrationName`
     ''' NOTE: proposed strategy @240106 h01:00
-          ok1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
+          DONE-1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
           2. if VALUE found has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
               ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]
           3. else
