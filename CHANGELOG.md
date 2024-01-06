@@ -70,9 +70,7 @@
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
-* tbd... invoice customer search and persist for "RegistrationName"
-
-* wip... (last item used `240105piu_c`)
+* TODO: wip... 240106piu_a invoice customer search and persist for "RegistrationName"
 
 
 

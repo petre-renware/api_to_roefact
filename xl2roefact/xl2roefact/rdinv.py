@@ -243,9 +243,6 @@ def rdinv(
             "location": copy.deepcopy(_area_to_search),
         }
     }
-    ''' #FIXME: all searches for partner KV items are made with `down_search_try=False` becase is expected to be a list of KVs not some isolated ones in Excel
-            NOTE: keep up comment until finish customer area
-    '''
     #print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
     # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
     _temp_found_data = get_excel_data_at_label(
@@ -294,8 +291,6 @@ def rdinv(
         "label_location": "n/a"
     }
 
-
-
     # TODO:: ...hereuare... to continue with .. ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
     '''
     NOTE: - before end:
@@ -338,7 +333,7 @@ def rdinv(
             "cac_AccountingCustomerParty": {
                 "cac_PartyLegalEntity": {
                     "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
-                    "cbc_RegistrationName": "TODO...tbd in nxt operations...",  # TODO: ...tbd in nxt operations...
+                    "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
                     #NOTE    - add these keys to XML-JSON map
                     # NOTE:_DONE  cac_PartyLegalEntity -- cac:PartyLegalEntity  #FIXME can be dropped
                     # NOTE:_DONE  cbc_CompanyID -- cbc:CompanyID  #FIXME can be dropped
