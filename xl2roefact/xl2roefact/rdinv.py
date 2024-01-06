@@ -43,7 +43,7 @@ PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL = config_settings.PATTERN_FOR_INVOICE_ISSUE
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
 PATTERN_FOR_PARTNER_ID = config_settings.PATTERN_FOR_PARTNER_ID
-PATTERN_FOR_PARTNER_LEGAL_NAME = config_settings.PATTERN_FOR_PARTNER_LEGAL_NAME
+PATTERN_FOR_CUSTOMER_LEGAL_NAME = config_settings.PATTERN_FOR_CUSTOMER_LEGAL_NAME
 
 
 def rdinv(
@@ -249,7 +249,7 @@ def rdinv(
     '''
     #print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
     # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
-    _temp_found_data = get_excel_data_at_label(  #FIXME: all searches for partner KV items should be made with `down_search_try=False`  #FIXME drop me after 1 more search / is in section comment
+    _temp_found_data = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
         worksheet=ws,
         area_to_scan=_area_to_search,
@@ -263,18 +263,39 @@ def rdinv(
         "label_value": _temp_found_data["label_value"],
         "label_location": _temp_found_data["label_location"]
     }
-    ... #TODO: ...hereuare... to continue with ... # find customer key "RegistrationName" ==> `cbc_RegistrationName`
+
+
+
+
+
+    # find customer key "RegistrationName" ==> `cbc_RegistrationName`
     ''' NOTE: proposed strategy @240106 h01:00
-          1. search for PATTERN_FOR_PARTNER_LEGAL_NAME
+          1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
           2. if VALUE found has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
               ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]
           3. else
               ==> keep value returned by search from step 1.
         NOTE: review & clean `config_settings.py`
     '''
-    ... # RegistrationName code here
+    _temp_found_data = get_excel_data_at_label(
+        pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+        targeted_type=str,
+        down_search_try=False
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    #print(f"[red]========> CUI find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
+    invoice_header_area["customer_area"]["CUI"] = {
+        "value": _temp_found_data["value"],
+        "location": _temp_found_data["location"],
+        "label_value": _temp_found_data["label_value"],
+        "label_location": _temp_found_data["label_location"]
+    }
     ...
-    # TODO:: ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
+
+
+
+    # TODO:: ...hereuare... to continue with .. ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
     invoice_header_area["customer_area"].update({
         "RegistrationName": {  # TODO: for name of comany use patterns like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r.a.
             "value": "...future...",

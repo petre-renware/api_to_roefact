@@ -106,7 +106,7 @@ PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
 # --- numele legal al companiei
 # pattern utilizat pentru regasirea numelui legal al clientului
 # NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
-PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
+PATTERN_FOR_CUSTOMER_LEGAL_NAME = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
 
 # --- pattern-uri comune utilizate in regasirea informatiilor referitoare la partener (comune pentru client si furnizor)
 # pattern pentru regasirea codului unic de inregistrare (sau Company ID in engleza)
