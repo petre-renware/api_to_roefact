@@ -118,7 +118,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-01-06T04:53:40.632224+00:00",
+        "last_processing_time": "2024-01-06T11:24:54.211752+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 30,
         "invoice_max_cols": 9,
@@ -356,10 +356,13 @@
                     ]
                 },
                 "RegistrationName": {
-                    "value": "...future...",
-                    "location": "...future...",
-                    "label_value": "...future...",
-                    "label_location": "...future..."
+                    "value": "CONNECTIONS CONSULT SRL",
+                    "location": [
+                        9,
+                        5
+                    ],
+                    "label_value": "n/a",
+                    "label_location": "n/a"
                 }
             },
             "supplier_area": "...future..."

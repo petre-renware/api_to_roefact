@@ -202,7 +202,7 @@ def rdinv(
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
-    #FIXME: ...wip TODO: CUSTOMER AREA  ...START HERE -------------->>> (...ALL CODE MUST BE CLEAN FROM HERE when release "invoice customer" version...)
+    #FIXME_#TODO ...wip...hereuare / CUSTOMER AREA  ... ===> ALL CODE MUST BE CLEAN FROM HERE before release "invoice customer" version...
     # find invoice customer ==> `cac:AccountingSupplierParty`
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
@@ -243,8 +243,7 @@ def rdinv(
             "location": copy.deepcopy(_area_to_search),
         }
     }
-    ''' #TODO: ...CUSTOMER AREA  ...CONTINUE WITH specific KVs  -------------->>>
-        #FIXME: all searches for partner KV items are made with `down_search_try=False` becase is expected to be a list of KVs not some isolated ones in Excel
+    ''' #FIXME: all searches for partner KV items are made with `down_search_try=False` becase is expected to be a list of KVs not some isolated ones in Excel
             NOTE: keep up comment until finish customer area
     '''
     #print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
@@ -262,59 +261,42 @@ def rdinv(
         "label_value": _temp_found_data["label_value"],
         "label_location": _temp_found_data["label_location"]
     }
-
-
-
-
-    ...  #FIXME ...current work here... =========> START OF CODE
     # find customer key "RegistrationName" ==> `cbc_RegistrationName`
-    ''' NOTE: proposed strategy @240106 h01:00
-          DONE-1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
-          2. if VALUE found has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
-              ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]
-          3. else
-              ==> keep value returned by search from step 1.
-        NOTE: review & clean `config_settings.py`
+    ''' NOTE: strategy (remark: step codes are refered in next code)
+          STEP-1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
+          STEP-2. if `label_location` of FOUND VALUE has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
+              ==> keep VALUE of FOUND info
+          STEP-3. else
+              ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]`
     '''
-    _temp_found_data = get_excel_data_at_label(
+    _temp_found_data = get_excel_data_at_label(  # NOTE: STEP-1
         pattern_to_search_for=PATTERN_FOR_CUSTOMER_LEGAL_NAME,
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
-        down_search_try=False  #FIXME_#FIXME try without this because initial search was done without it (default `True` val) and use same initial conditions - when strategy was elaborated I belive this was in my mind, as I "seen in mind" the data
+        down_search_try=True  # NOTE: let with True to bobtain identical results as original search of `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    print(f"[red]========> RegistrationName find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
-    _location_of_value_found = invoice_header_area["customer_area"]["area_info"]["location"][0]
-    print(f"[red]========> {_location_of_value_found=} [/]")  #FIXME DBG can be dropped
-    ''' INFO FOUND HERE:  #FIXME DBG can be dropped
-    * Petrom:
-    ========> RegistrationName find as: _temp_found_data={'value': 'Rafinare 1R01', 'location': (9, 2), 'label_value': 'Divizia Rafinare 1R01', 'label_location': (9, 2)}
-    ========> _location_of_value_found=(8, 2)
-    * RENware:
-    ========> RegistrationName find as: _temp_found_data={'value': None, 'location': (None, None), 'label_value': 'Client', 'label_location': (8, 5)}
-    ========> _location_of_value_found=(8, 5)
-    '''  #FIXME DBG can be dropped
-    #
-    '''  TODO nxt after test & clarify strategy
+    #print(f"[yellow]========> RegistrationName find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
+    _location_of_header_partner_area = invoice_header_area["customer_area"]["area_info"]["location"][0]
+    _location_of_value_found = _temp_found_data["label_location"]
+    #print(f"[red]========> TO COMPARE [cyan]{_location_of_value_found=} vs {_location_of_header_partner_area=} [/]")  #FIXME DBG can be dropped
+    if _location_of_value_found == _location_of_header_partner_area:  # NOTE: STEP-2
+        kept_RegistrationName = _temp_found_data["value"]
+        kept_RegistrationName_location = _temp_found_data["location"]
+    else:  # STEP-3
+        kept_RegistrationName = invoice_header_area["customer_area"]["area_info"]["value"]
+        kept_RegistrationName_location = invoice_header_area["customer_area"]["area_info"]["location"][0]
+    print(f"[red]========>  KEEP {kept_RegistrationName=}[/]")  #FIXME DBG can be dropped
     invoice_header_area["customer_area"]["RegistrationName"] = {
-        "value": _temp_found_data["value"],
-        "location": _temp_found_data["location"],
-        "label_value": _temp_found_data["label_value"],
-        "label_location": _temp_found_data["label_location"]
-    } '''
-    ...  #FIXME ...current work here... <========= END OF CODE
+        "value": kept_RegistrationName,
+        "location": kept_RegistrationName_location,
+        "label_value": "n/a",
+        "label_location": "n/a"
+    }
 
 
 
     # TODO:: ...hereuare... to continue with .. ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
-    invoice_header_area["customer_area"].update({
-        "RegistrationName": {  # TODO: for name of comany use patterns like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r.a.
-            "value": "...future...",
-            "location": "...future...",
-            "label_value": "...future...",
-            "label_location": "...future..."
-        },
-    })
     '''
     NOTE: - before end:
         - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
