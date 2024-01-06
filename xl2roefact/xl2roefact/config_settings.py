@@ -108,7 +108,7 @@ PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
 # NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
 PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
 
-# --- pattern-uri comune utilizate in regasirea informatiiolor referitoare la partener (client sau furnizor)
+# --- pattern-uri comune utilizate in regasirea informatiilor referitoare la partener (comune pentru client si furnizor)
 # pattern pentru regasirea codului unic de inregistrare (sau Company ID in engleza)
 PATTERN_FOR_PARTNER_ID = [
     "cui", "c.u.i",
@@ -116,7 +116,7 @@ PATTERN_FOR_PARTNER_ID = [
     "id",
 ]
 
-
+...  # TODO: alte patternuri comune de adaugat aici (ex: RegCom, Adresa, IBAN, Banca, ...)
 
 
 # FIXME: in factura Petrom nu ai nici ref furnizor nici client, ci ai numele firmelor lor, dar ai C.U.I.  #FIXME tried something @line 110...
