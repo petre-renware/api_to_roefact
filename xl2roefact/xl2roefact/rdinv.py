@@ -160,15 +160,15 @@ def rdinv(
         end_cell = lrc_footer
     )
 
-    """#NOTE: section for solve `invoice_header_area`
-        - @final write them to: invoice number, currency, issued date, supplier (owner), customer
+    """#NOTE: section for solve `invoice_header_area`.
+            - kind of info expected in this area: invoice number, currency, issued date, supplier data, customer data
     """
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = "...wip here...",  #TODO:... work in progress items ...
-        supplier_area = "...future..."  #TODO:... work in progress items ...
+        customer_area = None,  #FIXME ... @240106 still work in progress ...
+        supplier_area = "...future..."  #TODO ... future tbd  ...
     )
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
@@ -201,8 +201,8 @@ def rdinv(
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
-    #
     #FIXME_#TODO ...wip...hereuare / CUSTOMER AREA  ... ===> ALL CODE MUST BE CLEAN FROM HERE before release "invoice customer" version...
+    #
     # find invoice customer ==> `cac:AccountingSupplierParty`
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
@@ -210,8 +210,8 @@ def rdinv(
         area_to_scan=(invoice_header_area["start_cell"], invoice_header_area["end_cell"]),
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    # set a dedicated AREAs TO SEARCH for partner
-    _area_to_search_start_cell = [  # here always use `label_location` as being "most far away" from good info, so more chances to find info
+    # set a dedicated AREAs TO SEARCH for customer
+    _area_to_search_start_cell = [  # use `label_location` as being supposed "most far away" from effective-good info, so more chances to find info
         0 if invoice_customer_info["label_location"][0] <= 0 else invoice_customer_info["label_location"][0] - 1,  # set one line up if this line exists
         invoice_customer_info["label_location"][1],
     ]
@@ -244,6 +244,7 @@ def rdinv(
         }
     }
     #print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
+    #
     # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
     _temp_found_data = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
@@ -258,15 +259,16 @@ def rdinv(
         "label_value": _temp_found_data["label_value"],
         "label_location": _temp_found_data["label_location"]
     }
+    #
     # find customer key "RegistrationName" ==> `cbc_RegistrationName`
-    ''' NOTE: strategy (remark: step codes are refered in next code)
-          STEP-1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
-          STEP-2. if `label_location` of FOUND VALUE has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
+    '''#NOTE: `ReNaSt`-RegNameStrategy (remark: step codes are refered in next code)
+          ReNaSt.STEP-1: search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
+          ReNaSt.STEP-2: if `label_location` of FOUND VALUE has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
               ==> keep VALUE of FOUND info
-          STEP-3. else
+          ReNaSt.STEP-3: else
               ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]`
     '''
-    _temp_found_data = get_excel_data_at_label(  # NOTE: STEP-1
+    _temp_found_data = get_excel_data_at_label(  # NOTE: ReNaSt.STEP-1
         pattern_to_search_for=PATTERN_FOR_CUSTOMER_LEGAL_NAME,
         worksheet=ws,
         area_to_scan=_area_to_search,
@@ -277,10 +279,10 @@ def rdinv(
     _location_of_header_partner_area = invoice_header_area["customer_area"]["area_info"]["location"][0]
     _location_of_value_found = _temp_found_data["label_location"]
     #print(f"[red]========> TO COMPARE [cyan]{_location_of_value_found=} vs {_location_of_header_partner_area=} [/]")  #FIXME DBG can be dropped
-    if _location_of_value_found == _location_of_header_partner_area:  # NOTE: STEP-2
+    if _location_of_value_found == _location_of_header_partner_area:  # NOTE: ReNaSt.STEP-2
         kept_RegistrationName = _temp_found_data["value"]
         kept_RegistrationName_location = _temp_found_data["location"]
-    else:  # STEP-3
+    else:  # ReNaSt.STEP-3
         kept_RegistrationName = invoice_header_area["customer_area"]["area_info"]["value"]
         kept_RegistrationName_location = invoice_header_area["customer_area"]["area_info"]["location"][0]
     print(f"[red]========>  KEEP {kept_RegistrationName=}[/]")  #FIXME DBG can be dropped
