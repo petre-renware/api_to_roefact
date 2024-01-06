@@ -251,7 +251,7 @@ def rdinv(
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
-        down_search_try=False
+        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     invoice_header_area["customer_area"]["CUI"] = {
         "value": _temp_found_data["value"],
@@ -273,7 +273,7 @@ def rdinv(
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
-        down_search_try=True  # NOTE: let with True to bobtain identical results as original search of `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
+        down_search_try=True  # NOTE: set on True to obtain identical results as original search of `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     #print(f"[yellow]========> RegistrationName find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
     _location_of_header_partner_area = invoice_header_area["customer_area"]["area_info"]["location"][0]
