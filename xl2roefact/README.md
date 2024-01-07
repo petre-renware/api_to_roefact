@@ -114,6 +114,10 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 
 ## Tutorial utilizare aplicatie
 
+### Organizarea informatiei
+
+....
+
 -#TODO ...tbd
 
 
