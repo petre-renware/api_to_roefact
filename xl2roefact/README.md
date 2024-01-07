@@ -116,7 +116,9 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 
 ### Organizarea informatiei
 
-....
+Aplicatia *xl2roefact* "promoveaza" structurarea informatiei procesate astfel incit sa fie evitata situatia *"de aglomerare" a directorului curent cu fisiere* ce trebuiesc identificate si izolate in situatia in care se fac *procesari in masa* (pe mai multe fisiere / facturi sursa).
+
+Astfel, aplicatia se asteapa ca fisierele Excel sursa ( adica facturile de procesat*) sa fie copiate in directorul **`invoice_files/`**
 
 -#TODO ...tbd
 
