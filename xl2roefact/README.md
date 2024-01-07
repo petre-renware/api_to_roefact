@@ -144,12 +144,12 @@ In urma acestor operatii, in directorul `invoice_files` vor rezulta:
 
 ```tree
 invoice_files/
-    factura_A.xlsx  # fisierul original cu factura 
-    factura_A.json  # fisierul format `JSON` rezultat in urma procesarii si ce poate fi folosit pentru interschimbarea electronica a informatiei intre sisteme
+    factura_A.xlsx  # fisierul Excel original
+    factura_A.json  # fisierul JSON rezultat in urma procesarii
 ```
 
-* `factura_A.xlsx` ca fiind fisierul original cu factura
-* `factura_A.json` acesta fiind fisierul format `JSON` rezultat in urma procesarii si ce poate fi folosit pentru interschimbarea electronica a informatiei intre sisteme
+* `factura_A.xlsx` ca fiind fisierul Excel original cu factura
+* `factura_A.json` acesta fiind fisierul format JSON rezultat in urma procesarii si ce poate fi folosit pentru interschimbarea electronica a informatiei intre sisteme
 
 
 
