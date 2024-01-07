@@ -141,8 +141,8 @@ xl2roefact -d "calea si numele directorului dorit"
 
 In urma acestor operatii, in directorul `invoice_files` vor rezulta:
 
-* `factura_A.xlsx` fiind fisierul original cu factura
-* `factura_A.json` fiind fisierul format `JSON` rezultat in urma procesarii si ce
+* `factura_A.xlsx` ca fiind fisierul original cu factura
+* `factura_A.json` acesta fiind fisierul format `JSON` rezultat in urma procesarii si ce
 poate fi folosit pentru interschimbarea electronica a informatiei intre sisteme
 
 
