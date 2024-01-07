@@ -118,13 +118,14 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 
 Aplicatia *xl2roefact* "promoveaza" structurarea informatiei procesate astfel incit sa fie evitata situatia *"de aglomerare" a directorului curent cu fisiere* ce trebuiesc identificate si izolate in situatia in care se fac *procesari in masa* (pe mai multe fisiere / facturi sursa).
 
-Astfel, aplicatia se asteapa ca fisierele Excel sursa ( adica facturile de procesat*) sa fie copiate in directorul **`invoice_files/`** de unde vor fi citite si tot aici vor fi create fisierele rezultate (JSON, XML, etc). Acest director este relativ la directorul curent de unde este lansata aplicatia si considerat *"implicit"* cu acest nume dar daca se doreste un alt director acest lucru poate fi facut folosind parametrul *`--files-directory`* (sau prescurtat *`-d`*) la lansarea aplicatiei astfel:
+Astfel, aplicatia se asteapa ca fisierele Excel sursa (*adica facturile de procesat*) sa fie copiate in directorul **`invoice_files/`** de unde vor fi citite si tot aici vor fi create fisierele rezultate (JSON, XML, etc). Acest director este relativ la directorul curent de unde este lansata aplicatia si considerat *"implicit"* cu acest nume dar daca se doreste un alt director acest lucru poate fi facut folosind parametrul *`--files-directory`* (sau prescurtat *`-d`*) la lansarea aplicatiei astfel:
 
 ```
 xl2roefact -d "calea si numele directorului dorit"
 ```
 
->Nota: Ghilimelele sunt necesare numai daca numele si calea (`path`) contin caracterul spatiu.
+!!! note "Nota"
+    <small markdown="1">Ghilimelele sunt necesare numai daca numele si calea (`path`) contin caracterul spatiu.</small>
 
 **Exemple:**
 
@@ -133,7 +134,7 @@ xl2roefact -d "calea si numele directorului dorit"
 * procesarea tuturor facturilor facturilor din luna *iunie*, copiate intr-un director dedicat sub directorul curent: **`xl2roefact -d ./facturi_iunie/`**
 
 
-### Procesul de procesare a unei facturi
+### Exemplu de procesare a unei facturi
 
 * se creaza directorul `invoice_files`
 * se copiaza factura `factura_A.xlsx` in acest director apoi se revine in directorul anterior daca acesta a fost schimbat pentru efectuarea copierii
@@ -141,9 +142,16 @@ xl2roefact -d "calea si numele directorului dorit"
 
 In urma acestor operatii, in directorul `invoice_files` vor rezulta:
 
+
+``` tree
+invoice_files/
+    |
+    +--- factura_A.xlsx
+    +--- factura_A.json
+```
+
 * `factura_A.xlsx` ca fiind fisierul original cu factura
-* `factura_A.json` acesta fiind fisierul format `JSON` rezultat in urma procesarii si ce
-poate fi folosit pentru interschimbarea electronica a informatiei intre sisteme
+* `factura_A.json` acesta fiind fisierul format `JSON` rezultat in urma procesarii si ce poate fi folosit pentru interschimbarea electronica a informatiei intre sisteme
 
 
 
@@ -151,7 +159,24 @@ poate fi folosit pentru interschimbarea electronica a informatiei intre sisteme
 
 ## Formatul fisierului JSON
 
--#TODO tbd...
+Structura de baza a fisierului JSON aferent unei facturi este:
+
+```
+{
+    "Invoice": {...},
+    "meta_info": {...},
+    "excel_original_data": {...}
+}
+
+```
+
+Cheile de la primul nivel reprezinta:
+
+* **`Invoice`** - #TODO tbd...
+* **`meta_info`** - #TODO tbd...
+* **`excel_original_data`** - #TODO tbd...
+
+
 
 
 
