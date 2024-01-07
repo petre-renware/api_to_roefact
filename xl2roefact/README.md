@@ -134,9 +134,18 @@ xl2roefact -d "calea si numele directorului dorit"
 
 
 
--#TODO ...tbd
+-#TODO ...tbd ...step by step tutorial:
 
+* se creaza directorul `invoice_files`
+* se copiaza factura `factura_A.xlsx` in acest director apoi se revine in directorul anterior daca acesta a fost schimbat pentru efectuarea copierii
+* se lanseaza aplicatia: `xl2roefact xl2json`
 
+In urma acestor operatii, in directorul `invoice_files` vor rezulta:
+
+* ``
+* ``
+
+-#TODO ...end of tutorial...
 
 
 
