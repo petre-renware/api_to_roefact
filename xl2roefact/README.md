@@ -118,13 +118,20 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 
 Aplicatia *xl2roefact* "promoveaza" structurarea informatiei procesate astfel incit sa fie evitata situatia *"de aglomerare" a directorului curent cu fisiere* ce trebuiesc identificate si izolate in situatia in care se fac *procesari in masa* (pe mai multe fisiere / facturi sursa).
 
-Astfel, aplicatia se asteapa ca fisierele Excel sursa ( adica facturile de procesat*) sa fie copiate in directorul **`invoice_files/`** de unde vor fi citite si tot aici vor fi create fisierele rezultate (JSON, XML, etc). Acest director este relativ la directorul curent de unde este lansata aplicatia si considerat *"implicit"* cu acest nume dar daca se doreste un alt director acest lucru poate fi facut folosind parametrul *`...tbd...`* la lansarea aplicatiei astfel:
+Astfel, aplicatia se asteapa ca fisierele Excel sursa ( adica facturile de procesat*) sa fie copiate in directorul **`invoice_files/`** de unde vor fi citite si tot aici vor fi create fisierele rezultate (JSON, XML, etc). Acest director este relativ la directorul curent de unde este lansata aplicatia si considerat *"implicit"* cu acest nume dar daca se doreste un alt director acest lucru poate fi facut folosind parametrul *`--files-directory`* (sau prescurtat `-d`) la lansarea aplicatiei astfel:
 
 ```
 xl2roefact -d "calea si numele directorului dorit"
 ```
 
 >Nota: Ghilimelele sunt necesare numai daca numele si calea (`path`) contin caracterul spatiu.
+
+**Exemple:**
+
+* pentru stabilirea directorului curent ca sursa pentru fisierele factura Excel: **`xl2roefact -d ./`**
+
+* procesarea tutoror facturilor facturilor din luna *iunie*, copiate intr-un director dedicat; **`xl2roefact -d ./facturi_iunie/`**
+
 
 
 -#TODO ...tbd
