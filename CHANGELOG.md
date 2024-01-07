@@ -80,11 +80,10 @@
 * tbd..  next key to find: `cac:PostalAddress --> cac:Country`
 
 
-* 240107piu_b reviewed `xl2roefact` package `README.md` explained proposed directory structure
-
-* 240107piu_b reviewed `xl2roefact` package `README.md` file with a short invoice JSON file structure
-
-* 240107piu_a updated `xl2roefact` package `README.md` file with tutorial section
+* 240107piu_a reviewed `xl2roefact` package `README.md`:
+    * explained proposed & promoted directory structure
+    * short invoice JSON file structure
+    * created first version of tutorial section
 
 * 240106piu_a invoice customer search and persist for "RegistrationName"
 
