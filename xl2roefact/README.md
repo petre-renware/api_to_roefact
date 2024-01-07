@@ -133,8 +133,7 @@ xl2roefact -d "calea si numele directorului dorit"
 * procesarea tuturor facturilor facturilor din luna *iunie*, copiate intr-un director dedicat sub directorul curent: **`xl2roefact -d ./facturi_iunie/`**
 
 
-
--#TODO ...tbd ...step by step tutorial:
+### Procesul de procesare a unei facturi
 
 * se creaza directorul `invoice_files`
 * se copiaza factura `factura_A.xlsx` in acest director apoi se revine in directorul anterior daca acesta a fost schimbat pentru efectuarea copierii
@@ -145,7 +144,6 @@ In urma acestor operatii, in directorul `invoice_files` vor rezulta:
 * ``
 * ``
 
--#TODO ...end of tutorial...
 
 
 
