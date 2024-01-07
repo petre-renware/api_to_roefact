@@ -91,6 +91,33 @@ PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: list[str] = [
     "date", "invoice date", "issue date",
 ]
 
+# --- client (customer)
+# pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
+PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
+    "clien",
+    "custo",
+    "sc", "s.c", "diviz", "depart",
+    "sa", "s.a",
+    "srl", "s.r.l",
+    "pfa", "p.f.a",
+    "ra", "r.a",
+]
+
+# --- numele legal al companiei
+# pattern utilizat pentru regasirea numelui legal al clientului
+# NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
+PATTERN_FOR_CUSTOMER_LEGAL_NAME = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
+
+# --- pattern-uri comune utilizate in regasirea informatiilor referitoare la partener (comune pentru client si furnizor)
+# pattern pentru regasirea codului unic de inregistrare (sau Company ID in engleza)
+PATTERN_FOR_PARTNER_ID = [
+    "cui", "c.u.i",
+    "cif", "c.i.f",
+    "id",
+]
+
+...  # TODO: alte patternuri comune de adaugat aici (ex: RegCom, Adresa, IBAN, Banca, ...)
+
 
 # FIXME: in factura Petrom nu ai nici ref furnizor nici client, ci ai numele firmelor lor, dar ai C.U.I.  #FIXME tried something @line 110...
 # FIXME: ci alte texte COMPLET "OUT-OF-UDERSTANDING" chiar si pentru humans !
@@ -102,26 +129,4 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
     "suppl", "owne",
 ]
 
-# --- client (customer)
-# pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
-##FIXME chege me from: `PATTERN_FOR_INVOICE_CUSTOMER_LABEL` --> `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER`
-PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
-    "clien",
-    "custo",
-    "sc", "s.c.", "diviz", "depart", "srl", "s.r.l.", "sa", "s.a.",  # acestea sunt sanse suplimentare de gasire "a ceva relevant..." in caz ca nu a folosit un "label" de tip "Client..." sau asemenator
-]
 
-# --- pattern-uri utilizate in regasirea informatiiolor referitoare la partener (client sau furnizor)
-# codul unic de inregistrare
-PATTERN_FOR_PARTNER_ID = [
-    "cui", "c.u.i",
-    "cif", "c.i.f",
-    "id",
-]
-# numele legal al companiei
-PATTERN_FOR_PARTNER_LEGAL_NAME = [
-    "sa", "s.a",
-    "srl", "s.r.l",
-    "pfa", "p.f.a",
-    "ra", "r.a",
-]

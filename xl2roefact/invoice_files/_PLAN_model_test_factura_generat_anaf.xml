@@ -59,16 +59,16 @@
 
     <cac:AccountingCustomerParty>  #TODO tbd...
         <cac:Party>
-            <cac:PostalAddress>
+            <cac:PostalAddress>  #TODO tbd...
                 <cbc:StreetName>Nicolae titulescu 81-87</cbc:StreetName>
                 <cbc:CityName>Sectorul 1</cbc:CityName>
                 <cbc:PostalZone>010011</cbc:PostalZone>
-                <cac:Country>
+                <cac:Country>  #TODO tbd...
                     <cbc:IdentificationCode>RO</cbc:IdentificationCode>
                 </cac:Country>
             </cac:PostalAddress>
-            <cac:PartyLegalEntity>
-                <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
+            <cac:PartyLegalEntity>  #TODO tbd...
+                <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>  #NOTE DONE / RDY
                 <cbc:CompanyID>21986376</cbc:CompanyID>  # this is "CUI" #NOTE DONE / RDY
             </cac:PartyLegalEntity>
         </cac:Party>

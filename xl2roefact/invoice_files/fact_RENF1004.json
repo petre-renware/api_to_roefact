@@ -6,7 +6,7 @@
         "cac_AccountingCustomerParty": {
             "cac_PartyLegalEntity": {
                 "cbc_CompanyID": "17753763",
-                "cbc_RegistrationName": "TODO...tbd in nxt operations..."
+                "cbc_RegistrationName": "CONNECTIONS CONSULT SRL"
             },
             "...incoming_structure_for_ADDRESSS": {
                 "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations..."
@@ -118,7 +118,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-01-05T05:35:08.578230+00:00",
+        "last_processing_time": "2024-01-06T11:42:28.376016+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 30,
         "invoice_max_cols": 9,
@@ -356,10 +356,13 @@
                     ]
                 },
                 "RegistrationName": {
-                    "value": "...future...",
-                    "location": "...future...",
-                    "label_value": "...future...",
-                    "label_location": "...future..."
+                    "value": "CONNECTIONS CONSULT SRL",
+                    "location": [
+                        9,
+                        5
+                    ],
+                    "label_value": "n/a",
+                    "label_location": "n/a"
                 }
             },
             "supplier_area": "...future..."

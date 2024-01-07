@@ -43,7 +43,7 @@ PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL = config_settings.PATTERN_FOR_INVOICE_ISSUE
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
 PATTERN_FOR_PARTNER_ID = config_settings.PATTERN_FOR_PARTNER_ID
-PATTERN_FOR_PARTNER_LEGAL_NAME = config_settings.PATTERN_FOR_PARTNER_LEGAL_NAME
+PATTERN_FOR_CUSTOMER_LEGAL_NAME = config_settings.PATTERN_FOR_CUSTOMER_LEGAL_NAME
 
 
 def rdinv(
@@ -160,15 +160,15 @@ def rdinv(
         end_cell = lrc_footer
     )
 
-    """#NOTE: section for solve `invoice_header_area`
-        - @final write them to: invoice number, currency, issued date, supplier (owner), customer
+    """#NOTE: section for solve `invoice_header_area`.
+            - kind of info expected in this area: invoice number, currency, issued date, supplier data, customer data
     """
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = "...wip here...",  #TODO:... work in progress items ...
-        supplier_area = "...future..."  #TODO:... work in progress items ...
+        customer_area = None,  #FIXME ... @240106 still work in progress ...
+        supplier_area = "...future..."  #TODO ... future tbd  ...
     )
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
@@ -201,8 +201,8 @@ def rdinv(
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
+    #FIXME_#TODO ...wip...hereuare / CUSTOMER AREA  ... ===> ALL CODE MUST BE CLEAN FROM HERE before release "invoice customer" version...
     #
-    #FIXME: ...wip TODO: CUSTOMER AREA  ...START HERE -------------->>> (...ALL CODE MUST BE CLEAN FROM HERE when release "invoice customer" version...)
     # find invoice customer ==> `cac:AccountingSupplierParty`
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
@@ -210,8 +210,8 @@ def rdinv(
         area_to_scan=(invoice_header_area["start_cell"], invoice_header_area["end_cell"]),
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    # set a dedicated AREAs TO SEARCH for partner
-    _area_to_search_start_cell = [  # here always use `label_location` as being "most far away" from good info, so more chances to find info
+    # set a dedicated AREAs TO SEARCH for customer
+    _area_to_search_start_cell = [  # use `label_location` as being supposed "most far away" from effective-good info, so more chances to find info
         0 if invoice_customer_info["label_location"][0] <= 0 else invoice_customer_info["label_location"][0] - 1,  # set one line up if this line exists
         invoice_customer_info["label_location"][1],
     ]
@@ -243,37 +243,59 @@ def rdinv(
             "location": copy.deepcopy(_area_to_search),
         }
     }
-    ''' #TODO: ...CUSTOMER AREA  ...CONTINUE WITH specific KVs  -------------->>>
-        #FIXME: all searches for partner KV items are made with `down_search_try=False` becase is expected to be a list of KVs not some isolated ones in Excel
-            NOTE: keep up comment until finish customer area
-    '''
     #print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
+    #
     # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
-    _temp_found_data = get_excel_data_at_label(  #FIXME: all searches for partner KV items should be made with `down_search_try=False`  #FIXME drop me after 1 more search / is in section comment
+    _temp_found_data = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
-        down_search_try=False
+        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    #print(f"[red]========> CUI find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
     invoice_header_area["customer_area"]["CUI"] = {
         "value": _temp_found_data["value"],
         "location": _temp_found_data["location"],
         "label_value": _temp_found_data["label_value"],
         "label_location": _temp_found_data["label_location"]
     }
-    ... # continue code here   #TODO: ...hereuare... to continue with ... # find customer key "RegistrationName" ==> `cbc_RegistrationName`
+    #
+    # find customer key "RegistrationName" ==> `cbc_RegistrationName`
+    '''#NOTE: `ReNaSt`-RegNameStrategy (remark: step codes are refered in next code)
+          ReNaSt.STEP-1: search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
+          ReNaSt.STEP-2: if `label_location` of FOUND VALUE has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
+              ==> keep VALUE of FOUND info
+          ReNaSt.STEP-3: else
+              ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]`
+    '''
+    _temp_found_data = get_excel_data_at_label(  # NOTE: ReNaSt.STEP-1
+        pattern_to_search_for=PATTERN_FOR_CUSTOMER_LEGAL_NAME,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+        targeted_type=str,
+        down_search_try=True  # NOTE: set on True to obtain identical results as original search of `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    #print(f"[yellow]========> RegistrationName find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
+    _location_of_header_partner_area = invoice_header_area["customer_area"]["area_info"]["location"][0]
+    _location_of_value_found = _temp_found_data["label_location"]
+    #print(f"[red]========> TO COMPARE [cyan]{_location_of_value_found=} vs {_location_of_header_partner_area=} [/]")  #FIXME DBG can be dropped
+    if _location_of_value_found == _location_of_header_partner_area:  # NOTE: ReNaSt.STEP-2
+        kept_RegistrationName = _temp_found_data["value"]
+        kept_RegistrationName_location = _temp_found_data["location"]
+    else:  # ReNaSt.STEP-3
+        kept_RegistrationName = invoice_header_area["customer_area"]["area_info"]["value"]
+        kept_RegistrationName_location = invoice_header_area["customer_area"]["area_info"]["location"][0]
+    print(f"[red]========>  KEEP {kept_RegistrationName=}[/]")  #FIXME DBG can be dropped
+    invoice_header_area["customer_area"]["RegistrationName"] = {
+        "value": kept_RegistrationName,
+        "location": kept_RegistrationName_location,
+        "label_value": "n/a",
+        "label_location": "n/a"
+    }
     ...
-    # TODO:: ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
-    invoice_header_area["customer_area"].update({
-        "RegistrationName": {  # TODO: for name of comany use patterns like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r.a.
-            "value": "...future...",
-            "location": "...future...",
-            "label_value": "...future...",
-            "label_location": "...future..."
-        },
-    })
+    # TODO: ...hereuare... next item: `cac:PostalAddress` -> `cac:Country`
+    # TODO: ... continue with search for rest of keys, like: "reg com", "bank / IBAN / cont", and more...
+    # TODO: ... but before make a code clean up (from line #205)
     '''
     NOTE: - before end:
         - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
@@ -315,7 +337,7 @@ def rdinv(
             "cac_AccountingCustomerParty": {
                 "cac_PartyLegalEntity": {
                     "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
-                    "cbc_RegistrationName": "TODO...tbd in nxt operations...",  # TODO: ...tbd in nxt operations...
+                    "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
                     #NOTE    - add these keys to XML-JSON map
                     # NOTE:_DONE  cac_PartyLegalEntity -- cac:PartyLegalEntity  #FIXME can be dropped
                     # NOTE:_DONE  cbc_CompanyID -- cbc:CompanyID  #FIXME can be dropped

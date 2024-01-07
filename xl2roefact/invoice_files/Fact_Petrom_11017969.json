@@ -6,7 +6,7 @@
         "cac_AccountingCustomerParty": {
             "cac_PartyLegalEntity": {
                 "cbc_CompanyID": "RO1590082",
-                "cbc_RegistrationName": "TODO...tbd in nxt operations..."
+                "cbc_RegistrationName": "OMV Petrom S.A."
             },
             "...incoming_structure_for_ADDRESSS": {
                 "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations..."
@@ -78,7 +78,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-01-05T05:35:08.364230+00:00",
+        "last_processing_time": "2024-01-06T11:42:28.205008+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -292,10 +292,13 @@
                     ]
                 },
                 "RegistrationName": {
-                    "value": "...future...",
-                    "location": "...future...",
-                    "label_value": "...future...",
-                    "label_location": "...future..."
+                    "value": "OMV Petrom S.A.",
+                    "location": [
+                        8,
+                        2
+                    ],
+                    "label_value": "n/a",
+                    "label_location": "n/a"
                 }
             },
             "supplier_area": "...future..."
