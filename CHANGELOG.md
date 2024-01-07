@@ -66,6 +66,11 @@
 
 ### 0.1.19 invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
 
+* -#TODO_ASAP after 0.1.19 consider **0.1.0** whwre to update main portal doc and change:
+    - all `APItoROefact` to **`xl2roefact`** as meaning **`Excel invoices and RO EFact`**
+    - ck CNAME if points to new DNS name: `https://invoicetoroefact.renware.eu/`
+    - make a global link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
+
 * wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
@@ -73,6 +78,7 @@
 * tbd... clean code `rdinv()` from customer area identification, line 204
 
 * tbd..  next key to find: `cac:PostalAddress --> cac:Country`
+
 
 * 240107piu_a updated `xl2roefact` package `README.md` file with tutorial section
 
