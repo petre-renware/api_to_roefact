@@ -293,7 +293,8 @@ def rdinv(
         "label_location": "n/a"
     }
     ...
-    # TODO: ...hereuare... to continue with search for rest of keys, like: "reg com", "bank / IBAN / cont", and more...
+    # TODO: ...hereuare... next item: `cac:PostalAddress` -> `cac:Country`
+    # TODO: ... continue with search for rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     # TODO: ... but before make a code clean up (from line #205)
     '''
     NOTE: - before end:
