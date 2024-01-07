@@ -81,9 +81,9 @@
 
 
 * 240107piu_a reviewed `xl2roefact` package `README.md`:
-    * explained proposed & promoted directory structure
-    * short invoice JSON file structure
-    * created first version of tutorial section
+    a. explained proposed & promoted directory structure used by CLI application
+    b. short invoice JSON file structure
+    a. created first version of tutorial section
 
 * 240106piu_a invoice customer search and persist for "RegistrationName"
 
