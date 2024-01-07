@@ -130,7 +130,7 @@ xl2roefact -d "calea si numele directorului dorit"
 
 * pentru stabilirea directorului curent ca sursa pentru fisierele factura Excel: **`xl2roefact -d ./`**
 
-* procesarea tutoror facturilor facturilor din luna *iunie*, copiate intr-un director dedicat; **`xl2roefact -d ./facturi_iunie/`**
+* procesarea tuturor facturilor facturilor din luna *iunie*, copiate intr-un director dedicat sub directorul curent: **`xl2roefact -d ./facturi_iunie/`**
 
 
 
