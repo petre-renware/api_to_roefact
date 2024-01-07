@@ -74,6 +74,8 @@
 
 * tbd..  next key to find: `cac:PostalAddress --> cac:Country`
 
+* 240107piu_a updated `xl2roefact` package `README.md` file with tutorial section
+
 * 240106piu_a invoice customer search and persist for "RegistrationName"
 
 
