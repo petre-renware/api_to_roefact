@@ -82,7 +82,7 @@
 * tbd..  next key to find: `cac:PostalAddress --> cac:Country`
 
 
-* 240108piu_c updated `pyproject.toml` for auto update package version from file `xl2roefact/__version__.py` (see also opiss 240108piu_b)
+* 240108piu_c changed `pyproject.toml` for auto update package version from file `xl2roefact/__version__.py` (see also opiss 240108piu_b)
 
 * 240108piu_b created `xl2roefact/__version__` file that contains variable `__version__` with INTENTION to use in `pyproject.toml` for app version key (in a future issue)
 
