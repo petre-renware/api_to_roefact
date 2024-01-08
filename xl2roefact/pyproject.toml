@@ -1,14 +1,12 @@
 [project]
 name = "xl2roefact"
-version = "0.1.19"  #NOTE this entry is subject to be periodically updated #TODO this will be changed to be based on `xl2roefact/__version__` file
-
-
-[project]
+# version = "0.1.19"  #NOTE this entry will be changed to be based on `xl2roefact/__version__` file
 dynamic = ["version"]
-...
+
+
+
 [tool.pdm]
-version = { source = "file", path = "mypackage/__version__.py" }
-...
+version = { source = "file", path = "xl2roefact/__version__.py" }
 
 
 
