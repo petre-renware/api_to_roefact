@@ -83,6 +83,16 @@
 
 
 * 240108piu_b created `xl2roefact/__version__` file that contains variable `__version__` with INTENTION to use in `pyproject.toml` for app version key
+    * tbd... open a new iss ----- && HERE IS HOW FROM PDM (needs a plugin):
+        ``` pyproject.toml FILE
+        [project]
+        dynamic = ["version"]
+        ...
+        [tool.pdm]
+        version = { source = "file", path = "mypackage/__version__.py" }
+        ...
+        ```
+
 
 * 240108piu_a more items:
     * `config_settings.py` created entry `PATTERN_FOR_PARTNER_ADDRESS` & updated `rdinv` module in constants area
