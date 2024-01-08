@@ -116,11 +116,13 @@ PATTERN_FOR_PARTNER_ID = [
 ]
 
 # --- pattern pentru regasirea adresei (pattern comun pentru client si furnizor)
+# este important ca ordinea de cautare sa permita ca sansele sa fie maximizate pentru cautarea adresei complete sau macar a tarii
 PATTERN_FOR_PARTNER_ADDRESS = [  #FIXME this is just entered (240108) and never used, so update if neccesary after "find Address" issue
     "adr", "addr",
-    "str.",
-    "locali", "oras", "tara",
-    "count", "city", "town", "cpountry"
+    "tara", "count",
+    "locali", "oras",
+    "city", "town",
+    "str",
 ]
 
 ...  # TODO: alte patternuri comune de adaugat aici (ex: RegCom, Adresa, IBAN, Banca, ...)
