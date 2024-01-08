@@ -82,17 +82,9 @@
 * tbd..  next key to find: `cac:PostalAddress --> cac:Country`
 
 
-* tbd... open a new iss ----- && HERE IS HOW AUTO UPDATE __version__ FROM PDM (needs a plugin):
-    ```toml in (pyproject.toml FILE)
-    [project]
-    dynamic = ["version"]
-    ...
-    [tool.pdm]
-    version = { source = "file", path = "mypackage/__version__.py" }
-    ...
-    ```
+* 240108piu_c updated `pyproject.toml` for auto update package version from file `xl2roefact/__version__.py` (see also opiss 240108piu_b)
 
-* 240108piu_b created `xl2roefact/__version__` file that contains variable `__version__` with INTENTION to use in `pyproject.toml` for app version key (will set a new issue to make this)
+* 240108piu_b created `xl2roefact/__version__` file that contains variable `__version__` with INTENTION to use in `pyproject.toml` for app version key (in a future issue)
 
 * 240108piu_a more items:
     * `config_settings.py` created entry `PATTERN_FOR_PARTNER_ADDRESS` & updated `rdinv` module in constants area
