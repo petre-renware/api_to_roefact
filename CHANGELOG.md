@@ -57,7 +57,7 @@
         * [x] (DONE: 0.1.14-231217piu_a) invoice header - issue date
         * [x] (DONE: 0.1.13) invoice header - currency
         * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
-        * [ ] ...wip... invoice header - customer (`<cac:AccountingCustomerParty>`)
+        * [ ] #NOTE...wip... invoice header - customer (`<cac:AccountingCustomerParty>`)
 
 
 
@@ -66,12 +66,14 @@
 
 ### 0.1.19 invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
 
-* -#TODO_ASAP after 0.1.19 consider **0.1.0** whwre to update main portal doc and change:
+* -#TODO_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` to **`xl2roefact`** as meaning **`Excel invoices and RO EFact`**
     - ck CNAME if points to new DNS name: `https://invoicetoroefact.renware.eu/`
     - make a global link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
+
+* tbd... `def_inv_dir` issue - comments in `app_cli.py`, function `xl2json(...)`
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
@@ -79,6 +81,11 @@
 
 * tbd..  next key to find: `cac:PostalAddress --> cac:Country`
 
+
+* 240108piu_a more items:
+    * `config_settings.py` created entry `PATTERN_FOR_PARTNER_ADDRESS` & updated `rdinv` module in constants area
+    * add comments in `app_cli.py` ref `def_inv_dir` issue &&...
+    * updated environment dependencies and installed `pyinstaller` development package with intention to make "single EXE" application to be able to run "from USB stick"
 
 * 240107piu_a reviewed `xl2roefact` package `README.md`:
     - (c) explained proposed & promoted directory structure used by CLI application

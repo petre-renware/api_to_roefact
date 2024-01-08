@@ -73,11 +73,11 @@ def xl2json(
             help="files to process (wildcards allowed)"
         )
     ] = "*.xlsx",
-    excel_files_directory: Annotated[
+    files_directory: Annotated[
         Path,
         typer.Option(
             "--files-directory", "-d",
-            exists=True,
+            exists=True,  #TODO `def_inv_dir` issue - this constraint should be dropped as will consider just if directory exists, otherwise will use `./` (current dir)
             file_okay=False,
             dir_okay=True,
             writable=True,
@@ -98,13 +98,15 @@ def xl2json(
 
     Args:
         `file_name (str)`: files to process (wildcards allowed).
-        `excel_files_directory (Path)`: directory to be used to look for Excel files. Defaults to `invoice_files/`.
+        `files_directory (Path)`: directory to be used to look for Excel files. Defaults to `invoice_files/`.
         `verbose (bool)`: show detailed processing messages" Defaults to `False`.
     """
     print(f"*** Component [red]xl2roefact[/] launched at {datetime.now()}")
 
     # process files as requested in command line
-    tmp_files_to_process = Path(excel_files_directory)
+    #TODO `def_inv_dir` issue - this constraint should be dropped as will consider just if directory exists, otherwise will use `./` (current dir)
+    #TODO `def_inv_dir` issue -before makeejking any assumptions ref directory `invoice_files/` check if exists AND IF NOT, then consider current directory (`./`)
+    tmp_files_to_process = Path(files_directory)
     print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
     list_of_files_to_process = list(tmp_files_to_process.glob(file_name))
     if verbose:
@@ -113,7 +115,7 @@ def xl2json(
         if verbose:
             print(f"[yellow]DEBUG note:[/] to process now: [green]{a_file}[/]")
         #
-        invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `excel_files_directory` is already contained in)
+        invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `files_directory` is already contained in)
         invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose)
         if not invoice_datadict:
             print(f"[yellow]INFO note:[/] last step returned an error and process could be incomplete. Please review previous messages.")

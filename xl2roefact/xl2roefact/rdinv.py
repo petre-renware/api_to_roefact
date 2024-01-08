@@ -44,6 +44,7 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOI
 PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
 PATTERN_FOR_PARTNER_ID = config_settings.PATTERN_FOR_PARTNER_ID
 PATTERN_FOR_CUSTOMER_LEGAL_NAME = config_settings.PATTERN_FOR_CUSTOMER_LEGAL_NAME
+PATTERN_FOR_PARTNER_ADDRESS = config_settings.PATTERN_FOR_PARTNER_ADDRESS
 
 
 def rdinv(
@@ -285,7 +286,7 @@ def rdinv(
     else:  # ReNaSt.STEP-3
         kept_RegistrationName = invoice_header_area["customer_area"]["area_info"]["value"]
         kept_RegistrationName_location = invoice_header_area["customer_area"]["area_info"]["location"][0]
-    print(f"[red]========>  KEEP {kept_RegistrationName=}[/]")  #FIXME DBG can be dropped
+    #print(f"[red]========>  KEEP {kept_RegistrationName=}[/]")  #FIXME DBG can be dropped
     invoice_header_area["customer_area"]["RegistrationName"] = {
         "value": kept_RegistrationName,
         "location": kept_RegistrationName_location,
