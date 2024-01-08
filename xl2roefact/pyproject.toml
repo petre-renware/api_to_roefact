@@ -1,6 +1,17 @@
 [project]
 name = "xl2roefact"
 version = "0.1.19"  #NOTE this entry is subject to be periodically updated #TODO this will be changed to be based on `xl2roefact/__version__` file
+
+
+[project]
+dynamic = ["version"]
+...
+[tool.pdm]
+version = { source = "file", path = "mypackage/__version__.py" }
+...
+
+
+
 description = "Excel invoice upload to RO E-Fact system"
 authors = [
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" },
