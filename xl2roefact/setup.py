@@ -13,6 +13,10 @@ Specifications:
 
 import sys
 from cx_Freeze import setup, Executable
+#TODO **iss001**: part of code here as commentes
+#import xl2roefact.__version__.py as ver
+#PACKAGE_VERSION = ver.__version__
+
 
 # Dependencies are automatically detected, but it might need fine tuning
 build_options = {"packages": [], "excludes": []}
@@ -23,5 +27,11 @@ executables = [
     Executable("xl2roefact.py", base=base)
 ]
 
-setup(options = {"build_exe": build_options},
-      executables = executables)
+setup(
+    options = {
+        "build_exe": build_options,
+        #TODO **iss001** here to get the version from `xl2roefact/__version__.py`:
+        #"version": PACKAGE_VERSION,
+    },
+    executables = executables
+)
