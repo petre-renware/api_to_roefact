@@ -68,19 +68,11 @@ Repository = "https://github.com/petre-renware/api_to_roefact"
 
 
 [build-system]
-requires = ["pdm-backend"]  #FIXME this line apecify the building backend ? If so, intention is for `PDM` tool
-build-backend = "pdm.backend"  #FIXME this line apecify the [project.urls]
-Homepage = "https://example.com"
-Documentation = "https://readthedocs.org"
-Repository = "htt[project.urls]
-Homepage = "https://example.com"
-Documentation = "https://readthedocs.org"
-Repository = "htt[project.urls]
-Homepage = "https://example.com"
-Documentation = "https://readthedocs.org"
-Repository = "httbuilding backend ? If so, intention is for `PDM` tool
-#directories = ["invoie_files"]  #NOTE this entry is supposed to create these directories on installation #TODO-test me, HINT: follow all messages when run build MSI, there are more but some with really good indications
-#           - test @ 231217: try `invoice_files/` - result FAIL, directory was not created  - meybe entry place is not here, but build was exec with no err
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+
 
 
 [tool.pdm]
