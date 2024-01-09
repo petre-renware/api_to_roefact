@@ -83,6 +83,7 @@
 
 * tbd..  next key to find: `cac:PostalAddress --> cac:Country`
 
+* tbd... `xl2roefact/setup.py`ref get app version from file when build EXE/MSI (#TODO **iss001**) uncomment code, test and release / ALSO CHK IF IS ABLE TOVAUTO TAKE VERSION from pyproject.toml AS IS NOW FOR PDM
 
 * 240108piu_c changed `pyproject.toml` for auto update package version from file `xl2roefact/__version__.py` (see also opiss 240108piu_b)
 
