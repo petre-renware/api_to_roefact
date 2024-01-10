@@ -36,7 +36,7 @@ Aceasta aplicatie este "totul despre crearea de facturi electronice" din formatu
     - author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 * Deployments
-    - Windows: `xl2roefact.exe` deployable by `MSI` package portable 64 bit CLI application
+    - Windows: `xl2roefact.exe` installable through a `MSI` package portable 64 bit CLI application
     - Linux: `xl2roefact` executable CLI shell
 
 * Specifications
@@ -64,7 +64,7 @@ Pachetele contin un script de instalare sub forma standard `MSI` pentru Windows 
 
 ### Instalarea bliotecii Python (package) xl2roefact
 
-Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl-invoices`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
+Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl2roefact`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
 
 
 ### Instalarea sablonului de factura emisa excel_invoice_template
