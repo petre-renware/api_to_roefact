@@ -27,6 +27,7 @@ from rich import print
 from rich.pretty import pprint
 
 # xl2roefact specific libraries
+from xl2roefact import __version__ as appver
 import xl2roefact.config_settings as configs  # configuration elements to use with `settings` command
 from xl2roefact.rdinv import rdinv  # status #TODO: wip
 from xl2roefact.wrxml import wrxml  # status #FIXME: not yet started
@@ -45,7 +46,12 @@ app_cli = typer.Typer(name="xl2roefact")
 def about():
     """provide a short application description.
     """
-    print("xl2roefact application by RENware Software Systems (c) 2023, 2024")
+    version_string = appver.__version__
+    app_logo = appver.__doc__
+    # logo & version
+    print(app_logo)
+    print(f"xl2roefact {version_string} application by RENware Software Systems (c) 2023, 2024")
+    # about details
     print("[yellow]extract & convert Excel invoice files to JSON, XML and upload info to [cyan]RO ANAF e-Fact[/] system")
     print("Support: [yellow]www.renware.eu, petre.iordanescu@gmail.com[/]")
     print("Product code: [yellow]0000-0095[/]")
@@ -124,6 +130,7 @@ def xl2json(
             print(f"[yellow]DEBUG note:[/] `xl2roefact` module, content of resulted `invoice` data dictionary:")
             pprint(invoice_datadict)
             print()
+
 
 
 def run():
