@@ -305,7 +305,7 @@
 
 # Archived CHANGELOGs
 
-* [0.1.11.dev](./changelog_history/CHANGELOG-0.1.11.dev.md)
+* [0.1.11.dev packaging improvements for app & xl2roefact package](./changelog_history/CHANGELOG-0.1.11.dev.md)
 
 * [0.1.10.dev command interface improved, `msi` package building, invoice template & updated documentation](./changelog_history/CHANGELOG-0.1.10.dev.md)
 * [0.1.9.dev `xl2roefact.RDINV` running executable and distribution kit](./changelog_history/CHANGELOG-0.1.9.dev.md)
