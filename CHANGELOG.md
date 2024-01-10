@@ -85,6 +85,8 @@
 
 * tbd... `xl2roefact/setup.py`ref get app version from file when build EXE/MSI (#TODO **iss001**) uncomment code, test and release / ALSO CHK IF IS ABLE TOVAUTO TAKE VERSION from pyproject.toml AS IS NOW FOR PDM
 
+* 240110piu.a reviewed & updated `xl2roefact` package `README.md` + `xl2roefact/__version__.py` with an app logo and for text mistyping bugs
+
 * 240108piu_c changed `pyproject.toml` for auto update package version from file `xl2roefact/__version__.py` (see also opiss 240108piu_b)
 
 * 240108piu_b created `xl2roefact/__version__` file that contains variable `__version__` with INTENTION to use in `pyproject.toml` for app version key (in a future issue)
