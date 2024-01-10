@@ -64,7 +64,7 @@
 
 
 
-### 0.1.19 invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
+### 0.1.19.dev invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
 
 * -#TODO_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` to **`xl2roefact`** as meaning **`Excel invoices and RO EFact`**
@@ -91,6 +91,8 @@
 
 * 240108piu_b created `xl2roefact/__version__` file that contains variable `__version__` with INTENTION to use in `pyproject.toml` for app version key (in a future issue)
 
+* #FIXME to test all up here #FIXME
+
 * 240108piu_a more items:
     * `config_settings.py` created entry `PATTERN_FOR_PARTNER_ADDRESS` & updated `rdinv` module in constants area
     * add comments in `app_cli.py` ref `def_inv_dir` issue &&...
@@ -112,7 +114,7 @@
 
 
 
-### 0.1.18 invoice customer CUI partial invoice total values calculations  (240105 h08:00)
+### 0.1.18.dev invoice customer CUI partial invoice total values calculations  (240105 h08:00)
 
 * 240105piu_c updated `xl2roefact` package `README.md` file (with new sections for intro to Excel invoice content rules, tutorial TODO, reference to technical doc)
 
@@ -173,7 +175,7 @@
 
 
 
-### 0.1.17 fixed all application & package running standard ways (231224 h05:30)
+### 0.1.17.dev fixed all application & package running standard ways (231224 h05:30)
 
 * RELEASES:
     * `.<PROJECT>/xl2roefact/dist/xl2roefact-0.1.17-win64.msi`
@@ -196,7 +198,7 @@
 
 
 
-### 0.1.16 improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
+### 0.1.16.dev improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
 
 * 231222piu_b build packages for:
     * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
@@ -233,7 +235,7 @@
 
 
 
-### 0.1.14 invoice issue date  (231217 h07:00)
+### 0.1.14.dev invoice issue date  (231217 h07:00)
 
 * 231217piu_b build packages for:
     * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
@@ -255,7 +257,7 @@
 
 
 
-### 0.1.13 invoice currency (231213 h07:00)
+### 0.1.13.dev invoice currency (231213 h07:00)
 
 * 231213piu_b build packages for:
     * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
@@ -267,7 +269,7 @@
 
 
 
-### 0.1.12 invoice number (231212 07:30)
+### 0.1.12.dev invoice number (231212 07:30)
 
 * 231212piu_b write canonical form (as @invoice lines, see line ~122) ==> `invoice["Invoice"]["cbc_ID"]` and released `0.1.12-xl2roefact-0.1-win64.msi`
 
@@ -287,7 +289,7 @@
 
 
 
-### 0.1.11 (231209 h08:00)
+### 0.1.11.dev (231209 h08:00)
 
 * 231209piu_c build packages for:
     * [x] application deployment package ==> `dist/0.1.11-xl2roefact-0.1-win64.msi`
