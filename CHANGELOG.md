@@ -332,7 +332,7 @@
 * [0.1.3 Enhancing `payments_validation_board` technical proposal](./changelog_history/CHANGELOG-0.1.3.md)
 * [0.1.2 Enhancing `APItoROefact` technical proposal](./changelog_history/CHANGELOG-0.1.2.md)
 * [0.1.1 Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.md)
-* [0.1.0 System raw backbone](./changelog_history/CHANGELOG-0.1.0.md)
+* [0.1.0.dev System raw backbone](./changelog_history/CHANGELOG-0.1.0.dev.md)
 
 
 
