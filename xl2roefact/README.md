@@ -36,7 +36,7 @@ Aceasta aplicatie este "totul despre crearea de facturi electronice" din formatu
     - author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 * Deployments
-    - Windows: `xl2roefact.exe` installable through a `MSI` package portable 64 bit CLI application
+    - Windows: `xl2roefact.exe` 64 bit CLI application (installable through a `MSI` package)
     - Linux: `xl2roefact` executable CLI shell
 
 * Specifications
