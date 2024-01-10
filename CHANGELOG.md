@@ -329,7 +329,7 @@
 * [0.1.6 commercial agreement OPTIONS document](changelog_history/CHANGELOG-0.1.6.md)
 * [0.1.5 init component *xl2roefact* for CLI application](./changelog_history/CHANGELOG-0.1.5.md)
 * [0.1.4 Create system backbone structure](./changelog_history/CHANGELOG-0.1.4.md)
-* [0.1.3 Enhancing `payments_validation_board` technical proposal](./changelog_history/CHANGELOG-0.1.3.md)
+* [0.1.3.dev Enhancing `payments_validation_board` technical proposal](./changelog_history/CHANGELOG-0.1.3.dev.md)
 * [0.1.2.dev Enhancing `APItoROefact` technical proposal](./changelog_history/CHANGELOG-0.1.2.dev.md)
 * [0.1.1.dev Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.dev.md)
 * [0.1.0.dev System raw backbone](./changelog_history/CHANGELOG-0.1.0.dev.md)
