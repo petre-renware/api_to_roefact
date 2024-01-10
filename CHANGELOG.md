@@ -74,8 +74,8 @@
 * wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
 
 * tbd... `def_inv_dir` issue - comments in `app_cli.py`, function `xl2json(...)`
-    * ... ++ `about` command to get version from `xl2roefact/__version__.py`
-    * ... ++ `xl2json` command make Option for `--version` or implement just as distinct commanda (ie, `xl2roefact --version`) - see Typer doc @ parameter types for examples ref `--version`
+    * ... ++ `about` command to get version & "nice" LOGO from `xl2roefact/__version__.py`, vars `__version__` & `__doc__`
+    * ... ++ `xl2json` command make Option for `--version` or implement just as distinct commanda (ie, `xl2roefact --version`) - see Typer `@app.callback()` @ `https://typer.tiangolo.com/tutorial/commands/callback/`
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
