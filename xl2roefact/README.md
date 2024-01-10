@@ -19,9 +19,11 @@
                                                    
 ```
 
-## Features
+## Facilitati (Features)
 
-Excel invoice creation, generate JSON, XML, PDF and upload to RO E-Fact system.
+Aceasta aplicatie este "totul despre crearea de facturi electronice" din formatul Excel office (`XLSX`)
+
+(This application is all about electronic invoices creation from Excel office format (`XLSX`). It can generate JSON, XML, PDF and even upload it to RO E-Fact system.)
 
 * Components
     * `xl2roefact` **command line application** to create, manipulate and upload to RO E-Fact system Excel invoices
