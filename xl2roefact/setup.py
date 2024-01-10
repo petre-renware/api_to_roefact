@@ -10,12 +10,9 @@ Specifications:
 * @RELEASE create MSI package in `dist/`: `python setup.py bdist_msi`
 * *helper*: see official doc here `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`
 """
-
+from xl2roefact import __version__ as ver
 import sys
 from cx_Freeze import setup, Executable
-#TODO **iss001**: part of code here as commentes
-#import xl2roefact.__version__.py as ver
-#PACKAGE_VERSION = ver.__version__
 
 
 # Dependencies are automatically detected, but it might need fine tuning
@@ -28,10 +25,7 @@ executables = [
 ]
 
 setup(
-    options = {
-        "build_exe": build_options,
-        #TODO **iss001** here to get the version from `xl2roefact/__version__.py`:
-        #"version": PACKAGE_VERSION,
-    },
+    options = {"build_exe": build_options},
+    version = ver.__version__,
     executables = executables
 )
