@@ -3,7 +3,7 @@
 [TOC]
 
 
-# CHANGELOG 0.1.5
+# CHANGELOG 0.1.5.dev
 
 ### 0.1.5 init component *xl2roefact* for CLI application (231106 h06:30)
 
