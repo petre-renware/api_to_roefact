@@ -3,7 +3,7 @@
 [TOC]
 
 
-# CHANGELOG 0.1.6
+# CHANGELOG 0.1.6.dev
 
 ### 0.1.6 commercial agreement OPTIONS document (231107 h07:00)
 

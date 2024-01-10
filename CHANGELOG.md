@@ -64,7 +64,7 @@
 
 
 
-### 0.1.19 invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
+### 0.1.19.dev invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
 
 * -#TODO_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` to **`xl2roefact`** as meaning **`Excel invoices and RO EFact`**
@@ -91,6 +91,8 @@
 
 * 240108piu_b created `xl2roefact/__version__` file that contains variable `__version__` with INTENTION to use in `pyproject.toml` for app version key (in a future issue)
 
+* #FIXME to test all up here #FIXME
+
 * 240108piu_a more items:
     * `config_settings.py` created entry `PATTERN_FOR_PARTNER_ADDRESS` & updated `rdinv` module in constants area
     * add comments in `app_cli.py` ref `def_inv_dir` issue &&...
@@ -112,7 +114,7 @@
 
 
 
-### 0.1.18 invoice customer CUI partial invoice total values calculations  (240105 h08:00)
+### 0.1.18.dev invoice customer CUI partial invoice total values calculations  (240105 h08:00)
 
 * 240105piu_c updated `xl2roefact` package `README.md` file (with new sections for intro to Excel invoice content rules, tutorial TODO, reference to technical doc)
 
@@ -173,7 +175,7 @@
 
 
 
-### 0.1.17 fixed all application & package running standard ways (231224 h05:30)
+### 0.1.17.dev fixed all application & package running standard ways (231224 h05:30)
 
 * RELEASES:
     * `.<PROJECT>/xl2roefact/dist/xl2roefact-0.1.17-win64.msi`
@@ -196,7 +198,7 @@
 
 
 
-### 0.1.16 improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
+### 0.1.16.dev improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
 
 * 231222piu_b build packages for:
     * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
@@ -233,7 +235,7 @@
 
 
 
-### 0.1.14 invoice issue date  (231217 h07:00)
+### 0.1.14.dev invoice issue date  (231217 h07:00)
 
 * 231217piu_b build packages for:
     * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
@@ -255,7 +257,7 @@
 
 
 
-### 0.1.13 invoice currency (231213 h07:00)
+### 0.1.13.dev invoice currency (231213 h07:00)
 
 * 231213piu_b build packages for:
     * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
@@ -267,7 +269,7 @@
 
 
 
-### 0.1.12 invoice number (231212 07:30)
+### 0.1.12.dev invoice number (231212 07:30)
 
 * 231212piu_b write canonical form (as @invoice lines, see line ~122) ==> `invoice["Invoice"]["cbc_ID"]` and released `0.1.12-xl2roefact-0.1-win64.msi`
 
@@ -287,26 +289,9 @@
 
 
 
-### 0.1.11 (231209 h08:00)
+### 0.1.11.dev (231209 h08:00)
 
-* 231209piu_c build packages for:
-    * [x] application deployment package ==> `dist/0.1.11-xl2roefact-0.1-win64.msi`
-    * [x] excel invoice template package ==> `dist/0.1.11-excel_invoice_template.zip`
-    * [x] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
 
-* 231209piu_b **fixed `xl2roefact` CLI options, help, defaults, short names** and __STABILIZED EXECUTION__
-
-* closed `231209piu_a` more actions:
-    * changed `README.md`: translated to RO, updated installation & usage information
-    * dropped old, obsolete deployment packages
-    * test PASS
-
-* 231208piu_b add an INVOICE TEMPLATE (`excel_invoice_template/invoice_template_CU_tva.xlsx`) as deliverable with application
-
-* 231208piu_a review, cleaning and formatting code (generalized & moved some debug-verbose code from `rdinv` to `xl2roefact.xl2json`), test PASS
-* 231207piu_b cleaned `rdinv` of "...for debug purposes..." prints, test PASS
-
-* 231207piu_c reviewed and updated `xl2roefact`: README, LICENSE, pyproject.toml
 
 
 
@@ -320,17 +305,19 @@
 
 # Archived CHANGELOGs
 
-* [0.1.10 command interface improved, `msi` package building, invoice template & updated documentation](./changelog_history/CHANGELOG-0.1.10.md)
-* [0.1.9 `xl2roefact.RDINV` running executable and distribution kit](./changelog_history/CHANGELOG-0.1.9.md)
-* [0.1.8 improved application structure and first executable release](./changelog_history/CHANGELOG-0.1.8.md)
-* [0.1.7 `xl2roefact.RDINV` invoice items & metadata + *OPEN ISSUES*](./changelog_history/CHANGELOG-0.1.7.md)
-* [0.1.6 commercial agreement OPTIONS document](changelog_history/CHANGELOG-0.1.6.md)
-* [0.1.5 init component *xl2roefact* for CLI application](./changelog_history/CHANGELOG-0.1.5.md)
-* [0.1.4 Create system backbone structure](./changelog_history/CHANGELOG-0.1.4.md)
-* [0.1.3 Enhancing `payments_validation_board` technical proposal](./changelog_history/CHANGELOG-0.1.3.md)
-* [0.1.2 Enhancing `APItoROefact` technical proposal](./changelog_history/CHANGELOG-0.1.2.md)
-* [0.1.1 Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.md)
-* [0.1.0 System raw backbone](./changelog_history/CHANGELOG-0.1.0.md)
+* [0.1.11.dev packaging improvements for app & xl2roefact package](./changelog_history/CHANGELOG-0.1.11.dev.md)
+
+* [0.1.10.dev command interface improved, `msi` package building, invoice template & updated documentation](./changelog_history/CHANGELOG-0.1.10.dev.md)
+* [0.1.9.dev `xl2roefact.RDINV` running executable and distribution kit](./changelog_history/CHANGELOG-0.1.9.dev.md)
+* [0.1.8.dev improved application structure and first executable release](./changelog_history/CHANGELOG-0.1.8.dev.md)
+* [0.1.7.dev `xl2roefact.RDINV` invoice items & metadata + *OPEN ISSUES*](./changelog_history/CHANGELOG-0.1.7.dev.md)
+* [0.1.6.dev commercial agreement OPTIONS document](changelog_history/CHANGELOG-0.1.6.dev.md)
+* [0.1.5.dev init component *xl2roefact* for CLI application](./changelog_history/CHANGELOG-0.1.5.dev.md)
+* [0.1.4.dev Create system backbone structure](./changelog_history/CHANGELOG-0.1.4.dev.md)
+* [0.1.3.dev Enhancing `payments_validation_board` technical proposal](./changelog_history/CHANGELOG-0.1.3.dev.md)
+* [0.1.2.dev Enhancing `APItoROefact` technical proposal](./changelog_history/CHANGELOG-0.1.2.dev.md)
+* [0.1.1.dev Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.dev.md)
+* [0.1.0.dev System raw backbone](./changelog_history/CHANGELOG-0.1.0.dev.md)
 
 
 

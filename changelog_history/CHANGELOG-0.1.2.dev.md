@@ -3,7 +3,7 @@
 [TOC]
 
 
-# CHANGELOG 0.1.2
+# CHANGELOG 0.1.2.dev
 
 ### 0.1.2 Enhancing `APItoROefact` technical proposal (231104 10:30)
 

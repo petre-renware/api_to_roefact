@@ -3,7 +3,7 @@
 [TOC]
 
 
-# CHANGELOG 0.1.3
+# CHANGELOG 0.1.3.dev
 
 ### 0.1.3 Enhancing `payments_validation_board` technical proposal (231105 h05:30)
 

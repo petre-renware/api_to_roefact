@@ -3,7 +3,7 @@
 [TOC]
 
 
-# CHANGELOG 0.1.7
+# CHANGELOG 0.1.7.dev
 
 ### 0.1.7 `xl2roefact.RDINV` invoice items & metadata (231126 h05:00)
 

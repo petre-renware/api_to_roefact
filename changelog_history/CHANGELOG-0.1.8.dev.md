@@ -3,7 +3,7 @@
 [TOC]
 
 
-# CHANGELOG 0.1.8
+# CHANGELOG 0.1.8.dev
 
 ### 0.1.8 improved application structure and first executable release (231201 h07:30)
 
