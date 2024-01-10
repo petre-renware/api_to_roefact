@@ -1,4 +1,20 @@
 """xl2roefact version string
-#TODO here to insert a nice text logo using a dedicated generator available as standard app in Ubuntu, but can be found many Linux apps for this purpose
+
+        _   _          
+ __  __| | | |_   ___  
+ \ \/ /| | | __| / _ \ 
+  >  < | | | |_ | (_) |
+ /_/\_\|_|  \__| \___/ 
+                       
+
+    __     ___                __               _   
+   /__\   /___\         ___  / _|  __ _   ___ | |_ 
+  / \//  //  // _____  / _ \| |_  / _` | / __|| __|
+ / _  \ / \_// |_____||  __/|  _|| (_| || (__ | |_ 
+ \/ \_/ \___/          \___||_|   \__,_| \___| \__|
+                                                   
+
+
+
 """
 __version__ = "0.1.19"
