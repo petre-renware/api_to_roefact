@@ -3,7 +3,7 @@
 [TOC]
 
 
-# CHANGELOG 0.1.10
+# CHANGELOG 0.1.10.dev
 
 ### 0.1.10 command interface improved, `msi` package building, invoice template & updated documentation (231207 h12:00)
 
