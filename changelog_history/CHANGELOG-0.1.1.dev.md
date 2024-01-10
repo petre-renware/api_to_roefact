@@ -3,7 +3,7 @@
 [TOC]
 
 
-# CHANGELOG 0.1.1
+# CHANGELOG 0.1.1.dev
 
 
 ### 0.1.1 Elaborating technical proposal (231104 08:45)
