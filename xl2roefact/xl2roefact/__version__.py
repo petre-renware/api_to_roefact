@@ -1,5 +1,5 @@
 """xl2roefact version string
-```ascii
+```
         _   _          
  __  __| | | |_   ___  
  \ \/ /| | | __| / _ \ 
