@@ -38,12 +38,12 @@
 * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
     * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
 -
-* ... future intention is to make commands:
-    * `config` - new... to set INTERACTIVELY configuration options (HINT: to use `Rich prompt`)
-    * `xl2json - wip... RDINV` read Excel data and crate a JSON file (with map to convert to RO-EFact XML) with invoice data,
-    * `json2xml - WRXML`,
-    * `json2pdf` - new...,
-    * `xml2roefact - LDXML`
+* ... FUTURE NEW APP COMMANDS :
+    * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
+    * `xl2json` - crt_wip... (@240110)
+    * `json2xml` - see module WRXML,
+    * `json2pdf` - new tbd..,
+    * `xml2roefact` - see mpdule LDXML
     * create a **`build.bat`** & include in `MSI` package 'data' directories as: `excel_invoice_template/`, empty `invoice_files/` (see `cx-Freeze`, options `--directories` of `bdist_msi`cmd, option `--include_files` of `build_exe`cmd, ref URL: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
     * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
     * PACKAGE SOLUTION:
