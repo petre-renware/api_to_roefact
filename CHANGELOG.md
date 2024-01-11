@@ -33,31 +33,25 @@
     * [ ] `rdinv` module
     * [ ] `xl2roefact` CLI application
     * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md` first ref "Cum sa utilizeti sablonul, reguli de urmat in completarea datelor"
-    * [x] (DONE: 0.1.18-231227piu_a) used Pydoc Markdown `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
 -
 * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
     * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
 -
-* ... future intention is to make commands:
-    * `config` - new... to set INTERACTIVELY configuration options (HINT: to use `Rich prompt`)
-    * `xl2json - wip... RDINV` read Excel data and crate a JSON file (with map to convert to RO-EFact XML) with invoice data,
-    * `json2xml - WRXML`,
-    * `json2pdf` - new...,
-    * `xml2roefact - LDXML`
-    * create a **`build.bat`** & include in `MSI` package 'data' directories as: `excel_invoice_template/`, empty `invoice_files/` (see `cx-Freeze`, options `--directories` of `bdist_msi`cmd, option `--include_files` of `build_exe`cmd, ref URL: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`)
-    * other commands enumerated on `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
+* ... FUTURE NEW APP COMMANDS :
+    * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
+    * `xl2json` - crt_wip... (@240110)
+    * `json2xml` - see module WRXML,
+    * `json2pdf` - new tbd..,
+    * `xml2roefact` - see mpdule LDXML
+    * chk for other commands from doc `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
     * PACKAGE SOLUTION:
         * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
-        * [x] (DONE: 0.1.18-231226piu_a) make some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
-        * [x] (DONE: 0.1.17) make a PDM build: OK, currently is done @ each release, results ==> `.../dist/xl2roefact-0.1.15-py3-none-any.whl` & `.../dist/xl2roefact-0.1.15.tar.gz`
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
-        * [x] (DONE: 0.1.12) invoice header - invoice number
-        * [x] (DONE: 0.1.14-231217piu_a) invoice header - issue date
-        * [x] (DONE: 0.1.13) invoice header - currency
         * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
         * [ ] #NOTE...wip... invoice header - customer (`<cac:AccountingCustomerParty>`)
+    * invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key
 
 
 
@@ -67,9 +61,8 @@
 ### 0.1.19.dev invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
 
 * -#TODO_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
-    - all `APItoROefact` to **`xl2roefact`** as meaning **`Excel invoices and RO EFact`**
-    - ck CNAME if points to new DNS name: `https://invoicetoroefact.renware.eu/`
-    - make a global link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
+    - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO EFact`**
+    - portal main navigation: link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
 
