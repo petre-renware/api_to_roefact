@@ -61,9 +61,8 @@
 ### 0.1.19.dev invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
 
 * -#TODO_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
-    - all `APItoROefact` to **`xl2roefact`** as meaning **`Excel invoices and RO EFact`**
-    - ck CNAME if points to new DNS name: `https://invoicetoroefact.renware.eu/`
-    - make a global link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
+    - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO EFact`**
+    - portal main navigation: link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
 
