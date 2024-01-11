@@ -49,11 +49,9 @@
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
-        * [x] (DONE: 0.1.12) invoice header - invoice number
-        * [x] (DONE: 0.1.14-231217piu_a) invoice header - issue date
-        * [x] (DONE: 0.1.13) invoice header - currency
         * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
         * [ ] #NOTE...wip... invoice header - customer (`<cac:AccountingCustomerParty>`)
+    * invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key
 
 
 
