@@ -73,8 +73,8 @@
 
 * tbd... to find `cac:PostalAddress` and write to:
     * #NOTE structure to set let as comment in rdinv() line# 292
-    * excel original area,
-      `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
+    * excel original area (...invoice_header_area...)
+    * `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
     * update XML - JSON map
 
 
