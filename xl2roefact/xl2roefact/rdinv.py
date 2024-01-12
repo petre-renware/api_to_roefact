@@ -289,7 +289,7 @@ def rdinv(
     }
     ...
     ''' # TODO: ...hereuare...next item: `cac:PostalAddress` -> `cac:Country`
-    info that should be set staring from `invoice_header_area["customer_area"]`:
+    #NOTE: info that should be set staring from `invoice_header_area["customer_area"]`:
     ```
         <cac:PostalAddress>
             <cbc:StreetName>Nicolae titulescu 81-87</cbc:StreetName>
