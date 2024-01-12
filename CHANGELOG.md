@@ -71,7 +71,11 @@
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
-* tbd..  next key to find: `cac:PostalAddress --> cac:Country`
+* tbd... to find `cac:PostalAddress` and write to:
+    * #NOTE structure to set let as comment in rdinv() line# 292
+    * excel original area (...invoice_header_area...)
+    * `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
+    * update XML - JSON map
 
 
 * 240112piu_b 95% clean code `rdinv()` from customer area identification, from line 204 (kept a DBG print just for area identification (useful for next task ref the same opers but for Supplier))
