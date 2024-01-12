@@ -71,7 +71,8 @@
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
-* tbd...#NOTE_(structure to set let as comment in rdinv() line# 292)... to find `cac:PostalAddress` and write to:
+* tbd... to find `cac:PostalAddress` and write to:
+    * #NOTE structure to set let as comment in rdinv() line# 292
     * excel original area,
       `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
     * update XML - JSON map
