@@ -66,7 +66,7 @@
 
 * wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
 
-* tbd... `def_inv_dir` issue ref Exel invoices default get directory, see comments in `app_cli.py` function `xl2json(...)`
+* tbd... `def_inv_dir` issue ref Excel invoices default get directory, see comments in `app_cli.py` function `xl2json(...)`
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
@@ -75,6 +75,8 @@
 * tbd..  next key to find: `cac:PostalAddress --> cac:Country`
 
 
+
+* 240112piu_a module `app_cli.py`, created `called_when_no_command(...)` function called when no command is invoked and to provide only application version (for external users to test it!)
 
 * 240110piu_c `xl2json` `about` command to get version & "nice" LOGO from `xl2roefact/__version__.py`, vars `__version__` & `__doc__`
 

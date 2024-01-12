@@ -133,6 +133,25 @@ def xl2json(
 
 
 
+@app_cli.callback(invoke_without_command=True)
+def called_when_no_command(
+    version: Annotated[
+        bool,
+        typer.Option(
+            "--version",
+            help="show application version"
+        ),
+    ] = False
+):
+    """function called when no command is invoked and to provide only application version (for external users to test it!).
+    """
+    version_string = appver.__version__
+    if version:
+            print(f"xl2roefact {version_string}")
+
+
+
+
 def run():
     app_cli()
 
