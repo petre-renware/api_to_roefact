@@ -202,8 +202,10 @@ def rdinv(
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
-    #FIXME_#TODO ...wip...hereuare / CUSTOMER AREA  ... ===> ALL CODE MUST BE CLEAN FROM HERE before release "invoice customer" version...
     #
+    #FIXME_#TODO ...wip .................... hereuare ....................
+    #FIXME_#NOTE  ALL about CUSTOMER AREA... area identification and corresponding sields/keys
+    #FIXME_#NOTE kept DBG print just for area identification (useful for next task ref the same opers but for Supplier)
     # find invoice customer ==> `cac:AccountingSupplierParty`
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
@@ -218,24 +220,20 @@ def rdinv(
     ]
     if ws.index(*_area_to_search_start_cell).strip() == "":  # prev set was for one line up but if that cell is blank remake it (ie, do a +1)
         _area_to_search_start_cell[0] += 1
-    #print(f"[red]=***=======>*** START {_area_to_search_start_cell=} [/]")  #FIXME DBG can be dropped
     # from `_area_to_search_start_cell` go down up a blank (empty cell)
     _last_ok_position = list([0, 0])
     for __i in range(_area_to_search_start_cell[0], ws.size[0] + 1):  # scan rest of lines for a blank one
         _crt_scanned_cell_idx = (__i, _area_to_search_start_cell[1])
         _crt_scanned_cell_val = ws.index(*_crt_scanned_cell_idx)
-        #print(f"[red]========> scanned cell: {_crt_scanned_cell_val=} @ {_crt_scanned_cell_idx} {_last_ok_position=} [/]")  #FIXME DBG can be dropped
         if _crt_scanned_cell_val.strip() == "":  # here you must stop
-            #print(f"[red]========> stopping for: {_crt_scanned_cell_val=} @ {_crt_scanned_cell_idx}  WITH LAST AREA GOOD @ {_last_ok_position=} [/]")  #FIXME DBG can be dropped
             break
         # save current position to be used after break
         _last_ok_position = copy.deepcopy(_crt_scanned_cell_idx)
-    #print(f"[red]========> @end of loop: {_last_ok_position=} [/]")  #FIXME DBG can be dropped
     _area_to_search_end_cell = [
         _last_ok_position[0],
         ws.size[1] if _last_ok_position[1] > ws.size[1] else _last_ok_position[1] + 1,  # set one row right if this row exists
     ]
-    #print(f"[red]=***=======>*** END {_area_to_search_end_cell=} [/]")  #FIXME DBG can be dropped
+    #print(f"[red]===> established AREA TO SEARCH as {_area_to_search_end_cell=} [/]")  #FIXME DBG can be dropped
     # set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
     _area_to_search = (tuple(_area_to_search_start_cell), tuple(_area_to_search_end_cell))
     invoice_header_area["customer_area"] = {
@@ -244,7 +242,6 @@ def rdinv(
             "location": copy.deepcopy(_area_to_search),
         }
     }
-    #print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
     #
     # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
     _temp_found_data = get_excel_data_at_label(
@@ -276,17 +273,14 @@ def rdinv(
         targeted_type=str,
         down_search_try=True  # NOTE: set on True to obtain identical results as original search of `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    #print(f"[yellow]========> RegistrationName find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
     _location_of_header_partner_area = invoice_header_area["customer_area"]["area_info"]["location"][0]
     _location_of_value_found = _temp_found_data["label_location"]
-    #print(f"[red]========> TO COMPARE [cyan]{_location_of_value_found=} vs {_location_of_header_partner_area=} [/]")  #FIXME DBG can be dropped
     if _location_of_value_found == _location_of_header_partner_area:  # NOTE: ReNaSt.STEP-2
         kept_RegistrationName = _temp_found_data["value"]
         kept_RegistrationName_location = _temp_found_data["location"]
     else:  # ReNaSt.STEP-3
         kept_RegistrationName = invoice_header_area["customer_area"]["area_info"]["value"]
         kept_RegistrationName_location = invoice_header_area["customer_area"]["area_info"]["location"][0]
-    #print(f"[red]========>  KEEP {kept_RegistrationName=}[/]")  #FIXME DBG can be dropped
     invoice_header_area["customer_area"]["RegistrationName"] = {
         "value": kept_RegistrationName,
         "location": kept_RegistrationName_location,
@@ -294,9 +288,8 @@ def rdinv(
         "label_location": "n/a"
     }
     ...
-    # TODO: ...hereuare... next item: `cac:PostalAddress` -> `cac:Country`
-    # TODO: ... continue with search for rest of keys, like: "reg com", "bank / IBAN / cont", and more...
-    # TODO: ... but before make a code clean up (from line #205)
+    # TODO: ...hereuare...next item: `cac:PostalAddress` -> `cac:Country`
+    # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     '''
     NOTE: - before end:
         - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"

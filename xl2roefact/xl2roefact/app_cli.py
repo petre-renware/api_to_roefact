@@ -19,6 +19,7 @@ Specifications:
 # general libraries
 import typer
 import os
+import sys
 from typing_extensions import Annotated
 from pathlib import Path
 from typing import Optional
@@ -107,7 +108,7 @@ def xl2json(
         `files_directory (Path)`: directory to be used to look for Excel files. Defaults to `invoice_files/`.
         `verbose (bool)`: show detailed processing messages" Defaults to `False`.
     """
-    print(f"*** Component [red]xl2roefact[/] launched at {datetime.now()}")
+    print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
 
     # process files as requested in command line
     #TODO `def_inv_dir` issue - this constraint should be dropped as will consider just if directory exists, otherwise will use `./` (current dir)
@@ -135,6 +136,7 @@ def xl2json(
 
 @app_cli.callback(invoke_without_command=True)
 def called_when_no_command(
+    ctx: typer.Context,
     version: Annotated[
         bool,
         typer.Option(
@@ -145,6 +147,9 @@ def called_when_no_command(
 ):
     """function called when no command is invoked and to provide only application version (for external users to test it!).
     """
+    if (ctx.invoked_subcommand is None) and not version:
+        print("[red]No command. Please use --help to get help.[/]")
+        sys.exit(0)
     version_string = appver.__version__
     if version:
             print(f"xl2roefact {version_string}")

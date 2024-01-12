@@ -64,17 +64,17 @@
     - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO EFact`**
     - portal main navigation: link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
 
-* wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all`
+* wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all` ++------->>
+         ++------->> TODO: &&& for this version make a full chk / review for FIXME of rdinv()
 
 * tbd... `def_inv_dir` issue ref Excel invoices default get directory, see comments in `app_cli.py` function `xl2json(...)`
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
-* tbd... clean code `rdinv()` from customer area identification, line 204
-
 * tbd..  next key to find: `cac:PostalAddress --> cac:Country`
 
 
+* 240112piu_b 95% clean code `rdinv()` from customer area identification, from line 204 (kept a DBG print just for area identification (useful for next task ref the same opers but for Supplier))
 
 * 240112piu_a module `app_cli.py`, created `called_when_no_command(...)` function called when no command is invoked and to provide only application version (for external users to test it!)
 
