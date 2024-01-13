@@ -288,7 +288,7 @@ def rdinv(
         "label_location": "n/a"
     }
     ...
-    ''' # TODO: ...hereuare...next item: `cac:PostalAddress` -> `cac:Country`
+    ''' # TODO: next item: `cac:PostalAddress` -> `cac:Country`
     #NOTE: info that should be set staring from `invoice_header_area["customer_area"]`:
     ```
         <cac:PostalAddress>
@@ -301,6 +301,8 @@ def rdinv(
         </cac:PostalAddress>
     ```
     '''
+    #TODO ...opis `240113piu_a` code starts here
+    #TODO ...opis `240113piu_a` code ends here
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     '''
     NOTE: - before end:
