@@ -291,6 +291,7 @@ def rdinv(
     ''' # TODO: next item: `cac:PostalAddress` -> `cac:Country`
     #NOTE: info that should be set staring from `invoice_header_area["customer_area"]`:
     ```
+     <cac:Party>  # existing key...
         <cac:PostalAddress>
             <cbc:StreetName>Nicolae titulescu 81-87</cbc:StreetName>
             <cbc:CityName>Sectorul 1</cbc:CityName>
@@ -343,17 +344,16 @@ def rdinv(
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
             "cac_AccountingCustomerParty": {
-                "cac_PartyLegalEntity": {
-                    "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
-                    "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
-                    #NOTE    - add these keys to XML-JSON map
-                    # NOTE:_DONE  cac_PartyLegalEntity -- cac:PartyLegalEntity  #FIXME can be dropped
-                    # NOTE:_DONE  cbc_CompanyID -- cbc:CompanyID  #FIXME can be dropped
-                    # NOTE:_DONE  cbc_RegistrationName -- cbc:RegistrationName  #FIXME can be dropped
-                    #NOTE         ...add more keys to write in map...
-                },
-                "...incoming_structure_for_ADDRESSS": {
-                    "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations...",
+                "<cac:Party>": {
+                    "cac_PartyLegalEntity": {
+                        "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
+                        "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
+                    },
+                    "<cac_PostalAddress>": {
+                        "#TODO ...tbd in nxt operations...": "TODO: @IMP update XML -- JSON map",
+                        "key_1_of_postalAddr": "...wip...",
+                        "key_n_of_postalAddr": "...wip...",
+                    }
                 }
             },
             #TODO ...here to add rest of `invoice_header_area`...
