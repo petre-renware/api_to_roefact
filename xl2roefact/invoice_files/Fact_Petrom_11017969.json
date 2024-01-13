@@ -4,12 +4,16 @@
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-10-17",
         "cac_AccountingCustomerParty": {
-            "cac_PartyLegalEntity": {
-                "cbc_CompanyID": "RO1590082",
-                "cbc_RegistrationName": "OMV Petrom S.A."
-            },
-            "...incoming_structure_for_ADDRESSS": {
-                "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations..."
+            "<cac:Party>": {
+                "cac_PartyLegalEntity": {
+                    "cbc_CompanyID": "RO1590082",
+                    "cbc_RegistrationName": "OMV Petrom S.A."
+                },
+                "<cac_PostalAddress>": {
+                    "#TODO ...tbd in nxt operations...": "TODO: @IMP update XML -- JSON map",
+                    "key_1_of_postalAddr": "...wip...",
+                    "key_n_of_postalAddr": "...wip..."
+                }
             }
         },
         "cac_InvoiceLine": [
@@ -78,7 +82,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-01-12T05:49:28.226558+00:00",
+        "last_processing_time": "2024-01-13T06:11:40.825137+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,

@@ -287,8 +287,9 @@ def rdinv(
         "label_value": "n/a",
         "label_location": "n/a"
     }
-    ...
-    ''' # TODO: next item: `cac:PostalAddress` -> `cac:Country`  ##FIXME clear me before end opiss `240113piu_a`
+    #
+    # find customer key `cac:PostalAddress` -> `invoice_header_area["cac_PostalAddress"]` && Invoice...["cac_PostalAddress"]
+    ''' ##FIXME drop me me before end opiss `240113piu_a`
     #NOTE: info that should be set staring from `invoice_header_area["customer_area"]`:
     ```
      <cac:Party>  # existing key...
@@ -315,9 +316,9 @@ def rdinv(
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     '''
     NOTE: - before end:
-        - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
+        - FINAL OBJECTIVE: `cac:AccountingCustomerParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
         - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)" ...->
-          ...-> for combination: `cac:AccountingSupplierParty` ---- `cac_AccountingSupplierParty`
+          ...-> for combination: `cac:AccountingCustomerParty` ---- `cac_AccountingSupplierParty`
         - helper search str "TODO ...here to add rest of `invoice_header_area`..."
     '''
     #TODO ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
@@ -361,7 +362,7 @@ def rdinv(
                         "#TODO ...tbd in nxt operations...": "TODO: @IMP update XML -- JSON map",
                         "key_1_of_postalAddr": "...wip...",
                         "key_n_of_postalAddr": "...wip...",
-                    }
+                    },
                 }
             },
             #TODO ...here to add rest of `invoice_header_area`...
