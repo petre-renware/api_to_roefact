@@ -302,8 +302,8 @@ def rdinv(
         </cac:PostalAddress>
     ```
     '''
-    #TODO ...opis `240113piu_a` code starts here
-    #TODO ...opis `240113piu_a` code ends here
+    ...  #NOTE opis `240113piu_a` effective code starts here
+    ...  #NOTE opis `240113piu_a` effective code ends here
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     '''
     NOTE: - before end:
