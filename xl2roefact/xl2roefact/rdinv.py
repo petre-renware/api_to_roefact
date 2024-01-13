@@ -319,11 +319,11 @@ def rdinv(
     _temp_found_data={'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)}
     ---> CONTINUE plan:
       1. chk if label val contains "adr" or "addr" -
-          _tmpstr = _temp_found_data['label_value'].lower())
+          _tmpstr = _temp_found_data["label_value"].lower())
           _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
       2. test if is a full address -
           if _val_is_full_addr:
-              ...  # have a full addr in xxx
+              ...  # have a full addr in `_temp_found_data["value"]`
           else:
               ...  # need re-search by individual address components... how make it ?
               ...  # - one idea is to consider a long area in DOW with them...
