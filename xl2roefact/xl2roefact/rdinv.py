@@ -288,7 +288,7 @@ def rdinv(
         "label_location": "n/a"
     }
     ...
-    ''' # TODO: next item: `cac:PostalAddress` -> `cac:Country`
+    ''' # TODO: next item: `cac:PostalAddress` -> `cac:Country`  ##FIXME clear me before end opiss `240113piu_a`
     #NOTE: info that should be set staring from `invoice_header_area["customer_area"]`:
     ```
      <cac:Party>  # existing key...
@@ -304,7 +304,7 @@ def rdinv(
     '''
     ...  #NOTE opis `240113piu_a` effective code starts here
     _temp_found_data = get_excel_data_at_label(
-    pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
+    pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
     worksheet=ws,
     area_to_scan=_area_to_search,
     targeted_type=str,
