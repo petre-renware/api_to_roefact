@@ -311,12 +311,12 @@ def rdinv(
     targeted_type=str,
     down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    print(f"[red]====> INFO FOUND {_temp_found_data}[/]")  #FIXME DBG can drop
+    print(f"[red]====> INFO FOUND {_temp_found_data=}[/]")  #FIXME DBG can drop
     '''info found&print:  #FIXME DBG can drop
         * Petrom invoice:
-    ====> INFO FOUND {'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
+    _temp_found_data={'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
         * RENware invoice:
-    ====> INFO FOUND {'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)}
+    _temp_found_data={'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)}
     '''
     ... #TODO ............hereuare............
     ... #FIXME opis `240113piu_a` effective code ENDS here
