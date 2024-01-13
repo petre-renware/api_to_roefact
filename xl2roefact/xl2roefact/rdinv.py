@@ -303,6 +303,14 @@ def rdinv(
     ```
     '''
     ...  #NOTE opis `240113piu_a` effective code starts here
+    _temp_found_data = get_excel_data_at_label(
+    pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
+    worksheet=ws,
+    area_to_scan=_area_to_search,
+    targeted_type=str,
+    down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    ...  # ...hereuarenow....
     ...  #NOTE opis `240113piu_a` effective code ends here
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     '''
