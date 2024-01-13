@@ -203,7 +203,7 @@ def rdinv(
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
-    #FIXME_#TODO ...wip .................... hereuare ....................
+    #FIXME_#TODO ...wip .................... here is a longer work ....................
     #FIXME_#NOTE  ALL about CUSTOMER AREA... area identification and corresponding sields/keys
     #FIXME_#NOTE kept DBG print just for area identification (useful for next task ref the same opers but for Supplier)
     # find invoice customer ==> `cac:AccountingSupplierParty`
@@ -289,6 +289,7 @@ def rdinv(
     }
     #
     # find customer key `cac:PostalAddress` -> `invoice_header_area["cac_PostalAddress"]` && Invoice...["cac_PostalAddress"]
+    #FIXME opis `240113piu_a` effective code STARTS here
     ''' ##FIXME drop me me before end opiss `240113piu_a`
     #NOTE: info that should be set staring from `invoice_header_area["customer_area"]`:
     ```
@@ -303,7 +304,6 @@ def rdinv(
         </cac:PostalAddress>
     ```
     '''
-    ...  #NOTE opis `240113piu_a` effective code starts here
     _temp_found_data = get_excel_data_at_label(
     pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
     worksheet=ws,
@@ -311,8 +311,16 @@ def rdinv(
     targeted_type=str,
     down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    ...  # ...hereuarenow....
-    ...  #NOTE opis `240113piu_a` effective code ends here
+    print(f"[red]====> INFO FOUND {_temp_found_data}[/]")  #FIXME DBG can drop
+    '''info found&print:  #FIXME DBG can drop
+        * Petrom invoice:
+    ====> INFO FOUND {'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
+        * RENware invoice:
+    ====> INFO FOUND {'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)}
+    '''
+    ... #TODO ............hereuare............
+    ... #FIXME opis `240113piu_a` effective code ENDS here
+
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     '''
     NOTE: - before end:
@@ -321,7 +329,7 @@ def rdinv(
           ...-> for combination: `cac:AccountingCustomerParty` ---- `cac_AccountingSupplierParty`
         - helper search str "TODO ...here to add rest of `invoice_header_area`..."
     '''
-    #TODO ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
+    #TODO: ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 
