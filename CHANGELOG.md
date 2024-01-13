@@ -72,9 +72,9 @@
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
 
-* #NOTE_WIP... 240113piu_a to find `cac:PostalAddress` and write to:
+* wip... 240113piu_a to find `cac:PostalAddress` and write to:
     * #NOTE structure to set let as comment in rdinv() line# 292
-    * [ ] right set position of key `"cac_PostalAddress"` in basic structure (invoice_header_area)
+    * [x] right set position of key `"cac_PostalAddress"` in basic structure (invoice_header_area)
     * [ ] excel original area (...invoice_header_area...)
     * [ ] get & set `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
     * [ ] update XML - JSON map
