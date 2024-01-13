@@ -74,10 +74,11 @@
 
 * wip... 240113piu_a to find `cac:PostalAddress` and write to:
     * #NOTE structure to set let as comment in rdinv() line# 292
-    * [x] right set position of key `"cac_PostalAddress"` in basic structure (invoice_header_area)
-    * [ ] excel original area (...invoice_header_area...)
-    * [ ] get & set `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
-    * [ ] update XML - JSON map
+    * [x] 1. right set position of key `"cac_PostalAddress"` in basic structure (invoice_header_area)
+    * [x] 2a. find excel area ref customer address (...invoice_header_area...)
+    * [ ] 2b. disseminate & save excel original area (...invoice_header_area...)
+    * [ ] 3. get & set `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
+    * [ ] 4. update XML - JSON map
 
 * 240112piu_b 95% clean code `rdinv()` from customer area identification, from line 204 (kept a DBG print just for area identification (useful for next task ref the same opers but for Supplier))
 
