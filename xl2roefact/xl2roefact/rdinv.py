@@ -872,11 +872,13 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_ID", "cbc:ID"),  # invoice number
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
         ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
-        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer inforation - MASTER RECORD
-        ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL RECORD
-        ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL RECORD
-        ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL RECORD
-
+        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer information - MASTER RECORD
+        ("cac_Party", "cac:Party".),  # invoice customer details ref Parner info (legal, address, ...) - DETAIL L1 RECORD
+        ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL L2 RECORD
+        ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cac_PostalAddress", "cac:PostalAddress"),  # invoice customer postal address info - DETAIL L2 RECORD
+        #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 
     return copy.deepcopy(_tmp_meta_info)
