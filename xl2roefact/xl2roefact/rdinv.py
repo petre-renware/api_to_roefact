@@ -203,7 +203,7 @@ def rdinv(
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
-    #FIXME_#TODO ...wip .................... hereuare ....................
+    #FIXME_#TODO ...wip .................... here is a longer work ....................
     #FIXME_#NOTE  ALL about CUSTOMER AREA... area identification and corresponding sields/keys
     #FIXME_#NOTE kept DBG print just for area identification (useful for next task ref the same opers but for Supplier)
     # find invoice customer ==> `cac:AccountingSupplierParty`
@@ -287,10 +287,13 @@ def rdinv(
         "label_value": "n/a",
         "label_location": "n/a"
     }
-    ...
-    ''' # TODO: ...hereuare...next item: `cac:PostalAddress` -> `cac:Country`
+    #
+    # find customer key `cac:PostalAddress` -> `invoice_header_area["cac_PostalAddress"]` && Invoice...["cac_PostalAddress"]
+    #FIXME opis `240113piu_a` effective code STARTS here
+    ''' ##FIXME drop me me before end opiss `240113piu_a`
     #NOTE: info that should be set staring from `invoice_header_area["customer_area"]`:
     ```
+     <cac:Party>  # existing key...
         <cac:PostalAddress>
             <cbc:StreetName>Nicolae titulescu 81-87</cbc:StreetName>
             <cbc:CityName>Sectorul 1</cbc:CityName>
@@ -301,15 +304,48 @@ def rdinv(
         </cac:PostalAddress>
     ```
     '''
+    _temp_found_data = get_excel_data_at_label(
+    pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
+    worksheet=ws,
+    area_to_scan=_area_to_search,
+    targeted_type=str,
+    down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    print(f"[red]====> INFO FOUND {_temp_found_data=}[/]")  #FIXME DBG can drop
+    '''info found&print:  #FIXME DBG can drop
+        * Petrom invoice:
+    _temp_found_data={'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
+        * RENware invoice:
+    _temp_found_data={'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)}
+    ---> TODO: CONTINUE plan:
+      1. chk if label val contains "adr" or "addr" -
+          _tmpstr = _temp_found_data["label_value"].lower())
+          _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
+      2. test if is a full address -
+          if _val_is_full_addr:
+              ...  # have a full addr in `_temp_found_data["value"]`
+              ...  # get as it was found (`_temp_found_data["value"]`)
+              ...  # create a new `area_to_scan` limited to `_temp_found_data["value"]`
+      3. continue to search in for these individual item-keys:
+              ...  # "tara / country",  "judet / county", "str", "oras / city" ... and that's enough
+      *.) @IMP#NOTE in all cases will search for ibdividual items as thay are separated in XML schema and does not exists a "general" address field, but...
+          ... if our data is "encapsulated" in a general address field will search only in it, not in the whole designated area for customer data ...
+          ... letting it for future searches like "Reg Com", "IBAN", "Bank", ...
+      *.) anyway do NOT forget: COUNTRY is important & required, and...
+          ... a more better idea ia to get partner company data from an external API using found `invoice_header_area["customer_area"]["CUI"]`
+    '''
+    ... #TODO ............hereuare............
+    ... #FIXME opis `240113piu_a` effective code ENDS here
+
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     '''
     NOTE: - before end:
-        - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
+        - FINAL OBJECTIVE: `cac:AccountingCustomerParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
         - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)" ...->
-          ...-> for combination: `cac:AccountingSupplierParty` ---- `cac_AccountingSupplierParty`
+          ...-> for combination: `cac:AccountingCustomerParty` ---- `cac_AccountingSupplierParty`
         - helper search str "TODO ...here to add rest of `invoice_header_area`..."
     '''
-    #TODO ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
+    #TODO: ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 
@@ -341,17 +377,16 @@ def rdinv(
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
             "cac_AccountingCustomerParty": {
-                "cac_PartyLegalEntity": {
-                    "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
-                    "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
-                    #NOTE    - add these keys to XML-JSON map
-                    # NOTE:_DONE  cac_PartyLegalEntity -- cac:PartyLegalEntity  #FIXME can be dropped
-                    # NOTE:_DONE  cbc_CompanyID -- cbc:CompanyID  #FIXME can be dropped
-                    # NOTE:_DONE  cbc_RegistrationName -- cbc:RegistrationName  #FIXME can be dropped
-                    #NOTE         ...add more keys to write in map...
-                },
-                "...incoming_structure_for_ADDRESSS": {
-                    "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations...",
+                "<cac:Party>": {
+                    "cac_PartyLegalEntity": {
+                        "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
+                        "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
+                    },
+                    "<cac_PostalAddress>": {
+                        "#TODO ...tbd in nxt operations...": "TODO: @IMP update XML -- JSON map",
+                        "key_1_of_postalAddr": "...wip...",
+                        "key_n_of_postalAddr": "...wip...",
+                    },
                 }
             },
             #TODO ...here to add rest of `invoice_header_area`...
@@ -837,11 +872,13 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_ID", "cbc:ID"),  # invoice number
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
         ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
-        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer inforation - MASTER RECORD
-        ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL RECORD
-        ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL RECORD
-        ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL RECORD
-
+        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer information - MASTER RECORD
+        ("cac_Party", "cac:Party".),  # invoice customer details ref Parner info (legal, address, ...) - DETAIL L1 RECORD
+        ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL L2 RECORD
+        ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cac_PostalAddress", "cac:PostalAddress"),  # invoice customer postal address info - DETAIL L2 RECORD
+        #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 
     return copy.deepcopy(_tmp_meta_info)

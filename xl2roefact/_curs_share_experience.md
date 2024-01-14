@@ -1,8 +1,17 @@
 
-# Obiective
+# Clubul CALCULATOARUL UN PRIETEN LA JOB
+
+Acest club se adreseaza celor interesati de domeniul IT si "lumea calculatoarelor" din diverse motive si ratiuni ce nu se exclud;
+
+* face parte din viata lor profesionala, "jobul" lor este strins legat de asta
+* este un hobby, o pasiune
+* din curiozitate si vor sa afle mai multe despre 'dedesubturile" acestora dar si despre activitatile conexe lor, cum ar fi project managementul in lumea IT, proiectarea arhitecturilor, ingineria sistemelor software
+* inteleg / stiu / au auzit ca aceasta "lume" a calculatoarelor este un amalgam de "hardware, software, networking, security" si vir sa Inteleaga mai practic si concret ce inseamna acestea
+* vor sa Inteleaga lucrurile fara a fi tratate cu formalism excesiv, cu multa teorie "seaca" ce uneori pare inutila si de neinteles la ce va folosi - vor sa Inteleaga aceasta lume in mod intuitiv adica "stiu ca stiu" si "inteleg pentru ca inteleg" chiar daca poate "nu stiu sa iti demonstrez matematic si fizic" ;) == ACEASTA INSEAMNA CUNOASTERE INTUITIVA
+* ... #TODO more ?
 
 
-## De ce acest curs
+## De ce acest eveniment
 
 In primul rind vreau sa mentionez ca acesta nu este un curs. Nu in acceptiunea clasic incetatenita a ceea ce numim curs.
 
