@@ -316,23 +316,33 @@ def rdinv(
         * Petrom invoice:
     _temp_found_data={'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
         * RENware invoice:
-    _temp_found_data={'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)}
-    ---> TODO: CONTINUE plan:
-      1. chk if label val contains "adr" or "addr" -
-          _tmpstr = _temp_found_data["label_value"].lower())
-          _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
-      2. test if is a full address -
-          if _val_is_full_addr:
-              ...  # have a full addr in `_temp_found_data["value"]`
-              ...  # get as it was found (`_temp_found_data["value"]`)
-              ...  # create a new `area_to_scan` limited to `_temp_found_data["value"]`
-      3. continue to search in for these individual item-keys:
-              ...  # "tara / country",  "judet / county", "str", "oras / city" ... and that's enough
-      *.) @IMP#NOTE in all cases will search for ibdividual items as thay are separated in XML schema and does not exists a "general" address field, but...
-          ... if our data is "encapsulated" in a general address field will search only in it, not in the whole designated area for customer data ...
-          ... letting it for future searches like "Reg Com", "IBAN", "Bank", ...
-      *.) anyway do NOT forget: COUNTRY is important & required, and...
-          ... a more better idea ia to get partner company data from an external API using found `invoice_header_area["customer_area"]["CUI"]`
+    _temp_found_data={'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)} '''
+    '''ok TODO: CONTINUE plan - part 1:  #FIXME drop me
+       1. chk if label val contains "adr" or "addr" -: '''
+    _tmpstr = _temp_found_data["label_value"].lower())
+    _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
+    '''ok TODO: CONTINUE plan - part 2:  #FIXME drop me 
+       2. test if is a full address -: '''
+    if _val_is_full_addr:
+        ...  # have a full addr in `_temp_found_data["value"]`
+        ...  # get as it was found (`_temp_found_data["value"]`)
+        ...  # create a new `area_to_scan_address_items` limited to `_temp_found_data["value"]`
+        ...  # use value location for (as a single cell so end = start = its location)
+        area_to_scan_address_items = (_temp_found_data["location"], _temp_found_data["location")
+    else:
+        ...  # keep original value
+        area_to_scan_address_items = _area_to_search
+    '''tbd TODO: CONTINUE plan - part 3:  #FIXME drop me
+       3. continue to search in for these individual item-keys:
+          ...  # "tara / country",  "judet / county", "str", "oras / city" ... and that's enough
+          ...  # use ``area_to_scan=area_to_scan_address_items` as f8nd function parameter
+        *.) @IMP in all cases will search for individual items as thay are separated in XML schema and does not exists a "general" address field, but...
+            ... # if our data is "encapsulated" in a general address field will search only in it, not in the whole designated area for customer data ...
+            ... # letting it for future searches like "Reg Com", "IBAN", "Bank", ... '''
+    if 1==1: ... #code_here_part3
+    ''' NOTE:
+    *.) anyway do NOT forget: COUNTRY is important & required, and...
+        ... # a more better idea ia to get partner company data from an external API using found `invoice_header_area["customer_area"]["CUI"]`
     '''
     ... #TODO ............hereuare............
     ... #FIXME opis `240113piu_a` effective code ENDS here
