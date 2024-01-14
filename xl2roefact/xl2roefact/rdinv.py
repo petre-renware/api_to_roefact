@@ -335,6 +335,7 @@ def rdinv(
     '''tbd TODO: CONTINUE plan - part 3:  #FIXME drop me
        3. continue to search in for these individual item-keys:
           ...  # "tara / country",  "judet / county", "str", "oras / city" ... and that's enough
+          ...  # create dedicated const for all of these (in config_settings.py)
           ...  # use ``area_to_scan=area_to_scan_address_items` as f8nd function parameter
         *.) @IMP in all cases will search for individual items as thay are separated in XML schema and does not exists a "general" address field, but...
             ... # if our data is "encapsulated" in a general address field will search only in it, not in the whole designated area for customer data ...
