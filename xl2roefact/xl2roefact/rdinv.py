@@ -22,6 +22,7 @@ from rich.pretty import pprint
 from string import ascii_lowercase
 import json
 from typing import Callable, Any
+from functools import partial
 import pylightxl as xl
 import openpyxl as opnxl
 
@@ -309,11 +310,11 @@ def rdinv(
     ```
     '''
     _temp_found_data = get_excel_data_at_label(
-    pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
-    worksheet=ws,
-    area_to_scan=_area_to_search,
-    targeted_type=str,
-    down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+        pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+        targeted_type=str,
+        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     print(f"[red]====> INFO FOUND {_temp_found_data=}[/]")  #FIXME DBG can drop
     '''info found&print:  #FIXME DBG can drop
@@ -348,7 +349,34 @@ def rdinv(
         *.) @IMP in all cases will search for individual items as thay are separated in XML schema and does not exists a "general" address field, but...
             ... # if our data is "encapsulated" in a general address field will search only in it, not in the whole designated area for customer data ...
             ... # letting it for future searches like "Reg Com", "IBAN", "Bank", ... '''
-    if 1==1: ... #code_here_part3
+    search_address_parts = partial(  # define a partial function to be used for all address items search
+        get_excel_data_at_label,  # function to call
+        worksheet=ws,
+        area_to_scan=area_to_scan_address_items,
+        targeted_type=str,
+        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )
+    #FIXME ...continue... code_here_part3 - call function `search_address_parts` as:  / drop yhis comment
+    _tmp_country = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)
+    _tmp_city = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)
+    _tmp_street = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)
+    _tmp_zipcode = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)
+    print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
+    '''#FIXME: REZULTATELE GASITE:
+        * Petrom:
+    ===> Iterms found are:
+    _tmp_country={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    _tmp_city={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    _tmp_street={'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
+    _tmp_zipcode={'value': 'Postal 013329', 'location': (14, 2), 'label_value': 'Cod Postal 013329', 'label_location': (14, 2)}
+
+        * RENware:
+    ===> Iterms found are:
+    _tmp_country={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    _tmp_city={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    _tmp_street={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    _tmp_zipcode={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    '''
     ''' NOTE:
     *.) anyway do NOT forget: COUNTRY is important & required, and...
         ... # a more better idea ia to get partner company data from an external API using found `invoice_header_area["customer_area"]["CUI"]`
