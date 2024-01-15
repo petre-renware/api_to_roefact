@@ -72,6 +72,8 @@
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
 
+
+
 * wip... 240113piu_a to find `cac:PostalAddress` and write to:
     * #NOTE structure to set let as comment in rdinv() line# 292
     * [x] 1. right set position of key `"cac_PostalAddress"` in basic structure (invoice_header_area)
@@ -79,6 +81,8 @@
     * [...] 2b. disseminate & save excel original area (...invoice_header_area...)
     * [ ] 3. get & set `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
     * [ ] 4. update XML - JSON map for item "under" `cac_PostalAddress`
+
+* 2401_xl2roefact_doc_01 `xl2roefact` update technical documentation, file `xl2roefact/doc/810.05a-xl2roefact_component.md`
 
 * 240112piu_b 95% clean code `rdinv()` from customer area identification, from line 204 (kept a DBG print just for area identification (useful for next task ref the same opers but for Supplier))
 
