@@ -356,7 +356,6 @@ def rdinv(
         targeted_type=str,
         down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )
-    #FIXME ...continue... code_here_part3 - call function `search_address_parts` as:  / drop yhis comment
     _tmp_country = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)
     _tmp_city = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)
     _tmp_street = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)
