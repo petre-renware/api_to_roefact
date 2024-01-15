@@ -45,6 +45,10 @@ PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOI
 PATTERN_FOR_PARTNER_ID = config_settings.PATTERN_FOR_PARTNER_ID
 PATTERN_FOR_CUSTOMER_LEGAL_NAME = config_settings.PATTERN_FOR_CUSTOMER_LEGAL_NAME
 PATTERN_FOR_PARTNER_ADDRESS = config_settings.PATTERN_FOR_PARTNER_ADDRESS
+PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_COUNTRY  #FIXME @240115 info line, can drop, drop me after compiling test
+PATTERN_FOR_PARTNER_ADDRESS_CITY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_CITY  #FIXME @240115 info line, can drop, drop me after compiling test
+PATTERN_FOR_PARTNER_ADDRESS_STREET = config_settings.PATTERN_FOR_PARTNER_ADDRESS_STREET  #FIXME @240115 info line, can drop, drop me after compiling test
+PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = config_settings.PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE  #FIXME @240115 info line, can drop, drop me after compiling test
 
 
 def rdinv(
@@ -316,23 +320,38 @@ def rdinv(
         * Petrom invoice:
     _temp_found_data={'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
         * RENware invoice:
-    _temp_found_data={'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)}
-    ---> TODO: CONTINUE plan:
-      1. chk if label val contains "adr" or "addr" -
-          _tmpstr = _temp_found_data["label_value"].lower())
-          _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
-      2. test if is a full address -
-          if _val_is_full_addr:
-              ...  # have a full addr in `_temp_found_data["value"]`
-              ...  # get as it was found (`_temp_found_data["value"]`)
-              ...  # create a new `area_to_scan` limited to `_temp_found_data["value"]`
-      3. continue to search in for these individual item-keys:
-              ...  # "tara / country",  "judet / county", "str", "oras / city" ... and that's enough
-      *.) @IMP#NOTE in all cases will search for ibdividual items as thay are separated in XML schema and does not exists a "general" address field, but...
-          ... if our data is "encapsulated" in a general address field will search only in it, not in the whole designated area for customer data ...
-          ... letting it for future searches like "Reg Com", "IBAN", "Bank", ...
-      *.) anyway do NOT forget: COUNTRY is important & required, and...
-          ... a more better idea ia to get partner company data from an external API using found `invoice_header_area["customer_area"]["CUI"]`
+    _temp_found_data={'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)} '''
+    '''ok TODO: CONTINUE plan - part 1:  #FIXME drop me
+       1. chk if label val contains "adr" or "addr" -: '''
+    _tmpstr = _temp_found_data["label_value"].lower())
+    _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
+    '''ok TODO: CONTINUE plan - part 2:  #FIXME drop me
+       2. test if is a full address -: '''
+    if _val_is_full_addr:
+        ...  # have a full addr in `_temp_found_data["value"]`
+        ...  # get as it was found (`_temp_found_data["value"]`)
+        ...  # create a new `area_to_scan_address_items` limited to `_temp_found_data["value"]`
+        ...  # use value location for (as a single cell so end = start = its location)
+        area_to_scan_address_items = (_temp_found_data["location"], _temp_found_data["location")
+    else:
+        ...  # keep original value
+        area_to_scan_address_items = _area_to_search
+    print(f"[red]===> Unified search area {area_to_scan_address_items=}[/]")  #FIXME DBG can drop
+    '''tbd TODO: CONTINUE plan - part 3:  #FIXME drop me
+       3. continue to search in for these individual item-keys:
+          ...  # PATTERN_FOR_PARTNER_ADDRESS_COUNTRY --> <cac:Country> + <cbc:IdentificationCode> (NOTE: it is 2-letter contry standard type )
+          ...  # PATTERN_FOR_PARTNER_ADDRESS_CITY --> <cbc:CityName> (NOTE: combine strings if more or just take first one and that's it)
+          ...  # PATTERN_FOR_PARTNER_ADDRESS_STREET --> <cbc:StreetName>
+          ...  # PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE --> <cbc:PostalZone>
+          # no more XML items,  create dedicated const for all of these (in config_settings.py)
+          ...  # use ``area_to_scan = area_to_scan_address_items` as f8nd function parameter
+        *.) @IMP in all cases will search for individual items as thay are separated in XML schema and does not exists a "general" address field, but...
+            ... # if our data is "encapsulated" in a general address field will search only in it, not in the whole designated area for customer data ...
+            ... # letting it for future searches like "Reg Com", "IBAN", "Bank", ... '''
+    if 1==1: ... #code_here_part3
+    ''' NOTE:
+    *.) anyway do NOT forget: COUNTRY is important & required, and...
+        ... # a more better idea ia to get partner company data from an external API using found `invoice_header_area["customer_area"]["CUI"]`
     '''
     ... #TODO ............hereuare............
     ... #FIXME opis `240113piu_a` effective code ENDS here
@@ -872,11 +891,13 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_ID", "cbc:ID"),  # invoice number
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
         ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
-        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer inforation - MASTER RECORD
-        ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL RECORD
-        ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL RECORD
-        ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL RECORD
-
+        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer information - MASTER RECORD
+        ("cac_Party", "cac:Party".),  # invoice customer details ref Parner info (legal, address, ...) - DETAIL L1 RECORD
+        ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL L2 RECORD
+        ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cac_PostalAddress", "cac:PostalAddress"),  # invoice customer postal address info - DETAIL L2 RECORD
+        #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 
     return copy.deepcopy(_tmp_meta_info)
