@@ -323,7 +323,7 @@ def rdinv(
     _temp_found_data={'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)} '''
     '''ok TODO: CONTINUE plan - part 1:  #FIXME drop me
        1. chk if label val contains "adr" or "addr" -: '''
-    _tmpstr = _temp_found_data["label_value"].lower())
+    _tmpstr = _temp_found_data["label_value"].lower()
     _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
     '''ok TODO: CONTINUE plan - part 2:  #FIXME drop me
        2. test if is a full address -: '''
@@ -332,7 +332,7 @@ def rdinv(
         ...  # get as it was found (`_temp_found_data["value"]`)
         ...  # create a new `area_to_scan_address_items` limited to `_temp_found_data["value"]`
         ...  # use value location for (as a single cell so end = start = its location)
-        area_to_scan_address_items = (_temp_found_data["location"], _temp_found_data["location")
+        area_to_scan_address_items = (_temp_found_data["location"], _temp_found_data["location"])
     else:
         ...  # keep original value
         area_to_scan_address_items = _area_to_search
@@ -892,7 +892,7 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
         ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
         ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer information - MASTER RECORD
-        ("cac_Party", "cac:Party".),  # invoice customer details ref Parner info (legal, address, ...) - DETAIL L1 RECORD
+        ("cac_Party", "cac:Party"),  # invoice customer details ref Parner info (legal, address, ...) - DETAIL L1 RECORD
         ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL L2 RECORD
         ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL L3 RECORD
         ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL L3 RECORD
