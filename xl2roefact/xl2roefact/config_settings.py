@@ -124,6 +124,22 @@ PATTERN_FOR_PARTNER_ADDRESS = [  #FIXME this is just entered (240108) and never 
     "city", "town",
     "str",
 ]
+PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = [  #FIXME @240115 never used, test me
+    "tara", "countr",
+]
+PATTERN_FOR_PARTNER_ADDRESS_CITY = [  #FIXME @240115 never used, test me
+    "judet", "county",
+    "locali",
+    "oras", "city",
+]
+PATTERN_FOR_PARTNER_ADDRESS_STREET = [  #FIXME @240115 never used, test me
+    "str",
+]
+PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [  #FIXME @240115 never used, test me
+    "cod po", "zip cod",
+]
+
+
 
 ...  # TODO: alte patternuri comune de adaugat aici (ex: RegCom, Adresa, IBAN, Banca, ...)
 
