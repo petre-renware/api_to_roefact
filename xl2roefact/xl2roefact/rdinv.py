@@ -332,9 +332,13 @@ def rdinv(
     else:
         ...  # keep original value
         area_to_scan_address_items = _area_to_search
+    print(f"[red]===> Unified search area {area_to_scan_address_items=}[/]")  #FIXME DBG can drop
     '''tbd TODO: CONTINUE plan - part 3:  #FIXME drop me
        3. continue to search in for these individual item-keys:
-          ...  # "tara / country",  "judet / county", "str", "oras / city" ... and that's enough
+          ...  # "tara / country" --> <cac:Country> + <cbc:IdentificationCode> (NOTE: it is 2-letter contry standard type )
+          ...  # "judet / county / locali / oras / city" --> <cbc:CityName> (NOTE: combine strings if more or just take first one and that's it)
+          ...  # "str", "cod po / zip" --> <cbc:PostalZone>
+          ...  # and that's all XML items
           ...  # create dedicated const for all of these (in config_settings.py)
           ...  # use ``area_to_scan=area_to_scan_address_items` as f8nd function parameter
         *.) @IMP in all cases will search for individual items as thay are separated in XML schema and does not exists a "general" address field, but...
