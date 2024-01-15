@@ -337,10 +337,10 @@ def rdinv(
        3. continue to search in for these individual item-keys:
           ...  # "tara / country" --> <cac:Country> + <cbc:IdentificationCode> (NOTE: it is 2-letter contry standard type )
           ...  # "judet / county / locali / oras / city" --> <cbc:CityName> (NOTE: combine strings if more or just take first one and that's it)
-          ...  # "str", "cod po / zip" --> <cbc:PostalZone>
-          ...  # and that's all XML items
-          ...  # create dedicated const for all of these (in config_settings.py)
-          ...  # use ``area_to_scan=area_to_scan_address_items` as f8nd function parameter
+          ...  # "str" --> <cbc:StreetName>
+          ...  # "cod po / zip" --> <cbc:PostalZone>
+          # no more XML items,  create dedicated const for all of these (in config_settings.py)
+          ...  # use ``area_to_scan = area_to_scan_address_items` as f8nd function parameter
         *.) @IMP in all cases will search for individual items as thay are separated in XML schema and does not exists a "general" address field, but...
             ... # if our data is "encapsulated" in a general address field will search only in it, not in the whole designated area for customer data ...
             ... # letting it for future searches like "Reg Com", "IBAN", "Bank", ... '''
