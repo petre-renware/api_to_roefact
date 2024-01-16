@@ -322,12 +322,8 @@ def rdinv(
     _temp_found_data={'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
         * RENware invoice:
     _temp_found_data={'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)} '''
-    '''ok TODO: CONTINUE plan - part 1:  #FIXME drop me
-       1. chk if label val contains "adr" or "addr" -: '''
     _tmpstr = _temp_found_data["label_value"].lower()
     _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
-    '''ok TODO: CONTINUE plan - part 2:  #FIXME drop me
-       2. test if is a full address -: '''
     if _val_is_full_addr:
         ...  # have a full addr in `_temp_found_data["value"]`
         ...  # get as it was found (`_temp_found_data["value"]`)
@@ -338,17 +334,6 @@ def rdinv(
         ...  # keep original value
         area_to_scan_address_items = _area_to_search
     print(f"[red]===> Unified search area {area_to_scan_address_items=}[/]")  #FIXME DBG can drop
-    '''tbd TODO: CONTINUE plan - part 3:  #FIXME drop me
-       3. continue to search in for these individual item-keys:
-          ...  # PATTERN_FOR_PARTNER_ADDRESS_COUNTRY --> <cac:Country> + <cbc:IdentificationCode> (NOTE: it is 2-letter contry standard type )
-          ...  # PATTERN_FOR_PARTNER_ADDRESS_CITY --> <cbc:CityName> (NOTE: combine strings if more or just take first one and that's it)
-          ...  # PATTERN_FOR_PARTNER_ADDRESS_STREET --> <cbc:StreetName>
-          ...  # PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE --> <cbc:PostalZone>
-          # no more XML items,  create dedicated const for all of these (in config_settings.py)
-          ...  # use ``area_to_scan = area_to_scan_address_items` as f8nd function parameter
-        *.) @IMP in all cases will search for individual items as thay are separated in XML schema and does not exists a "general" address field, but...
-            ... # if our data is "encapsulated" in a general address field will search only in it, not in the whole designated area for customer data ...
-            ... # letting it for future searches like "Reg Com", "IBAN", "Bank", ... '''
     search_address_parts = partial(  # define a partial function to be used for all address items search
         get_excel_data_at_label,  # function to call
         worksheet=ws,
@@ -361,27 +346,30 @@ def rdinv(
     _tmp_street = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)
     _tmp_zipcode = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)
     print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
-    '''#FIXME: REZULTATELE GASITE:
+    '''#FIXME: REZULTATELE GASITE:  #FIXME drop me
         * Petrom:
-    ===> Iterms found are:
     _tmp_country={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
     _tmp_city={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
     _tmp_street={'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
     _tmp_zipcode={'value': 'Postal 013329', 'location': (14, 2), 'label_value': 'Cod Postal 013329', 'label_location': (14, 2)}
-
         * RENware:
-    ===> Iterms found are:
     _tmp_country={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
     _tmp_city={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
     _tmp_street={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
     _tmp_zipcode={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    
+    -#NOTE: cont plan
+        *.) do NOT forget: COUNTRY is important & required, and...
+    * mk a unified ADDRESS string:
+        - a. use first address found string
+        - b. use all found `_tmp_*` as concatenated
+        - choose a. | b. (ie, those that is not None)
+        - use this str to fill all addr XML fields EXCEPT Country one (see nxt pct)
+    * for Country set also separated string as necessary for corresponding XML item
     '''
-    ''' NOTE:
-    *.) anyway do NOT forget: COUNTRY is important & required, and...
-        ... # a more better idea ia to get partner company data from an external API using found `invoice_header_area["customer_area"]["CUI"]`
-    '''
-    ... #TODO ............hereuare............
-    ... #FIXME opis `240113piu_a` effective code ENDS here
+    ...  # code here
+    #TODO ............hereuare............
+    #FIXME opis `240113piu_a` effective code ENDS here
 
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     '''
