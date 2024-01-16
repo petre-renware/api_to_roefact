@@ -140,9 +140,7 @@ PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [  #FIXME @240115 never used, test me
     "cod pos", "zip cod", "postal",
 ]
 
-
-
-...  # TODO: alte patternuri comune de adaugat aici (ex: RegCom, Adresa, IBAN, Banca, ...)
+...  #TODO: alte patternuri comune partner: RegCom, IBAN, Banca
 
 
 
