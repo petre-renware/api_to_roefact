@@ -325,13 +325,8 @@ def rdinv(
     _tmpstr = _temp_found_data["label_value"].lower()
     _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
     if _val_is_full_addr:
-        ...  # have a full addr in `_temp_found_data["value"]`
-        ...  # get as it was found (`_temp_found_data["value"]`)
-        ...  # create a new `area_to_scan_address_items` limited to `_temp_found_data["value"]`
-        ...  # use value location for (as a single cell so end = start = its location)
         area_to_scan_address_items = (_temp_found_data["location"], _temp_found_data["location"])
     else:
-        ...  # keep original value
         area_to_scan_address_items = _area_to_search
     print(f"[red]===> Unified search area {area_to_scan_address_items=}[/]")  #FIXME DBG can drop
     search_address_parts = partial(  # define a partial function to be used for all address items search
@@ -346,7 +341,7 @@ def rdinv(
     _tmp_street = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)
     _tmp_zipcode = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)
     print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
-    '''#FIXME: REZULTATELE GASITE:  #FIXME drop me
+    '''#FIXME: REZULTATELE GASITE:  #FIXME DBG can drop
         * Petrom:
     _tmp_country={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
     _tmp_city={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
