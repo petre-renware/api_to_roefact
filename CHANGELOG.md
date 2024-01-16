@@ -58,7 +58,7 @@
 
 
 
-### 0.1.19.dev invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
+### 0.1.20.dev ....updme... invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
 
 * -#TODO_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO EFact`**
@@ -72,8 +72,6 @@
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
 
-
-
 * wip... 240113piu_a to find `cac:PostalAddress` and write to:
     * #NOTE structure to set let as comment in rdinv() line# 292
     * [x] 1. right set position of key `"cac_PostalAddress"` in basic structure (invoice_header_area)
@@ -81,6 +79,15 @@
     * [...] 2b. disseminate & save excel original area (...invoice_header_area...)
     * [ ] 3. get & set `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
     * [ ] 4. update XML - JSON map for item "under" `cac_PostalAddress`
+
+* tbdASAP upd __version__ for 0.1.20
+
+
+
+
+
+
+### #FIXME_wip... 0.1.19.dev invoice customer and partial invoice total values calculations  (240116 h06:00)
 
 * 2401_xl2roefact_doc_01 `xl2roefact` update technical documentation, file `xl2roefact/doc/810.05a-xl2roefact_component.md`
 
@@ -109,11 +116,6 @@
     - (a) created first version of tutorial section
 
 * 240106piu_a invoice customer search and persist for "RegistrationName"
-
-
-
-
-
 
 
 
