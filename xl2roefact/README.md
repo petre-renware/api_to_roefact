@@ -3,9 +3,34 @@
 
 # xl2roefact
 
-## Features
+```
+ ######## ####              ########  ######  
+ #  ##  # #  #              #      # ##    ## 
+ ##    ## #  #              ###  ### #  ##  # 
+  ##  ##  #  #                #  #   #  ##  # 
+ ##    ## #  #                #  #   #  ##  # 
+ #  ##  # #  #####            #  #   #  ##  # 
+ #  ##  # #      #            #  #   ##    ## 
+ ######## ########            ####    ######  
 
-Excel invoice creation, generate JSON, XML, PDF and upload to RO E-Fact system.
+                            ######## ########  ######   ######  ######## 
+ #######   ######           #      # #     #  ##    ## ##    ## #      # 
+ #     ## ##    ## #######  #  ##### #  ####  #  ##  # #  ##  # ###  ### 
+ #  ##  # #  ##  # #     #  #    #   #    #   #      # #  #####   #  #   
+ #  ##### #  ##  # #######  #  ###   #  ###   #  ##  # #  #####   #  #   
+ #  #     #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  #   
+ #  #     ##    ##          #      # #  #     #  ##  # ##    ##   #  #   
+ ####      ######           ######## ####     ########  ######    ####
+
+
+```
+
+
+## Facilitati (Features)
+
+Aceasta aplicatie este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si chiar o poate incarca in sistemul *RO E-Fact*.
+
+(This application is all about electronic invoices creation from Excel office format (xlsx). It can generate invoice in JSON, XML, PDF formats and even upload it to *RO E-Fact* system.)
 
 * Components
     * `xl2roefact` **command line application** to create, manipulate and upload to RO E-Fact system Excel invoices
@@ -18,7 +43,7 @@ Excel invoice creation, generate JSON, XML, PDF and upload to RO E-Fact system.
     - author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 * Deployments
-    - Windows: `xl2roefact.exe` deployable by `MSI` package portable 64 bit CLI application
+    - Windows: `xl2roefact.exe` 64 bit CLI application (installable through a `MSI` package)
     - Linux: `xl2roefact` executable CLI shell
 
 * Specifications
@@ -46,7 +71,7 @@ Pachetele contin un script de instalare sub forma standard `MSI` pentru Windows 
 
 ### Instalarea bliotecii Python (package) xl2roefact
 
-Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl-invoices`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
+Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl2roefact`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
 
 
 ### Instalarea sablonului de factura emisa excel_invoice_template
@@ -114,7 +139,67 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 
 ## Tutorial utilizare aplicatie
 
--#TODO ...tbd
+### Organizarea informatiei
+
+Aplicatia *xl2roefact* "promoveaza" structurarea informatiei procesate astfel incit sa fie evitata situatia *"de aglomerare" a directorului curent cu fisiere* ce trebuiesc identificate si izolate in situatia in care se fac *procesari in masa* (pe mai multe fisiere / facturi sursa).
+
+Astfel, aplicatia se asteapa ca fisierele Excel sursa (*adica facturile de procesat*) sa fie copiate in directorul **`invoice_files/`** de unde vor fi citite si tot aici vor fi create fisierele rezultate (JSON, XML, etc). Acest director este relativ la directorul curent de unde este lansata aplicatia si considerat *"implicit"* cu acest nume dar daca se doreste un alt director acest lucru poate fi facut folosind parametrul *`--files-directory`* (sau prescurtat *`-d`*) la lansarea aplicatiei astfel:
+
+```
+xl2roefact -d "calea si numele directorului dorit"
+```
+
+!!! note "Nota"
+    <small markdown="1">Ghilimelele sunt necesare numai daca numele si calea (`path`) contin caracterul spatiu.</small>
+
+**Exemple:**
+
+* pentru stabilirea directorului curent ca sursa pentru fisierele factura Excel: **`xl2roefact -d ./`**
+
+* procesarea tuturor facturilor facturilor din luna *iunie*, copiate intr-un director dedicat sub directorul curent: **`xl2roefact -d ./facturi_iunie/`**
+
+
+### Exemplu de procesare a unei facturi
+
+* se creaza directorul `invoice_files`
+* se copiaza factura `factura_A.xlsx` in acest director apoi se revine in directorul anterior daca acesta a fost schimbat pentru efectuarea copierii
+* se lanseaza aplicatia: `xl2roefact xl2json`
+
+In urma acestor operatii, in directorul `invoice_files` vor rezulta:
+
+```tree
+invoice_files/
+    factura_A.xlsx  # fisierul Excel original
+    factura_A.json  # fisierul JSON rezultat in urma procesarii
+```
+
+* `factura_A.xlsx` ca fiind fisierul Excel original cu factura
+* `factura_A.json` acesta fiind fisierul format JSON rezultat in urma procesarii si ce poate fi folosit pentru interschimbarea electronica a informatiei intre sisteme
+
+
+
+
+
+## Formatul fisierului JSON
+
+Structura de baza a fisierului JSON aferent unei facturi este:
+
+```
+{
+    "Invoice": {...},
+    "meta_info": {...},
+    "excel_original_data": {...}
+}
+
+```
+
+Cheile de la primul nivel reprezinta:
+
+* **`Invoice`** - #TODO tbd...
+* **`meta_info`** - #TODO tbd...
+* **`excel_original_data`** - #TODO tbd...
+
+
 
 
 

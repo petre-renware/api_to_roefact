@@ -19,6 +19,7 @@ Specifications:
 # general libraries
 import typer
 import os
+import sys
 from typing_extensions import Annotated
 from pathlib import Path
 from typing import Optional
@@ -27,6 +28,7 @@ from rich import print
 from rich.pretty import pprint
 
 # xl2roefact specific libraries
+from xl2roefact import __version__ as appver
 import xl2roefact.config_settings as configs  # configuration elements to use with `settings` command
 from xl2roefact.rdinv import rdinv  # status #TODO: wip
 from xl2roefact.wrxml import wrxml  # status #FIXME: not yet started
@@ -45,7 +47,12 @@ app_cli = typer.Typer(name="xl2roefact")
 def about():
     """provide a short application description.
     """
-    print("xl2roefact application by RENware Software Systems (c) 2023, 2024")
+    version_string = appver.__version__
+    app_logo = appver.__doc__
+    # logo & version
+    print(app_logo)
+    print(f"xl2roefact {version_string} application by RENware Software Systems (c) 2023, 2024")
+    # about details
     print("[yellow]extract & convert Excel invoice files to JSON, XML and upload info to [cyan]RO ANAF e-Fact[/] system")
     print("Support: [yellow]www.renware.eu, petre.iordanescu@gmail.com[/]")
     print("Product code: [yellow]0000-0095[/]")
@@ -73,11 +80,11 @@ def xl2json(
             help="files to process (wildcards allowed)"
         )
     ] = "*.xlsx",
-    excel_files_directory: Annotated[
+    files_directory: Annotated[
         Path,
         typer.Option(
             "--files-directory", "-d",
-            exists=True,
+            exists=True,  #TODO `def_inv_dir` issue - this constraint should be dropped as will consider just if directory exists, otherwise will use `./` (current dir)
             file_okay=False,
             dir_okay=True,
             writable=True,
@@ -98,13 +105,15 @@ def xl2json(
 
     Args:
         `file_name (str)`: files to process (wildcards allowed).
-        `excel_files_directory (Path)`: directory to be used to look for Excel files. Defaults to `invoice_files/`.
+        `files_directory (Path)`: directory to be used to look for Excel files. Defaults to `invoice_files/`.
         `verbose (bool)`: show detailed processing messages" Defaults to `False`.
     """
-    print(f"*** Component [red]xl2roefact[/] launched at {datetime.now()}")
+    print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
 
     # process files as requested in command line
-    tmp_files_to_process = Path(excel_files_directory)
+    #TODO `def_inv_dir` issue - this constraint should be dropped as will consider just if directory exists, otherwise will use `./` (current dir)
+    #TODO `def_inv_dir` issue -before makeejking any assumptions ref directory `invoice_files/` check if exists AND IF NOT, then consider current directory (`./`)
+    tmp_files_to_process = Path(files_directory)
     print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
     list_of_files_to_process = list(tmp_files_to_process.glob(file_name))
     if verbose:
@@ -113,7 +122,7 @@ def xl2json(
         if verbose:
             print(f"[yellow]DEBUG note:[/] to process now: [green]{a_file}[/]")
         #
-        invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `excel_files_directory` is already contained in)
+        invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `files_directory` is already contained in)
         invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose)
         if not invoice_datadict:
             print(f"[yellow]INFO note:[/] last step returned an error and process could be incomplete. Please review previous messages.")
@@ -122,6 +131,30 @@ def xl2json(
             print(f"[yellow]DEBUG note:[/] `xl2roefact` module, content of resulted `invoice` data dictionary:")
             pprint(invoice_datadict)
             print()
+
+
+
+@app_cli.callback(invoke_without_command=True)
+def called_when_no_command(
+    ctx: typer.Context,
+    version: Annotated[
+        bool,
+        typer.Option(
+            "--version",
+            help="show application version"
+        ),
+    ] = False
+):
+    """function called when no command is invoked and to provide only application version (for external users to test it!).
+    """
+    if (ctx.invoked_subcommand is None) and not version:
+        print("[red]No command. Please use --help to get help.[/]")
+        sys.exit(0)
+    version_string = appver.__version__
+    if version:
+            print(f"xl2roefact {version_string}")
+
+
 
 
 def run():

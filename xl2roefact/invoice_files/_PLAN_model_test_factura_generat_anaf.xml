@@ -57,22 +57,28 @@
         </cac:Party>
     </cac:AccountingSupplierParty>
 
-    <cac:AccountingCustomerParty>  #TODO tbd...
-        <cac:Party>
-            <cac:PostalAddress>
+
+
+
+    <cac:AccountingCustomerParty>  #NOTE_wip... @240102 ...
+        <cac:Party>  #NOTE_wip... @240113 ...
+            <cac:PostalAddress>  #NOTE_wip... @240113 ...
                 <cbc:StreetName>Nicolae titulescu 81-87</cbc:StreetName>
                 <cbc:CityName>Sectorul 1</cbc:CityName>
                 <cbc:PostalZone>010011</cbc:PostalZone>
-                <cac:Country>
+                <cac:Country>  #TODO tbd...  #NOTE I think this is very important...
                     <cbc:IdentificationCode>RO</cbc:IdentificationCode>
                 </cac:Country>
             </cac:PostalAddress>
-            <cac:PartyLegalEntity>
-                <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
-                <cbc:CompanyID>21986376</cbc:CompanyID>  #NOTE this is "CUI"
+            <cac:PartyLegalEntity>  #TODO tbd...
+                <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>  #NOTE DONE / RDY
+                <cbc:CompanyID>21986376</cbc:CompanyID>  # this is "CUI" #NOTE DONE / RDY
             </cac:PartyLegalEntity>
         </cac:Party>
     </cac:AccountingCustomerParty>
+
+
+
 
     <cac:Delivery>  #TODO tbd...  #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
         <cbc:ActualDeliveryDate>2023-11-19</cbc:ActualDeliveryDate>

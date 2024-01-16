@@ -91,6 +91,64 @@ PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: list[str] = [
     "date", "invoice date", "issue date",
 ]
 
+# --- client (customer)
+# pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
+PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
+    "clien",
+    "custo",
+    "sc", "s.c", "diviz", "depart",
+    "sa", "s.a",
+    "srl", "s.r.l",
+    "pfa", "p.f.a",
+    "ra", "r.a",
+]
+
+# --- numele legal al companiei
+# pattern utilizat pentru regasirea numelui legal al clientului
+# NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
+PATTERN_FOR_CUSTOMER_LEGAL_NAME = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
+
+# --- pattern pentru regasirea codului unic de inregistrare (sau Company ID in engleza) (pattern comun pentru client si furnizor)
+PATTERN_FOR_PARTNER_ID = [
+    "cui", "c.u.i",
+    "cif", "c.i.f",
+    "id",
+]
+
+# --- pattern pentru regasirea adresei (pattern comun pentru client si furnizor)
+# este important ca ordinea de cautare sa permita ca sansele sa fie maximizate pentru cautarea adresei complete sau macar a tarii
+PATTERN_FOR_PARTNER_ADDRESS = [  #FIXME this is just entered (240108) and never used, so update if neccesary after "find Address" issue
+    "adr", "addr",
+    "tara", "count",
+    "locali", "oras",
+    "city", "town",
+    "str",
+]
+PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = [  #FIXME @240115 never used, test me
+    "tara", "countr",
+]
+PATTERN_FOR_PARTNER_ADDRESS_CITY = [  #FIXME @240115 never used, test me
+    "judet", "county",
+    "locali",
+    "oras", "city", "town", "land"
+]
+PATTERN_FOR_PARTNER_ADDRESS_STREET = [  #FIXME @240115 never used, test me
+    "str", "sos", "bd", "calea",
+    "ave", "highwa",
+]
+PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [  #FIXME @240115 never used, test me
+    "cod pos", "zip cod", "postal",
+]
+
+...  #TODO: alte patternuri comune partner: RegCom, IBAN, Banca
+
+
+
+
+
+
+
+
 
 # FIXME: in factura Petrom nu ai nici ref furnizor nici client, ci ai numele firmelor lor, dar ai C.U.I.  #FIXME tried something @line 110...
 # FIXME: ci alte texte COMPLET "OUT-OF-UDERSTANDING" chiar si pentru humans !
@@ -102,26 +160,4 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
     "suppl", "owne",
 ]
 
-# --- client (customer)
-# pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
-##FIXME chege me from: `PATTERN_FOR_INVOICE_CUSTOMER_LABEL` --> `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER`
-PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
-    "clien",
-    "custo",
-    "sc", "s.c.", "diviz", "depart", "srl", "s.r.l.", "sa", "s.a.",  # acestea sunt sanse suplimentare de gasire "a ceva relevant..." in caz ca nu a folosit un "label" de tip "Client..." sau asemenator
-]
 
-# --- pattern-uri utilizate in regasirea informatiiolor referitoare la partener (client sau furnizor)
-# codul unic de inregistrare
-PATTERN_FOR_PARTNER_ID = [
-    "cui", "c.u.i",
-    "cif", "c.i.f",
-    "id",
-]
-# numele legal al companiei
-PATTERN_FOR_PARTNER_LEGAL_NAME = [
-    "sa", "s.a",
-    "srl", "s.r.l",
-    "pfa", "p.f.a",
-    "ra", "r.a",
-]

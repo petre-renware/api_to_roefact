@@ -22,6 +22,7 @@ from rich.pretty import pprint
 from string import ascii_lowercase
 import json
 from typing import Callable, Any
+from functools import partial
 import pylightxl as xl
 import openpyxl as opnxl
 
@@ -43,7 +44,12 @@ PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL = config_settings.PATTERN_FOR_INVOICE_ISSUE
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
 PATTERN_FOR_PARTNER_ID = config_settings.PATTERN_FOR_PARTNER_ID
-PATTERN_FOR_PARTNER_LEGAL_NAME = config_settings.PATTERN_FOR_PARTNER_LEGAL_NAME
+PATTERN_FOR_CUSTOMER_LEGAL_NAME = config_settings.PATTERN_FOR_CUSTOMER_LEGAL_NAME
+PATTERN_FOR_PARTNER_ADDRESS = config_settings.PATTERN_FOR_PARTNER_ADDRESS
+PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_COUNTRY  #FIXME @240115 info line, can drop, drop me after compiling test
+PATTERN_FOR_PARTNER_ADDRESS_CITY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_CITY  #FIXME @240115 info line, can drop, drop me after compiling test
+PATTERN_FOR_PARTNER_ADDRESS_STREET = config_settings.PATTERN_FOR_PARTNER_ADDRESS_STREET  #FIXME @240115 info line, can drop, drop me after compiling test
+PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = config_settings.PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE  #FIXME @240115 info line, can drop, drop me after compiling test
 
 
 def rdinv(
@@ -160,15 +166,15 @@ def rdinv(
         end_cell = lrc_footer
     )
 
-    """#NOTE: section for solve `invoice_header_area`
-        - @final write them to: invoice number, currency, issued date, supplier (owner), customer
+    """#NOTE: section for solve `invoice_header_area`.
+            - kind of info expected in this area: invoice number, currency, issued date, supplier data, customer data
     """
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = "...wip here...",  #TODO:... work in progress items ...
-        supplier_area = "...future..."  #TODO:... work in progress items ...
+        customer_area = None,  #FIXME ... @240106 still work in progress ...
+        supplier_area = "...future..."  #TODO ... future tbd  ...
     )
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
@@ -202,7 +208,9 @@ def rdinv(
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
-    #FIXME: ...wip TODO: CUSTOMER AREA  ...START HERE -------------->>> (...ALL CODE MUST BE CLEAN FROM HERE when release "invoice customer" version...)
+    #FIXME_#TODO ...wip .................... here is a longer work ....................
+    #FIXME_#NOTE  ALL about CUSTOMER AREA... area identification and corresponding sields/keys
+    #FIXME_#NOTE kept DBG print just for area identification (useful for next task ref the same opers but for Supplier)
     # find invoice customer ==> `cac:AccountingSupplierParty`
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
@@ -210,31 +218,27 @@ def rdinv(
         area_to_scan=(invoice_header_area["start_cell"], invoice_header_area["end_cell"]),
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    # set a dedicated AREAs TO SEARCH for partner
-    _area_to_search_start_cell = [  # here always use `label_location` as being "most far away" from good info, so more chances to find info
+    # set a dedicated AREAs TO SEARCH for customer
+    _area_to_search_start_cell = [  # use `label_location` as being supposed "most far away" from effective-good info, so more chances to find info
         0 if invoice_customer_info["label_location"][0] <= 0 else invoice_customer_info["label_location"][0] - 1,  # set one line up if this line exists
         invoice_customer_info["label_location"][1],
     ]
     if ws.index(*_area_to_search_start_cell).strip() == "":  # prev set was for one line up but if that cell is blank remake it (ie, do a +1)
         _area_to_search_start_cell[0] += 1
-    #print(f"[red]=***=======>*** START {_area_to_search_start_cell=} [/]")  #FIXME DBG can be dropped
     # from `_area_to_search_start_cell` go down up a blank (empty cell)
     _last_ok_position = list([0, 0])
     for __i in range(_area_to_search_start_cell[0], ws.size[0] + 1):  # scan rest of lines for a blank one
         _crt_scanned_cell_idx = (__i, _area_to_search_start_cell[1])
         _crt_scanned_cell_val = ws.index(*_crt_scanned_cell_idx)
-        #print(f"[red]========> scanned cell: {_crt_scanned_cell_val=} @ {_crt_scanned_cell_idx} {_last_ok_position=} [/]")  #FIXME DBG can be dropped
         if _crt_scanned_cell_val.strip() == "":  # here you must stop
-            #print(f"[red]========> stopping for: {_crt_scanned_cell_val=} @ {_crt_scanned_cell_idx}  WITH LAST AREA GOOD @ {_last_ok_position=} [/]")  #FIXME DBG can be dropped
             break
         # save current position to be used after break
         _last_ok_position = copy.deepcopy(_crt_scanned_cell_idx)
-    #print(f"[red]========> @end of loop: {_last_ok_position=} [/]")  #FIXME DBG can be dropped
     _area_to_search_end_cell = [
         _last_ok_position[0],
         ws.size[1] if _last_ok_position[1] > ws.size[1] else _last_ok_position[1] + 1,  # set one row right if this row exists
     ]
-    #print(f"[red]=***=======>*** END {_area_to_search_end_cell=} [/]")  #FIXME DBG can be dropped
+    #print(f"[red]===> established AREA TO SEARCH as {_area_to_search_end_cell=} [/]")  #FIXME DBG can be dropped
     # set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
     _area_to_search = (tuple(_area_to_search_start_cell), tuple(_area_to_search_end_cell))
     invoice_header_area["customer_area"] = {
@@ -243,45 +247,151 @@ def rdinv(
             "location": copy.deepcopy(_area_to_search),
         }
     }
-    ''' #TODO: ...CUSTOMER AREA  ...CONTINUE WITH specific KVs  -------------->>>
-        #FIXME: all searches for partner KV items are made with `down_search_try=False` becase is expected to be a list of KVs not some isolated ones in Excel
-            NOTE: keep up comment until finish customer area
-    '''
-    #print(f"[red]========> AREA TO SEARCH for CUSTOMER data is: {_area_to_search=} [/]")  #FIXME DBG can be dropped
+    #
     # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
-    _temp_found_data = get_excel_data_at_label(  #FIXME: all searches for partner KV items should be made with `down_search_try=False`  #FIXME drop me after 1 more search / is in section comment
+    _temp_found_data = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
-        down_search_try=False
+        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    #print(f"[red]========> CUI find as: {_temp_found_data=} [/]")  #FIXME DBG can be dropped
     invoice_header_area["customer_area"]["CUI"] = {
         "value": _temp_found_data["value"],
         "location": _temp_found_data["location"],
         "label_value": _temp_found_data["label_value"],
         "label_location": _temp_found_data["label_location"]
     }
-    ... # continue code here   #TODO: ...hereuare... to continue with ... # find customer key "RegistrationName" ==> `cbc_RegistrationName`
-    ...
-    # TODO:: ...search for rest of keys, like: "legal name", "reg com", "bank / IBAN / cont", and more...
-    invoice_header_area["customer_area"].update({
-        "RegistrationName": {  # TODO: for name of comany use patterns like: sa, s.a., srl, s.r.l., pfa, p.f.a., ra, r.a.
-            "value": "...future...",
-            "location": "...future...",
-            "label_value": "...future...",
-            "label_location": "...future..."
-        },
-    })
+    #
+    # find customer key "RegistrationName" ==> `cbc_RegistrationName`
+    '''#NOTE: `ReNaSt`-RegNameStrategy (remark: step codes are refered in next code)
+          ReNaSt.STEP-1: search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
+          ReNaSt.STEP-2: if `label_location` of FOUND VALUE has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
+              ==> keep VALUE of FOUND info
+          ReNaSt.STEP-3: else
+              ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]`
+    '''
+    _temp_found_data = get_excel_data_at_label(  # NOTE: ReNaSt.STEP-1
+        pattern_to_search_for=PATTERN_FOR_CUSTOMER_LEGAL_NAME,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+        targeted_type=str,
+        down_search_try=True  # NOTE: set on True to obtain identical results as original search of `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    _location_of_header_partner_area = invoice_header_area["customer_area"]["area_info"]["location"][0]
+    _location_of_value_found = _temp_found_data["label_location"]
+    if _location_of_value_found == _location_of_header_partner_area:  # NOTE: ReNaSt.STEP-2
+        kept_RegistrationName = _temp_found_data["value"]
+        kept_RegistrationName_location = _temp_found_data["location"]
+    else:  # ReNaSt.STEP-3
+        kept_RegistrationName = invoice_header_area["customer_area"]["area_info"]["value"]
+        kept_RegistrationName_location = invoice_header_area["customer_area"]["area_info"]["location"][0]
+    invoice_header_area["customer_area"]["RegistrationName"] = {
+        "value": kept_RegistrationName,
+        "location": kept_RegistrationName_location,
+        "label_value": "n/a",
+        "label_location": "n/a"
+    }
+    #
+    # find customer key `cac:PostalAddress` -> `invoice_header_area["cac_PostalAddress"]` && Invoice...["cac_PostalAddress"]
+    #FIXME opis `240113piu_a` effective code STARTS here
+    ''' ##FIXME drop me me before end opiss `240113piu_a`
+    #NOTE: info that should be set staring from `invoice_header_area["customer_area"]`:
+    ```
+     <cac:Party>  # existing key...
+        <cac:PostalAddress>
+            <cbc:StreetName>Nicolae titulescu 81-87</cbc:StreetName>
+            <cbc:CityName>Sectorul 1</cbc:CityName>
+            <cbc:PostalZone>010011</cbc:PostalZone>
+            <cac:Country>
+                <cbc:IdentificationCode>RO</cbc:IdentificationCode>
+            </cac:Country>
+        </cac:PostalAddress>
+    ```
+    '''
+    _temp_found_data = get_excel_data_at_label(
+        pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+        targeted_type=str,
+        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    print(f"[red]====> INFO FOUND {_temp_found_data=}[/]")  #FIXME DBG can drop
+    '''info found&print:  #FIXME DBG can drop
+        * Petrom invoice:
+    _temp_found_data={'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
+        * RENware invoice:
+    _temp_found_data={'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)} '''
+    '''ok TODO: CONTINUE plan - part 1:  #FIXME drop me
+       1. chk if label val contains "adr" or "addr" -: '''
+    _tmpstr = _temp_found_data["label_value"].lower()
+    _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
+    '''ok TODO: CONTINUE plan - part 2:  #FIXME drop me
+       2. test if is a full address -: '''
+    if _val_is_full_addr:
+        ...  # have a full addr in `_temp_found_data["value"]`
+        ...  # get as it was found (`_temp_found_data["value"]`)
+        ...  # create a new `area_to_scan_address_items` limited to `_temp_found_data["value"]`
+        ...  # use value location for (as a single cell so end = start = its location)
+        area_to_scan_address_items = (_temp_found_data["location"], _temp_found_data["location"])
+    else:
+        ...  # keep original value
+        area_to_scan_address_items = _area_to_search
+    print(f"[red]===> Unified search area {area_to_scan_address_items=}[/]")  #FIXME DBG can drop
+    '''tbd TODO: CONTINUE plan - part 3:  #FIXME drop me
+       3. continue to search in for these individual item-keys:
+          ...  # PATTERN_FOR_PARTNER_ADDRESS_COUNTRY --> <cac:Country> + <cbc:IdentificationCode> (NOTE: it is 2-letter contry standard type )
+          ...  # PATTERN_FOR_PARTNER_ADDRESS_CITY --> <cbc:CityName> (NOTE: combine strings if more or just take first one and that's it)
+          ...  # PATTERN_FOR_PARTNER_ADDRESS_STREET --> <cbc:StreetName>
+          ...  # PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE --> <cbc:PostalZone>
+          # no more XML items,  create dedicated const for all of these (in config_settings.py)
+          ...  # use ``area_to_scan = area_to_scan_address_items` as f8nd function parameter
+        *.) @IMP in all cases will search for individual items as thay are separated in XML schema and does not exists a "general" address field, but...
+            ... # if our data is "encapsulated" in a general address field will search only in it, not in the whole designated area for customer data ...
+            ... # letting it for future searches like "Reg Com", "IBAN", "Bank", ... '''
+    search_address_parts = partial(  # define a partial function to be used for all address items search
+        get_excel_data_at_label,  # function to call
+        worksheet=ws,
+        area_to_scan=area_to_scan_address_items,
+        targeted_type=str,
+        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )
+    _tmp_country = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)
+    _tmp_city = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)
+    _tmp_street = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)
+    _tmp_zipcode = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)
+    print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
+    '''#FIXME: REZULTATELE GASITE:
+        * Petrom:
+    ===> Iterms found are:
+    _tmp_country={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    _tmp_city={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    _tmp_street={'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
+    _tmp_zipcode={'value': 'Postal 013329', 'location': (14, 2), 'label_value': 'Cod Postal 013329', 'label_location': (14, 2)}
+
+        * RENware:
+    ===> Iterms found are:
+    _tmp_country={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    _tmp_city={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    _tmp_street={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    _tmp_zipcode={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
+    '''
+    ''' NOTE:
+    *.) anyway do NOT forget: COUNTRY is important & required, and...
+        ... # a more better idea ia to get partner company data from an external API using found `invoice_header_area["customer_area"]["CUI"]`
+    '''
+    ... #TODO ............hereuare............
+    ... #FIXME opis `240113piu_a` effective code ENDS here
+
+    # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     '''
     NOTE: - before end:
-        - FINAL OBJECTIVE: `cac:AccountingSupplierParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
+        - FINAL OBJECTIVE: `cac:AccountingCustomerParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
         - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)" ...->
-          ...-> for combination: `cac:AccountingSupplierParty` ---- `cac_AccountingSupplierParty`
+          ...-> for combination: `cac:AccountingCustomerParty` ---- `cac_AccountingSupplierParty`
         - helper search str "TODO ...here to add rest of `invoice_header_area`..."
     '''
-    #TODO ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
+    #TODO: ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 
@@ -313,17 +423,16 @@ def rdinv(
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
             "cac_AccountingCustomerParty": {
-                "cac_PartyLegalEntity": {
-                    "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
-                    "cbc_RegistrationName": "TODO...tbd in nxt operations...",  # TODO: ...tbd in nxt operations...
-                    #NOTE    - add these keys to XML-JSON map
-                    # NOTE:_DONE  cac_PartyLegalEntity -- cac:PartyLegalEntity  #FIXME can be dropped
-                    # NOTE:_DONE  cbc_CompanyID -- cbc:CompanyID  #FIXME can be dropped
-                    # NOTE:_DONE  cbc_RegistrationName -- cbc:RegistrationName  #FIXME can be dropped
-                    #NOTE         ...add more keys to write in map...
-                },
-                "...incoming_structure_for_ADDRESSS": {
-                    "#TODO ...tbd in nxt operations...": "#TODO ...tbd in nxt operations...",
+                "<cac:Party>": {
+                    "cac_PartyLegalEntity": {
+                        "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
+                        "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
+                    },
+                    "<cac_PostalAddress>": {
+                        "#TODO ...tbd in nxt operations...": "TODO: @IMP update XML -- JSON map",
+                        "key_1_of_postalAddr": "...wip...",
+                        "key_n_of_postalAddr": "...wip...",
+                    },
                 }
             },
             #TODO ...here to add rest of `invoice_header_area`...
@@ -809,11 +918,13 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_ID", "cbc:ID"),  # invoice number
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
         ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
-        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer inforation - MASTER RECORD
-        ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL RECORD
-        ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL RECORD
-        ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL RECORD
-
+        ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer information - MASTER RECORD
+        ("cac_Party", "cac:Party"),  # invoice customer details ref Parner info (legal, address, ...) - DETAIL L1 RECORD
+        ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL L2 RECORD
+        ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cac_PostalAddress", "cac:PostalAddress"),  # invoice customer postal address info - DETAIL L2 RECORD
+        #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 
     return copy.deepcopy(_tmp_meta_info)
