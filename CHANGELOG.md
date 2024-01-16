@@ -58,7 +58,7 @@
 
 
 
-### 0.1.20.dev ....updme... invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
+### 0.1.20.dev invoice customer address ?...and partial invoice total values calculations...? (#NOTE TODO: wip...)
 
 * -#TODO_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO EFact`**
@@ -80,7 +80,7 @@
     * [ ] 3. get & set `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
     * [ ] 4. update XML - JSON map for item "under" `cac_PostalAddress`
 
-* tbdASAP upd __version__ for 0.1.20
+* 240116_admin_01 upd __version__ for 0.1.20
 
 
 
