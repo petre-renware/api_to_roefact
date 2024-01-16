@@ -208,9 +208,8 @@ def rdinv(
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
-    #FIXME_#TODO ...wip .................... here is a longer work ....................
-    #FIXME_#NOTE  ALL about CUSTOMER AREA... area identification and corresponding sields/keys
-    #FIXME_#NOTE kept DBG print just for area identification (useful for next task ref the same opers but for Supplier)
+    #FIXME_#TODO ...wip .................... here is a longer work ....................     #FIXME opis `240113piu_a` START here
+    #FIXME_#NOTE  ALL about CUSTOMER AREA... area identification and corresponding fields / keys
     # find invoice customer ==> `cac:AccountingSupplierParty`
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
