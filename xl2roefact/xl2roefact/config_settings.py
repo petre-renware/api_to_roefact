@@ -130,13 +130,14 @@ PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = [  #FIXME @240115 never used, test me
 PATTERN_FOR_PARTNER_ADDRESS_CITY = [  #FIXME @240115 never used, test me
     "judet", "county",
     "locali",
-    "oras", "city",
+    "oras", "city", "town", "land"
 ]
 PATTERN_FOR_PARTNER_ADDRESS_STREET = [  #FIXME @240115 never used, test me
-    "str",
+    "str", "sos", "bd", "calea",
+    "ave", "highwa",
 ]
 PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [  #FIXME @240115 never used, test me
-    "cod po", "zip cod",
+    "cod pos", "zip cod", "postal",
 ]
 
 
