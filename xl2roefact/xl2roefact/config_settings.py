@@ -51,6 +51,13 @@ DEFAULT_UNKNOWN_UOM: str|None = None
 # specifcarea monedei ca sau in titlurile coloanelor nu este luata in considerare (nu este garantat ca este moneda reala a facturii !)
 DEFAULT_CURRENCY: str = "RON"
 
+# --- tara implicita
+# aceste constante sunt utilizate ca si tara implicita pentru "parterii" facturilor in condtiile in care tarile "parterilor" nu sunt gasite
+# in mod explicit pe factura (in zona de adresa). Prin sintagma "partener" pe factura sa intelege oricare din cele doua parti implicate in
+# procesul de facturare, si anume: FURNIZORUL si CLIENTUL
+DEFAULT_CUSTOMER_COUNTRY: str = "RO"
+DEFAULT_SUPPLIER_COUNTRY: str = "RO"
+
 
 """---------------------------------------------------------------------------------------------------------------------------
 # NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de
