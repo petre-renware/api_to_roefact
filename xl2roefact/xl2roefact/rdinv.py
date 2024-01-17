@@ -317,19 +317,14 @@ def rdinv(
         targeted_type=str,
         down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    print(f"[red]====> INFO FOUND {_temp_found_data=}[/]")  #FIXME DBG can drop
-    '''info found&print:  #FIXME DBG can drop
-        * Petrom invoice:
-    _temp_found_data={'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
-        * RENware invoice:
-    _temp_found_data={'value': 'Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8', 'location': (12, 6), 'label_value': 'Adresa:', 'label_location': (12, 5)} '''
+    #print(f"[red]====> INFO FOUND {_temp_found_data=}[/]")  #FIXME DBG can drop
     _tmpstr = _temp_found_data["label_value"].lower()
     _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
     if _val_is_full_addr:
         area_to_scan_address_items = (_temp_found_data["location"], _temp_found_data["location"])
     else:
         area_to_scan_address_items = _area_to_search
-    print(f"[red]===> Unified search area {area_to_scan_address_items=}[/]")  #FIXME DBG can drop
+    #print(f"[red]===> Unified search area {area_to_scan_address_items=}[/]")  #FIXME DBG can drop
     search_address_parts = partial(  # define a partial function to be used for all address items search
         get_excel_data_at_label,  # function to call
         worksheet=ws,
@@ -337,37 +332,22 @@ def rdinv(
         targeted_type=str,
         down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )
-    _tmp_country = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)
-    _tmp_city = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)
-    _tmp_street = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)
-    _tmp_zipcode = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)
-    print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
-    '''#FIXME: REZULTATELE GASITE:  #FIXME DBG can drop
-        * Petrom:
-    _tmp_country={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
-    _tmp_city={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
-    _tmp_street={'value': 'Coralilor Nr. 22', 'location': (12, 2), 'label_value': 'Str. Coralilor Nr. 22', 'label_location': (12, 2)}
-    _tmp_zipcode={'value': 'Postal 013329', 'location': (14, 2), 'label_value': 'Cod Postal 013329', 'label_location': (14, 2)}
-        * RENware:
-    _tmp_country={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
-    _tmp_city={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
-    _tmp_street={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
-    _tmp_zipcode={'value': None, 'location': (None, None), 'label_value': None, 'label_location': None}
-    
-    -#NOTE: cont plan
-        *.) do NOT forget: COUNTRY is important & required, and...
-    * mk a unified ADDRESS string:
-        - a. use first address found string
-        - b. use all found `_tmp_*` as concatenated
-        - choose a. | b. (ie, those that is not None)
-        - use this str to fill all addr XML fields EXCEPT Country one (see nxt pct)
-    * for Country set also separated string as necessary for corresponding XML item
-    '''
+    _tmp_country = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]
+    _tmp_city = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]
+    _tmp_street = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]
+    _tmp_zipcode = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]
+    #print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
     _unified_address1 = _temp_found_data["value"]
-    _unified_address2 = f"{_tmp_country}, {_tmp_city}, {_tmp_street}, {_tmp_zipcode}"
-    _unified_address = _unified_address1 | _unified_address2
-    #FIXME wr `_unified_address` to corresponding header-customer dict entry
-    #FIXME also wr `_tmp_country` to corresponding header.customer.country... entry
+    _unified_address2 = f"{_tmp_country} {_tmp_city} {_tmp_street} {_tmp_zipcode}".replace("None", "").strip()
+    _biggest_address = len(_unified_address1) - len(_unified_address2)
+    _unified_address = _unified_address1 if (_biggest_address >= 0) else _unified_address2  # choose the biggest address string (idiomatic but the only one rational decision...)
+    print(f"[red]=======> Unified addrees: {_unified_address=}[/]")  #FIXME DBG can drop
+    '''  info print  #FIXME DBG can drop
+    * Petrom: `Unified addrees: _unified_address='Coralilor Nr. 22 Postal 013329'`
+    * RENware: `Unified addrees: _unified_address='Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8'`
+    '''
+    # TODO: wr `_unified_address` to corresponding header-customer dict entry
+    # TODO: use `_tmp_country` Country string and write it to corresponding header.customer.country... entry
     ...  # code here
     #TODO ............hereuare............
     #FIXME opis `240113piu_a` effective code ENDS here
