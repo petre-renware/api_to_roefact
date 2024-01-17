@@ -337,6 +337,12 @@ def rdinv(
     _tmp_street = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]
     _tmp_zipcode = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]
     #print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
+    '''#TODO keys that should be created & filled w. found `_tmp_*`
+["cbc_StreetName"]
+["cbc_CityName"]
+["cbc_PostalZone"]
+["cac_Country"]["cbc_IdentificationCode"]
+    '''
     _unified_address1 = _temp_found_data["value"]
     _unified_address2 = f"{_tmp_country} {_tmp_city} {_tmp_street} {_tmp_zipcode}".replace("None", "").strip()
     _biggest_address = len(_unified_address1) - len(_unified_address2)
