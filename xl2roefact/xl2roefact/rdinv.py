@@ -296,20 +296,6 @@ def rdinv(
     #
     # find customer key `cac:PostalAddress` -> `invoice_header_area["cac_PostalAddress"]` && Invoice...["cac_PostalAddress"]
     #FIXME opis `240113piu_a` effective code STARTS here
-    ''' ##FIXME drop me me before end opiss `240113piu_a`
-    #NOTE: info that should be set staring from `invoice_header_area["customer_area"]`:
-    ```
-     <cac:Party>  # existing key...
-        <cac:PostalAddress>
-            <cbc:StreetName>Nicolae titulescu 81-87</cbc:StreetName>
-            <cbc:CityName>Sectorul 1</cbc:CityName>
-            <cbc:PostalZone>010011</cbc:PostalZone>
-            <cac:Country>
-                <cbc:IdentificationCode>RO</cbc:IdentificationCode>
-            </cac:Country>
-        </cac:PostalAddress>
-    ```
-    '''
     _temp_found_data = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
         worksheet=ws,
@@ -337,6 +323,22 @@ def rdinv(
     _tmp_street = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]
     _tmp_zipcode = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]
     #print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
+    '''#TODO keys that should be created & filled w. found `_tmp_*`
+    ```
+    invoice_header_area["customer_area"]["PostalAddress"] {
+        "cbc_StreetName": ...,
+        "cbc_CityName": ...,
+        "cbc_PostalZone": ...,
+        "cac_Country": {"cbc_IdentificationCode": ...},
+    }
+    ```
+    NOTE: New strategy is:
+        - drop code for `_unified_address*`, lines [336-344]
+        - write `_tmp_*` in corresponding key. TODO:NOTE: use DEFAULT_CUSTOMER_COUNTRY if `(_tmp_country == "") or (_tmp_country is None)`
+        - NOTE: first update `_tmp_* = ...["value"]` (lines [321-324]) append `.replace("None", "").strip()`
+        - wr `invoice_header_area["customer_area"]["PostalAddress"]` to Invoice[<cac_PostalAddress>], line 402 (to use code left there as comment)
+        - update map for these new 5 keys
+    '''
     _unified_address1 = _temp_found_data["value"]
     _unified_address2 = f"{_tmp_country} {_tmp_city} {_tmp_street} {_tmp_zipcode}".replace("None", "").strip()
     _biggest_address = len(_unified_address1) - len(_unified_address2)
@@ -392,16 +394,13 @@ def rdinv(
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
             "cac_AccountingCustomerParty": {
-                "<cac:Party>": {
+                "cac:Party": {
                     "cac_PartyLegalEntity": {
                         "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
                         "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
                     },
-                    "<cac_PostalAddress>": {
-                        "#TODO ...tbd in nxt operations...": "TODO: @IMP update XML -- JSON map",
-                        "key_1_of_postalAddr": "...wip...",
-                        "key_n_of_postalAddr": "...wip...",
-                    },
+                    "cac_PostalAddress": None  #FIXME_use: `copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"])`  #TODO ck & update XML -- JSON map",
+                    ,
                 }
             },
             #TODO ...here to add rest of `invoice_header_area`...
