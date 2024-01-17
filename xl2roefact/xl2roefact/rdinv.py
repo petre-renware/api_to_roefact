@@ -334,7 +334,7 @@ def rdinv(
     ```
     NOTE: New strategy is:
         - drop code for `_unified_address*`, lines [336-344]
-        - just write `_tmp_*` in corresponding key
+        - write `_tmp_*` in corresponding key. TODO:NOTE: use DEFAULT_CUSTOMER_COUNTRY if `(_tmp_country == "") or (_tmp_country is None)`
         - NOTE: first update `_tmp_* = ...["value"]` (lines [321-324]) append `.replace("None", "").strip()`
         - wr `invoice_header_area["customer_area"]["PostalAddress"]` to Invoice[<cac_PostalAddress>], line 402 (to use code left there as comment)
         - update map for these new 5 keys
@@ -399,7 +399,7 @@ def rdinv(
                         "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
                         "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
                     },
-                    "cac_PostalAddress": None  #FIXME_use: `invoice_header_area["customer_area"]["PostalAddress"]`  #TODO ck & update XML -- JSON map",
+                    "cac_PostalAddress": None  #FIXME_use: `copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"])`  #TODO ck & update XML -- JSON map",
                     ,
                 }
             },
