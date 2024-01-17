@@ -105,7 +105,7 @@ def rdinv(
         print(f"[red]***FATAL ERROR - Cannot open Excel specified Worksheet \"{invoice_worksheet_name}\" in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
         return False
 
-    """#NOTE: section for search of `invoice_items_area` subtable (ie `pylightxl.ssd` object)
+    """#NOTE: section for search of `invoice_items_area: pylightxl.ssd`
         - main result: `keyword_for_items_table_marker` = string marker to search for in oredr to isolate `invoice_items_area`
         - other results: `_found_cell_for_invoice_items_area_marker = (row, col, val)`
     """
@@ -135,9 +135,9 @@ def rdinv(
         _cell_col = _cell_index[1]
         ws.update_index(row = _cell_row, col = _cell_col, val = SYS_FILLED_EMPTY_CELL)
 
-    """#NOTE: section for solve `invoice_items_area` in 2 steps:
-        - first process it as Excel format (row & colomns datale (aka Data Frame))
-        - transform it in "canonical JSON format" (as kv pairs) and update `cac_InvoiceLine` key creation
+    """#NOTE: section to "solve" `invoice_items_area`. Steps:
+        - process it as Excel format (row & colymns tabular organization)
+        - transform it in "canonical JSON format" (as kv pairs) and update `cac_InvoiceLine` key
     """
     # process invoice to detect its items / lines ('invoice_items_area'), clean and extract data
     invoice_items_area = get_invoice_items_area(
@@ -146,10 +146,8 @@ def rdinv(
         wks_name=invoice_worksheet_name
     )
 
-    """#NOTE: section for localize and mark areas for:
-        - invoice header (`invoice_header_area`) &
-        - invoice footer (`invoice_footer_area`)
-        NOTE: this section is based on fact that `invoice_items_area` is already defined (as location) and will be used as reference in logic of localization of "header" & "footer"
+    """#NOTE: section for localize areas: invoice header (`invoice_header_area`) & invoice footer (`invoice_footer_area`)
+        NOTE: its code suppose `invoice_items_area` is already defined (as location). It will be used as reference in "header" & "footer" localization logic
     """
     ulc_header = (1, 1)
     lrc_header = (_found_cell_for_invoice_items_area_marker[0] - 1, ws.size[1],)  # info where header ends: row = from items data table start location `_found_cell_for_invoice_items_area_marker[0]-1` && col = las col of worksheet
@@ -170,8 +168,8 @@ def rdinv(
         end_cell = lrc_footer
     )
 
-    """#NOTE: section for solve `invoice_header_area`.
-            - kind of info expected in this area: invoice number, currency, issued date, supplier data, customer data
+    """#NOTE: section to "solve" `invoice_header_area`.
+            The kind of info expected in this area: invoice number,  currency, issued date, supplier data, customer data)
     """
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
@@ -267,12 +265,12 @@ def rdinv(
     }
     #
     # find customer key "RegistrationName" ==> `cbc_RegistrationName`
-    '''#NOTE: `ReNaSt`-RegNameStrategy (remark: step codes are refered in next code)
-          ReNaSt.STEP-1: search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
-          ReNaSt.STEP-2: if `label_location` of FOUND VALUE has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`
-              ==> keep VALUE of FOUND info
-          ReNaSt.STEP-3: else
-              ==> keep `invoice_header_area["customer_area"]["area_info"]["value"]`
+    '''#NOTE: `ReNaSt`-RegNameStrategy (remark: step codes will referred as defined here)
+          ReNaSt.STEP-1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
+          ReNaSt.STEP-2. if `label_location` of FOUND VALUE has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`:
+                             keep VALUE of FOUND info
+          ReNaSt.STEP-3. else:
+                             keep `invoice_header_area["customer_area"]["area_info"]["value"]`
     '''
     _temp_found_data = get_excel_data_at_label(  # NOTE: ReNaSt.STEP-1
         pattern_to_search_for=PATTERN_FOR_CUSTOMER_LEGAL_NAME,
@@ -365,6 +363,11 @@ def rdinv(
         - use this str to fill all addr XML fields EXCEPT Country one (see nxt pct)
     * for Country set also separated string as necessary for corresponding XML item
     '''
+    _unified_address1 = _temp_found_data["value"]
+    _unified_address2 = f"{_tmp_country}, {_tmp_city}, {_tmp_street}, {_tmp_zipcode}"
+    _unified_address = _unified_address1 | _unified_address2
+    #FIXME wr `_unified_address` to corresponding header-customer dict entry
+    #FIXME also wr `_tmp_country` to corresponding header.customer.country... entry
     ...  # code here
     #TODO ............hereuare............
     #FIXME opis `240113piu_a` effective code ENDS here
