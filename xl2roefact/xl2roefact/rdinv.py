@@ -296,20 +296,6 @@ def rdinv(
     #
     # find customer key `cac:PostalAddress` -> `invoice_header_area["cac_PostalAddress"]` && Invoice...["cac_PostalAddress"]
     #FIXME opis `240113piu_a` effective code STARTS here
-    ''' ##FIXME drop me me before end opiss `240113piu_a`
-    #NOTE: info that should be set staring from `invoice_header_area["customer_area"]`:
-    ```
-     <cac:Party>  # existing key...
-        <cac:PostalAddress>
-            <cbc:StreetName>Nicolae titulescu 81-87</cbc:StreetName>
-            <cbc:CityName>Sectorul 1</cbc:CityName>
-            <cbc:PostalZone>010011</cbc:PostalZone>
-            <cac:Country>
-                <cbc:IdentificationCode>RO</cbc:IdentificationCode>
-            </cac:Country>
-        </cac:PostalAddress>
-    ```
-    '''
     _temp_found_data = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
         worksheet=ws,
@@ -338,10 +324,16 @@ def rdinv(
     _tmp_zipcode = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]
     #print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
     '''#TODO keys that should be created & filled w. found `_tmp_*`
-["cbc_StreetName"]
-["cbc_CityName"]
-["cbc_PostalZone"]
-["cac_Country"]["cbc_IdentificationCode"]
+    _invoice_cust_PostalAddress {
+"cbc_StreetName": ...,
+"cbc_CityName": ...,
+"cbc_PostalZone": ...,
+"cac_Country": {"cbc_IdentificationCode": ...},
+    }
+    NOTE: New strategy is:
+        - drop code for `_unified_address*`, lines [336-344]
+        - just write `_tmp_*` in corresponding key
+        - NOTE: first update `_tmp_* = ...["value"]` (lines [321-324]) append `.replace("None", "").strip()`
     '''
     _unified_address1 = _temp_found_data["value"]
     _unified_address2 = f"{_tmp_country} {_tmp_city} {_tmp_street} {_tmp_zipcode}".replace("None", "").strip()
