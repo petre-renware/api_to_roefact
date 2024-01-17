@@ -324,12 +324,14 @@ def rdinv(
     _tmp_zipcode = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]
     #print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
     '''#TODO keys that should be created & filled w. found `_tmp_*`
+    ```
     _invoice_cust_PostalAddress {
-"cbc_StreetName": ...,
-"cbc_CityName": ...,
-"cbc_PostalZone": ...,
-"cac_Country": {"cbc_IdentificationCode": ...},
+        "cbc_StreetName": ...,
+        "cbc_CityName": ...,
+        "cbc_PostalZone": ...,
+        "cac_Country": {"cbc_IdentificationCode": ...},
     }
+    ```
     NOTE: New strategy is:
         - drop code for `_unified_address*`, lines [336-344]
         - just write `_tmp_*` in corresponding key
