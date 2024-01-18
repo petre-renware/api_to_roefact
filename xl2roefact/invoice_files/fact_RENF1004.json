@@ -4,15 +4,18 @@
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-08-28",
         "cac_AccountingCustomerParty": {
-            "<cac:Party>": {
+            "cac:Party": {
                 "cac_PartyLegalEntity": {
                     "cbc_CompanyID": "17753763",
                     "cbc_RegistrationName": "CONNECTIONS CONSULT SRL"
                 },
-                "<cac_PostalAddress>": {
-                    "#TODO ...tbd in nxt operations...": "TODO: @IMP update XML -- JSON map",
-                    "key_1_of_postalAddr": "...wip...",
-                    "key_n_of_postalAddr": "...wip..."
+                "cac_PostalAddress": {
+                    "cbc_StreetName": "",
+                    "cbc_CityName": "Bucureşti Sectorul 1, Strada: BUZEŞTI, Nr. 71, Etaj 7 si 8, tara: Romania",
+                    "cbc_PostalZone": "",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
                 }
             }
         },
@@ -35,7 +38,7 @@
                     "cbc_currencyID": "RON"
                 },
                 "cbc_LineExtensionAmount": 38890.25,
-                "LineVatAmmount": 7389.1475
+                "LineVatAmount": 7389.1475
             },
             {
                 "cbc_ID": "1.NOTE-a",
@@ -55,7 +58,7 @@
                     "cbc_currencyID": null
                 },
                 "cbc_LineExtensionAmount": null,
-                "LineVatAmmount": null
+                "LineVatAmount": null
             },
             {
                 "cbc_ID": "1.NOTE-b",
@@ -75,7 +78,7 @@
                     "cbc_currencyID": null
                 },
                 "cbc_LineExtensionAmount": null,
-                "LineVatAmmount": null
+                "LineVatAmount": null
             },
             {
                 "cbc_ID": "1.NOTE-c",
@@ -95,7 +98,7 @@
                     "cbc_currencyID": null
                 },
                 "cbc_LineExtensionAmount": null,
-                "LineVatAmmount": null
+                "LineVatAmount": null
             },
             {
                 "cbc_ID": "2",
@@ -115,20 +118,20 @@
                     "cbc_currencyID": "RON"
                 },
                 "cbc_LineExtensionAmount": 111.11,
-                "LineVatAmmount": 0.0
+                "LineVatAmount": 0.0
             }
         ]
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-01-17T14:38:33.785377+00:00",
+        "last_processing_time": "2024-01-18T05:00:03.965540+00:00",
         "invoice_worksheet": "FACTURA FINALA",
-        "invoice_max_rows": 30,
+        "invoice_max_rows": 31,
         "invoice_max_cols": 9,
         "items_table_start_marker": "#",
         "items_table_start_cell": [
-            19,
+            20,
             1
         ],
         "invoice_XML_schemes": {
@@ -227,6 +230,26 @@
             [
                 "cac_PostalAddress",
                 "cac:PostalAddress"
+            ],
+            [
+                "cbc_StreetName",
+                "cbc:StreetName"
+            ],
+            [
+                "cbc_CityName",
+                "cbc:CityName"
+            ],
+            [
+                "cbc_PostalZone",
+                "cbc:PostalZone"
+            ],
+            [
+                "cac_Country",
+                "cac:Country"
+            ],
+            [
+                "cbc_IdentificationCode",
+                "cbc:IdentificationCode"
             ]
         ]
     },
@@ -302,7 +325,7 @@
                 1
             ],
             "end_cell": [
-                18,
+                19,
                 9
             ],
             "invoice_number": {
@@ -350,7 +373,7 @@
                             5
                         ],
                         [
-                            16,
+                            17,
                             6
                         ]
                     ]
@@ -375,17 +398,25 @@
                     ],
                     "label_value": "n/a",
                     "label_location": "n/a"
+                },
+                "PostalAddress": {
+                    "cbc_StreetName": "",
+                    "cbc_CityName": "Bucureşti Sectorul 1, Strada: BUZEŞTI, Nr. 71, Etaj 7 si 8, tara: Romania",
+                    "cbc_PostalZone": "",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
                 }
             },
             "supplier_area": "...future..."
         },
         "invoice_footer_area": {
             "start_cell": [
-                25,
+                26,
                 1
             ],
             "end_cell": [
-                30,
+                31,
                 9
             ]
         }

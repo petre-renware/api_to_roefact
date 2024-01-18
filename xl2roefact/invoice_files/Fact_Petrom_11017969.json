@@ -4,15 +4,18 @@
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-10-17",
         "cac_AccountingCustomerParty": {
-            "<cac:Party>": {
+            "cac:Party": {
                 "cac_PartyLegalEntity": {
                     "cbc_CompanyID": "RO1590082",
                     "cbc_RegistrationName": "OMV Petrom S.A."
                 },
-                "<cac_PostalAddress>": {
-                    "#TODO ...tbd in nxt operations...": "TODO: @IMP update XML -- JSON map",
-                    "key_1_of_postalAddr": "...wip...",
-                    "key_n_of_postalAddr": "...wip..."
+                "cac_PostalAddress": {
+                    "cbc_StreetName": "Coralilor Nr. 22",
+                    "cbc_CityName": "",
+                    "cbc_PostalZone": "Postal 013329",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
                 }
             }
         },
@@ -35,7 +38,7 @@
                     "cbc_currencyID": "RON"
                 },
                 "cbc_LineExtensionAmount": 42756.08,
-                "LineVatAmmount": 8123.6552
+                "LineVatAmount": 8123.6552
             },
             {
                 "cbc_ID": "1.NOTE-a",
@@ -55,7 +58,7 @@
                     "cbc_currencyID": null
                 },
                 "cbc_LineExtensionAmount": null,
-                "LineVatAmmount": null
+                "LineVatAmount": null
             },
             {
                 "cbc_ID": "2",
@@ -75,14 +78,14 @@
                     "cbc_currencyID": "RON"
                 },
                 "cbc_LineExtensionAmount": 855.12,
-                "LineVatAmmount": 0.0
+                "LineVatAmount": 0.0
             }
         ]
     },
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-01-17T14:38:33.695132+00:00",
+        "last_processing_time": "2024-01-18T05:00:03.776404+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -187,6 +190,26 @@
             [
                 "cac_PostalAddress",
                 "cac:PostalAddress"
+            ],
+            [
+                "cbc_StreetName",
+                "cbc:StreetName"
+            ],
+            [
+                "cbc_CityName",
+                "cbc:CityName"
+            ],
+            [
+                "cbc_PostalZone",
+                "cbc:PostalZone"
+            ],
+            [
+                "cac_Country",
+                "cac:Country"
+            ],
+            [
+                "cbc_IdentificationCode",
+                "cbc:IdentificationCode"
             ]
         ]
     },
@@ -311,6 +334,14 @@
                     ],
                     "label_value": "n/a",
                     "label_location": "n/a"
+                },
+                "PostalAddress": {
+                    "cbc_StreetName": "Coralilor Nr. 22",
+                    "cbc_CityName": "",
+                    "cbc_PostalZone": "Postal 013329",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
                 }
             },
             "supplier_area": "...future..."

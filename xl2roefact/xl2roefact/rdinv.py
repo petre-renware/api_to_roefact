@@ -318,39 +318,21 @@ def rdinv(
         targeted_type=str,
         down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )
-    _tmp_country = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]
-    _tmp_city = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]
-    _tmp_street = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]
-    _tmp_zipcode = search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]
+    _tmp_country = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]).replace("None", "").strip()
+    _tmp_city = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]).replace("None", "").strip()
+    _tmp_street = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
+    _tmp_zipcode = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
+    if (_tmp_country is None) or (_tmp_country == ""):
+        _tmp_country = DEFAULT_CUSTOMER_COUNTRY
+    else:
+        DEFAULT_CUSTOMER_COUNTRY = _tmp_country  # update deflaute value to be re-used in other parts if neccesary
     #print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
-    '''#TODO keys that should be created & filled w. found `_tmp_*`
-    ```
-    invoice_header_area["customer_area"]["PostalAddress"] {
-        "cbc_StreetName": ...,
-        "cbc_CityName": ...,
-        "cbc_PostalZone": ...,
-        "cac_Country": {"cbc_IdentificationCode": ...},
+    invoice_header_area["customer_area"]["PostalAddress"] = {
+        "cbc_StreetName": _tmp_street,
+        "cbc_CityName": _tmp_city,
+        "cbc_PostalZone": _tmp_zipcode,
+        "cac_Country": {"cbc_IdentificationCode": _tmp_country},
     }
-    ```
-    NOTE: New strategy is:
-        - drop code for `_unified_address*`, lines [336-344]
-        - write `_tmp_*` in corresponding key. TODO:NOTE: use DEFAULT_CUSTOMER_COUNTRY if `(_tmp_country == "") or (_tmp_country is None)`
-        - NOTE: first update `_tmp_* = ...["value"]` (lines [321-324]) append `.replace("None", "").strip()`
-        - wr `invoice_header_area["customer_area"]["PostalAddress"]` to Invoice[<cac_PostalAddress>], line 402 (to use code left there as comment)
-        - update map for these new 5 keys
-    '''
-    _unified_address1 = _temp_found_data["value"]
-    _unified_address2 = f"{_tmp_country} {_tmp_city} {_tmp_street} {_tmp_zipcode}".replace("None", "").strip()
-    _biggest_address = len(_unified_address1) - len(_unified_address2)
-    _unified_address = _unified_address1 if (_biggest_address >= 0) else _unified_address2  # choose the biggest address string (idiomatic but the only one rational decision...)
-    print(f"[red]=======> Unified addrees: {_unified_address=}[/]")  #FIXME DBG can drop
-    '''  info print  #FIXME DBG can drop
-    * Petrom: `Unified addrees: _unified_address='Coralilor Nr. 22 Postal 013329'`
-    * RENware: `Unified addrees: _unified_address='Bucureşti Sectorul 1, Strada BUZEŞTI, Nr. 71, Etaj 7 si 8'`
-    '''
-    # TODO: wr `_unified_address` to corresponding header-customer dict entry
-    # TODO: use `_tmp_country` Country string and write it to corresponding header.customer.country... entry
-    ...  # code here
     #TODO ............hereuare............
     #FIXME opis `240113piu_a` effective code ENDS here
 
@@ -399,7 +381,7 @@ def rdinv(
                         "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
                         "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
                     },
-                    "cac_PostalAddress": None  #FIXME_use: `copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"])`  #TODO ck & update XML -- JSON map",
+                    "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"])
                     ,
                 }
             },
@@ -421,12 +403,12 @@ def rdinv(
                     <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
                         -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
                     <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
-                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmmount`)
+                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
                     <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
-                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
+                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
                 </cac:LegalMonetaryTotal>
-            - NOTE-IMPORTANT-NOTE: only TOTALIZED values need to be rounded 2 decimals (because LineVatAmmount is let raw calculation to ve able to round here after SUM)
-            - NOTE: TOTAL invoice VAT can be obtained as `SUM(from existing key cac_InvoiceLine.LineVatAmmount`) adding lines VAT
+            - NOTE-IMPORTANT-NOTE: only TOTALIZED values need to be rounded 2 decimals (because LineVatAmount is let raw calculation to ve able to round here after SUM)
+            - NOTE: TOTAL invoice VAT can be obtained as `SUM(from existing key cac_InvoiceLine.LineVatAmount`) adding lines VAT
     '''
 
     # write `invoice` dict to `f-JSON`
@@ -656,7 +638,7 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format):
                     "cbc_currencyID": None if (_item_quantity is None or str(_item_quantity).split() == "") else DEFAULT_CURRENCY
                 },
                 "cbc_LineExtensionAmount": _item_total,
-                "LineVatAmmount": None if _item_total is None else _item_VAT,  # line VAT calculation is subject of some ammount existence
+                "LineVatAmount": None if _item_total is None else _item_VAT,  # line VAT calculation is subject of some Amount existence
             }
         }
         _invoice_items_area_json_format.append(_line_info["cac_InvoiceLine"])
@@ -892,6 +874,11 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_CompanyID", "cbc:CompanyID"),  # invoice customer inforation - DETAIL L3 RECORD
         ("cbc_RegistrationName", "cbc:RegistrationName"),  # invoice customer inforation - DETAIL L3 RECORD
         ("cac_PostalAddress", "cac:PostalAddress"),  # invoice customer postal address info - DETAIL L2 RECORD
+        ("cbc_StreetName", "cbc:StreetName"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cbc_CityName", "cbc:CityName"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cbc_PostalZone", "cbc:PostalZone"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cac_Country", "cac:Country"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("cbc_IdentificationCode", "cbc:IdentificationCode"),  # invoice customer inforation - DETAIL L3 RECORD
         #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 
