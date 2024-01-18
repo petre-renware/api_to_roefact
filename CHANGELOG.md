@@ -50,8 +50,9 @@
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
         * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
-        * [ ] #NOTE...wip... invoice header - customer (`<cac:AccountingCustomerParty>`)
-    * invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key
+        * [ ] invoice header - customer bank, RegCom, email, tel, ...
+        * [x] invoice header - customer address (`<cac:AccountingCustomerParty>`)
+    * invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
 
 
 
@@ -69,7 +70,7 @@
 
 * tbd... `def_inv_dir` issue ref Excel invoices default get directory, see comments in `app_cli.py` function `xl2json(...)`
 
-* tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
+* tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email", ... (area saved in `_area_to_search`)
 
 
 * 240118piu_a reviewed and cleaned code: `rdinv.rdinv()`, `config_settings`, `excel_invoice_template/invoice_template_CU_tva.xlsx` (according to updates in testing used invoice)

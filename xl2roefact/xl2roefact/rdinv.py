@@ -175,9 +175,9 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = None,
+        customer_area = None,  #TODO some more items to do:"reg com", "bank / IBAN / cont", "tel", "email", ... (area saved in `_area_to_search`)  #NOTE: cont on line 330
         supplier_area = "...future..."  #TODO ... future tbd  ...
-    )
+    )  #FIXME_#TODO_#NOTE ............hereuare............
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
@@ -326,17 +326,9 @@ def rdinv(
         "cbc_PostalZone": _tmp_zipcode,
         "cac_Country": {"cbc_IdentificationCode": _tmp_country},
     }
-    #TODO ............hereuare............
-
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
-    '''
-    NOTE: - before end:
-        - FINAL OBJECTIVE: `cac:AccountingCustomerParty`, so update section named: "# build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function"
-        - update XML map here: "_tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)" ...->
-          ...-> for combination: `cac:AccountingCustomerParty` ---- `cac_AccountingSupplierParty`
-        - helper search str "TODO ...here to add rest of `invoice_header_area`..."
-    '''
-    #TODO: ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
+    ...
+    # #TODO: ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 
