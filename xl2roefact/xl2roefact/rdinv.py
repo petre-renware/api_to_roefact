@@ -348,12 +348,6 @@ def rdinv(
         found_cell=tuple(_found_cell_for_invoice_items_area_marker))
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
-    ''' FIXME: XML reuired structure for `cac_AccountingCustomerParty`  FIXME: drop me after ... see full comment down
-                    <cac:PartyLegalEntity>
-                        <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
-                        <cbc:CompanyID>21986376</cbc:CompanyID>
-                    </cac:PartyLegalEntity>
-    '''#FIXME: after a check ref JSON --> XML convrsion uodate PLAN_XML_file and can drop this info
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
