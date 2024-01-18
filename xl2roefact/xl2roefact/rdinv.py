@@ -170,14 +170,14 @@ def rdinv(
 
     """#NOTE: section to "solve" `invoice_header_area`.
             The kind of info expected in this area: invoice number,  currency, issued date, supplier data, customer data)
-    """
+    """  #FIXME_FIXME: >>>------------------[opiss `240118_admin02`]----- FROM here = point to make a function `get_partner_info(partner_type: str "customer" | "supplier")`
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = None,  #TODO some more items to do:"reg com", "bank / IBAN / cont", "tel", "email", ... (area saved in `_area_to_search`)  #NOTE: cont on line 330
-        supplier_area = "...future..."  #TODO ... future tbd  ...
-    )  #FIXME_#TODO_#NOTE ............hereuare............
+        customer_area = None,  # TODO: some more items to do:"reg com", "bank / IBAN / cont", "tel", "email", ... (area saved in `_area_to_search`)  #NOTE: cont on line 330
+        supplier_area = "...future..."  # TODO: ... future tbd  ...
+    )  #FIXME_TODO: ............hereuare............
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
@@ -328,6 +328,7 @@ def rdinv(
     }
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     ...
+    #FIXME_FIXME: <<<------------------[opiss `240118_admin02`]----- TO here = point to make a function `get_partner_info(partner_type: str "customer" | "supplier")`
     # #TODO: ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
