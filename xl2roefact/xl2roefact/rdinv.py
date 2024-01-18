@@ -175,7 +175,7 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = None,  #FIXME ... @240106 still work in progress ...
+        customer_area = None,
         supplier_area = "...future..."  #TODO ... future tbd  ...
     )
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
@@ -210,8 +210,6 @@ def rdinv(
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
-    #FIXME_#TODO ...wip .................... here is a longer work ....................     #FIXME opis `240113piu_a` START here
-    #FIXME_#NOTE  ALL about CUSTOMER AREA... area identification and corresponding fields / keys
     # find invoice customer ==> `cac:AccountingSupplierParty`
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
@@ -239,7 +237,6 @@ def rdinv(
         _last_ok_position[0],
         ws.size[1] if _last_ok_position[1] > ws.size[1] else _last_ok_position[1] + 1,  # set one row right if this row exists
     ]
-    #print(f"[red]===> established AREA TO SEARCH as {_area_to_search_end_cell=} [/]")  #FIXME DBG can be dropped
     # set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
     _area_to_search = (tuple(_area_to_search_start_cell), tuple(_area_to_search_end_cell))
     invoice_header_area["customer_area"] = {
@@ -284,7 +281,7 @@ def rdinv(
     if _location_of_value_found == _location_of_header_partner_area:  # NOTE: ReNaSt.STEP-2
         kept_RegistrationName = _temp_found_data["value"]
         kept_RegistrationName_location = _temp_found_data["location"]
-    else:  # ReNaSt.STEP-3
+    else:  # NOTE: ReNaSt.STEP-3
         kept_RegistrationName = invoice_header_area["customer_area"]["area_info"]["value"]
         kept_RegistrationName_location = invoice_header_area["customer_area"]["area_info"]["location"][0]
     invoice_header_area["customer_area"]["RegistrationName"] = {
@@ -295,7 +292,6 @@ def rdinv(
     }
     #
     # find customer key `cac:PostalAddress` -> `invoice_header_area["cac_PostalAddress"]` && Invoice...["cac_PostalAddress"]
-    #FIXME opis `240113piu_a` effective code STARTS here
     _temp_found_data = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
         worksheet=ws,
@@ -303,14 +299,12 @@ def rdinv(
         targeted_type=str,
         down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    #print(f"[red]====> INFO FOUND {_temp_found_data=}[/]")  #FIXME DBG can drop
     _tmpstr = _temp_found_data["label_value"].lower()
     _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
     if _val_is_full_addr:
         area_to_scan_address_items = (_temp_found_data["location"], _temp_found_data["location"])
     else:
         area_to_scan_address_items = _area_to_search
-    #print(f"[red]===> Unified search area {area_to_scan_address_items=}[/]")  #FIXME DBG can drop
     search_address_parts = partial(  # define a partial function to be used for all address items search
         get_excel_data_at_label,  # function to call
         worksheet=ws,
@@ -326,7 +320,6 @@ def rdinv(
         _tmp_country = DEFAULT_CUSTOMER_COUNTRY
     else:
         DEFAULT_CUSTOMER_COUNTRY = _tmp_country  # update deflaute value to be re-used in other parts if neccesary
-    #print(f"[red]===> Iterms found are: \n{_tmp_country=}\n{_tmp_city=}\n{_tmp_street=}\n{_tmp_zipcode=}[/]")  #FIXME DBG can drop
     invoice_header_area["customer_area"]["PostalAddress"] = {
         "cbc_StreetName": _tmp_street,
         "cbc_CityName": _tmp_city,
@@ -334,7 +327,6 @@ def rdinv(
         "cac_Country": {"cbc_IdentificationCode": _tmp_country},
     }
     #TODO ............hereuare............
-    #FIXME opis `240113piu_a` effective code ENDS here
 
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     '''

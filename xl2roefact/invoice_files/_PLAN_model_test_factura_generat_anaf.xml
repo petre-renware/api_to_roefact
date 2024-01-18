@@ -60,19 +60,19 @@
 
 
 
-    <cac:AccountingCustomerParty>  #NOTE_wip... @240102 ...
-        <cac:Party>  #NOTE_wip... @240113 ...
-            <cac:PostalAddress>  #NOTE_wip... @240113 ...
+    <cac:AccountingCustomerParty>  #NOTE DONE / RDY all items
+        <cac:Party>
+            <cac:PostalAddress>
                 <cbc:StreetName>Nicolae titulescu 81-87</cbc:StreetName>
                 <cbc:CityName>Sectorul 1</cbc:CityName>
                 <cbc:PostalZone>010011</cbc:PostalZone>
-                <cac:Country>  #TODO tbd...  #NOTE I think this is very important...
+                <cac:Country>
                     <cbc:IdentificationCode>RO</cbc:IdentificationCode>
                 </cac:Country>
             </cac:PostalAddress>
-            <cac:PartyLegalEntity>  #TODO tbd...
-                <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>  #NOTE DONE / RDY
-                <cbc:CompanyID>21986376</cbc:CompanyID>  # this is "CUI" #NOTE DONE / RDY
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
+                <cbc:CompanyID>21986376</cbc:CompanyID>  # this is "CUI"
             </cac:PartyLegalEntity>
         </cac:Party>
     </cac:AccountingCustomerParty>

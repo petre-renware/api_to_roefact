@@ -72,6 +72,8 @@
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
 
 
+* 240118piu_a reviewed and cleaned code: `rdinv.rdinv()`, `config_settings`, `excel_invoice_template/invoice_template_CU_tva.xlsx` (according to updates in testing used invoice)
+
 * 240113piu_a to find `cac:PostalAddress` and write to:
     * [x] 1. right set position of key `"cac_PostalAddress"` in basic structure (invoice_header_area)
     * [x] 2a. find excel area ref customer address (...invoice_header_area...)

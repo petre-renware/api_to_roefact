@@ -124,26 +124,26 @@ PATTERN_FOR_PARTNER_ID = [
 
 # --- pattern pentru regasirea adresei (pattern comun pentru client si furnizor)
 # este important ca ordinea de cautare sa permita ca sansele sa fie maximizate pentru cautarea adresei complete sau macar a tarii
-PATTERN_FOR_PARTNER_ADDRESS = [  #FIXME this is just entered (240108) and never used, so update if neccesary after "find Address" issue
+PATTERN_FOR_PARTNER_ADDRESS = [
     "adr", "addr",
     "tara", "count",
     "locali", "oras",
     "city", "town",
     "str",
 ]
-PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = [  #FIXME @240115 never used, test me
+PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = [
     "tara", "countr",
 ]
-PATTERN_FOR_PARTNER_ADDRESS_CITY = [  #FIXME @240115 never used, test me
+PATTERN_FOR_PARTNER_ADDRESS_CITY = [
     "judet", "county",
     "locali",
     "oras", "city", "town", "land"
 ]
-PATTERN_FOR_PARTNER_ADDRESS_STREET = [  #FIXME @240115 never used, test me
+PATTERN_FOR_PARTNER_ADDRESS_STREET = [
     "str", "sos", "bd", "calea",
     "ave", "highwa",
 ]
-PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [  #FIXME @240115 never used, test me
+PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [
     "cod pos", "zip cod", "postal",
 ]
 
