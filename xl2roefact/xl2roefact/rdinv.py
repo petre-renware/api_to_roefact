@@ -211,7 +211,7 @@ def rdinv(
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
     #FIXME_FIXME: >>>------------------[opiss `240118_admin02`]----- FROM here = point to make a function `get_partner_info(partner_type: str "customer" | "supplier")`
-    # find invoice customer ==> `cac:AccountingCustomererParty`
+    # find invoice customer ==> "cac:AccountingCustomerParty
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
         worksheet=ws,
