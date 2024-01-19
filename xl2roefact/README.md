@@ -4,6 +4,7 @@
 # xl2roefact
 
 ![Static Badge](https://img.shields.io/badge/EXE-0.1.19-cyan)
+![Static Badge](https://img.shields.io/badge/Python_package-0.1.20-cyan)
 
 
 ```
