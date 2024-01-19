@@ -14,6 +14,8 @@
 **Documentation & support**
 
 ![Static Badge](https://img.shields.io/badge/Git_Hub-0.1.20-magenta)
+![Static Badge](https://img.shields.io/badge/Official_Site-0.1.5-magenta)
+
 <!-- #TODO more labels here ... -->
 
 
