@@ -1,4 +1,16 @@
 
+def get_partner_info(
+    partner_type: str # TODO: one of "customer" | "supplier"
+) -> dict:  #FIXME check if return is realy dict...
+    """Summary here... .
+
+    Extended info here... .
+
+    Args:
+        ...
+    Return:
+        ...
+    """
     #FIXME_FIXME: >>>------------------[opiss `240118_admin02`]----- FROM here = point to make a function `get_partner_info(partner_type: str "customer" | "supplier")`
     # find invoice customer ==> "cac:AccountingCustomerParty
     invoice_customer_info = get_excel_data_at_label(
@@ -118,6 +130,8 @@
     }
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     ...
+
+    return None  #FIXME see what should be returned or None because modified directly in multable parameters
     #FIXME_FIXME: <<<------------------[opiss `240118_admin02`]----- TO here = point to make a function `get_partner_info(partner_type: str "customer" | "supplier")`
 
 
