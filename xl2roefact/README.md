@@ -3,9 +3,18 @@
 
 # xl2roefact
 
-* Versions: ![Static Badge](https://img.shields.io/badge/EXE-0.1.19-cyan)
+
+**Versions**
+
+![Static Badge](https://img.shields.io/badge/EXE-0.1.19-cyan)
 ![Static Badge](https://img.shields.io/badge/Python_package-0.1.20-cyan)
 ![Static Badge](https://img.shields.io/badge/Excel_template-0.1.20-cyan)
+<!-- #TODO more labels here ... -->
+
+**Documentation & support**
+
+![Static Badge](https://img.shields.io/badge/Git_Hub-0.1.20-magenta)
+<!-- #TODO more labels here ... -->
 
 
 
