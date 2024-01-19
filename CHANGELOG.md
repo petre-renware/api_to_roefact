@@ -73,7 +73,7 @@
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email", ... (area saved in `_area_to_search`)
 
 
-* tbd...opiss... 240118_admin02 generalize a function `get_partner_info(partner_type: str "customer" | "supplier")` to get partner info with partner type as being parameter (#TODO see rdinv(...) opiss with this code)
+* wip... 240118_admin02 generalize a function `get_partner_info(partner_type: str "customer" | "supplier")` to get partner info with partner type as being parameter (#TODO code marked in `rdinv rdinv()` with this opiss code & the code was extracted in file `xl2roefact/xl2roefact/rdinv_extras_opiss_240118_admin02.md` for processing)
 
 * 240118piu_a reviewed and cleaned code: `rdinv.rdinv()`, `config_settings`, `excel_invoice_template/invoice_template_CU_tva.xlsx` (according to updates in testing used invoice)
 
