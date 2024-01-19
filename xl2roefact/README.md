@@ -3,27 +3,26 @@
 
 # xl2roefact
 
-```
- ######## ####              ########  ######  
- #  ##  # #  #              #      # ##    ## 
- ##    ## #  #              ###  ### #  ##  # 
-  ##  ##  #  #                #  #   #  ##  # 
- ##    ## #  #                #  #   #  ##  # 
- #  ##  # #  #####            #  #   #  ##  # 
- #  ##  # #      #            #  #   ##    ## 
- ######## ########            ####    ######  
 
-                            ######## ########  ######   ######  ######## 
- #######   ######           #      # #     #  ##    ## ##    ## #      # 
- #     ## ##    ## #######  #  ##### #  ####  #  ##  # #  ##  # ###  ### 
- #  ##  # #  ##  # #     #  #    #   #    #   #      # #  #####   #  #   
- #  ##### #  ##  # #######  #  ###   #  ###   #  ##  # #  #####   #  #   
- #  #     #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  #   
- #  #     ##    ##          #      # #  #     #  ##  # ##    ##   #  #   
- ####      ######           ######## ####     ########  ######    ####
+**Available Versions**
+
+![Static Badge](https://img.shields.io/badge/EXE-0.1.19-cyan)
+![Static Badge](https://img.shields.io/badge/Python_Script-0.1.20-cyan)
+![Static Badge](https://img.shields.io/badge/Python_package-0.1.20-cyan)
+![Static Badge](https://img.shields.io/badge/Excel_template-0.1.20-cyan)
+<!-- #TODO more labels here ... -->
+
+**Documentation & support**
+
+![Static Badge](https://img.shields.io/badge/Git_Hub-0.1.20-magenta)
+![Static Badge](https://img.shields.io/badge/Official_Site-0.1-magenta)
+![Static Badge](https://img.shields.io/badge/Technical_Doc-0.1.20-magenta)
 
 
-```
+<!-- #TODO more labels here ... -->
+
+
+
 
 
 ## Facilitati (Features)
