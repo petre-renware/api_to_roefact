@@ -182,7 +182,7 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = None,  # TODO: some more items to do: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE: to cont on line 331
+        customer_area = None,  # TODO: some more items to do: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE: to cont on line 337
         supplier_area = "...future..."  # TODO: ... future tbd  ...
     )  #FIXME_TODO: ............hereuare............
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
