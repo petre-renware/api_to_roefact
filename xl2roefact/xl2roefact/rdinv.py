@@ -53,6 +53,12 @@ PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = config_settings.PATTERN_FOR_PARTNER_ADDRES
 PATTERN_FOR_PARTNER_ADDRESS_CITY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_CITY
 PATTERN_FOR_PARTNER_ADDRESS_STREET = config_settings.PATTERN_FOR_PARTNER_ADDRESS_STREET
 PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = config_settings.PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE
+#FIXME constants add @iss 240121piu_a this area (lines 57 - 61) should be tested, drop me after testing
+PATTERN_FOR_PARTNER_EMAIL = config_settings.PATTERN_FOR_PARTNER_EMAIL
+PATTERN_FOR_PARTNER_TEL = config_settings.PATTERN_FOR_PARTNER_TEL
+PATTERN_FOR_PARTNER_IBAN = config_settings.PATTERN_FOR_PARTNER_IBAN
+PATTERN_FOR_PARTNER_BANK = config_settings.PATTERN_FOR_PARTNER_BANK
+PATTERN_FOR_PARTNER_REGCOM = config_settings.PATTERN_FOR_PARTNER_REGCOM
 
 
 def rdinv(
@@ -176,7 +182,7 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = None,  # TODO: some more items to do: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE: to cont on line 331
+        customer_area = None,  # TODO: some more items to do: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE: to cont on line 337
         supplier_area = "...future..."  # TODO: ... future tbd  ...
     )  #FIXME_TODO: ............hereuare............
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
@@ -328,7 +334,7 @@ def rdinv(
         "cbc_PostalZone": _tmp_zipcode,
         "cac_Country": {"cbc_IdentificationCode": _tmp_country},
     }
-    # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE start w./line 179
+    # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE start w./line 185
     ...
     # NOTE: see how replicate code for Customer --to--> Supplier
     # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`

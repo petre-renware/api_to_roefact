@@ -122,6 +122,27 @@ PATTERN_FOR_PARTNER_ID = [
     "id",
 ]
 
+# --- pattern pentru regasirea nr de inreg la Registrul Comertului
+PATTERN_FOR_PARTNER_REGCOM = [  #FIXME new @240121-v0.1.20 to be tested 
+    "reg com", "reg. com", "comert",
+]
+
+# --- pattern-uri pentru regasirea bancii si a contului bancar
+PATTERN_FOR_PARTNER_BANK = [  #FIXME new @240121-v0.1.20 to be tested 
+    "banc", "bank",
+]
+PATTERN_FOR_PARTNER_IBAN = [  #FIXME new @240121-v0.1.20 to be tested 
+    "iban", "cont", "bank acc",
+]
+
+# --- pattern pentru regasirea datelor de contact (tel, email)
+PATTERN_FOR_PARTNER_TEL = [  #FIXME new @240121-v0.1.20 to be tested 
+    "tel", "phon",
+]
+PATTERN_FOR_PARTNER_EMAIL = [  #FIXME new @240121-v0.1.20 to be tested 
+    "mail", "email", "e-mail",
+]
+
 # --- pattern pentru regasirea adresei (pattern comun pentru client si furnizor)
 # este important ca ordinea de cautare sa permita ca sansele sa fie maximizate pentru cautarea adresei complete sau macar a tarii
 PATTERN_FOR_PARTNER_ADDRESS = [
