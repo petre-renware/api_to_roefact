@@ -30,8 +30,9 @@ import openpyxl as opnxl
 from .libutils import isnumber, find_str_in_list  # application misc/general utilities
 from . import config_settings  # application configuration parameters
 
+# local constants. Change them with caution only for a functional objective
+SYS_FILLED_EMPTY_CELL = "_sys_keep_cell"
 
-SYS_FILLED_EMPTY_CELL = "_sys_keep_cell"  # this is not a changeale constant
 # imported constants (NOTE: some are subject to change values as reading Excel file - these will be declared as `global` in function that will change them)
 DEFAULT_VAT_PERCENT = config_settings.DEFAULT_VAT_PERCENT
 DEFAULT_UNKNOWN_ITEM_NAME = config_settings.DEFAULT_UNKNOWN_ITEM_NAME
@@ -48,10 +49,10 @@ PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOI
 PATTERN_FOR_PARTNER_ID = config_settings.PATTERN_FOR_PARTNER_ID
 PATTERN_FOR_CUSTOMER_LEGAL_NAME = config_settings.PATTERN_FOR_CUSTOMER_LEGAL_NAME
 PATTERN_FOR_PARTNER_ADDRESS = config_settings.PATTERN_FOR_PARTNER_ADDRESS
-PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_COUNTRY  #FIXME @240115 info line, can drop, drop me after compiling test
-PATTERN_FOR_PARTNER_ADDRESS_CITY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_CITY  #FIXME @240115 info line, can drop, drop me after compiling test
-PATTERN_FOR_PARTNER_ADDRESS_STREET = config_settings.PATTERN_FOR_PARTNER_ADDRESS_STREET  #FIXME @240115 info line, can drop, drop me after compiling test
-PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = config_settings.PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE  #FIXME @240115 info line, can drop, drop me after compiling test
+PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_COUNTRY
+PATTERN_FOR_PARTNER_ADDRESS_CITY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_CITY
+PATTERN_FOR_PARTNER_ADDRESS_STREET = config_settings.PATTERN_FOR_PARTNER_ADDRESS_STREET
+PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = config_settings.PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE
 
 
 def rdinv(
