@@ -122,6 +122,12 @@ PATTERN_FOR_PARTNER_ID = [
     "id",
 ]
 
+# --- pattern pentru regasirea nr de inreg la Registrul Comertului
+PATTERN_FOR_PARTNER_REGCOM = [  #FIXME new @240121-v0.1.20 to be tested 
+    "reg com", "reg. com", "comert",
+]
+
+
 # --- pattern pentru regasirea adresei (pattern comun pentru client si furnizor)
 # este important ca ordinea de cautare sa permita ca sansele sa fie maximizate pentru cautarea adresei complete sau macar a tarii
 PATTERN_FOR_PARTNER_ADDRESS = [
