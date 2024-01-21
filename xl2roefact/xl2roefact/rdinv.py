@@ -330,9 +330,9 @@ def rdinv(
     }
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     ...
-    
-    # #TODO: ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
-
+    # NOTE: see how replicate code for Customer --to--> Supplier 
+    # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
+    # NOTE: si mai este ceva legat de o sumarizare XML a totalului facturi (comentarii in zona in care scrii key Invoice, citeva linii mai jos)
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 
 
