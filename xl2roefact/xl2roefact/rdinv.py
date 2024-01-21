@@ -30,8 +30,9 @@ import openpyxl as opnxl
 from .libutils import isnumber, find_str_in_list  # application misc/general utilities
 from . import config_settings  # application configuration parameters
 
+# local constants. Change them with caution only for a functional objective
+SYS_FILLED_EMPTY_CELL = "_sys_keep_cell"
 
-SYS_FILLED_EMPTY_CELL = "_sys_keep_cell"  # this is not a changeale constant
 # imported constants (NOTE: some are subject to change values as reading Excel file - these will be declared as `global` in function that will change them)
 DEFAULT_VAT_PERCENT = config_settings.DEFAULT_VAT_PERCENT
 DEFAULT_UNKNOWN_ITEM_NAME = config_settings.DEFAULT_UNKNOWN_ITEM_NAME
@@ -48,10 +49,10 @@ PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOI
 PATTERN_FOR_PARTNER_ID = config_settings.PATTERN_FOR_PARTNER_ID
 PATTERN_FOR_CUSTOMER_LEGAL_NAME = config_settings.PATTERN_FOR_CUSTOMER_LEGAL_NAME
 PATTERN_FOR_PARTNER_ADDRESS = config_settings.PATTERN_FOR_PARTNER_ADDRESS
-PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_COUNTRY  #FIXME @240115 info line, can drop, drop me after compiling test
-PATTERN_FOR_PARTNER_ADDRESS_CITY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_CITY  #FIXME @240115 info line, can drop, drop me after compiling test
-PATTERN_FOR_PARTNER_ADDRESS_STREET = config_settings.PATTERN_FOR_PARTNER_ADDRESS_STREET  #FIXME @240115 info line, can drop, drop me after compiling test
-PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = config_settings.PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE  #FIXME @240115 info line, can drop, drop me after compiling test
+PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_COUNTRY
+PATTERN_FOR_PARTNER_ADDRESS_CITY = config_settings.PATTERN_FOR_PARTNER_ADDRESS_CITY
+PATTERN_FOR_PARTNER_ADDRESS_STREET = config_settings.PATTERN_FOR_PARTNER_ADDRESS_STREET
+PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = config_settings.PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE
 
 
 def rdinv(
@@ -210,7 +211,7 @@ def rdinv(
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
-    #FIXME_FIXME: >>>------------------[opiss `240118_admin02`]----- FROM here = point to make a function `get_partner_info(partner_type: str "customer" | "supplier")`
+    #FIXME --------- 0.1.20 CURRENTLY WIP `invoice_customer.area_`. DBG MARKER LINE, drop after `0.1.20` release
     # find invoice customer ==> "cac:AccountingCustomerParty
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
@@ -329,9 +330,9 @@ def rdinv(
     }
     # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
     ...
-    #FIXME_FIXME: <<<------------------[opiss `240118_admin02`]----- TO here = point to make a function `get_partner_info(partner_type: str "customer" | "supplier")`
-    # #TODO: ...&& end here -------------->>> #NOTE si mai ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
-
+    # NOTE: see how replicate code for Customer --to--> Supplier 
+    # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
+    # NOTE: si mai este ceva legat de o sumarizare XML a totalului facturi (comentarii in zona in care scrii key Invoice, citeva linii mai jos)
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 
 
