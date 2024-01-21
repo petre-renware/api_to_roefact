@@ -176,7 +176,7 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = None,  # TODO: some more items to do:"reg com", "bank / IBAN / cont", "tel", "email", ... (area saved in `_area_to_search`)  #NOTE: cont on line 330
+        customer_area = None,  # TODO: some more items to do: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE: to cont on line 331
         supplier_area = "...future..."  # TODO: ... future tbd  ...
     )  #FIXME_TODO: ............hereuare............
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
@@ -328,9 +328,9 @@ def rdinv(
         "cbc_PostalZone": _tmp_zipcode,
         "cac_Country": {"cbc_IdentificationCode": _tmp_country},
     }
-    # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", and more...
+    # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE start w./line 179
     ...
-    # NOTE: see how replicate code for Customer --to--> Supplier 
+    # NOTE: see how replicate code for Customer --to--> Supplier
     # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
     # NOTE: si mai este ceva legat de o sumarizare XML a totalului facturi (comentarii in zona in care scrii key Invoice, citeva linii mai jos)
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
@@ -366,9 +366,9 @@ def rdinv(
                     ,
                 }
             },
-            #TODO ...here to add rest of `invoice_header_area`...
+            #TODO ...here to add rest of `invoice_header_area`: "reg com", "bank / IBAN / cont", "tel", "email"
             "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
-            #TODO: need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
+            #TODO: after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
