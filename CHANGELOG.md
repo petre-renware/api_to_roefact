@@ -70,12 +70,11 @@
 
 * tbd... `def_inv_dir` issue ref Excel invoices default get directory, see comments in `app_cli.py` function `xl2json(...)`
 
-* tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
+
+* wip... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * 240121piu_a updated `config_settings.py` & `rdinv.py` with constants: `PATTERN_FOR_PARTNER_REGCOM`, `PATTERN_FOR_PARTNER_IBAN`, `PATTERN_FOR_PARTNER_TEL`, `PATTERN_FOR_PARTNER_EMAIL`, `PATTERN_FOR_PARTNER_BANK`
-
-* ----- #FIXME to test closed issues up here
 
 * @CANCELED 240118_admin02 generalize a function `get_partner_info(partner_type: str "customer" | "supplier")` to get partner info with partner type as being parameter
 

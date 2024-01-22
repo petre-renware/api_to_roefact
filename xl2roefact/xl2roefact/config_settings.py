@@ -123,23 +123,23 @@ PATTERN_FOR_PARTNER_ID = [
 ]
 
 # --- pattern pentru regasirea nr de inreg la Registrul Comertului
-PATTERN_FOR_PARTNER_REGCOM = [  #FIXME new @240121-v0.1.20 to be tested 
+PATTERN_FOR_PARTNER_REGCOM = [
     "reg com", "reg. com", "comert",
 ]
 
 # --- pattern-uri pentru regasirea bancii si a contului bancar
-PATTERN_FOR_PARTNER_BANK = [  #FIXME new @240121-v0.1.20 to be tested 
+PATTERN_FOR_PARTNER_BANK = [
     "banc", "bank",
 ]
-PATTERN_FOR_PARTNER_IBAN = [  #FIXME new @240121-v0.1.20 to be tested 
+PATTERN_FOR_PARTNER_IBAN = [
     "iban", "cont", "bank acc",
 ]
 
 # --- pattern pentru regasirea datelor de contact (tel, email)
-PATTERN_FOR_PARTNER_TEL = [  #FIXME new @240121-v0.1.20 to be tested 
+PATTERN_FOR_PARTNER_TEL = [
     "tel", "phon",
 ]
-PATTERN_FOR_PARTNER_EMAIL = [  #FIXME new @240121-v0.1.20 to be tested 
+PATTERN_FOR_PARTNER_EMAIL = [
     "mail", "email", "e-mail",
 ]
 
