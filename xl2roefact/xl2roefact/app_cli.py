@@ -84,7 +84,7 @@ def xl2json(
         Path,
         typer.Option(
             "--files-directory", "-d",
-            exists=True,  #TODO `def_inv_dir` issue - this constraint should be dropped as will consider just if directory exists, otherwise will use `./` (current dir)
+            exists=True,  #TODO: `def_inv_dir` issue - this constraint should be dropped & if dir not exists use `./` (current dir). Cont w.line #114
             file_okay=False,
             dir_okay=True,
             writable=True,
@@ -111,14 +111,14 @@ def xl2json(
     print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
 
     # process files as requested in command line
-    '''#TODO `def_inv_dir` issue: 
+    '''#TODO `def_inv_dir` issue:
         - this constraint should be dropped as will consider just if directory exists, otherwise will use `./` (current dir)
         - before makeejking any assumptions ref directory `invoice_files/` check if exists AND IF NOT, then consider current directory (`./`)
-        - use `os.path.isdir("files_directory")`, also check if `resolve_path=True` at its definition as function parameter
+        - use `os.path.isdir(Path(files_directory))`, also check if `resolve_path=True` at its definition as function parameter
     '''
     tmp_files_to_process = Path(files_directory)
     print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
-    list_of_files_to_process = list(tmp_files_to_process.glob(file_name))
+    list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
     if verbose:
         print(f"[yellow]DEBUG note:[/] list object with files to process: [green]{list_of_files_to_process}[/]")
     for a_file in list_of_files_to_process:

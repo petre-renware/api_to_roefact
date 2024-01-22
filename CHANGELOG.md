@@ -59,20 +59,26 @@
 
 
 
-### 0.1.20.dev invoice customer address ?...and partial invoice total values calculations...? (#NOTE TODO: wip...)
+### #NOTE#TODO#NOTE...incoming... 0.1.21.dev invoice customer address optional items (email, reg-com, phone) (#NOTE incoming...)
 
-* -#TODO_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
+* TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO EFact`**
     - portal main navigation: link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
 
-* wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all` ++------->>
-         ++------->> TODO: &&& for this version make a full chk / review for FIXME of rdinv()
+* tbd... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all` & make a full chk / review for FIXME of rdinv()
+
+* tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
+
+
+
+
+
+
+### 0.1.20.dev invoice customer address (#FIXME RELEASE ME)
+
+* TODO:_RELEASE_ME tbd... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all` & make a full chk / review for FIXME of rdinv()
 
 * tbd... `def_inv_dir` issue ref Excel invoices default get directory, see comments in `app_cli.py` function `xl2json(...)`
-
-
-
-* wip... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * 240121piu_a updated `config_settings.py` & `rdinv.py` with constants: `PATTERN_FOR_PARTNER_REGCOM`, `PATTERN_FOR_PARTNER_IBAN`, `PATTERN_FOR_PARTNER_TEL`, `PATTERN_FOR_PARTNER_EMAIL`, `PATTERN_FOR_PARTNER_BANK`
 
@@ -90,8 +96,6 @@
     * [x] 6. updated invoice template for country explicit field
 
 * 240116_admin_01 upd __version__ for 0.1.20
-
-
 
 
 
@@ -125,6 +129,7 @@
     - (a) created first version of tutorial section
 
 * 240106piu_a invoice customer search and persist for "RegistrationName"
+
 
 
 
