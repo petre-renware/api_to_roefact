@@ -111,8 +111,11 @@ def xl2json(
     print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
 
     # process files as requested in command line
-    #TODO `def_inv_dir` issue - this constraint should be dropped as will consider just if directory exists, otherwise will use `./` (current dir)
-    #TODO `def_inv_dir` issue -before makeejking any assumptions ref directory `invoice_files/` check if exists AND IF NOT, then consider current directory (`./`)
+    '''#TODO `def_inv_dir` issue: 
+        - this constraint should be dropped as will consider just if directory exists, otherwise will use `./` (current dir)
+        - before makeejking any assumptions ref directory `invoice_files/` check if exists AND IF NOT, then consider current directory (`./`)
+        - use `os.path.isdir("files_directory")`, also check if `resolve_path=True` at its definition as function parameter
+    '''
     tmp_files_to_process = Path(files_directory)
     print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
     list_of_files_to_process = list(tmp_files_to_process.glob(file_name))
