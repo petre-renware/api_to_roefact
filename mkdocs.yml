@@ -195,7 +195,7 @@ theme:
 
 
 # directory where start to search or markdown sources
-docs_dir: './doc_src'
+docs_dir: './doc_src'  #FIXME: install `oprypin.github.io/mkdocs-same-dir` to be able to set `docs_dir: ./` and to use md files from oth dirs, BUT NOT FROM ./ (see doc ref this aspect, but plug-in is VERY GOOD as important docs are in every package directories in their `...package/doc/`)
 
 # root directory where to be generated portal
 site_dir: './static_portal' #NOTE: [piu] this is the working directory; final is in `docs/`` which is published through GitHub (chk but @ 230706 petre-dev branch)

@@ -30,7 +30,7 @@ from rich.pretty import pprint
 # xl2roefact specific libraries
 from xl2roefact import __version__ as appver
 import xl2roefact.config_settings as configs  # configuration elements to use with `settings` command
-from xl2roefact.rdinv import rdinv  # status #TODO: wip
+from xl2roefact.rdinv import rdinv  # status #TODO: wip...
 from xl2roefact.wrxml import wrxml  # status #FIXME: not yet started
 from xl2roefact.chkxml import chkxml  # status #FIXME: not yet started
 from xl2roefact.ldxml import ldxml  # status #FIXME: not yet started
@@ -84,13 +84,13 @@ def xl2json(
         Path,
         typer.Option(
             "--files-directory", "-d",
-            exists=True,  #TODO `def_inv_dir` issue - this constraint should be dropped as will consider just if directory exists, otherwise will use `./` (current dir)
+            exists=False,
             file_okay=False,
             dir_okay=True,
             writable=True,
             readable=True,
             resolve_path=True,
-            help="directory to be used to look for Excel files"
+            help="directory to be used to look for Excel files (if default directory does not exists will consider current directory instead)."
         ),
     ] = "invoice_files/",
     verbose: Annotated[
@@ -104,18 +104,19 @@ def xl2json(
     """extract data from an Excel file (save data to JSON format file with the same name as original file but `.json` extension).
 
     Args:
-        `file_name (str)`: files to process (wildcards allowed).
-        `files_directory (Path)`: directory to be used to look for Excel files. Defaults to `invoice_files/`.
-        `verbose (bool)`: show detailed processing messages" Defaults to `False`.
+        `file_name`: files to process (wildcards allowed).
+        `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
+        `verbose`: show detailed processing messages" Defaults to `False`.
     """
     print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
 
-    # process files as requested in command line
-    #TODO `def_inv_dir` issue - this constraint should be dropped as will consider just if directory exists, otherwise will use `./` (current dir)
-    #TODO `def_inv_dir` issue -before makeejking any assumptions ref directory `invoice_files/` check if exists AND IF NOT, then consider current directory (`./`)
+    # process files as requested in command line (NOTE: if default directory does not exists will consider current directory instead)
     tmp_files_to_process = Path(files_directory)
+    if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
+        tmp_files_to_process = Path(".").absolute()
+        print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory instead: [cyan]{tmp_files_to_process}[/].")
     print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
-    list_of_files_to_process = list(tmp_files_to_process.glob(file_name))
+    list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
     if verbose:
         print(f"[yellow]DEBUG note:[/] list object with files to process: [green]{list_of_files_to_process}[/]")
     for a_file in list_of_files_to_process:

@@ -51,6 +51,13 @@ DEFAULT_UNKNOWN_UOM: str|None = None
 # specifcarea monedei ca sau in titlurile coloanelor nu este luata in considerare (nu este garantat ca este moneda reala a facturii !)
 DEFAULT_CURRENCY: str = "RON"
 
+# --- tara implicita
+# aceste constante sunt utilizate ca si tara implicita pentru "parterii" facturilor in condtiile in care tarile "parterilor" nu sunt gasite
+# in mod explicit pe factura (in zona de adresa). Prin sintagma "partener" pe factura sa intelege oricare din cele doua parti implicate in
+# procesul de facturare, si anume: FURNIZORUL si CLIENTUL
+DEFAULT_CUSTOMER_COUNTRY: str = "RO"
+DEFAULT_SUPPLIER_COUNTRY: str = "RO"
+
 
 """---------------------------------------------------------------------------------------------------------------------------
 # NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de
@@ -115,28 +122,49 @@ PATTERN_FOR_PARTNER_ID = [
     "id",
 ]
 
+# --- pattern pentru regasirea nr de inreg la Registrul Comertului
+PATTERN_FOR_PARTNER_REGCOM = [
+    "reg com", "reg. com", "comert",
+]
+
+# --- pattern-uri pentru regasirea bancii si a contului bancar
+PATTERN_FOR_PARTNER_BANK = [
+    "banc", "bank",
+]
+PATTERN_FOR_PARTNER_IBAN = [
+    "iban", "cont", "bank acc",
+]
+
+# --- pattern pentru regasirea datelor de contact (tel, email)
+PATTERN_FOR_PARTNER_TEL = [
+    "tel", "phon",
+]
+PATTERN_FOR_PARTNER_EMAIL = [
+    "mail", "email", "e-mail",
+]
+
 # --- pattern pentru regasirea adresei (pattern comun pentru client si furnizor)
 # este important ca ordinea de cautare sa permita ca sansele sa fie maximizate pentru cautarea adresei complete sau macar a tarii
-PATTERN_FOR_PARTNER_ADDRESS = [  #FIXME this is just entered (240108) and never used, so update if neccesary after "find Address" issue
+PATTERN_FOR_PARTNER_ADDRESS = [
     "adr", "addr",
     "tara", "count",
     "locali", "oras",
     "city", "town",
     "str",
 ]
-PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = [  #FIXME @240115 never used, test me
+PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = [
     "tara", "countr",
 ]
-PATTERN_FOR_PARTNER_ADDRESS_CITY = [  #FIXME @240115 never used, test me
+PATTERN_FOR_PARTNER_ADDRESS_CITY = [
     "judet", "county",
     "locali",
     "oras", "city", "town", "land"
 ]
-PATTERN_FOR_PARTNER_ADDRESS_STREET = [  #FIXME @240115 never used, test me
+PATTERN_FOR_PARTNER_ADDRESS_STREET = [
     "str", "sos", "bd", "calea",
     "ave", "highwa",
 ]
-PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [  #FIXME @240115 never used, test me
+PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [
     "cod pos", "zip cod", "postal",
 ]
 

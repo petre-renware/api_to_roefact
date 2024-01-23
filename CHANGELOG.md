@@ -50,37 +50,52 @@
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
         * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
-        * [ ] #NOTE...wip... invoice header - customer (`<cac:AccountingCustomerParty>`)
-    * invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key
+        * [ ] invoice header - customer bank, RegCom, email, tel, ...
+        * [x] invoice header - customer address (`<cac:AccountingCustomerParty>`)
+    * invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
 
 
 
 
 
 
-### 0.1.20.dev ....updme... invoice customer and partial invoice total values calculations  (#NOTE TODO: wip...)
+### #NOTE#TODO#NOTE...incoming... 0.1.21.dev invoice customer address optional items (email, reg-com, phone) (#NOTE incoming...)
 
-* -#TODO_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
+* TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO EFact`**
     - portal main navigation: link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
 
-* wip... WHEN RELEASE UPDATE `pyproject.toml`, `pdm build_doc` & `pdm build_all` ++------->>
-         ++------->> TODO: &&& for this version make a full chk / review for FIXME of rdinv()
+* tbd... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
-* tbd... `def_inv_dir` issue ref Excel invoices default get directory, see comments in `app_cli.py` function `xl2json(...)`
-
-* tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", ... (area saved in `_area_to_search`)
+* tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 
-* wip... 240113piu_a to find `cac:PostalAddress` and write to:
-    * #NOTE structure to set let as comment in rdinv() line# 292
+
+
+
+
+### 0.1.20.dev invoice customer address (240123 h10:00)
+
+* 240123piu_b make a full chk / review for FIXME & run `pdm build_all`
+
+* 240123piu_a `def_inv_dir` issue ref Excel invoices default get directory, see comments in `app_cli.py` function `xl2json(...)`
+
+* 240121piu_a updated `config_settings.py` & `rdinv.py` with constants: `PATTERN_FOR_PARTNER_REGCOM`, `PATTERN_FOR_PARTNER_IBAN`, `PATTERN_FOR_PARTNER_TEL`, `PATTERN_FOR_PARTNER_EMAIL`, `PATTERN_FOR_PARTNER_BANK`
+
+* @CANCELED 240118_admin02 generalize a function `get_partner_info(partner_type: str "customer" | "supplier")` to get partner info with partner type as being parameter
+
+* 240118piu_a reviewed and cleaned code: `rdinv.rdinv()`, `config_settings`, `excel_invoice_template/invoice_template_CU_tva.xlsx` (according to updates in testing used invoice)
+
+* 240113piu_a to find `cac:PostalAddress` and write to:
     * [x] 1. right set position of key `"cac_PostalAddress"` in basic structure (invoice_header_area)
     * [x] 2a. find excel area ref customer address (...invoice_header_area...)
-    * [...] 2b. disseminate & save excel original area (...invoice_header_area...)
-    * [ ] 3. get & set `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
-    * [ ] 4. update XML - JSON map for item "under" `cac_PostalAddress`
+    * [x] 2b. disseminate & save excel original area (...invoice_header_area...)
+    * [x] 3. get & set `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
+    * [x] 4. update XML - JSON map for item "under" `cac_PostalAddress`
+    * [x] 5. defined and included for use `DEFAULT_SUPPLIER_COUNTRY` and `DEFAULT_CUSTOMER_COUNTRY` both for "RO". Detailed desc and usage in `config_settings.py` & `rdinv.rdinv(...)`
+    * [x] 6. updated invoice template for country explicit field
 
-* tbdASAP upd __version__ for 0.1.20
+* 240116_admin_01 upd __version__ for 0.1.20
 
 
 
@@ -116,6 +131,7 @@
     - (a) created first version of tutorial section
 
 * 240106piu_a invoice customer search and persist for "RegistrationName"
+
 
 
 
@@ -264,34 +280,6 @@
 
 
 
-### 0.1.13.dev invoice currency (231213 h07:00)
-
-* 231213piu_b build packages for:
-    * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
-    * [x] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
-* 231213piu_a get invoice header - invoice currency
-
-
-
-
-
-
-### 0.1.12.dev invoice number (231212 07:30)
-
-* 231212piu_b write canonical form (as @invoice lines, see line ~122) ==> `invoice["Invoice"]["cbc_ID"]` and released `0.1.12-xl2roefact-0.1-win64.msi`
-
-* 231212piu_a `rdinv.rdinv()` invoice header, invoice number as: `{"value": ..., "location": (row..., col...)}`
-
-* 231211piu_b `rdinv.rdinv()` create a function special to get "one key Excel values", like invoice number or invoice issue date.  Signature:
-    - `pattern_to_search_for: list[str]` - for inv number will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`
-    - `area_to_scan: list[start_cell, end_cell]` - for inv number will pass `(invoice_header_area["start_cell"], invoice_header_area["end_cell"])`
-    - targeted_tye: type - what type expect (will try to convert to, if cannot will return str)
-
-* 231211piu_a updated `config_settings.py` ref how to find it: string labels to search, direction to search effective info starting from label
-
-* 231210piu_a localized and marked areas for invoice header (`invoice_header_area`) & invoice footer (`invoice_footer_area`) ==> dicts for header and footer with structure `{ start_cell = (row, col), end_cell = (row, col) }`
-
-
 
 
 
@@ -300,8 +288,9 @@
 
 # Archived CHANGELOGs
 
+* [0.1.13.dev invoice currency](./changelog_history/CHANGELOG-0.1.13.dev.md)
+* [0.1.12.dev invoice number](./changelog_history/CHANGELOG-0.1.12.dev.md)
 * [0.1.11.dev packaging improvements for app & xl2roefact package](./changelog_history/CHANGELOG-0.1.11.dev.md)
-
 * [0.1.10.dev command interface improved, `msi` package building, invoice template & updated documentation](./changelog_history/CHANGELOG-0.1.10.dev.md)
 * [0.1.9.dev `xl2roefact.RDINV` running executable and distribution kit](./changelog_history/CHANGELOG-0.1.9.dev.md)
 * [0.1.8.dev improved application structure and first executable release](./changelog_history/CHANGELOG-0.1.8.dev.md)
