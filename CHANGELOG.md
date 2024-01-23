@@ -31,7 +31,7 @@
 
 * [ ] update documentation for:
     * [ ] `rdinv` module
-    * [ ] `xl2roefact` CLI application
+    * [ ] `xl2roefact` CLI application (to generate it with Tiper-CLI if meanwhile is updated to work with  `Typer >= 0.9`
     * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md` first ref "Cum sa utilizeti sablonul, reguli de urmat in completarea datelor"
 -
 * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
@@ -39,7 +39,7 @@
 -
 * ... FUTURE NEW APP COMMANDS :
     * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-    * `xl2json` - crt_wip... (@240110)
+    * `xl2json` - crt_wip... (last upd @ 240123)
     * `json2xml` - see module WRXML,
     * `json2pdf` - new tbd..,
     * `xml2roefact` - see mpdule LDXML
@@ -49,9 +49,8 @@
 -
 * -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
     * invoice header
+        * [ ] wip... invoice header - customer bank, RegCom, email, tel, ...
         * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
-        * [ ] invoice header - customer bank, RegCom, email, tel, ...
-        * [x] invoice header - customer address (`<cac:AccountingCustomerParty>`)
     * invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
 
 
@@ -59,10 +58,10 @@
 
 
 
-### #NOTE#TODO#NOTE...incoming... 0.1.21.dev invoice customer address optional items (email, reg-com, phone) (#NOTE incoming...)
+### wip... 0.1.21.dev invoice customer address optional items (email, reg-com, phone) (#NOTE wip...)
 
 * TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
-    - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO EFact`**
+    - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO eFact`**
     - portal main navigation: link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
 
 * tbd... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
