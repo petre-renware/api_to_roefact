@@ -30,7 +30,7 @@
 
 * [ ] update documentation for:
     * [ ] `rdinv` module
-    * [ ] `xl2roefact` CLI application (to generate it with Tiper-CLI if meanwhile is updated to work with  `Typer >= 0.9`
+    * [ ] `xl2roefact` CLI application (to generate it with Typer-CLI if meanwhile is updated to work with  `Typer >= 0.9`
     * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md` first ref "Cum sa utilizeti sablonul, reguli de urmat in completarea datelor"
 -
 * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
@@ -46,18 +46,18 @@
     * PACKAGE SOLUTION:
         * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
 -
-* -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
+* -#NOTE_PLAN `rdinv` module:
     * invoice header
         * [ ] wip... invoice header - customer bank, RegCom, email, tel, ...
         * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
-    * invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
+        * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
 
 
 
 
 
 
-### wip... 0.1.21.dev invoice customer address optional items (email, reg-com, phone) (#NOTE wip...)
+### nxt.0.1.22.dev invoice customer address optional items (email, reg-com, phone) (...yymmdd hh:mm...)
 
 * TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO eFact`**
@@ -66,6 +66,15 @@
 * tbd... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
+
+
+
+
+
+
+### wip.0.1.21 update main system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
+
+* tbd... update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
 
 
 
