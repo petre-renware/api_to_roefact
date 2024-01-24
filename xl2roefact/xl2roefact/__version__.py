@@ -18,6 +18,6 @@
  ####   #  ######           ######## ####     ########  ######    ####
 """
 
-__version__ = "0.1.20"  # xl2roefact package version
+__version__ = "0.1.21rc"  # xl2roefact package version
 
 
