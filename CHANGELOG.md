@@ -18,7 +18,6 @@
 
 - ---[ #TODO short planning board ]---------------------------------------------------------
 * ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
-
 * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
 * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
 -------------------------------------------------------------------------------------------------
@@ -31,7 +30,7 @@
 
 * [ ] update documentation for:
     * [ ] `rdinv` module
-    * [ ] `xl2roefact` CLI application (to generate it with Tiper-CLI if meanwhile is updated to work with  `Typer >= 0.9`
+    * [ ] `xl2roefact` CLI application (to generate it with Typer-CLI if meanwhile is updated to work with  `Typer >= 0.9`
     * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md` first ref "Cum sa utilizeti sablonul, reguli de urmat in completarea datelor"
 -
 * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
@@ -47,18 +46,18 @@
     * PACKAGE SOLUTION:
         * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
 -
-* -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
+* -#NOTE_PLAN `rdinv` module:
     * invoice header
         * [ ] wip... invoice header - customer bank, RegCom, email, tel, ...
         * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
-    * invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
+        * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
 
 
 
 
 
 
-### wip... 0.1.21.dev invoice customer address optional items (email, reg-com, phone) (#NOTE wip...)
+### nxt.0.1.22.dev invoice customer address optional items (email, reg-com, phone) (...yymmdd hh:mm...)
 
 * TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO eFact`**
@@ -67,6 +66,23 @@
 * tbd... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
+
+
+
+
+
+
+### wip.0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
+
+* tbd#1... update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
+
+* tbd#2... update `about.md` system structure to reflect:
+    * WIP xl2roefact CLI app
+    * WIP xl2roefact PyPi public package
+    * RDY invoice template
+    * TBD web2roefact WEB app
+
+* tbd#3... update `mkdocs.yml` to reflect the new sys components as changed structure (ref opiss tbd#2)
 
 
 
