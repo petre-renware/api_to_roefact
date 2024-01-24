@@ -74,7 +74,15 @@
 
 ### wip.0.1.21 update main system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
 
-* tbd... update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
+* tbd#1... update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
+
+* tbd#2... update `about.md` system structure to reflect:
+    * WIP xl2roefact CLI app
+    * WIP xl2roefact PyPi public package
+    * RDY invoice template
+    * TBD web2roefact WEB app
+
+* tbd#3... update `mkdocs.yml` to reflect the new sys components as changed structure (ref opiss tbd#2)
 
 
 
