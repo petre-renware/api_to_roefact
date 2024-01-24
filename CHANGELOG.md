@@ -72,17 +72,28 @@
 
 
 
-### wip.0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
+### wip.0.1.21 rollout news in system portal invoicetoroefact.renware.eu (...#NOTE_this.shouldn't_be_dev_release...yymmdd hh:mm...)
 
 * tbd#1... update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
 
-* tbd#2... update `about.md` system structure to reflect:
-    * WIP xl2roefact CLI app
-    * WIP xl2roefact PyPi public package
-    * RDY invoice template
-    * TBD web2roefact WEB app
+* tbd#2... update `about.md` & `navigation` system structure to reflect:
+    * EXCEL invoices
+        * [ ] `CLI xl2roefact` - invoice processor CLI app -(stat: WIP)
+        * [ ] `WEB xl2roefact` - invoice processor WEB app (all `CLI xl2roefact` sys but web operable) -(stat: TBD)
+        * [ ] `xl2roefact PyPi` public package -(stat: WIP)
+        * [ ] `invoice template` - Excel invoice template -(stat: DONE)
+    * WEB invoices
+        * [ ] `web2roefact` - Web invoice "template" (form) processor WEB app -(stat: TBD)
 
 * tbd#3... update `mkdocs.yml` to reflect the new sys components as changed structure (ref opiss tbd#2)
+
+* wip... 2401...
+
+
+
+
+
+
 
 
 
