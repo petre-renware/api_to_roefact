@@ -72,7 +72,7 @@
 
 
 
-### wip.0.1.21 rollout news in system portal invoicetoroefact.renware.eu (...#NOTE_this.shouldn't_be_dev_release...yymmdd hh:mm...)
+### wip.0.1.21rc rollout news in system portal invoicetoroefact.renware.eu (...#NOTE_this.is_release_candidate...yymmdd hh:mm...)
 
 * tbd#1... update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
 
