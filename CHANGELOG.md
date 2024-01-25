@@ -85,6 +85,7 @@
 
 * tbd#3... update `mkdocs.yml` to reflect the new sys components as changed structure (ref opiss tbd#2)
 
+* @IMP_TBD... atentie ca la publicare in `docs/` nu a copiat `CNAME` ???-de ce???. Pus "de mina" a mers perfect !
 
 * wip ...
 
