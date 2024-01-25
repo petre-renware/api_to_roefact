@@ -82,7 +82,7 @@
 
 * wip...
 
-* 240125piu_a update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
+* 240125piu_a updated `mkdocs.yml` by including `mkdocs-same-dir` plug-in
 
 
 
