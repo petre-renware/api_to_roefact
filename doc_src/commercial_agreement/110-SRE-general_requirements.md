@@ -4,7 +4,7 @@
 
 # Propunere tehnica
 
-* Client: Kraftanlagen Romania SRL
+* Client: <!-- #NOTE hided it Kraftanlagen Romania SRL --> n/a - not public
 * Data: 2023-Noiembrie
 
 !!! info "Codificarea documentelor"

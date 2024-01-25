@@ -7,40 +7,41 @@ copyright: 'Copyright (c) RENware Software Systems'
 nav:
     #
     # #FIXME -[this entry will be dropped after commercial terms are concluded] -------------------
-    - Comercial:
-        - Propuneri tehnice:
-            - Considerente tehnice generale: commercial_agreement/110-SRE-general_requirements.md
-            - Sistem APItoROefact: commercial_agreement/110-SRE-api_to_roefact_requirements.md
-            - Sistem PayValidaBoa: commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
-        - Agreements:
-            - Optiuni tehnice: commercial_agreement/agreed_options.md
-            - Minute sedinte: wip.md #TODO - de completat pe masura ce se intimpla sedintele...
+    - Requirements:
+        - Specificatii tehnice propuse:
+            - Considerente tehnice generale: doc_src/commercial_agreement/110-SRE-general_requirements.md
+            - Sistem APItoROefact: doc_src/commercial_agreement/110-SRE-api_to_roefact_requirements.md
+            - Sistem PayValidaBoa: doc_src/commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
+        - Specificatii tehnice agreate:
+            - Optiuni tehnice: doc_src/commercial_agreement/agreed_options.md
+            - Minute sedinte: doc_src/wip.md  #TODO - de completat pe masura ce se intimpla sedintele...
     # #FIXME -------------------------------------------------------------------------------------------------
     #
     - APItoROefact:
-        - Acasa: index.md
-        - ...Other entries here: wip.md
+        - Acasa: doc_src/index.md
+        - ...Other entries here: doc_src/wip.md
         # - Incarcare factura Excel: wip.md
         # - Procesare factura Excel: wip.md
         #NOTE - add more "first page" entries here
     - Help:
         - Manuale de utilizare:
-            - Indexul manuale EUMA: help/880.30-EUMA_catalog.md
+            - Indexul manuale EUMA: doc_src/help/880.30-EUMA_catalog.md
             #NOTE - add here EUMA manuals as needed
         - Manuale de configurare:
-            - Indexul manuale ADMA: help/880.30-ADMA_catalog.md
+            - Indexul manuale ADMA: doc_src/help/880.30-ADMA_catalog.md
             #NOTE - add here ADMA manuals as needed
         #
-        # - Documentatia tehnica: #FIXME will be reabilitateed after commercial agreement
-        #     - Specificatii componenta xl2roefact: 810-DSGN/810.05a-xl2roefact_component.md #FIXME temporary disabled because errs supposing of directory level/position (which is not under doc_src/)
-        #     - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_requirements.md #FIXME will be reabilitateed after commercial agreement
-        - Manual APItoROefact (PDF): pdfs/print_page.html/print_page.pdf
+        # - Documentatia tehnica:  #FIXME will be reabilitateed after commercial agreement
+        #     - Specificatii componenta xl2roefact: 810-DSGN/810.05a-xl2roefact_component.md  #FIXME temporary disabled because errs supposing of directory level/position (which is not under doc_src/)
+        #     - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_requirements.md  #FIXME will be reabilitateed after commercial agreement
+        - Manual APItoROefact (PDF): doc_src/pdfs/print_page.html/print_page.pdf
     - About:
-        - Licenta mea: wip.md #TODO tbd... este un http catre o ruta dinamica din produs
+        - Licenta mea: doc_src/wip.md  #TODO tbd... este un http catre o ruta dinamica din produs
         - Suport: https://www.renware.eu/support.html
         - Contact: https://www.renware.eu/contact.html
         - Cum cumpar: https://www.renware.eu/resources.html#how-to-buy-from-renware
-        - Despre APItoROefact: wip.md #TODO `about.md` eventual cu README din pj root, echipa, etc, ce ar tb sa fie acolo...
+        - Despre APItoROefact: doc_src/wip.md  #TODO `about.md` eventual cu README din pj root, echipa, etc, ce ar tb sa fie acolo...
+        - CHANGELOG sistem: CHANGELOG.md
 
 
 
@@ -51,7 +52,7 @@ markdown_extensions:
     - tables
     - pymdownx.details
     - pymdownx.superfences:
-        custom_fences: #NOTE: [petre iordanescu]: is very important to respect syntax ref `-` character at beginning of items (otherwise not right JSON result !)
+        custom_fences:  #NOTE: [piu] is very important to respect syntax ref `-` character at beginning of items (otherwise not right JSON result !)
             - name: mermaid
               class: mermaid
               format: !!python/name:pymdownx.superfences.fence_code_format
@@ -72,7 +73,7 @@ markdown_extensions:
 
 extra:
     arint_version: "0.1"
-#  alternate: #NOTE language options - FUTURE FEATURE - should first have a translation...
+#  alternate:  #NOTE [piu] language options - FUTURE FEATURE - should first have a translation...
 #    - name: English
 #      link: /
 #      lang: en
@@ -96,28 +97,29 @@ extra_javascript:
 plugins:
     - search
     - include-markdown
-    - table-reader #NOTE used for static tables rendering from various sources (CSV, JSON, etc as available in Pandas)
-    - macros #NOTE use external jinja variables and macros (see `https://mkdocs-macros-plugin.readthedocs.io/en/latest/`)
-    - markdown-exec #NOTE Python execution inside markdown files (execution at build time, "compilation like" NOT dynamically NOT JavaScript)
+    - same-dir  #NOTE [piu] plug-in that allow to use markdown files from "root" folder level (where `mkdocs.yml` is located)
+    - table-reader  #NOTE [piu] used for static tables rendering from various sources (CSV, JSON, etc as available in Pandas)
+    - macros  #NOTE [piu] use external jinja variables and macros (see `https://mkdocs-macros-plugin.readthedocs.io/en/latest/`)
+    - markdown-exec  #NOTE [piu] Python execution inside markdown files (execution at build time, "compilation like" NOT dynamically NOT JavaScript)
     - git-revision-date-localized
-    #                                   #FIXME temporary disabled because errs supposing of directory level/position (which is not under doc_src/)
-    # - mkdocstrings: #NOTE to collect docstring(s) from Python code and to embed in markdown as technical documentation
+    # -------------------------- #FIXME [piu] item (`mkdocstrings`) temporary disabled because errs supposing of directory level/position (which is not under doc_src/)
+    # - mkdocstrings:  #NOTE to collect docstring(s) from Python code and to embed in markdown as technical documentation
     #     default_handler: python
     #     handlers:
     #         python:
     #         paths: [xl2roefact]
     #                                   #FIXME temporary disabled ------- ALL UP
-    # - pdf-export  #NOTE DO NOT USE this as does not render mermaid in PDF docs
-    - print-site: #NOTE_IMPORTANT_#NOTE put `print-site` plug in BEFORE `pdf-with-js` in order to works the workaround wit a fake `print_page.md` that will determine generation of 'print_page.pdf' as any other page generated pdf by `pdf-with-js`; ingnore warning ` [mkdocs-print-site] 'print-site' should be defined as the *last* plugin,to ensure...`
-        # add_to_navigation: true #NOTE not needed here
-        # print_page_title: 'Complete APItoROefact Manual' #NOTE not needed here
+    # - pdf-export  #NOTE [piu] DO NOT USE this as does not render mermaid in PDF docs
+    - print-site:  #NOTE_[piu] IMPORTANT _#NOTE put `print-site` plug in BEFORE `pdf-with-js` in order to works the workaround wit a fake `print_page.md` that will determine generation of 'print_page.pdf' as any other page generated pdf by `pdf-with-js`; ingnore warning ` [mkdocs-print-site] 'print-site' should be defined as the *last* plugin,to ensure...`
+        # add_to_navigation: true  #NOTE [piu] not needed here
+        # print_page_title: 'Complete APItoROefact Manual'  #NOTE [piu] not needed here
         add_full_urls: true
         add_table_of_contents: true
     - pdf-with-js:
         enable: true
-        #NOTE - all next are examples...
-        #author: #NOTE defaulted from site_author item
-        #copyright: #NOTE defaulted from copyright item
+        #NOTE [piu] all next entries are examples...
+        #author:  #NOTE [piu] defaulted from site_author item
+        #copyright:  #NOTE [piu] defaulted from copyright item
         #cover: false
         #back_cover: true
         #cover_title: TITLE TEXT
@@ -154,9 +156,9 @@ plugins:
 
 
 
-#NOTE provide material theme
+#NOTE [piu] provide material theme
 theme:
-    # language: en #NOTE FUTURE FEATURE - should first have a translation...
+    # language: en  #NOTE [piu] FUTURE FEATURE - should first have a translation...
     logo: pictures/api_to_roefact_logo.png
     name: material
     features:
@@ -164,7 +166,7 @@ theme:
         - navigation.tracking
         - navigation.tabs.sticky
         - navigation.path
-        #- toc.integrate #NOTE integrates all navigation only in left nav bar
+        #- toc.integrate  #NOTE [piu] integrates all navigation only in left nav bar
     palette:
         primary: black # see https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/ for other color options
         accent: blue
@@ -195,7 +197,7 @@ theme:
 
 
 # directory where start to search or markdown sources
-docs_dir: './doc_src'  #FIXME: install `oprypin.github.io/mkdocs-same-dir` to be able to set `docs_dir: ./` and to use md files from oth dirs, BUT NOT FROM ./ (see doc ref this aspect, but plug-in is VERY GOOD as important docs are in every package directories in their `...package/doc/`)
+docs_dir: '.'  #NOTE [piu] this works with yhis directory because `mkdocs-same-dir` plug-in
 
 # root directory where to be generated portal
 site_dir: './static_portal' #NOTE: [piu] this is the working directory; final is in `docs/`` which is published through GitHub (chk but @ 230706 petre-dev branch)
@@ -204,8 +206,11 @@ site_dir: './static_portal' #NOTE: [piu] this is the working directory; final is
 use_directory_urls: false # allow link between pages to work properly as static site an "callable" as `file:///...`
 
 
-#NOTE dirs to exclude at APItoROefact project creation
+#NOTE [piu] dirs to exclude at APItoROefact project creation
+#   NOTE 1: `pyenv/` is the python environment usual required if build CGI solutions with python executable scripts
+#   NOTE 2: `docs/` is the directory where site itself will be built (! avoid potential self-ref-recurrence)
 exclude_docs: |
   pyenv/
+  docs/
 
 

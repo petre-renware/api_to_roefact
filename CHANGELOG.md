@@ -72,9 +72,7 @@
 
 
 
-### wip.0.1.21rc rollout news in system portal invoicetoroefact.renware.eu (...#NOTE_this.is_release_candidate...yymmdd hh:mm...)
-
-* tbd#1... update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
+### wip.0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
 
 * tbd#2... update `about.md` & `navigation` system structure to reflect:
     * EXCEL invoices
@@ -87,8 +85,10 @@
 
 * tbd#3... update `mkdocs.yml` to reflect the new sys components as changed structure (ref opiss tbd#2)
 
-* wip... 2401...
 
+* wip ...
+
+* 240125piu_a update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
 
 
 
