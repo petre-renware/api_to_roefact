@@ -85,9 +85,10 @@
 
 * tbd#3... update `mkdocs.yml` to reflect the new sys components as changed structure (ref opiss tbd#2)
 
-* @IMP_TBD... atentie ca la publicare in `docs/` nu a copiat `CNAME` ???-de ce???. Pus "de mina" a mers perfect !
 
 * wip ...
+
+* -#TODO_TEST_ME_ASAP_BY_MK_A_NEW_PUBLISHING_#TODO 240125piu_b attn @publishing to `docs/` did not copied `CNAME`. FIX: MOVE IT TO ROOT DIRECTORY (because the "root" of portal was changed !!!)
 
 * 240125piu_a update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
 
