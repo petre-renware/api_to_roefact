@@ -74,21 +74,13 @@
 
 ### wip.0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
 
-* tbd#2... update `about.md` & `navigation` system structure to reflect:
-    * EXCEL invoices
-        * [ ] `CLI xl2roefact` - invoice processor CLI app -(stat: WIP)
-        * [ ] `WEB xl2roefact` - invoice processor WEB app (all `CLI xl2roefact` sys but web operable) -(stat: TBD)
-        * [ ] `xl2roefact PyPi` public package -(stat: WIP)
-        * [ ] `invoice template` - Excel invoice template -(stat: DONE)
-    * WEB invoices
-        * [ ] `web2roefact` - Web invoice "template" (form) processor WEB app -(stat: TBD)
+* tbd_1... update system structure `.../810-DSGN/810.05a-system_components.md`
 
-* tbd#3... update `mkdocs.yml` to reflect the new sys components as changed structure (ref opiss tbd#2)
+* tbd_2... refer opiss `tbd_1` work in `about.md` (by link to) & `mkdocs.yml` (navigation struct)
 
+* -#TODO_TEST_ME_by_PUBLISHING:---> 240125piu_b (BUG) when publish to `docs/` does not copy `CNAME`. FIXIT by moving it in portal root (now identical with project root)
 
-* wip ...
-
-* -#TODO_TEST_ME_ASAP_BY_MK_A_NEW_PUBLISHING_#TODO 240125piu_b attn @publishing to `docs/` did not copied `CNAME`. FIX: MOVE IT TO ROOT DIRECTORY (because the "root" of portal was changed !!!)
+* wip...
 
 * 240125piu_a update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
 
