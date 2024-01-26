@@ -159,7 +159,7 @@ plugins:
 #NOTE [piu] provide material theme
 theme:
     # language: en  #NOTE [piu] FUTURE FEATURE - should first have a translation...
-    logo: pictures/api_to_roefact_logo.png
+    logo: doc_src/pictures/api_to_roefact_logo.png
     name: material
     features:
         - navigation.tabs # left navigation side bar, all level 1 will be shown as top navigation bar
