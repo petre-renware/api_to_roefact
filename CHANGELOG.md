@@ -80,6 +80,9 @@
 
 * tbd... for `xl2roefact` there is its package README - see where is it place, or is included in `810.05a-xl2roefact_component.md` or is directly referenced in mkdocs navigation (now is possible to ref files from root/down_dir... )
 
+* tbd... Unify main project `/READMEmd` with `doc_src/index.md`:
+        * make the same INDEX just in the project root == index / README of whole project
+        * keep from actual project README.md the section ref project identification and move it to end of file as last section
 
 * wip...
 
