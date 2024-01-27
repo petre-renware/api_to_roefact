@@ -83,6 +83,8 @@
 
 * wip...
 
+* 240127piu_c created `/index.html` to redirect to "real" system index (`doc_src/index.md`) and prevent usage of project `README.md` file instead
+
 * 240128piu_c checked work `240127piu_a`, `240127piu_b`, updated `about.md` and navigation with ref to sys structure (`.../810.05a-system_components.md`)
 
 * 240127piu_b update system components and their classification (in `.../810-DSGN/810.05a-system_components.md`)
