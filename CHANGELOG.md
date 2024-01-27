@@ -65,6 +65,8 @@
 
 * tbd... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
+* tbd.optional... [piu_240126] left in `setup.py` comments & example ref how to pre-set MSI build meta information / parameters (obj: default target dir where install, path registration, ...)
+
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 
@@ -74,23 +76,17 @@
 
 ### wip.0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
 
-* tbd#2... update `about.md` & `navigation` system structure to reflect:
-    * EXCEL invoices
-        * [ ] `CLI xl2roefact` - invoice processor CLI app -(stat: WIP)
-        * [ ] `WEB xl2roefact` - invoice processor WEB app (all `CLI xl2roefact` sys but web operable) -(stat: TBD)
-        * [ ] `xl2roefact PyPi` public package -(stat: WIP)
-        * [ ] `invoice template` - Excel invoice template -(stat: DONE)
-    * WEB invoices
-        * [ ] `web2roefact` - Web invoice "template" (form) processor WEB app -(stat: TBD)
+* tbd_1... update system structure `.../810-DSGN/810.05a-system_components.md`
 
-* tbd#3... update `mkdocs.yml` to reflect the new sys components as changed structure (ref opiss tbd#2)
+* tbd_2... refer opiss `tbd_1` work in `about.md` (by link to) & `mkdocs.yml` (navigation struct)
 
+* -#TODO_TEST_ME_by_PUBLISHING:---> 240125piu_b (BUG) when publish to `docs/` does not copy `CNAME`. FIXIT by moving it in portal root (now identical with project root)
 
-* wip ...
+* wip...
 
-* -#TODO_TEST_ME_ASAP_BY_MK_A_NEW_PUBLISHING_#TODO 240125piu_b attn @publishing to `docs/` did not copied `CNAME`. FIX: MOVE IT TO ROOT DIRECTORY (because the "root" of portal was changed !!!)
+* 240127piu_a updated `810-DSGN/810.05a-system_components.md` defined components classification criteria set
 
-* 240125piu_a update `mkdocs.yml` to include `mkdocs-same-dir` plug-in (see note in file line 198)
+* 240125piu_a updated `mkdocs.yml` by including `mkdocs-same-dir` plug-in
 
 
 
