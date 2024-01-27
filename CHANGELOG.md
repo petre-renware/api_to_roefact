@@ -76,15 +76,16 @@
 
 ### wip.0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
 
-* tbd_1... update system structure `.../810-DSGN/810.05a-system_components.md`
-
-* tbd_2... refer opiss `tbd_1` work in `about.md` (by link to) & `mkdocs.yml` (navigation struct)
+* tbd_2... ref opiss `240127piu_b` work make corresponding updates in `about.md` (by link to) & `mkdocs.yml` (navigation struct)
 
 * -#TODO_TEST_ME_by_PUBLISHING:---> 240125piu_b (BUG) when publish to `docs/` does not copy `CNAME`. FIXIT by moving it in portal root (now identical with project root)
+* -#TODO CHECK classifications made in opiss `240127piu_b`
 
 * wip...
 
-* 240127piu_a updated `810-DSGN/810.05a-system_components.md` defined components classification criteria set
+* 240127piu_b update system components and their classification (in `.../810-DSGN/810.05a-system_components.md`)
+ 
+* 240127piu_a updated `810-DSGN/810.05a-system_components.md`, defined a classification usable to quickly find out *who-does-what*
 
 * 240125piu_a updated `mkdocs.yml` by including `mkdocs-same-dir` plug-in
 
