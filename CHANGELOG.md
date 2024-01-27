@@ -80,7 +80,8 @@
 
 * tbd... for `xl2roefact` there is its package README - see where is it place, or is included in `810.05a-xl2roefact_component.md` or is directly referenced in mkdocs navigation (now is possible to ref files from root/down_dir... )
 
-* wip...  #FIXME @IMP before a new publish drop root `/index.html`
+
+* wip...  #FIXME @IMP before a new publish drop root `/index.html` and the `doc_src/index.md` (mostly useless now)
 
 * 240127piu_d Unify main project `/READMEmd` with `doc_src/index.md`:
     * make the same INDEX just in the project root == index / README of whole project
