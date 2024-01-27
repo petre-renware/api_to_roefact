@@ -57,7 +57,7 @@
 
 
 
-### nxt.0.1.22.dev invoice customer address optional items (email, reg-com, phone) (...yymmdd hh:mm...)
+### #NOTE_nxt... 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (...yymmdd hh:mm...)
 
 * TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO eFact`**
@@ -74,26 +74,22 @@
 
 
 
-### wip.0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
+### #NOTE_wip... 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
 
-* tbd_2... ref opiss `240127piu_b` work make corresponding updates in `about.md` (by link to) & `mkdocs.yml` (navigation struct)
+* tbd... check and make updates in `index.md` (by link to) & `mkdocs.yml` (navigation struct)
 
-* -#TODO_TEST_ME_by_PUBLISHING:---> 240125piu_b (BUG) when publish to `docs/` does not copy `CNAME`. FIXIT by moving it in portal root (now identical with project root)
-* -#TODO CHECK classifications made in opiss `240127piu_b`
+* tbd... for `xl2roefact` there is its package README - see where is it place, or is included in `810.05a-xl2roefact_component.md` or is directly referenced in mkdocs navigation (now is possible to ref files from root/down_dir... )
+
 
 * wip...
 
+* 240128piu_c checked work `240127piu_a`, `240127piu_b`, updated `about.md` and navigation with ref to sys structure (`.../810.05a-system_components.md`)
+
 * 240127piu_b update system components and their classification (in `.../810-DSGN/810.05a-system_components.md`)
- 
+
 * 240127piu_a updated `810-DSGN/810.05a-system_components.md`, defined a classification usable to quickly find out *who-does-what*
 
 * 240125piu_a updated `mkdocs.yml` by including `mkdocs-same-dir` plug-in
-
-
-
-
-
-
 
 
 

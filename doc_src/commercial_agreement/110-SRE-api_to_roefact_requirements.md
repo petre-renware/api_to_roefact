@@ -1,16 +1,16 @@
 ![api_to_roefact_logo](../pictures/api_to_roefact_logo.png){ width="55" align=left }
-<small markdown="1">**APItoROefact System**<br>
+<small markdown="1">**INVOICEtoROefact System**<br>
 *(c) 2023 RENware Software Systems*
 </small><br><br>
 
 
 
 
-# Propunere tehnica sistem APItoROefact
+# Propunere tehnica sistem INVOICEtoROefact
 
 * p/n: `0000-0095`
 * code-name: `api_to_roefact`
-* commercial name: **APItoROefact**
+* commercial name: **INVOICEtoROefact**
 * url propunere tehnica: `http://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html`
 * git: `https://github.com/petre-renware/api_to_roefact`
 
@@ -45,11 +45,11 @@ Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura]
 
 Solutia `api_to_roefact` consta din urmatoarele componente:
 
-* `api_to_roefact`.**`xl2roefact`** aceasta componenta are rolul de a implementa efectiv obiectivele principale ale sistemului **APItoROefact**. Componenta este capabila sa ruleze atit "_standalone_" (ca linie de comanda CLI) dar si prin utilizarea ei de catre componenta `WEB_DASHB` si astfel utilizarea ei in varianta de sistem prezentat "_over internet / intranet_". [Prezentarea detalita a acesteia se gaseste aici](#componenta-xl2roefact).
+* `api_to_roefact`.**`xl2roefact`** aceasta componenta are rolul de a implementa efectiv obiectivele principale ale sistemului **INVOICEtoROefact**. Componenta este capabila sa ruleze atit "_standalone_" (ca linie de comanda CLI) dar si prin utilizarea ei de catre componenta `WEB_DASHB` si astfel utilizarea ei in varianta de sistem prezentat "_over internet / intranet_". [Prezentarea detalita a acesteia se gaseste aici](#componenta-xl2roefact).
 
-* `api_to_roefact`.**`WEB_DASHB`** aceasta componenta are rolul de agrega componentele si de a prezenta solutia **APItoROefact** "_over internet / intranet_". De asemenea componenta asigura modulele UI necesare pentru administrarea sistemului. [Prezentarea detalita a acesteia se gaseste aici](#componenta-web_dashb).
+* `api_to_roefact`.**`WEB_DASHB`** aceasta componenta are rolul de agrega componentele si de a prezenta solutia **INVOICEtoROefact** "_over internet / intranet_". De asemenea componenta asigura modulele UI necesare pentru administrarea sistemului. [Prezentarea detalita a acesteia se gaseste aici](#componenta-web_dashb).
 
-* `api_to_roefact`.**`SYSTEM_DB`** .Aceasta componente reprezita baza de date a sistemului **APItoROefact** atit partea relationala dar si partea `no-sql` a acesteia (utilizata pentru eventuale sincrnizari provenite din utilizarea CLI a componentei `xl2roefact`). [Prezentarea detalita a acesteia se gaseste aici](#componenta-system_db).
+* `api_to_roefact`.**`SYSTEM_DB`** .Aceasta componente reprezita baza de date a sistemului **INVOICEtoROefact** atit partea relationala dar si partea `no-sql` a acesteia (utilizata pentru eventuale sincrnizari provenite din utilizarea CLI a componentei `xl2roefact`). [Prezentarea detalita a acesteia se gaseste aici](#componenta-system_db).
 
 
 Figura urmatoare prezinta schematic rolul general al componentelor precum si interactiunea acestora cu mediul exterior sistemului `api_to_roefact`.

@@ -13,28 +13,28 @@ s<small>**RENware Software Systems**</small>
 Acest document prezinta posibilele optiuni tehnice la cele doua sisteme, optiuni care vor trebui agreate si (preferabil) planificate cel putin din punct de vedere al prioritatii.
 
 
-## Optiuni sistem APItoROefact
+## Optiuni sistem INVOICEtoROefact
 
 !!! example "Forma de utilizare si interactionare"
-    - &#x2610; (**APItoROefact-RQ-01**) -
+    - &#x2610; (**INVOICEtoROefact-RQ-01**) -
     varianta CLI (command line) cu utilizare "individuala"
-    - &#x2610; (**APItoROefact-RQ-02**) -
+    - &#x2610; (**INVOICEtoROefact-RQ-02**) -
     varianta WEB cu utilizare centralizata
 
 
 !!! example "Configurabilitate"
-    - &#x2610; (**APItoROefact-RQ-03**) -
+    - &#x2610; (**INVOICEtoROefact-RQ-03**) -
     varianta in care se prelucreaza un model de fisier `Excel` in care sunt "fixate si blocate" locatiile celulelor ce contin date relevante
-    - &#x2610; (**APItoROefact-RQ-04**) -
+    - &#x2610; (**INVOICEtoROefact-RQ-04**) -
     varianta in care structura si formatul fisierului `Excel` contin "cuvinte cheie" ce determina regasirea date relevante (de exemplu textul "Client:" intr-o celula semnifica inceperea unei zone cu datele clientului de la acea celula in jos si pina prima celula necompletata ce va fi gasita)
 
 
 
-### Recomandari sistem APItoROefact
+### Recomandari sistem INVOICEtoROefact
 
-* varianta (APItoROefact-RQ-01) este recomandata ca fiind "aproape obligatorie" deoarece chiar si in varianta WEB ea va trebui scrisa intr-o forma neutilizabila direct (sub forma de functie a sistemlui). Transformarea acestei functii in varianta CLI va permite o executie portabila ("la purtator") si offline (in situatii extreme se poate folosi doar fisierul `XML` generat si acesta va putea fi manual incarcat in ANAF-SPV). Informatia privind "starea de incarcare a facturii" va fi oricum salvata si in fisierul Excel aferent facturii si va putea fi preluata de catre varianta WEB pentru centralizarea informatiilor- a se vedea si [modulul `LDXML` si notele de subsol aferente](110-SRE-api_to_roefact_requirements.md#componenta-xl2roefact)
+* varianta (INVOICEtoROefact-RQ-01) este recomandata ca fiind "aproape obligatorie" deoarece chiar si in varianta WEB ea va trebui scrisa intr-o forma neutilizabila direct (sub forma de functie a sistemlui). Transformarea acestei functii in varianta CLI va permite o executie portabila ("la purtator") si offline (in situatii extreme se poate folosi doar fisierul `XML` generat si acesta va putea fi manual incarcat in ANAF-SPV). Informatia privind "starea de incarcare a facturii" va fi oricum salvata si in fisierul Excel aferent facturii si va putea fi preluata de catre varianta WEB pentru centralizarea informatiilor- a se vedea si [modulul `LDXML` si notele de subsol aferente](110-SRE-api_to_roefact_requirements.md#componenta-xl2roefact)
 
-* optiunea (APItoROefact-RQ-03) este recomandata ca varianta de start deoarece va permite realizarea unei variante OPERATIONALE (de lucru curent si testare) intr-un termen mai scurt, urmind ca aceasta optiune sa fie gradat extinsa si cu optiunea (APItoROefact-RQ-04). Aceasta "linie de lucru" nu va induce probleme, avind in vedere ca orice optiune / varianta aleasa ca varianta de start si planificata a fi extinsa va implica si MIGRAREA datelor deja produse la momentul extinderii ei
+* optiunea (INVOICEtoROefact-RQ-03) este recomandata ca varianta de start deoarece va permite realizarea unei variante OPERATIONALE (de lucru curent si testare) intr-un termen mai scurt, urmind ca aceasta optiune sa fie gradat extinsa si cu optiunea (INVOICEtoROefact-RQ-04). Aceasta "linie de lucru" nu va induce probleme, avind in vedere ca orice optiune / varianta aleasa ca varianta de start si planificata a fi extinsa va implica si MIGRAREA datelor deja produse la momentul extinderii ei
 
 
 

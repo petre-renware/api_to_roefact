@@ -1,5 +1,5 @@
 
-# APItoROefact
+# INVOICEtoROefact
 
 [TOC]
 
@@ -12,7 +12,7 @@ Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura]
 
 * p/n: `0000-0095`
 * code-name: `api_to_roefact`
-* commercial name: **APItoROefact**
+* commercial name: **INVOICEtoROefact**
 * [eDataSheet](http://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html)
 * [git](https://github.com/petre-renware/api_to_roefact)
 * copyright: RENware Software Systems

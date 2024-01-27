@@ -160,7 +160,7 @@ cython_debug/
 tmp/
 xxx*
 
-# #NOTE APItoROefact application environments
+# #NOTE INVOICEtoROefact application environments
 xl2roefact/.venv*
 xl2roefact/.wenv*
 

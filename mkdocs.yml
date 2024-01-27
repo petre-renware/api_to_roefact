@@ -1,4 +1,4 @@
-site_name: APItoROefact
+site_name: INVOICEtoROefact
 site_author: 'Petre Iordanescu, RENware Software Systems, petre.iordanescu@gmail.com'
 copyright: 'Copyright (c) RENware Software Systems'
 
@@ -6,20 +6,11 @@ copyright: 'Copyright (c) RENware Software Systems'
 
 nav:
     #
-    # #FIXME -[this entry will be dropped after commercial terms are concluded] -------------------
-    - Requirements:
-        - Specificatii tehnice propuse:
-            - Considerente tehnice generale: doc_src/commercial_agreement/110-SRE-general_requirements.md
-            - Sistem APItoROefact: doc_src/commercial_agreement/110-SRE-api_to_roefact_requirements.md
-            - Sistem PayValidaBoa: doc_src/commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
-        - Specificatii tehnice agreate:
-            - Optiuni tehnice: doc_src/commercial_agreement/agreed_options.md
-            - Minute sedinte: doc_src/wip.md  #TODO - de completat pe masura ce se intimpla sedintele...
-    # #FIXME -------------------------------------------------------------------------------------------------
-    #
-    - APItoROefact:
+
+    - INVOICEtoROefact:
         - Acasa: doc_src/index.md
-        - ...Other entries here: doc_src/wip.md
+        - Componentele sistemului: doc_src/810-DSGN/810.05a-system_components.md
+        - ...detaliii fiecare componenta: doc_src/wip.md
         # - Incarcare factura Excel: wip.md
         # - Procesare factura Excel: wip.md
         #NOTE - add more "first page" entries here
@@ -34,13 +25,25 @@ nav:
         # - Documentatia tehnica:  #FIXME will be reabilitateed after commercial agreement
         #     - Specificatii componenta xl2roefact: 810-DSGN/810.05a-xl2roefact_component.md  #FIXME temporary disabled because errs supposing of directory level/position (which is not under doc_src/)
         #     - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_requirements.md  #FIXME will be reabilitateed after commercial agreement
-        - Manual APItoROefact (PDF): doc_src/pdfs/print_page.html/print_page.pdf
+        - Manual INVOICEtoROefact (PDF): doc_src/pdfs/print_page.html/print_page.pdf
+    #
+    # #FIXME -[this entry will be dropped after commercial terms are concluded] -------------------
+    - Requirements:
+        - Specificatii tehnice propuse:
+            - Considerente tehnice generale: doc_src/commercial_agreement/110-SRE-general_requirements.md
+            - Sistem INVOICEtoROefact: doc_src/commercial_agreement/110-SRE-api_to_roefact_requirements.md
+            - Sistem PayValidaBoa: doc_src/commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
+        - Specificatii tehnice agreate:
+            - Optiuni tehnice: doc_src/commercial_agreement/agreed_options.md
+            - Minute sedinte: doc_src/wip.md  #TODO - de completat pe masura ce se intimpla sedintele...
+    # #FIXME -------------------------------------------------------------------------------------------------
+    #
     - About:
         - Licenta mea: doc_src/wip.md  #TODO tbd... este un http catre o ruta dinamica din produs
         - Suport: https://www.renware.eu/support.html
         - Contact: https://www.renware.eu/contact.html
         - Cum cumpar: https://www.renware.eu/resources.html#how-to-buy-from-renware
-        - Despre APItoROefact: doc_src/wip.md  #TODO `about.md` eventual cu README din pj root, echipa, etc, ce ar tb sa fie acolo...
+        - Despre INVOICEtoROefact: doc_src/wip.md  #TODO `about.md` eventual cu README din pj root, echipa, etc, ce ar tb sa fie acolo...
         - CHANGELOG sistem: CHANGELOG.md
 
 
@@ -112,7 +115,7 @@ plugins:
     # - pdf-export  #NOTE [piu] DO NOT USE this as does not render mermaid in PDF docs
     - print-site:  #NOTE_[piu] IMPORTANT _#NOTE put `print-site` plug in BEFORE `pdf-with-js` in order to works the workaround wit a fake `print_page.md` that will determine generation of 'print_page.pdf' as any other page generated pdf by `pdf-with-js`; ingnore warning ` [mkdocs-print-site] 'print-site' should be defined as the *last* plugin,to ensure...`
         # add_to_navigation: true  #NOTE [piu] not needed here
-        # print_page_title: 'Complete APItoROefact Manual'  #NOTE [piu] not needed here
+        # print_page_title: 'Complete INVOICEtoROefact Manual'  #NOTE [piu] not needed here
         add_full_urls: true
         add_table_of_contents: true
     - pdf-with-js:
@@ -206,7 +209,7 @@ site_dir: './static_portal' #NOTE: [piu] this is the working directory; final is
 use_directory_urls: false # allow link between pages to work properly as static site an "callable" as `file:///...`
 
 
-#NOTE [piu] dirs to exclude at APItoROefact project creation
+#NOTE [piu] dirs to exclude at INVOICEtoROefact project creation
 #   NOTE 1: `pyenv/` is the python environment usual required if build CGI solutions with python executable scripts
 #   NOTE 2: `docs/` is the directory where site itself will be built (! avoid potential self-ref-recurrence)
 exclude_docs: |
