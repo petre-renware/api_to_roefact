@@ -84,6 +84,8 @@
 
 * wip...
 
+* 240127piu_a updated `810-DSGN/810.05a-system_components.md` defined components classification criteria set
+
 * 240125piu_a updated `mkdocs.yml` by including `mkdocs-same-dir` plug-in
 
 
