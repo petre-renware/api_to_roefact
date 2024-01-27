@@ -11,6 +11,19 @@ Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura]
 
 
 
+## Componentele sistemului
+
+Sistemul ofera urmatoarele componente:
+
+* xl2roefact
+* web2roefact
+* xl2roefact PyPi
+* invoice template
+
+[Descrierea detaliata a acestora poate fi accessata aici](./doc_src/810-DSGN/810.05a-system_components.md).
+
+
+
 
 
 
