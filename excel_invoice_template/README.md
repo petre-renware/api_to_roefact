@@ -1,4 +1,4 @@
-<small markdown=1>**Copyright (C) RENware Software Solution**</small>
+<small markdown=1>Copyright (C) **RENware Software Systems**</small>
 
 [TOC]
 
@@ -9,7 +9,7 @@
 
 Aceasta componenta consta dintr-un director (ce nu necesita instalare speciala ci simpla copiere locala acolo unde va fi utilizat). Acest director contine:
 
-* fisierul pentru factura `invoice_template_CU_tva.xlsx` ce este disponibil pentru [descarcare aici](./excel_invoice_template/invoice_template_CU_tva.xlsx)
+* fisierul pentru factura `invoice_template_CU_tva.xlsx` ce este disponibil pentru [descarcare aici](./invoice_template_CU_tva.xlsx)
 
 * directorul `released_packages/` ce contine versiuni anterioare de sablon ce sunt inca suportate
 

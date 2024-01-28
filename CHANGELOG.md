@@ -77,30 +77,21 @@
 ### #NOTE_wip... 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
 
 * tbd... `xl2roefact PyPi` component, MUST EXPLAIN THAT IT IS described / explained and contained in `xl2roefact` CLI component &...>
-* &...> also, "contained" is just a word because it is published and public on PyPi
+            &...> also, "contained" is just a word because it is published and public on PyPi
+* tbd...  #FIXME @IMP before a new publish drop root `/index.html` and the `doc_src/index.md` (mostly useless now)
 
+* wip... refer `invoice template` component in portal first page, navigation, ... AS BEING FINISHED & STABLE in this version
 
-* wip...  #FIXME @IMP @URG:
-    * before a new publish drop root `/index.html` and the `doc_src/index.md` (mostly useless now)
-    * move `excel_invoice_template/` directory to root as being distinct component
-
-
-* 240128piu_b revised, updated and closed crt version of `excel_invoice_template/README.md` 
-
+* 240128piu_c moved `xl2roefact/excel_invoice_template/` directory to root as being distinct component, review it and closed to be published
+* 240128piu_b revised, updated and closed crt version of `excel_invoice_template/README.md`
 * 240128piu_a updated `xl2roefact/README.md` & `excel_invoice_template/README.md` files, cleared modularization & structure presented in system public site
-
 * 240127piu_d Unify main project `/READMEmd` with `doc_src/index.md`:
     * make the same INDEX just in the project root == index / README of whole project
     * keep from actual project README.md the section ref project identification and move it to end of file as last section
-
 * 240127piu_c created `/index.html` to redirect to "real" system index (`doc_src/index.md`) and prevent usage of project `README.md` file instead
-
 * 240128piu_c checked work `240127piu_a`, `240127piu_b`, updated `about.md` and navigation with ref to sys structure (`.../810.05a-system_components.md`)
-
 * 240127piu_b update system components and their classification (in `.../810-DSGN/810.05a-system_components.md`)
-
 * 240127piu_a updated `810-DSGN/810.05a-system_components.md`, defined a classification usable to quickly find out *who-does-what*
-
 * 240125piu_a updated `mkdocs.yml` by including `mkdocs-same-dir` plug-in
 
 
