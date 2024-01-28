@@ -84,7 +84,7 @@
     * before a new publish drop root `/index.html` and the `doc_src/index.md` (mostly useless now)
     * move `excel_invoice_template/` directory to root as being distinct component
 
-* 240128piu_a updated `xl2roefact/README.md` & `excel_invoice_template/README.md` files
+* 240128piu_a updated `xl2roefact/README.md` & `excel_invoice_template/README.md` files, cleared modularization & structure presented in system public site
 
 * 240127piu_d Unify main project `/READMEmd` with `doc_src/index.md`:
     * make the same INDEX just in the project root == index / README of whole project
