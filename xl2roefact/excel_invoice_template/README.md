@@ -26,7 +26,7 @@ Aceasta componenta consta dintr-un director (ce nu necesita instalare speciala c
 
 <!--NOTE: aceasta sectiune este preluata din README `xl2roefact` -->
 
-Aceasta sectiune se refera la modul in care ar trebui "tratat" continutul fisierului Excel cu factura ***in conditiile in care se intentioneaza ca aceasta sa fi procesata ulterior cu sistemul `INVOICEtoROeFact`***. Acest sablon este general valabil (este un fisier Excel ca oricare altul) de in acest caz este important a "constientiza" faptul ca informatia aferenta facturii din Excel va fi cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de factura electronic" (utilizarea acestui sablon de factura Excel impreuna cu sistemul `INVOICEtoROeFact` **ESTE O VARIANTA DE LUCRU RECOMANDATA**, dar nu obligatorie).
+Aceasta sectiune se refera la modul in care ar trebui "tratat" continutul fisierului Excel cu factura ***in conditiile in care se intentioneaza ca aceasta sa fi procesata ulterior cu sistemul `INVOICEtoROeFact`***. Acest sablon este general valabil (este un fisier Excel ca oricare altul) deci in acest caz este important a "constientiza" faptul ca informatia aferenta facturii din Excel va fi cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de factura electronic" (utilizarea acestui sablon de factura Excel impreuna cu sistemul `INVOICEtoROeFact` **ESTE O VARIANTA DE LUCRU RECOMANDATA**, dar nu obligatorie).
 
 >In general trebuie facuta diferenta intre datele facturii si modul in care aceasta va fi tiparita (va aparea la tiparire / previzualizare).
 >
