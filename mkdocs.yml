@@ -22,7 +22,7 @@ nav:
     #NOTE ------ DEMO here (uncomment it):
     #- invoice template:
     #    - Descriere: excel_invoice_template/README.md
-    #    - Descarcare: excel_invoice_template/invoice_template_CU_tva.xlsx
+    #    - Descarcare tip XLSX: excel_invoice_template/invoice_template_CU_tva.xlsx
     #NOTE ------ end of DEMO
     - Help:
         - Manuale de utilizare:
