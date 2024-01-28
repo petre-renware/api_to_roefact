@@ -18,7 +18,7 @@ Aceasta componenta consta dintr-un director (ce nu necesita instalare speciala c
 
 
 
-## Utilizarea sablonului
+## Recomandari in utilizarea sablonului
 
 ![wip-picture](../doc_src/pictures/under_maintenance.png){ width="150" } <!--#TODO -->
 ... Sectiune in lucru ...
