@@ -36,7 +36,7 @@ Astfel **se recomanda ca acest sablon sa fie utilizat asa cum este livrat**, far
 
 
 <small markdown="1">
-***DETALII TEHNICE:***
+DETALII TEHNICE:
 
 Continutul informational al facturii nu trebuie nici confundat si nici mixat cu **formatul de afisare al acesteia** (layout). Pentru acesta din urma se recomanda a fi folosite cu precadere *regulile de formatare* din Excel si nu cele stocare a datelor. Un exemplu este un numar zecimal oarecare unde:
 
