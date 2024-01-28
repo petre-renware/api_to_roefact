@@ -4,10 +4,6 @@
 
 # invoice template
 
-## [Descarcare sablon](./invoice_template_CU_tva.xlsx "download") 
-
-
-
 
 ## Instalarea sablonului de factura emisa
 
@@ -49,3 +45,13 @@ Continutul informational al facturii nu trebuie nici confundat si nici mixat cu 
 * alta este valoarea afisata (cu 2 zecimale) - aceasta din urma trebuie obtinuta prin formatarea celulei respective de a afisa 2 zecimale prin rotunjire insa valoarea efectiva trebuie sa fie cea originala cu 3 zecimale, lucru (diferenta) care se poate vedea la editarea continutului celulei.
 
 </small>
+
+
+
+
+## Descarcare (download) sablon factura
+
+* [Ultima versiune](./invoice_template_CU_tva.xlsx "download")
+
+
+
