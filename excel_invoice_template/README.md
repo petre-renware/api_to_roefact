@@ -4,6 +4,10 @@
 
 # invoice template
 
+## [Descarcare sablon](./invoice_template_CU_tva.xlsx "download") 
+
+
+
 
 ## Instalarea sablonului de factura emisa
 
