@@ -76,12 +76,15 @@
 
 ### #NOTE_wip... 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
 
-* tbd... check and make updates in `index.md` (by link to) & `mkdocs.yml` (navigation struct)
+* tbd... `xl2roefact PyPi` component, MUST EXPLAIN THAT IT IS described / explained and contained in `xl2roefact` CLI component &...>
+* &...> also, "contained" is just a word because it is published and public on PyPi
 
-* tbd... for `xl2roefact` there is its package README - see where is it place, or is included in `810.05a-xl2roefact_component.md` or is directly referenced in mkdocs navigation (now is possible to ref files from root/down_dir... )
 
+* wip...  #FIXME @IMP @URG:
+    * before a new publish drop root `/index.html` and the `doc_src/index.md` (mostly useless now)
+    * move `excel_invoice_template/` directory to root as being distinct component
 
-* wip...  #FIXME @IMP before a new publish drop root `/index.html` and the `doc_src/index.md` (mostly useless now)
+* 240128piu_a updated `xl2roefact/README.md` & `excel_invoice_template/README.md` files, cleared modularization & structure presented in system public site
 
 * 240127piu_d Unify main project `/READMEmd` with `doc_src/index.md`:
     * make the same INDEX just in the project root == index / README of whole project
