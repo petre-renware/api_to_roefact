@@ -82,8 +82,10 @@
     &...> also, "contained" is just a word because it is published and public on PyPi
 * tbd...  #FIXME @IMP before a new publish drop root `/index.html` and the `doc_src/index.md` (mostly useless now)
 
-* wip... refer `invoice template` component in portal first page, navigation, ... AS BEING FINISHED & STABLE in this version
-
+* 240128piu_d updated & closed component `invoice template`. Referred in:
+    * `doc_src/810-DSGN/810.05a-system_components.md`
+    * portal first page
+    * navigation in `mkdocs.yml`
 * 240128piu_c moved `xl2roefact/excel_invoice_template/` directory to root as being distinct component, review it and closed to be published
 * 240128piu_b revised, updated and closed crt version of `excel_invoice_template/README.md`
 * 240128piu_a updated `xl2roefact/README.md` & `excel_invoice_template/README.md` files, cleared modularization & structure presented in system public site
