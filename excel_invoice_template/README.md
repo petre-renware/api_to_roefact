@@ -4,7 +4,7 @@
 
 # invoice template
 
-![Static Badge](https://img.shields.io/badge/invoice_template_XLSX-0.1.20-blue)
+![Static Badge](https://img.shields.io/badge/invoice_template-0.1.20-blue)
 
 ## Instalarea sablonului de factura emisa
 
