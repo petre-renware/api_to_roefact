@@ -29,6 +29,15 @@ Aceasta componenta consta dintr-un director (ce nu necesita instalare speciala c
 Aceasta sectiune se refera la modul in care ar trebui "tratat" continutul fisierului Excel cu factura ***in conditiile in care se intentioneaza ca aceasta sa fi procesata ulterior cu sistemul `INVOICEtoROeFact`***. Acest sablon este general valabil (este un fisier Excel ca oricare altul) deci in acest caz este important a "constientiza" faptul ca informatia aferenta facturii din Excel va fi cautata, identificata si gasita in scopul de a fi salvata in formatele de factura electronica (utilizarea acestui sablon de factura Excel impreuna cu sistemul `INVOICEtoROeFact` **ESTE O VARIANTA DE LUCRU RECOMANDATA**, dar nu obligatorie).
 
 >In general trebuie facuta diferenta intre datele facturii si modul in care aceasta va fi tiparita (va aparea la tiparire / previzualizare).
+
+Astfel **se recomanda ca acest sablon sa fie utilizat asa cum este livrat**, fara a efectua modificari majore in structura sa cum ar fi:
+
+* modificarea formatelor (de tip de date) celulelor in scopul unei afisari "mai frumoase"
+
+* adaugarea de informatii prin concatenare de siruri de caractere sau orice alte metode de a altera continutul vizibil al celulelor in scopul unei afisari "mai frumoase"
+
+* modificarea locatiilor celulelor prin inserarea sau stergerea de linii, coloane sau celule noi
+
 >
 >Mai exact **continutul informational** al facturii nu trebuie nici confundat si nici mixat cu **formatul de afisare al acesteia** (layout). Pentru acesta din urma se recomanda a fi folosite cu precadere *regulile de formatare* din Excel si nu cele stocare a datelor. Un exemplu este un numar zecimal oarecare unde:
 >
