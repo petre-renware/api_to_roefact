@@ -2,10 +2,10 @@
 
 [TOC]
 
-# How to use `xl2roefact` application
+# Componenta invoice template
 
 
-## General rules
+## General rules  #FIXME this section must be dropped as this component is a "standalone" one (!!! that can be "consumed" by xl2roefact which is other thing)
 
 -#TODO plan:
 - install the apllication & first setup (use permanently on this computer && offline/no-internet usage)
