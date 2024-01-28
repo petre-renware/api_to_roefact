@@ -80,7 +80,11 @@
 
 * tbd... `xl2roefact PyPi` component, MUST EXPLAIN THAT IT IS described / explained and contained in `xl2roefact` CLI component &...>
     &...> also, "contained" is just a word because it is published and public on PyPi
-* tbd...  #FIXME @IMP before a new publish drop root `/index.html` and the `doc_src/index.md` (mostly useless now)
+
+
+* wip...  #TODO:
+    * publish for `invoice template` component &&
+    * -#FIXME drop root `/index.html` and the `doc_src/index.md` (both being replaced by project root README.md) 
 
 * 240128piu_d updated & closed component `invoice template`. Referred in:
     * `doc_src/810-DSGN/810.05a-system_components.md`
