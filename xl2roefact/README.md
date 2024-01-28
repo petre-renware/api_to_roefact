@@ -6,7 +6,7 @@
 
 ![Static Badge](https://img.shields.io/badge/versiune_MSI_installer-0.1.19-blue)
 ![Static Badge](https://img.shields.io/badge/versiune_script_Python-0.1.20-blue)
-![Static Badge](https://img.shields.io/badge/versiune_pachet_Python_PyPi-0.1.20-blue
+![Static Badge](https://img.shields.io/badge/versiune_pachet_Python_PyPi-0.1.20-blue)
 
 
 
