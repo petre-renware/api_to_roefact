@@ -57,9 +57,10 @@ Continutul informational al facturii nu trebuie nici confundat si nici mixat cu 
 
 
 
-### Arhiva versiuni
+### Arhiva versiuni publicate disponibile
 
-* <small>intre 0.1.11 si 0.1.20 nu exista versiuni publice</small>
+<small>NOTA: versiunile "lipsa" din lista de mai jos nu mai sunt disponibile sau sunt versiuni interne publicate.</small>
+
 * [arhiva ZIP 0.1.11](./released_packages/0.1.11-excel_invoice_template.zip)
 
 
