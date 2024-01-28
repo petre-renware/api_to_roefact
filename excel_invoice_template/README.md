@@ -52,7 +52,7 @@ Continutul informational al facturii nu trebuie nici confundat si nici mixat cu 
 
 ## Descarcare (download) sablon factura
 
-* [Ultima versiune](./invoice_template_CU_tva.xlsx "download")
+* [Office Excel XLSX](./invoice_template_CU_tva.xlsx "download")
 
 
 
