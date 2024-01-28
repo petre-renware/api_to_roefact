@@ -86,6 +86,7 @@
     * publish for `invoice template` component &&
     * -#FIXME drop root `/index.html` and the `doc_src/index.md` (both being replaced by project root README.md) 
 
+* 240128piu_e formal versioning `invoice template` component
 * 240128piu_d updated & closed component `invoice template`. Referred in:
     * `doc_src/810-DSGN/810.05a-system_components.md`
     * portal first page
