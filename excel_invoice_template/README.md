@@ -4,7 +4,7 @@
 
 # invoice template
 
-![Static Badge](https://img.shields.io/badge/invoice_template_XLSX-0.1.20-cyan)
+![Static Badge](https://img.shields.io/badge/invoice_template_XLSX-0.1.20-blue)
 
 ## Instalarea sablonului de factura emisa
 
@@ -52,7 +52,7 @@ Continutul informational al facturii nu trebuie nici confundat si nici mixat cu 
 
 ## Descarcare (download) sablon factura
 
-* [Office Excel XLSX](./invoice_template_CU_tva.xlsx "download")
+* [Office Excel XLSX 0.1.20](./invoice_template_CU_tva.xlsx "download")
 
 
 
