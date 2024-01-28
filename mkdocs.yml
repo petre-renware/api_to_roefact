@@ -13,7 +13,7 @@ nav:
         - xl2roefact: doc_src/wip.md
         - web2roefact: doc_src/wip.md
         - xl2roefact PyPi: doc_src/wip.md
-        - invoice template: doc_src/wip.md
+        - invoice template: excel_invoice_template/README.md
     #TODO: see if useful to make top level navbar entries for each component (! at th s indentation level)
     # entries for each top component: (! some of them have web address, others do not have)
     #   - its README if exists
