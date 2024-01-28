@@ -2,34 +2,32 @@
 
 [TOC]
 
-# Componenta invoice template
+# invoice template
 
 
-## General rules  #FIXME this section must be dropped as this component is a "standalone" one (!!! that can be "consumed" by xl2roefact which is other thing)
+## Instalarea sablonului de factura emisa
 
--#TODO plan:
-- install the apllication & first setup (use permanently on this computer && offline/no-internet usage)
-- directory `invoice_files/` and why is recommended to use it (diseminare fisiere perosnale de cele ale aplicatiei, ...)
-- configuration items and how change them in file `config_settings.py`
+Aceasta componenta consta dintr-un director (ce nu necesita instalare speciala ci simpla copiere locala acolo unde va fi utilizat). El contine:
 
+- fisierul pentru factura [invoice_template_CU_tva.xlsx](./excel_invoice_template/invoice_template_CU_tva.xlsx)
 
-
-
-## Delivered template usage
-
--#TODO plan:
-- write about delivered template things like:
-	- what is good for, type of invoices and their "complexity" alllowed
-	- possible usage of "special" items, for example with "Accize" or other special taxes
-	- how right-setup currency
-	- about calendaristic "invoice issue date"
+- un document descriptiv cu "reguli" recomandate in tulizarea acestui sablon [README_excel_invoice_rules.md](./excel_invoice_template/README_excel_invoice_rules.md)
 
 
 
 
-## Usage of other invoice excel files
 
--#TODO plan:
-- write rules used in `rdinv()` module to corectly recognize Excel data and make JSON invoice file
+
+
+
+## Utilizarea sablonului
+
+![wip-picture](../doc_src/pictures/under_maintenance.png){ width="150" } <!--#TODO -->
+... Sectiune in lucru ...
+
+
+
+<!--#TODO: copy rules used in `rdinv()` module to corectly recognize Excel data and make JSON invoice file
+-->
 
 
