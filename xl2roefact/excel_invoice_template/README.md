@@ -7,15 +7,13 @@
 
 ## Instalarea sablonului de factura emisa
 
-Aceasta componenta consta dintr-un director (ce nu necesita instalare speciala ci simpla copiere locala acolo unde va fi utilizat). El contine:
+Aceasta componenta consta dintr-un director (ce nu necesita instalare speciala ci simpla copiere locala acolo unde va fi utilizat). Acest director contine:
 
-- fisierul pentru factura [invoice_template_CU_tva.xlsx](./excel_invoice_template/invoice_template_CU_tva.xlsx)
+* fisierul pentru factura `invoice_template_CU_tva.xlsx` ce este disponibil pentru [descarcare aici](./excel_invoice_template/invoice_template_CU_tva.xlsx)
 
-- un document descriptiv cu "reguli" recomandate in tulizarea acestui sablon [README_excel_invoice_rules.md](./excel_invoice_template/README_excel_invoice_rules.md)
+* directorul `released_packages/` ce contine versiuni anterioare de sablon ce sunt inca suportate
 
-
-
-
+* prezentul document
 
 
 
@@ -30,4 +28,8 @@ Aceasta componenta consta dintr-un director (ce nu necesita instalare speciala c
 <!--#TODO: copy rules used in `rdinv()` module to corectly recognize Excel data and make JSON invoice file
 -->
 
+
+
+
+## 
 
