@@ -9,7 +9,7 @@
 
 Aceasta componenta consta dintr-un director (ce nu necesita instalare speciala ci simpla copiere locala acolo unde va fi utilizat). Acest director contine:
 
-* fisierul pentru factura `invoice_template_CU_tva.xlsx` ce este disponibil pentru [descarcare aici](./invoice_template_CU_tva.xlsx)
+* fisierul pentru factura `invoice_template_CU_tva.xlsx` ce este disponibil pentru [descarcare aici](./invoice_template_CU_tva.xlsx "download")
 
 * directorul `released_packages/` ce contine versiuni anterioare de sablon ce sunt inca suportate
 
@@ -45,3 +45,13 @@ Continutul informational al facturii nu trebuie nici confundat si nici mixat cu 
 * alta este valoarea afisata (cu 2 zecimale) - aceasta din urma trebuie obtinuta prin formatarea celulei respective de a afisa 2 zecimale prin rotunjire insa valoarea efectiva trebuie sa fie cea originala cu 3 zecimale, lucru (diferenta) care se poate vedea la editarea continutului celulei.
 
 </small>
+
+
+
+
+## Descarcare (download) sablon factura
+
+* [Ultima versiune](./invoice_template_CU_tva.xlsx "download")
+
+
+
