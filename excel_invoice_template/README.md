@@ -10,7 +10,7 @@
 
 Aceasta componenta consta dintr-un director (ce nu necesita instalare speciala ci simpla copiere locala acolo unde va fi utilizat). Acest director contine:
 
-* fisierul pentru factura `invoice_template_CU_tva.xlsx` ce este disponibil pentru [descarcare aici](./invoice_template_CU_tva.xlsx "download")
+* fisierul pentru factura `invoice_template_CU_tva.xlsx` ce este disponibil pentru [descarcare aici](#descarcare-(download)-sablon-factura)
 
 * directorul `released_packages/` ce contine versiuni anterioare de sablon ce sunt inca suportate
 
