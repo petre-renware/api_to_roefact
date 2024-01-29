@@ -88,6 +88,8 @@
 * tbd... 240129piu_d updated `xlroefact` of DSGN directory to have the same entries like `invoice template` (for ex: "Descrierea detliata" in `810.05a-system_components.md`)
 
 * 240129piu_c updated all site pages to contain `<small>**RENware Software Systems**</small>` & `[TOC]` after title
+* ------#TODO ck/test up of here
+
 * 240129piu_b cleanup project docs, requirements, fresh install ==> published site as is at this point (invoice template finished)
 * 240129piu_a updated `xl2roefact/README.md` with section for assets download
 * 240128piu_e formal versioning `invoice template` component
