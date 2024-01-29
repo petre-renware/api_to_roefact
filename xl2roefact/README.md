@@ -193,8 +193,7 @@ Cheile de la primul nivel reprezinta:
 ### Arhiva versiuni publicate disponibile
 
 * [MSI installer Windows 64 0.1.19](./dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
-
-* [MSI installer Windows 64 0.1.18](./dist/0.1.18/xxx "download")
+* [MSI installer Windows 64 0.1.18](./dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
 
 
 
