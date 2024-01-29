@@ -83,7 +83,7 @@ xl2roefact --help
 ```
 cit si la nivel detaliat pentru fiecare comanda
 ```bash
-xl2roefact [COMANDA] --help
+xl2roefact [COMMAND] --help
 ```
 
 
@@ -94,7 +94,7 @@ Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc).
 
 ### settings
 
-Afiseaza parametrii de configurare a aplicatiei. [Vezi sectiunea de configurare](#configuration--settings)
+Afiseaza parametrii de configurare a aplicatiei. [Vezi sectiunea de configurare a aplicatiei](#configurarea-aplicatiei-xl2roefact).
 
 
 ### xl2json
