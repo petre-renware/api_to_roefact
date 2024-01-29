@@ -1,4 +1,6 @@
-**api-to-roefact by RENware Software Systems**
+<small>**RENware Software Systems**</small>
+
+**INVOICEtoROefact** Project
 
 [TOC]
 
@@ -81,8 +83,12 @@
 * tbd... `xl2roefact PyPi` component, MUST EXPLAIN THAT IT IS described / explained and contained in `xl2roefact` CLI component &...>
     &...> also, "contained" is just a word because it is published and public on PyPi
 
-* tbd... update `xlroefact` of DSGN directory to have the same entries like `invoice template` (for ex: "Descrierea detliata" in `810.05a-system_components.md`). Check published portal
-* wip...  #TODO: publish for `invoice template` component &&
+
+* tbd...  #TODO: publish for `xl2roefact` component 
+* tbd... 240129piu_d updated `xlroefact` of DSGN directory to have the same entries like `invoice template` (for ex: "Descrierea detliata" in `810.05a-system_components.md`)
+
+* 240129piu_c updated all site pages to contain `<small>**RENware Software Systems**</small>` & `[TOC]` after title
+* ------#TODO ck/test up of here
 
 * 240129piu_b cleanup project docs, requirements, fresh install ==> published site as is at this point (invoice template finished)
 * 240129piu_a updated `xl2roefact/README.md` with section for assets download

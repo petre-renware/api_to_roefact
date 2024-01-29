@@ -1,8 +1,8 @@
 <small markdown=1>Copyright (C) **RENware Software Systems**</small>
 
-[TOC]
-
 # invoice template
+
+[TOC]
 
 ![Static Badge](https://img.shields.io/badge/versiune_curenta-0.1.20-blue)
 ![Static Badge](https://img.shields.io/badge/formate_suportate-XLSX-orange)
