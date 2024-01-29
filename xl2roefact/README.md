@@ -187,7 +187,7 @@ Cheile de la primul nivel reprezinta:
 
 ## Descarcare (download) xl2roefact
 
-* [xxx](./dist.xxx "download")
+* [MSI installer Windows 64](./dist/xl2roefact-0.1.20-win64.msi "download")
 
 
 ### Arhiva versiuni publicate disponibile
