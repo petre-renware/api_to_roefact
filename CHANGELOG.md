@@ -86,7 +86,7 @@
 
 * tbd...  #TODO: publish for `xl2roefact` component
 
-* wip... 240129piu_d updated `xlroefact` to have "Descrierea detliata" link in `810.05a-system_components.md`). Prepared component to be published: mkdocs.yml navigation & main site README index
+* 240129piu_d updated `xlroefact` to have "Descrierea detliata" link in `810.05a-system_components.md`). Prepared component to be published: mkdocs.yml navigation & main site README index
 
 * 240129piu_c updated all site pages to contain `<small>**RENware Software Systems**</small>` & `[TOC]` after title
 * ------#TODO ck/test up of here
