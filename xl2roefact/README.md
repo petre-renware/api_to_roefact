@@ -19,7 +19,8 @@ Aceasta aplicatie este "totul despre crearea de facturi electronice" din formatu
 
 * Components
     * `xl2roefact` **command line application** to create, manipulate and upload to RO E-Fact system Excel invoices
-    * `xl2roefact` **Python library** to use functions to create, manipulate and upload to RO E-Fact system Excel invoices
+    * `xl2roefact` **Python library** to use functions to create, manipulate and upload to RO E-Fact system Excel invoices
+
 
 * Identification
     - code-name: `xl2roefact`
@@ -41,8 +42,9 @@ Aceasta aplicatie este "totul despre crearea de facturi electronice" din formatu
 
 Acest sistem consta din urmatoarele componente:
 
-- o aplicatie de tip *linie de comanda / consola* ce permite realizarea operatiilor necesare de procesare a facturilor in Excel (**`xl2roefact`** CLI application)
-- o biblioteca (**`xl2roefact`**) ce permite utilizarea functionalitatilor de procesare a facturilor Excel in mod programatic in alte sisteme.  Biblioteca este realizata in Python 3 iar instalarea ei se poate face cu instrumentele standard Python
+* o aplicatie de tip *linie de comanda / consola* ce permite realizarea operatiilor necesare de procesare a facturilor in Excel (**`xl2roefact`** CLI application)
+
+* o biblioteca (**`xl2roefact`**) tip *“standard Python package wheel"* ce permite utilizarea functionalitatilor de procesare a facturilor Excel in mod programatic in alte sisteme.  Biblioteca este realizata in Python 3 iar instalarea ei se poate face cu instrumentele standard Python
 
 
 ### Instalarea aplicatiei xl2roefact
@@ -54,21 +56,35 @@ Pachetele contin un script de instalare sub forma standard `MSI` pentru Windows 
 
 ### Instalarea bliotecii Python (package) xl2roefact
 
-Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl2roefact`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
+Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl2roefact`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
+
 
 
 
 
 ## Configurarea aplicatiei xl2roefact
 
-Parametrii de configurare a plicatiei se gasesc in fisierul **`config_settings.py`**. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.  (_EN: Configuration parameters are placed in file **`config_settings.py`**. These are in Python form presented using constants PEP recommendations (all upper case) and accompanied by some help lines to understand and maintain them)_.
+Parametrii de configurare a plicatiei se gasesc in fisierul **`config_settings.py`**. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
+
+Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtine help referitor la detaliile comenzi se va folosi
+```bash
+xl2roefact settings --help
+```
+
 
 
 
 
 ## Comenzile aplicatiei
 
-Interfata aplicatie este realizata utilizind conventiile si practicile uzuale pentru aplicatii tip linie de comanda consola. Pentru informatii privind comenzile se poate folosi optiunea de **help**, dispobilia atit la nivelul general: `xl2roefact --help`, cit si la nivel detaliat penrtur fiecare comanda: `xl2roefact [COMANDA] --help`.
+Interfata aplicatie este realizata utilizind conventiile si practicile uzuale pentru aplicatii tip linie de comanda consola. Pentru informatii privind comenzile se poate folosi optiunea de **help**, dispobilia atit la nivelul general:
+```bash
+xl2roefact --help
+```
+cit si la nivel detaliat pentru fiecare comanda
+```bash
+xl2roefact [COMMAND] --help
+```
 
 
 ### about
@@ -78,7 +94,7 @@ Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc).
 
 ### settings
 
-Afiseaza parametrii de configurare a aplicatiei. [Vezi sectiunea de configurare](#configuration--settings)
+Afiseaza parametrii de configurare a aplicatiei. [Vezi sectiunea de configurare a aplicatiei](#configurarea-aplicatiei-xl2roefact).
 
 
 ### xl2json
@@ -187,13 +203,14 @@ Cheile de la primul nivel reprezinta:
 
 ## Descarcare (download) aplicatie xl2roefact CLI
 
-* [MSI installer Windows 64 0.1.20](./dist/xl2roefact-0.1.20-win64.msi "download")
+* 0.1.20.dev invoice customer address [MSI installer win64](./dist/xl2roefact-0.1.20-win64.msi "download")
 
 
 ### Arhiva versiuni publicate disponibile
 
-* [MSI installer Windows 64 0.1.19](./dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
-* [MSI installer Windows 64 0.1.18](./dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
+* 0.1.19.dev invoice customer and partial invoice total values calculations [MSI installer win64](./dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
+
+* 0.1.18.dev invoice customer CUI partial invoice total values calculations [MSI installer win64](./dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
 
 
 **NOTA:** Pentru descarcarea bibliotecii, pachetului Python `xl2roefact` [procesul este descris aici](#instalarea-bliotecii-python-package-xl2roefact)
