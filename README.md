@@ -17,7 +17,7 @@ Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura]
 
 Sistemul ofera urmatoarele componente:
 
-* xl2roefact  <!--#TODO link tbd -->
+* [xl2roefact](./xl2roefact/README.md)
 * web2roefact  <!--#TODO link tbd --> 
 * xl2roefact PyPi  <!--#TODO link tbd -->
 * [invoice template](./excel_invoice_template/README.md)
