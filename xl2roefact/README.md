@@ -19,7 +19,8 @@ Aceasta aplicatie este "totul despre crearea de facturi electronice" din formatu
 
 * Components
     * `xl2roefact` **command line application** to create, manipulate and upload to RO E-Fact system Excel invoices
-    * `xl2roefact` **Python library** to use functions to create, manipulate and upload to RO E-Fact system Excel invoices
+    * `xl2roefact` **Python library** to use functions to create, manipulate and upload to RO E-Fact system Excel invoices
+
 
 * Identification
     - code-name: `xl2roefact`
@@ -54,7 +55,8 @@ Pachetele contin un script de instalare sub forma standard `MSI` pentru Windows 
 
 ### Instalarea bliotecii Python (package) xl2roefact
 
-Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl2roefact`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
+Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl2roefact`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
+
 
 
 
@@ -192,7 +194,7 @@ Cheile de la primul nivel reprezinta:
 
 ### Arhiva versiuni publicate disponibile
 
-* [MSI installer Windows 64 0.1.19](./dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
+* [MSI installer Windows 64 0.1.19](./dist/0.1.19/xl2roefact-0.1.19-win64.msi "download") 0.1.19.dev invoice customer and partial invoice total values calculations
 * [MSI installer Windows 64 0.1.18](./dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
 
 
