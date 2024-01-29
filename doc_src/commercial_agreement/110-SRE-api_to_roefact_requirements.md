@@ -8,6 +8,11 @@
 
 # Propunere tehnica sistem INVOICEtoROefact
 
+***Cuprins:***
+
+[TOC]
+
+
 * p/n: `0000-0095`
 * code-name: `api_to_roefact`
 * commercial name: **INVOICEtoROefact**
