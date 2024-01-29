@@ -10,14 +10,20 @@ nav:
     - INVOICEtoROefact:
         - Acasa: README.md
         - Componentele sistemului: doc_src/810-DSGN/810.05a-system_components.md
-        - xl2roefact: doc_src/wip.md
+        - xl2roefact: xl2roefact/README.md
         - web2roefact: doc_src/wip.md
         - xl2roefact PyPi: doc_src/wip.md
         - invoice template: excel_invoice_template/README.md
 
     #TODO: is useful to make top level navbar entries for each component
+    - xl2roefact:
+        - Descriere: xl2roefact/README.md
+        - License: xl2roefact/LICENSE
+    #- web2roefact: ...#TODO...tbd...
+    #-xl2roefact PyPi: ...#TODO...tbd...
     - invoice template:
         - Descriere: excel_invoice_template/README.md
+        - License: excel_invoice_template/LICENSE
     #TODO: here another component, identical as previous
 
     - Help:
@@ -45,11 +51,11 @@ nav:
     # #FIXME -------------------------------------------------------------------------------------------------
     #
     - About:
-        - Licenta mea: doc_src/wip.md  #TODO tbd... este un http catre o ruta dinamica din produs
+        - Licenta generala sistem: ./LICENSE
         - Suport: https://www.renware.eu/support.html
         - Contact: https://www.renware.eu/contact.html
         - Cum cumpar: https://www.renware.eu/resources.html#how-to-buy-from-renware
-        - Despre INVOICEtoROefact: doc_src/wip.md  #TODO `about.md` eventual cu README din pj root, echipa, etc, ce ar tb sa fie acolo...
+        - Despre INVOICEtoROefact: doc_src/wip.md  #TODO `about.md` cu echipa, 2 vorbe "de ce, istoria" etc...
         - CHANGELOG sistem: CHANGELOG.md
 
 

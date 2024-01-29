@@ -84,8 +84,9 @@
     &...> also, "contained" is just a word because it is published and public on PyPi
 
 
-* tbd...  #TODO: publish for `xl2roefact` component 
-* tbd... 240129piu_d updated `xlroefact` of DSGN directory to have the same entries like `invoice template` (for ex: "Descrierea detliata" in `810.05a-system_components.md`)
+* tbd...  #TODO: publish for `xl2roefact` component
+
+* 240129piu_d updated `xlroefact` to have "Descrierea detliata" link in `810.05a-system_components.md`). Prepared component to be published: mkdocs.yml navigation & main site README index
 
 * 240129piu_c updated all site pages to contain `<small>**RENware Software Systems**</small>` & `[TOC]` after title
 * ------#TODO ck/test up of here

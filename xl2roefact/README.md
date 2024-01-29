@@ -218,3 +218,9 @@ Cheile de la primul nivel reprezinta:
 
 **NOTA:** Pentru descarcarea bibliotecii, pachetului Python `xl2roefact` [procesul este descris aici](#instalarea-bliotecii-python-package-xl2roefact)
 
+
+
+
+
+## [License](./LICENSE)
+

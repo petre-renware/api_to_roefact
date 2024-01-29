@@ -64,3 +64,7 @@ Continutul informational al facturii nu trebuie nici confundat si nici mixat cu 
 * [arhiva ZIP 0.1.11](./released_packages/0.1.11-excel_invoice_template.zip)
 
 
+
+
+## [License](./LICENSE)
+
