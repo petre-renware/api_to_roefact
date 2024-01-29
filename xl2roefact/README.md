@@ -196,5 +196,6 @@ Cheile de la primul nivel reprezinta:
 * [MSI installer Windows 64 0.1.18](./dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
 
 
->NOTA: Pentru descarcarea bibliotecii, pachetului Python `xl2roefact` [procesul este descris aici](#instalarea-bliotecii-python-package-xl2roefact)
+**NOTA**
+Pentru descarcarea bibliotecii, pachetului Python `xl2roefact` [procesul este descris aici](#instalarea-bliotecii-python-package-xl2roefact)
 
