@@ -187,12 +187,13 @@ Cheile de la primul nivel reprezinta:
 
 ## Descarcare (download) xl2roefact
 
-* [xxx](./xxx "download")
+* [xxx](./dist.xxx "download")
 
 
 ### Arhiva versiuni publicate disponibile
 
-* [xxx](./xxx "download")
+* [xxx](./dist/0.1.19/xxx "download")
+* [xxx](./dist/0.1.18/xxx "download")
 
 
 
