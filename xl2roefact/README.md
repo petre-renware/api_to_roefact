@@ -42,8 +42,9 @@ Aceasta aplicatie este "totul despre crearea de facturi electronice" din formatu
 
 Acest sistem consta din urmatoarele componente:
 
-- o aplicatie de tip *linie de comanda / consola* ce permite realizarea operatiilor necesare de procesare a facturilor in Excel (**`xl2roefact`** CLI application)
-- o biblioteca (**`xl2roefact`**) ce permite utilizarea functionalitatilor de procesare a facturilor Excel in mod programatic in alte sisteme.  Biblioteca este realizata in Python 3 iar instalarea ei se poate face cu instrumentele standard Python
+* o aplicatie de tip *linie de comanda / consola* ce permite realizarea operatiilor necesare de procesare a facturilor in Excel (**`xl2roefact`** CLI application)
+
+* o biblioteca (**`xl2roefact`**) tip *“standard Python package wheel"* ce permite utilizarea functionalitatilor de procesare a facturilor Excel in mod programatic in alte sisteme.  Biblioteca este realizata in Python 3 iar instalarea ei se poate face cu instrumentele standard Python
 
 
 ### Instalarea aplicatiei xl2roefact
