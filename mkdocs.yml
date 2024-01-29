@@ -8,22 +8,18 @@ nav:
     #
 
     - INVOICEtoROefact:
-        - Acasa: doc_src/index.md
+        - Acasa: README.md
         - Componentele sistemului: doc_src/810-DSGN/810.05a-system_components.md
         - xl2roefact: doc_src/wip.md
         - web2roefact: doc_src/wip.md
         - xl2roefact PyPi: doc_src/wip.md
         - invoice template: excel_invoice_template/README.md
-    #TODO: see if useful to make top level navbar entries for each component (! at th s indentation level)
-    # entries for each top component: (! some of them have web address, others do not have)
-    #   - its README if exists
-    #   - version releases download (& link to RELNOTE) #NOTE must be link to GitHub release where its ASSETS should be available
-    #   - access to component (for relevant ones like `web2roefact`)
-    #NOTE ------ DEMO here (uncomment it):
-    #- invoice template:
-    #    - Descriere: excel_invoice_template/README.md
-    #    - Descarcare format XLSX: excel_invoice_template/invoice_template_CU_tva.xlsx
-    #NOTE ------ end of DEMO
+
+    #TODO: is useful to make top level navbar entries for each component
+    - invoice template:
+        - Descriere: excel_invoice_template/README.md
+    #TODO: here another component, identical as previous
+
     - Help:
         - Manuale de utilizare:
             - Indexul manuale EUMA: doc_src/help/880.30-EUMA_catalog.md

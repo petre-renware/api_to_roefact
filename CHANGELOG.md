@@ -81,12 +81,10 @@
 * tbd... `xl2roefact PyPi` component, MUST EXPLAIN THAT IT IS described / explained and contained in `xl2roefact` CLI component &...>
     &...> also, "contained" is just a word because it is published and public on PyPi
 
+* tbd... update `xlroefact` of DSGN directory to have the same entries like `invoice template` (for ex: "Descrierea detliata" in `810.05a-system_components.md`). Check published portal
+* wip...  #TODO: publish for `invoice template` component &&
 
-* wip...  #TODO:
-    * publish for `invoice template` component &&
-    * -#FIXME drop root `/index.html` and the `doc_src/index.md` (both being replaced by project root README.md) 
-
-
+* 240129piu_b cleanup project docs, requirements, fresh install ==> published site as is at this point (invoice template finished)
 * 240129piu_a updated `xl2roefact/README.md` with section for assets download
 * 240128piu_e formal versioning `invoice template` component
 * 240128piu_d updated & closed component `invoice template`. Referred in:
