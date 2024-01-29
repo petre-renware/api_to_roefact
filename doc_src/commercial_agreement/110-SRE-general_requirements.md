@@ -4,6 +4,11 @@
 
 # Propunere tehnica
 
+***Cuprins:***
+
+[TOC]
+
+
 * Client: <!-- #NOTE hided it Kraftanlagen Romania SRL --> n/a - not public
 * Data: 2023-Noiembrie
 
