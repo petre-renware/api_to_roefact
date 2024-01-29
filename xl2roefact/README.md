@@ -66,7 +66,10 @@ Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este 
 
 Parametrii de configurare a plicatiei se gasesc in fisierul **`config_settings.py`**. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
 
-Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtine help referitor la detaliile comenzi se va folosi `xl2roefact settings --help`.
+Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtine help referitor la detaliile comenzi se va folosi
+```bash
+xl2roefact settings --help
+```
 
 
 
@@ -74,7 +77,14 @@ Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtin
 
 ## Comenzile aplicatiei
 
-Interfata aplicatie este realizata utilizind conventiile si practicile uzuale pentru aplicatii tip linie de comanda consola. Pentru informatii privind comenzile se poate folosi optiunea de **help**, dispobilia atit la nivelul general: `xl2roefact --help`, cit si la nivel detaliat penrtur fiecare comanda: `xl2roefact [COMANDA] --help`.
+Interfata aplicatie este realizata utilizind conventiile si practicile uzuale pentru aplicatii tip linie de comanda consola. Pentru informatii privind comenzile se poate folosi optiunea de **help**, dispobilia atit la nivelul general:
+```bash
+xl2roefact --help
+```
+cit si la nivel detaliat pentru fiecare comanda
+```bash
+xl2roefact [COMANDA] --help
+```
 
 
 ### about
