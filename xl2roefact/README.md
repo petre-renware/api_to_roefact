@@ -14,50 +14,49 @@
 
 
 
-## Facilitati (Features)
+## Facilitati
 
-Aceasta aplicatie este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si chiar o poate incarca in sistemul *RO E-Fact*.
+Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si o poate incarca in sistemul *RO E-Fact*[^ld_roefact].
 
-(This application is all about electronic invoices creation from Excel office format (xlsx). It can generate invoice in JSON, XML, PDF formats and even upload it to *RO E-Fact* system.)
+Aceasta componenta ofera urmatoarele facilitati (acestea fiind obiectivele fundamentale ale componentei):
 
-* Components
-    * `xl2roefact` **command line application** to create, manipulate and upload to RO E-Fact system Excel invoices
-    * `xl2roefact` **Python library** to use functions to create, manipulate and upload to RO E-Fact system Excel invoices
+* **transformarea facturilor din Excel in formatul `XML`** cerut de catre sistemul ANAF RO E-Fact pentru incarcare
 
+ * **incarcarea acestora** in sistemul ANAF RO E-Fact[^ld_roefact]
 
-* Identification
-    - code-name: `xl2roefact`
-    - copyright: (c) 2023, 2024 RENWare Software Systems
-    - author: Petre Iordanescu (petre.iordanescu@gmail.com)
+*  **transformarea facturilor din Excel intr-un format `JSON`**  intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard *REST*)
 
-* Deployments
-    - Windows: `xl2roefact.exe` 64 bit CLI application (installable through a `MSI` package)
-    - Linux: `xl2roefact` executable CLI shell
+* **generarea facturii in format PDF** pentru transmiterea acesteia catre client, semnarea electronica, tiparirea si arhivarea acesteia in format fizic (in general manipularea facturii in format *"human readable"*)
 
-* Specifications
-    - command general format: `xl2roefact [COMMAND] [OPTIONS]`
-    - help: `xl2roefact [COMMAND] --help`
+Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obiective:
+
+* `xl2roefact` o **aplicatie de tip linie de comanda** (disponibila pentru sistemele de operare Windows, Linux si MacOS)
+
+* `xl2roefact PyPi` o **blioteca standard Python** utilizabila pentru dezvoltari proprii in scopul extinderii altor sisteme existente (*custom development*)
+
 
 
 
 
 ## Instalarea
 
-Acest sistem consta din urmatoarele componente:
+Instalarea este diferita pentru cele doua  componente:
 
-* o aplicatie de tip *linie de comanda / consola* ce permite realizarea operatiilor necesare de procesare a facturilor in Excel (**`xl2roefact`** CLI application)
-
-* o biblioteca (**`xl2roefact`**) tip *“standard Python package wheel"* ce permite utilizarea functionalitatilor de procesare a facturilor Excel in mod programatic in alte sisteme.  Biblioteca este realizata in Python 3 iar instalarea ei se poate face cu instrumentele standard Python
-
+* aplicatia de tip *linie de comanda / consola*
+* biblioteca *“standard Python package wheel"*
 
 ### Instalarea aplicatiei xl2roefact
 
-Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si versiunea sistemului de operare pentru care sunt disponibile.  (_EN: Installation package is found in `dist/` directory in archive (zip) files. Available packages are identified by released versions and operating systems._)
+Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
 
-Pachetele contin un script de instalare sub forma standard `MSI` pentru Windows si `DEB` pentru Linux Debian (verificati disponibilitatea pentru sistemul de operare folosit de dvs).  (_EN: Packages contains an installation script as `MSI` for Windows and `DEB` for Debian Linux based systems (check availability for your operating system)_).
+* `MSI` pachet instalare pentru *Windows 
+* `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemuluu de operare folosit de dvs)
+* `EXE` executabil *Windows in format "portabil" (un singur fisier)*
+* ***NOTA:*** pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python (vezi sectiunea urmatoare) duoa care devine utilizabil scriptul Python "ca orice alta comanada Linux"
 
 
-### Instalarea bliotecii Python (package) xl2roefact
+
+### Instalarea bliotecii Python xl2roefact PyPi
 
 Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl2roefact`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
 
@@ -125,19 +124,17 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 >* una este valoarea introdusa intr-o celula (de ex cu 3 zecimale) si
 >* alta este valoarea afisata (cu 2 zecimale) - aceasta din urma trebuie obtinuta prin formatarea celulei respective de a afisa 2 zecimale prin rotunjire insa valoarea efectiva trebuie sa fie cea originala cu 3 zecimale, lucru (diferenta) care se poate vedea la editarea continutului celulei.
 
--#TODO ...tbd (se va lua din `_docstring_` aferent `config.settings.py`)
-
 
 
 
 ## Tutorial utilizare aplicatie
+
 
 ### Organizarea informatiei
 
 Aplicatia *xl2roefact* "promoveaza" structurarea informatiei procesate astfel incit sa fie evitata situatia *"de aglomerare" a directorului curent cu fisiere* ce trebuiesc identificate si izolate in situatia in care se fac *procesari in masa* (pe mai multe fisiere / facturi sursa).
 
 Astfel, aplicatia se asteapa ca fisierele Excel sursa (*adica facturile de procesat*) sa fie copiate in directorul **`invoice_files/`** de unde vor fi citite si tot aici vor fi create fisierele rezultate (JSON, XML, etc). Acest director este relativ la directorul curent de unde este lansata aplicatia si considerat *"implicit"* cu acest nume dar daca se doreste un alt director acest lucru poate fi facut folosind parametrul *`--files-directory`* (sau prescurtat *`-d`*) la lansarea aplicatiei astfel:
-
 ```
 xl2roefact -d "calea si numele directorului dorit"
 ```
@@ -221,6 +218,23 @@ Cheile de la primul nivel reprezinta:
 
 
 
+## Date identificare
+
+* part number (p/n): `0000-0095-xl2roefact`
+* producator si copyright: RENWare Software Systems
+* author: Petre Iordanescu (petre.iordanescu@gmail.com)
+
+
 
 ## [License](./LICENSE)
+
+
+
+
+
+
+## Note
+
+[^ld_roefact]: Toate interactiunile cu sistemul *ANAF RO E-Fact* necesita o *conexiune la internet* si un set de *credentiale ANAF RO E-Fact ale companiei* pentru care se incarca factura. In lipsa acestora, fisierul `XML` generat de aplicatie poate fi incarcat ulterior (de ex de catre departmentul contabilitate)
+
 
