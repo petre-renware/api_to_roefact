@@ -36,14 +36,6 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 
 
-### Date identificare
-
-* part number (p/n): `0000-0095-xl2roefact`
-* producator si copyright: RENWare Software Systems
-* author: Petre Iordanescu (petre.iordanescu@gmail.com)
-
-
-
 
 
 ## Instalarea
@@ -228,6 +220,13 @@ Cheile de la primul nivel reprezinta:
 **NOTA:** Pentru descarcarea bibliotecii, pachetului Python `xl2roefact` [procesul este descris aici](#instalarea-bliotecii-python-package-xl2roefact)
 
 
+
+
+## Date identificare
+
+* part number (p/n): `0000-0095-xl2roefact`
+* producator si copyright: RENWare Software Systems
+* author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 
 
