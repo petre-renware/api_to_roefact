@@ -15,7 +15,7 @@
 
 
 
-## 0.1 -#TODO wip...
+## 0.1 (-#NOTE_wip...)
 
 
 - ---[ #TODO short planning board ]---------------------------------------------------------
@@ -28,13 +28,8 @@
 
 
 
-### #TODO_PLAN_TODO... `xl2roefact.RDINV` ???-[invoice issue date, invoice owner & partner?] (...)
+### tbd... PLAN #TODO:
 
-* [ ] update documentation for:
-    * [ ] `rdinv` module
-    * [ ] `xl2roefact` CLI application (to generate it with Typer-CLI if meanwhile is updated to work with  `Typer >= 0.9`
-    * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md` first ref "Cum sa utilizeti sablonul, reguli de urmat in completarea datelor"
--
 * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
     * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
 -
@@ -59,7 +54,7 @@
 
 
 
-### #NOTE_nxt... 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (...yymmdd hh:mm...)
+### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE_nxt... ...yymmdd hh:mm...)
 
 * TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO eFact`**
@@ -76,7 +71,7 @@
 
 
 
-### #NOTE_wip... 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
+### 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (#NOTE_wip... ...yymmdd hh:mm...)
 
 * tbd... `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi
 
