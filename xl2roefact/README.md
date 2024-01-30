@@ -126,19 +126,17 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 >* una este valoarea introdusa intr-o celula (de ex cu 3 zecimale) si
 >* alta este valoarea afisata (cu 2 zecimale) - aceasta din urma trebuie obtinuta prin formatarea celulei respective de a afisa 2 zecimale prin rotunjire insa valoarea efectiva trebuie sa fie cea originala cu 3 zecimale, lucru (diferenta) care se poate vedea la editarea continutului celulei.
 
--#TODO ...tbd (se va lua din `_docstring_` aferent `config.settings.py`)
-
 
 
 
 ## Tutorial utilizare aplicatie
+
 
 ### Organizarea informatiei
 
 Aplicatia *xl2roefact* "promoveaza" structurarea informatiei procesate astfel incit sa fie evitata situatia *"de aglomerare" a directorului curent cu fisiere* ce trebuiesc identificate si izolate in situatia in care se fac *procesari in masa* (pe mai multe fisiere / facturi sursa).
 
 Astfel, aplicatia se asteapa ca fisierele Excel sursa (*adica facturile de procesat*) sa fie copiate in directorul **`invoice_files/`** de unde vor fi citite si tot aici vor fi create fisierele rezultate (JSON, XML, etc). Acest director este relativ la directorul curent de unde este lansata aplicatia si considerat *"implicit"* cu acest nume dar daca se doreste un alt director acest lucru poate fi facut folosind parametrul *`--files-directory`* (sau prescurtat *`-d`*) la lansarea aplicatiei astfel:
-
 ```
 xl2roefact -d "calea si numele directorului dorit"
 ```
