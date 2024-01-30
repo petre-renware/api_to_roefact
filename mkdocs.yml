@@ -30,21 +30,12 @@ nav:
             #NOTE - add here EUMA manuals as needed
         - Manuale de configurare:
             - Indexul manuale ADMA: doc_src/help/880.30-ADMA_catalog.md
-            #NOTE - add here ADMA manuals as needed
-        #- Documentatia tehnica:  #FIXME will be reabilitateed after commercial agreement
+            #NOTE - add here ADMA manuals as ne eded
         - Cerintele sistemului:
-            - Functiionale:
-                - Considerente tehnice generale: doc_src/commercial_agreement/110-SRE-general_requirements.md
-                - Sistem INVOICEtoROefact: doc_src/commercial_agreement/110-SRE-api_to_roefact_requirements.md
-                - Sistem PayValidaBoa: doc_src/commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
-            - Specificatii si optiuni:
-                - Optiuni tehnice: doc_src/commercial_agreement/agreed_options.md
-                - Minute sedinte: doc_src/wip.md  #TODO - de completat pe masura ce se intimpla sedintele...
-
-
-    
-        #    - Specificatii componenta xl2roefact: 810-DSGN/810.05a-xl2roefact_component.md  #FIXME temporary disabled because errs supposing of directory level/position (which is not under doc_src/)
-        #    - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_requirements.md  #FIXME will be reabilitateed after commercial agreement
+            - Considerente tehnice generale: doc_src/commercial_agreement/110-SRE-general_requirements.md
+            - Sistem INVOICEtoROefact: doc_src/commercial_agreement/110-SRE-api_to_roefact_requirements.md
+            - Sistem PayValidaBoa: doc_src/commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
+            - Specificatii si optiuni tehnice: doc_src/commercial_agreement/agreed_options.md
         - Manual INVOICEtoROefact (PDF): pdfs/print_page.html/print_page.pdf
     #
     # #FIXME -[this entry will be dropped after commercial terms are concluded] -------------------
