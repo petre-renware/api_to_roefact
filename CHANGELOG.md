@@ -80,11 +80,11 @@
 
 -#FIXME #FIXME upd default tab size in VS Code to 4 (now looks as 8 or is not set to use spaces instead of tab)
 
-* tbd... `xl2roefact PyPi` component, MUST EXPLAIN THAT IT IS described / explained and contained in `xl2roefact` CLI component &...>
-    &...> also, "contained" is just a word because it is published and public on PyPi
-
+* tbd... `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi
 
 * tbd...  #TODO: publish for `xl2roefact` component
+
+
 
 * 240129piu_d updated `xlroefact` to have "Descrierea detliata" link in `810.05a-system_components.md`). Prepared component to be published: mkdocs.yml navigation & main site README index
 
