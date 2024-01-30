@@ -74,8 +74,11 @@ markdown_extensions:
 
 
 
-extra:
-    arint_version: "0.1"
+extra:    #NOTE ...ATTN here are components version used as Jinja fields in markdown docs  #FIXME find a way to build them auto at different events like MSI build for example
+    xl2roefact_version: "0.1.20"
+    web2roefact_version: "n/a"
+    xl2roefact_MSI_version: "0.1.19"
+    invoice_template_version: "0.1.20"
 #  alternate:  #NOTE [piu] language options - FUTURE FEATURE - should first have a translation...
 #    - name: English
 #      link: /
@@ -159,11 +162,11 @@ plugins:
 
 
 
-#NOTE [piu] provide material theme
+# provide material for MkDocs theme
 theme:
     # language: en  #NOTE [piu] FUTURE FEATURE - should first have a translation...
     logo: doc_src/pictures/api_to_roefact_logo.png
-    name: material
+    name: material  #NOTE an alternative is `readthedocs` but more of "visual" features will be "broken / disrupted"
     features:
         - navigation.tabs # left navigation side bar, all level 1 will be shown as top navigation bar
         - navigation.tracking
@@ -190,30 +193,19 @@ theme:
 
 
 
-
-
-
-
-
-# or can use readthedocstheme
-# theme: readthedocs
-
-
 # directory where start to search or markdown sources
 docs_dir: '.'  #NOTE [piu] this works with yhis directory because `mkdocs-same-dir` plug-in
 
 # root directory where to be generated portal
-site_dir: './static_portal' #NOTE: [piu] this is the working directory; final is in `docs/`` which is published through GitHub (chk but @ 230706 petre-dev branch)
+site_dir: './docs' #NOTE: [piu] this is the working directory; final is in `docs/`` which is published through GitHub (chk but @ 230706 petre-dev branch)
 
 # other useful configurations
-use_directory_urls: false # allow link between pages to work properly as static site an "callable" as `file:///...`
+use_directory_urls: false # allow link between pages to work properly as static site is used offline (ie, as `file:///...`)
 
 
-#NOTE [piu] dirs to exclude at INVOICEtoROefact project creation
-#   NOTE 1: `pyenv/` is the python environment usual required if build CGI solutions with python executable scripts
-#   NOTE 2: `docs/` is the directory where site itself will be built (! avoid potential self-ref-recurrence)
+# directories to be excludes when build site
+#    `docs/` is the directory where site itself will be built (! avoid potential self-ref-recurrence)
 exclude_docs: |
-  pyenv/
   docs/
 
 
