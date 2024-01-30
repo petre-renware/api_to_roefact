@@ -20,7 +20,10 @@ Aceasta componenta este "totul despre crearea de facturi electronice" din format
 
 Aceasta componenta ofera urmatoarele facilitati:
 
-* `xl2roefact` **command line application** to create, manipulate and upload to RO E-Fact system Excel invoices  <!-- #TODO translate 2 RO -->
+* `xl2roefact` **applicatie linie de comanda** ce permite:
+    * transformarea facturilor din Excel in formatul `XML` cerut de catre sistemul ANAF RO E-Fact pentru incarcare
+    * incarcarea acestora in sistemul ANAF RO E-Fact[^ld_roefact]
+    *  transformarea facturilor din Excel intr-un format `JSON` intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard REST)
 
 * `xl2roefact` **Python library** to use functions to create, manipulate and upload to RO E-Fact system Excel invoices  <!-- #TODO translate 2 RO -->
 
