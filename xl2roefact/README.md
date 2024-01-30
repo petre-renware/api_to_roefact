@@ -18,14 +18,17 @@
 
 Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si o poate incarca in sistemul *RO E-Fact*[^ld_roefact].
 
-Aceasta componenta ofera urmatoarele facilitati:
+Aceasta componenta ofera urmatoarele facilitati (acestea fiind obiectivele fundamentale ale componentei):
 
-* `xl2roefact` **applicatie linie de comanda** ce permite:
-    * transformarea facturilor din Excel in formatul `XML` cerut de catre sistemul ANAF RO E-Fact pentru incarcare
-    * incarcarea acestora in sistemul ANAF RO E-Fact[^ld_roefact]
-    *  transformarea facturilor din Excel intr-un format `JSON` intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard REST)
+* **transformarea facturilor din Excel in formatul `XML`** cerut de catre sistemul ANAF RO E-Fact pentru incarcare
+ * **incarcarea acestora** in sistemul ANAF RO E-Fact[^ld_roefact]
+*  **transformarea facturilor din Excel intr-un format `JSON`*  intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard REST)
 
-* `xl2roefact` **Python library** to use functions to create, manipulate and upload to RO E-Fact system Excel invoices  <!-- #TODO translate 2 RO -->
+Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obiective:
+
+* `xl2roefact` o **applicatie de tip linie de comanda** (disponibila pentru sistemele de operare Windows, Linux si MacOS)
+* `xl2roefact PyPi` o **blioteca standard Python** utilizabila pentru dezvoltari proprii in scopul extinderii altor sisteme existente (*custom development*)
+
 
 
 ### Date identificare
