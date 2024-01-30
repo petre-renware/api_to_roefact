@@ -21,34 +21,27 @@ Aceasta componenta este "totul despre crearea de facturi electronice" din format
 Aceasta componenta ofera urmatoarele facilitati (acestea fiind obiectivele fundamentale ale componentei):
 
 * **transformarea facturilor din Excel in formatul `XML`** cerut de catre sistemul ANAF RO E-Fact pentru incarcare
+
  * **incarcarea acestora** in sistemul ANAF RO E-Fact[^ld_roefact]
-*  **transformarea facturilor din Excel intr-un format `JSON`**  intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard REST)
+
+*  **transformarea facturilor din Excel intr-un format `JSON`**  intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard *REST*)
+
 * **generarea facturii in format PDF** pentru transmiterea acesteia catre client, semnarea electronica, tiparirea si arhivarea acesteia in format fizic (in general manipularea facturii in format *"human readable"*)
 
 Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obiective:
 
 * `xl2roefact` o **applicatie de tip linie de comanda** (disponibila pentru sistemele de operare Windows, Linux si MacOS)
+
 * `xl2roefact PyPi` o **blioteca standard Python** utilizabila pentru dezvoltari proprii in scopul extinderii altor sisteme existente (*custom development*)
 
 
 
 ### Date identificare
 
-- code-name: `xl2roefact`
-- copyright: (c) 2023, 2024 RENWare Software Systems
-    - author: Petre Iordanescu (petre.iordanescu@gmail.com)
+* part number (p/n): `0000-0095-xl2roefact`
+* producator si copyright: RENWare Software Systems
+* author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
-
-### Deployments  <!-- #TODO translate 2 RO -->
-
-    - Windows: `xl2roefact.exe` 64 bit CLI application (installable through a `MSI` package)
-    - Linux: `xl2roefact` executable CLI shell
-
-
-### Specifications <!-- #TODO translate 2 RO -->
-
-    - command general format: `xl2roefact [COMMAND] [OPTIONS]`
-    - help: `xl2roefact [COMMAND] --help`
 
 
 
@@ -64,12 +57,16 @@ Acest sistem consta din urmatoarele componente:
 
 ### Instalarea aplicatiei xl2roefact
 
-Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si versiunea sistemului de operare pentru care sunt disponibile.  (_EN: Installation package is found in `dist/` directory in archive (zip) files. Available packages are identified by released versions and operating systems._)
+Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
 
-Pachetele contin un script de instalare sub forma standard `MSI` pentru Windows si `DEB` pentru Linux Debian (verificati disponibilitatea pentru sistemul de operare folosit de dvs).  (_EN: Packages contains an installation script as `MSI` for Windows and `DEB` for Debian Linux based systems (check availability for your operating system)_).
+* `MSI` pachet instalare pentru *Windows 
+* `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemuluu de operare folosit de dvs)
+* `EXE` executabil *Windows in format "portabil" (un singur fisier)*
+* ***NOTA:*** pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python (vezi sectiunea urmatoare) duoa care devine utilizabil scriptul Python "ca orice alta comanada Linux"
 
 
-### Instalarea bliotecii Python (package) xl2roefact
+
+### Instalarea bliotecii Python xl2roefact PyPi
 
 Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl2roefact`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
 
