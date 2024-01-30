@@ -30,7 +30,7 @@ Aceasta componenta ofera urmatoarele facilitati (acestea fiind obiectivele funda
 
 Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obiective:
 
-* `xl2roefact` o **applicatie de tip linie de comanda** (disponibila pentru sistemele de operare Windows, Linux si MacOS)
+* `xl2roefact` o **aplicatie de tip linie de comanda** (disponibila pentru sistemele de operare Windows, Linux si MacOS)
 
 * `xl2roefact PyPi` o **blioteca standard Python** utilizabila pentru dezvoltari proprii in scopul extinderii altor sisteme existente (*custom development*)
 
