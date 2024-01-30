@@ -16,25 +16,30 @@
 
 ## Facilitati (Features)
 
-Aceasta aplicatie este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si chiar o poate incarca in sistemul *RO E-Fact*.
+Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si chiar o poate incarca in sistemul *RO E-Fact*.
 
-(This application is all about electronic invoices creation from Excel office format (xlsx). It can generate invoice in JSON, XML, PDF formats and even upload it to *RO E-Fact* system.)
+Aceasta componenta ofera urmatoarele facilitati:
 
-* Components
-    * `xl2roefact` **command line application** to create, manipulate and upload to RO E-Fact system Excel invoices
-    * `xl2roefact` **Python library** to use functions to create, manipulate and upload to RO E-Fact system Excel invoices
+* `xl2roefact` **command line application** to create, manipulate and upload to RO E-Fact system Excel invoices  <!-- #TODO translate 2 RO -->
+
+* `xl2roefact` **Python library** to use functions to create, manipulate and upload to RO E-Fact system Excel invoices  <!-- #TODO translate 2 RO -->
 
 
-* Identification
-    - code-name: `xl2roefact`
-    - copyright: (c) 2023, 2024 RENWare Software Systems
+### Date identificare
+
+- code-name: `xl2roefact`
+- copyright: (c) 2023, 2024 RENWare Software Systems
     - author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
-* Deployments
+
+### Deployments  <!-- #TODO translate 2 RO -->
+
     - Windows: `xl2roefact.exe` 64 bit CLI application (installable through a `MSI` package)
     - Linux: `xl2roefact` executable CLI shell
 
-* Specifications
+
+### Specifications <!-- #TODO translate 2 RO -->
+
     - command general format: `xl2roefact [COMMAND] [OPTIONS]`
     - help: `xl2roefact [COMMAND] --help`
 
