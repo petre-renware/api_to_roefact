@@ -40,12 +40,10 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 ## Instalarea
 
-Acest sistem consta din urmatoarele componente:
+Instalarea este diferita pentru cele doua  componente:
 
-* o aplicatie de tip *linie de comanda / consola* ce permite realizarea operatiilor necesare de procesare a facturilor in Excel (**`xl2roefact`** CLI application)
-
-* o biblioteca (**`xl2roefact`**) tip *“standard Python package wheel"* ce permite utilizarea functionalitatilor de procesare a facturilor Excel in mod programatic in alte sisteme.  Biblioteca este realizata in Python 3 iar instalarea ei se poate face cu instrumentele standard Python
-
+* aplicatia de tip *linie de comanda / consola*
+* biblioteca *“standard Python package wheel"*
 
 ### Instalarea aplicatiei xl2roefact
 
