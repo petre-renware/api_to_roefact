@@ -4,6 +4,16 @@ copyright: 'Copyright (c) RENware Software Systems'
 
 
 
+
+extra:    #NOTE ...ATTN here are components version used as Jinja fields in markdown docs  #FIXME find a way to build them auto at different events like MSI build for example
+    xl2roefact_version: "0.1.20"
+    web2roefact_version: "n/a"
+    xl2roefact_MSI_version: "0.1.19"
+    invoice_template_version: "0.1.20"
+
+
+
+
 nav:
     # ---- core functionalities
     - INVOICEtoROefact:
@@ -49,7 +59,6 @@ nav:
 
 
 
-
 markdown_extensions:
     - admonition
     - tables
@@ -74,28 +83,11 @@ markdown_extensions:
 
 
 
-extra:    #NOTE ...ATTN here are components version used as Jinja fields in markdown docs  #FIXME find a way to build them auto at different events like MSI build for example
-    xl2roefact_version: "0.1.20"
-    web2roefact_version: "n/a"
-    xl2roefact_MSI_version: "0.1.19"
-    invoice_template_version: "0.1.20"
-#  alternate:  #NOTE [piu] language options - FUTURE FEATURE - should first have a translation...
-#    - name: English
-#      link: /
-#      lang: en
-#    - name: Romanian
-#      link: /ro/
-#      lang: ro
-
-
-
-
 #NOTE required to render `mermaid` diagrams
 extra_javascript:
   - optionalConfig.js
   - https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js
   - extra-loader.js
-
 
 
 
@@ -162,6 +154,7 @@ plugins:
 
 
 
+
 # provide material for MkDocs theme
 theme:
     # language: en  #NOTE [piu] FUTURE FEATURE - should first have a translation...
@@ -193,6 +186,7 @@ theme:
 
 
 
+
 # directory where start to search or markdown sources
 docs_dir: '.'  #NOTE [piu] this works with yhis directory because `mkdocs-same-dir` plug-in
 
@@ -201,6 +195,8 @@ site_dir: './docs' #NOTE: [piu] this is the working directory; final is in `docs
 
 # other useful configurations
 use_directory_urls: false # allow link between pages to work properly as static site is used offline (ie, as `file:///...`)
+
+
 
 
 # directories to be excludes when build site
