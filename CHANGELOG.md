@@ -75,6 +75,10 @@
 
 * tbd... `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi
 
+
+* 240131piu_a updated `mkdocs.yml`: cleaned navigation, created version variables, updated default site build directory to `docs/`, cleared excluded directories entry
+* --- #TODO review up from here & publish
+ 
 * 240130piu_b reviewed all changes, update site PDF generator file (mvd `print_page.md` to root) location, fixed navigation. PUBLISHED for `xl2roefact` component
 * 240130piu_a reviewed `xl2roefact` README: cleaned, translated 2 RO, structured to "end user needs"
 * 240129piu_d updated `xl2roefact` to have "Descrierea detliata" link in `810.05a-system_components.md`). Prepared component to be published: mkdocs.yml navigation & main site README index
