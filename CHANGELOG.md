@@ -18,18 +18,12 @@
 ## 0.1 (-#NOTE_wip...)
 
 
-- ---[ #TODO short planning board ]---------------------------------------------------------
+- ---[ #TODO general planning board ]---------------------------
 * ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
 * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
 * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
--------------------------------------------------------------------------------------------------
 
-
-
-
-
-### tbd... PLAN #TODO:
-
+- ---[ #TODO short planning board ]---------------------------
 * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
     * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
 -
@@ -48,7 +42,7 @@
         * [ ] wip... invoice header - customer bank, RegCom, email, tel, ...
         * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
         * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
-
+-------------------------------------------------------------------------------------------------
 
 
 
