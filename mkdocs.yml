@@ -28,9 +28,9 @@ nav:
         - Manuale de utilizare:
             - Indexul manuale EUMA: doc_src/help/880.30-EUMA_catalog.md
             #NOTE - add here EUMA manuals as needed
-        - Manuale de configurare:
+        - Manuale de admistrare:
             - Indexul manuale ADMA: doc_src/help/880.30-ADMA_catalog.md
-            #NOTE - add here ADMA manuals as ne eded
+            #NOTE - add here ADMA manuals as needed
         - Cerintele sistemului:
             - Considerente tehnice generale: doc_src/commercial_agreement/110-SRE-general_requirements.md
             - Sistem INVOICEtoROefact: doc_src/commercial_agreement/110-SRE-api_to_roefact_requirements.md
@@ -43,7 +43,7 @@ nav:
         - Suport: https://www.renware.eu/support.html
         - Contact: https://www.renware.eu/contact.html
         - Cum cumpar: https://www.renware.eu/resources.html#how-to-buy-from-renware
-        - Licenta generala sistem: ./LICENSE
+        - Licenta generala sistem: LICENSE  #FIXME see if needed anymore l, first because each component has its own license
         - CHANGELOG sistem: CHANGELOG.md
 
 
