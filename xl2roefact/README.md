@@ -16,7 +16,7 @@
 
 ## Facilitati (Features)
 
-Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si chiar o poate incarca in sistemul *RO E-Fact*.
+Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si o poate incarca in sistemul *RO E-Fact*[^ld_roefact].
 
 Aceasta componenta ofera urmatoarele facilitati:
 
@@ -228,4 +228,14 @@ Cheile de la primul nivel reprezinta:
 
 
 ## [License](./LICENSE)
+
+
+
+
+
+
+## Note
+
+[^ld_roefact]: Incarcarea in sistemul *ANAF RO E-Fact* necesita o *conexiune la internet* si un set de *credentiale ANAF RO E-Fact ale companiei* pentru care se incarca factura
+
 
