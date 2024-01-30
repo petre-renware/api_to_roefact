@@ -1,4 +1,5 @@
 ![api_to_roefact_logo](doc_src/pictures/api_to_roefact_logo.png){ width="300" }
+
 <small>**RENware Software Systems**</small>
 
 
@@ -18,7 +19,7 @@ Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura]
 Sistemul ofera urmatoarele componente:
 
 * [xl2roefact](./xl2roefact/README.md)
-* web2roefact  <!--#TODO link tbd --> 
+* web2roefact  <!--#TODO link tbd -->
 * xl2roefact PyPi  <!--#TODO link tbd -->
 * [invoice template](./excel_invoice_template/README.md)
 
@@ -40,7 +41,7 @@ Sistemul ofera urmatoarele componente:
 * [git](https://github.com/petre-renware/api_to_roefact)
 * copyright: RENware Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
-* [general system license](./LICENSE)
+* [general system license](./LICENSE "download")
 
 
 

@@ -37,7 +37,7 @@ nav:
         # - Documentatia tehnica:  #FIXME will be reabilitateed after commercial agreement
         #     - Specificatii componenta xl2roefact: 810-DSGN/810.05a-xl2roefact_component.md  #FIXME temporary disabled because errs supposing of directory level/position (which is not under doc_src/)
         #     - Cerintele sistemului: 810-DSGN/110-SRE-api_to_roefact_requirements.md  #FIXME will be reabilitateed after commercial agreement
-        - Manual INVOICEtoROefact (PDF): doc_src/pdfs/print_page.html/print_page.pdf
+        - Manual INVOICEtoROefact (PDF): pdfs/print_page.html/print_page.pdf
     #
     # #FIXME -[this entry will be dropped after commercial terms are concluded] -------------------
     - Requirements:
@@ -51,11 +51,11 @@ nav:
     # #FIXME -------------------------------------------------------------------------------------------------
     #
     - About:
-        - Licenta generala sistem: ./LICENSE
+        - Despre INVOICEtoROefact: doc_src/wip.md  #TODO `about.md` cu echipa, 2 vorbe "de ce, istoria" etc...
         - Suport: https://www.renware.eu/support.html
         - Contact: https://www.renware.eu/contact.html
         - Cum cumpar: https://www.renware.eu/resources.html#how-to-buy-from-renware
-        - Despre INVOICEtoROefact: doc_src/wip.md  #TODO `about.md` cu echipa, 2 vorbe "de ce, istoria" etc...
+        - Licenta generala sistem: ./LICENSE
         - CHANGELOG sistem: CHANGELOG.md
 
 

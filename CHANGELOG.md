@@ -78,19 +78,12 @@
 
 ### #NOTE_wip... 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (...yymmdd hh:mm...)
 
--#FIXME #FIXME upd default tab size in VS Code to 4 (now looks as 8 or is not set to use spaces instead of tab)
-
 * tbd... `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi
 
-* tbd...  #TODO: publish for `xl2roefact` component
-
-
+* 240130piu_b reviewed all changes, update site PDF generator file (mvd `print_page.md` to root) location, fixed navigation. PUBLISHED for `xl2roefact` component
 * 240130piu_a reviewed `xl2roefact` README: cleaned, translated 2 RO, structured to "end user needs"
-* 240129piu_d updated `xlroefact` to have "Descrierea detliata" link in `810.05a-system_components.md`). Prepared component to be published: mkdocs.yml navigation & main site README index
+* 240129piu_d updated `xl2roefact` to have "Descrierea detliata" link in `810.05a-system_components.md`). Prepared component to be published: mkdocs.yml navigation & main site README index
 * 240129piu_c updated all site pages to contain `<small>**RENware Software Systems**</small>` & `[TOC]` after title
-
-* ------#TODO ck/test up of here
-
 * 240129piu_b cleanup project docs, requirements, fresh install ==> published site as is at this point (invoice template finished)
 * 240129piu_a updated `xl2roefact/README.md` with section for assets download
 * 240128piu_e formal versioning `invoice template` component

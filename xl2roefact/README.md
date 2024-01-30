@@ -49,7 +49,7 @@ Instalarea este diferita pentru cele doua  componente:
 
 Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
 
-* `MSI` pachet instalare pentru *Windows 
+* `MSI` pachet instalare pentru *Windows
 * `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemuluu de operare folosit de dvs)
 * `EXE` executabil *Windows in format "portabil" (un singur fisier)*
 * ***NOTA:*** pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python (vezi sectiunea urmatoare) duoa care devine utilizabil scriptul Python "ca orice alta comanada Linux"
@@ -168,9 +168,11 @@ invoice_files/
 
 
 
+## Documentatia tehnica
 
+Documentatia tehnica de design si specificatiile detaliate pot fi accesate [aici](./doc/810.05a-xl2roefact_component.md)
 
-## Formatul fisierului JSON
+### Formatul fisierului JSON
 
 Structura de baza a fisierului JSON aferent unei facturi este:
 
@@ -188,14 +190,6 @@ Cheile de la primul nivel reprezinta:
 * **`Invoice`** - #TODO tbd...
 * **`meta_info`** - #TODO tbd...
 * **`excel_original_data`** - #TODO tbd...
-
-
-
-
-
-
-
-## [Documentatia tehnica](./doc/810.05a-xl2roefact_component.md)
 
 
 
