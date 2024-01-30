@@ -37,18 +37,7 @@ nav:
             - Sistem PayValidaBoa: doc_src/commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
             - Specificatii si optiuni tehnice: doc_src/commercial_agreement/agreed_options.md
         - Manual INVOICEtoROefact (PDF): pdfs/print_page.html/print_page.pdf
-    #
-    # #FIXME -[this entry will be dropped after commercial terms are concluded] -------------------
-    - Requirements:
-        - Specificatii tehnice propuse:
-            - Considerente tehnice generale: doc_src/commercial_agreement/110-SRE-general_requirements.md
-            - Sistem INVOICEtoROefact: doc_src/commercial_agreement/110-SRE-api_to_roefact_requirements.md
-            - Sistem PayValidaBoa: doc_src/commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
-        - Specificatii tehnice agreate:
-            - Optiuni tehnice: doc_src/commercial_agreement/agreed_options.md
-            - Minute sedinte: doc_src/wip.md  #TODO - de completat pe masura ce se intimpla sedintele...
-    # #FIXME -------------------------------------------------------------------------------------------------
-    #
+    # ---- system references
     - About:
         - Despre INVOICEtoROefact: doc_src/wip.md  #TODO `about.md` cu echipa, 2 vorbe "de ce, istoria" etc...
         - Suport: https://www.renware.eu/support.html
