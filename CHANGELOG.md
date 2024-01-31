@@ -17,33 +17,33 @@
 
 ## 0.1 (-#NOTE_wip...)
 
+```
+    - ---[ #TODO general planning board ]---------------------------
+    * ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
+    * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
+    * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
 
-- ---[ #TODO general planning board ]---------------------------
-* ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
-* -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
-* -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
-
-- ---[ #TODO short planning board ]---------------------------
-* left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
-    * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
--
-* ... FUTURE NEW APP COMMANDS :
-    * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-    * `xl2json` - crt_wip... (last upd @ 240123)
-    * `json2xml` - see module WRXML,
-    * `json2pdf` - new tbd..,
-    * `xml2roefact` - see mpdule LDXML
-    * chk for other commands from doc `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-    * PACKAGE SOLUTION:
-        * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
--
-* -#NOTE_PLAN `rdinv` module:
-    * invoice header
-        * [ ] wip... invoice header - customer bank, RegCom, email, tel, ...
-        * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
-        * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
--------------------------------------------------------------------------------------------------
-
+    - ---[ #TODO short planning board ]---------------------------
+    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
+        * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
+    -
+    * ... FUTURE NEW APP COMMANDS :
+        * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
+        * `xl2json` - crt_wip... (last upd @ 240123)
+        * `json2xml` - see module WRXML,
+        * `json2pdf` - new tbd..,
+        * `xml2roefact` - see mpdule LDXML
+        * chk for other commands from doc `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
+        * PACKAGE SOLUTION:
+            * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
+    -
+    * -#NOTE_PLAN `rdinv` module:
+        * invoice header
+            * [ ] wip... invoice header - customer bank, RegCom, email, tel, ...
+            * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
+            * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
+    -------------------------------------------------------------------------------------------------
+```
 
 
 
@@ -68,14 +68,13 @@
 ### 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (#NOTE_wip... ...yymmdd hh:mm...)
 
 * tbd... `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi
+* tbd... ?KEEP? this doc `xl2roefact/doc/810.05a-xl2roefact_component.md` is more a "JUST FOR ME, HIW TO BUILD, ..." things capitalized by PDM scripts !!!
 
 
 * 240131piu_a updated `mkdocs.yml`: cleaned navigation, created version variables, updated default site build directory to `docs/`, cleared excluded directories entry
-* --- #TODO review up from here & publish
- 
 * 240130piu_b reviewed all changes, update site PDF generator file (mvd `print_page.md` to root) location, fixed navigation. PUBLISHED for `xl2roefact` component
 * 240130piu_a reviewed `xl2roefact` README: cleaned, translated 2 RO, structured to "end user needs"
-* 240129piu_d updated `xl2roefact` to have "Descrierea detliata" link in `810.05a-system_components.md`). Prepared component to be published: mkdocs.yml navigation & main site README index
+* 240129piu_d updated `xl2roefact` to have "Descrierea detliata" link in `810.05a-system_components.md`. Prepared component to be published: mkdocs.yml navigation & main site README index
 * 240129piu_c updated all site pages to contain `<small>**RENware Software Systems**</small>` & `[TOC]` after title
 * 240129piu_b cleanup project docs, requirements, fresh install ==> published site as is at this point (invoice template finished)
 * 240129piu_a updated `xl2roefact/README.md` with section for assets download
