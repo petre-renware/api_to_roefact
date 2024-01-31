@@ -68,8 +68,9 @@
 ### 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (#NOTE_wip... ...yymmdd hh:mm...)
 
 * tbd... `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi
-* tbd... ?KEEP? this doc `xl2roefact/doc/810.05a-xl2roefact_component.md` is more a "JUST FOR ME, HIW TO BUILD, ..." things capitalized by PDM scripts !!!
 
+* wip...240131piu_a `xl2roefact/doc/810.05a-xl2roefact_component.md` clean & transform to "first entry to `xl2roefactPyPi`"
+* #TODO chk up here & publish...
 
 * 240131piu_a updated `mkdocs.yml`: cleaned navigation, created version variables, updated default site build directory to `docs/`, cleared excluded directories entry
 * 240130piu_b reviewed all changes, update site PDF generator file (mvd `print_page.md` to root) location, fixed navigation. PUBLISHED for `xl2roefact` component
