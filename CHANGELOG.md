@@ -48,7 +48,7 @@
 
 
 
-### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE_nxt... ...yymmdd hh:mm...)
+### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt... ...yymmdd hh:mm...)
 
 * TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO eFact`**
@@ -65,12 +65,11 @@
 
 
 
-### 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (#NOTE_wip... ...yymmdd hh:mm...)
+### 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (#NOTE wip... ...yymmdd hh:mm...)
 
 
 * tbd...240201piu_a reorganize `xl2roefact*` components by diseminating the installable application, which is something available "as is now" just for Windows operating system. For Linux there is no difference between command line application and Python package *from an end user point of view*. KEEP IN MIND:
     - `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi
-
 
 * tbd... final review of `xl2roefact/doc/810.05a-xl2roefact_component.md` and publish it as **Description of xl2roefact PyPi**
 
