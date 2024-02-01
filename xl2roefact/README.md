@@ -56,6 +56,9 @@ Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetel
 
 
 
+
+-#FIXME moved to `./doc/810.05a-xl2roefact_component.md`. Can drop section...
+
 ### Instalarea bliotecii Python xl2roefact PyPi
 
 Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl2roefact`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
