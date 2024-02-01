@@ -68,10 +68,12 @@
 ### 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (#NOTE wip... ...yymmdd hh:mm...)
 
 
-* wip...240201piu_a reorganize `xl2roefact*` components by diseminating the installable application, which is something available "as is now" just for Windows operating system. For Linux there is no difference between command line application and Python package *from an end user point of view*.
-    * [ ] KEEP IN MIND `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi (#FIXME drop me)
+* wip...240201piu_a reorganized `xl2roefact*` components by diseminating the installable application, which is something available "as is now" just for Windows operating system. For Linux there is no difference between command line application and Python package *from an end user point of view*.
+    * [x] 002. KEEP IN MIND `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi (#FIXME drop me)
+    * [x] 003. made a sample invoice JSON and ref it in xl2roefact PyPi component description
     * [x] 001. get from `xl2roefact README` to `xl2roefact/doc/810.05a-xl2roefact_component.md` __Installtion__, 2 & make 2 sections: install from PyPi &
-    * [ ] install from source (#TODO describe it...)
+    * [ ] made section "install from source" (#TODO describe it...)
+    * [ ] reference `xl2roefact/doc/810.05a-xl2roefact_component.md` doc in mkdocs navigation for **xl2roefact PyPi**
 
 
 

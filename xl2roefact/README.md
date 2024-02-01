@@ -163,13 +163,12 @@ invoice_files/
 
 
 
-## Documentatia tehnica
 
-Documentatia tehnica de design si specificatiile detaliate pot fi accesate [aici](./doc/810.05a-xl2roefact_component.md)
 
-### Formatul fisierului JSON
+## Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii
 
-Structura de baza a fisierului JSON aferent unei facturi este:
+Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Structura de baza a acestui fisier este:
+
 
 ```
 {
@@ -180,11 +179,13 @@ Structura de baza a fisierului JSON aferent unei facturi este:
 
 ```
 
-Cheile de la primul nivel reprezinta:
+Cheile de la primul nivel contin:
 
-* **`Invoice`** - #TODO tbd...
-* **`meta_info`** - #TODO tbd...
-* **`excel_original_data`** - #TODO tbd...
+* **`Invoice`** - datele efective ale facturii
+* **`meta_info`** - informatii referitoare la procesarea facturii si mapa de conversie a cheii `Invoice` din formatul `JSON` in formatul `XML` cerut de sistemul *RO E-Fact*
+* **`excel_original_data`** - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel
+
+
 
 
 
