@@ -42,8 +42,9 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 Instalarea este diferita pentru cele doua  componente:
 
-* aplicatia de tip *linie de comanda / consola*
-* biblioteca *“standard Python package wheel"*
+* aplicatia de tip *linie de comanda / consola* (descrisa in continuare)
+* [biblioteca *“standard Python package wheel"*](./doc/810.05a-xl2roefact_component.md#install-library) (descrisa in al document, pe linkul afisat)
+
 
 ### Instalarea aplicatiei xl2roefact
 
@@ -52,13 +53,7 @@ Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetel
 * `MSI` pachet instalare pentru *Windows
 * `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemuluu de operare folosit de dvs)
 * `EXE` executabil *Windows in format "portabil" (un singur fisier)*
-* ***NOTA:*** pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python (vezi sectiunea urmatoare) duoa care devine utilizabil scriptul Python "ca orice alta comanada Linux"
-
-
-
-### Instalarea bliotecii Python xl2roefact PyPi
-
-Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl2roefact`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact).
+* ***NOTA:*** pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python (vezi sectiunea urmatoare) duoa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
 
 
 
