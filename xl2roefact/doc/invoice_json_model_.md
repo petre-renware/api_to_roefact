@@ -1,6 +1,6 @@
 # Generated invoice JSON model
 
->NOTE: ***The following model should be considered for JSON keys. All data is just sample / not real just for a better understanding of its format (or "how it looks like").***
+>NOTE: ***The following model should be considered ONLY for JSON keys. All data is just sample / not real just for a better understanding of its format (or "how it looks like").***
 
 
 ```
