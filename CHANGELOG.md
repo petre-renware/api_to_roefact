@@ -68,10 +68,11 @@
 ### 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (#NOTE wip... ...yymmdd hh:mm...)
 
 
-* tbd...240201piu_a reorganize `xl2roefact*` components by diseminating the installable application, which is something available "as is now" just for Windows operating system. For Linux there is no difference between command line application and Python package *from an end user point of view*. KEEP IN MIND:
-    - `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi
+* wip...240201piu_a reorganize `xl2roefact*` components by diseminating the installable application, which is something available "as is now" just for Windows operating system. For Linux there is no difference between command line application and Python package *from an end user point of view*.
+    * [ ] KEEP IN MIND `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi (#FIXME drop me)
+    * [ ] get from `xl2roefact README` to `xl2roefact/doc/810.05a-xl2roefact_component.md` __Installtion__, 2 & make 2 sections: install from PyPi, install from source
 
-* tbd... final review of `xl2roefact/doc/810.05a-xl2roefact_component.md` and publish it as **Description of xl2roefact PyPi**
+
 
 * 240131piu_a `xl2roefact/doc/810.05a-xl2roefact_component.md` clean & transform to "first entry to `xl2roefactPyPi`"
 * 240131piu_a updated `mkdocs.yml`: cleaned navigation, created version variables, updated default site build directory to `docs/`, cleared excluded directories entry
