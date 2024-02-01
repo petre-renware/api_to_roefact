@@ -1,3 +1,6 @@
+# Generated invoice JSON model
+
+```
 {
     "Invoice": {
         "cbc_ID": "RENF-1004",
@@ -422,3 +425,5 @@
         }
     }
 }
+```
+
