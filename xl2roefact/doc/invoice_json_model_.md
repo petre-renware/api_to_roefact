@@ -279,7 +279,7 @@
             ],
             "data": [
                 [
-                    "Elaborare documentatie tehnica aplicatie NEXGEN.AI",
+                    "...excel data...",
                     "buc",
                     3.5,
                     11111.5,
@@ -288,7 +288,7 @@
                     7389.15
                 ],
                 [
-                    "conf Comanda 1/30.06.2023, Contract 3662.1/ 30.06.2023",
+                    "...excel data...",
                     "",
                     "",
                     "",
@@ -297,7 +297,7 @@
                     ""
                 ],
                 [
-                    "si PV acceptanta 1/24.08.2023",
+                    ...excel data...",
                     "",
                     "",
                     "",
@@ -306,7 +306,7 @@
                     ""
                 ],
                 [
-                    "'*** valoare 3000EUR la curs BNR",
+                    "'*** a comment ref price xchg rate 3000EUR ref BNR",
                     "",
                     "",
                     "",
@@ -335,7 +335,7 @@
                 9
             ],
             "invoice_number": {
-                "value": "RENF-1004",
+                "value": "INV-001",
                 "location": [
                     5,
                     3
@@ -347,7 +347,7 @@
                 ]
             },
             "issued_date": {
-                "value": "2023-08-28",
+                "value": "2021-08-28",
                 "location": [
                     6,
                     3
@@ -385,7 +385,7 @@
                     ]
                 },
                 "CUI": {
-                    "value": "17753763",
+                    "value": "...exceel data...",
                     "location": [
                         11,
                         6
@@ -397,7 +397,7 @@
                     ]
                 },
                 "RegistrationName": {
-                    "value": "CONNECTIONS CONSULT SRL",
+                    "value": "...excel data...",
                     "location": [
                         9,
                         5
@@ -407,7 +407,7 @@
                 },
                 "PostalAddress": {
                     "cbc_StreetName": "",
-                    "cbc_CityName": "Bucureşti Sectorul 1, Strada: BUZEŞTI, Nr. 71, Etaj 7 si 8, tara: Romania",
+                    "cbc_CityName": "...excel data...",
                     "cbc_PostalZone": "",
                     "cac_Country": {
                         "cbc_IdentificationCode": "RO"
