@@ -48,7 +48,7 @@
 
 
 
-### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE_nxt... ...yymmdd hh:mm...)
+### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt... ...yymmdd hh:mm...)
 
 * TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
     - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO eFact`**
@@ -65,13 +65,15 @@
 
 
 
-### 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (#NOTE_wip... ...yymmdd hh:mm...)
+### 0.1.21.dev rollout news in system portal invoicetoroefact.renware.eu (#NOTE wip... ...yymmdd hh:mm...)
 
-* tbd... `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi
 
-* wip...240131piu_a `xl2roefact/doc/810.05a-xl2roefact_component.md` clean & transform to "first entry to `xl2roefactPyPi`"
-* #TODO chk up here & publish...
+* tbd...240201piu_a reorganize `xl2roefact*` components by diseminating the installable application, which is something available "as is now" just for Windows operating system. For Linux there is no difference between command line application and Python package *from an end user point of view*. KEEP IN MIND:
+    - `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi
 
+* tbd... final review of `xl2roefact/doc/810.05a-xl2roefact_component.md` and publish it as **Description of xl2roefact PyPi**
+
+* 240131piu_a `xl2roefact/doc/810.05a-xl2roefact_component.md` clean & transform to "first entry to `xl2roefactPyPi`"
 * 240131piu_a updated `mkdocs.yml`: cleaned navigation, created version variables, updated default site build directory to `docs/`, cleared excluded directories entry
 * 240130piu_b reviewed all changes, update site PDF generator file (mvd `print_page.md` to root) location, fixed navigation. PUBLISHED for `xl2roefact` component
 * 240130piu_a reviewed `xl2roefact` README: cleaned, translated 2 RO, structured to "end user needs"
