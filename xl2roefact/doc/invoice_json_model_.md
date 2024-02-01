@@ -1,21 +1,24 @@
 # Generated invoice JSON model
 
+>NOTE: ***The following model should be considered for JSON keys. All data is just sample / not real just for a better understanding of its format (or "how it looks like").***
+
+
 ```
 {
     "Invoice": {
-        "cbc_ID": "RENF-1004",
+        "cbc_ID": "INV-001",
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-08-28",
         "cac_AccountingCustomerParty": {
             "cac:Party": {
                 "cac_PartyLegalEntity": {
                     "cbc_CompanyID": "17753763",
-                    "cbc_RegistrationName": "CONNECTIONS CONSULT SRL"
+                    "cbc_RegistrationName": "SOME COMPABY SRL"
                 },
                 "cac_PostalAddress": {
                     "cbc_StreetName": "",
-                    "cbc_CityName": "Bucureşti Sectorul 1, Strada: BUZEŞTI, Nr. 71, Etaj 7 si 8, tara: Romania",
-                    "cbc_PostalZone": "",
+                    "cbc_CityName": "Bucureşti Sectorul 1, Strada: Rozelor, Nr. 21, Etaj parter, tara: Romania",
+                    "cbc_PostalZone": "5555544",
                     "cac_Country": {
                         "cbc_IdentificationCode": "RO"
                     }
@@ -28,7 +31,7 @@
                 "cbc_InvoicedQuantity": 3.5,
                 "cbc_unitCode": "buc",
                 "cac_Item": {
-                    "cbc_Name": "Elaborare documentatie tehnica aplicatie NEXGEN.AI",
+                    "cbc_Name": "Product x name here",
                     "cac_ClassifiedTaxCategory": {
                         "cbc_Percent": 0.19,
                         "cac_TaxScheme": {
@@ -48,7 +51,7 @@
                 "cbc_InvoicedQuantity": null,
                 "cbc_unitCode": null,
                 "cac_Item": {
-                    "cbc_Name": "conf Comanda 1/30.06.2023, Contract 3662.1/ 30.06.2023",
+                    "cbc_Name": "just some supplementary explanations ref first product...",
                     "cac_ClassifiedTaxCategory": {
                         "cbc_Percent": null,
                         "cac_TaxScheme": {
@@ -68,7 +71,7 @@
                 "cbc_InvoicedQuantity": null,
                 "cbc_unitCode": null,
                 "cac_Item": {
-                    "cbc_Name": "si PV acceptanta 1/24.08.2023",
+                    "cbc_Name": "another explanations line...",
                     "cac_ClassifiedTaxCategory": {
                         "cbc_Percent": null,
                         "cac_TaxScheme": {
@@ -88,7 +91,7 @@
                 "cbc_InvoicedQuantity": null,
                 "cbc_unitCode": null,
                 "cac_Item": {
-                    "cbc_Name": "'*** valoare 3000EUR la curs BNR",
+                    "cbc_Name": "'*** a comment ref price xchg rate 3000EUR ref BNR",
                     "cac_ClassifiedTaxCategory": {
                         "cbc_Percent": null,
                         "cac_TaxScheme": {
@@ -126,10 +129,10 @@
         ]
     },
     "meta_info": {
-        "file": "fact_RENF1004.xlsx",
+        "file": "invoice_json_model_.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-01-23T07:39:30.115329+00:00",
-        "invoice_worksheet": "FACTURA FINALA",
+        "last_processing_time": "2021-01-23T07:39:30.115329+00:00",
+        "invoice_worksheet": "FACTURA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
         "items_table_start_marker": "#",
