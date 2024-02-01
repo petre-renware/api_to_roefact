@@ -42,8 +42,8 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 Instalarea este diferita pentru cele doua  componente:
 
-* aplicatia de tip *linie de comanda / consola*
-* [biblioteca *“standard Python package wheel"*](./doc/810.05a-xl2roefact_component.md#install-library)
+* aplicatia de tip *linie de comanda / consola* (descrisa in continuare)
+* [biblioteca *“standard Python package wheel"*](./doc/810.05a-xl2roefact_component.md#install-library) (descrisa in al document, pe linkul afisat)
 
 
 ### Instalarea aplicatiei xl2roefact
