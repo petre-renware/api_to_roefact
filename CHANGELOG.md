@@ -69,7 +69,9 @@
 
 * tbd... `xl2roefact PyPi` component, EXPLAIN THAT IT IS part of and described in `xl2roefact` CLI component published on PyPi
 
-* wip...240131piu_a `xl2roefact/doc/810.05a-xl2roefact_component.md` clean & transform to "first entry to `xl2roefactPyPi`"
+* wip...240201piu_a reorganize `xl2roefact*` components by diseminating the installable application, which is something available "as is now" just for Windows operating system. For Linux there is no difference between command line application and Python package *from an end user point of view*
+
+* 240131piu_a `xl2roefact/doc/810.05a-xl2roefact_component.md` clean & transform to "first entry to `xl2roefactPyPi`"
 * #TODO chk up here & publish...
 
 * 240131piu_a updated `mkdocs.yml`: cleaned navigation, created version variables, updated default site build directory to `docs/`, cleared excluded directories entry
