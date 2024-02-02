@@ -50,9 +50,10 @@ Main function of `rdinv` module is `rdinv(...)` which has the following logic se
 
 ## Install library
 
-... explain there are 2 methods...
+Library can be installed using 2 methods:
+
 * install from PyPi
-* install from sources (GitHub)  #TODO...make_it
+* install from distribution packages
 
 ### Install from PyPi
 
@@ -60,8 +61,10 @@ Main function of `rdinv` module is `rdinv(...)` which has the following logic se
 Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este pentru instalarea simpla cu: `pip install xl2roefact`, biblioteca fiind disponibila in repositori-ul standard *PyPy*. Pentru instalarea din surse, biblioteca poate fi descarcata din [*GitHub*](https://github.com/petre-renware/api_to_roefact/tree/development/xl2roefact/xl2roefact). 
 
 
+### Install from distribution packages
 
-
+To install from distribution packages first download the package version intended to install (see down the)
+"Download ..."
 
 
 
