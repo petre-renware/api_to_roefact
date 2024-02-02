@@ -63,8 +63,7 @@ Instalarea acesteia se face cu instrumentele standard Python. Recomandarea este 
 
 ### Install from distribution packages
 
-To install from distribution packages first download the package version intended to install (see down the)
-"Download ..."
+To install from distribution packages first download the package version intended to install ([see download section](#download-xl2roefact-library)), choose the package type (if you have no special option, then choose *`WHEEL`* format) and install it using `pip` as any other Python library installation (*detailed in Python official documentation*).
 
 
 
@@ -118,7 +117,7 @@ An [example of JSON generated file is available here](./invoice_json_model_.md)
 
 
 
-## Descarcare (download) biblioteca xl2roefact
+## Download xl2roefact library
 
 
 
