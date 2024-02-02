@@ -43,7 +43,7 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 Instalarea este diferita pentru cele doua  componente:
 
 * aplicatia de tip *linie de comanda / consola* (descrisa in continuare)
-* [biblioteca *“standard Python package wheel"*](./doc/810.05a-xl2roefact_component.md#install-library) (descrisa in al document, pe linkul afisat)
+* [biblioteca *“standard Python package wheel"*](./doc/README_xl2roefact_library.md#install-library) (descrisa in al document, pe linkul afisat)
 
 
 ### Instalarea aplicatiei xl2roefact
@@ -203,7 +203,6 @@ Cheile de la primul nivel contin:
 * 0.1.18.dev invoice customer CUI partial invoice total values calculations [MSI installer win64](./dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
 
 
-**NOTA:** Pentru descarcarea bibliotecii, pachetului Python `xl2roefact` [procesul este descris aici](#instalarea-bliotecii-python-package-xl2roefact)
 
 
 
