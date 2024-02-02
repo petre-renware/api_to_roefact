@@ -120,6 +120,7 @@ An [example of JSON generated file is available here](./invoice_json_model_.md)
 
 
 * 0.1.20.dev invoice customer address [Python package Wheel](../dist/xl2roefact-0.1.20-py3-none-any.whl "download")
+* 0.1.20.dev invoice customer address [Python package dist](../dist/xl2roefact-0.1.20.tar.gz "download")
 
 
 
