@@ -113,3 +113,27 @@ An [example of JSON generated file is available here](./invoice_json_model_.md)
 
 
 
+
+
+## Descarcare (download) biblioteca xl2roefact
+
+
+
+* 0.1.20.dev invoice customer address [Python package Wheel](./dist/xxx "download")
+
+
+
+
+
+### Arhiva versiuni publicate disponibile
+
+
+
+* 0.1.19.dev invoice customer and partial invoice total values calculations [MSI installer win64](./dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
+
+
+
+* 0.1.18.dev invoice customer CUI partial invoice total values calculations [MSI installer win64](./dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
+
+
+
