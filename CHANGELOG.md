@@ -73,9 +73,9 @@
     * [x] 003. made a sample invoice JSON and ref it in xl2roefact PyPi component description
     * [x] 001. get from `xl2roefact README` to `xl2roefact/doc/810.05a-xl2roefact_component.md` __Installtion__, 2 & made sections install from PyPi
     * [x] 004. activated btn link to desc in `doc_src/...components.md` xl2roefact PyPi
-    * [ ] search in all files for `xl2roefact/doc/810.05a-xl2roefact_component.md ` -&-change2--> `xl2roefact/doc/README_xl2roefact_library.md` (#NOTE: could be already changed in all places, but just DO IT)
-    * [ ] made section "install from source" (#TODO describe it...)
-    * [ ] reference `xl2roefact/doc/810.05a-xl2roefact_component.md` doc in mkdocs navigation for **xl2roefact PyPi**
+    * [x] 005. search in all files for `xl2roefact/doc/810.05a-xl2roefact_component.md ` -&-change2--> `xl2roefact/doc/README_xl2roefact_library.md` (#NOTE: could be already changed in all places, but just DO IT)
+    * [x] 005. reference `xl2roefact/doc/README_xl2roefact_library.md` doc in mkdocs navigation for **xl2roefact PyPi**
+    * [ ] made section "install from source" & chk & close all open things in doc (#TODO describe it...)
 
 
 

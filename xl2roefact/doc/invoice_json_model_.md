@@ -13,7 +13,7 @@
             "cac:Party": {
                 "cac_PartyLegalEntity": {
                     "cbc_CompanyID": "17753763",
-                    "cbc_RegistrationName": "SOME COMPABY SRL"
+                    "cbc_RegistrationName": "SOME COMPANY SRL"
                 },
                 "cac_PostalAddress": {
                     "cbc_StreetName": "",
@@ -397,7 +397,7 @@
                     ]
                 },
                 "RegistrationName": {
-                    "value": "...excel data...",
+                    "value": "SOME COMPANY SRL",
                     "location": [
                         9,
                         5

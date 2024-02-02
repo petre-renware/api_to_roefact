@@ -21,7 +21,7 @@ nav:
         - Componentele sistemului: doc_src/810-DSGN/810.05a-system_components.md
         - xl2roefact: xl2roefact/README.md
         - web2roefact: doc_src/wip.md  #TODO...tbd...
-        - xl2roefact PyPi: doc_src/wip.md  #TODO...tbd...
+        - xl2roefact PyPi: xl2roefact/doc/README_xl2roefact_library.md
         - invoice template: excel_invoice_template/README.md
     - xl2roefact:
         - Descriere: xl2roefact/README.md
@@ -29,7 +29,8 @@ nav:
     - web2roefact:
         - Descriere: doc_src/wip.md  #TODO...tbd...
     - xl2roefact PyPi:
-        - Descriere: doc_src/wip.md  #TODO...tbd...
+        - Descriere:  xl2roefact/doc/README_xl2roefact_library.md
+        - License: xl2roefact/LICENSE
     - invoice template:
         - Descriere: excel_invoice_template/README.md
         - License: excel_invoice_template/LICENSE
