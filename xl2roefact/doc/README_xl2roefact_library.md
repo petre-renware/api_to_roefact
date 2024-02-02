@@ -4,7 +4,7 @@
 -->
 
 
-# xl2roefact component
+# xl2roefact PyPi Library
 
 [TOC]
 
