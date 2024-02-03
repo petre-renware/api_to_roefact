@@ -71,7 +71,7 @@
 
 ### 0.1.21.post1 fixed missing links in page doc_src/810-DSGN/810.05a-system_components.md
 
-* 240203piu_a fixed links for: `xxx` & `xxx` entries
+* 240203piu_a fixed links for: `xl2roefact PyPi` entry
 
 
 
