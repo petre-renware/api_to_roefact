@@ -5,7 +5,7 @@
 [TOC]
 
 
-# CHANGELOG
+# CHANGELOG 0.1.14.dev
 
 - For version code structure meaning see SDEVEN methodology document
 - with _(F)_ are marked those changes that are features in order to be copied in a RELNOTE file and with _(B)_ bug fixes from versions released
@@ -295,6 +295,12 @@
 
 
 
+
+
+
+
+
+
 ### 0.1.14.dev invoice issue date  (231217 h07:00)
 
 * 231217piu_b build packages for:
@@ -317,35 +323,3 @@
 
 
 
-
-
-
-
-
-
-# Archived CHANGELOGs
-
-* [0.1.13.dev invoice currency](./changelog_history/CHANGELOG-0.1.13.dev.md)
-* [0.1.12.dev invoice number](./changelog_history/CHANGELOG-0.1.12.dev.md)
-* [0.1.11.dev packaging improvements for app & xl2roefact package](./changelog_history/CHANGELOG-0.1.11.dev.md)
-* [0.1.10.dev command interface improved, `msi` package building, invoice template & updated documentation](./changelog_history/CHANGELOG-0.1.10.dev.md)
-* [0.1.9.dev `xl2roefact.RDINV` running executable and distribution kit](./changelog_history/CHANGELOG-0.1.9.dev.md)
-* [0.1.8.dev improved application structure and first executable release](./changelog_history/CHANGELOG-0.1.8.dev.md)
-* [0.1.7.dev `xl2roefact.RDINV` invoice items & metadata + *OPEN ISSUES*](./changelog_history/CHANGELOG-0.1.7.dev.md)
-* [0.1.6.dev commercial agreement OPTIONS document](changelog_history/CHANGELOG-0.1.6.dev.md)
-* [0.1.5.dev init component *xl2roefact* for CLI application](./changelog_history/CHANGELOG-0.1.5.dev.md)
-* [0.1.4.dev Create system backbone structure](./changelog_history/CHANGELOG-0.1.4.dev.md)
-* [0.1.3.dev Enhancing `payments_validation_board` technical proposal](./changelog_history/CHANGELOG-0.1.3.dev.md)
-* [0.1.2.dev Enhancing `APItoROefact` technical proposal](./changelog_history/CHANGELOG-0.1.2.dev.md)
-* [0.1.1.dev Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.dev.md)
-* [0.1.0.dev System raw backbone](./changelog_history/CHANGELOG-0.1.0.dev.md)
-
-
-
-
-
-
-
-# [Release Notes](RELNOTE.md) #TODO this file should be created
-
-* wip... [not_yet_created... 0.1](./changelog_history/...)
