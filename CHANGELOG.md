@@ -1,4 +1,6 @@
-**api-to-roefact by RENware Software Systems**
+<small>**RENware Software Systems**</small>
+
+**INVOICEtoROefact** Project
 
 [TOC]
 
@@ -13,62 +15,85 @@
 
 
 
-## 0.1 -#TODO wip...
+## 0.1 (-#NOTE_wip...)
 
+```
+    - ---[ #TODO general planning board ]---------------------------
+    * ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
+    * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
+    * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
 
-- ---[ #TODO short planning board ]---------------------------------------------------------
-* ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
-
-* -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
-* -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
--------------------------------------------------------------------------------------------------
-
-
-
-
-
-### #TODO_PLAN_TODO... `xl2roefact.RDINV` ???-[invoice issue date, invoice owner & partner?] (...)
-
-* [ ] update documentation for:
-    * [ ] `rdinv` module
-    * [ ] `xl2roefact` CLI application
-    * [ ] INVOICE TEMPLATE (`excel_invoice_template/` directory), doc `README_excel_invoice_rules.md` first ref "Cum sa utilizeti sablonul, reguli de urmat in completarea datelor"
--
-* left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
-    * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
--
-* ... FUTURE NEW APP COMMANDS :
-    * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-    * `xl2json` - crt_wip... (@240110)
-    * `json2xml` - see module WRXML,
-    * `json2pdf` - new tbd..,
-    * `xml2roefact` - see mpdule LDXML
-    * chk for other commands from doc `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-    * PACKAGE SOLUTION:
-        * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
--
-* -#NOTE_PLAN_tbd... RDINV module ...just read file and identify big zones:
-    * invoice header
-        * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
-        * [ ] invoice header - customer bank, RegCom, email, tel, ...
-        * [x] invoice header - customer address (`<cac:AccountingCustomerParty>`)
-    * invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
+    - ---[ #TODO short planning board ]---------------------------
+    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
+        * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
+    -
+    * ... FUTURE NEW APP COMMANDS :
+        * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
+        * `xl2json` - crt_wip... (last upd @ 240123)
+        * `json2xml` - see module WRXML,
+        * `json2pdf` - new tbd..,
+        * `xml2roefact` - see mpdule LDXML
+        * chk for other commands from doc `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
+        * PACKAGE SOLUTION:
+            * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
+    -
+    * -#NOTE_PLAN `rdinv` module:
+        * invoice header
+            * [ ] wip... invoice header - customer bank, RegCom, email, tel, ...
+            * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
+            * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
+    -------------------------------------------------------------------------------------------------
+```
 
 
 
 
-
-
-### #NOTE#TODO#NOTE...incoming... 0.1.21.dev invoice customer address optional items (email, reg-com, phone) (#NOTE incoming...)
+### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt... ...yymmdd hh:mm...)
 
 * TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
-    - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO EFact`**
+    - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO eFact`**
     - portal main navigation: link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
 
 * tbd... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
+* tbd.optional... [piu_240126] left in `setup.py` comments & example ref how to pre-set MSI build meta information / parameters (obj: default target dir where install, path registration, ...)
+
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
+
+
+
+
+
+
+
+### 0.1.21 rollout news in system portal invoicetoroefact.renware.eu (240203 h09:00)
+
+* 240201piu_a reorganized `xl2roefact*` components by disseminating the installable application, which is something available "as is now" just for Windows operating system. For Linux there is no difference between command line application and Python package *from an end user point of view*.
+* 240131piu_a `xl2roefact/doc/810.05a-xl2roefact_component.md` clean & transform to "first entry to `xl2roefactPyPi`"
+* 240131piu_a updated `mkdocs.yml`: cleaned navigation, created version variables, updated default site build directory to `docs/`, cleared excluded directories entry
+* 240130piu_b reviewed all changes, update site PDF generator file (mvd `print_page.md` to root) location, fixed navigation. PUBLISHED for `xl2roefact` component
+* 240130piu_a reviewed `xl2roefact` README: cleaned, translated 2 RO, structured to "end user needs"
+* 240129piu_d updated `xl2roefact` to have "Descrierea detliata" link in `810.05a-system_components.md`. Prepared component to be published: mkdocs.yml navigation & main site README index
+* 240129piu_c updated all site pages to contain `<small>**RENware Software Systems**</small>` & `[TOC]` after title
+* 240129piu_b cleanup project docs, requirements, fresh install ==> published site as is at this point (invoice template finished)
+* 240129piu_a updated `xl2roefact/README.md` with section for assets download
+* 240128piu_e formal versioning `invoice template` component
+* 240128piu_d updated & closed component `invoice template`. Referred in:
+    * `doc_src/810-DSGN/810.05a-system_components.md`
+    * portal first page
+    * navigation in `mkdocs.yml`
+* 240128piu_c moved `xl2roefact/excel_invoice_template/` directory to root as being distinct component, review it and closed to be published
+* 240128piu_b revised, updated and closed crt version of `excel_invoice_template/README.md`
+* 240128piu_a updated `xl2roefact/README.md` & `excel_invoice_template/README.md` files, cleared modularization & structure presented in system public site
+* 240127piu_d Unify main project `/READMEmd` with `doc_src/index.md`:
+    * make the same INDEX just in the project root == index / README of whole project
+    * keep from actual project README.md the section ref project identification and move it to end of file as last section
+* 240127piu_c created `/index.html` to redirect to "real" system index (`doc_src/index.md`) and prevent usage of project `README.md` file instead
+* 240128piu_c checked work `240127piu_a`, `240127piu_b`, updated `about.md` and navigation with ref to sys structure (`.../810.05a-system_components.md`)
+* 240127piu_b update system components and their classification (in `.../810-DSGN/810.05a-system_components.md`)
+* 240127piu_a updated `810-DSGN/810.05a-system_components.md`, defined a classification usable to quickly find out *who-does-what*
+* 240125piu_a updated `mkdocs.yml` by including `mkdocs-same-dir` plug-in
 
 
 

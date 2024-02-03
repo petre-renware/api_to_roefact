@@ -6,6 +6,11 @@
 
 # Propunere tehnica sistem PayValidaBoa
 
+***Cuprins:***
+
+[TOC]
+
+
 * p/n: `0000-0094`
 * code-name: `payments_validation_board`
 * commercial name: **PayValidaBoa**

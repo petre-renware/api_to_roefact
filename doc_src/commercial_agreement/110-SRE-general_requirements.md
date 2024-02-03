@@ -4,7 +4,12 @@
 
 # Propunere tehnica
 
-* Client: Kraftanlagen Romania SRL
+***Cuprins:***
+
+[TOC]
+
+
+* Client: <!-- #NOTE hided it Kraftanlagen Romania SRL --> n/a - not public
 * Data: 2023-Noiembrie
 
 !!! info "Codificarea documentelor"
@@ -21,7 +26,7 @@
 
 Solutiile propuse prin aceasta propunere tehnica sunt:
 
-* **APItoROefact** (_code-name_ **`api_to_roefact`**) integrare Sistemul National de Facturi Emise *RO e-Factura* [descriere si cerinte aici](./110-SRE-api_to_roefact_requirements.md)
+* **INVOICEtoROefact** (_code-name_ **`api_to_roefact`**) integrare Sistemul National de Facturi Emise *RO e-Factura* [descriere si cerinte aici](./110-SRE-api_to_roefact_requirements.md)
 
 * **PayValidaBoa** (_code-name_ **`payments_validation_board`**) Flux aprobare facturi primite pentru ordonantare la plata [descriere si cerinte aici](./110-SRE-payments_validation_board_req.uirements.md)
 
