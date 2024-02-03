@@ -325,8 +325,7 @@
 
 # Archived CHANGELOGs
 
-* [0.1.14.dev invoice issue date]
-(./changelog_history/CHANGELOG-0.1.14.dev.md)
+* [0.1.14.dev invoice issue date](./changelog_history/CHANGELOG-0.1.14.dev.md)
 * [0.1.13.dev invoice currency](./changelog_history/CHANGELOG-0.1.13.dev.md)
 * [0.1.12.dev invoice number](./changelog_history/CHANGELOG-0.1.12.dev.md)
 * [0.1.11.dev packaging improvements for app & xl2roefact package](./changelog_history/CHANGELOG-0.1.11.dev.md)
