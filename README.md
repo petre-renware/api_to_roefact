@@ -20,7 +20,7 @@ Sistemul ofera urmatoarele componente:
 
 * [xl2roefact](./xl2roefact/README.md)
 * web2roefact  <!--#TODO link tbd -->
-* xl2roefact PyPi  <!--#TODO link tbd -->
+* [xl2roefact PyPi](xl2roefact/doc/README_xl2roefact_library.md)
 * [invoice template](./excel_invoice_template/README.md)
 
 [Descrierea tuturor acestora poate fi accessata aici](./doc_src/810-DSGN/810.05a-system_components.md).
