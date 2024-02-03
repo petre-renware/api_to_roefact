@@ -60,7 +60,18 @@
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
+* wip... last item used 240203piu_a
 
+
+
+
+
+
+
+
+### 0.1.21.post1 fixed missing links in site root index page (240203 10h:30)
+
+* 240203piu_a fixed links in `/README.md` for: `xl2roefact PyPi` entry
 
 
 
@@ -94,6 +105,7 @@
 * 240127piu_b update system components and their classification (in `.../810-DSGN/810.05a-system_components.md`)
 * 240127piu_a updated `810-DSGN/810.05a-system_components.md`, defined a classification usable to quickly find out *who-does-what*
 * 240125piu_a updated `mkdocs.yml` by including `mkdocs-same-dir` plug-in
+
 
 
 
