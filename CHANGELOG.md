@@ -60,6 +60,8 @@
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
+* tbd... use for xl2roefact app help generation IN A markdown page' `https://pypi.org/project/mkdocs-typer/`
+
 * wip... last item used 240203piu_a
 
 
