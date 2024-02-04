@@ -48,15 +48,11 @@
 
 
 
-### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt... ...yymmdd hh:mm...)
-
-* TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
-    - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO eFact`**
-    - portal main navigation: link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
+### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt...)
 
 * tbd... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
-* tbd.optional... [piu_240126] left in `setup.py` comments & example ref how to pre-set MSI build meta information / parameters (obj: default target dir where install, path registration, ...)
+* tbd.optional... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
