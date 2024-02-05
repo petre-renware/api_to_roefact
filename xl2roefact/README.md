@@ -83,19 +83,11 @@ cit si la nivel detaliat pentru fiecare comanda
 xl2roefact [COMMAND] --help
 ```
 
-### about
+* **about** - Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc)
 
-Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc).
+* **settings** _ Afiseaza parametrii de configurare a aplicatiei. [Vezi sectiunea de configurare a aplicatiei](#configurarea-aplicatiei-xl2roefact)
 
-
-### settings
-
-Afiseaza parametrii de configurare a aplicatiei. [Vezi sectiunea de configurare a aplicatiei](#configurarea-aplicatiei-xl2roefact).
-
-
-### xl2json
-
-Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice.
+* **xl2json** - Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice
 
 
 ### ...#TODO... Referinta deliata comenzi
