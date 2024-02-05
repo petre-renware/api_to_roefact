@@ -95,7 +95,10 @@ xl2roefact [COMMAND] --help
 
 ### Referinta deliata comenzi
 
-tbd...
+::: mkdocs-typer
+    :module: xl2roefact.app_cli
+    :command: run
+    :depth: 3
 
 
 
