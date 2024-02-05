@@ -84,7 +84,7 @@ xl2roefact [COMMAND] --help
 ```
 
 
-### Comenzi esentiale
+### Lista comenzi principale
 
 * **about** - Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc)
 
