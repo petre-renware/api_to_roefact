@@ -83,7 +83,6 @@ cit si la nivel detaliat pentru fiecare comanda
 xl2roefact [COMMAND] --help
 ```
 
-
 ### about
 
 Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc).
@@ -96,12 +95,12 @@ Afiseaza parametrii de configurare a aplicatiei. [Vezi sectiunea de configurare 
 
 ### xl2json
 
-Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice. Formatul JSON utilizat contine:
+Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice.
 
-- informatiile aferente facturii (cheie: `Invoice`)
-- o harta de ajutor in conversia formatului JSON in formatul XML acceptat de sistemul RO E-Fact (cheie `meta_info.map_JSONkeys_XMLtags`) si definititiile XML aferente (cheie `meta_info.invoice_XML_schemes`)
-- alte informatii despre fisierul Excel prelucrat (alte chei din `meta_info`)
-- datele preluate din formatul original Excel (cheie `excel_original_data`) - acestea sunt utile pentru depanare in caz ca aceasta este necesara in cazul specific al fisierului Excel folosit de dvs
+
+### ...#TODO... Referinta deliata comenzi
+
+tbd...
 
 
 
@@ -167,7 +166,15 @@ invoice_files/
 
 ## Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii
 
-Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Structura de baza a acestui fisier este:
+Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Formatul JSON utilizat contine:
+
+- informatiile aferente facturii (cheie: `Invoice`)
+- o harta de ajutor in conversia formatului JSON in formatul XML acceptat de sistemul RO E-Fact (cheie `meta_info.map_JSONkeys_XMLtags`) si definititiile XML aferente (cheie `meta_info.invoice_XML_schemes`)
+- alte informatii despre fisierul Excel prelucrat (alte chei din `meta_info`)
+- datele preluate din formatul original Excel (cheie `excel_original_data`) - acestea sunt utile pentru depanare in caz ca aceasta este necesara in cazul specific al fisierului Excel folosit de dvs
+
+
+Structura de baza a acestui fisier este:
 
 
 ```
