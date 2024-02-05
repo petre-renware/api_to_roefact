@@ -58,9 +58,18 @@
 
 * tbd... use for xl2roefact app help generation IN A markdown page' `https://pypi.org/project/mkdocs-typer/`
 
-* wip... last item used 240203piu_a
+* wip... last item used 240206piu_c
 
 
+
+
+
+### 0.1.21.post2
+
+* tbd... 240206piu_c test, create release & publish site
+* tbd...#TODO... 240206piu_b install package: `pip install mkdocs-typer`
+
+* 240206piu_a add `mkdocs-typer` extension and update `xl2roefact/README.md`, section `Comenzile aplicatiei` page with generated documentation by this plugin
 
 
 

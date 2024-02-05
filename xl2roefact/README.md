@@ -84,24 +84,21 @@ xl2roefact [COMMAND] --help
 ```
 
 
-### about
+### Lista comenzi principale
 
-Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc).
+* **about** - Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc)
+
+* **settings** _ Afiseaza parametrii de configurare a aplicatiei. [Vezi sectiunea de configurare a aplicatiei](#configurarea-aplicatiei-xl2roefact)
+
+* **xl2json** - Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice
 
 
-### settings
+### Referinta deliata comenzi  <!--#FIXME add by 240206piu_a test me -->
 
-Afiseaza parametrii de configurare a aplicatiei. [Vezi sectiunea de configurare a aplicatiei](#configurarea-aplicatiei-xl2roefact).
-
-
-### xl2json
-
-Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice. Formatul JSON utilizat contine:
-
-- informatiile aferente facturii (cheie: `Invoice`)
-- o harta de ajutor in conversia formatului JSON in formatul XML acceptat de sistemul RO E-Fact (cheie `meta_info.map_JSONkeys_XMLtags`) si definititiile XML aferente (cheie `meta_info.invoice_XML_schemes`)
-- alte informatii despre fisierul Excel prelucrat (alte chei din `meta_info`)
-- datele preluate din formatul original Excel (cheie `excel_original_data`) - acestea sunt utile pentru depanare in caz ca aceasta este necesara in cazul specific al fisierului Excel folosit de dvs
+::: mkdocs-typer
+    :module: xl2roefact.app_cli
+    :command: run
+    :depth: 3
 
 
 
@@ -167,7 +164,15 @@ invoice_files/
 
 ## Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii
 
-Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Structura de baza a acestui fisier este:
+Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Formatul JSON utilizat contine:
+
+- informatiile aferente facturii (cheie: `Invoice`)
+- o harta de ajutor in conversia formatului JSON in formatul XML acceptat de sistemul RO E-Fact (cheie `meta_info.map_JSONkeys_XMLtags`) si definititiile XML aferente (cheie `meta_info.invoice_XML_schemes`)
+- alte informatii despre fisierul Excel prelucrat (alte chei din `meta_info`)
+- datele preluate din formatul original Excel (cheie `excel_original_data`) - acestea sunt utile pentru depanare in caz ca aceasta este necesara in cazul specific al fisierului Excel folosit de dvs
+
+
+Structura de baza a acestui fisier este:
 
 
 ```

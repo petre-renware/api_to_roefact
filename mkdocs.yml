@@ -63,6 +63,7 @@ nav:
 markdown_extensions:
     - admonition
     - tables
+    - mkdocs-typer  #NOTE [0.1.21.post2 240206piu_a] extention to generate Typer apps doc inside a markdown file
     - pymdownx.details
     - pymdownx.superfences:
         custom_fences:  #NOTE: [piu] is very important to respect syntax ref `-` character at beginning of items (otherwise not right JSON result !)
