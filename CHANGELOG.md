@@ -66,7 +66,7 @@
 
 ### 0.1.21.post2
 
-* 240206piu_a add `mkdocs-typer` plugin and update `xl2roefact/README.md`, section `Comenzile aplicatiei` page with generated documentaion by this plugin
+* 240206piu_a add `mkdocs-typer` plugin and update `xl2roefact/README.md`, section `Comenzile aplicatiei` page with generated documentation by this plugin
 
 
 
