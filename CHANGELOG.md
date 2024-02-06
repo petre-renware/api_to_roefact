@@ -48,21 +48,32 @@
 
 
 
-### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt... ...yymmdd hh:mm...)
-
-* TODO:_ASAP after 0.1.19 consider **0.1.0** where to update main portal doc and change:
-    - all `APItoROefact` ==>  **`xl2roefact`** cu inteles de **`Excel invoices and RO eFact`**
-    - portal main navigation: link to GitHub Issues refined for 2 entries: *bugs* & *suport si documentatie utilizare*
+### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt...)
 
 * tbd... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
-* tbd.optional... [piu_240126] left in `setup.py` comments & example ref how to pre-set MSI build meta information / parameters (obj: default target dir where install, path registration, ...)
+* tbd.optional... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
-* wip... last item used 240203piu_a
+* tbd... use for xl2roefact app help generation IN A markdown page' `https://pypi.org/project/mkdocs-typer/`
+
+* wip... last item used 240206piu_c
 
 
+
+
+
+
+
+
+
+
+### 0.1.21.post2 xl2roefact app detailed section with commands & options "--help" like
+
+* 240206piu_c test & release: -- create release, -- publish site, -- save deliverable archives
+* 240206piu_b install package: `pip install mkdocs-typer` & upd back `requirements.txt`
+* 240206piu_a add `mkdocs-typer` extension and update `xl2roefact/README.md`, section `Comenzile aplicatiei` page with generated documentation by this plugin
 
 
 
@@ -295,28 +306,6 @@
 
 
 
-### 0.1.14.dev invoice issue date  (231217 h07:00)
-
-* 231217piu_b build packages for:
-    * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
-    * [x] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
-    * [x] updated `pyproject.toml`
-
-* 231217piu_a invoice header, issue date (&& ATTN pendulum raise error, see `rdinv.py` line #17, ==> MAYBE JUST TRY `Arrow` or standard `datetime`)
-
-* 231216piu_a review, improve & clean code for: `xl_invoices/config_settings.py`, `xl_invoices/rdinv.py`
-
-* 231215piu_b FIXED configs loaded from config_settings: `rdinv` module load (init) all constants as global variables (because they are subject to change / "improve" values as reading Excel file, for example `DEFAULT_CURRENCY`)
-
-* 231215piu_a changed dir name **`xl_invoice_modules/`** to `xl_invoices` or classic `xl2roefact`  as this will be the package name. This is a Python official RECOMMENDATION not a constraint
-
-* 231214piu_a made xl2roefact Python standard package (moved `xl2roefact` modules to a dedicated directory (`xl_invoice_modules/`) with intention to publish package)
-
-
-
-
-
-
 
 
 
@@ -325,6 +314,7 @@
 
 # Archived CHANGELOGs
 
+* [0.1.14.dev invoice issue date](./changelog_history/CHANGELOG-0.1.14.dev.md)
 * [0.1.13.dev invoice currency](./changelog_history/CHANGELOG-0.1.13.dev.md)
 * [0.1.12.dev invoice number](./changelog_history/CHANGELOG-0.1.12.dev.md)
 * [0.1.11.dev packaging improvements for app & xl2roefact package](./changelog_history/CHANGELOG-0.1.11.dev.md)

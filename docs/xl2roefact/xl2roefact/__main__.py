@@ -20,7 +20,7 @@ from xl2roefact import app_cli
 
 
 if __name__ == "__main__":
-    app_cli.run()
+    app_cli.main()
 
 
 
