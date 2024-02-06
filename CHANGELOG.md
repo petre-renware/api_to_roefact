@@ -66,9 +66,15 @@
 
 ### 0.1.21.post2
 
-* tbd... 240206piu_c test & release: -- create release, -- publish site, -- upd back `requirements.txt`, -- save deliverable archives
-* tbd...#TODO... 240206piu_b install package: `pip install mkdocs-typer`
+* -#FIXME_wip... 240206piu_c test & release: -- create release, -- publish site, -- save deliverable archives
+    * ERR @ build:
+    ```
+    File "D:\_T0_PROJECTS\0000-0095 api_to_roefact\830-DEV\.wenv\lib\site-packages\mkdocs_typer\_loader.py", line 17, in load_command
+    raise MkDocsTyperException(f"{attribute!r} must be a 'typer.main.Typer' object, got {type(command)}")
+    mkdocs_typer._exceptions.MkDocsTyperException: 'main' must be a 'typer.main.Typer' object, got <class 'function'>
+    ```
 
+* 240206piu_b install package: `pip install mkdocs-typer` & upd back `requirements.txt`
 * 240206piu_a add `mkdocs-typer` extension and update `xl2roefact/README.md`, section `Comenzile aplicatiei` page with generated documentation by this plugin
 
 

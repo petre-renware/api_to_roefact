@@ -158,9 +158,9 @@ def called_when_no_command(
 
 
 
-def run():
+def main():
     app_cli()
 
 if __name__ == "__main__":
-    run()
+    main()
 

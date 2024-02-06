@@ -97,7 +97,7 @@ xl2roefact [COMMAND] --help
 
 ::: mkdocs-typer
     :module: xl2roefact.app_cli
-    :command: run
+    :command: main
     :depth: 3
 
 
