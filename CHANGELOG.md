@@ -58,7 +58,9 @@
 
 * tbd... use for xl2roefact app help generation IN A markdown page' `https://pypi.org/project/mkdocs-typer/`
 
-* wip... last item used 240206piu_c
+* wip...
+
+* 240207piu_a updated all site in pages references to system components & deliverables version
 
 
 
