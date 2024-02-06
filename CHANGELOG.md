@@ -66,7 +66,7 @@
 
 ### 0.1.21.post2
 
-* tbd... 240206piu_c test, create release & publish site
+* tbd... 240206piu_c test & release: -- create release, -- publish site, -- upd back `requirements.txt`, -- save deliverable archives
 * tbd...#TODO... 240206piu_b install package: `pip install mkdocs-typer`
 
 * 240206piu_a add `mkdocs-typer` extension and update `xl2roefact/README.md`, section `Comenzile aplicatiei` page with generated documentation by this plugin
