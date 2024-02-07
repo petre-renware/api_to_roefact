@@ -60,6 +60,7 @@
 
 * wip...
 
+* wip... 240207piu_b improve site readability by detailed description at bullet items level and dropping / moving in other parts the content non "end user related" from level 1-3 pages
 * 240207piu_a updated all site in pages references to system components & deliverables version
 
 
