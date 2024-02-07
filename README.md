@@ -37,7 +37,6 @@ Sistemul ofera urmatoarele componente:
 * p/n: `0000-0095`
 * code-name: `api_to_roefact`
 * commercial name: **INVOICEtoROefact**
-* [eDataSheet](http://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html)
 * [git](https://github.com/petre-renware/api_to_roefact)
 * copyright: RENware Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
