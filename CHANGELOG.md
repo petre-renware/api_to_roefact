@@ -24,8 +24,8 @@
     * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
 
     - ---[ #TODO short planning board ]---------------------------
-    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
-        * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
+    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed).
+      ...Aici descrierea pe scurt: in file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
     -
     * ... FUTURE NEW APP COMMANDS :
         * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
@@ -53,6 +53,10 @@
 * tbd.optional... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
 
 * tbd... publish `xl2roefact` package --> read `TODO_packaging.md`
+* tbd... init a PDM simple env in project root. Keep in mind:
+    * root project is for SITE GENERATION. ? the `web2roefact` will need its own directory5like `xl2roefact` ?
+    * as consequence the project name is **INVOICEtoROefact**
+    * and the version is last from CHANGELOG
 
 * tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
