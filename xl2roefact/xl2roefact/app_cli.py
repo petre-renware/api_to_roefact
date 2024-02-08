@@ -1,4 +1,4 @@
-#!../.venv/bin/python3 #FIXME attn to this path if intend to move in modules/
+#!../.venv/bin/python3
 """app_cli: the command line application for all xl2roefact functionalities.
 
 Identification:
