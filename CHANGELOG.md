@@ -63,12 +63,11 @@
 
 * wip...
 
+* 2402208piu_a updated `xl2roefact library` documentation, docstrings and `mkdocs.yml` navigation entries to clarify subjects by using specific technical terms (this component address technical users not business ones)
+* ---#TODO chk & test all up here & publish site
+
 * 240207piu_b improve site readability by detailed description at bullet items level and dropping / moving in other parts the content non "end user related" from: `/README.md`, `doc_src/.../810.05a-system_components.md`
 * 240207piu_a updated all site in pages references to system components & deliverables version
-
-
-
-
 
 
 
