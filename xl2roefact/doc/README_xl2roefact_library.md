@@ -115,7 +115,7 @@ An [example of JSON generated file is available here](./invoice_json_model_.md)
 
 
 
-## [Detailed design technical documentation](./810.05a-xl2roefact_DLD_specs.md)
+## [API Reference](./810.05a-xl2roefact_DLD_specs.md)
 
 
 
