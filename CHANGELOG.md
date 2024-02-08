@@ -48,17 +48,18 @@
 
 ### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt...)
 
-* tbd... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
+* tbd.Must... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
-* tbd.optional... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
+* tbd.Should... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
+* tbd.Could... xl2roefact component (`.../spp_cli.py`) line 68: add a `rules` option (param) to display `config_settings.__doc__`
 
-* tbd... publish `xl2roefact` package --> read `TODO_packaging.md`
-* tbd... init a PDM simple env in project root. Keep in mind:
+* tbd.Must... publish `xl2roefact` package --> read `TODO_packaging.md`
+* tbd Could... init a PDM simple env in project root. Keep in mind:
     * root project is for SITE GENERATION. ? the `web2roefact` will need its own directory5like `xl2roefact` ?
     * as consequence the project name is **INVOICEtoROefact**
     * and the version is last from CHANGELOG
 
-* tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
+* tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * wip...
 
