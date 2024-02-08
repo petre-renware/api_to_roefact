@@ -2,6 +2,7 @@
 """Application configuration and setting parameters.  #TODO all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel")
 
 NOTE english "README_me" before making changes:
+
 * each parameter has a short help (lines starting with `#` character) - read it before changing that parameter
 * do not change parametrs name as specified before equal (`=`) sign
 * lists are enclosed in sqaured brackets (`[...]`) and items are separated by comma character (`,`)
@@ -10,7 +11,9 @@ NOTE english "README_me" before making changes:
 * do not add supplementary parameters, they will not be used without software changes (also risk to induce potential errors)
 * for calendaristic dates Excel cells use `date` format and change it as display option to show wanted format
 
+
 NOTE romana "README_me" inainte de a face modificari:  #TODO all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel")
+
 * fiecare parametru are un hep scurt (liniile ce incep cu caracterul `#`) - citi-l inainte de a modofica uun parametru
 * nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (`=`)
 * listele sunt incluse intre paranteze drepte (`[...]`) si elementele lor sunt separate prin caracterul virgula (`,`)
