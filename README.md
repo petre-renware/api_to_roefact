@@ -14,7 +14,7 @@ Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura]
 
 
 
-## Componentele sistemului
+## Componentele si facilitatile sistemului
 
 Sistemul ofera urmatoarele componente:
 

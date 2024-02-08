@@ -66,5 +66,5 @@ Continutul informational al facturii nu trebuie nici confundat si nici mixat cu 
 
 
 
-## [License](./LICENSE)
+## [License](./LICENSE "download")
 

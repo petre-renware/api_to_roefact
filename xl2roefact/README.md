@@ -223,7 +223,7 @@ Cheile de la primul nivel contin:
 
 
 
-## [License](./LICENSE)
+## [License](./LICENSE "download")
 
 
 

@@ -34,8 +34,6 @@
         * `json2pdf` - new tbd..,
         * `xml2roefact` - see mpdule LDXML
         * chk for other commands from doc `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-        * PACKAGE SOLUTION:
-            * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
     -
     * -#NOTE_PLAN `rdinv` module:
         * invoice header
@@ -54,15 +52,13 @@
 
 * tbd.optional... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
 
-* tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
+* tbd... publish `xl2roefact` package --> read `TODO_packaging.md`
 
-* tbd... use for xl2roefact app help generation IN A markdown page' `https://pypi.org/project/mkdocs-typer/`
+* tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * wip...
 
 * 240207piu_b improve site readability by detailed description at bullet items level and dropping / moving in other parts the content non "end user related" from: `/README.md`, `doc_src/.../810.05a-system_components.md`
-* ------(#TODO: check all up)
-
 * 240207piu_a updated all site in pages references to system components & deliverables version
 
 
@@ -340,7 +336,10 @@
 
 
 
+<!-- #TODO create this ? released notes are alreay (@240207) published in GitHub releases
 
-# [Release Notes](RELNOTE.md) #TODO this file should be created
+# [Release Notes](RELNOTE.md)
 
-* wip... [not_yet_created... 0.1](./changelog_history/...)
+* wip... [not_yet_created... 0.1]  (./changelog_history/...)
+
+-->
