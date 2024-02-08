@@ -1,4 +1,4 @@
-#!../.venv/bin/python3 #FIXME attn to this path if intend to move in modules/
+#!../.venv/bin/python3
 """app_cli: the command line application for all xl2roefact functionalities.
 
 Identification:
@@ -64,6 +64,19 @@ def about():
 def settings():
     """display application configuration parameters and settings that are subject to be changed by user.
     """
+
+    '''#TODO add a `rules` option (param) to display `config_settings.__doc__`.
+    - Almost rdy sample of code:
+    rules: Annotated[
+        bool,
+        typer.Option(
+            "--rules", "-r",
+            help="show settings recommended update rules"
+        ),
+    ] = False
+    - #TODO write corresponding code ...
+    '''
+
     print("\nApplication current settings are:\n---------------------------------------")
     list_of_settings = dir(configs)
     for i in list_of_settings:

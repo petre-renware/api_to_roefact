@@ -1,3 +1,4 @@
+#!../.venv/bin/python3
 """Application configuration and setting parameters.  #TODO all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel")
 
 NOTE english "README_me" before making changes:
