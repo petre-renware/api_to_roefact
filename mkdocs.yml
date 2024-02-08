@@ -28,8 +28,9 @@ nav:
         - License: xl2roefact/LICENSE
     - web2roefact:
         - Descriere: doc_src/wip.md  #TODO...tbd...
-    - xl2roefact PyPi:
+    - xl2roefact PyPi library:
         - Descriere:  xl2roefact/doc/README_xl2roefact_library.md
+        - Referinta API: xl2roefact/doc/xxx...xxx
         - License: xl2roefact/LICENSE
     - invoice template:
         - Descriere: excel_invoice_template/README.md
