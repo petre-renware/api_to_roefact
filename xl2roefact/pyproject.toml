@@ -92,7 +92,7 @@ build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel &
 
 build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
 
-build_doc = {shell = "pydoc-markdown -I xl2roefact --render-toc >doc/810.05a-xl2roefact_DLD_specs.md"}  # build detailed level design doc, ie `...DLD....md` doc. NOTE-ATTN to name of markdown generated file
+build_doc = {shell = "pydoc-markdown -I xl2roefact --render-toc >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`)
 
 build_all = {composite = ["build_wheel", "build_msi", "build_doc"]}  # build all packages (MSI, python package wheel, python package sdist, design doc)
 
