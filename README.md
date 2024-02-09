@@ -18,13 +18,13 @@ Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura]
 
 Sistemul ofera urmatoarele componente:
 
-* [xl2roefact](./xl2roefact/README.md) - procesarea facturilor in mod linie de comanda
+* __[xl2roefact](./xl2roefact/README.md)__ - procesarea facturilor in mod linie de comanda
 
-* web2roefact - procesarea facturilor din interfara web  <!--#TODO link tbd -->
+* __web2roefact__ - procesarea facturilor din interfara web  <!--#TODO link tbd -->
 
-* [xl2roefact PyPi library](xl2roefact/doc/README_xl2roefact_library.md) - procesarea facturilor prin cod / program (development propriu)
+* __[xl2roefact PyPi library](xl2roefact/doc/README_xl2roefact_library.md)__ - procesarea facturilor prin cod / program (development propriu)
 
-* [invoice template](./excel_invoice_template/README.md) - model / sablon factura in Excel
+* __[invoice template](./excel_invoice_template/README.md)__ - model / sablon factura in Excel
 
 [Descrierea tuturor acestora poate fi accessata aici](./doc_src/810-DSGN/810.05a-system_components.md).
 
