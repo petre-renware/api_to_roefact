@@ -87,9 +87,7 @@ version = { source = "file", path = "xl2roefact/__version__.py" }
 
 
 [tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
-
-build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
-
+build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
 build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
 #TODO: to add `build_single_exe` to build a single EXE file with `PyInstaller`, file usable for pure remote purposes (no install, ready-2-run from a stick). When rdy, update `build_all` next command from this scripts section / table
 build_doc = {shell = "pydoc-markdown -I xl2roefact --render-toc >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`)
