@@ -174,16 +174,7 @@ invoice_files/
 
 ## Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii
 
-Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Formatul JSON utilizat contine:
-
-- informatiile aferente facturii (cheie: `Invoice`)
-- ...DROP ME...
-- ...DROP ME...
-- datele preluate din formatul original Excel (cheie `excel_original_data`) - acestea sunt utile pentru depanare in caz ca aceasta este necesara in cazul specific al fisierului Excel folosit de dvs
-
-
-Structura de baza a acestui fisier este:
-
+Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Formatul JSON are urmatoarra structura de baza:
 
 ```
 {
