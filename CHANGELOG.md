@@ -317,7 +317,7 @@
 
 # Archived CHANGELOGs
 
-* [0.1.15 updated solution portal `http://invoicetoroefact.renware.eu/`](./changelog history/CHANGELOG-0.1.15.md)
+* [0.1.15 updated solution portal `http://invoicetoroefact.renware.eu/`](./changelog_history/CHANGELOG-0.1.15.md)
 * [0.1.14.dev invoice issue date](./changelog_history/CHANGELOG-0.1.14.dev.md)
 * [0.1.13.dev invoice currency](./changelog_history/CHANGELOG-0.1.13.dev.md)
 * [0.1.12.dev invoice number](./changelog_history/CHANGELOG-0.1.12.dev.md)
