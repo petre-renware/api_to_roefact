@@ -86,9 +86,9 @@ version = { source = "file", path = "xl2roefact/__version__.py" }
 
 
 
-[tool.pdm.scripts]  #NOTE ref: `https://pdm-project.org/latest/usage/scripts/` #TODO all of these are subject to documentation update (mainly `doc/README_xl2roefact_library.md`)
+[tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
 
-build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
+build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
 
 build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
 
