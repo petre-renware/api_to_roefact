@@ -14,7 +14,7 @@
 
 (ro) README inainte de a face modificari:
 
-* fiecare parametru are un hep scurt (liniile ce incep cu caracterul `#`) - citi-l inainte de a modofica uun parametru
+* fiecare parametru are un hep scurt (liniile ce incep cu caracterul `#`) - citi-l inainte de a modifica uun parametru
 * nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (`=`)
 * listele sunt incluse intre paranteze drepte (`[...]`) si elementele lor sunt separate prin caracterul virgula (`,`)
 * sirurile de caractere sunt incluse intre ghilimele (caracterul `"`)
