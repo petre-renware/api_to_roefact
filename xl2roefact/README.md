@@ -13,9 +13,16 @@
 
 ![Static Badge](https://img.shields.io/badge/MSI_installer-YES-blue)
 
-![Static Badge](https://img.shields.io/badge/JSON_invoice-YES-blue)
+![Static Badge](https://img.shields.io/badge/format_JSON-YES-blue)
 
-![Static Badge](https://img.shields.io/badge/XML_invoixe-YES-blue)
+![Static Badge](https://img.shields.io/badge/format_XML-YES-blue)
+
+![Static Badge](https://img.shields.io/badge/format_PDF-YES-blue)
+
+![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-blue)
+
+
+
 
 
 
