@@ -87,10 +87,15 @@ version = { source = "file", path = "xl2roefact/__version__.py" }
 
 
 [tool.pdm.scripts]  #NOTE ref: `https://pdm-project.org/latest/usage/scripts/` #TODO all of these are subject to documentation update (mainly `doc/README_xl2roefact_library.md`)
+
 build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
+
 build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
+
 build_doc = {shell = "pydoc-markdown -I xl2roefact --render-toc >doc/810.05a-xl2roefact_DLD_specs.md"}  # build detailed level design doc, ie `...DLD....md` doc. NOTE-ATTN to name of markdown generated file
+
 build_all = {composite = ["build_wheel", "build_msi", "build_doc"]}  # build all packages (MSI, python package wheel, python package sdist, design doc)
+
 xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python module
 
 
