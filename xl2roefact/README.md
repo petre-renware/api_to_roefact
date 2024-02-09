@@ -13,9 +13,9 @@
 
 ![Static Badge](https://img.shields.io/badge/MSI_installer-YES-blue)
 
-![Static Badge](https://img.shields.io/badge/versiune_script_Python-0.1.20-blue)
+![Static Badge](https://img.shields.io/badge/JSON_invoice-YES-blue)
 
-![Static Badge](https://img.shields.io/badge/versiune_pachet_Python_PyPi-0.1.20-blue)
+![Static Badge](https://img.shields.io/badge/XML_invoixe-YES-blue)
 
 
 
