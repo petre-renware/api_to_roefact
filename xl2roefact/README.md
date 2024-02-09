@@ -7,14 +7,18 @@
 [TOC]
 
 
+
+
+## Facilitati
+
 ![Static Badge](https://img.shields.io/badge/versiune_MSI_installer-0.1.20-blue)
+
 ![Static Badge](https://img.shields.io/badge/versiune_script_Python-0.1.20-blue)
+
 ![Static Badge](https://img.shields.io/badge/versiune_pachet_Python_PyPi-0.1.20-blue)
 
 
 
-
-## Facilitati
 
 Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si o poate incarca in sistemul *RO E-Fact*[^ld_roefact].
 
