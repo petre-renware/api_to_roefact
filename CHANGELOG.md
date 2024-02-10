@@ -64,8 +64,6 @@
 * wip...
 
 * 240209piu_c updated `xl2roefact` component, README file, restructured info ref JSON file format (dropped redundant info)
-* ---TODO: ------------- test & review all up here
-
 * 240209piu_b reviewed & corrected `240209piu_a, 240208piu_a`. Published site
 * 240209piu_a updated `xl2roefact *` documentation to drop redundant info (badges, prev versions useless details)
 * 240208piu_a updated `xl2roefact library` documentation, docstring(s) and `mkdocs.yml` navigation entries to clarify subjects by using specific technical terms (this component address technical users not business ones)

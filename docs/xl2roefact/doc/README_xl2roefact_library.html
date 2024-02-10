@@ -738,7 +738,12 @@ div.download-btn {
 <p>Cheile de la primul nivel contin:</p>
 <ul>
 <li><strong><code>Invoice</code></strong> - datele efective ale facturii</li>
-<li><strong><code>meta_info</code></strong> - informatii referitoare la procesarea facturii si mapa de conversie a cheii <code>Invoice</code> din formatul <code>JSON</code> in formatul <code>XML</code> cerut de sistemul <em>RO E-Fact</em></li>
+<li><strong><code>meta_info</code></strong><ul>
+<li>informatii referitoare la procesarea facturii si mapa de conversie a cheii <code>Invoice</code> din formatul <code>JSON</code> in formatul <code>XML</code> cerut de sistemul <em>RO E-Fact</em></li>
+<li>harta de ajutor in conversia formatului JSON in formatul XML acceptat de sistemul RO E-Fact (cheie <code>meta_info.map_JSONkeys_XMLtags</code>) si definititiile XML aferente (cheie <code>meta_info.invoice_XML_schemes</code>)</li>
+<li>alte informatii despre fisierul Excel prelucrat (numele, worksheet cu factura, data si ora procesarii, CRC pentru verificare, etc)</li>
+</ul>
+</li>
 <li><strong><code>excel_original_data</code></strong> - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel</li>
 </ul>
 <p>An <a href="invoice_json_model_.html">example of JSON generated file is available here</a></p>

@@ -1704,14 +1704,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>factura_A.json</code> acesta fiind fisierul format JSON rezultat in urma procesarii si ce poate fi folosit pentru interschimbarea electronica a informatiei intre sisteme</li>
 </ul>
 <h2 id="xl2roefact-index-aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii</h2>
-<p>Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda <code>xl2json</code>. Formatul JSON utilizat contine:</p>
-<ul>
-<li>informatiile aferente facturii (cheie: <code>Invoice</code>)</li>
-<li>o harta de ajutor in conversia formatului JSON in formatul XML acceptat de sistemul RO E-Fact (cheie <code>meta_info.map_JSONkeys_XMLtags</code>) si definititiile XML aferente (cheie <code>meta_info.invoice_XML_schemes</code>)</li>
-<li>alte informatii despre fisierul Excel prelucrat (alte chei din <code>meta_info</code>)</li>
-<li>datele preluate din formatul original Excel (cheie <code>excel_original_data</code>) - acestea sunt utile pentru depanare in caz ca aceasta este necesara in cazul specific al fisierului Excel folosit de dvs</li>
-</ul>
-<p>Structura de baza a acestui fisier este:</p>
+<p>Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda <code>xl2json</code>. Formatul JSON are urmatoarra structura de baza:</p>
 <div class="highlight"><pre><span></span><code>{
     &quot;Invoice&quot;: {...},
     &quot;meta_info&quot;: {...},
@@ -1721,7 +1714,12 @@ cit si la nivel detaliat pentru fiecare comanda
 <p>Cheile de la primul nivel contin:</p>
 <ul>
 <li><strong><code>Invoice</code></strong> - datele efective ale facturii</li>
-<li><strong><code>meta_info</code></strong> - informatii referitoare la procesarea facturii si mapa de conversie a cheii <code>Invoice</code> din formatul <code>JSON</code> in formatul <code>XML</code> cerut de sistemul <em>RO E-Fact</em></li>
+<li><strong><code>meta_info</code></strong><ul>
+<li>informatii referitoare la procesarea facturii si mapa de conversie a cheii <code>Invoice</code> din formatul <code>JSON</code> in formatul <code>XML</code> cerut de sistemul <em>RO E-Fact</em></li>
+<li>harta de ajutor in conversia formatului JSON in formatul XML acceptat de sistemul RO E-Fact (cheie <code>meta_info.map_JSONkeys_XMLtags</code>) si definititiile XML aferente (cheie <code>meta_info.invoice_XML_schemes</code>)</li>
+<li>alte informatii despre fisierul Excel prelucrat (numele, worksheet cu factura, data si ora procesarii, CRC pentru verificare, etc)</li>
+</ul>
+</li>
 <li><strong><code>excel_original_data</code></strong> - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel</li>
 </ul>
 <p><small markdown="1">Pentru detalii suplimentare despre formatul JSON trebyie consultata componenta referitoare la <strong><em><a href="#xl2roefact-doc-readme_xl2roefact_library">biblioteca <code>xl2roefact</code> destinata dezvoltarii software</a></em></strong>.</small></p>
@@ -1866,7 +1864,12 @@ cit si la nivel detaliat pentru fiecare comanda
 <p>Cheile de la primul nivel contin:</p>
 <ul>
 <li><strong><code>Invoice</code></strong> - datele efective ale facturii</li>
-<li><strong><code>meta_info</code></strong> - informatii referitoare la procesarea facturii si mapa de conversie a cheii <code>Invoice</code> din formatul <code>JSON</code> in formatul <code>XML</code> cerut de sistemul <em>RO E-Fact</em></li>
+<li><strong><code>meta_info</code></strong><ul>
+<li>informatii referitoare la procesarea facturii si mapa de conversie a cheii <code>Invoice</code> din formatul <code>JSON</code> in formatul <code>XML</code> cerut de sistemul <em>RO E-Fact</em></li>
+<li>harta de ajutor in conversia formatului JSON in formatul XML acceptat de sistemul RO E-Fact (cheie <code>meta_info.map_JSONkeys_XMLtags</code>) si definititiile XML aferente (cheie <code>meta_info.invoice_XML_schemes</code>)</li>
+<li>alte informatii despre fisierul Excel prelucrat (numele, worksheet cu factura, data si ora procesarii, CRC pentru verificare, etc)</li>
+</ul>
+</li>
 <li><strong><code>excel_original_data</code></strong> - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel</li>
 </ul>
 <p>An <a href="#xl2roefact-doc-invoice_json_model_">example of JSON generated file is available here</a></p>
@@ -2799,7 +2802,6 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <li><a href="#changelog-0119dev-invoice-customer-and-partial-invoice-total-values-calculations-240116-h0600">0.1.19.dev invoice customer and partial invoice total values calculations (240116 h06:00)</a></li>
 <li><a href="#changelog-0118dev-invoice-customer-cui-partial-invoice-total-values-calculations-240105-h0800">0.1.18.dev invoice customer CUI partial invoice total values calculations  (240105 h08:00)</a></li>
 <li><a href="#changelog-0117dev-fixed-all-application-package-running-standard-ways-231224-h0530">0.1.17.dev fixed all application &amp; package running standard ways (231224 h05:30)</a></li>
-<li><a href="#changelog-0116dev-improving-excel-kv-data-search-with-in-label-method-231222-h0700">0.1.16.dev improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)</a></li>
 </ul>
 </li>
 </ul>
@@ -2871,6 +2873,7 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <li>
 <p>---TODO: ------------- test &amp; review all up here</p>
 </li>
+<li>240209piu_c updated <code>xl2roefact</code> component, README file, restructured info ref JSON file format (dropped redundant info)</li>
 <li>240209piu_b reviewed &amp; corrected <code>240209piu_a, 240208piu_a</code>. Published site</li>
 <li>240209piu_a updated <code>xl2roefact *</code> documentation to drop redundant info (badges, prev versions useless details)</li>
 <li>240208piu_a updated <code>xl2roefact library</code> documentation, docstring(s) and <code>mkdocs.yml</code> navigation entries to clarify subjects by using specific technical terms (this component address technical users not business ones)</li>
@@ -3107,43 +3110,9 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <p>231223piu_a multiple changes ref main code: <code>xl2roefact.py</code> and library <code>xl2roefact</code>, MAINLY created <code>xl2roefact/__main__.py</code> as normal of xl2roefact.py</p>
 </li>
 </ul>
-<h3 id="changelog-0116dev-improving-excel-kv-data-search-with-in-label-method-231222-h0700">0.1.16.dev improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)</h3>
-<ul>
-<li>
-<p>231222piu_b build packages for:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> application deployment package ==&gt; <code>dist/0.1.13-xl2roefact-0.1-win64.msi</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> cleaned, tested, created packages (saved to ==&gt; <code>.../880-RLSE/880.90-RLSE Source Code Archives</code>)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> updated <code>pyproject.toml</code></li>
-</ul>
-</li>
-<li>
-<p>231222piu_a refactor <code>rdinv.__get_excel_data_at_label(...)</code> to search in label (named "IN-LABEL" method)</p>
-</li>
-<li>
-<p>231220piu_b made a first PDM build: [@ 231220 h09:55] ==&gt; test PASS (both created files in <code>dist/</code> was "git-ignored")</p>
-</li>
-<li>
-<p>231220piu_b refactored <code>rdinv(...)</code> section "section for search of <code>invoice_items_area</code> ..." to use <code>__get_excel_data_at_label(...)</code> function`</p>
-</li>
-<li>
-<p>231220piu_a refactored <code>rdinv.__get_excel_data_at_label(...)</code> for returned "label_position" key`</p>
-</li>
-<li>
-<p>231219piu_a update <code>rdinv.__get_excel_data_at_label(...)</code> to return found label value in dictionary as key <code>"label_value"</code></p>
-</li>
-<li>
-<p>231218piu_c <code>PDM</code> environment manager, updated <code>pyproject.toml</code> structures ref package building, still preps to create env, generate lock file...</p>
-</li>
-<li>
-<p>231218piu_b CLI application, fixed bug of print settings when deployed from a package (command: <code>xl2roefact.py settings</code>)</p>
-</li>
-<li>
-<p>231218piu_a installed <code>PDM</code> environment manager, updated <code>pyproject.toml</code> structures, nxt to create env, generate lock file...</p>
-</li>
-</ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
 <ul>
+<li><a href="#changelog_history-changelog-0.1.16.dev">0.1.16.dev improving Excel kv-data search with "IN-LABEL" method</a></li>
 <li><a href="#changelog_history-changelog-0.1.15">0.1.15 updated solution portal <code>http://invoicetoroefact.renware.eu/</code></a></li>
 <li><a href="#changelog_history-changelog-0.1.14.dev">0.1.14.dev invoice issue date</a></li>
 <li><a href="#changelog_history-changelog-0.1.13.dev">0.1.13.dev invoice currency</a></li>
