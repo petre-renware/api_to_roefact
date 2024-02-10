@@ -2,15 +2,18 @@
 """app_cli: the command line application for all xl2roefact functionalities.
 
 Identification:
+
 * code-name: `xl2roefact`
 * copyright: (c) 2023 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 Deployments:
+
 * Windows:  MSI installer with EXE application.
 * Linux: `xl2roefact` executable shell as wrapper for `xl2roefact.py`.
 
 Specifications:
+
 * command general format: `xl2roefact [file(s)-to-convert] COMMAND [OPTIONS]`.
 * help: `xl2roefact [COMMAND] --help`.
 """
