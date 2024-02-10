@@ -10,7 +10,6 @@ authors = [
 dependencies = [
     "altgraph~=0.17",
     "argcomplete~=3.2",
-    "build~=1.0",
     "commonmark~=0.9",
     "et-xmlfile~=1.1",
     "Fraction~=2.2",
@@ -25,7 +24,6 @@ dependencies = [
     "pip~=23.3",
     "platformdirs~=4.1",
     "Pygments~=2.17",
-    "pyinstaller-hooks-contrib~=2023.12",
     "pylightxl~=1.61",
     "pyproject-hooks~=1.0",
     "python-dateutil~=2.8",
@@ -41,7 +39,7 @@ dependencies = [
     "tzdata~=2023.4",
     "userpath~=1.9",
     "wheel~=0.42",
-]  #FIXME @231217 still raise error when import `pendulum` package (`File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
+]  #FIXME @231217 `pendulum` package raise error when import (#NOTE_ERR MSG: `File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">= 3.10"
@@ -98,12 +96,14 @@ xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python modu
 
 [tool.pdm.dev-dependencies]  # dependencies used only in develeopment and not transfered in Pythn package building
 dev = [
+    "build~=1.0",
     "click~=8.1",
     "typer~=0.9",
     "pydoc-markdown~=4.8",
     "cx-Freeze~=6.15",
     "cx-Logging~=3.1",
     "pyinstaller~=4.5",
+    "pyinstaller-hooks-contrib~=2023.12",
 ]
 
 
