@@ -9,7 +9,7 @@ Identification:
 
 Specifications:
 
-* document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
+* document cerinte initiale: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
 * INTRARI: fisier `f-XML`
 * IESIRI: raport cu validarea si identificatorul incarcarii
 """
