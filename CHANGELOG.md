@@ -63,12 +63,11 @@
 
 * wip...
 
+* 240210piu_b test for iss `240210piu_a` ==> PASS
+    * [x] app as functional (there are updates in code),
+    * [x] re-build tech doc (`pdm build_doc`),
+    * [x] build & publish site
 * 240210piu_a reviewed & updated all `xl2roefact` modules for their docstring
-* -------[TODO: test all up here]--------
-    * app as functional (there are updates in code),
-    * re-build tech doc (`pdm build_doc`),
-    * build & publish site
-
 * 240209piu_c updated `xl2roefact` component, README file, restructured info ref JSON file format (dropped redundant info)
 * 240209piu_b reviewed & corrected `240209piu_a, 240208piu_a`. Published site
 * 240209piu_a updated `xl2roefact *` documentation to drop redundant info (badges, prev versions useless details)

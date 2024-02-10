@@ -1891,43 +1891,59 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>0.1.18.dev invoice customer CUI partial invoice total values calculations <a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18.tar.gz" title="download">DIST</a></li>
 </ul></section><section class="print-page" id="xl2roefact-doc-810.05a-xl2roefact_dld_specs"><h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-table-of-contents">Table of Contents</h1>
 <ul>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli">app_cli</a></li>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli">app_cli</a><ul>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.about">about</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.settings">settings</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.xl2json">xl2json</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.called_when_no_command">called_when_no_command</a></li>
+</ul>
+</li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkisld">chkisld</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkxml">chkxml</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings">config_settings</a></li>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings">config_settings</a><ul>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings.DEFAULT_SUPPLIER_COUNTRY">DEFAULT_SUPPLIER_COUNTRY</a></li>
+</ul>
+</li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-ldxml">ldxml</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils">libutils</a></li>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils">libutils</a><ul>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils.isnumber">isnumber</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils.find_str_in_list">find_str_in_list</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv">rdinv</a></li>
+</ul>
+</li>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv">rdinv</a><ul>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.rdinv">rdinv</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.get_excel_data_at_label">get_excel_data_at_label</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.mk_kv_invoice_items_area">mk_kv_invoice_items_area</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.get_invoice_items_area">get_invoice_items_area</a></li>
+</ul>
+</li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-wrxml">wrxml</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__init__">__init__</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__main__">__main__</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__version__">__version__</a></li>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__version__">__version__</a><ul>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__version__.__version__">__version__</a></li>
+</ul>
+</li>
 </ul>
 <p><a id="app_cli"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli">app_cli</h1>
 <p>app_cli: the command line application for all xl2roefact functionalities.</p>
-<p>Identification:
-* code-name: <code>xl2roefact</code>
-* copyright: (c) 2023 RENWare Software Systems
-* author: Petre Iordanescu (petre.iordanescu@gmail.com)</p>
-<p>Deployments:
-* Windows:  MSI installer with EXE application.
-* Linux: <code>xl2roefact</code> executable shell as wrapper for <code>xl2roefact.py</code>.</p>
-<p>Specifications:
-* command general format: <code>xl2roefact [file(s)-to-convert] COMMAND [OPTIONS]</code>.
-* help: <code>xl2roefact [COMMAND] --help</code>.</p>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>xl2roefact</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Deployments:</p>
+<ul>
+<li>Windows:  MSI installer with EXE application.</li>
+<li>Linux: <code>xl2roefact</code> executable shell as wrapper for <code>xl2roefact.py</code>.</li>
+</ul>
+<p>Specifications:</p>
+<ul>
+<li>command general format: <code>xl2roefact [file(s)-to-convert] COMMAND [OPTIONS]</code>.</li>
+<li>help: <code>xl2roefact [COMMAND] --help</code>.</li>
+</ul>
 <p><a id="app_cli.about"></a></p>
 <h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-about">about</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -1989,25 +2005,33 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><a id="chkisld"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkisld">chkisld</h1>
 <p>chkisld: modul de verificare a starii de incarcare a unei facturi emise</p>
-<p>Identification:
-* code-name: <code>chkisld</code>
-* copyright: (c) 2023 RENWare Software Systems
-* author: Petre Iordanescu (petre.iordanescu@gmail.com)</p>
-<p>Specifications:
-* document: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code>
-* INTRARI: fisier <code>f-XLSX</code> sau numarul / cheia / codul facturii
-* IESIRI: valoarea echivalent <code>TRUE</code> daca factura a fost deja incarcata sau valoare echivalent <code>FALSE</code> daca factura nu a fost incarcata</p>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>chkisld</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Specifications:</p>
+<ul>
+<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
+<li>INTRARI: fisier <code>f-XLSX</code> sau numarul / cheia / codul facturii</li>
+<li>IESIRI: valoarea echivalent <code>TRUE</code> daca factura a fost deja incarcata sau valoare echivalent <code>FALSE</code> daca factura nu a fost incarcata</li>
+</ul>
 <p><a id="chkxml"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkxml">chkxml</h1>
 <p>chkxml: modul de validare a facturii in sistemul ANAF E-Factura</p>
-<p>Identification:
-* code-name: <code>chkxml</code>
-* copyright: (c) 2023 RENWare Software Systems
-* author: Petre Iordanescu (petre.iordanescu@gmail.com)</p>
-<p>Specifications:
-* document: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code>
-* INTRARI: fisier <code>f-XML</code>
-* IESIRI: raport cu eventualele erori de validare</p>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>chkxml</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Specifications:</p>
+<ul>
+<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
+<li>INTRARI: fisier <code>f-XML</code></li>
+<li>IESIRI: raport cu eventualele erori de validare</li>
+</ul>
 <p><a id="config_settings"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings">config_settings</h1>
 <p>Configuration and setting parameters.  <!-- <code>TODO</code> all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel") --></p>
@@ -2040,26 +2064,34 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><a id="ldxml"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-ldxml">ldxml</h1>
 <p>ldxml: modul de incarcare a facturii in sistemul ANAF E-Factura</p>
-<p>Identification:
-* code-name: <code>ldxml</code>
-* copyright: (c) 2023 RENWare Software Systems
-* author: Petre Iordanescu (petre.iordanescu@gmail.com)</p>
-<p>Specifications:
-* document: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code>
-* INTRARI: fisier <code>f-XML</code>
-* IESIRI: raport cu validarea si identificatorul incarcarii</p>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>ldxml</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Specifications:</p>
+<ul>
+<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
+<li>INTRARI: fisier <code>f-XML</code></li>
+<li>IESIRI: raport cu validarea si identificatorul incarcarii</li>
+</ul>
 <p><a id="libutils"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils">libutils</h1>
-<p>libutils: general utilities library.</p>
-<p>Identification:
-* code-name: <code>libutils</code>
-* copyright: (c) 2023 RENWare Software Systems
-* author: Petre Iordanescu (petre.iordanescu@gmail.com)</p>
-<p>Components:
-* <code>isnumber(a_string: str) -&gt; bool</code>
-    Test a string if it could be used as number (int or float)
-* <code>find_str_in_list(list_of_str_to_find: list, list_to_search: list) -&gt; int</code>
-    Search more strings (ie, a list) in list of strings</p>
+<p>general utilities library for all <code>xl2roefact</code> components and modules.</p>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>libutils</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Components:</p>
+<ul>
+<li><code>isnumber(a_string: str) -&gt; bool</code>
+    Test a string if it could be used as number (int or float)</li>
+<li><code>find_str_in_list(list_of_str_to_find: list, list_to_search: list) -&gt; int</code>
+    Search more strings (ie, a list) in list of strings</li>
+</ul>
 <p><a id="libutils.isnumber"></a></p>
 <h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-isnumber">isnumber</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">isnumber</span><span class="p">(</span><span class="n">a_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
@@ -2091,14 +2123,18 @@ cit si la nivel detaliat pentru fiecare comanda
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv">rdinv</h1>
 <p>rdinv: modul de procesare a fisierului Excel ce contine factura si colectare a datelor aferente.</p>
 <p>Formatul acceptat fisier Excel este <code>XLSX</code>.</p>
-<p>Identification:
-* code-name: <code>rdinv</code>
-* copyright: (c) 2023 RENWare Software Systems
-* author: Petre Iordanescu (petre.iordanescu@gmail.com)</p>
-<p>Specifications:
-* document: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code>
-* INTRARI: fisier format XLSX ce contine factura emisa (cod: <code>f-XLSX</code>)
-* IESIRI: fisier format JSON imagine a datelor facturii (cod: <code>f-JSON</code>)</p>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>rdinv</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Specifications:</p>
+<ul>
+<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
+<li>INTRARI: fisier format XLSX ce contine factura emisa (cod: <code>f-XLSX</code>)</li>
+<li>IESIRI: fisier format JSON imagine a datelor facturii (cod: <code>f-JSON</code>)</li>
+</ul>
 <p><a id="rdinv.rdinv"></a></p>
 <h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv_1">rdinv</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rdinv</span><span class="p">(</span><span class="n">file_to_process</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -2187,29 +2223,39 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><a id="wrxml"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-wrxml">wrxml</h1>
 <p>wrxml: modul de generare a fisierului format XML</p>
-<p>Identification:
-* code-name: <code>wrxml</code>
-* copyright: (c) 2023 RENWare Software Systems
-* author: Petre Iordanescu (petre.iordanescu@gmail.com)</p>
-<p>Specifications:
-* document: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code>
-* INTRARI: fisier <code>f-JSON</code>
-* IESIRI: fisier format XML conform cerintelor si sistemului ANAF E-Factura (cod: <code>f-XML</code>)</p>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>wrxml</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Specifications:</p>
+<ul>
+<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
+<li>INTRARI: fisier <code>f-JSON</code></li>
+<li>IESIRI: fisier format XML conform cerintelor si sistemului ANAF E-Factura (cod: <code>f-XML</code>)</li>
+</ul>
 <p><a id="__init__"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-__init__">__init__</h1>
 <p><a id="__main__"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-__main__">__main__</h1>
 <p><strong>xl2roefact.<strong>main</strong></strong>: Python package standard file to assure run as <code>python -m xl2roefact</code>.</p>
-<p>Identification:
-* code-name: <code>__main__</code>
-* copyright: (c) 2023 RENWare Software Systems
-* author: Petre Iordanescu (petre.iordanescu@gmail.com)</p>
-<p>Deployments:
-* Windows:  MSI installer with EXE application.
-* Linux: <code>xl2roefact</code> executable shell as wrapper for <code>xl2roefact.py</code>.</p>
-<p>Specifications:
-* command general format: <code>python -m xl2roefact [OPTIONS] COMMAND [ARGS]...</code>.
-* help: <code>python -m xl2roefact --help</code>.</p>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>__main__</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Deployments:</p>
+<ul>
+<li>Windows:  MSI installer with EXE application.</li>
+<li>Linux: <code>xl2roefact</code> executable shell as wrapper for <code>xl2roefact.py</code>.</li>
+</ul>
+<p>Specifications:</p>
+<ul>
+<li>command general format: <code>python -m xl2roefact [OPTIONS] COMMAND [ARGS]...</code>.</li>
+<li>help: <code>python -m xl2roefact --help</code>.</li>
+</ul>
 <p><a id="__version__"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-__version__">__version__</h1>
 <h6 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-_1">## ####              ########</h6>
@@ -2871,8 +2917,14 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <p>wip...</p>
 </li>
 <li>
-<p>---TODO: ------------- test &amp; review all up here</p>
+<p>240210piu_b test for iss <code>240210piu_a</code></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> app as functional (there are updates in code),</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> re-build tech doc (<code>pdm build_doc</code>),</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> build &amp; publish site</li>
+</ul>
 </li>
+<li>240210piu_a reviewed &amp; updated all <code>xl2roefact</code> modules for their docstring</li>
 <li>240209piu_c updated <code>xl2roefact</code> component, README file, restructured info ref JSON file format (dropped redundant info)</li>
 <li>240209piu_b reviewed &amp; corrected <code>240209piu_a, 240208piu_a</code>. Published site</li>
 <li>240209piu_a updated <code>xl2roefact *</code> documentation to drop redundant info (badges, prev versions useless details)</li>
