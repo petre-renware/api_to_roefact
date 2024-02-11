@@ -46,7 +46,7 @@
 
 
 
-### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt...)
+### 0.1.22.dev invoice customer info-optional items (email, reg-com, phone) (#NOTE nxt...)
 
 * tbd.Must... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
