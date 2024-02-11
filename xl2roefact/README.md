@@ -45,23 +45,18 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 
 
-## Instalarea
 
-Instalarea este diferita pentru cele doua  componente:
-
-* aplicatia de tip *linie de comanda / consola* (descrisa in continuare)
-* [biblioteca *“standard Python package wheel"*](./doc/README_xl2roefact_library.md#install-library) (descrisa in al document, pe linkul afisat)
-
-
-### Instalarea aplicatiei xl2roefact
+## Instalarea aplicatiei xl2roefact
 
 Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
 
-* `MSI` pachet instalare pentru *Windows
+* **`MSI`** pachet instalare pentru *Windows*
 * `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemuluu de operare folosit de dvs)
 * `EXE` executabil *Windows in format "portabil" (un singur fisier)*
-* ***NOTA:*** pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python (vezi sectiunea urmatoare) duoa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
 
+>*NOTA 1:* pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python (vezi sectiunea urmatoare) duoa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
+>
+>*NOTA 2:* pachetul `MSI` pentru *Windows* este disponibil in orice variante / versiuni al sistemului. Optiunile pentru *Linux* sunt mult mai flexibile si astfel celelalte pot lipsi insa pot fi disponibile graruit, la cerere.
 
 
 
