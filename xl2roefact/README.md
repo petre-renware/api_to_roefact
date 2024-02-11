@@ -7,14 +7,21 @@
 [TOC]
 
 
-![Static Badge](https://img.shields.io/badge/versiune_MSI_installer-0.1.19-blue)
-![Static Badge](https://img.shields.io/badge/versiune_script_Python-0.1.20-blue)
-![Static Badge](https://img.shields.io/badge/versiune_pachet_Python_PyPi-0.1.20-blue)
-
-
 
 
 ## Facilitati
+
+![Static Badge](https://img.shields.io/badge/MSI_installer-YES-blue)
+![Static Badge](https://img.shields.io/badge/format_JSON-YES-orange)
+![Static Badge](https://img.shields.io/badge/format_XML-YES-orange)
+![Static Badge](https://img.shields.io/badge/format_PDF-YES-orange)
+![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-blue)
+
+
+
+
+
+
 
 Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si o poate incarca in sistemul *RO E-Fact*[^ld_roefact].
 
@@ -38,23 +45,18 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 
 
-## Instalarea
 
-Instalarea este diferita pentru cele doua  componente:
-
-* aplicatia de tip *linie de comanda / consola* (descrisa in continuare)
-* [biblioteca *“standard Python package wheel"*](./doc/README_xl2roefact_library.md#install-library) (descrisa in al document, pe linkul afisat)
-
-
-### Instalarea aplicatiei xl2roefact
+## Instalarea aplicatiei xl2roefact
 
 Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
 
-* `MSI` pachet instalare pentru *Windows
+* **`MSI`** pachet instalare pentru *Windows*
 * `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemuluu de operare folosit de dvs)
 * `EXE` executabil *Windows in format "portabil" (un singur fisier)*
-* ***NOTA:*** pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python (vezi sectiunea urmatoare) duoa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
 
+>*NOTA 1:* pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python ([vezi sectiunea `xl2roefact PyPi library`](.doc/../doc/README_xl2roefact_library.md)) dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
+>
+>*NOTA 2:* pachetul `MSI` pentru *Windows* este disponibil in orice variante / versiuni al sistemului. Optiunile pentru *Linux* sunt mult mai flexibile si astfel celelalte pot lipsi insa pot fi disponibile graruit, la cerere.
 
 
 
@@ -167,16 +169,7 @@ invoice_files/
 
 ## Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii
 
-Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Formatul JSON utilizat contine:
-
-- informatiile aferente facturii (cheie: `Invoice`)
-- o harta de ajutor in conversia formatului JSON in formatul XML acceptat de sistemul RO E-Fact (cheie `meta_info.map_JSONkeys_XMLtags`) si definititiile XML aferente (cheie `meta_info.invoice_XML_schemes`)
-- alte informatii despre fisierul Excel prelucrat (alte chei din `meta_info`)
-- datele preluate din formatul original Excel (cheie `excel_original_data`) - acestea sunt utile pentru depanare in caz ca aceasta este necesara in cazul specific al fisierului Excel folosit de dvs
-
-
-Structura de baza a acestui fisier este:
-
+Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Formatul JSON are urmatoarra structura de baza:
 
 ```
 {
@@ -190,7 +183,10 @@ Structura de baza a acestui fisier este:
 Cheile de la primul nivel contin:
 
 * **`Invoice`** - datele efective ale facturii
-* **`meta_info`** - informatii referitoare la procesarea facturii si mapa de conversie a cheii `Invoice` din formatul `JSON` in formatul `XML` cerut de sistemul *RO E-Fact*
+* **`meta_info`**
+    * informatii referitoare la procesarea facturii si mapa de conversie a cheii `Invoice` din formatul `JSON` in formatul `XML` cerut de sistemul *RO E-Fact*
+    * harta de ajutor in conversia formatului JSON in formatul XML acceptat de sistemul RO E-Fact (cheie `meta_info.map_JSONkeys_XMLtags`) si definititiile XML aferente (cheie `meta_info.invoice_XML_schemes`)
+    * alte informatii despre fisierul Excel prelucrat (numele, worksheet cu factura, data si ora procesarii, CRC pentru verificare, etc)
 * **`excel_original_data`** - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel
 
 <small markdown="1">Pentru detalii suplimentare despre formatul JSON trebyie consultata componenta referitoare la ***[biblioteca `xl2roefact` destinata dezvoltarii software](./doc/README_xl2roefact_library.md)***.</small>
@@ -223,7 +219,7 @@ Cheile de la primul nivel contin:
 
 
 
-## [License](./LICENSE)
+## [License](./LICENSE "download")
 
 
 

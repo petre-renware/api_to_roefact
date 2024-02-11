@@ -24,8 +24,8 @@
     * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
 
     - ---[ #TODO short planning board ]---------------------------
-    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
-        * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
+    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed).
+      ...Aici descrierea pe scurt: in file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
     -
     * ... FUTURE NEW APP COMMANDS :
         * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
@@ -34,8 +34,6 @@
         * `json2pdf` - new tbd..,
         * `xml2roefact` - see mpdule LDXML
         * chk for other commands from doc `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-        * PACKAGE SOLUTION:
-            * [ ] publish `xl2roefact` package --> read `TODO_packaging.md`
     -
     * -#NOTE_PLAN `rdinv` module:
         * invoice header
@@ -48,21 +46,49 @@
 
 
 
-### 0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt...)
+### 0.1.22.dev invoice customer info-optional items (email, reg-com, phone) (#NOTE nxt...)
 
-* tbd... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
+* tbd.Must... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
-* tbd.optional... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
+* tbd.Would... automate GitHub site build & publishing. See file `/gh_mkdocs_auto_publish.md`.
 
-* tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
+* tbd.Should... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
+* tbd.Could... xl2roefact component (`.../spp_cli.py`) line 68: add a `rules` option (param) to display `config_settings.__doc__`
 
-* tbd... use for xl2roefact app help generation IN A markdown page' `https://pypi.org/project/mkdocs-typer/`
+* tbd.Must... publish `xl2roefact` package --> read `TODO_packaging.md`
+* tbd Could... init a PDM simple env in project root. Keep in mind:
+    * root project is for SITE GENERATION. ? the `web2roefact` will need its own directory5like `xl2roefact` ?
+    * as consequence the project name is **INVOICEtoROefact**
+    * and the version is last from CHANGELOG
 
-* wip... last item used 240206piu_c
+* tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
+
+
+* wip... last used `240211piu_b`
 
 
 
 
+
+
+
+
+
+### 0.1.21.post3 cleaned system documentation and site
+
+* 240211piu_b tested & reviewed `240211piu_a` ==> published site
+* 240211piu_a updated `xl2roefact/README.md` clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point
+* 240210piu_b test for iss `240210piu_a` ==> PASS
+    * [x] app as functional (there are updates in code),
+    * [x] re-build tech doc (`pdm build_doc`),
+    * [x] build & publish site
+* 240210piu_a reviewed & updated all `xl2roefact` modules for their docstring
+* 240209piu_c updated `xl2roefact` component, README file, restructured info ref JSON file format (dropped redundant info)
+* 240209piu_b reviewed & corrected `240209piu_a, 240208piu_a`. Published site
+* 240209piu_a updated `xl2roefact *` documentation to drop redundant info (badges, prev versions useless details)
+* 240208piu_a updated `xl2roefact library` documentation, docstring(s) and `mkdocs.yml` navigation entries to clarify subjects by using specific technical terms (this component address technical users not business ones)
+* 240207piu_b improve site readability by detailed description at bullet items level and dropping / moving in other parts the content non "end user related" from: `/README.md`, `doc_src/.../810.05a-system_components.md`
+* 240207piu_a updated all site in pages references to system components & deliverables version
 
 
 
@@ -269,41 +295,6 @@
 
 
 
-### 0.1.16.dev improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
-
-* 231222piu_b build packages for:
-    * [x] application deployment package ==> `dist/0.1.13-xl2roefact-0.1-win64.msi`
-    * [x] cleaned, tested, created packages (saved to ==> `.../880-RLSE/880.90-RLSE Source Code Archives`)
-    * [x] updated `pyproject.toml`
-
-* 231222piu_a refactor `rdinv.__get_excel_data_at_label(...)` to search in label (named "IN-LABEL" method)
-
-* 231220piu_b made a first PDM build: [@ 231220 h09:55] ==> test PASS (both created files in `dist/` was "git-ignored")
-
-* 231220piu_b refactored `rdinv(...)` section "section for search of `invoice_items_area` ..." to use `__get_excel_data_at_label(...)` function`
-
-* 231220piu_a refactored `rdinv.__get_excel_data_at_label(...)` for returned "label_position" key`
-
-* 231219piu_a update `rdinv.__get_excel_data_at_label(...)` to return found label value in dictionary as key `"label_value"`
-
-* 231218piu_c `PDM` environment manager, updated `pyproject.toml` structures ref package building, still preps to create env, generate lock file...
-
-* 231218piu_b CLI application, fixed bug of print settings when deployed from a package (command: `xl2roefact.py settings`)
-
-* 231218piu_a installed `PDM` environment manager, updated `pyproject.toml` structures, nxt to create env, generate lock file...
-
-
-
-
-
-
-### 0.1.15 updated solution portal `http://invoicetoroefact.renware.eu/` (231222 h05:00)
-
-* 231222piu_a updated CNAME to `invoicetoroefact.renware.eu`
-
-
-
-
 
 
 
@@ -314,6 +305,8 @@
 
 # Archived CHANGELOGs
 
+* [0.1.16.dev improving Excel kv-data search with "IN-LABEL" method](./changelog_history/CHANGELOG-0.1.16.dev.md)
+* [0.1.15 updated solution portal `http://invoicetoroefact.renware.eu/`](./changelog_history/CHANGELOG-0.1.15.md)
 * [0.1.14.dev invoice issue date](./changelog_history/CHANGELOG-0.1.14.dev.md)
 * [0.1.13.dev invoice currency](./changelog_history/CHANGELOG-0.1.13.dev.md)
 * [0.1.12.dev invoice number](./changelog_history/CHANGELOG-0.1.12.dev.md)
@@ -335,7 +328,10 @@
 
 
 
+<!-- #TODO create this ? released notes are alreay (@240207) published in GitHub releases
 
-# [Release Notes](RELNOTE.md) #TODO this file should be created
+# [Release Notes](RELNOTE.md)
 
-* wip... [not_yet_created... 0.1](./changelog_history/...)
+* wip... [not_yet_created... 0.1]  (./changelog_history/...)
+
+-->

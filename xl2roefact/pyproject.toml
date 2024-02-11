@@ -10,7 +10,6 @@ authors = [
 dependencies = [
     "altgraph~=0.17",
     "argcomplete~=3.2",
-    "build~=1.0",
     "commonmark~=0.9",
     "et-xmlfile~=1.1",
     "Fraction~=2.2",
@@ -22,10 +21,10 @@ dependencies = [
     "openpyxl~=3.1",
     "packaging~=23.2",
     "pefile~=2023.2",
+    "pdm~=2.12",
     "pip~=23.3",
     "platformdirs~=4.1",
     "Pygments~=2.17",
-    "pyinstaller-hooks-contrib~=2023.12",
     "pylightxl~=1.61",
     "pyproject-hooks~=1.0",
     "python-dateutil~=2.8",
@@ -41,7 +40,7 @@ dependencies = [
     "tzdata~=2023.4",
     "userpath~=1.9",
     "wheel~=0.42",
-]  #FIXME @231217 still raise error when import `pendulum` package (`File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
+]  #FIXME @231217 `pendulum` package raise error when import (#NOTE_ERR MSG: `File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">= 3.10"
@@ -86,10 +85,11 @@ version = { source = "file", path = "xl2roefact/__version__.py" }
 
 
 
-[tool.pdm.scripts]  #NOTE ref: `https://pdm-project.org/latest/usage/scripts/` #TODO all of these are subject to documentation update (mainly `doc/README_xl2roefact_library.md`)
+[tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
 build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
 build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
-build_doc = {shell = "pydoc-markdown -I xl2roefact --render-toc >doc/810.05a-xl2roefact_DLD_specs.md"}  # build detailed level design doc, ie `...DLD....md` doc. NOTE-ATTN to name of markdown generated file
+#TODO: to add `build_single_exe` to build a single EXE file with `PyInstaller`, file usable for pure remote purposes (no install, ready-2-run from a stick). When rdy, update `build_all` next command from this scripts section / table
+build_doc = {shell = "pydoc-markdown -I xl2roefact --render-toc >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`)
 build_all = {composite = ["build_wheel", "build_msi", "build_doc"]}  # build all packages (MSI, python package wheel, python package sdist, design doc)
 xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python module
 
@@ -97,12 +97,14 @@ xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python modu
 
 [tool.pdm.dev-dependencies]  # dependencies used only in develeopment and not transfered in Pythn package building
 dev = [
+    "build~=1.0",
     "click~=8.1",
     "typer~=0.9",
     "pydoc-markdown~=4.8",
     "cx-Freeze~=6.15",
     "cx-Logging~=3.1",
     "pyinstaller~=4.5",
+    "pyinstaller-hooks-contrib~=2023.12",
 ]
 
 

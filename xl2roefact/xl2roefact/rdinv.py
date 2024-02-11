@@ -4,12 +4,14 @@
 Formatul acceptat fisier Excel este `XLSX`.
 
 Identification:
+
 * code-name: `rdinv`
 * copyright: (c) 2023 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 Specifications:
-* document: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
+
+* document cerinte initiale: `110-SRE-api_to_roefact_requirements.md` section `Componenta xl2roefact`
 * INTRARI: fisier format XLSX ce contine factura emisa (cod: `f-XLSX`)
 * IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
 """

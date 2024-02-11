@@ -1,12 +1,14 @@
 #!../.venv/bin/python3
-"""libutils: general utilities library.
+"""general utilities library for all `xl2roefact` components and modules.
 
 Identification:
+
 * code-name: `libutils`
 * copyright: (c) 2023 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 Components:
+
 * `isnumber(a_string: str) -> bool`
     Test a string if it could be used as number (int or float)
 * `find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int`

@@ -21,27 +21,26 @@ nav:
         - Componentele sistemului: doc_src/810-DSGN/810.05a-system_components.md
         - xl2roefact: xl2roefact/README.md
         - web2roefact: doc_src/wip.md  #TODO...tbd...
-        - xl2roefact PyPi: xl2roefact/doc/README_xl2roefact_library.md
+        - xl2roefact PyPi library: xl2roefact/doc/README_xl2roefact_library.md
         - invoice template: excel_invoice_template/README.md
     - xl2roefact:
         - Descriere: xl2roefact/README.md
         - License: xl2roefact/LICENSE
     - web2roefact:
         - Descriere: doc_src/wip.md  #TODO...tbd...
-    - xl2roefact PyPi:
+    - xl2roefact PyPi library:
         - Descriere:  xl2roefact/doc/README_xl2roefact_library.md
+        - Referinta API: xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md
         - License: xl2roefact/LICENSE
     - invoice template:
         - Descriere: excel_invoice_template/README.md
         - License: excel_invoice_template/LICENSE
     # ---- support functionalities
     - Help:
-        - Manuale de utilizare:
-            - Indexul manuale EUMA: doc_src/help/880.30-EUMA_catalog.md
-            #NOTE - add here EUMA manuals as needed
-        - Manuale de admistrare:
-            - Indexul manuale ADMA: doc_src/help/880.30-ADMA_catalog.md
-            #NOTE - add here ADMA manuals as needed
+        - Manuale web2roefact:
+            - Index manuale End User (EUMA): doc_src/help/880.30-EUMA_catalog.md
+            - Index manuale Administrare (ADMA): doc_src/help/880.30-ADMA_catalog.md
+            #NOTE - add here the most important EUMA manuals for `we2roefact` (these who "need to be seen" at 1st level in navigation)
         - Cerintele sistemului:
             - Considerente tehnice generale: doc_src/commercial_agreement/110-SRE-general_requirements.md
             - Sistem INVOICEtoROefact: doc_src/commercial_agreement/110-SRE-api_to_roefact_requirements.md

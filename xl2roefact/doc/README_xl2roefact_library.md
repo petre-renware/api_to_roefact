@@ -4,7 +4,7 @@
 -->
 
 
-# xl2roefact PyPi Library
+# xl2roefact PyPi library
 
 [TOC]
 
@@ -23,7 +23,7 @@
 * `app_cli` contains the code for `xl2roefact` application command line (CLI) format
 
 
-Below is presented the ***skeleton logic*** of those modules which and where is relevant <small markdown="1">ie meaning where is not enough obvious from code or code complexity exceed usual limits (*for example nore than 100 lines of code per function*)</small>. For more technical details and specification regarding modules [see 810.05a-xl2roefact_DLD_specs.md file](./810.05a-xl2roefact_DLD_specs.md)
+Below is presented the ***skeleton logic*** of those modules which and where is relevant <small markdown="1">ie meaning where is not enough obvious from code or code complexity exceed usual limits (*for example nore than 100 lines of code per function*)</small>. For more technical details and specification regarding modules [see API Reference](./810.05a-xl2roefact_DLD_specs.md)
 
 
 ### rdinv module logic
@@ -106,8 +106,12 @@ Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu c
 Cheile de la primul nivel contin:
 
 * **`Invoice`** - datele efective ale facturii
-* **`meta_info`** - informatii referitoare la procesarea facturii si mapa de conversie a cheii `Invoice` din formatul `JSON` in formatul `XML` cerut de sistemul *RO E-Fact*
+* **`meta_info`**
+    * informatii referitoare la procesarea facturii si mapa de conversie a cheii `Invoice` din formatul `JSON` in formatul `XML` cerut de sistemul *RO E-Fact*
+    * harta de ajutor in conversia formatului JSON in formatul XML acceptat de sistemul RO E-Fact (cheie `meta_info.map_JSONkeys_XMLtags`) si definititiile XML aferente (cheie `meta_info.invoice_XML_schemes`)
+    * alte informatii despre fisierul Excel prelucrat (numele, worksheet cu factura, data si ora procesarii, CRC pentru verificare, etc)
 * **`excel_original_data`** - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel
+
 
 An [example of JSON generated file is available here](./invoice_json_model_.md)
 
@@ -115,7 +119,7 @@ An [example of JSON generated file is available here](./invoice_json_model_.md)
 
 
 
-## [Detailed design technical documentation](./810.05a-xl2roefact_DLD_specs.md)
+## [API Reference](./810.05a-xl2roefact_DLD_specs.md)
 
 
 
