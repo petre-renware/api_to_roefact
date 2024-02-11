@@ -50,6 +50,8 @@
 
 * tbd.Must... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
+* tbd.Would... automate GitHub site build & publishing. See file `/gh_mkdocs_auto_publish.md`.
+
 * tbd.Should... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
 * tbd.Could... xl2roefact component (`.../spp_cli.py`) line 68: add a `rules` option (param) to display `config_settings.__doc__`
 
@@ -62,6 +64,9 @@
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * wip...
+
+* ...wip 240211piu_a update `xl2roefact/README.md` clean section "Instalarea", let only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point
+* ------[TODO: test & publish all up here]---------
 
 * 240210piu_b test for iss `240210piu_a` ==> PASS
     * [x] app as functional (there are updates in code),
