@@ -46,7 +46,7 @@
 
 
 
-### 0.1.22.dev invoice customer info-optional items (email, reg-com, phone) (#NOTE nxt...)
+### #TODO:_wip... 0.1.22.dev invoice customer info-optional items (bank, email, reg-com, phone) (...yymmdd hh:mm...)
 
 * tbd.Must... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
@@ -73,7 +73,7 @@
 
 
 
-### 0.1.21.post3 cleaned system documentation and site
+### 0.1.21.post3 cleaned system documentation and site (240211 h23:59)
 
 * 240211piu_b tested & reviewed `240211piu_a` ==> published site
 * 240211piu_a updated `xl2roefact/README.md` clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point
@@ -94,7 +94,7 @@
 
 
 
-### 0.1.21.post2 xl2roefact app detailed section with commands & options "--help" like
+### 0.1.21.post2 xl2roefact app detailed section with commands & options "--help" like (240206 h23:59)
 
 * 240206piu_c test & release: -- create release, -- publish site, -- save deliverable archives
 * 240206piu_b install package: `pip install mkdocs-typer` & upd back `requirements.txt`
@@ -105,7 +105,7 @@
 
 
 
-### 0.1.21.post1 fixed missing links in site root index page (240203 10h:30)
+### 0.1.21.post1 fixed missing links in site root index page (240203 h10:30)
 
 * 240203piu_a fixed links in `/README.md` for: `xl2roefact PyPi` entry
 
