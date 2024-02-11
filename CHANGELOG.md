@@ -65,8 +65,9 @@
 
 * wip...
 
+* tbd Would... CONSIDER here a new post-release as __0.1.21.post3 cleaned system documentation and site__
 * ...wip 240211piu_a update `xl2roefact/README.md` clean section "Instalarea", let only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point
-* ------[TODO: test & publish all up here]---------
+* ------ TODO: test & publish all up here --------
 
 * 240210piu_b test for iss `240210piu_a` ==> PASS
     * [x] app as functional (there are updates in code),
