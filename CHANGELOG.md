@@ -66,7 +66,7 @@
 * wip...
 * tbd.Must...FIXME: 240212piu_e navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`).  #TODO: ref to localhost `#...ID...` was changed site build.
     * NOTE: FIXtry1 @240212h10:00 updated mkdocs.yml, so TEST AGAIN
-    * NOTE: FIXtry2 @240212h16:00 update `xl2roefact/README.md` add a `<a id="comenzile-aplicatiei"></a>` immediate after header "## Comenzile aplicatiei" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one
+    * NOTE: FIXtry2 @240212h16:00 update `xl2roefact/README.md` add a `<a id="comenzile-aplicatiei"></a>` after header "## Comenzile aplicatiei" paragraph "**Detalii comenzi:**" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one
 
 * 240212piu_d rebuild all deliverables `pdm build_all` ==> v0.1.22 MSI, WHL, SDIST & moved them to a dedicated `_WIP_0.1.22_/` until decide to rebuild or keep
 * 240212piu_c added navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Built & published site (`mkdocs build`).
