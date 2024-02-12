@@ -64,9 +64,10 @@
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * wip...
-* 240212piu_c added navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Built & published site.  #FIXME_test_hint line ~28
-* 240212piu_b updated `.../xl2roefact/app_cli.py` to format app logo string as markdown. Updated API Reference doc (`pdm run build_doc`). #FIXME_test_hint for lines ~56 to 59
-* 240212piu_a review and updated xl2roefact logo (file: `...xl2roefact/__version__`). Clean project of obsolete files & open issues  #FIXME_test_hint file `xl2roefact/...TODO...publish...PyPi.md` dropped
+* -------- TODO: after test below here should run `pdm build_all`, arch MSI, WHL, SDIDST
+* 240212piu_c added navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Built & published site (`mkdocs build`).  #FIXME_test_hint line ~28
+* 240212piu_b updated `.../xl2roefact/app_cli.py` to format app logo string as markdown. Updated packages (`pdm run build_all`). #FIXME_test_hint for lines ~56 to 59
+* 240212piu_a review and updated xl2roefact logo (file: `...xl2roefact/__version__`). Updated API Reference doc (`pdm run build_doc`). Clean project of obsolete files & open issues  #FIXME_test_hint file `xl2roefact/...TODO...publish...PyPi.md` dropped
 * -------- TODO: review & test above iss on laptop
 
 
