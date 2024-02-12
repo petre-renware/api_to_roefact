@@ -1,6 +1,6 @@
 [project]
 name = "xl2roefact"
-# version = "0.1.19"  #NOTE this entry will be read from `xl2roefact/__version__` file
+# version = "...""  #NOTE this entry is maintained from `xl2roefact/__version__` file
 dynamic = ["version"]
 description = "Excel invoices data retrieve, export & upload to RO E-Fact system"
 authors = [

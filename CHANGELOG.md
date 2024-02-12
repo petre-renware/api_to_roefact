@@ -46,14 +46,14 @@
 
 
 
-### #TODO:_wip... 0.1.22.dev invoice customer info-optional items (bank, email, reg-com, phone) (...yymmdd hh:mm...)
+### #TODO:_wip... 0.1.22 invoice customer info-optional items (bank, email, reg-com, phone) (...yymmdd hh:mm...)
 
 * tbd.Must... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
 
 * tbd.Would... automate GitHub site build & publishing. See file `/gh_mkdocs_auto_publish.md`.
 
 * tbd.Should... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
-* tbd.Could... xl2roefact component (`.../spp_cli.py`) line 76: add `--rules` option (param) to display `config_settings.__doc__`
+* tbd.Could... xl2roefact component (`.../spp_cli.py`) line 72: add `--rules` option (param) to display `config_settings.__doc__`
 
 * tbd.Must... publish `xl2roefact` package --> read `TODO_packaging.md`
 * tbd Could... init a PDM simple env in project root. Keep in mind:
@@ -64,14 +64,11 @@
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * wip...
-* -------- TODO: after test below here should run `pdm build_all`, arch MSI, WHL, SDIDST
-* 240212piu_c added navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Built & published site (`mkdocs build`).  #FIXME_test_hint line ~28
-* 240212piu_b updated `.../xl2roefact/app_cli.py` to format app logo string as markdown. Updated packages (`pdm run build_all`). #FIXME_test_hint for lines ~56 to 59
-* 240212piu_a review and updated xl2roefact logo (file: `...xl2roefact/__version__`). Updated API Reference doc (`pdm run build_doc`). Clean project of obsolete files & open issues  #FIXME_test_hint file `xl2roefact/...TODO...publish...PyPi.md` dropped
-* -------- TODO: review & test above iss on laptop
 
-
-
+* 240212piu_d rebuild all deliverables `pdm build_all` ==> v0.1.22 MSI, WHL, SDIST & moved them to a dedicated `_WIP_0.1.22_/` until decide to rebuild or keep
+* 240212piu_c added navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Built & published site (`mkdocs build`).
+* 240212piu_b updated `.../xl2roefact/app_cli.py` to format app logo string as markdown. Updated packages (`pdm build_all`).
+* 240212piu_a review and updated xl2roefact logo (file: `...xl2roefact/__version__`). Updated API Reference doc (`pdm build_doc`). Clean project of obsolete files & open issues
 
 
 

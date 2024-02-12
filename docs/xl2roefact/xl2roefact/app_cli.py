@@ -29,6 +29,7 @@ from typing import Optional
 from datetime import datetime
 from rich import print
 from rich.pretty import pprint
+from rich.markdown import Markdown
 
 # xl2roefact specific libraries
 from xl2roefact import __version__ as appver
@@ -52,7 +53,7 @@ def about():
     """
     version_string = appver.__version__
     app_logo = appver.__doc__
-    # logo & version
+    app_logo = Markdown(app_logo)
     print(app_logo)
     print(f"xl2roefact {version_string} application by RENware Software Systems (c) 2023, 2024")
     # about details
