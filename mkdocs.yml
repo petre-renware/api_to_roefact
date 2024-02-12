@@ -25,6 +25,7 @@ nav:
         - invoice template: excel_invoice_template/README.md
     - xl2roefact:
         - Descriere: xl2roefact/README.md
+        - Referinta CLI: https://localhost/xl2roefact/index.html#xl2roefact_1
         - License: xl2roefact/LICENSE
     - web2roefact:
         - Descriere: doc_src/wip.md  #TODO...tbd...
