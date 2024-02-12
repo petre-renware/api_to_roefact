@@ -64,7 +64,8 @@
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * wip...
-* FIXME: tbd.Must... navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`).  #TODO: ref to localhost `#...ID...` was changed after rebuild. Should be left as `http//... invoicetoroefact.renware.eu ...`
+* tbd.Must...FIXME: 240212piu_e navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`).  #TODO: ref to localhost `#...ID...` was changed site build.
+    * NOTE: try1 @240212h10:00 updated mkdocs.yml, so TEST AGAIN
 
 * 240212piu_d rebuild all deliverables `pdm build_all` ==> v0.1.22 MSI, WHL, SDIST & moved them to a dedicated `_WIP_0.1.22_/` until decide to rebuild or keep
 * 240212piu_c added navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Built & published site (`mkdocs build`).
