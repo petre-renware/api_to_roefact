@@ -25,7 +25,8 @@ nav:
         - invoice template: excel_invoice_template/README.md
     - xl2roefact:
         - Descriere: xl2roefact/README.md
-        - Referinta CLI: ./xl2roefact/index.html#xl2roefact_1  #NOTE fix for 240212piu_c added navigation "xl2roefact --> Referinta CLI". Expected is to use a relative URL path as long as the indicated path-file is not found in source doc directory
+        - Referinta CLI: xl2roefact/index.html#comenzile-aplicatiei  #FIXME ...nxt line...
+        #FIXME ...continuing... (1.) try also to access the `README.md` instead of `index.html` (2.) test me ref opiss `240212piu_e`
         - License: xl2roefact/LICENSE
     - web2roefact:
         - Descriere: doc_src/wip.md  #TODO...tbd...

@@ -97,6 +97,7 @@ xl2roefact [COMMAND] --help
 
 **Detalii comenzi:**
 
+<a id="comenzile-aplicatiei"></a>  <!-- #NOTE ATTN do not drop this anchor tag because is referred in `mkdocs.yml` navigation section -->
 <!--#NOTE: next section will generate application commands in style as obtained using `--help` CLI options -->
 ::: mkdocs-typer
     :module: xl2roefact.app_cli
