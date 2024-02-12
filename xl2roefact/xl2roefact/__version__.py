@@ -1,5 +1,5 @@
 #!../.venv/bin/python3
-""" xl2roefact version info.
+"""xl2roefact version info.
 ```
  ######## ####              ########  ######
  #  ##  # #  #              #      # ##    ##
