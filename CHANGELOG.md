@@ -64,6 +64,7 @@
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * wip...
+* 240212piu_b updated `.../xl2roefact/app_cli.py` to format app logo string as markdown. Updated API Reference doc (`pdm run build_doc`). #FIXME test for lines 56 to 59
 * 240112piu_a review and updated xl2roefact logo (file: `...xl2roefact/__version__`) + clean project of obsolete files & open issues
 * -------- TODO: review & test above iss on laptop
 
