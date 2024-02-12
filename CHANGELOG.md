@@ -66,7 +66,7 @@
 * wip...
 * 240212piu_c added navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Built & published site.  #FIXME_test_hint line ~28
 * 240212piu_b updated `.../xl2roefact/app_cli.py` to format app logo string as markdown. Updated API Reference doc (`pdm run build_doc`). #FIXME_test_hint for lines ~56 to 59
-* 240212piu_a review and updated xl2roefact logo (file: `...xl2roefact/__version__`) + clean project of obsolete files & open issues
+* 240212piu_a review and updated xl2roefact logo (file: `...xl2roefact/__version__`). Clean project of obsolete files & open issues  #FIXME_test_hint file `xl2roefact/...TODO...publish...PyPi.md` dropped
 * -------- TODO: review & test above iss on laptop
 
 
