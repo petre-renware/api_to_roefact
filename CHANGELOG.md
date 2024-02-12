@@ -63,7 +63,9 @@
 
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
-* wip... last used `240211piu_b`
+* wip...
+* 240112piu_a review and updated xl2roefact logo (file: `...xl2roefact/__version__`) + clean project of obsolete files & open issues
+* -------- TODO: review & test above iss on laptop
 
 
 
