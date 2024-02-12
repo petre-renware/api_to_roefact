@@ -29,6 +29,7 @@ from typing import Optional
 from datetime import datetime
 from rich import print
 from rich.pretty import pprint
+from rich.markdown import Markdown  #FIXME (piu@240212) add to format markdown strings. Drop this comment after run without errs (if comment is still here and version > 0.1.20 THEN CLEAR DROP IT)
 
 # xl2roefact specific libraries
 from xl2roefact import __version__ as appver
@@ -52,7 +53,11 @@ def about():
     """
     version_string = appver.__version__
     app_logo = appver.__doc__
-    # logo & version
+    #FIXME next code must be test. Test section is marked with another #FIXME...
+    app_logo = Markdown(app_logo)
+    #console.print(markdown)  #FIXME DBG, can drop
+    #FIXME... ------ end of code to be tested......
+    # print logo & version
     print(app_logo)
     print(f"xl2roefact {version_string} application by RENware Software Systems (c) 2023, 2024")
     # about details

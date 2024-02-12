@@ -53,7 +53,7 @@
 * tbd.Would... automate GitHub site build & publishing. See file `/gh_mkdocs_auto_publish.md`.
 
 * tbd.Should... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
-* tbd.Could... xl2roefact component (`.../spp_cli.py`) line 68: add a `rules` option (param) to display `config_settings.__doc__`
+* tbd.Could... xl2roefact component (`.../spp_cli.py`) line 76: add `--rules` option (param) to display `config_settings.__doc__`
 
 * tbd.Must... publish `xl2roefact` package --> read `TODO_packaging.md`
 * tbd Could... init a PDM simple env in project root. Keep in mind:
@@ -63,7 +63,10 @@
 
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
-* wip... last used `240211piu_b`
+* wip...
+* 240212piu_b updated `.../xl2roefact/app_cli.py` to format app logo string as markdown. Updated API Reference doc (`pdm run build_doc`). #FIXME test for lines 56 to 59
+* 240212piu_a review and updated xl2roefact logo (file: `...xl2roefact/__version__`) + clean project of obsolete files & open issues
+* -------- TODO: review & test above iss on laptop
 
 
 
