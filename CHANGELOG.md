@@ -53,7 +53,7 @@
 * tbd.Would... automate GitHub site build & publishing. See file `/gh_mkdocs_auto_publish.md`.
 
 * tbd.Should... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
-* tbd.Could... xl2roefact component (`.../spp_cli.py`) line 68: add a `rules` option (param) to display `config_settings.__doc__`
+* tbd.Could... xl2roefact component (`.../spp_cli.py`) line 76: add `--rules` option (param) to display `config_settings.__doc__`
 
 * tbd.Must... publish `xl2roefact` package --> read `TODO_packaging.md`
 * tbd Could... init a PDM simple env in project root. Keep in mind:
