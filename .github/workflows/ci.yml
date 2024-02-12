@@ -26,7 +26,3 @@ jobs:
             mkdocs-material-
       - run: pip install requirements.txt
       - run: mkdocs build
-
-
-
-
