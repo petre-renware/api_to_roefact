@@ -29,7 +29,7 @@ from typing import Optional
 from datetime import datetime
 from rich import print
 from rich.pretty import pprint
-from rich.markdown import Markdown  #NOTE (piu@240212) add to format markdown strings. Drop this comment after run without errs (if comment is still here and version > 0.1.20 THE CLEAR DROP IT)
+from rich.markdown import Markdown  #FIXME (piu@240212) add to format markdown strings. Drop this comment after run without errs (if comment is still here and version > 0.1.20 THEN CLEAR DROP IT)
 
 # xl2roefact specific libraries
 from xl2roefact import __version__ as appver
