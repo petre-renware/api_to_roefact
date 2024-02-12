@@ -8,7 +8,7 @@
 Using GitHub Actions you can automate the deployment of your project documentation. At the root of your repository, create a new GitHub Actions workflow, e.g. .github/workflows/ci.yml.
 
 
->...for content see `ci.yml` in this directory...
+>...for content see `ci.yml.txt` in this directory...
 
 
 
