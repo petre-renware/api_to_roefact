@@ -541,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="http://localhost/xl2roefact/index.html#xl2roefact_1" class="md-nav__link">
+      <a href="xl2roefact/index.html#comenzile-aplicatiei" class="md-nav__link">
         Referinta CLI
       </a>
     </li>
@@ -1327,7 +1327,7 @@
                             INVOICEtoROefact <a class='headerlink' href='#section-invoicetoroefact' title='Permanent link'>↵</a>
                         </h1>
                         <section class="print-page" id="index"><p><img alt="api_to_roefact_logo" src="doc_src/pictures/api_to_roefact_logo.png" width="300" /></p>
-<p><small><strong>RENware Software Systems</strong></small></p>
+<p><small><strong>RENware Software Systems</strong> (c)</small></p>
 <h1 id="index-invoicetoroefact">INVOICEtoROefact</h1>
 <p><strong><em>Cuprins:</em></strong></p>
 <div class="toc">
@@ -1625,6 +1625,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </li>
 </ul>
 <p><strong>Detalii comenzi:</strong></p>
+<p><a id="comenzile-aplicatiei"></a>  <!-- #NOTE ATTN do not drop this anchor tag because is referred in <code>mkdocs.yml</code> navigation section --></p>
 <!--#NOTE: next section will generate application commands in style as obtained using `--help` CLI options -->
 <h3 id="xl2roefact-index-xl2roefact_1">xl2roefact</h3>
 <p>function called when no command is invoked and to provide only application version (for external users to test it!).</p>
@@ -2836,7 +2837,7 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-01-note_wip">0.1 (-#NOTE_wip...)</a><ul>
-<li><a href="#changelog-todo_wip-0122dev-invoice-customer-info-optional-items-bank-email-reg-com-phone-yymmdd-hhmm">#TODO:_wip... 0.1.22.dev invoice customer info-optional items (bank, email, reg-com, phone) (...yymmdd hh:mm...)</a></li>
+<li><a href="#changelog-todo_wip-0122-invoice-customer-info-optional-items-bank-email-reg-com-phone-yymmdd-hhmm">#TODO:_wip... 0.1.22 invoice customer info-optional items (bank, email, reg-com, phone) (...yymmdd hh:mm...)</a></li>
 <li><a href="#changelog-0121post3-cleaned-system-documentation-and-site-240211-h2359">0.1.21.post3 cleaned system documentation and site (240211 h23:59)</a></li>
 <li><a href="#changelog-0121post2-xl2roefact-app-detailed-section-with-commands-options-help-like-240206-h2359">0.1.21.post2 xl2roefact app detailed section with commands &amp; options "--help" like (240206 h23:59)</a></li>
 <li><a href="#changelog-0121post1-fixed-missing-links-in-site-root-index-page-240203-h1030">0.1.21.post1 fixed missing links in site root index page (240203 h10:30)</a></li>
@@ -2885,7 +2886,7 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
             * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build &amp; write &quot;Invoice&quot; key)
     -------------------------------------------------------------------------------------------------
 </code></pre></div>
-<h3 id="changelog-todo_wip-0122dev-invoice-customer-info-optional-items-bank-email-reg-com-phone-yymmdd-hhmm">#TODO:_wip... 0.1.22.dev invoice customer info-optional items (bank, email, reg-com, phone) (...yymmdd hh:mm...)</h3>
+<h3 id="changelog-todo_wip-0122-invoice-customer-info-optional-items-bank-email-reg-com-phone-yymmdd-hhmm">#TODO:_wip... 0.1.22 invoice customer info-optional items (bank, email, reg-com, phone) (...yymmdd hh:mm...)</h3>
 <ul>
 <li>
 <p>tbd.Must... WHEN RELEASE UPDATE make a full chk / review for FIXME &amp; run <code>pdm build_all</code></p>
@@ -2916,13 +2917,21 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <li>
 <p>wip...</p>
 </li>
-<li>-------- TODO: after test below here should run <code>pdm build_all</code>, arch MSI, WHL, SDIDST</li>
 <li>
-<p>240212piu_c added navigation "xl2roefact --&gt; Referinta CLI" (file <code>/mkdocs.yml</code>). Built &amp; published site (<code>mkdocs build</code>).  #FIXME_test_hint line ~28</p>
+<p>FAILED.240213piu_a merged for <code>/requirements.txt</code> lief package update as OK-PAS &amp; disabled gh-workflow by renaming <code>ci.yml</code> to <code>ci.yml temp_disabled</code>. Actions tried:  (-1.) updated <code>.gh-workflow.../ci.yml</code>  (-2.) "small change" in <code>/README.md</code> in copyright year to test  (-3.) merge to <code>build</code> branch for test</p>
 </li>
 <li>
-<p>240212piu_b updated <code>.../xl2roefact/app_cli.py</code> to format app logo string as markdown. Updated packages (<code>pdm build_all</code>).</p>
+<p>BUGFIX.240212piu_e navigation "xl2roefact --&gt; Referinta CLI" (file <code>/mkdocs.yml</code>).  #TODO: ref to localhost <code>#...ID...</code> was changed site build.</p>
+<ul>
+<li>NOTE: FIXtry1 @240212h10:00 updated mkdocs.yml, so TEST AGAIN</li>
+<li>NOTE: FIXtry2 @240212h16:00 update <code>xl2roefact/README.md</code> add a <code>&lt;a id="comenzile-aplicatiei"&gt;&lt;/a&gt;</code> after header "## Comenzile aplicatiei" paragraph "Detalii comenzi:" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one</li>
+</ul>
 </li>
+<li>
+<p>240212piu_d rebuild all deliverables <code>pdm build_all</code> ==&gt; v0.1.22 MSI, WHL, SDIST &amp; moved them to a dedicated <code>_WIP_0.1.22_/</code> until decide to rebuild or keep</p>
+</li>
+<li>240212piu_c added navigation "xl2roefact --&gt; Referinta CLI" (file <code>/mkdocs.yml</code>). Built &amp; published site (<code>mkdocs build</code>).</li>
+<li>240212piu_b updated <code>.../xl2roefact/app_cli.py</code> to format app logo string as markdown. Updated packages (<code>pdm build_all</code>).</li>
 <li>240212piu_a review and updated xl2roefact logo (file: <code>...xl2roefact/__version__</code>). Updated API Reference doc (<code>pdm build_doc</code>). Clean project of obsolete files &amp; open issues</li>
 </ul>
 <h3 id="changelog-0121post3-cleaned-system-documentation-and-site-240211-h2359">0.1.21.post3 cleaned system documentation and site (240211 h23:59)</h3>

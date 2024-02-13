@@ -64,10 +64,11 @@
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * wip...
+
+
 * FAILED.240213piu_a merged for `/requirements.txt` lief package update as OK-PAS & disabled gh-workflow by renaming `ci.yml` to `ci.yml temp_disabled`. Actions tried:  (-1.) updated `.gh-workflow.../ci.yml`  (-2.) "small change" in `/README.md` in copyright year to test  (-3.) merge to `build` branch for test
-* ...TODO: test.me... BUGFIX.240212piu_e navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`).  #TODO: ref to localhost `#...ID...` was changed site build.
-    * NOTE: FIXtry1 @240212h10:00 updated mkdocs.yml, so TEST AGAIN
-    * NOTE: FIXtry2 @240212h16:00 update `xl2roefact/README.md` add a `<a id="comenzile-aplicatiei"></a>` after header "## Comenzile aplicatiei" paragraph "Detalii comenzi:" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one
+
+* BUGFIX.240212piu_e navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Updated `xl2roefact/README.md` add a `<a id="comenzile-aplicatiei"></a>` after header "## Comenzile aplicatiei" paragraph "Detalii comenzi:" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one
 
 * 240212piu_d rebuild all deliverables `pdm build_all` ==> v0.1.22 MSI, WHL, SDIST & moved them to a dedicated `_WIP_0.1.22_/` until decide to rebuild or keep
 * 240212piu_c added navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Built & published site (`mkdocs build`).
