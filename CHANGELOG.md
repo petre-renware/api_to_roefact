@@ -64,7 +64,8 @@
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * wip...
-* tbd.Must...FIXME: 240212piu_e navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`).  #TODO: ref to localhost `#...ID...` was changed site build.
+* ...TODO: test.me... 240213piu_a ...QA-BRANCH to test and rollout 
+* ...TODO: test.me... BUGFIX.240212piu_e navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`).  #TODO: ref to localhost `#...ID...` was changed site build.
     * NOTE: FIXtry1 @240212h10:00 updated mkdocs.yml, so TEST AGAIN
     * NOTE: FIXtry2 @240212h16:00 update `xl2roefact/README.md` add a `<a id="comenzile-aplicatiei"></a>` after header "## Comenzile aplicatiei" paragraph "Detalii comenzi:" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one
 
