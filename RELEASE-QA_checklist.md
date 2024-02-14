@@ -14,8 +14,9 @@ Before to publuc release a version check and do the following:
 
 Optional if possible do:
 
-* extract version items in a dedicated file in `changelog_history/`. The pattern for name is `CHANGELOG-<version>.md`
-* archive locally (in `880-RLSE/.../` directory) all resulted deliverable
+* [ ] extract version items in a dedicated file in `changelog_history/`. The pattern for name is `CHANGELOG-<version>.md`
+* [ ] in main CHANGELOG refer thet file (archives section) and clean it from not achieved entries
+* [ ] archive locally (in `880-RLSE/.../` directory) all resulted deliverable
 
 
 
