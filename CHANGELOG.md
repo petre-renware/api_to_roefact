@@ -71,7 +71,7 @@
     * [ ] refer that page in `xl2roefact/README.md`
     * [ ] refer that page in `xl2roefact/doc/README_xl2roefact_library.md`, `excel_invoice_template/README.md`
     * [ ] refer that page in `excel_invoice_template/README.md`
-    * [ ] `mkdocs.yml` nav entry for  "Help --> Downloads"
+    * [x] `mkdocs.yml` nav entry for  "Help --> Descarcare resurse (Downloads)" to `doc_src/downloads.md`
     * [ ] fill in `...downloads.md` page with all existing deliverables GROUPED BY file types & ORDER BY version DESC
 
 * -------TODO:.from.here.to.up:-------- test & rebuild all (`pdm build_all`) & site. Updates to check:
