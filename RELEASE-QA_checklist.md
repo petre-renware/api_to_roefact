@@ -9,6 +9,9 @@ Before to publuc release a version check and do the following:
 
 * [ ] full chk / review for FIXME & run `pdm build_all`
 * [ ] change release name from ".dev" to final one (change all occurrences)
+* [ ] update version string in:
+    * `xl2roefact/xl2roefact/__version__.py`
+    * `mkdocs.yml`
 * [ ] build all: app, documentations, site
 * [ ] clean if necessary the `.../dist/` directory
 
