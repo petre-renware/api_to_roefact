@@ -557,6 +557,10 @@ div.download-btn {
 <span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <p>display application configuration parameters and settings that are subject to be changed by user.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>rules</code> - show recommended rules to follow when change application configurable settings (available in both RO &amp; EN languages). Defaults to <code>False</code>.</li>
+</ul>
 <p><a id="app_cli.xl2json"></a></p>
 <h4 id="xl2json">xl2json</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -590,7 +594,7 @@ div.download-btn {
 <ul>
 <li><code>file_name</code> - files to process (wildcards allowed).</li>
 <li><code>files_directory</code> - directory to be used to look for Excel files. Defaults to <code>invoice_files/</code>. NOTE: if default directory does not exists will consider current directory instead</li>
-<li><code>verbose</code> - show detailed processing messages" Defaults to <code>False</code>.</li>
+<li><code>verbose</code> - show detailed processing messages". Defaults to <code>False</code>.</li>
 </ul>
 <p><a id="app_cli.called_when_no_command"></a></p>
 <h4 id="called_when_no_command">called_when_no_command</h4>

@@ -75,6 +75,9 @@ def settings(
     ] = False
 ):
     """display application configuration parameters and settings that are subject to be changed by user.
+
+    Args:
+        `rules`: show recommended rules to follow when change application configurable settings (available in both RO & EN languages). Defaults to `False`.
     """
 
     if rules:  # show configuration rules from module docstring
@@ -124,7 +127,7 @@ def xl2json(
     Args:
         `file_name`: files to process (wildcards allowed).
         `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
-        `verbose`: show detailed processing messages" Defaults to `False`.
+        `verbose`: show detailed processing messages". Defaults to `False`.
     """
     print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
 

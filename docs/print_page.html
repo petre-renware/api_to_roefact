@@ -1327,7 +1327,7 @@
                             INVOICEtoROefact <a class='headerlink' href='#section-invoicetoroefact' title='Permanent link'>↵</a>
                         </h1>
                         <section class="print-page" id="index"><p><img alt="api_to_roefact_logo" src="doc_src/pictures/api_to_roefact_logo.png" width="300" /></p>
-<p><small><strong>RENware Software Systems</strong> (c)</small></p>
+<p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="index-invoicetoroefact">INVOICEtoROefact</h1>
 <p><strong><em>Cuprins:</em></strong></p>
 <div class="toc">
@@ -1958,6 +1958,10 @@ cit si la nivel detaliat pentru fiecare comanda
 <span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <p>display application configuration parameters and settings that are subject to be changed by user.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>rules</code> - show recommended rules to follow when change application configurable settings (available in both RO &amp; EN languages). Defaults to <code>False</code>.</li>
+</ul>
 <p><a id="app_cli.xl2json"></a></p>
 <h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-xl2json">xl2json</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -1991,7 +1995,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <ul>
 <li><code>file_name</code> - files to process (wildcards allowed).</li>
 <li><code>files_directory</code> - directory to be used to look for Excel files. Defaults to <code>invoice_files/</code>. NOTE: if default directory does not exists will consider current directory instead</li>
-<li><code>verbose</code> - show detailed processing messages" Defaults to <code>False</code>.</li>
+<li><code>verbose</code> - show detailed processing messages". Defaults to <code>False</code>.</li>
 </ul>
 <p><a id="app_cli.called_when_no_command"></a></p>
 <h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-called_when_no_command">called_when_no_command</h4>
@@ -2341,10 +2345,10 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><a href="excel_invoice_template/invoice_template_CU_tva.xlsx" title="download">office Excel XLSX 0.1.20</a></p>
 </li>
 <li>
-<p><a href="excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip">arhiva ZIP 0.1.20</a></p>
+<p><a href="excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip" title="download">arhiva ZIP 0.1.20</a></p>
 </li>
 <li>
-<p><a href="excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip">arhiva ZIP 0.1.11</a></p>
+<p><a href="excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip" title="download">arhiva ZIP 0.1.11</a></p>
 </li>
 </ul>
 <h2 id="excel_invoice_template-index-license"><a href="#excel_invoice_template-license" title="download">License</a></h2></section><h1 class='nav-section-title-end'>Ended: invoice template</h1>
@@ -2893,13 +2897,7 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <h3 id="changelog-todo_wip-0122dev-invoice-customer-info-optional-items-bank-email-reg-com-phone-note-upd-dev-qualifier-set-date-here">#TODO..._wip... 0.1.22.dev invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier &amp; set date here...)</h3>
 <ul>
 <li>
-<p>tbd.Must... WHEN RELEASE UPDATE make:  (TODO: put this section in a file <code>/RELEASE-QA_checklist.md</code>)</p>
-<ul>
-<li>a full chk / review for FIXME &amp; run <code>pdm build_all</code></li>
-<li>change release name from ".dev" to final one (change all occurrences)</li>
-<li>build all: app, documentations, site</li>
-<li>clean if necessary the <code>.../dist/</code> directory</li>
-</ul>
+<p>tbd.Must... @RELEASE <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></p>
 </li>
 <li>
 <p>tbd.Would... automate GitHub site build &amp; publishing. See file <code>/gh_mkdocs_auto_publish.md</code>.</p>
@@ -2922,10 +2920,25 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <p>tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in <code>rdinv()</code> w./line 179 &amp; then 331)</p>
 </li>
 <li>
-<p>tbd.Must... make in site a dedicated page for downloads: "Help --&gt; Downloads" and refer it in all places where downloads are intended</p>
+<p>wip...</p>
 </li>
 <li>
-<p>wip...</p>
+<p>...240214piu_b make in site a dedicated page for downloads: "Help --&gt; Downloads" and refer it in all places where downloads are intended. Detailed specs:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> dedicated downloads page <code>doc_src/downloads.md</code>  #NOTE use template from main README.md</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> collected all existing dwndld links in <code>doc_src/downloads.md</code> - need to be moved at their right positions in file</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> refer that page in <code>xl2roefact/README.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> refer that page in <code>xl2roefact/doc/README_xl2roefact_library.md</code>, <code>excel_invoice_template/README.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> refer that page in <code>excel_invoice_template/README.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>mkdocs.yml</code> nav entry for  "Help --&gt; Downloads"</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> fill in <code>...downloads.md</code> page with all existing deliverables GROUPED BY file types &amp; ORDER BY version DESC</li>
+</ul>
+</li>
+<li>
+<p>-------TODO:.from.here.to.up:-------- test &amp; rebuild all (<code>pdm build_all</code>) &amp; site. Updates to check:
+        - page "Help --&gt; Downloads" (or in topnav area?)
+        - <code>app_cli.settings()</code> function docstring: display arguments in "Referinta API"
+        - chk if show <code>-r</code>  option in "Referinta CLI"</p>
 </li>
 <li>
 <p>240214piu_a xl2roefact component (<code>.../app_cli.py</code>) function <code>settings(...)</code> add <code>--rules</code> option (param) to display <code>config_settings.__doc__</code></p>
