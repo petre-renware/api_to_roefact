@@ -65,12 +65,7 @@ def about():
 
 
 @app_cli.command()
-def settings():
-    """display application configuration parameters and settings that are subject to be changed by user.
-    """
-
-    '''#TODO add a `rules` option (param) to display `config_settings.__doc__`.
-    - Almost rdy sample of code:
+def settings(
     rules: Annotated[
         bool,
         typer.Option(
@@ -78,9 +73,15 @@ def settings():
             help="show settings recommended update rules"
         ),
     ] = False
-    - #TODO write corresponding code ...
-    '''
+):
+    """display application configuration parameters and settings that are subject to be changed by user.
+    """
 
+    if rules:  # show configuration rules from module docstring #FIXME test iss 240214piu_a
+        rules_str = configs.__doc__
+        rules_str_md = Markdown(rules_str)
+        print(rules_str_md)
+        print()  # blank line for readability
     print("\nApplication current settings are:\n---------------------------------------")
     list_of_settings = dir(configs)
     for i in list_of_settings:
