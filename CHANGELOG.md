@@ -67,15 +67,17 @@
 
 * ...240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended. Detailed specs:
     * [x] dedicated downloads page `doc_src/downloads.md`  #NOTE use template from main README.md
+    * [x] collected all existing dwndld links in `doc_src/downloads.md` - need to be moved at their right positions in file
     * [ ] refer that page in `xl2roefact/README.md`
     * [ ] refer that page in `xl2roefact/doc/README_xl2roefact_library.md`, `excel_invoice_template/README.md`
     * [ ] refer that page in `excel_invoice_template/README.md`
     * [ ] `mkdocs.yml` nav entry for  "Help --> Downloads"
     * [ ] fill in `...downloads.md` page with all existing deliverables GROUPED BY file types & ORDER BY version DESC
-* -------TODO: test & rebuild all (`pdm build_all`) & site. Updates to check:
-    * page "Help --> Downloads" (or in topnav area?)
-    * `app_cli.settings()` function docstring: display arguments in "Referinta API"
-    * chk if show `-r`  option in "Referinta CLI"
+
+* -------TODO:.from.here.to.up:-------- test & rebuild all (`pdm build_all`) & site. Updates to check:
+        - page "Help --> Downloads" (or in topnav area?)
+        - `app_cli.settings()` function docstring: display arguments in "Referinta API"
+        - chk if show `-r`  option in "Referinta CLI"
 
 * 240214piu_a xl2roefact component (`.../app_cli.py`) function `settings(...)` add `--rules` option (param) to display `config_settings.__doc__`
 * 240213piu_a.FAILED merged for `/requirements.txt` lief package update as OK-PAS & disabled gh-workflow by renaming `ci.yml` to `ci.yml temp_disabled`. Actions tried:  (-1.) updated `.gh-workflow.../ci.yml`  (-2.) "small change" in `/README.md` in copyright year to test  (-3.) merge to `build` branch for test
