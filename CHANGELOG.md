@@ -67,7 +67,7 @@
 
 * ...240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended. Detailed specs:
     * [ ] dedicated downloads page `doc_src/downloads.md`  #NOTE use template from main README.md
-    * [ ] refer that page in all docs download section: ...xxx
+    * [ ] refer that page in all docs download section: `xl2roefact/README.md`, `xl2roefact/doc/README_xl2roefact_library.md`, `excel_invoice_template/README.md`
     * [ ] `mkdocs.yml` nav entry for  "Help --> Downloads"
 * -------TODO: test & rebuild all (`pdm build_all`) & site. Updates to check:
     * page "Help --> Downloads" (or in topnav area?)
