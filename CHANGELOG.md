@@ -66,11 +66,12 @@
 * wip...
 
 * ...240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended. Detailed specs:
-    * [ ] dedicated downloads page `doc_src/downloads.md`  #NOTE use template from main README.md
+    * [x] dedicated downloads page `doc_src/downloads.md`  #NOTE use template from main README.md
     * [ ] refer that page in `xl2roefact/README.md`
     * [ ] refer that page in `xl2roefact/doc/README_xl2roefact_library.md`, `excel_invoice_template/README.md`
     * [ ] refer that page in `excel_invoice_template/README.md`
     * [ ] `mkdocs.yml` nav entry for  "Help --> Downloads"
+    * [ ] fill in `...downloads.md` page with all existing deliverables GROUPED BY file types & ORDER BY version DESC
 * -------TODO: test & rebuild all (`pdm build_all`) & site. Updates to check:
     * page "Help --> Downloads" (or in topnav area?)
     * `app_cli.settings()` function docstring: display arguments in "Referinta API"
