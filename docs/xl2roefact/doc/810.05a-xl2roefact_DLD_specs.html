@@ -550,7 +550,11 @@ div.download-btn {
 <p><a id="app_cli.settings"></a></p>
 <h4 id="settings">settings</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">settings</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">settings</span><span class="p">(</span><span class="n">rules</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+    <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">typer</span><span class="o">.</span>
+    <span class="n">Option</span><span class="p">(</span><span class="s2">"--rules"</span><span class="p">,</span> <span class="s2">"-r"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"show settings recommended update rules"</span><span class="p">),</span>
+<span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <p>display application configuration parameters and settings that are subject to be changed by user.</p>
 <p><a id="app_cli.xl2json"></a></p>
@@ -879,7 +883,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 12, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2024</span>
 </small>
 </div>
 </article>
