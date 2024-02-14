@@ -1,6 +1,6 @@
 ![api_to_roefact_logo](doc_src/pictures/api_to_roefact_logo.png){ width="300" }
 
-<small>**RENware Software Systems** (c)</small>
+<small>**RENware Software Systems**</small>
 
 
 
