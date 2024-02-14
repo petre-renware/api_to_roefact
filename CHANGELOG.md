@@ -46,17 +46,17 @@
 
 
 
-### #TODO:_wip... 0.1.22 invoice customer info-optional items (bank, email, reg-com, phone) (...yymmdd hh:mm...)
+### #TODO..._wip... 0.1.22.dev xl2roefact application interface improvements & invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
 
-* tbd.Must... WHEN RELEASE UPDATE make a full chk / review for FIXME & run `pdm build_all`
+* tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
 * tbd.Would... automate GitHub site build & publishing. See file `/gh_mkdocs_auto_publish.md`.
 
 * tbd.Should... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
-* tbd.Could... xl2roefact component (`.../spp_cli.py`) line 72: add `--rules` option (param) to display `config_settings.__doc__`
 
 * tbd.Must... publish `xl2roefact` package --> read `TODO_packaging.md`
-* tbd Could... init a PDM simple env in project root. Keep in mind:
+
+* tbd.Could... init a PDM simple env in project root. Keep in mind:
     * root project is for SITE GENERATION. ? the `web2roefact` will need its own directory5like `xl2roefact` ?
     * as consequence the project name is **INVOICEtoROefact**
     * and the version is last from CHANGELOG
@@ -64,11 +64,28 @@
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
 * wip...
-* ...TODO: test.me... 240213piu_a -1. updated `.gh-workflow.../ci.yml` -2. merge to `build` branch for test
-* ...TODO: test.me... BUGFIX.240212piu_e navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`).  #TODO: ref to localhost `#...ID...` was changed site build.
-    * NOTE: FIXtry1 @240212h10:00 updated mkdocs.yml, so TEST AGAIN
-    * NOTE: FIXtry2 @240212h16:00 update `xl2roefact/README.md` add a `<a id="comenzile-aplicatiei"></a>` after header "## Comenzile aplicatiei" paragraph "Detalii comenzi:" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one
 
+
+
+
+* TODO:wip ...240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended. Detailed specs:
+    * [x] dedicated downloads page `doc_src/downloads.md`  #NOTE use template from main README.md
+    * [x] collected all existing dwndld links in `doc_src/downloads.md` - need to be moved at their right positions in file
+    * [ ] refer that page in `xl2roefact/README.md`
+    * [ ] refer that page in `xl2roefact/doc/README_xl2roefact_library.md`, `excel_invoice_template/README.md`
+    * [ ] refer that page in `excel_invoice_template/README.md`
+    * [ ] `mkdocs.yml` nav entry for  "Help --> Downloads"
+    * [ ] fill in `...downloads.md` page with all existing deliverables GROUPED BY file types & ORDER BY version DESC
+
+* -------TODO:.from.here.to.up:-------- test & rebuild all (`pdm build_all`) & site. Updates to check:
+        - page "Help --> Downloads" (or in topnav area?)
+        - `app_cli.settings()` function docstring: display arguments in "Referinta API"
+        - chk if show `-r`  option in "Referinta CLI"
+
+* 240214piu_c.BUGFIX ref `240213piu_a.FAILED` fixed & enabled `.github/.../ci.yml`. To test by merging to `build`
+* 240214piu_a xl2roefact component (`.../app_cli.py`) function `settings(...)` add `--rules` option (param) to display `config_settings.__doc__`
+* 240213piu_a.FAILED merged for `/requirements.txt` lief package update as OK-PAS & disabled gh-workflow by renaming `ci.yml` to `ci.yml temp_disabled`. Actions tried:  (-1.) updated `.gh-workflow.../ci.yml`  (-2.) "small change" in `/README.md` in copyright year to test  (-3.) merge to `build` branch for test
+* 240212piu_e.BUGFIX navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Updated `xl2roefact/README.md` add a `<a id="comenzile-aplicatiei"></a>` after header "## Comenzile aplicatiei" paragraph "Detalii comenzi:" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one
 * 240212piu_d rebuild all deliverables `pdm build_all` ==> v0.1.22 MSI, WHL, SDIST & moved them to a dedicated `_WIP_0.1.22_/` until decide to rebuild or keep
 * 240212piu_c added navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Built & published site (`mkdocs build`).
 * 240212piu_b updated `.../xl2roefact/app_cli.py` to format app logo string as markdown. Updated packages (`pdm build_all`).

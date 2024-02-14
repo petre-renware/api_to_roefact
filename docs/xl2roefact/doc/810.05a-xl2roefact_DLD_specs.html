@@ -269,7 +269,7 @@ div.download-btn {
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="http://localhost/xl2roefact/index.html#xl2roefact_1">
+<a class="md-nav__link" href="../index.html#comenzile-aplicatiei">
         Referinta CLI
       </a>
 </li>
@@ -550,9 +550,17 @@ div.download-btn {
 <p><a id="app_cli.settings"></a></p>
 <h4 id="settings">settings</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">settings</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">settings</span><span class="p">(</span><span class="n">rules</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+    <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">typer</span><span class="o">.</span>
+    <span class="n">Option</span><span class="p">(</span><span class="s2">"--rules"</span><span class="p">,</span> <span class="s2">"-r"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"show settings recommended update rules"</span><span class="p">),</span>
+<span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <p>display application configuration parameters and settings that are subject to be changed by user.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>rules</code> - show recommended rules to follow when change application configurable settings (available in both RO &amp; EN languages). Defaults to <code>False</code>.</li>
+</ul>
 <p><a id="app_cli.xl2json"></a></p>
 <h4 id="xl2json">xl2json</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -586,7 +594,7 @@ div.download-btn {
 <ul>
 <li><code>file_name</code> - files to process (wildcards allowed).</li>
 <li><code>files_directory</code> - directory to be used to look for Excel files. Defaults to <code>invoice_files/</code>. NOTE: if default directory does not exists will consider current directory instead</li>
-<li><code>verbose</code> - show detailed processing messages" Defaults to <code>False</code>.</li>
+<li><code>verbose</code> - show detailed processing messages". Defaults to <code>False</code>.</li>
 </ul>
 <p><a id="app_cli.called_when_no_command"></a></p>
 <h4 id="called_when_no_command">called_when_no_command</h4>
@@ -879,7 +887,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 14, 2024</span>
 </small>
 </div>
 </article>

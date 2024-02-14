@@ -25,8 +25,7 @@ nav:
         - invoice template: excel_invoice_template/README.md
     - xl2roefact:
         - Descriere: xl2roefact/README.md
-        - Referinta CLI: xl2roefact/index.html#comenzile-aplicatiei  #FIXME ...nxt line...
-        #FIXME ...continuing... (1.) try also to access the `README.md` instead of `index.html` (2.) test me ref opiss `240212piu_e`
+        - Referinta CLI: xl2roefact/index.html#comenzile-aplicatiei  #NOTE: DO NOT CHANGE it. Doesn't work with reference to `.md#...` (with hash to ID...)
         - License: xl2roefact/LICENSE
     - web2roefact:
         - Descriere: doc_src/wip.md  #TODO...tbd...

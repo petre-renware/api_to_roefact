@@ -3,19 +3,8 @@
 
 Identification:
 
-* code-name: `xl2roefact`
 * copyright: (c) 2023 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
-
-Deployments:
-
-* Windows:  MSI installer with EXE application.
-* Linux: `xl2roefact` executable shell as wrapper for `xl2roefact.py`.
-
-Specifications:
-
-* command general format: `xl2roefact [file(s)-to-convert] COMMAND [OPTIONS]`.
-* help: `xl2roefact [COMMAND] --help`.
 """
 
 
@@ -65,12 +54,7 @@ def about():
 
 
 @app_cli.command()
-def settings():
-    """display application configuration parameters and settings that are subject to be changed by user.
-    """
-
-    '''#TODO add a `rules` option (param) to display `config_settings.__doc__`.
-    - Almost rdy sample of code:
+def settings(
     rules: Annotated[
         bool,
         typer.Option(
@@ -78,10 +62,18 @@ def settings():
             help="show settings recommended update rules"
         ),
     ] = False
-    - #TODO write corresponding code ...
-    '''
+):
+    """display application configuration parameters and settings that are subject to be changed by user.
+    
+    Args:
+        `rules`: show recommended rules to follow when change application configurable settings (available in both RO & EN languages). Defaults to `False`.
+    """
 
-    print("\nApplication current settings are:\n---------------------------------------")
+    if rules:  # show configuration rules from module docstring
+        rules_text = Markdown(configs.__doc__)
+        print(rules_text)
+        print()  # print a blank line for readability
+    print("\nCurrent settings:\n-------------------------------")
     list_of_settings = dir(configs)
     for i in list_of_settings:
         if i == i.upper():  # preserve only items supposed to be defined like CONSTANTS
@@ -117,13 +109,13 @@ def xl2json(
             help="show detailed processing messages"
         ),
     ] = False
-):  #TODO all args are subject of CONFIG and DOCUMENTATION
+):
     """extract data from an Excel file (save data to JSON format file with the same name as original file but `.json` extension).
 
     Args:
         `file_name`: files to process (wildcards allowed).
         `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
-        `verbose`: show detailed processing messages" Defaults to `False`.
+        `verbose`: show detailed processing messages". Defaults to `False`.
     """
     print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
 
