@@ -77,7 +77,7 @@ def settings(
     """display application configuration parameters and settings that are subject to be changed by user.
     """
 
-    if rules:  # show configuration rules from module docstring #FIXME test iss 240214piu_a
+    if rules:  # show configuration rules from module docstring
         rules_str = configs.__doc__
         rules_str_md = Markdown(rules_str)
         print(rules_str_md)
