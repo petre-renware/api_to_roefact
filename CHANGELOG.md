@@ -48,11 +48,7 @@
 
 ### #TODO..._wip... 0.1.22.dev invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
 
-* tbd.Must... WHEN RELEASE UPDATE make:  (TODO: put this section in a file `/RELEASE-QA_checklist.md`)
-    * a full chk / review for FIXME & run `pdm build_all`
-    * change release name from ".dev" to final one (change all occurrences)
-    * build all: app, documentations, site
-    * clean if necessary the `.../dist/` directory
+* tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
 * tbd.Would... automate GitHub site build & publishing. See file `/gh_mkdocs_auto_publish.md`.
 
