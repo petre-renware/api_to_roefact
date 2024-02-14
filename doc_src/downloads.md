@@ -1,5 +1,5 @@
 
-<small>**RENware Software Systems** (c)</small>
+<small>**RENware Software Systems**</small>
 
 
 
