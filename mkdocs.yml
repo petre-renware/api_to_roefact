@@ -6,9 +6,9 @@ copyright: 'Copyright (c) RENware Software Systems'
 
 
 extra:    #NOTE ...ATTN here are components version used as Jinja fields in markdown docs  #FIXME find a way to build them auto at different events like MSI build for example
-    xl2roefact_version: "0.1.20"
+    xl2roefact_version: "0.1.22.dev"
     web2roefact_version: "n/a"
-    xl2roefact_MSI_version: "0.1.19"
+    xl2roefact_MSI_version: "0.1.22.dev"
     invoice_template_version: "0.1.20"
 
 
@@ -48,6 +48,7 @@ nav:
             - Sistem PayValidaBoa: doc_src/commercial_agreement/110-SRE-payments_validation_board_req.uirements.md
             - Specificatii si optiuni tehnice: doc_src/commercial_agreement/agreed_options.md
         - Manual INVOICEtoROefact (PDF): pdfs/print_page.html/print_page.pdf
+        - Descarcare resurse (Downloads): doc_src/downloads.md
     # ---- system references
     - About:
         - Despre INVOICEtoROefact: doc_src/wip.md  #TODO `about.md` cu echipa, 2 vorbe "de ce, istoria" etc...
