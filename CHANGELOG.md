@@ -67,6 +67,8 @@
 
 * wip...
 
+* -#TODO_ASAP... rebuild tech doc (`pdm build_doc`) & site with updated `app_cli settings()` function docstring: display arguments in "Referinta API" and must show `-r`  option in "Referinta CLI"
+
 * 240214piu_a xl2roefact component (`.../app_cli.py`) function `settings(...)` add `--rules` option (param) to display `config_settings.__doc__`
 * 240213piu_a.FAILED merged for `/requirements.txt` lief package update as OK-PAS & disabled gh-workflow by renaming `ci.yml` to `ci.yml temp_disabled`. Actions tried:  (-1.) updated `.gh-workflow.../ci.yml`  (-2.) "small change" in `/README.md` in copyright year to test  (-3.) merge to `build` branch for test
 * 240212piu_e.BUGFIX navigation "xl2roefact --> Referinta CLI" (file `/mkdocs.yml`). Updated `xl2roefact/README.md` add a `<a id="comenzile-aplicatiei"></a>` after header "## Comenzile aplicatiei" paragraph "Detalii comenzi:" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one
