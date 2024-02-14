@@ -3,19 +3,8 @@
 
 Identification:
 
-* code-name: `xl2roefact`
 * copyright: (c) 2023 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
-
-Deployments:
-
-* Windows:  MSI installer with EXE application.
-* Linux: `xl2roefact` executable shell as wrapper for `xl2roefact.py`.
-
-Specifications:
-
-* command general format: `xl2roefact [file(s)-to-convert] COMMAND [OPTIONS]`.
-* help: `xl2roefact [COMMAND] --help`.
 """
 
 
@@ -75,17 +64,16 @@ def settings(
     ] = False
 ):
     """display application configuration parameters and settings that are subject to be changed by user.
-
+    
     Args:
         `rules`: show recommended rules to follow when change application configurable settings (available in both RO & EN languages). Defaults to `False`.
     """
 
     if rules:  # show configuration rules from module docstring
-        rules_str = configs.__doc__
-        rules_str_md = Markdown(rules_str)
-        print(rules_str_md)
-        print()  # blank line for readability
-    print("\nApplication current settings are:\n---------------------------------------")
+        rules_text = Markdown(configs.__doc__)
+        print(rules_text)
+        print()  # print a blank line for readability
+    print("\nCurrent settings:\n-------------------------------")
     list_of_settings = dir(configs)
     for i in list_of_settings:
         if i == i.upper():  # preserve only items supposed to be defined like CONSTANTS
@@ -121,7 +109,7 @@ def xl2json(
             help="show detailed processing messages"
         ),
     ] = False
-):  #TODO all args are subject of CONFIG and DOCUMENTATION
+):
     """extract data from an Excel file (save data to JSON format file with the same name as original file but `.json` extension).
 
     Args:
