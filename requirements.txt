@@ -130,6 +130,6 @@ weasyprint==59.0
 webencodings==0.5.1
 websocket-client==1.6.1
 wsproto==1.2.0
-xl2roefact @ file:///./xl2roefact/dist/xl2roefact-0.1.22.dev0-py3-none-any.whl#sha256=44445b048db46c5af35ebb8dd0dd64c8da6d8c80df79e3ea6d1ed77aa299d291
+xl2roefact @ ./xl2roefact/dist/xl2roefact-0.1.22.dev0-py3-none-any.whl#sha256=44445b048db46c5af35ebb8dd0dd64c8da6d8c80df79e3ea6d1ed77aa299d291
 zipp==3.16.2j
 zopfli==0.2.2
