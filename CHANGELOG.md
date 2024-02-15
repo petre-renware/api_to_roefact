@@ -65,14 +65,14 @@
 
 * wip...
 
-* TODO:wip ...240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended. Detailed specs:
+* TODO: wip ...240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended. Detailed specs:
     * [x] dedicated downloads page `doc_src/downloads.md`  #NOTE use template from main README.md
     * [x] collected all existing dwndld links in `doc_src/downloads.md` - need to be moved at their right positions in file
     * [ ] refer that page in `xl2roefact/README.md`
     * [ ] refer that page in `xl2roefact/doc/README_xl2roefact_library.md`, `excel_invoice_template/README.md`
     * [ ] refer that page in `excel_invoice_template/README.md`
     * [x] `mkdocs.yml` nav entry for  "Help --> Descarcare resurse (Downloads)" to `doc_src/downloads.md`
-    * [ ] fill in `...downloads.md` page with all existing deliverables GROUPED BY file types & ORDER BY version DESC
+    * [x] fill in `...downloads.md` page with all existing deliverables GROUPED BY file types & ORDER BY version DESC
 
 * -------TODO:.from.here.to.up:-------- test & rebuild all (`pdm build_all`) & site. Updates to check:
         - page "Help --> Downloads" (or in topnav area?)
