@@ -10,27 +10,19 @@
 [TOC]
 
 
+<!-- #FIXME DROP SECTION AFTER TEST...
 ---------------[ALL OF DOWNLOADS - should remove duplicates if there are]--- #NOTE: all paths are relative to `doc_src/`
 
 #### work.section... [xl2roefact... `xl2roefact/doc/README_xl2roefact_library.md`]---
-
 * ...moved.all...
-
 
 #### work.section... [main `/README.md`]---
-
 * ...moved.all...
 
-
 #### [invoice template `excel_invoice_template/README.md`]---
+* ...moced.all...
 
-* [office Excel XLSX 0.1.20](../excel_invoice_template/invoice_template_CU_tva.xlsx "download")
-* [arhiva ZIP 0.1.20](../excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip "download")
-* [arhiva ZIP 0.1.11](../excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip "download")
-
-
---------------------------------
-
+#FIXME up here to drop------------------------------------>
 
 
 ## Format biblioteca Python  <!-- TODO: rdy to test up to v0.1.20 --> 
@@ -62,16 +54,18 @@
 
 ## Format DEB instalare Linux
 
-tbd... DEB file here...
+No items available.
 
 
 
 
 
 
-## Format XLSX Office Excel
+## Format XLSX Office Excel  <!-- TODO: rdy to test up to v0.1.20 -->
 
-tbd... XLSX here...
+* [office Excel XLSX 0.1.20](../excel_invoice_template/invoice_template_CU_tva.xlsx "download")
+* [arhiva ZIP 0.1.20](../excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip "download")
+* [arhiva ZIP 0.1.11](../excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip "download")
 
 
 
