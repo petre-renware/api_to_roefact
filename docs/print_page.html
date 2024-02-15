@@ -1672,15 +1672,20 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div>
 <h4 id="xl2roefact-index-settings">settings</h4>
 <p>display application configuration parameters and settings that are subject to be changed by user.</p>
+<p>Args:
+    <code>rules</code>: show recommended rules to follow when change application configurable settings (available in both RO &amp; EN languages). Defaults to <code>False</code>.</p>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code>xl2roefact settings [OPTIONS]
+</code></pre></div>
+<p>Options:</p>
+<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update rules
 </code></pre></div>
 <h4 id="xl2roefact-index-xl2json">xl2json</h4>
 <p>extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
 <p>Args:
     <code>file_name</code>: files to process (wildcards allowed).
     <code>files_directory</code>: directory to be used to look for Excel files. Defaults to <code>invoice_files/</code>. NOTE: if default directory does not exists will consider current directory instead
-    <code>verbose</code>: show detailed processing messages" Defaults to <code>False</code>.</p>
+    <code>verbose</code>: show detailed processing messages". Defaults to <code>False</code>.</p>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code>xl2roefact xl2json [OPTIONS] [FILE_NAME]
 </code></pre></div>
