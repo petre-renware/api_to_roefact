@@ -12,16 +12,14 @@
 
 ---------------[ALL OF DOWNLOADS - should remove duplicates if there are]--- #NOTE: all paths are relative to `doc_src/`
 
-#### [xl2roefact... `xl2roefact/doc/README_xl2roefact_library.md`]---
+#### work.section... [xl2roefact... `xl2roefact/doc/README_xl2roefact_library.md`]---
 
 * ...moved.all...
 
 
-#### [main `/README.md`]---
+#### work.section... [main `/README.md`]---
 
-* 0.1.20.dev invoice customer address [MSI installer win64](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
-* 0.1.19.dev invoice customer and partial invoice total values calculations [MSI installer win64](../xl2roefact/dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
-* 0.1.18.dev invoice customer CUI partial invoice total values calculations [MSI installer win64](../xl2roefact/dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
+* ...moved.all...
 
 
 #### [invoice template `excel_invoice_template/README.md`]---
@@ -50,9 +48,12 @@
 
 
 
-## Format MSI instalare Windows x64
+## Format MSI instalare Windows x64  <!-- TODO: rdy to test up to v0.1.20 -->
 
-tbd... MSI file here...
+* [0.1.20.dev invoice customer address MSI installer win64](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
+* [0.1.19.dev invoice customer and partial invoice total values calculations MSI installer win64](../xl2roefact/dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
+* [0.1.18.dev invoice customer CUI partial invoice total values calculations MSI installer win64](../xl2roefact/dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
+
 
 
 
