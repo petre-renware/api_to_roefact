@@ -25,7 +25,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install setuptools --upgrade
           python -m pip install -r requirements.txt
-          python -m pip install -e --ignore-installed xl2roefact  #  reinstall xl2roefact package instead of existing stable version. Reason: you want to build site for actual dev-in-progres situation
+          python -m pip install -e --force-reinstall xl2roefact  # reinstall xl2roefact package instead of existing stable version. Reason: you want to build site for actual dev-in-progres situation
           python -m mkdocs build
 
 
