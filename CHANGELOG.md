@@ -80,6 +80,7 @@
         - `app_cli.settings()` function docstring: display arguments in "Referinta API"
         - chk if show `-r`  option in "Referinta CLI"
 
+
 * 240216piu_a automated GitHub site build & publishing. FIXED ERROR: `mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got <class 'function'>` was changed `run` object to `app_cli` one
 * 240214piu_c.BUGFIX ref `240213piu_a.FAILED` fixed & enabled `.github/.../ci.yml`. To test by merging to `build`
 * 240214piu_a xl2roefact component (`.../app_cli.py`) function `settings(...)` add `--rules` option (param) to display `config_settings.__doc__`
@@ -98,7 +99,7 @@
 ### 0.1.21.post3 cleaned system documentation and site (240211 h23:59)
 
 * 240211piu_b tested & reviewed `240211piu_a` ==> published site
-* 240211piu_a updated `xl2roefact/README.md` clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point
+* 240211piu_a upated `xl2roefact/README.md` clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point
 * 240210piu_b test for iss `240210piu_a` ==> PASS
     * [x] app as functional (there are updates in code),
     * [x] re-build tech doc (`pdm build_doc`),
