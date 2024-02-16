@@ -1,7 +1,7 @@
 
 name: build_site
 on:
-  workflow_dispatch:  # xxx
+  workflow_dispatch:  # allow to manually run workflow
   push:
     branches:
       - build
