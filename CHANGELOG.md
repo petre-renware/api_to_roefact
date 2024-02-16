@@ -83,7 +83,7 @@
 * 240216piu_a automate GitHub site build & publishing
   * First run up to mkdocs build, including.
   * 1st try; FAILED w/ERROR `mkdocs_typer._exceptions.MkDocsTyperException: Module 'xl2roefact.app_cli' has no attribute 'run'`
-  * 2nd try: `xl2roefact.app_cli` module created a `run()` function as copy of existing `main()`
+  * 2nd try: `xl2roefact.app_cli` module created a `run()` function as copy of existing `main()`. Renamed workflow to `build_site.yml` and cleaned `gh-workflow/` directory
 
 * 240214piu_c.BUGFIX ref `240213piu_a.FAILED` fixed & enabled `.github/.../ci.yml`. To test by merging to `build`
 * 240214piu_a xl2roefact component (`.../app_cli.py`) function `settings(...)` add `--rules` option (param) to display `config_settings.__doc__`
