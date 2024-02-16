@@ -170,7 +170,7 @@ def called_when_no_command(
 def main():
     app_cli()
 
-run = main  # NOTE: for `run` "reason to be" as copy of `main` see iss `0.1.22.dev 240216piu_a`
+run = app_cli  # NOTE: for `run` "reason to be" as copy of `app_cli` see iss `0.1.22.dev 240216piu_a`
 
 
 if __name__ == "__main__":
