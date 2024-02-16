@@ -1,6 +1,7 @@
 
 name: build_site
 on:
+  workflow_dispatch:  # allow to manually run workflow
   push:
     branches:
       - build
@@ -33,6 +34,13 @@ jobs:
           #    commit work done and push it back to server (attn!!!, here you are on client machine of GitHub organization)
           git commit -am "Automated site built"
           git push
+
+          #    variant using mkdocs deployment feature. ATTN After run check if the `gh-deploy` is the one set for gh-pages publishing and set it if not
+          # mkdocs gh-deploy --force
+          #    commit work done and push it back to server (attn!!!, here you are on client machine of GitHub organization)
+          git commit -am "Automated site built"
+          git push
+
 
 
 

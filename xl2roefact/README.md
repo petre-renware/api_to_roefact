@@ -48,7 +48,8 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 ## Instalarea aplicatiei xl2roefact
 
-Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
+Pachetele de instalare sunt [disponibile aici](/doc_src/downloads.md#format-msi-instalare-windows-x64).
+Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
 
 * **`MSI`** pachet instalare pentru *Windows*
 * `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemuluu de operare folosit de dvs)
@@ -195,19 +196,7 @@ Cheile de la primul nivel contin:
 
 
 
-
-## Descarcare (download) aplicatie xl2roefact CLI
-
-* 0.1.20.dev invoice customer address [MSI installer win64](./dist/xl2roefact-0.1.20-win64.msi "download")
-
-
-### Arhiva versiuni publicate disponibile
-
-* 0.1.19.dev invoice customer and partial invoice total values calculations [MSI installer win64](./dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
-
-* 0.1.18.dev invoice customer CUI partial invoice total values calculations [MSI installer win64](./dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
-
-
+## [Descarcare (download) aplicatie xl2roefact CLI](/doc_src/downloads.md#format-msi-instalare-windows-x64)
 
 
 

@@ -69,7 +69,7 @@
     * [x] dedicated downloads page `doc_src/downloads.md`  #NOTE use template from main README.md
     * [x] collected all existing dwndld links in `doc_src/downloads.md` - need to be moved at their right positions in file
     * [x] for next items, in `downloads.md` there are **already built links to sections** (as html comments in file):
-        * [ ] refer that page in `xl2roefact/README.md`
+        * [x] refer that page in `xl2roefact/README.md`
         * [ ] refer that page in `xl2roefact/doc/README_xl2roefact_library.md`, `excel_invoice_template/README.md`
         * [ ] refer that page in `excel_invoice_template/README.md`
     * [x] `mkdocs.yml` nav entry for  "Help --> Descarcare resurse (Downloads)" to `doc_src/downloads.md`
@@ -80,15 +80,8 @@
         - `app_cli.settings()` function docstring: display arguments in "Referinta API"
         - chk if show `-r`  option in "Referinta CLI"
 
-* 240216piu_a automate GitHub site build & publishing
-  * First run up to mkdocs build, including.
-  * 1st try; FAILED w/ERROR `mkdocs_typer._exceptions.MkDocsTyperException: Module 'xl2roefact.app_cli' has no attribute 'run'`
-  * 2nd try: `xl2roefact.app_cli` module created a `run()` function as copy of existing `main()`. Renamed workflow to `build_site.yml` and cleaned `gh-workflow/` directory.
-    FAILED w.ERROR: `mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got <class 'function'>`
-  * 3rd try: change `run` object to `app_cli` one
 
-    RESOLUTION: __TEST PASS. CLOSED issue__
-
+* 240216piu_a automated GitHub site build & publishing. FIXED ERROR: `mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got <class 'function'>` was changed `run` object to `app_cli` one
 * 240214piu_c.BUGFIX ref `240213piu_a.FAILED` fixed & enabled `.github/.../ci.yml`. To test by merging to `build`
 * 240214piu_a xl2roefact component (`.../app_cli.py`) function `settings(...)` add `--rules` option (param) to display `config_settings.__doc__`
 * 240213piu_a.FAILED merged for `/requirements.txt` lief package update as OK-PAS & disabled gh-workflow by renaming `ci.yml` to `ci.yml temp_disabled`. Actions tried:  (-1.) updated `.gh-workflow.../ci.yml`  (-2.) "small change" in `/README.md` in copyright year to test  (-3.) merge to `build` branch for test
@@ -106,7 +99,7 @@
 ### 0.1.21.post3 cleaned system documentation and site (240211 h23:59)
 
 * 240211piu_b tested & reviewed `240211piu_a` ==> published site
-* 240211piu_a updated `xl2roefact/README.md` clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point
+* 240211piu_a upated `xl2roefact/README.md` clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point
 * 240210piu_b test for iss `240210piu_a` ==> PASS
     * [x] app as functional (there are updates in code),
     * [x] re-build tech doc (`pdm build_doc`),
