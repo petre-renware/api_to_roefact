@@ -50,11 +50,11 @@
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
-* tbd.Would... automate GitHub site build & publishing. See file `/gh_mkdocs_auto_publish.md`.
+* wip.Would... automate GitHub site build & publishing. Last attempt @`240216piu_a`.
 
 * tbd.Should... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
 
-* tbd.Must... publish `xl2roefact` package --> read `TODO_packaging.md`
+* tbd.Must... publish `xl2roefact` package --> read PDM doc ref package release
 
 * tbd.Could... init a PDM simple env in project root. Keep in mind:
     * root project is for SITE GENERATION. ? the `web2roefact` will need its own directory5like `xl2roefact` ?
@@ -79,6 +79,15 @@
         - page "Help --> Downloads" (or in topnav area?)
         - `app_cli.settings()` function docstring: display arguments in "Referinta API"
         - chk if show `-r`  option in "Referinta CLI"
+
+* 240216piu_a automate GitHub site build & publishing
+  * First run up to mkdocs build, including.
+  * 1st try; FAILED w/ERROR `mkdocs_typer._exceptions.MkDocsTyperException: Module 'xl2roefact.app_cli' has no attribute 'run'`
+  * 2nd try: `xl2roefact.app_cli` module created a `run()` function as copy of existing `main()`. Renamed workflow to `build_site.yml` and cleaned `gh-workflow/` directory.
+    FAILED w.ERROR: `mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got <class 'function'>`
+  * 3rd try: change `run` object to `app_cli` one
+
+    RESOLUTION: __TEST PASS. CLOSED issue__
 
 * 240214piu_c.BUGFIX ref `240213piu_a.FAILED` fixed & enabled `.github/.../ci.yml`. To test by merging to `build`
 * 240214piu_a xl2roefact component (`.../app_cli.py`) function `settings(...)` add `--rules` option (param) to display `config_settings.__doc__`
