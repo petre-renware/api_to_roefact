@@ -541,6 +541,20 @@
   
   
     <li class="md-nav__item">
+      <a href="xl2roefact/index.html#comenzile-aplicatiei" class="md-nav__link">
+        Referinta CLI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="xl2roefact/LICENSE" class="md-nav__link">
         License
       </a>
@@ -939,6 +953,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="doc_src/downloads.html" class="md-nav__link">
+        Descarcare resurse (Downloads)
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1256,6 +1284,19 @@
     VI. Help
   </a>
   
+    <nav class="md-nav" aria-label="VI. Help">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#doc_src-downloads" class="md-nav__link">
+    15. Descarcare resurse (Downloads)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1268,14 +1309,14 @@
         
           <li class="md-nav__item">
   <a href="#doc_src-wip" class="md-nav__link">
-    15. Despre INVOICEtoROefact
+    16. Despre INVOICEtoROefact
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#changelog" class="md-nav__link">
-    16. CHANGELOG sistem
+    17. CHANGELOG sistem
   </a>
   
 </li>
@@ -1611,6 +1652,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </li>
 </ul>
 <p><strong>Detalii comenzi:</strong></p>
+<p><a id="comenzile-aplicatiei"></a>  <!-- #NOTE ATTN do not drop this anchor tag because is referred in <code>mkdocs.yml</code> navigation section --></p>
 <!--#NOTE: next section will generate application commands in style as obtained using `--help` CLI options -->
 <h3 id="xl2roefact-index-xl2roefact_1">xl2roefact</h3>
 <p>function called when no command is invoked and to provide only application version (for external users to test it!).</p>
@@ -1630,15 +1672,20 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div>
 <h4 id="xl2roefact-index-settings">settings</h4>
 <p>display application configuration parameters and settings that are subject to be changed by user.</p>
+<p>Args:
+    <code>rules</code>: show recommended rules to follow when change application configurable settings (available in both RO &amp; EN languages). Defaults to <code>False</code>.</p>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code>xl2roefact settings [OPTIONS]
+</code></pre></div>
+<p>Options:</p>
+<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update rules
 </code></pre></div>
 <h4 id="xl2roefact-index-xl2json">xl2json</h4>
 <p>extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
 <p>Args:
     <code>file_name</code>: files to process (wildcards allowed).
     <code>files_directory</code>: directory to be used to look for Excel files. Defaults to <code>invoice_files/</code>. NOTE: if default directory does not exists will consider current directory instead
-    <code>verbose</code>: show detailed processing messages" Defaults to <code>False</code>.</p>
+    <code>verbose</code>: show detailed processing messages". Defaults to <code>False</code>.</p>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code>xl2roefact xl2json [OPTIONS] [FILE_NAME]
 </code></pre></div>
@@ -1885,39 +1932,28 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>0.1.18.dev invoice customer CUI partial invoice total values calculations <a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18.tar.gz" title="download">DIST</a></li>
 </ul></section><section class="print-page" id="xl2roefact-doc-810.05a-xl2roefact_dld_specs"><h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-table-of-contents">Table of Contents</h1>
 <ul>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli">app_cli</a><ul>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli">app_cli</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.about">about</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.settings">settings</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.xl2json">xl2json</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.called_when_no_command">called_when_no_command</a></li>
-</ul>
-</li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkisld">chkisld</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkxml">chkxml</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings">config_settings</a><ul>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings">config_settings</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings.DEFAULT_SUPPLIER_COUNTRY">DEFAULT_SUPPLIER_COUNTRY</a></li>
-</ul>
-</li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-ldxml">ldxml</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils">libutils</a><ul>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils">libutils</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils.isnumber">isnumber</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils.find_str_in_list">find_str_in_list</a></li>
-</ul>
-</li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv">rdinv</a><ul>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv">rdinv</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.rdinv">rdinv</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.get_excel_data_at_label">get_excel_data_at_label</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.mk_kv_invoice_items_area">mk_kv_invoice_items_area</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.get_invoice_items_area">get_invoice_items_area</a></li>
-</ul>
-</li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-wrxml">wrxml</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__init__">__init__</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__main__">__main__</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__version__">__version__</a><ul>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__version__.__version__">__version__</a></li>
-</ul>
-</li>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__version__">__version__</a></li>
 </ul>
 <p><a id="app_cli"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli">app_cli</h1>
@@ -1947,9 +1983,17 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><a id="app_cli.settings"></a></p>
 <h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-settings">settings</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">settings</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">settings</span><span class="p">(</span><span class="n">rules</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+    <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">typer</span><span class="o">.</span>
+    <span class="n">Option</span><span class="p">(</span><span class="s2">&quot;--rules&quot;</span><span class="p">,</span> <span class="s2">&quot;-r&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;show settings recommended update rules&quot;</span><span class="p">),</span>
+<span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <p>display application configuration parameters and settings that are subject to be changed by user.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>rules</code> - show recommended rules to follow when change application configurable settings (available in both RO &amp; EN languages). Defaults to <code>False</code>.</li>
+</ul>
 <p><a id="app_cli.xl2json"></a></p>
 <h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-xl2json">xl2json</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -1983,7 +2027,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <ul>
 <li><code>file_name</code> - files to process (wildcards allowed).</li>
 <li><code>files_directory</code> - directory to be used to look for Excel files. Defaults to <code>invoice_files/</code>. NOTE: if default directory does not exists will consider current directory instead</li>
-<li><code>verbose</code> - show detailed processing messages" Defaults to <code>False</code>.</li>
+<li><code>verbose</code> - show detailed processing messages". Defaults to <code>False</code>.</li>
 </ul>
 <p><a id="app_cli.called_when_no_command"></a></p>
 <h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-called_when_no_command">called_when_no_command</h4>
@@ -2252,26 +2296,25 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 <p><a id="__version__"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-__version__">__version__</h1>
-<h6 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-_1">## ####              ########</h6>
-<p>__ ##  # #  #              #      # ##    #<code>__</code></p>
-<h2 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-_2">## #  #              ###  ### #  ##</h2>
-<p>##  ##  #  #                #  #   #  ##  #</p>
-<h2 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-_3">## #  #                #  #   #  ##</h2>
-<p>__ ##  # #  #####            #  #   #  ##  <code>__</code></p>
-<p>__ ##  # #      #            #  #   ##    #<code>__</code></p>
-<h6 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-_4">## ########            ####</h6>
-<pre><code>                       ######## ########  ######   ######  ########
-</code></pre>
-<h6 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-_5">#   ######           #      # #     #  ##    ## ##    ## #</h6>
-<p>__    ## ##    ## #######  #  ##### #  ####  #  ##  # #  ##  # ###  ##<code>__</code></p>
-<p>__ ##  # #  ##  # #     #  #    #   #    #   #      # #  #####   #  <code>__</code></p>
-<p>__ ##### #  ##  # #######  #  ###   #  ###   #  ##  # #  #####   #  <code>__</code></p>
-<p>__ # #   #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  <code>__</code></p>
-<p>__ #  #  ##    ##          #      # #  #     #  ##  # ##    ##   #  <code>__</code></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-_6">#  ######           ######## ####     ########  ######</h4>
-<p><a id="__version__.__version__"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-__version___1">__version__</h4>
-<p>xl2roefact package version</p></section><h1 class='nav-section-title-end'>Ended: xl2roefact PyPi library</h1>
+<p>xl2roefact version info.
+<div class="highlight"><pre><span></span><code> ######## ####              ########  ######
+ #  ##  # #  #              #      # ##    ##
+ ##    ## #  #              ###  ### #  ##  #
+  ##  ##  #  #                #  #   #  ##  #
+ ##    ## #  #                #  #   #  ##  #
+ #  ##  # #  #####            #  #   #  ##  #
+ #  ##  # #      #            #  #   ##    ##
+ ######## ########            ####    ######
+
+                            ######## ########  ######   ######  ########
+ #######   ######           #      # #     #  ##    ## ##    ## #      #
+ #     ## ##    ## #######  #  ##### #  ####  #  ##  # #  ##  # ###  ###
+ #  ##  # #  ##  # #     #  #    #   #    #   #      # #  #####   #  #
+ #  ##### #  ##  # #######  #  ###   #  ###   #  ##  # #  #####   #  #
+ #  # #   #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  #
+ #  #  #  ##    ##          #      # #  #     #  ##  # ##    ##   #  #
+ ####   #  ######           ######## ####     ########  ######    ####
+</code></pre></div></p></section><h1 class='nav-section-title-end'>Ended: xl2roefact PyPi library</h1>
                         <h1 class='nav-section-title' id='section-invoice-template'>
                             invoice template <a class='headerlink' href='#section-invoice-template' title='Permanent link'>↵</a>
                         </h1>
@@ -2334,10 +2377,10 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><a href="excel_invoice_template/invoice_template_CU_tva.xlsx" title="download">office Excel XLSX 0.1.20</a></p>
 </li>
 <li>
-<p><a href="excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip">arhiva ZIP 0.1.20</a></p>
+<p><a href="excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip" title="download">arhiva ZIP 0.1.20</a></p>
 </li>
 <li>
-<p><a href="excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip">arhiva ZIP 0.1.11</a></p>
+<p><a href="excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip" title="download">arhiva ZIP 0.1.11</a></p>
 </li>
 </ul>
 <h2 id="excel_invoice_template-index-license"><a href="#excel_invoice_template-license" title="download">License</a></h2></section><h1 class='nav-section-title-end'>Ended: invoice template</h1>
@@ -2822,7 +2865,64 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <!--#NOTE special HTML characters to use:
     - &#x2610; checkbox as NOT CHECKED
     - &#x2611; checkbox as CHECKED
---></section><h1 class='nav-section-title-end'>Ended: Cerintele sistemului</h1><h1 class='nav-section-title-end'>Ended: Help</h1>
+--></section><h1 class='nav-section-title-end'>Ended: Cerintele sistemului</h1><section class="print-page" id="doc_src-downloads"><p><small><strong>RENware Software Systems</strong></small></p>
+<h1 id="doc_src-downloads-descarcare-resurse-downloads">Descarcare resurse (downloads)</h1>
+<p><strong><em>Cuprins:</em></strong></p>
+<div class="toc">
+<ul>
+<li><a href="#doc_src-downloads-descarcare-resurse-downloads">Descarcare resurse (downloads)</a><ul>
+<li><a href="#doc_src-downloads-format-biblioteca-python">Format biblioteca Python  </a></li>
+<li><a href="#doc_src-downloads-format-msi-instalare-windows-x64">Format MSI instalare Windows x64  </a></li>
+<li><a href="#doc_src-downloads-format-deb-instalare-linux">Format DEB instalare Linux</a></li>
+<li><a href="#doc_src-downloads-format-xlsx-office-excel">Format XLSX Office Excel  </a></li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- #FIXME DROP SECTION AFTER TEST...
+---------------[ALL OF DOWNLOADS - should remove duplicates if there are]--- #NOTE: all paths are relative to `doc_src/`
+
+#### work.section... [xl2roefact... `xl2roefact/doc/README_xl2roefact_library.md`]---
+* ...moved.all...
+
+#### work.section... [main `/README.md`]---
+* ...moved.all...
+
+#### [invoice template `excel_invoice_template/README.md`]---
+* ...moced.all...
+
+#### links to use in ext doc to ref sectios
+
+...doc_src/downloads.md#format-biblioteca-python
+...doc_src/downloads.md#format-msi-instalare-windows-x64
+...doc_src/downloads.md#format-xlsx-office-excel
+
+#FIXME up here to drop------------------------------------>
+
+<h2 id="doc_src-downloads-format-biblioteca-python">Format biblioteca Python  <!-- TODO: rdy to test up to v0.1.20 --></h2>
+<ul>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.20-py3-none-any.whl" title="download">0.1.20.dev invoice customer address WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.20.tar.gz" title="download">0.1.20.dev invoice customer address DIST</a></li>
+<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19-py3-none-any.whl" title="download">0.1.19.dev invoice customer and partial invoice total values calculations WHEEL</a></li>
+<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19.tar.gz" title="download">0.1.19.dev invoice customer and partial invoice total values calculations DIST</a></li>
+<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18-py3-none-any.whl" title="download">0.1.18.dev invoice customer CUI partial invoice total values calculations WHEEL</a></li>
+<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18.tar.gz" title="download">0.1.18.dev invoice customer CUI partial invoice total values calculations DIST</a></li>
+</ul>
+<h2 id="doc_src-downloads-format-msi-instalare-windows-x64">Format MSI instalare Windows x64  <!-- TODO: rdy to test up to v0.1.20 --></h2>
+<ul>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.20-win64.msi" title="download">0.1.20.dev invoice customer address MSI installer win64</a></li>
+<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19-win64.msi" title="download">0.1.19.dev invoice customer and partial invoice total values calculations MSI installer win64</a></li>
+<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18-win64.msi" title="download">0.1.18.dev invoice customer CUI partial invoice total values calculations MSI installer win64</a></li>
+</ul>
+<h2 id="doc_src-downloads-format-deb-instalare-linux">Format DEB instalare Linux</h2>
+<p>No items available.</p>
+<h2 id="doc_src-downloads-format-xlsx-office-excel">Format XLSX Office Excel  <!-- TODO: rdy to test up to v0.1.20 --></h2>
+<ul>
+<li><a href="excel_invoice_template/invoice_template_CU_tva.xlsx" title="download">office Excel XLSX 0.1.20</a></li>
+<li><a href="excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip" title="download">arhiva ZIP 0.1.20</a></li>
+<li><a href="excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip" title="download">arhiva ZIP 0.1.11</a></li>
+</ul>
+<p>.</p></section><h1 class='nav-section-title-end'>Ended: Help</h1>
                         <h1 class='nav-section-title' id='section-about'>
                             About <a class='headerlink' href='#section-about' title='Permanent link'>↵</a>
                         </h1>
@@ -2834,9 +2934,10 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-01-note_wip">0.1 (-#NOTE_wip...)</a><ul>
-<li><a href="#changelog-0122dev-invoice-customer-info-optional-items-email-reg-com-phone-note-nxt">0.1.22.dev invoice customer info-optional items (email, reg-com, phone) (#NOTE nxt...)</a></li>
-<li><a href="#changelog-0121post2-xl2roefact-app-detailed-section-with-commands-options-help-like">0.1.21.post2 xl2roefact app detailed section with commands &amp; options "--help" like</a></li>
-<li><a href="#changelog-0121post1-fixed-missing-links-in-site-root-index-page-240203-10h30">0.1.21.post1 fixed missing links in site root index page (240203 10h:30)</a></li>
+<li><a href="#changelog-todo_wip-0122dev-xl2roefact-application-interface-improvements-invoice-customer-info-optional-items-bank-email-reg-com-phone-note-upd-dev-qualifier-set-date-here">#TODO..._wip... 0.1.22.dev xl2roefact application interface improvements &amp; invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier &amp; set date here...)</a></li>
+<li><a href="#changelog-0121post3-cleaned-system-documentation-and-site-240211-h2359">0.1.21.post3 cleaned system documentation and site (240211 h23:59)</a></li>
+<li><a href="#changelog-0121post2-xl2roefact-app-detailed-section-with-commands-options-help-like-240206-h2359">0.1.21.post2 xl2roefact app detailed section with commands &amp; options "--help" like (240206 h23:59)</a></li>
+<li><a href="#changelog-0121post1-fixed-missing-links-in-site-root-index-page-240203-h1030">0.1.21.post1 fixed missing links in site root index page (240203 h10:30)</a></li>
 <li><a href="#changelog-0121-rollout-news-in-system-portal-invoicetoroefactrenwareeu-240203-h0900">0.1.21 rollout news in system portal invoicetoroefact.renware.eu (240203 h09:00)</a></li>
 <li><a href="#changelog-0120dev-invoice-customer-address-240123-h1000">0.1.20.dev invoice customer address (240123 h10:00)</a></li>
 <li><a href="#changelog-0119dev-invoice-customer-and-partial-invoice-total-values-calculations-240116-h0600">0.1.19.dev invoice customer and partial invoice total values calculations (240116 h06:00)</a></li>
@@ -2882,25 +2983,22 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
             * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build &amp; write &quot;Invoice&quot; key)
     -------------------------------------------------------------------------------------------------
 </code></pre></div>
-<h3 id="changelog-0122dev-invoice-customer-info-optional-items-email-reg-com-phone-note-nxt">0.1.22.dev invoice customer info-optional items (email, reg-com, phone) (#NOTE nxt...)</h3>
+<h3 id="changelog-todo_wip-0122dev-xl2roefact-application-interface-improvements-invoice-customer-info-optional-items-bank-email-reg-com-phone-note-upd-dev-qualifier-set-date-here">#TODO..._wip... 0.1.22.dev xl2roefact application interface improvements &amp; invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier &amp; set date here...)</h3>
 <ul>
 <li>
-<p>tbd.Must... WHEN RELEASE UPDATE make a full chk / review for FIXME &amp; run <code>pdm build_all</code></p>
+<p>tbd.Must... @RELEASE <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></p>
 </li>
 <li>
-<p>tbd.Would... automate GitHub site build &amp; publishing. See file <code>/gh_mkdocs_auto_publish.md</code>.</p>
+<p>wip.Would... automate GitHub site build &amp; publishing. Last attempt @<code>240216piu_a</code>.</p>
 </li>
 <li>
 <p>tbd.Should... [piu_240126] left in <code>setup.py</code> comments &amp; example ref how to <strong><em>pre-set MSI build meta information</em></strong> / parameters (obj: default target dir where install, path registration, ...)</p>
 </li>
 <li>
-<p>tbd.Could... xl2roefact component (<code>.../spp_cli.py</code>) line 68: add a <code>rules</code> option (param) to display <code>config_settings.__doc__</code></p>
+<p>tbd.Must... publish <code>xl2roefact</code> package --&gt; read PDM doc ref package release</p>
 </li>
 <li>
-<p>tbd.Must... publish <code>xl2roefact</code> package --&gt; read <code>TODO_packaging.md</code></p>
-</li>
-<li>
-<p>tbd Could... init a PDM simple env in project root. Keep in mind:</p>
+<p>tbd.Could... init a PDM simple env in project root. Keep in mind:</p>
 <ul>
 <li>root project is for SITE GENERATION. ? the <code>web2roefact</code> will need its own directory5like <code>xl2roefact</code> ?</li>
 <li>as consequence the project name is <strong>INVOICEtoROefact</strong></li>
@@ -2914,11 +3012,51 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <p>wip...</p>
 </li>
 <li>
-<p>tbd.Would... CONSIDER here a new post-release as <strong>0.1.21.post3 cleaned system documentation and site</strong></p>
+<p>TODO: wip ...240214piu_b make in site a dedicated page for downloads: "Help --&gt; Downloads" and refer it in all places where downloads are intended. Detailed specs:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> dedicated downloads page <code>doc_src/downloads.md</code>  #NOTE use template from main README.md</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> collected all existing dwndld links in <code>doc_src/downloads.md</code> - need to be moved at their right positions in file</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> for next items, in <code>downloads.md</code> there are <strong>already built links to sections</strong> (as html comments in file):<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> refer that page in <code>xl2roefact/README.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> refer that page in <code>xl2roefact/doc/README_xl2roefact_library.md</code>, <code>excel_invoice_template/README.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> refer that page in <code>excel_invoice_template/README.md</code></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>mkdocs.yml</code> nav entry for  "Help --&gt; Descarcare resurse (Downloads)" to <code>doc_src/downloads.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> fill in <code>...downloads.md</code> page with all existing deliverables GROUPED BY file types &amp; ORDER BY version DESC</li>
+</ul>
 </li>
 <li>
-<p>240211piu_b tested &amp; reviewed <code>240211piu_a</code> ==&gt; published site</p>
+<p>-------TODO:.from.here.to.up:-------- test &amp; rebuild all (<code>pdm build_all</code>) &amp; site. Updates to check:
+        - page "Help --&gt; Downloads" (or in topnav area?)
+        - <code>app_cli.settings()</code> function docstring: display arguments in "Referinta API"
+        - chk if show <code>-r</code>  option in "Referinta CLI"</p>
 </li>
+<li>
+<p>240216piu_a automate GitHub site build &amp; publishing</p>
+</li>
+<li>First run up to mkdocs build, including.</li>
+<li>1st try; FAILED w/ERROR <code>mkdocs_typer._exceptions.MkDocsTyperException: Module 'xl2roefact.app_cli' has no attribute 'run'</code></li>
+<li>2nd try: <code>xl2roefact.app_cli</code> module created a <code>run()</code> function as copy of existing <code>main()</code>. Renamed workflow to <code>build_site.yml</code> and cleaned <code>gh-workflow/</code> directory.
+    FAILED w.ERROR: <code>mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got &lt;class 'function'&gt;</code></li>
+<li>
+<p>3rd try: change <code>run</code> object to <code>app_cli</code> one</p>
+<p>RESOLUTION: <strong>TEST PASS. CLOSED issue</strong></p>
+</li>
+<li>
+<p>240214piu_c.BUGFIX ref <code>240213piu_a.FAILED</code> fixed &amp; enabled <code>.github/.../ci.yml</code>. To test by merging to <code>build</code></p>
+</li>
+<li>240214piu_a xl2roefact component (<code>.../app_cli.py</code>) function <code>settings(...)</code> add <code>--rules</code> option (param) to display <code>config_settings.__doc__</code></li>
+<li>240213piu_a.FAILED merged for <code>/requirements.txt</code> lief package update as OK-PAS &amp; disabled gh-workflow by renaming <code>ci.yml</code> to <code>ci.yml temp_disabled</code>. Actions tried:  (-1.) updated <code>.gh-workflow.../ci.yml</code>  (-2.) "small change" in <code>/README.md</code> in copyright year to test  (-3.) merge to <code>build</code> branch for test</li>
+<li>240212piu_e.BUGFIX navigation "xl2roefact --&gt; Referinta CLI" (file <code>/mkdocs.yml</code>). Updated <code>xl2roefact/README.md</code> add a <code>&lt;a id="comenzile-aplicatiei"&gt;&lt;/a&gt;</code> after header "## Comenzile aplicatiei" paragraph "Detalii comenzi:" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one</li>
+<li>240212piu_d rebuild all deliverables <code>pdm build_all</code> ==&gt; v0.1.22 MSI, WHL, SDIST &amp; moved them to a dedicated <code>_WIP_0.1.22_/</code> until decide to rebuild or keep</li>
+<li>240212piu_c added navigation "xl2roefact --&gt; Referinta CLI" (file <code>/mkdocs.yml</code>). Built &amp; published site (<code>mkdocs build</code>).</li>
+<li>240212piu_b updated <code>.../xl2roefact/app_cli.py</code> to format app logo string as markdown. Updated packages (<code>pdm build_all</code>).</li>
+<li>240212piu_a review and updated xl2roefact logo (file: <code>...xl2roefact/__version__</code>). Updated API Reference doc (<code>pdm build_doc</code>). Clean project of obsolete files &amp; open issues</li>
+</ul>
+<h3 id="changelog-0121post3-cleaned-system-documentation-and-site-240211-h2359">0.1.21.post3 cleaned system documentation and site (240211 h23:59)</h3>
+<ul>
+<li>240211piu_b tested &amp; reviewed <code>240211piu_a</code> ==&gt; published site</li>
 <li>240211piu_a updated <code>xl2roefact/README.md</code> clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point</li>
 <li>240210piu_b test for iss <code>240210piu_a</code> ==&gt; PASS<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> app as functional (there are updates in code),</li>
@@ -2934,13 +3072,13 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <li>240207piu_b improve site readability by detailed description at bullet items level and dropping / moving in other parts the content non "end user related" from: <code>/README.md</code>, <code>doc_src/.../810.05a-system_components.md</code></li>
 <li>240207piu_a updated all site in pages references to system components &amp; deliverables version</li>
 </ul>
-<h3 id="changelog-0121post2-xl2roefact-app-detailed-section-with-commands-options-help-like">0.1.21.post2 xl2roefact app detailed section with commands &amp; options "--help" like</h3>
+<h3 id="changelog-0121post2-xl2roefact-app-detailed-section-with-commands-options-help-like-240206-h2359">0.1.21.post2 xl2roefact app detailed section with commands &amp; options "--help" like (240206 h23:59)</h3>
 <ul>
 <li>240206piu_c test &amp; release: -- create release, -- publish site, -- save deliverable archives</li>
 <li>240206piu_b install package: <code>pip install mkdocs-typer</code> &amp; upd back <code>requirements.txt</code></li>
 <li>240206piu_a add <code>mkdocs-typer</code> extension and update <code>xl2roefact/README.md</code>, section <code>Comenzile aplicatiei</code> page with generated documentation by this plugin</li>
 </ul>
-<h3 id="changelog-0121post1-fixed-missing-links-in-site-root-index-page-240203-10h30">0.1.21.post1 fixed missing links in site root index page (240203 10h:30)</h3>
+<h3 id="changelog-0121post1-fixed-missing-links-in-site-root-index-page-240203-h1030">0.1.21.post1 fixed missing links in site root index page (240203 h10:30)</h3>
 <ul>
 <li>240203piu_a fixed links in <code>/README.md</code> for: <code>xl2roefact PyPi</code> entry</li>
 </ul>
