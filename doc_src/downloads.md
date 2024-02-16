@@ -12,7 +12,7 @@
 
 <!-- #FIXME DROP SECTION AFTER TEST...
 
-* [x] _`LINK USED`_ /doc_src/downloads.md#format-biblioteca-python
+* [x] /doc_src/downloads.md#format-biblioteca-python
 * [ ] /doc_src/downloads.md#format-msi-instalare-windows-x64
 * [ ] /doc_src/downloads.md#format-xlsx-office-excel
 
