@@ -198,7 +198,8 @@ Cheile de la primul nivel contin:
 
 ## Descarcare (download) aplicatie xl2roefact CLI
 
-[xxx](../doc_src/downloads.md#format-msi-instalare-windows-x64)
+[xxx](/doc_src/downloads.md#format-msi-instalare-windows-x64)
+
 
 
 
