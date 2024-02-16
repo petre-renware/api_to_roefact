@@ -1,4 +1,4 @@
-﻿altgraph==0.17.4
+altgraph==0.17.4
 argcomplete==3.2.1
 async-generator==1.10
 attrs==23.1.0
@@ -67,6 +67,7 @@ openpyxl==3.1.2
 outcome==1.2.0
 packaging==23.2
 pandas==2.1.0
+patchelf==0.17.2.1
 pathspec==0.11.2
 pdm==2.12.3
 pdoc==14.2.0
@@ -130,12 +131,6 @@ weasyprint==59.0
 webencodings==0.5.1
 websocket-client==1.6.1
 wsproto==1.2.0
-
-# NOTE: install variants:
-# (1st) `0.1.22.dev` wheel from (ATTN this version is not allowed as gh-action because free account which not accept install from direct external URL except PyPi)
-# (2nd) direct development from default branch
-# xl2roefact @ file://invoicetoroefact.renware.eu/xl2roefact/dist/xl2roefact-0.1.22.dev0-py3-none-any.whl
--e git+https://github.com/petre-renware/api_to_roefact@74283c95c90e9b267b29e52a7e99b77c400cdcd6#egg=xl2roefact&subdirectory=xl2roefact
-
+-e git+https://github.com/petre-renware/api_to_roefact@9cba471b5d9e4fb04f49df8359d0800e46c4c621#egg=xl2roefact&subdirectory=xl2roefact
 zipp==3.16.2
 zopfli==0.2.2
