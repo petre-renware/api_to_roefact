@@ -52,7 +52,7 @@ Pachetele de instalare sunt [disponibile aici](/doc_src/downloads.md#format-msi-
 Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
 
 * **`MSI`** pachet instalare pentru *Windows*
-* `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemuluu de operare folosit de dvs)
+* `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemului de operare folosit de dvs)
 * `EXE` executabil *Windows in format "portabil" (un singur fisier)*
 
 >*NOTA 1:* pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python ([vezi sectiunea `xl2roefact PyPi library`](.doc/../doc/README_xl2roefact_library.md)) dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
@@ -197,6 +197,7 @@ Cheile de la primul nivel contin:
 
 
 ## [Descarcare (download) aplicatie xl2roefact CLI](/doc_src/downloads.md#format-msi-instalare-windows-x64)
+
 
 
 
