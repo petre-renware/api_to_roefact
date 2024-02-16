@@ -2989,13 +2989,13 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <p>tbd.Must... @RELEASE <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></p>
 </li>
 <li>
-<p>tbd.Would... automate GitHub site build &amp; publishing. See file <code>/gh_mkdocs_auto_publish.md</code>.</p>
+<p>wip.Would... automate GitHub site build &amp; publishing. Last attempt @<code>240216piu_a</code>.</p>
 </li>
 <li>
 <p>tbd.Should... [piu_240126] left in <code>setup.py</code> comments &amp; example ref how to <strong><em>pre-set MSI build meta information</em></strong> / parameters (obj: default target dir where install, path registration, ...)</p>
 </li>
 <li>
-<p>tbd.Must... publish <code>xl2roefact</code> package --&gt; read <code>TODO_packaging.md</code></p>
+<p>tbd.Must... publish <code>xl2roefact</code> package --&gt; read PDM doc ref package release</p>
 </li>
 <li>
 <p>tbd.Could... init a PDM simple env in project root. Keep in mind:</p>
@@ -3031,6 +3031,17 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
         - page "Help --&gt; Downloads" (or in topnav area?)
         - <code>app_cli.settings()</code> function docstring: display arguments in "Referinta API"
         - chk if show <code>-r</code>  option in "Referinta CLI"</p>
+</li>
+<li>
+<p>240216piu_a automate GitHub site build &amp; publishing</p>
+</li>
+<li>First run up to mkdocs build, including.</li>
+<li>1st try; FAILED w/ERROR <code>mkdocs_typer._exceptions.MkDocsTyperException: Module 'xl2roefact.app_cli' has no attribute 'run'</code></li>
+<li>2nd try: <code>xl2roefact.app_cli</code> module created a <code>run()</code> function as copy of existing <code>main()</code>. Renamed workflow to <code>build_site.yml</code> and cleaned <code>gh-workflow/</code> directory.
+    FAILED w.ERROR: <code>mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got &lt;class 'function'&gt;</code></li>
+<li>
+<p>3rd try: change <code>run</code> object to <code>app_cli</code> one</p>
+<p>RESOLUTION: <strong>TEST PASS. CLOSED issue</strong></p>
 </li>
 <li>
 <p>240214piu_c.BUGFIX ref <code>240213piu_a.FAILED</code> fixed &amp; enabled <code>.github/.../ci.yml</code>. To test by merging to <code>build</code></p>
