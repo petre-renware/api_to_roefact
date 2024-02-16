@@ -71,6 +71,8 @@ To install from distribution packages first download the package version intende
 
 
 
+<!-- #FIXME @240216 proposal for drop this section as being practically useless for any end user...
+
 ## Working directories
 
 Below is a short description of most important directories that will (can !) be found on local development environment.
@@ -83,6 +85,7 @@ Below is a short description of most important directories that will (can !) be 
 
 * _`test_*/`_ contains test invoice samples (from client, a RENware one, a 3rd party one) and some useful specs in dev & test process
 
+-->
 
 
 
