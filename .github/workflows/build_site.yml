@@ -1,5 +1,5 @@
 
-name: ci
+name: build_site
 on:
   push:
     branches:
@@ -26,6 +26,7 @@ jobs:
           pip install setuptools --upgrade
           python -m pip install -r requirements.txt
           python -m pip install -e xl2roefact  # reinstall xl2roefact package instead of existing stable version. Reason: you want to build site for actual dev-in-progres situation
+          python -m pip install --upgrade pip
           python -m mkdocs build
 
 
