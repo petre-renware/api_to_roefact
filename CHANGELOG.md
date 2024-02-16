@@ -69,7 +69,7 @@
     * [x] dedicated downloads page `doc_src/downloads.md`  #NOTE use template from main README.md
     * [x] collected all existing dwndld links in `doc_src/downloads.md` - need to be moved at their right positions in file
     * [x] for next items, in `downloads.md` there are **already built links to sections** (as html comments in file):
-        * [ ] refer that page in `xl2roefact/README.md`
+        * [...] refer that page in `xl2roefact/README.md`
         * [ ] refer that page in `xl2roefact/doc/README_xl2roefact_library.md`, `excel_invoice_template/README.md`
         * [ ] refer that page in `excel_invoice_template/README.md`
     * [x] `mkdocs.yml` nav entry for  "Help --> Descarcare resurse (Downloads)" to `doc_src/downloads.md`
