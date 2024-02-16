@@ -157,9 +157,17 @@ xl2roefact -d ./facturi_iunie/
 
 ### Exemplu de procesare a unei facturi
 
-* se creaza directorul `invoice_files`
+* se creaza directorul recomandat pentru stocarea facturilor in Excel:
+```bash
+md invoice_files
+```
+
 * se copiaza factura `factura_A.xlsx` in acest director apoi se revine in directorul anterior daca acesta a fost schimbat pentru efectuarea copierii
-* se lanseaza aplicatia: `xl2roefact xl2json`
+
+* se lanseaza aplicatia:
+```bash
+xl2roefact xl2json
+```
 
 In urma acestor operatii, in directorul `invoice_files` vor rezulta:
 
@@ -180,7 +188,7 @@ invoice_files/
 
 Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Formatul JSON are urmatoarra structura de baza:
 
-```
+```json
 {
     "Invoice": {...},
     "meta_info": {...},
