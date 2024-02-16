@@ -55,7 +55,7 @@ nav:
             - LinkedIn: https://www.linkedin.com/posts/renware_feel-comfortable-and-focus-to-business-with-activity-7162448393565323265-mazE?utm_source=share&utm_medium=member_android
         - Suport: https://www.renware.eu/support.html
         - Cum cumpar: https://www.renware.eu/resources.html#how-to-buy-from-renware
-        - Licenta generala sistem: LICENSE  #FIXME see if needed anymore l, first because each component has its own license
+        - Licenta generala sistem: LICENSE.txt
         - CHANGELOG sistem: CHANGELOG.md
 
 
