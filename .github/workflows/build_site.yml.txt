@@ -1,0 +1,46 @@
+
+name: build_site
+on:
+  push:
+    branches:
+      - build
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Build site
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools --upgrade
+          python -m pip install -r requirements.txt
+          python -m pip install -e xl2roefact  # reinstall xl2roefact package instead of existing stable version. Reason: you want to build site for actual dev-in-progres situation
+          python -m pip install --upgrade pip
+          
+          #    next line will write back a fresh requirements.txt file with created environment and could be useful for xl2roefact package to be collected back to work branch as actual environment installation. This will not be useful anymore after publishing it in PyPi.
+          python -m pip freeze >requirements.txt
+          
+          #    build site with mkdocs
+          python -m mkdocs build
+          
+          #    commit work done and push it back to server (attn!!!, here you are on client machine of GitHub organization)
+          git add *
+          git commit -am "Automated site built"
+          git push
+
+
+
+
+
+
