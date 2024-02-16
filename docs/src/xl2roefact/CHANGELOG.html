@@ -1,0 +1,979 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Petre Iordanescu, RENware Software Systems, petre.iordanescu@gmail.com" name="author"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.2, mkdocs-material-9.1.21" name="generator"/>
+<title>CHANGELOG - INVOICEtoROefact</title>
+<link href="../../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
+<style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h224V368c0-26.5 21.5-48 48-48h112V96c0-35.3-28.7-64-64-64H64zm384 320H336c-8.8 0-16 7.2-16 16v112l32-32 64-64 32-32z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96v320c0 53 43 96 96 96h320c17.7 0 32-14.3 32-32s-14.3-32-32-32v-64c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H96zm0 384h256v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48h192c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm-40-176h24v-64h-24c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-80c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M480 32c0-12.9-7.8-24.6-19.8-29.6S434.5.2 425.3 9.3L381.7 53c-48 48-113.1 75-181 75H64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64v128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352h8.7c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7v262.6C357.2 317.8 280.5 288 200.7 288H192v-96h8.7c79.8 0 156.5-29.8 215.3-83.3z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7l233.4-233.3c12.5-12.5 32.8-12.5 45.3 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm-86.2-346.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1 0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6-13.3 0-24-10.7-24-24v-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1 0-8.4-6.8-15.1-15.1-15.1h-58.3c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1-64 0z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7.2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8.2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24v112c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0-64 0 32 32 0 1 0 64 0z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.1 52.4 442.6 6.5c-1.9-3.9-6.1-6.5-10.5-6.5s-8.5 2.6-10.4 6.5l-16.5 45.9-46 16.8c-4.3 1.6-7.3 5.9-7.2 10.4 0 4.5 3 8.7 7.2 10.2l45.7 16.8 16.8 45.8c1.5 4.4 5.8 7.5 10.4 7.5s8.9-3.1 10.4-7.5l16.5-45.8 45.7-16.8c4.2-1.5 7.2-5.7 7.2-10.2 0-4.6-3-8.9-7.2-10.4l-45.6-16.8zm-132.4 53c-12.5-12.5-32.8-12.5-45.3 0l-2.9 2.9c-22-8-45.8-12.3-70.5-12.3C93.1 96 0 189.1 0 304s93.1 208 208 208 208-93.1 208-208c0-24.7-4.3-48.5-12.2-70.5l2.9-2.9c12.5-12.5 12.5-32.8 0-45.3l-80-80zM200 192c-57.4 0-104 46.6-104 104v8c0 8.8-7.2 16-16 16s-16-7.2-16-16v-8c0-75.1 60.9-136 136-136h8c8.8 0 16 7.2 16 16s-7.2 16-16 16h-8z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 398.9c58.5-41.1 96-104.1 96-174.9C512 100.3 397.4 0 256 0S0 100.3 0 224c0 70.7 37.5 133.8 96 174.9V464c0 26.5 21.5 48 48 48h48v-48c0-8.8 7.2-16 16-16s16 7.2 16 16v48h64v-48c0-8.8 7.2-16 16-16s16 7.2 16 16v48h48c26.5 0 48-21.5 48-48v-65.1zM96 256a64 64 0 1 1 128 0 64 64 0 1 1-128 0zm256-64a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M320 0c17.7 0 32 14.3 32 32v64h120c39.8 0 72 32.2 72 72v272c0 39.8-32.2 72-72 72H168c-39.8 0-72-32.2-72-72V168c0-39.8 32.2-72 72-72h120V32c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16h-32zM264 256a40 40 0 1 0-80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224h16v192H48c-26.5 0-48-21.5-48-48v-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-16V224h16z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M288 0H128c-17.7 0-32 14.3-32 32s14.3 32 32 32v132.8c0 11.8-3.3 23.5-9.5 33.5L10.3 406.2C3.6 417.2 0 429.7 0 442.6 0 480.9 31.1 512 69.4 512h309.2c38.3 0 69.4-31.1 69.4-69.4 0-12.8-3.6-25.4-10.3-36.4L329.5 230.4c-6.2-10.1-9.5-21.7-9.5-33.5V64c17.7 0 32-14.3 32-32S337.7 0 320 0h-32zm-96 196.8V64h64v132.8c0 23.7 6.6 46.9 19 67.1l34.5 56.1h-171l34.5-56.1c12.4-20.2 19-43.4 19-67.1z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64h-64c-35.3 0-64-28.7-64-64V216z"/></svg>');}
+div.download-btn {
+    text-align: right;
+}
+
+@page {
+    size: a4 portrait;
+    margin: 25mm 10mm 25mm 10mm;
+    counter-increment: page;
+    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    white-space: pre;
+    color: grey;
+    @top-left {
+        font-size: x-small;
+        content: 'smaXtec';
+    }
+    @top-center {
+        font-size: x-small;
+        content: string(chapter);
+    }
+    @top-right {
+        font-size: x-small;
+        content: 'Page ' counter(page);
+    }
+}
+
+@media print {
+
+    div.download-btn {
+        display: none;
+    }
+
+    .md-typeset table:not([class]) {
+        display: block;
+        border: none;
+    }
+
+    img {
+        width: 100%;
+        page-break-inside:avoid;
+        page-break-after:avoid;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after:avoid;
+        page-break-inside:avoid;
+    }
+
+    table, pre {
+        page-break-inside:avoid
+    }
+
+    ul, ol, dl {
+        page-break-before:avoid
+    }
+
+}</style>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_markdown_exec_ansi.css" rel="stylesheet"/>
+<link href="../../css/print-site-enum-headings1.css" rel="stylesheet"/>
+<link href="../../css/print-site-enum-headings2.css" rel="stylesheet"/>
+<link href="../../css/print-site-enum-headings3.css" rel="stylesheet"/>
+<link href="../../css/print-site-enum-headings4.css" rel="stylesheet"/>
+<link href="../../css/print-site-enum-headings5.css" rel="stylesheet"/>
+<link href="../../css/print-site-enum-headings6.css" rel="stylesheet"/>
+<link href="../../css/print-site.css" rel="stylesheet"/>
+<link href="../../css/print-site-material.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="blue" data-md-color-primary="black" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#changelog">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="INVOICEtoROefact" class="md-header__button md-logo" data-md-component="logo" href="../.." title="INVOICEtoROefact">
+<img alt="logo" src="../../doc_src/pictures/api_to_roefact_logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            INVOICEtoROefact
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              CHANGELOG
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../index.html">
+        INVOICEtoROefact
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../xl2roefact/index.html">
+        xl2roefact
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../doc_src/wip.html">
+        web2roefact
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../xl2roefact/doc/README_xl2roefact_library.html">
+        xl2roefact PyPi library
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../excel_invoice_template/index.html">
+        invoice template
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../doc_src/help/880.30-EUMA_catalog.html">
+        Help
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../doc_src/wip.html">
+        About
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="INVOICEtoROefact" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="INVOICEtoROefact">
+<img alt="logo" src="../../doc_src/pictures/api_to_roefact_logo.png"/>
+</a>
+    INVOICEtoROefact
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          INVOICEtoROefact
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          INVOICEtoROefact
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../index.html">
+        Acasa
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../doc_src/810-DSGN/810.05a-system_components.html">
+        Componentele sistemului
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../xl2roefact/index.html">
+        xl2roefact
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../doc_src/wip.html">
+        web2roefact
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../xl2roefact/doc/README_xl2roefact_library.html">
+        xl2roefact PyPi library
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../excel_invoice_template/index.html">
+        invoice template
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          xl2roefact
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          xl2roefact
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../xl2roefact/index.html">
+        Descriere
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../xl2roefact/index.html#comenzile-aplicatiei">
+        Referinta CLI
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../xl2roefact/LICENSE">
+        License
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          web2roefact
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          web2roefact
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../doc_src/wip.html">
+        Descriere
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          xl2roefact PyPi library
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          xl2roefact PyPi library
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../xl2roefact/doc/README_xl2roefact_library.html">
+        Descriere
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../xl2roefact/doc/810.05a-xl2roefact_DLD_specs.html">
+        Referinta API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../xl2roefact/LICENSE">
+        License
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          invoice template
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          invoice template
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../excel_invoice_template/index.html">
+        Descriere
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../excel_invoice_template/LICENSE">
+        License
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Help
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Help
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+          Manuale web2roefact
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_1">
+<span class="md-nav__icon md-icon"></span>
+          Manuale web2roefact
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../doc_src/help/880.30-EUMA_catalog.html">
+        Index manuale End User (EUMA)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../doc_src/help/880.30-ADMA_catalog.html">
+        Index manuale Administrare (ADMA)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          Cerintele sistemului
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_2">
+<span class="md-nav__icon md-icon"></span>
+          Cerintele sistemului
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../doc_src/commercial_agreement/110-SRE-general_requirements.html">
+        Considerente tehnice generale
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../doc_src/commercial_agreement/110-SRE-api_to_roefact_requirements.html">
+        Sistem INVOICEtoROefact
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../doc_src/commercial_agreement/110-SRE-payments_validation_board_req.uirements.html">
+        Sistem PayValidaBoa
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../doc_src/commercial_agreement/agreed_options.html">
+        Specificatii si optiuni tehnice
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pdfs/print_page.html/print_page.pdf">
+        Manual INVOICEtoROefact (PDF)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../doc_src/downloads.html">
+        Descarcare resurse (Downloads)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          About
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../doc_src/wip.html">
+        Despre INVOICEtoROefact
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://www.renware.eu/support.html">
+        Suport
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://www.renware.eu/contact.html">
+        Contact
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://www.renware.eu/resources.html#how-to-buy-from-renware">
+        Cum cumpar
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../LICENSE">
+        Licenta generala sistem
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CHANGELOG.html">
+        CHANGELOG sistem
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#01-note_wip">
+    0.1 (-#NOTE_wip...)
+  </a>
+<nav aria-label="0.1 (-#NOTE_wip...)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#0122dev-invoice-customer-address-optional-items-email-reg-com-phone-note-nxt">
+    0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt...)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#0121post2">
+    0.1.21.post2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#0121post1-fixed-missing-links-in-site-root-index-page-240203-10h30">
+    0.1.21.post1 fixed missing links in site root index page (240203 10h:30)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#0121-rollout-news-in-system-portal-invoicetoroefactrenwareeu-240203-h0900">
+    0.1.21 rollout news in system portal invoicetoroefact.renware.eu (240203 h09:00)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#0120dev-invoice-customer-address-240123-h1000">
+    0.1.20.dev invoice customer address (240123 h10:00)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#0119dev-invoice-customer-and-partial-invoice-total-values-calculations-240116-h0600">
+    0.1.19.dev invoice customer and partial invoice total values calculations (240116 h06:00)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#0118dev-invoice-customer-cui-partial-invoice-total-values-calculations-240105-h0800">
+    0.1.18.dev invoice customer CUI partial invoice total values calculations  (240105 h08:00)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#0117dev-fixed-all-application-package-running-standard-ways-231224-h0530">
+    0.1.17.dev fixed all application &amp; package running standard ways (231224 h05:30)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#0116dev-improving-excel-kv-data-search-with-in-label-method-231222-h0700">
+    0.1.16.dev improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#0115-updated-solution-portal-httpinvoicetoroefactrenwareeu-231222-h0500">
+    0.1.15 updated solution portal http://invoicetoroefact.renware.eu/ (231222 h05:00)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset"><div class="download-btn"><a href="../../pdfs/src/xl2roefact/CHANGELOG.html/CHANGELOG.pdf">Download PDF</a></div>
+<p><small><strong>RENware Software Systems</strong></small></p>
+<p><strong>INVOICEtoROefact</strong> Project</p>
+<div class="toc">
+<ul>
+<li><a href="#changelog">CHANGELOG</a><ul>
+<li><a href="#01-note_wip">0.1 (-#NOTE_wip...)</a><ul>
+<li><a href="#0122dev-invoice-customer-address-optional-items-email-reg-com-phone-note-nxt">0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt...)</a></li>
+<li><a href="#0121post2">0.1.21.post2</a></li>
+<li><a href="#0121post1-fixed-missing-links-in-site-root-index-page-240203-10h30">0.1.21.post1 fixed missing links in site root index page (240203 10h:30)</a></li>
+<li><a href="#0121-rollout-news-in-system-portal-invoicetoroefactrenwareeu-240203-h0900">0.1.21 rollout news in system portal invoicetoroefact.renware.eu (240203 h09:00)</a></li>
+<li><a href="#0120dev-invoice-customer-address-240123-h1000">0.1.20.dev invoice customer address (240123 h10:00)</a></li>
+<li><a href="#0119dev-invoice-customer-and-partial-invoice-total-values-calculations-240116-h0600">0.1.19.dev invoice customer and partial invoice total values calculations (240116 h06:00)</a></li>
+<li><a href="#0118dev-invoice-customer-cui-partial-invoice-total-values-calculations-240105-h0800">0.1.18.dev invoice customer CUI partial invoice total values calculations  (240105 h08:00)</a></li>
+<li><a href="#0117dev-fixed-all-application-package-running-standard-ways-231224-h0530">0.1.17.dev fixed all application &amp; package running standard ways (231224 h05:30)</a></li>
+<li><a href="#0116dev-improving-excel-kv-data-search-with-in-label-method-231222-h0700">0.1.16.dev improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)</a></li>
+<li><a href="#0115-updated-solution-portal-httpinvoicetoroefactrenwareeu-231222-h0500">0.1.15 updated solution portal http://invoicetoroefact.renware.eu/ (231222 h05:00)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#archived-changelogs">Archived CHANGELOGs</a></li>
+<li><a href="#release-notes-todo-this-file-should-be-created">Release Notes #TODO this file should be created</a></li>
+</ul>
+</div>
+<h1 id="changelog">CHANGELOG</h1>
+<ul>
+<li>For version code structure meaning see SDEVEN methodology document</li>
+<li>with <em>(F)</em> are marked those changes that are features in order to be copied in a RELNOTE file and with <em>(B)</em> bug fixes from versions released</li>
+<li>publishing is made under <code>publishing</code> branch</li>
+<li><code>&lt;PROJECT ROOT&gt;/doc_src/</code> is the default starting location in a file path (if not clear from context) (<strong>ATTN</strong> - in production environment is <code>docs/</code>)</li>
+<li><code>&lt;WEB_ROOT&gt;/</code> is the HTTP server root directory, as default <code>docs/</code> and supposed if no other parent is specified</li>
+</ul>
+<h2 id="01-note_wip">0.1 (-#NOTE_wip...)</h2>
+<div class="highlight"><pre><span></span><code>    - ---[ #TODO general planning board ]---------------------------
+    * ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
+    * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
+    * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
+
+    - ---[ #TODO short planning board ]---------------------------
+    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed)
+        * [ ] _file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `&lt;cbc:ID&gt;S&lt;/cbc:ID&gt; #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
+    -
+    * ... FUTURE NEW APP COMMANDS :
+        * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
+        * `xl2json` - crt_wip... (last upd @ 240123)
+        * `json2xml` - see module WRXML,
+        * `json2pdf` - new tbd..,
+        * `xml2roefact` - see mpdule LDXML
+        * chk for other commands from doc `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
+        * PACKAGE SOLUTION:
+            * [ ] publish `xl2roefact` package --&gt; read `TODO_packaging.md`
+    -
+    * -#NOTE_PLAN `rdinv` module:
+        * invoice header
+            * [ ] wip... invoice header - customer bank, RegCom, email, tel, ...
+            * [ ] invoice header - supplier (`&lt;cac:AccountingSupplierParty&gt;`)
+            * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build &amp; write "Invoice" key)
+    -------------------------------------------------------------------------------------------------
+</code></pre></div>
+<h3 id="0122dev-invoice-customer-address-optional-items-email-reg-com-phone-note-nxt">0.1.22.dev invoice customer address optional items (email, reg-com, phone) (#NOTE nxt...)</h3>
+<ul>
+<li>
+<p>tbd... WHEN RELEASE UPDATE make a full chk / review for FIXME &amp; run <code>pdm build_all</code></p>
+</li>
+<li>
+<p>tbd.optional... [piu_240126] left in <code>setup.py</code> comments &amp; example ref how to <strong><em>pre-set MSI build meta information</em></strong> / parameters (obj: default target dir where install, path registration, ...)</p>
+</li>
+<li>
+<p>tbd... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in <code>rdinv()</code> w./line 179 &amp; then 331)</p>
+</li>
+<li>
+<p>tbd... use for xl2roefact app help generation IN A markdown page' <code>https://pypi.org/project/mkdocs-typer/</code></p>
+</li>
+<li>
+<p>wip... last item used 240206piu_c</p>
+</li>
+</ul>
+<h3 id="0121post2">0.1.21.post2</h3>
+<ul>
+<li>tbd... 240206piu_c test &amp; release: -- create release, -- publish site, -- upd back <code>requirements.txt</code>, -- save deliverable archives</li>
+<li>
+<p>tbd...#TODO... 240206piu_b install package: <code>pip install mkdocs-typer</code></p>
+</li>
+<li>
+<p>240206piu_a add <code>mkdocs-typer</code> extension and update <code>xl2roefact/README.md</code>, section <code>Comenzile aplicatiei</code> page with generated documentation by this plugin</p>
+</li>
+</ul>
+<h3 id="0121post1-fixed-missing-links-in-site-root-index-page-240203-10h30">0.1.21.post1 fixed missing links in site root index page (240203 10h:30)</h3>
+<ul>
+<li>240203piu_a fixed links in <code>/README.md</code> for: <code>xl2roefact PyPi</code> entry</li>
+</ul>
+<h3 id="0121-rollout-news-in-system-portal-invoicetoroefactrenwareeu-240203-h0900">0.1.21 rollout news in system portal invoicetoroefact.renware.eu (240203 h09:00)</h3>
+<ul>
+<li>240201piu_a reorganized <code>xl2roefact*</code> components by disseminating the installable application, which is something available "as is now" just for Windows operating system. For Linux there is no difference between command line application and Python package <em>from an end user point of view</em>.</li>
+<li>240131piu_a <code>xl2roefact/doc/810.05a-xl2roefact_component.md</code> clean &amp; transform to "first entry to <code>xl2roefactPyPi</code>"</li>
+<li>240131piu_a updated <code>mkdocs.yml</code>: cleaned navigation, created version variables, updated default site build directory to <code>docs/</code>, cleared excluded directories entry</li>
+<li>240130piu_b reviewed all changes, update site PDF generator file (mvd <code>print_page.md</code> to root) location, fixed navigation. PUBLISHED for <code>xl2roefact</code> component</li>
+<li>240130piu_a reviewed <code>xl2roefact</code> README: cleaned, translated 2 RO, structured to "end user needs"</li>
+<li>240129piu_d updated <code>xl2roefact</code> to have "Descrierea detliata" link in <code>810.05a-system_components.md</code>. Prepared component to be published: mkdocs.yml navigation &amp; main site README index</li>
+<li>240129piu_c updated all site pages to contain <code>&lt;small&gt;**RENware Software Systems**&lt;/small&gt;</code> &amp; <code>[TOC]</code> after title</li>
+<li>240129piu_b cleanup project docs, requirements, fresh install ==&gt; published site as is at this point (invoice template finished)</li>
+<li>240129piu_a updated <code>xl2roefact/README.md</code> with section for assets download</li>
+<li>240128piu_e formal versioning <code>invoice template</code> component</li>
+<li>240128piu_d updated &amp; closed component <code>invoice template</code>. Referred in:<ul>
+<li><code>doc_src/810-DSGN/810.05a-system_components.md</code></li>
+<li>portal first page</li>
+<li>navigation in <code>mkdocs.yml</code></li>
+</ul>
+</li>
+<li>240128piu_c moved <code>xl2roefact/excel_invoice_template/</code> directory to root as being distinct component, review it and closed to be published</li>
+<li>240128piu_b revised, updated and closed crt version of <code>excel_invoice_template/README.md</code></li>
+<li>240128piu_a updated <code>xl2roefact/README.md</code> &amp; <code>excel_invoice_template/README.md</code> files, cleared modularization &amp; structure presented in system public site</li>
+<li>240127piu_d Unify main project <code>/READMEmd</code> with <code>doc_src/index.md</code>:<ul>
+<li>make the same INDEX just in the project root == index / README of whole project</li>
+<li>keep from actual project README.md the section ref project identification and move it to end of file as last section</li>
+</ul>
+</li>
+<li>240127piu_c created <code>/index.html</code> to redirect to "real" system index (<code>doc_src/index.md</code>) and prevent usage of project <code>README.md</code> file instead</li>
+<li>240128piu_c checked work <code>240127piu_a</code>, <code>240127piu_b</code>, updated <code>about.md</code> and navigation with ref to sys structure (<code>.../810.05a-system_components.md</code>)</li>
+<li>240127piu_b update system components and their classification (in <code>.../810-DSGN/810.05a-system_components.md</code>)</li>
+<li>240127piu_a updated <code>810-DSGN/810.05a-system_components.md</code>, defined a classification usable to quickly find out <em>who-does-what</em></li>
+<li>240125piu_a updated <code>mkdocs.yml</code> by including <code>mkdocs-same-dir</code> plug-in</li>
+</ul>
+<h3 id="0120dev-invoice-customer-address-240123-h1000">0.1.20.dev invoice customer address (240123 h10:00)</h3>
+<ul>
+<li>
+<p>240123piu_b make a full chk / review for FIXME &amp; run <code>pdm build_all</code></p>
+</li>
+<li>
+<p>240123piu_a <code>def_inv_dir</code> issue ref Excel invoices default get directory, see comments in <code>app_cli.py</code> function <code>xl2json(...)</code></p>
+</li>
+<li>
+<p>240121piu_a updated <code>config_settings.py</code> &amp; <code>rdinv.py</code> with constants: <code>PATTERN_FOR_PARTNER_REGCOM</code>, <code>PATTERN_FOR_PARTNER_IBAN</code>, <code>PATTERN_FOR_PARTNER_TEL</code>, <code>PATTERN_FOR_PARTNER_EMAIL</code>, <code>PATTERN_FOR_PARTNER_BANK</code></p>
+</li>
+<li>
+<p>@CANCELED 240118_admin02 generalize a function <code>get_partner_info(partner_type: str "customer" | "supplier")</code> to get partner info with partner type as being parameter</p>
+</li>
+<li>
+<p>240118piu_a reviewed and cleaned code: <code>rdinv.rdinv()</code>, <code>config_settings</code>, <code>excel_invoice_template/invoice_template_CU_tva.xlsx</code> (according to updates in testing used invoice)</p>
+</li>
+<li>
+<p>240113piu_a to find <code>cac:PostalAddress</code> and write to:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. right set position of key <code>"cac_PostalAddress"</code> in basic structure (invoice_header_area)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2a. find excel area ref customer address (...invoice_header_area...)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2b. disseminate &amp; save excel original area (...invoice_header_area...)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. get &amp; set <code>["Invoice"]["cac_PostalAddress"]</code> and all is subsequent keys</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. update XML - JSON map for item "under" <code>cac_PostalAddress</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. defined and included for use <code>DEFAULT_SUPPLIER_COUNTRY</code> and <code>DEFAULT_CUSTOMER_COUNTRY</code> both for "RO". Detailed desc and usage in <code>config_settings.py</code> &amp; <code>rdinv.rdinv(...)</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 6. updated invoice template for country explicit field</li>
+</ul>
+</li>
+<li>
+<p>240116_admin_01 upd <strong>version</strong> for 0.1.20</p>
+</li>
+</ul>
+<h3 id="0119dev-invoice-customer-and-partial-invoice-total-values-calculations-240116-h0600">0.1.19.dev invoice customer and partial invoice total values calculations (240116 h06:00)</h3>
+<ul>
+<li>
+<p>2401_xl2roefact_doc_01 <code>xl2roefact</code> update technical documentation, file <code>xl2roefact/doc/810.05a-xl2roefact_component.md</code></p>
+</li>
+<li>
+<p>240112piu_b 95% clean code <code>rdinv()</code> from customer area identification, from line 204 (kept a DBG print just for area identification (useful for next task ref the same opers but for Supplier))</p>
+</li>
+<li>
+<p>240112piu_a module <code>app_cli.py</code>, created <code>called_when_no_command(...)</code> function called when no command is invoked and to provide only application version (for external users to test it!)</p>
+</li>
+<li>
+<p>240110piu_c <code>xl2json</code> <code>about</code> command to get version &amp; "nice" LOGO from <code>xl2roefact/__version__.py</code>, vars <code>__version__</code> &amp; <code>__doc__</code></p>
+</li>
+<li>
+<p>240110piu_b <code>xl2roefact/setup.py</code>ref get app version from file when build EXE/MSI test for <code>__version__</code> is correctly get and release</p>
+</li>
+<li>
+<p>240110piu.a reviewed &amp; updated <code>xl2roefact</code> package <code>README.md</code> + <code>xl2roefact/__version__.py</code> with an app logo and for text mistyping bugs</p>
+</li>
+<li>
+<p>240108piu_c changed <code>pyproject.toml</code> for auto update package version from file <code>xl2roefact/__version__.py</code> (see also opiss 240108piu_b)</p>
+</li>
+<li>
+<p>240108piu_b created <code>xl2roefact/__version__</code> file that contains variable <code>__version__</code> with INTENTION to use in <code>pyproject.toml</code> for app version key (in a future issue)</p>
+</li>
+<li>
+<p>240108piu_a more items:</p>
+<ul>
+<li><code>config_settings.py</code> created entry <code>PATTERN_FOR_PARTNER_ADDRESS</code> &amp; updated <code>rdinv</code> module in constants area</li>
+<li>add comments in <code>app_cli.py</code> ref <code>def_inv_dir</code> issue &amp;&amp;...</li>
+<li>updated environment dependencies and installed <code>pyinstaller</code> development package with intention to make "single EXE" application to be able to run "from USB stick"</li>
+</ul>
+</li>
+<li>
+<p>240107piu_a reviewed <code>xl2roefact</code> package <code>README.md</code>:</p>
+<ul>
+<li>(c) explained proposed &amp; promoted directory structure used by CLI application</li>
+<li>(b) short invoice JSON file structure</li>
+<li>(a) created first version of tutorial section</li>
+</ul>
+</li>
+<li>
+<p>240106piu_a invoice customer search and persist for "RegistrationName"</p>
+</li>
+</ul>
+<h3 id="0118dev-invoice-customer-cui-partial-invoice-total-values-calculations-240105-h0800">0.1.18.dev invoice customer CUI partial invoice total values calculations  (240105 h08:00)</h3>
+<ul>
+<li>
+<p>240105piu_c updated <code>xl2roefact</code> package <code>README.md</code> file (with new sections for intro to Excel invoice content rules, tutorial TODO, reference to technical doc)</p>
+</li>
+<li>
+<p>240105piu_b invoice customer search and persist for "CUI"</p>
+</li>
+<li>
+<p>240105piu_a <code>rdinv.def get_excel_data_at_label(...)</code> changed strategy for DOWN search-method made it optional with default True (useful for Partners set-of KVs where is supposed to be or IN-LABEL or in RIGHT but NOT DOWN because there is a list of KVs not just one placed anywhere in Excel doc)  #TODO tgis is subject of doc update</p>
+</li>
+<li>
+<p>240103piu_d <code>rdinv.def get_excel_data_at_label(...)</code> changed strategy for IN-LABEL search-method to return all string except first word (supposed to be label) separated by space character (old strategy was to get only last work from all string)</p>
+</li>
+<li>
+<p>240103piu_c ref invoice customer created in <code>config_settings.py</code> PATTERNs for search keys <code>PATTERN_FOR_PARTNER_ID</code> (CUI or ID), <code>PATTERN_FOR_PARTNER_LEGAL_NAME</code></p>
+</li>
+<li>
+<p>240103piu_b calculated item lines VAT amount as <code>cac_InvoiceLine.LineVatAmmount</code> as raw float value (not rounded to be able to round just invoice TOTAL)</p>
+</li>
+<li>
+<p>240103piu_a <code>rdinv.rdinv()</code> updated JSON -- XML map (part of function <code>_build_meta_info_key(...)</code>)</p>
+</li>
+<li>
+<p>240102piu_a <code>rdinv.rdinv()</code> upd &amp; improved a clear Customer specific XML compliant structure. Targeted this XML structure:
+                <div class="highlight"><pre><span></span><code>    &lt;cac:PartyLegalEntity&gt;
+        &lt;cbc:RegistrationName&gt;IORDANESCU PETRE PFA&lt;/cbc:RegistrationName&gt;
+        &lt;cbc:CompanyID&gt;21986376&lt;/cbc:CompanyID&gt;
+    &lt;/cac:PartyLegalEntity&gt;
+</code></pre></div></p>
+</li>
+<li>
+<p>240101piu_a clean useless &amp; obsolete project files, test new full build (MSI, Python wheel, documentation) ==&gt; PASS OK</p>
+</li>
+<li>
+<p>231229piu_a invoice customer (<code>&lt;cac:AccountingCustomerParty&gt;</code>) detect &amp; set area to search for specific keys (like CUI, RegCom, IBAN, ...)</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. established AREA TO SEARCH for PARTNER data an <code>_area_to_search</code> (~line 244)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. updated <code>config_settings.py</code> changed: (for a clear understating of constant scope, because will follow others for specific keys like: "reg com", "CUI", "bank / IBAN / cont", ...)<ul>
+<li><code>PATTERN_FOR_INVOICE_CUSTOMER_LABEL</code> --&gt; <code>PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER</code></li>
+<li><code>PATTERN_FOR_INVOICE_SUPPLIER_LABEL</code> --&gt; <code>PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER</code></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. set-persist <code>_area_to_search</code> for next steps &amp; save its key-info in associated invoice JSON (for further references) - <code>rdinv()</code> ~line 239</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. updated main xl2roefact README.md document ref latter changes and app structuring, concepts, ...(ideas evolving :)...</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. done code for <code>cac_AccountingSupplierParty</code> key by iterating full <code>invoice_header_area["customer_area"]</code> structure</li>
+</ul>
+</li>
+<li>
+<p>231228piu_a improved documentation generation:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> updated all modules docstring(s) to a right markdown representation in generated documentation (ex: when use bullets THEN DO NOT indent at 1st level)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <strong>@IMP_NOTE:</strong> Changed generated documentation file to <code>doc/810.05a-xl2roefact_DLD_specs.md</code> and referred in main <code>doc/810.05a-xl2roefact_component.md</code> as this being a final solution for whole project documentation (that generated with <code>mkdocs</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> updated <code>pyproject.toml, [tool.pdm.scripts]</code> table with new generated doc file name (810.05a-xl2roefact_DLD_specs.md)</li>
+</ul>
+</li>
+<li>
+<p>231227piu_b updated <code>xl2roefact.rdinv</code> module ref dropped <code>_</code> chars from internal function names to allow doc generation by PyDoc until will produce a YAML file for PyDoc generator (where will be able to specify concrete list of objects regarding their names)</p>
+</li>
+<li>
+<p>231227piu_a generated a first draft of markdown documentation:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> used Pydoc Markdown @ <code>https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> results ==&gt; <code>&lt;PJ_ROOT&gt;/xl2roefact/doc/generated_810.05a-xl2roefact_component.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> created PDM shell command <code>pdm run</code> (command just for quick remembers: <code>pydoc-markdown -I xl2roefact --render-toc &gt;doc/generated_810.05a-xl2roefact_component.md</code>)</li>
+</ul>
+</li>
+<li>
+<p>231226piu_b reviewed <code>xl2roefact</code> all "in use" code and updated <code>docstrings</code></p>
+</li>
+<li>
+<p>231226piu_a made some useful PDM scripts (ref <code>pyproject.toml</code>, table section <code>[tool.pdm.scripts]</code>) like build commands for:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <strong><code>pdm build_wheel</code></strong> Python package,</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <strong><code>pdm build_msi</code></strong> MSI package,</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <strong><code>pdm build_all</code></strong> build all packages</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> <strong><code>pdm xl2roefact</code></strong> run xl2roefact command</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> updated <code>doc/810.05a-xl2roefact_component.md</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="0117dev-fixed-all-application-package-running-standard-ways-231224-h0530">0.1.17.dev fixed all application &amp; package running standard ways (231224 h05:30)</h3>
+<ul>
+<li>
+<p>RELEASES:</p>
+<ul>
+<li><code>.&lt;PROJECT&gt;/xl2roefact/dist/xl2roefact-0.1.17-win64.msi</code></li>
+<li><code>&lt;PROJECT&gt;/xl2roefact/dist/xl2roefact-0.1.17.tar.gz</code></li>
+<li><code>&lt;PROJECT&gt;/xl2roefact/dist/xl2roefact-0.1.17-py3-none-any.whl</code></li>
+</ul>
+</li>
+<li>
+<p>231224piu_a made cli app to run as: Python package main app (<code>python -m xl2roefact</code>) and as script (<code>python xl2roefact.py</code>) while still letting the Python library <code>xl2roefact</code> as importable and use in a programmatic way:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> make <code>.../xl2roefact/app_cli.py</code> (from actual <code>.../xl2roefact/__main__.py</code>) which is complete code of CLI app plus a <code>run()</code> function that just launch it</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> make <code>.../xl2roefact/__main__.py</code> that just import <code>app_cli</code> for <code>run()</code> function and call it</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> change actual <code>&lt;xl2roefact ROOT/&gt;xl2roefact.py</code> to import <code>xl2roefact.app_cli</code> for <code>run()</code> function and call it</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> test for MSI package builds ref <code>&lt;xl2roefact ROOT/&gt;xl2roefact.py</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> clean code, test and close issue:<ul>
+<li><code>python xl2roefact.py [OPTIONS] COMMAND [ARGS]...</code></li>
+<li><code>python -m xl2roefact [OPTIONS] COMMAND [ARGS]...</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>231223piu_a multiple changes ref main code: <code>xl2roefact.py</code> and library <code>xl2roefact</code>, MAINLY created <code>xl2roefact/__main__.py</code> as normal of xl2roefact.py</p>
+</li>
+</ul>
+<h3 id="0116dev-improving-excel-kv-data-search-with-in-label-method-231222-h0700">0.1.16.dev improving Excel kv-data search with "IN-LABEL" method (231222 h07:00)</h3>
+<ul>
+<li>
+<p>231222piu_b build packages for:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> application deployment package ==&gt; <code>dist/0.1.13-xl2roefact-0.1-win64.msi</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> cleaned, tested, created packages (saved to ==&gt; <code>.../880-RLSE/880.90-RLSE Source Code Archives</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> updated <code>pyproject.toml</code></li>
+</ul>
+</li>
+<li>
+<p>231222piu_a refactor <code>rdinv.__get_excel_data_at_label(...)</code> to search in label (named "IN-LABEL" method)</p>
+</li>
+<li>
+<p>231220piu_b made a first PDM build: [@ 231220 h09:55] ==&gt; test PASS (both created files in <code>dist/</code> was "git-ignored")</p>
+</li>
+<li>
+<p>231220piu_b refactored <code>rdinv(...)</code> section "section for search of <code>invoice_items_area</code> ..." to use <code>__get_excel_data_at_label(...)</code> function`</p>
+</li>
+<li>
+<p>231220piu_a refactored <code>rdinv.__get_excel_data_at_label(...)</code> for returned "label_position" key`</p>
+</li>
+<li>
+<p>231219piu_a update <code>rdinv.__get_excel_data_at_label(...)</code> to return found label value in dictionary as key <code>"label_value"</code></p>
+</li>
+<li>
+<p>231218piu_c <code>PDM</code> environment manager, updated <code>pyproject.toml</code> structures ref package building, still preps to create env, generate lock file...</p>
+</li>
+<li>
+<p>231218piu_b CLI application, fixed bug of print settings when deployed from a package (command: <code>xl2roefact.py settings</code>)</p>
+</li>
+<li>
+<p>231218piu_a installed <code>PDM</code> environment manager, updated <code>pyproject.toml</code> structures, nxt to create env, generate lock file...</p>
+</li>
+</ul>
+<h3 id="0115-updated-solution-portal-httpinvoicetoroefactrenwareeu-231222-h0500">0.1.15 updated solution portal <code>http://invoicetoroefact.renware.eu/</code> (231222 h05:00)</h3>
+<ul>
+<li>231222piu_a updated CNAME to <code>invoicetoroefact.renware.eu</code></li>
+</ul>
+<h1 id="archived-changelogs">Archived CHANGELOGs</h1>
+<ul>
+<li><a href="changelog_history/CHANGELOG-0.1.14.dev.html">0.1.14.dev invoice issue date</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.13.dev.html">0.1.13.dev invoice currency</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.12.dev.html">0.1.12.dev invoice number</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.11.dev.html">0.1.11.dev packaging improvements for app &amp; xl2roefact package</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.10.dev.html">0.1.10.dev command interface improved, <code>msi</code> package building, invoice template &amp; updated documentation</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.9.dev.html">0.1.9.dev <code>xl2roefact.RDINV</code> running executable and distribution kit</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.8.dev.html">0.1.8.dev improved application structure and first executable release</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.7.dev.html">0.1.7.dev <code>xl2roefact.RDINV</code> invoice items &amp; metadata + <em>OPEN ISSUES</em></a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.6.dev.html">0.1.6.dev commercial agreement OPTIONS document</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.5.dev.html">0.1.5.dev init component <em>xl2roefact</em> for CLI application</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.4.dev.html">0.1.4.dev Create system backbone structure</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.3.dev.html">0.1.3.dev Enhancing <code>payments_validation_board</code> technical proposal</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.2.dev.html">0.1.2.dev Enhancing <code>APItoROefact</code> technical proposal</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.1.dev.html">0.1.1.dev Elaborating technical proposal</a></li>
+<li><a href="changelog_history/CHANGELOG-0.1.0.dev.html">0.1.0.dev System raw backbone</a></li>
+</ul>
+<h1 id="release-notes-todo-this-file-should-be-created"><a href="RELNOTE.md">Release Notes</a> #TODO this file should be created</h1>
+<ul>
+<li>wip... <a href="./changelog_history/...">not_yet_created... 0.1</a></li>
+</ul>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 6, 2024</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright (c) RENware Software Systems
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.tabs.sticky", "navigation.path"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+<script src="../../js/print-site.js"></script>
+<script src="../../optionalConfig.js"></script>
+<script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+<script src="../../extra-loader.js"></script>
+</body>
+</html>
