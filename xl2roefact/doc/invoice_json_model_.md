@@ -3,7 +3,7 @@
 >NOTE: ***The following model should be considered ONLY for JSON keys. All data is just sample / not real just for a better understanding of its format (or "how it looks like").***
 
 
-```json
+```
 {
     "Invoice": {
         "cbc_ID": "INV-001",
