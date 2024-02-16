@@ -71,6 +71,8 @@ To install from distribution packages first download the package version intende
 
 
 
+
+
 ## Working directories
 
 Below is a short description of most important directories that will (can !) be found on local development environment.
@@ -89,12 +91,13 @@ Below is a short description of most important directories that will (can !) be 
 
 
 
+
 ## Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii
 
 Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Structura de baza a acestui fisier este:
 
 
-```
+```json
 {
     "Invoice": {...},
     "meta_info": {...},
