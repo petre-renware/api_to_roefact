@@ -12,15 +12,16 @@
 
 <!-- #FIXME DROP SECTION AFTER TEST...
 
-* [x] (/doc_src/downloads.md#format-msi-instalare-windows-x64)
-* [ ] (/doc_src/downloads.md#format-biblioteca-python)
-* [ ] (/doc_src/downloads.md#format-xlsx-office-excel)
-
+* [x] (../doc_src/downloads.md#format-msi-instalare-windows-x64)
+* [ ] (../doc_src/downloads.md#format-biblioteca-python)
+* [ ] (../doc_src/downloads.md#format-xlsx-office-excel)
 
 #FIXME up here to drop------------------------------------>
 
 
 ## Format biblioteca Python
+
+### Pachetul xl2roefact PyPi library
 
 * [0.1.20.dev invoice customer address WHEEL](../xl2roefact/dist/xl2roefact-0.1.20-py3-none-any.whl "download")
 * [0.1.20.dev invoice customer address DIST](../xl2roefact/dist/xl2roefact-0.1.20.tar.gz "download")
@@ -31,11 +32,18 @@
 
 
 
+### Pachetul web2roefact PyPi library
+
+Nici o resursa disponibila.
+
+
 
 
 
 
 ## Format MSI instalare Windows x64
+
+### Aplicatia xl2roefact linie comanda
 
 * [0.1.20.dev invoice customer address MSI installer win64](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
 * [0.1.19.dev invoice customer and partial invoice total values calculations MSI installer win64](../xl2roefact/dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
@@ -49,7 +57,7 @@
 
 ## Format DEB instalare Linux
 
-No items available.
+Nici o resursa disponibila.
 
 
 
@@ -57,6 +65,8 @@ No items available.
 
 
 ## Format XLSX Office Excel
+
+### Sablon factura in Office Excel
 
 * [office Excel XLSX 0.1.20](../excel_invoice_template/invoice_template_CU_tva.xlsx "download")
 * [arhiva ZIP 0.1.20](../excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip "download")
