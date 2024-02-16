@@ -86,7 +86,9 @@
   * 2nd try: `xl2roefact.app_cli` module created a `run()` function as copy of existing `main()`. Renamed workflow to `build_site.yml` and cleaned `gh-workflow/` directory.
     FAILED w.ERROR: `mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got <class 'function'>`
   * 3rd try: change `run` object to `app_cli` one
+
     RESOLUTION: __TEST PASS. CLOSED issue__
+
 * 240214piu_c.BUGFIX ref `240213piu_a.FAILED` fixed & enabled `.github/.../ci.yml`. To test by merging to `build`
 * 240214piu_a xl2roefact component (`.../app_cli.py`) function `settings(...)` add `--rules` option (param) to display `config_settings.__doc__`
 * 240213piu_a.FAILED merged for `/requirements.txt` lief package update as OK-PAS & disabled gh-workflow by renaming `ci.yml` to `ci.yml temp_disabled`. Actions tried:  (-1.) updated `.gh-workflow.../ci.yml`  (-2.) "small change" in `/README.md` in copyright year to test  (-3.) merge to `build` branch for test
