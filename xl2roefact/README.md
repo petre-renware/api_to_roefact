@@ -151,7 +151,7 @@ xl2roefact -d ./
 
 * procesarea tuturor facturilor facturilor din luna *iunie*, copiate intr-un director dedicat sub directorul curent:
 ``bash
-`xl2roefact -d ./facturi_iunie/
+xl2roefact -d ./facturi_iunie/
 ```
 
 
