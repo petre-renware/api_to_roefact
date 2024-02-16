@@ -716,7 +716,7 @@ div.download-btn {
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> dedicated downloads page <code>doc_src/downloads.md</code>  #NOTE use template from main README.md</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> collected all existing dwndld links in <code>doc_src/downloads.md</code> - need to be moved at their right positions in file</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> for next items, in <code>downloads.md</code> there are <strong>already built links to sections</strong> (as html comments in file):<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> refer that page in <code>xl2roefact/README.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> refer that page in <code>xl2roefact/README.md</code></li>
 <li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> refer that page in <code>xl2roefact/doc/README_xl2roefact_library.md</code>, <code>excel_invoice_template/README.md</code></li>
 <li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> refer that page in <code>excel_invoice_template/README.md</code></li>
 </ul>
@@ -732,19 +732,9 @@ div.download-btn {
         - chk if show <code>-r</code>  option in "Referinta CLI"</p>
 </li>
 <li>
-<p>240216piu_a automate GitHub site build &amp; publishing</p>
+<p>240216piu_a automated GitHub site build &amp; publishing. FIXED ERROR: <code>mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got &lt;class 'function'&gt;</code> was changed <code>run</code> object to <code>app_cli</code> one</p>
 </li>
-<li>First run up to mkdocs build, including.</li>
-<li>1st try; FAILED w/ERROR <code>mkdocs_typer._exceptions.MkDocsTyperException: Module 'xl2roefact.app_cli' has no attribute 'run'</code></li>
-<li>2nd try: <code>xl2roefact.app_cli</code> module created a <code>run()</code> function as copy of existing <code>main()</code>. Renamed workflow to <code>build_site.yml</code> and cleaned <code>gh-workflow/</code> directory.
-    FAILED w.ERROR: <code>mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got &lt;class 'function'&gt;</code></li>
-<li>
-<p>3rd try: change <code>run</code> object to <code>app_cli</code> one</p>
-<p>RESOLUTION: <strong>TEST PASS. CLOSED issue</strong></p>
-</li>
-<li>
-<p>240214piu_c.BUGFIX ref <code>240213piu_a.FAILED</code> fixed &amp; enabled <code>.github/.../ci.yml</code>. To test by merging to <code>build</code></p>
-</li>
+<li>240214piu_c.BUGFIX ref <code>240213piu_a.FAILED</code> fixed &amp; enabled <code>.github/.../ci.yml</code>. To test by merging to <code>build</code></li>
 <li>240214piu_a xl2roefact component (<code>.../app_cli.py</code>) function <code>settings(...)</code> add <code>--rules</code> option (param) to display <code>config_settings.__doc__</code></li>
 <li>240213piu_a.FAILED merged for <code>/requirements.txt</code> lief package update as OK-PAS &amp; disabled gh-workflow by renaming <code>ci.yml</code> to <code>ci.yml temp_disabled</code>. Actions tried:  (-1.) updated <code>.gh-workflow.../ci.yml</code>  (-2.) "small change" in <code>/README.md</code> in copyright year to test  (-3.) merge to <code>build</code> branch for test</li>
 <li>240212piu_e.BUGFIX navigation "xl2roefact --&gt; Referinta CLI" (file <code>/mkdocs.yml</code>). Updated <code>xl2roefact/README.md</code> add a <code>&lt;a id="comenzile-aplicatiei"&gt;&lt;/a&gt;</code> after header "## Comenzile aplicatiei" paragraph "Detalii comenzi:" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one</li>
@@ -756,7 +746,7 @@ div.download-btn {
 <h3 id="0121post3-cleaned-system-documentation-and-site-240211-h2359">0.1.21.post3 cleaned system documentation and site (240211 h23:59)</h3>
 <ul>
 <li>240211piu_b tested &amp; reviewed <code>240211piu_a</code> ==&gt; published site</li>
-<li>240211piu_a updated <code>xl2roefact/README.md</code> clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point</li>
+<li>240211piu_a upated <code>xl2roefact/README.md</code> clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point</li>
 <li>240210piu_b test for iss <code>240210piu_a</code> ==&gt; PASS<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> app as functional (there are updates in code),</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> re-build tech doc (<code>pdm build_doc</code>),</li>
