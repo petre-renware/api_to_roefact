@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - build
-  workflow_dispatch  # event to manually run trigger
+  workflow_dispatch:  # event to manually run trigger
 permissions:
   contents: write
 jobs:
