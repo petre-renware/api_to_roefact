@@ -1,7 +1,6 @@
 
 name: build_site
 on:
-  workflow_dispatch:  # allow to manually run workflow
   push:
     branches:
       - build
@@ -48,4 +47,4 @@ jobs:
 
 
 
-      
+
