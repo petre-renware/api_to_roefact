@@ -1614,11 +1614,11 @@
 </li>
 </ul>
 <h2 id="xl2roefact-index-instalarea-aplicatiei-xl2roefact">Instalarea aplicatiei xl2roefact</h2>
-<p>Pachetele de instalare sunt <a href="#doc_src-downloads.md-format-msi-instalare-windows-x64">disponibile aici</a>.
+<p>Pachetele de instalare sunt <a href="#doc_src-downloads-format-msi-instalare-windows-x64">disponibile aici</a>.
 Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:</p>
 <ul>
 <li><strong><code>MSI</code></strong> pachet instalare pentru <em>Windows</em></li>
-<li><code>DEB</code> pachet instalare pentru <em>Linux Debian</em> (verificati disponibilitatea pentru varianta sistemuluu de operare folosit de dvs)</li>
+<li><code>DEB</code> pachet instalare pentru <em>Linux Debian</em> (verificati disponibilitatea pentru varianta sistemului de operare folosit de dvs)</li>
 <li><code>EXE</code> executabil <em>Windows in format "portabil" (un singur fisier)</em></li>
 </ul>
 <blockquote>
@@ -1762,7 +1762,8 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><strong><code>excel_original_data</code></strong> - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel</li>
 </ul>
 <p><small markdown="1">Pentru detalii suplimentare despre formatul JSON trebyie consultata componenta referitoare la <strong><em><a href="#xl2roefact-doc-readme_xl2roefact_library">biblioteca <code>xl2roefact</code> destinata dezvoltarii software</a></em></strong>.</small></p>
-<h2 id="xl2roefact-index-descarcare-download-aplicatie-xl2roefact-cli"><a href="#doc_src-downloads.md-format-msi-instalare-windows-x64">Descarcare (download) aplicatie xl2roefact CLI</a></h2>
+<!--FIXME: link is not good on buid site -->
+<h2 id="xl2roefact-index-descarcare-download-aplicatie-xl2roefact-cli"><a href="#doc_src-downloads-format-msi-instalare-windows-x64">Descarcare (download) aplicatie xl2roefact CLI</a></h2>
 <h2 id="xl2roefact-index-date-identificare">Date identificare</h2>
 <ul>
 <li>part number (p/n): <code>0000-0095-xl2roefact</code></li>
@@ -2867,9 +2868,9 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 </div>
 <!-- #FIXME DROP SECTION AFTER TEST...
 
-* [x] /doc_src/downloads.md#format-biblioteca-python
-* [ ] /doc_src/downloads.md#format-msi-instalare-windows-x64
-* [ ] /doc_src/downloads.md#format-xlsx-office-excel
+* [x] (/doc_src/downloads.md#format-msi-instalare-windows-x64)
+* [ ] (/doc_src/downloads.md#format-biblioteca-python)
+* [ ] (/doc_src/downloads.md#format-xlsx-office-excel)
 
 
 #FIXME up here to drop------------------------------------>
@@ -2916,8 +2917,6 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <li><a href="#changelog-0121-rollout-news-in-system-portal-invoicetoroefactrenwareeu-240203-h0900">0.1.21 rollout news in system portal invoicetoroefact.renware.eu (240203 h09:00)</a></li>
 <li><a href="#changelog-0120dev-invoice-customer-address-240123-h1000">0.1.20.dev invoice customer address (240123 h10:00)</a></li>
 <li><a href="#changelog-0119dev-invoice-customer-and-partial-invoice-total-values-calculations-240116-h0600">0.1.19.dev invoice customer and partial invoice total values calculations (240116 h06:00)</a></li>
-<li><a href="#changelog-0118dev-invoice-customer-cui-partial-invoice-total-values-calculations-240105-h0800">0.1.18.dev invoice customer CUI partial invoice total values calculations  (240105 h08:00)</a></li>
-<li><a href="#changelog-0117dev-fixed-all-application-package-running-standard-ways-231224-h0530">0.1.17.dev fixed all application &amp; package running standard ways (231224 h05:30)</a></li>
 </ul>
 </li>
 </ul>
@@ -3158,134 +3157,27 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <p>240106piu_a invoice customer search and persist for "RegistrationName"</p>
 </li>
 </ul>
-<h3 id="changelog-0118dev-invoice-customer-cui-partial-invoice-total-values-calculations-240105-h0800">0.1.18.dev invoice customer CUI partial invoice total values calculations  (240105 h08:00)</h3>
-<ul>
-<li>
-<p>240105piu_c updated <code>xl2roefact</code> package <code>README.md</code> file (with new sections for intro to Excel invoice content rules, tutorial TODO, reference to technical doc)</p>
-</li>
-<li>
-<p>240105piu_b invoice customer search and persist for "CUI"</p>
-</li>
-<li>
-<p>240105piu_a <code>rdinv.def get_excel_data_at_label(...)</code> changed strategy for DOWN search-method made it optional with default True (useful for Partners set-of KVs where is supposed to be or IN-LABEL or in RIGHT but NOT DOWN because there is a list of KVs not just one placed anywhere in Excel doc)  #TODO tgis is subject of doc update</p>
-</li>
-<li>
-<p>240103piu_d <code>rdinv.def get_excel_data_at_label(...)</code> changed strategy for IN-LABEL search-method to return all string except first word (supposed to be label) separated by space character (old strategy was to get only last work from all string)</p>
-</li>
-<li>
-<p>240103piu_c ref invoice customer created in <code>config_settings.py</code> PATTERNs for search keys <code>PATTERN_FOR_PARTNER_ID</code> (CUI or ID), <code>PATTERN_FOR_PARTNER_LEGAL_NAME</code></p>
-</li>
-<li>
-<p>240103piu_b calculated item lines VAT amount as <code>cac_InvoiceLine.LineVatAmmount</code> as raw float value (not rounded to be able to round just invoice TOTAL)</p>
-</li>
-<li>
-<p>240103piu_a <code>rdinv.rdinv()</code> updated JSON -- XML map (part of function <code>_build_meta_info_key(...)</code>)</p>
-</li>
-<li>
-<p>240102piu_a <code>rdinv.rdinv()</code> upd &amp; improved a clear Customer specific XML compliant structure. Targeted this XML structure:
-                <div class="highlight"><pre><span></span><code>    &lt;cac:PartyLegalEntity&gt;
-        &lt;cbc:RegistrationName&gt;IORDANESCU PETRE PFA&lt;/cbc:RegistrationName&gt;
-        &lt;cbc:CompanyID&gt;21986376&lt;/cbc:CompanyID&gt;
-    &lt;/cac:PartyLegalEntity&gt;
-</code></pre></div></p>
-</li>
-<li>
-<p>240101piu_a clean useless &amp; obsolete project files, test new full build (MSI, Python wheel, documentation) ==&gt; PASS OK</p>
-</li>
-<li>
-<p>231229piu_a invoice customer (<code>&lt;cac:AccountingCustomerParty&gt;</code>) detect &amp; set area to search for specific keys (like CUI, RegCom, IBAN, ...)</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. established AREA TO SEARCH for PARTNER data an <code>_area_to_search</code> (~line 244)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. updated <code>config_settings.py</code> changed: (for a clear understating of constant scope, because will follow others for specific keys like: "reg com", "CUI", "bank / IBAN / cont", ...)<ul>
-<li><code>PATTERN_FOR_INVOICE_CUSTOMER_LABEL</code> --&gt; <code>PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER</code></li>
-<li><code>PATTERN_FOR_INVOICE_SUPPLIER_LABEL</code> --&gt; <code>PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER</code></li>
-</ul>
-</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. set-persist <code>_area_to_search</code> for next steps &amp; save its key-info in associated invoice JSON (for further references) - <code>rdinv()</code> ~line 239</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. updated main xl2roefact README.md document ref latter changes and app structuring, concepts, ...(ideas evolving :)...</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. done code for <code>cac_AccountingSupplierParty</code> key by iterating full <code>invoice_header_area["customer_area"]</code> structure</li>
-</ul>
-</li>
-<li>
-<p>231228piu_a improved documentation generation:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> updated all modules docstring(s) to a right markdown representation in generated documentation (ex: when use bullets THEN DO NOT indent at 1st level)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>@IMP_NOTE:</strong> Changed generated documentation file to <code>doc/810.05a-xl2roefact_DLD_specs.md</code> and referred in main <code>doc/810.05a-xl2roefact_component.md</code> as this being a final solution for whole project documentation (that generated with <code>mkdocs</code>)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> updated <code>pyproject.toml, [tool.pdm.scripts]</code> table with new generated doc file name (810.05a-xl2roefact_DLD_specs.md)</li>
-</ul>
-</li>
-<li>
-<p>231227piu_b updated <code>xl2roefact.rdinv</code> module ref dropped <code>_</code> chars from internal function names to allow doc generation by PyDoc until will produce a YAML file for PyDoc generator (where will be able to specify concrete list of objects regarding their names)</p>
-</li>
-<li>
-<p>231227piu_a generated a first draft of markdown documentation:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> used Pydoc Markdown @ <code>https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> results ==&gt; <code>&lt;PJ_ROOT&gt;/xl2roefact/doc/generated_810.05a-xl2roefact_component.md</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> created PDM shell command <code>pdm run</code> (command just for quick remembers: <code>pydoc-markdown -I xl2roefact --render-toc &gt;doc/generated_810.05a-xl2roefact_component.md</code>)</li>
-</ul>
-</li>
-<li>
-<p>231226piu_b reviewed <code>xl2roefact</code> all "in use" code and updated <code>docstrings</code></p>
-</li>
-<li>
-<p>231226piu_a made some useful PDM scripts (ref <code>pyproject.toml</code>, table section <code>[tool.pdm.scripts]</code>) like build commands for:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong><code>pdm build_wheel</code></strong> Python package,</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong><code>pdm build_msi</code></strong> MSI package,</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong><code>pdm build_all</code></strong> build all packages</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong><code>pdm xl2roefact</code></strong> run xl2roefact command</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> updated <code>doc/810.05a-xl2roefact_component.md</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="changelog-0117dev-fixed-all-application-package-running-standard-ways-231224-h0530">0.1.17.dev fixed all application &amp; package running standard ways (231224 h05:30)</h3>
-<ul>
-<li>
-<p>RELEASES:</p>
-<ul>
-<li><code>.&lt;PROJECT&gt;/xl2roefact/dist/xl2roefact-0.1.17-win64.msi</code></li>
-<li><code>&lt;PROJECT&gt;/xl2roefact/dist/xl2roefact-0.1.17.tar.gz</code></li>
-<li><code>&lt;PROJECT&gt;/xl2roefact/dist/xl2roefact-0.1.17-py3-none-any.whl</code></li>
-</ul>
-</li>
-<li>
-<p>231224piu_a made cli app to run as: Python package main app (<code>python -m xl2roefact</code>) and as script (<code>python xl2roefact.py</code>) while still letting the Python library <code>xl2roefact</code> as importable and use in a programmatic way:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> make <code>.../xl2roefact/app_cli.py</code> (from actual <code>.../xl2roefact/__main__.py</code>) which is complete code of CLI app plus a <code>run()</code> function that just launch it</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> make <code>.../xl2roefact/__main__.py</code> that just import <code>app_cli</code> for <code>run()</code> function and call it</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> change actual <code>&lt;xl2roefact ROOT/&gt;xl2roefact.py</code> to import <code>xl2roefact.app_cli</code> for <code>run()</code> function and call it</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> test for MSI package builds ref <code>&lt;xl2roefact ROOT/&gt;xl2roefact.py</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> clean code, test and close issue:<ul>
-<li><code>python xl2roefact.py [OPTIONS] COMMAND [ARGS]...</code></li>
-<li><code>python -m xl2roefact [OPTIONS] COMMAND [ARGS]...</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>231223piu_a multiple changes ref main code: <code>xl2roefact.py</code> and library <code>xl2roefact</code>, MAINLY created <code>xl2roefact/__main__.py</code> as normal of xl2roefact.py</p>
-</li>
-</ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
 <ul>
-<li><a href="#changelog_history-changelog-0.1.16.dev">0.1.16.dev improving Excel kv-data search with "IN-LABEL" method</a></li>
-<li><a href="#changelog_history-changelog-0.1.15">0.1.15 updated solution portal <code>http://invoicetoroefact.renware.eu/</code></a></li>
-<li><a href="#changelog_history-changelog-0.1.14.dev">0.1.14.dev invoice issue date</a></li>
-<li><a href="#changelog_history-changelog-0.1.13.dev">0.1.13.dev invoice currency</a></li>
-<li><a href="#changelog_history-changelog-0.1.12.dev">0.1.12.dev invoice number</a></li>
-<li><a href="#changelog_history-changelog-0.1.11.dev">0.1.11.dev packaging improvements for app &amp; xl2roefact package</a></li>
-<li><a href="#changelog_history-changelog-0.1.10.dev">0.1.10.dev command interface improved, <code>msi</code> package building, invoice template &amp; updated documentation</a></li>
-<li><a href="#changelog_history-changelog-0.1.9.dev">0.1.9.dev <code>xl2roefact.RDINV</code> running executable and distribution kit</a></li>
-<li><a href="#changelog_history-changelog-0.1.8.dev">0.1.8.dev improved application structure and first executable release</a></li>
-<li><a href="#changelog_history-changelog-0.1.7.dev">0.1.7.dev <code>xl2roefact.RDINV</code> invoice items &amp; metadata + <em>OPEN ISSUES</em></a></li>
-<li><a href="#changelog_history-changelog-0.1.6.dev">0.1.6.dev commercial agreement OPTIONS document</a></li>
-<li><a href="#changelog_history-changelog-0.1.5.dev">0.1.5.dev init component <em>xl2roefact</em> for CLI application</a></li>
-<li><a href="#changelog_history-changelog-0.1.4.dev">0.1.4.dev Create system backbone structure</a></li>
-<li><a href="#changelog_history-changelog-0.1.3.dev">0.1.3.dev Enhancing <code>payments_validation_board</code> technical proposal</a></li>
-<li><a href="#changelog_history-changelog-0.1.2.dev">0.1.2.dev Enhancing <code>APItoROefact</code> technical proposal</a></li>
-<li><a href="#changelog_history-changelog-0.1.1.dev">0.1.1.dev Elaborating technical proposal</a></li>
-<li><a href="#changelog_history-changelog-0.1.0.dev">0.1.0.dev System raw backbone</a></li>
+<li><a href="#changelog_history-changelog-0.1.18.dev"><code>0.1.18.dev</code> invoice customer CUI partial invoice total values calculations</a></li>
+<li><a href="#changelog_history-changelog-0.1.17.dev"><code>0.1.17.dev</code> fixed all application &amp; package running standard ways</a></li>
+<li><a href="#changelog_history-changelog-0.1.16.dev"><code>0.1.16.dev</code> improving Excel kv-data search with "IN-LABEL" method</a></li>
+<li><a href="#changelog_history-changelog-0.1.15"><code>0.1.15</code> updated solution portal <code>http://invoicetoroefact.renware.eu/</code></a></li>
+<li><a href="#changelog_history-changelog-0.1.14.dev"><code>0.1.14.dev</code> invoice issue date</a></li>
+<li><a href="#changelog_history-changelog-0.1.13.dev"><code>0.1.13.dev</code> invoice currency</a></li>
+<li><a href="#changelog_history-changelog-0.1.12.dev"><code>0.1.12.dev</code> invoice number</a></li>
+<li><a href="#changelog_history-changelog-0.1.11.dev"><code>0.1.11.dev</code> packaging improvements for app &amp; xl2roefact package</a></li>
+<li><a href="#changelog_history-changelog-0.1.10.dev"><code>0.1.10.dev</code> command interface improved, <code>msi</code> package building, invoice template &amp; updated documentation</a></li>
+<li><a href="#changelog_history-changelog-0.1.9.dev"><code>0.1.9.dev</code> <code>xl2roefact.RDINV</code> running executable and distribution kit</a></li>
+<li><a href="#changelog_history-changelog-0.1.8.dev"><code>0.1.8.dev</code> improved application structure and first executable release</a></li>
+<li><a href="#changelog_history-changelog-0.1.7.dev"><code>0.1.7.dev</code> <code>xl2roefact.RDINV</code> invoice items &amp; metadata + <em>OPEN ISSUES</em></a></li>
+<li><a href="#changelog_history-changelog-0.1.6.dev"><code>0.1.6.dev</code> commercial agreement OPTIONS document</a></li>
+<li><a href="#changelog_history-changelog-0.1.5.dev"><code>0.1.5.dev</code> init component <em>xl2roefact</em> for CLI application</a></li>
+<li><a href="#changelog_history-changelog-0.1.4.dev"><code>0.1.4.dev</code> Create system backbone structure</a></li>
+<li><a href="#changelog_history-changelog-0.1.3.dev"><code>0.1.3.dev</code> Enhancing <code>payments_validation_board</code> technical proposal</a></li>
+<li><a href="#changelog_history-changelog-0.1.2.dev"><code>0.1.2.dev</code> Enhancing <code>APItoROefact</code> technical proposal</a></li>
+<li><a href="#changelog_history-changelog-0.1.1.dev"><code>0.1.1.dev</code> Elaborating technical proposal</a></li>
+<li><a href="#changelog_history-changelog-0.1.0.dev"><code>0.1.0.dev</code> System raw backbone</a></li>
 </ul>
 <!-- #TODO create this ? released notes are alreay (@240207) published in GitHub releases
 

@@ -48,7 +48,7 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 ## Instalarea aplicatiei xl2roefact
 
-Pachetele de instalare sunt [disponibile aici](/doc_src/downloads.md#format-msi-instalare-windows-x64).
+Pachetele de instalare sunt [disponibile aici](../doc_src/downloads.md#format-msi-instalare-windows-x64).
 Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
 
 * **`MSI`** pachet instalare pentru *Windows*
@@ -196,8 +196,7 @@ Cheile de la primul nivel contin:
 
 
 
-## [Descarcare (download) aplicatie xl2roefact CLI](/doc_src/downloads.md#format-msi-instalare-windows-x64)
-
+## [Descarcare (download) aplicatie xl2roefact CLI](../doc_src/downloads.md#format-msi-instalare-windows-x64)
 
 
 
