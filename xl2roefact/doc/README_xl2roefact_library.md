@@ -71,7 +71,7 @@ To install from distribution packages first download the package version intende
 
 
 
-<!-- #FIXME @240216 proposal for drop this section as being practically useless for any end user...
+
 
 ## Working directories
 
@@ -85,7 +85,7 @@ Below is a short description of most important directories that will (can !) be 
 
 * _`test_*/`_ contains test invoice samples (from client, a RENware one, a 3rd party one) and some useful specs in dev & test process
 
--->
+
 
 
 
@@ -97,7 +97,7 @@ Below is a short description of most important directories that will (can !) be 
 Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Structura de baza a acestui fisier este:
 
 
-```
+```json
 {
     "Invoice": {...},
     "meta_info": {...},
