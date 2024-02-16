@@ -11,22 +11,11 @@
 
 
 <!-- #FIXME DROP SECTION AFTER TEST...
----------------[ALL OF DOWNLOADS - should remove duplicates if there are]--- #NOTE: all paths are relative to `doc_src/`
 
-#### work.section... [xl2roefact... `xl2roefact/doc/README_xl2roefact_library.md`]---
-* ...moved.all...
+* [x] _`LINK USED`_ /doc_src/downloads.md#format-biblioteca-python
+* [ ] /doc_src/downloads.md#format-msi-instalare-windows-x64
+* [ ] /doc_src/downloads.md#format-xlsx-office-excel
 
-#### work.section... [main `/README.md`]---
-* ...moved.all...
-
-#### [invoice template `excel_invoice_template/README.md`]---
-* ...moced.all...
-
-#### links to use in ext doc to ref sectios
-
-...doc_src/downloads.md#format-biblioteca-python
-...doc_src/downloads.md#format-msi-instalare-windows-x64
-...doc_src/downloads.md#format-xlsx-office-excel
 
 #FIXME up here to drop------------------------------------>
 
