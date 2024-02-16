@@ -50,11 +50,11 @@
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
-* tbd.Would... automate GitHub site build & publishing. See file `/gh_mkdocs_auto_publish.md`.
+* wip.Would... automate GitHub site build & publishing. Last attempt @`240216piu_a`.
 
 * tbd.Should... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
 
-* tbd.Must... publish `xl2roefact` package --> read `TODO_packaging.md`
+* tbd.Must... publish `xl2roefact` package --> read PDM doc ref package release
 
 * tbd.Could... init a PDM simple env in project root. Keep in mind:
     * root project is for SITE GENERATION. ? the `web2roefact` will need its own directory5like `xl2roefact` ?
@@ -80,6 +80,7 @@
         - `app_cli.settings()` function docstring: display arguments in "Referinta API"
         - chk if show `-r`  option in "Referinta CLI"
 
+* 240216piu_a automate GitHub site build & publishing. First run up to mkdocs build, including. FAILED w/ERROR `mkdocs_typer._exceptions.MkDocsTyperException: Module 'xl2roefact.app_cli' has no attribute 'run'`
 * 240214piu_c.BUGFIX ref `240213piu_a.FAILED` fixed & enabled `.github/.../ci.yml`. To test by merging to `build`
 * 240214piu_a xl2roefact component (`.../app_cli.py`) function `settings(...)` add `--rules` option (param) to display `config_settings.__doc__`
 * 240213piu_a.FAILED merged for `/requirements.txt` lief package update as OK-PAS & disabled gh-workflow by renaming `ci.yml` to `ci.yml temp_disabled`. Actions tried:  (-1.) updated `.gh-workflow.../ci.yml`  (-2.) "small change" in `/README.md` in copyright year to test  (-3.) merge to `build` branch for test
