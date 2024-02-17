@@ -38,12 +38,12 @@ Nici o resursa disponibila.
 
 ## Format MSI instalare Windows x64
 
-### Aplicatia xl2roefact linie comanda
+### Aplicatia xl2roefact linie comanda (win64-msi)
 
-* [`0.1.22b` xl2roefact application interface improvements win64](../xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi "download")
-* [`0.1.20.dev` invoice customer address win64](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
-* [`0.1.19.dev` invoice customer and partial invoice total values calculations win64](../xl2roefact/dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
-* [`0.1.18.dev` invoice customer CUI partial invoice total values calculations win64](../xl2roefact/dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
+* [`0.1.22b` xl2roefact application interface improvements](../xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi "download")
+* [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
+* [`0.1.19.dev` invoice customer and partial invoice total values calculations](../xl2roefact/dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
+* [`0.1.18.dev` invoice customer CUI partial invoice total values calculations](../xl2roefact/dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
 
 
 
