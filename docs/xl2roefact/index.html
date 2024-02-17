@@ -184,7 +184,7 @@ div.download-btn {
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../doc_src/wip.html">
+<a class="md-tabs__link" href="https://www.linkedin.com/posts/renware_feel-comfortable-and-focus-to-business-with-activity-7162448393565323265-mazE?utm_source=share&amp;utm_medium=member_android">
         About
       </a>
 </li>
@@ -563,19 +563,29 @@ div.download-btn {
           About
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+          Despre INVOICEtoROefact
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_1">
+<span class="md-nav__icon md-icon"></span>
+          Despre INVOICEtoROefact
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../doc_src/wip.html">
-        Despre INVOICEtoROefact
+<a class="md-nav__link" href="https://www.linkedin.com/posts/renware_feel-comfortable-and-focus-to-business-with-activity-7162448393565323265-mazE?utm_source=share&amp;utm_medium=member_android">
+        LinkedIn
       </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="https://www.renware.eu/support.html">
         Suport
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://www.renware.eu/contact.html">
-        Contact
       </a>
 </li>
 <li class="md-nav__item">
@@ -584,7 +594,7 @@ div.download-btn {
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../LICENSE">
+<a class="md-nav__link" href="../LICENSE.txt">
         Licenta generala sistem
       </a>
 </li>
@@ -713,7 +723,7 @@ div.download-btn {
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><div class="download-btn"><a href="..\pdfs\xl2roefact\index.html\index.pdf">Download PDF</a></div>
+<article class="md-content__inner md-typeset"><div class="download-btn"><a href="../pdfs/xl2roefact/index.html/index.pdf">Download PDF</a></div>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact">xl2roefact</h1>
 <p><strong><em>Cuprins:</em></strong></p>
@@ -791,7 +801,7 @@ Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si s
 <p><em>NOTA 2:</em> pachetul <code>MSI</code> pentru <em>Windows</em> este disponibil in orice variante / versiuni al sistemului. Optiunile pentru <em>Linux</em> sunt mult mai flexibile si astfel celelalte pot lipsi insa pot fi disponibile graruit, la cerere.</p>
 </blockquote>
 <h2 id="configurarea-aplicatiei-xl2roefact">Configurarea aplicatiei xl2roefact</h2>
-<p>Parametrii de configurare a plicatiei se gasesc in fisierul <strong><code>config_settings.py</code></strong>. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.</p>
+<p>Parametrii de configurare a plicatiei se gasesc in fisierul <em><code>config_settings.py</code></em>. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.</p>
 <p>Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtine help referitor la detaliile comenzi se va folosi
 <div class="highlight"><pre><span></span><code>xl2roefact<span class="w"> </span>settings<span class="w"> </span>--help
 </code></pre></div></p>
@@ -814,9 +824,9 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><strong>xl2json</strong> - Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice</p>
 </li>
 </ul>
-<p><strong>Detalii comenzi:</strong></p>
+<p><strong>Comenzile detaliate:</strong></p>
 <p><a id="comenzile-aplicatiei"></a> <!-- #NOTE ATTN do not drop this anchor tag because is referred in <code>mkdocs.yml</code> navigation section --></p>
-<!--#NOTE: next section will generate application commands in style as obtained using `--help` CLI options -->
+<!--#NOTE: next section generate application commands in same style as obtained using `--help` CLI options -->
 <h3 id="xl2roefact_1">xl2roefact</h3>
 <p>function called when no command is invoked and to provide only application version (for external users to test it!).</p>
 <p>Usage:</p>
@@ -877,7 +887,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <h3 id="organizarea-informatiei">Organizarea informatiei</h3>
 <p>Aplicatia <em>xl2roefact</em> "promoveaza" structurarea informatiei procesate astfel incit sa fie evitata situatia <em>"de aglomerare" a directorului curent cu fisiere</em> ce trebuiesc identificate si izolate in situatia in care se fac <em>procesari in masa</em> (pe mai multe fisiere / facturi sursa).</p>
 <p>Astfel, aplicatia se asteapa ca fisierele Excel sursa (<em>adica facturile de procesat</em>) sa fie copiate in directorul <strong><code>invoice_files/</code></strong> de unde vor fi citite si tot aici vor fi create fisierele rezultate (JSON, XML, etc). Acest director este relativ la directorul curent de unde este lansata aplicatia si considerat <em>"implicit"</em> cu acest nume dar daca se doreste un alt director acest lucru poate fi facut folosind parametrul <em><code>--files-directory</code></em> (sau prescurtat <em><code>-d</code></em>) la lansarea aplicatiei astfel:
-<div class="highlight"><pre><span></span><code>xl2roefact -d "calea si numele directorului dorit"
+<div class="highlight"><pre><span></span><code>xl2roefact<span class="w"> </span>-d<span class="w"> </span><span class="s2">"calea si numele directorului dorit"</span>
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -886,17 +896,31 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><strong>Exemple:</strong></p>
 <ul>
 <li>
-<p>pentru stabilirea directorului curent ca sursa pentru fisierele factura Excel: <strong><code>xl2roefact -d ./</code></strong></p>
+<p>pentru stabilirea directorului curent ca sursa pentru fisierele factura Excel:
+<div class="highlight"><pre><span></span><code>xl2roefact<span class="w"> </span>-d<span class="w"> </span>./
+</code></pre></div></p>
 </li>
 <li>
-<p>procesarea tuturor facturilor facturilor din luna <em>iunie</em>, copiate intr-un director dedicat sub directorul curent: <strong><code>xl2roefact -d ./facturi_iunie/</code></strong></p>
+<p>procesarea tuturor facturilor facturilor din luna <em>iunie</em>, copiate intr-un director dedicat sub directorul curent:
+<div class="highlight"><pre><span></span><code>xl2roefact<span class="w"> </span>-d<span class="w"> </span>./facturi_iunie/
+</code></pre></div></p>
 </li>
 </ul>
 <h3 id="exemplu-de-procesare-a-unei-facturi">Exemplu de procesare a unei facturi</h3>
 <ul>
-<li>se creaza directorul <code>invoice_files</code></li>
-<li>se copiaza factura <code>factura_A.xlsx</code> in acest director apoi se revine in directorul anterior daca acesta a fost schimbat pentru efectuarea copierii</li>
-<li>se lanseaza aplicatia: <code>xl2roefact xl2json</code></li>
+<li>
+<p>se creaza directorul recomandat pentru stocarea facturilor in Excel:
+<div class="highlight"><pre><span></span><code>md<span class="w"> </span>invoice_files
+</code></pre></div></p>
+</li>
+<li>
+<p>se copiaza factura <code>factura_A.xlsx</code> in acest director apoi se revine in directorul anterior daca acesta a fost schimbat pentru efectuarea copierii</p>
+</li>
+<li>
+<p>se lanseaza aplicatia:
+<div class="highlight"><pre><span></span><code>xl2roefact<span class="w"> </span>xl2json
+</code></pre></div></p>
+</li>
 </ul>
 <p>In urma acestor operatii, in directorul <code>invoice_files</code> vor rezulta:</p>
 <div class="highlight"><pre><span></span><code>📁<span class="w"> </span>invoice_files/
@@ -909,11 +933,11 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 <h2 id="aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii</h2>
 <p>Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda <code>xl2json</code>. Formatul JSON are urmatoarra structura de baza:</p>
-<div class="highlight"><pre><span></span><code>{
-    "Invoice": {...},
-    "meta_info": {...},
-    "excel_original_data": {...}
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"Invoice"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"meta_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"excel_original_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Cheile de la primul nivel contin:</p>
 <ul>
@@ -927,7 +951,6 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><strong><code>excel_original_data</code></strong> - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel</li>
 </ul>
 <p><small markdown="1">Pentru detalii suplimentare despre formatul JSON trebyie consultata componenta referitoare la <strong><em><a href="doc/README_xl2roefact_library.html">biblioteca <code>xl2roefact</code> destinata dezvoltarii software</a></em></strong>.</small></p>
-<!--FIXME: link is not good on buid site -->
 <h2 id="descarcare-download-aplicatie-xl2roefact-cli"><a href="../doc_src/downloads.html#format-msi-instalare-windows-x64">Descarcare (download) aplicatie xl2roefact CLI</a></h2>
 <h2 id="date-identificare">Date identificare</h2>
 <ul>
@@ -950,7 +973,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 16, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 17, 2024</span>
 </small>
 </div>
 </article>

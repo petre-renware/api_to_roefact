@@ -182,7 +182,7 @@ div.download-btn {
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../doc_src/wip.html">
+<a class="md-tabs__link" href="https://www.linkedin.com/posts/renware_feel-comfortable-and-focus-to-business-with-activity-7162448393565323265-mazE?utm_source=share&amp;utm_medium=member_android">
         About
       </a>
 </li>
@@ -451,19 +451,29 @@ div.download-btn {
           About
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+          Despre INVOICEtoROefact
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_1">
+<span class="md-nav__icon md-icon"></span>
+          Despre INVOICEtoROefact
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../doc_src/wip.html">
-        Despre INVOICEtoROefact
+<a class="md-nav__link" href="https://www.linkedin.com/posts/renware_feel-comfortable-and-focus-to-business-with-activity-7162448393565323265-mazE?utm_source=share&amp;utm_medium=member_android">
+        LinkedIn
       </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="https://www.renware.eu/support.html">
         Suport
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://www.renware.eu/contact.html">
-        Contact
       </a>
 </li>
 <li class="md-nav__item">
@@ -472,7 +482,7 @@ div.download-btn {
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../LICENSE">
+<a class="md-nav__link" href="../../LICENSE.txt">
         Licenta generala sistem
       </a>
 </li>
@@ -498,442 +508,442 @@ div.download-btn {
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><div class="download-btn"><a href="..\..\pdfs\xl2roefact\doc\invoice_json_model_.html\invoice_json_model_.pdf">Download PDF</a></div>
+<article class="md-content__inner md-typeset"><div class="download-btn"><a href="../../pdfs/xl2roefact/doc/invoice_json_model_.html/invoice_json_model_.pdf">Download PDF</a></div>
 <h1 id="generated-invoice-json-model">Generated invoice JSON model</h1>
 <blockquote>
 <p>NOTE: <strong><em>The following model should be considered ONLY for JSON keys. All data is just sample / not real just for a better understanding of its format (or "how it looks like").</em></strong></p>
 </blockquote>
-<div class="highlight"><pre><span></span><code>{
-    "Invoice": {
-        "cbc_ID": "INV-001",
-        "cbc_DocumentCurrencyCode": "RON",
-        "cbc_IssueDate": "2023-08-28",
-        "cac_AccountingCustomerParty": {
-            "cac:Party": {
-                "cac_PartyLegalEntity": {
-                    "cbc_CompanyID": "17753763",
-                    "cbc_RegistrationName": "SOME COMPANY SRL"
-                },
-                "cac_PostalAddress": {
-                    "cbc_StreetName": "",
-                    "cbc_CityName": "Bucureşti Sectorul 1, Strada: Rozelor, Nr. 21, Etaj parter, tara: Romania",
-                    "cbc_PostalZone": "5555544",
-                    "cac_Country": {
-                        "cbc_IdentificationCode": "RO"
-                    }
-                }
-            }
-        },
-        "cac_InvoiceLine": [
-            {
-                "cbc_ID": "1",
-                "cbc_InvoicedQuantity": 3.5,
-                "cbc_unitCode": "buc",
-                "cac_Item": {
-                    "cbc_Name": "Product x name here",
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": 0.19,
-                        "cac_TaxScheme": {
-                            "cbc_ID": "VAT"
-                        }
-                    }
-                },
-                "cac_Price": {
-                    "cbc_PriceAmount": 11111.5,
-                    "cbc_currencyID": "RON"
-                },
-                "cbc_LineExtensionAmount": 38890.25,
-                "LineVatAmount": 7389.1475
-            },
-            {
-                "cbc_ID": "1.NOTE-a",
-                "cbc_InvoicedQuantity": null,
-                "cbc_unitCode": null,
-                "cac_Item": {
-                    "cbc_Name": "just some supplementary explanations ref first product...",
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": null,
-                        "cac_TaxScheme": {
-                            "cbc_ID": null
-                        }
-                    }
-                },
-                "cac_Price": {
-                    "cbc_PriceAmount": null,
-                    "cbc_currencyID": null
-                },
-                "cbc_LineExtensionAmount": null,
-                "LineVatAmount": null
-            },
-            {
-                "cbc_ID": "1.NOTE-b",
-                "cbc_InvoicedQuantity": null,
-                "cbc_unitCode": null,
-                "cac_Item": {
-                    "cbc_Name": "another explanations line...",
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": null,
-                        "cac_TaxScheme": {
-                            "cbc_ID": null
-                        }
-                    }
-                },
-                "cac_Price": {
-                    "cbc_PriceAmount": null,
-                    "cbc_currencyID": null
-                },
-                "cbc_LineExtensionAmount": null,
-                "LineVatAmount": null
-            },
-            {
-                "cbc_ID": "1.NOTE-c",
-                "cbc_InvoicedQuantity": null,
-                "cbc_unitCode": null,
-                "cac_Item": {
-                    "cbc_Name": "'*** a comment ref price xchg rate 3000EUR ref BNR",
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": null,
-                        "cac_TaxScheme": {
-                            "cbc_ID": null
-                        }
-                    }
-                },
-                "cac_Price": {
-                    "cbc_PriceAmount": null,
-                    "cbc_currencyID": null
-                },
-                "cbc_LineExtensionAmount": null,
-                "LineVatAmount": null
-            },
-            {
-                "cbc_ID": "2",
-                "cbc_InvoicedQuantity": 1,
-                "cbc_unitCode": "",
-                "cac_Item": {
-                    "cbc_Name": "Acciza 1%",
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": null,
-                        "cac_TaxScheme": {
-                            "cbc_ID": null
-                        }
-                    }
-                },
-                "cac_Price": {
-                    "cbc_PriceAmount": 111.115,
-                    "cbc_currencyID": "RON"
-                },
-                "cbc_LineExtensionAmount": 111.11,
-                "LineVatAmount": 0.0
-            }
-        ]
-    },
-    "meta_info": {
-        "file": "invoice_json_model_.xlsx",
-        "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2021-01-23T07:39:30.115329+00:00",
-        "invoice_worksheet": "FACTURA",
-        "invoice_max_rows": 31,
-        "invoice_max_cols": 9,
-        "items_table_start_marker": "#",
-        "items_table_start_cell": [
-            20,
-            1
-        ],
-        "invoice_XML_schemes": {
-            "xmlns": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
-            "xmlns:cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
-            "xmlns:cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
-            "xmlns:ns4": "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2",
-            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-            "xsi:schemaLocation": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"
-        },
-        "map_JSONkeys_XMLtags": [
-            [
-                "cac_InvoiceLine",
-                "cac:InvoiceLine"
-            ],
-            [
-                "cac_Item",
-                "cac:Item"
-            ],
-            [
-                "cac_ClassifiedTaxCategory",
-                "cac:ClassifiedTaxCategory"
-            ],
-            [
-                "cac_TaxScheme",
-                "cac:TaxScheme"
-            ],
-            [
-                "cac_Price",
-                "cac:Price"
-            ],
-            [
-                "cbc_ID",
-                "cbc:ID"
-            ],
-            [
-                "cbc_InvoicedQuantity",
-                "cbc:InvoicedQuantity"
-            ],
-            [
-                "cbc_unitCode",
-                "cbc:unitCode"
-            ],
-            [
-                "cbc_Name",
-                "cbc:Name"
-            ],
-            [
-                "cbc_Percent",
-                "cbc:Percent"
-            ],
-            [
-                "cbc_PriceAmount",
-                "cbc:PriceAmount"
-            ],
-            [
-                "cbc_currencyID",
-                "cbc:currencyID"
-            ],
-            [
-                "cbc_LineExtensionAmount",
-                "cbc:LineExtensionAmount"
-            ],
-            [
-                "cbc_ID",
-                "cbc:ID"
-            ],
-            [
-                "cbc_DocumentCurrencyCode",
-                "cbc:DocumentCurrencyCode"
-            ],
-            [
-                "cbc_IssueDate",
-                "cbc:IssueDate"
-            ],
-            [
-                "cac_AccountingCustomerParty",
-                "cac:AccountingCustomerParty"
-            ],
-            [
-                "cac_Party",
-                "cac:Party"
-            ],
-            [
-                "cac_PartyLegalEntity",
-                "cac:PartyLegalEntity"
-            ],
-            [
-                "cbc_CompanyID",
-                "cbc:CompanyID"
-            ],
-            [
-                "cbc_RegistrationName",
-                "cbc:RegistrationName"
-            ],
-            [
-                "cac_PostalAddress",
-                "cac:PostalAddress"
-            ],
-            [
-                "cbc_StreetName",
-                "cbc:StreetName"
-            ],
-            [
-                "cbc_CityName",
-                "cbc:CityName"
-            ],
-            [
-                "cbc_PostalZone",
-                "cbc:PostalZone"
-            ],
-            [
-                "cac_Country",
-                "cac:Country"
-            ],
-            [
-                "cbc_IdentificationCode",
-                "cbc:IdentificationCode"
-            ]
-        ]
-    },
-    "excel_original_data": {
-        "invoice_items_area": {
-            "keyrows": [
-                1,
-                "1.NOTE-a",
-                "1.NOTE-b",
-                "1.NOTE-c",
-                2
-            ],
-            "keycols": [
-                "Denumire produse sau servicii",
-                "UM",
-                "Cant",
-                "Pret unitar",
-                "Valoare fara TVA",
-                "Cota TVA",
-                "Valoare TVA"
-            ],
-            "data": [
-                [
-                    "...excel data...",
-                    "buc",
-                    3.5,
-                    11111.5,
-                    38890.25,
-                    0.19,
-                    7389.15
-                ],
-                [
-                    "...excel data...",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ],
-                [
-                    ...excel data...",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ],
-                [
-                    "'*** a comment ref price xchg rate 3000EUR ref BNR",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ],
-                [
-                    "Acciza 1%",
-                    "",
-                    1,
-                    111.115,
-                    111.12,
-                    "",
-                    0
-                ]
-            ]
-        },
-        "invoice_header_area": {
-            "start_cell": [
-                1,
-                1
-            ],
-            "end_cell": [
-                19,
-                9
-            ],
-            "invoice_number": {
-                "value": "INV-001",
-                "location": [
-                    5,
-                    3
-                ],
-                "label_value": "Numar factura:",
-                "label_location": [
-                    5,
-                    2
-                ]
-            },
-            "issued_date": {
-                "value": "2021-08-28",
-                "location": [
-                    6,
-                    3
-                ],
-                "label_value": "Data:",
-                "label_location": [
-                    6,
-                    2
-                ]
-            },
-            "currency": {
-                "value": "RON",
-                "location": [
-                    6,
-                    9
-                ],
-                "label_value": "Moneda:",
-                "label_location": [
-                    6,
-                    8
-                ]
-            },
-            "customer_area": {
-                "area_info": {
-                    "value": "Client",
-                    "location": [
-                        [
-                            8,
-                            5
-                        ],
-                        [
-                            17,
-                            6
-                        ]
-                    ]
-                },
-                "CUI": {
-                    "value": "...exceel data...",
-                    "location": [
-                        11,
-                        6
-                    ],
-                    "label_value": "CIF:",
-                    "label_location": [
-                        11,
-                        5
-                    ]
-                },
-                "RegistrationName": {
-                    "value": "SOME COMPANY SRL",
-                    "location": [
-                        9,
-                        5
-                    ],
-                    "label_value": "n/a",
-                    "label_location": "n/a"
-                },
-                "PostalAddress": {
-                    "cbc_StreetName": "",
-                    "cbc_CityName": "...excel data...",
-                    "cbc_PostalZone": "",
-                    "cac_Country": {
-                        "cbc_IdentificationCode": "RO"
-                    }
-                }
-            },
-            "supplier_area": "...future..."
-        },
-        "invoice_footer_area": {
-            "start_cell": [
-                26,
-                1
-            ],
-            "end_cell": [
-                31,
-                9
-            ]
-        }
-    }
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"Invoice"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"cbc_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV-001"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"cbc_DocumentCurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"cbc_IssueDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-08-28"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"cac_AccountingCustomerParty"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"cac:Party"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"cac_PartyLegalEntity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_CompanyID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17753763"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cbc_RegistrationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOME COMPANY SRL"</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">"cac_PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cbc_CityName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bucureşti Sectorul 1, Strada: Rozelor, Nr. 21, Etaj parter, tara: Romania"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cbc_PostalZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555544"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cac_Country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">"cbc_IdentificationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RO"</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"cac_InvoiceLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"cbc_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cbc_InvoicedQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.5</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cbc_unitCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buc"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cac_Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product x name here"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cac_ClassifiedTaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">"cbc_Percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.19</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"cac_TaxScheme"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">"cbc_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VAT"</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">"cac_Price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_PriceAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">11111.5</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cbc_currencyID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">"cbc_LineExtensionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">38890.25</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"LineVatAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">7389.1475</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"cbc_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.NOTE-a"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cbc_InvoicedQuantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cbc_unitCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cac_Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"just some supplementary explanations ref first product..."</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cac_ClassifiedTaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">"cbc_Percent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"cac_TaxScheme"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">"cbc_ID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">"cac_Price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_PriceAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cbc_currencyID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">"cbc_LineExtensionAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"LineVatAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"cbc_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.NOTE-b"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cbc_InvoicedQuantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cbc_unitCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cac_Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"another explanations line..."</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cac_ClassifiedTaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">"cbc_Percent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"cac_TaxScheme"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">"cbc_ID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">"cac_Price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_PriceAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cbc_currencyID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">"cbc_LineExtensionAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"LineVatAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"cbc_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.NOTE-c"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cbc_InvoicedQuantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cbc_unitCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cac_Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"'*** a comment ref price xchg rate 3000EUR ref BNR"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cac_ClassifiedTaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">"cbc_Percent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"cac_TaxScheme"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">"cbc_ID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">"cac_Price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_PriceAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cbc_currencyID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">"cbc_LineExtensionAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"LineVatAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"cbc_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cbc_InvoicedQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cbc_unitCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"cac_Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acciza 1%"</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cac_ClassifiedTaxCategory"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">"cbc_Percent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">"cac_TaxScheme"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">"cbc_ID"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">"cac_Price"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"cbc_PriceAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">111.115</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"cbc_currencyID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RON"</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">"cbc_LineExtensionAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">111.11</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"LineVatAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"meta_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invoice_json_model_.xlsx"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"file_CRC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"...file CRC (uniquely identify the invoice file used)"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"last_processing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-23T07:39:30.115329+00:00"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"invoice_worksheet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FACTURA"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"invoice_max_rows"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"invoice_max_cols"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"items_table_start_marker"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"items_table_start_cell"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">            </span><span class="mi">1</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">"invoice_XML_schemes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"xmlns"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"xmlns:cbc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"xmlns:cac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"xmlns:ns4"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"xmlns:xsi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"xsi:schemaLocation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"map_JSONkeys_XMLtags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cac_InvoiceLine"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cac:InvoiceLine"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cac_Item"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cac:Item"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cac_ClassifiedTaxCategory"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cac:ClassifiedTaxCategory"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cac_TaxScheme"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cac:TaxScheme"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cac_Price"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cac:Price"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_ID"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:ID"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_InvoicedQuantity"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:InvoicedQuantity"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_unitCode"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:unitCode"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_Name"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:Name"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_Percent"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:Percent"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_PriceAmount"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:PriceAmount"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_currencyID"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:currencyID"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_LineExtensionAmount"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:LineExtensionAmount"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_ID"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:ID"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_DocumentCurrencyCode"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:DocumentCurrencyCode"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_IssueDate"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:IssueDate"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cac_AccountingCustomerParty"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cac:AccountingCustomerParty"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cac_Party"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cac:Party"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cac_PartyLegalEntity"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cac:PartyLegalEntity"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_CompanyID"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:CompanyID"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_RegistrationName"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:RegistrationName"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cac_PostalAddress"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cac:PostalAddress"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_StreetName"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:StreetName"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_CityName"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:CityName"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_PostalZone"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:PostalZone"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cac_Country"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cac:Country"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"cbc_IdentificationCode"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"cbc:IdentificationCode"</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"excel_original_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"invoice_items_area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"keyrows"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"1.NOTE-a"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"1.NOTE-b"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"1.NOTE-c"</span><span class="p">,</span>
+<span class="w">                </span><span class="mi">2</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">"keycols"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"Denumire produse sau servicii"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"UM"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"Cant"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"Pret unitar"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"Valoare fara TVA"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"Cota TVA"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"Valoare TVA"</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">"...excel data..."</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">"buc"</span><span class="p">,</span>
+<span class="w">                    </span><span class="mf">3.5</span><span class="p">,</span>
+<span class="w">                    </span><span class="mf">11111.5</span><span class="p">,</span>
+<span class="w">                    </span><span class="mf">38890.25</span><span class="p">,</span>
+<span class="w">                    </span><span class="mf">0.19</span><span class="p">,</span>
+<span class="w">                    </span><span class="mf">7389.15</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="p">[</span>
+<span class="w">                    </span><span class="s2">"...excel data..."</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">""</span>
+<span class="w">                </span><span class="p">],</span>
+<span class="w">                </span><span class="p">[</span>
+<span class="w">                    </span><span class="err">...excel</span><span class="w"> </span><span class="err">da</span><span class="kc">ta</span><span class="err">...</span><span class="s2">",</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    ""</span>
+<span class="s2">                ],</span>
+<span class="s2">                [</span>
+<span class="s2">                    "</span><span class="err">'***</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">comme</span><span class="kc">nt</span><span class="w"> </span><span class="err">re</span><span class="kc">f</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">xchg</span><span class="w"> </span><span class="err">ra</span><span class="kc">te</span><span class="w"> </span><span class="mf">3000E</span><span class="err">UR</span><span class="w"> </span><span class="err">re</span><span class="kc">f</span><span class="w"> </span><span class="err">BNR</span><span class="s2">",</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    ""</span>
+<span class="s2">                ],</span>
+<span class="s2">                [</span>
+<span class="s2">                    "</span><span class="err">Acciza</span><span class="w"> </span><span class="mi">1</span><span class="err">%</span><span class="s2">",</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    1,</span>
+<span class="s2">                    111.115,</span>
+<span class="s2">                    111.12,</span>
+<span class="s2">                    "",</span>
+<span class="s2">                    0</span>
+<span class="s2">                ]</span>
+<span class="s2">            ]</span>
+<span class="s2">        },</span>
+<span class="s2">        "</span><span class="err">i</span><span class="kc">n</span><span class="err">voice_header_area</span><span class="s2">": {</span>
+<span class="s2">            "</span><span class="err">s</span><span class="kc">tart</span><span class="err">_cell</span><span class="s2">": [</span>
+<span class="s2">                1,</span>
+<span class="s2">                1</span>
+<span class="s2">            ],</span>
+<span class="s2">            "</span><span class="err">e</span><span class="kc">n</span><span class="err">d_cell</span><span class="s2">": [</span>
+<span class="s2">                19,</span>
+<span class="s2">                9</span>
+<span class="s2">            ],</span>
+<span class="s2">            "</span><span class="err">i</span><span class="kc">n</span><span class="err">voice_</span><span class="kc">nu</span><span class="err">mber</span><span class="s2">": {</span>
+<span class="s2">                "</span><span class="err">value</span><span class="s2">": "</span><span class="err">INV</span><span class="mi">-001</span><span class="s2">",</span>
+<span class="s2">                "</span><span class="err">loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">": [</span>
+<span class="s2">                    5,</span>
+<span class="s2">                    3</span>
+<span class="s2">                ],</span>
+<span class="s2">                "</span><span class="err">label_value</span><span class="s2">": "</span><span class="err">Numar</span><span class="w"> </span><span class="kc">fa</span><span class="err">c</span><span class="kc">tura</span><span class="p">:</span><span class="s2">",</span>
+<span class="s2">                "</span><span class="err">label_loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">": [</span>
+<span class="s2">                    5,</span>
+<span class="s2">                    2</span>
+<span class="s2">                ]</span>
+<span class="s2">            },</span>
+<span class="s2">            "</span><span class="err">issued_da</span><span class="kc">te</span><span class="s2">": {</span>
+<span class="s2">                "</span><span class="err">value</span><span class="s2">": "</span><span class="mi">2021-08-28</span><span class="s2">",</span>
+<span class="s2">                "</span><span class="err">loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">": [</span>
+<span class="s2">                    6,</span>
+<span class="s2">                    3</span>
+<span class="s2">                ],</span>
+<span class="s2">                "</span><span class="err">label_value</span><span class="s2">": "</span><span class="err">Da</span><span class="kc">ta</span><span class="p">:</span><span class="s2">",</span>
+<span class="s2">                "</span><span class="err">label_loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">": [</span>
+<span class="s2">                    6,</span>
+<span class="s2">                    2</span>
+<span class="s2">                ]</span>
+<span class="s2">            },</span>
+<span class="s2">            "</span><span class="err">curre</span><span class="kc">n</span><span class="err">cy</span><span class="s2">": {</span>
+<span class="s2">                "</span><span class="err">value</span><span class="s2">": "</span><span class="err">RON</span><span class="s2">",</span>
+<span class="s2">                "</span><span class="err">loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">": [</span>
+<span class="s2">                    6,</span>
+<span class="s2">                    9</span>
+<span class="s2">                ],</span>
+<span class="s2">                "</span><span class="err">label_value</span><span class="s2">": "</span><span class="err">Mo</span><span class="kc">ne</span><span class="err">da</span><span class="p">:</span><span class="s2">",</span>
+<span class="s2">                "</span><span class="err">label_loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">": [</span>
+<span class="s2">                    6,</span>
+<span class="s2">                    8</span>
+<span class="s2">                ]</span>
+<span class="s2">            },</span>
+<span class="s2">            "</span><span class="err">cus</span><span class="kc">t</span><span class="err">omer_area</span><span class="s2">": {</span>
+<span class="s2">                "</span><span class="err">area_i</span><span class="kc">nf</span><span class="err">o</span><span class="s2">": {</span>
+<span class="s2">                    "</span><span class="err">value</span><span class="s2">": "</span><span class="err">Clie</span><span class="kc">nt</span><span class="s2">",</span>
+<span class="s2">                    "</span><span class="err">loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">": [</span>
+<span class="s2">                        [</span>
+<span class="s2">                            8,</span>
+<span class="s2">                            5</span>
+<span class="s2">                        ],</span>
+<span class="s2">                        [</span>
+<span class="s2">                            17,</span>
+<span class="s2">                            6</span>
+<span class="s2">                        ]</span>
+<span class="s2">                    ]</span>
+<span class="s2">                },</span>
+<span class="s2">                "</span><span class="err">CUI</span><span class="s2">": {</span>
+<span class="s2">                    "</span><span class="err">value</span><span class="s2">": "</span><span class="err">...exceel</span><span class="w"> </span><span class="err">da</span><span class="kc">ta</span><span class="err">...</span><span class="s2">",</span>
+<span class="s2">                    "</span><span class="err">loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">": [</span>
+<span class="s2">                        11,</span>
+<span class="s2">                        6</span>
+<span class="s2">                    ],</span>
+<span class="s2">                    "</span><span class="err">label_value</span><span class="s2">": "</span><span class="err">CIF</span><span class="p">:</span><span class="s2">",</span>
+<span class="s2">                    "</span><span class="err">label_loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">": [</span>
+<span class="s2">                        11,</span>
+<span class="s2">                        5</span>
+<span class="s2">                    ]</span>
+<span class="s2">                },</span>
+<span class="s2">                "</span><span class="err">Regis</span><span class="kc">trat</span><span class="err">io</span><span class="kc">n</span><span class="err">Name</span><span class="s2">": {</span>
+<span class="s2">                    "</span><span class="err">value</span><span class="s2">": "</span><span class="err">SOME</span><span class="w"> </span><span class="err">COMPANY</span><span class="w"> </span><span class="err">SRL</span><span class="s2">",</span>
+<span class="s2">                    "</span><span class="err">loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">": [</span>
+<span class="s2">                        9,</span>
+<span class="s2">                        5</span>
+<span class="s2">                    ],</span>
+<span class="s2">                    "</span><span class="err">label_value</span><span class="s2">": "</span><span class="kc">n</span><span class="err">/a</span><span class="s2">",</span>
+<span class="s2">                    "</span><span class="err">label_loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">": "</span><span class="kc">n</span><span class="err">/a</span><span class="s2">"</span>
+<span class="s2">                },</span>
+<span class="s2">                "</span><span class="err">Pos</span><span class="kc">tal</span><span class="err">Address</span><span class="s2">": {</span>
+<span class="s2">                    "</span><span class="err">cbc_S</span><span class="kc">treet</span><span class="err">Name</span><span class="s2">": "",</span>
+<span class="s2">                    "</span><span class="err">cbc_Ci</span><span class="kc">t</span><span class="err">yName</span><span class="s2">": "</span><span class="err">...excel</span><span class="w"> </span><span class="err">da</span><span class="kc">ta</span><span class="err">...</span><span class="s2">",</span>
+<span class="s2">                    "</span><span class="err">cbc_Pos</span><span class="kc">tal</span><span class="err">Zo</span><span class="kc">ne</span><span class="s2">": "",</span>
+<span class="s2">                    "</span><span class="err">cac_Cou</span><span class="kc">ntr</span><span class="err">y</span><span class="s2">": {</span>
+<span class="s2">                        "</span><span class="err">cbc_Ide</span><span class="kc">nt</span><span class="err">i</span><span class="kc">f</span><span class="err">ica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">Code</span><span class="s2">": "</span><span class="err">RO</span><span class="s2">"</span>
+<span class="s2">                    }</span>
+<span class="s2">                }</span>
+<span class="s2">            },</span>
+<span class="s2">            "</span><span class="err">supplier_area</span><span class="s2">": "</span><span class="err">...</span><span class="kc">future</span><span class="err">...</span><span class="s2">"</span>
+<span class="s2">        },</span>
+<span class="s2">        "</span><span class="err">i</span><span class="kc">n</span><span class="err">voice_</span><span class="kc">f</span><span class="err">oo</span><span class="kc">ter</span><span class="err">_area</span><span class="s2">": {</span>
+<span class="s2">            "</span><span class="err">s</span><span class="kc">tart</span><span class="err">_cell</span><span class="s2">": [</span>
+<span class="s2">                26,</span>
+<span class="s2">                1</span>
+<span class="s2">            ],</span>
+<span class="s2">            "</span><span class="err">e</span><span class="kc">n</span><span class="err">d_cell": [</span>
+<span class="err">                31,</span>
+<span class="err">                9</span>
+<span class="err">            ]</span>
+<span class="err">        }</span>
+<span class="err">    }</span>
+<span class="err">}</span>
 </code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 3, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 17, 2024</span>
 </small>
 </div>
 </article>
