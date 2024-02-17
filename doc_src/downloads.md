@@ -40,6 +40,8 @@ Nici o resursa disponibila.
 
 ### Aplicatia xl2roefact linie comanda
 
+* 000
+
 * [`0.1.20.dev` invoice customer address MSI installer win64](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
 * [`0.1.19.dev` invoice customer and partial invoice total values calculations MSI installer win64](../xl2roefact/dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
 * [`0.1.18.dev` invoice customer CUI partial invoice total values calculations MSI installer win64](../xl2roefact/dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
