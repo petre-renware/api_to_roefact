@@ -35,7 +35,7 @@ jobs:
           python -m mkdocs build
           
           #    commit work done and push it back to server (attn!!!, here you are on client machine of GitHub organization)
-          git add *
+          git add docs/*
           git commit -am "Automated site built (by RENware)"
           git push
 
