@@ -29,14 +29,14 @@ jobs:
           python -m pip install --upgrade pip
           
           #    next line will write back a fresh requirements.txt file with created environment and could be useful for xl2roefact package to be collected back to work branch as actual environment installation. This will not be useful anymore after publishing it in PyPi.
-          python -m pip freeze >requirements.txt
+          # python -m pip freeze >requirements.txt
           
           #    build site with mkdocs
           python -m mkdocs build
           
           #    commit work done and push it back to server (attn!!!, here you are on client machine of GitHub organization)
           git add *
-          git commit -am "Automated site built"
+          git commit -am "Automated site built (by RENware)"
           git push
 
 
