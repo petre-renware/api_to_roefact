@@ -15,7 +15,7 @@
 
 
 
-## 0.1 (-#NOTE_wip...)
+## 0.2 (-#NOTE_wip...)
 
 ```
     - ---[ #TODO general planning board ]---------------------------
@@ -46,7 +46,7 @@
 
 
 
-### #TODO..._wip... 0.1.23??? xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
+### #TODO..._wip... 0.2.0 xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -71,6 +71,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+## 0.1 (closed 240217 h21:30)
 
 ### 0.1.22b xl2roefact application interface improvements (240217 h12:00)
 
