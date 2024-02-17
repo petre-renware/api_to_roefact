@@ -46,7 +46,7 @@
 
 
 
-### #TODO..._wip... 0.1.22.dev xl2roefact application interface improvements & invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
+### #TODO..._wip... 0.1.23??? xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -63,8 +63,16 @@
 
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
+* wip... last used 240217piu_a
 
-* wip...  TODO: consider to release a version up here...
+
+
+
+
+
+
+
+### 0.1.22b xl2roefact application interface improvements (240217 h12:00)
 
 * 240217piu_a automated build of xl2roefact artifacts (on merge to branch `build-xl2roefact`)
 * 240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended
