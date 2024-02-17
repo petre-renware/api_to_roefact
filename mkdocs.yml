@@ -51,11 +51,11 @@ nav:
         - Descarcare resurse (Downloads): doc_src/downloads.md
     # ---- system references
     - About:
-        - Despre INVOICEtoROefact: doc_src/wip.md  #TODO `about.md` cu echipa, 2 vorbe "de ce, istoria" etc...
+        - Licenta generala sistem: LICENSE.md
         - Suport: https://www.renware.eu/support.html
-        - Contact: https://www.renware.eu/contact.html
         - Cum cumpar: https://www.renware.eu/resources.html#how-to-buy-from-renware
-        - Licenta generala sistem: LICENSE  #FIXME see if needed anymore l, first because each component has its own license
+        - Despre INVOICEtoROefact:
+            - LinkedIn: https://www.linkedin.com/posts/renware_feel-comfortable-and-focus-to-business-with-activity-7162448393565323265-mazE?utm_source=share&utm_medium=member_android
         - CHANGELOG sistem: CHANGELOG.md
 
 

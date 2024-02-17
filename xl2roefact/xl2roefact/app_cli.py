@@ -64,7 +64,7 @@ def settings(
     ] = False
 ):
     """display application configuration parameters and settings that are subject to be changed by user.
-    
+
     Args:
         `rules`: show recommended rules to follow when change application configurable settings (available in both RO & EN languages). Defaults to `False`.
     """
@@ -170,7 +170,7 @@ def called_when_no_command(
 def main():
     app_cli()
 
-run = app_cli  # NOTE: for `run` "reason to be" as copy of `app_cli` see iss `0.1.22.dev 240216piu_a`
+run = app_cli  # NOTE: for `run` "reason to be" as copy of `app_cli` see iss `0.1.22b 240216piu_a`
 
 
 if __name__ == "__main__":

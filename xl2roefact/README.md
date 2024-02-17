@@ -48,10 +48,11 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 ## Instalarea aplicatiei xl2roefact
 
-Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
+Pachetele de instalare sunt [disponibile aici](../doc_src/downloads.md#format-msi-instalare-windows-x64).
+Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
 
 * **`MSI`** pachet instalare pentru *Windows*
-* `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemuluu de operare folosit de dvs)
+* `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemului de operare folosit de dvs)
 * `EXE` executabil *Windows in format "portabil" (un singur fisier)*
 
 >*NOTA 1:* pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python ([vezi sectiunea `xl2roefact PyPi library`](.doc/../doc/README_xl2roefact_library.md)) dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
@@ -63,7 +64,7 @@ Pachetele de instalare se gasesc in directorul `dist/` ca arhive `ZIP`. Pachetel
 
 ## Configurarea aplicatiei xl2roefact
 
-Parametrii de configurare a plicatiei se gasesc in fisierul **`config_settings.py`**. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
+Parametrii de configurare a plicatiei se gasesc in fisierul *`config_settings.py`*. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
 
 Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtine help referitor la detaliile comenzi se va folosi
 ```bash
@@ -95,10 +96,11 @@ xl2roefact [COMMAND] --help
 * **xl2json** - Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice
 
 
-**Detalii comenzi:**
+**Comenzile detaliate:**
 
 <a id="comenzile-aplicatiei"></a>  <!-- #NOTE ATTN do not drop this anchor tag because is referred in `mkdocs.yml` navigation section -->
-<!--#NOTE: next section will generate application commands in style as obtained using `--help` CLI options -->
+
+<!--#NOTE: next section generate application commands in same style as obtained using `--help` CLI options -->
 ::: mkdocs-typer
     :module: xl2roefact.app_cli
     :command: app_cli
@@ -133,7 +135,7 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 Aplicatia *xl2roefact* "promoveaza" structurarea informatiei procesate astfel incit sa fie evitata situatia *"de aglomerare" a directorului curent cu fisiere* ce trebuiesc identificate si izolate in situatia in care se fac *procesari in masa* (pe mai multe fisiere / facturi sursa).
 
 Astfel, aplicatia se asteapa ca fisierele Excel sursa (*adica facturile de procesat*) sa fie copiate in directorul **`invoice_files/`** de unde vor fi citite si tot aici vor fi create fisierele rezultate (JSON, XML, etc). Acest director este relativ la directorul curent de unde este lansata aplicatia si considerat *"implicit"* cu acest nume dar daca se doreste un alt director acest lucru poate fi facut folosind parametrul *`--files-directory`* (sau prescurtat *`-d`*) la lansarea aplicatiei astfel:
-```
+```bash
 xl2roefact -d "calea si numele directorului dorit"
 ```
 
@@ -142,16 +144,30 @@ xl2roefact -d "calea si numele directorului dorit"
 
 **Exemple:**
 
-* pentru stabilirea directorului curent ca sursa pentru fisierele factura Excel: **`xl2roefact -d ./`**
+* pentru stabilirea directorului curent ca sursa pentru fisierele factura Excel:
+```bash
+xl2roefact -d ./
+```
 
-* procesarea tuturor facturilor facturilor din luna *iunie*, copiate intr-un director dedicat sub directorul curent: **`xl2roefact -d ./facturi_iunie/`**
+* procesarea tuturor facturilor facturilor din luna *iunie*, copiate intr-un director dedicat sub directorul curent:
+```bash
+xl2roefact -d ./facturi_iunie/
+```
 
 
 ### Exemplu de procesare a unei facturi
 
-* se creaza directorul `invoice_files`
+* se creaza directorul recomandat pentru stocarea facturilor in Excel:
+```bash
+md invoice_files
+```
+
 * se copiaza factura `factura_A.xlsx` in acest director apoi se revine in directorul anterior daca acesta a fost schimbat pentru efectuarea copierii
-* se lanseaza aplicatia: `xl2roefact xl2json`
+
+* se lanseaza aplicatia:
+```bash
+xl2roefact xl2json
+```
 
 In urma acestor operatii, in directorul `invoice_files` vor rezulta:
 
@@ -172,7 +188,7 @@ invoice_files/
 
 Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Formatul JSON are urmatoarra structura de baza:
 
-```
+```json
 {
     "Invoice": {...},
     "meta_info": {...},
@@ -195,19 +211,10 @@ Cheile de la primul nivel contin:
 
 
 
-
 ## Descarcare (download) aplicatie xl2roefact CLI
 
-* 0.1.20.dev invoice customer address [MSI installer win64](./dist/xl2roefact-0.1.20-win64.msi "download")
-
-
-### Arhiva versiuni publicate disponibile
-
-* 0.1.19.dev invoice customer and partial invoice total values calculations [MSI installer win64](./dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
-
-* 0.1.18.dev invoice customer CUI partial invoice total values calculations [MSI installer win64](./dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
-
-
+* [Pachet instalare aplicatie Windows](../doc_src/downloads.md#format-msi-instalare-windows-x64)
+* [Pachet instalare script Python](../doc_src/downloads.md#format-biblioteca-python)
 
 
 

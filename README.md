@@ -44,7 +44,7 @@ Sistemul ofera urmatoarele componente:
 * [git repository](https://github.com/petre-renware/api_to_roefact)
 * copyright: RENware Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
-* [general system license](./LICENSE "download")
+* [general system license](./LICENSE.md "download")
 
 
 

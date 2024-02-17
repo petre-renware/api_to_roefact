@@ -71,6 +71,8 @@ To install from distribution packages first download the package version intende
 
 
 
+
+
 ## Working directories
 
 Below is a short description of most important directories that will (can !) be found on local development environment.
@@ -89,12 +91,13 @@ Below is a short description of most important directories that will (can !) be 
 
 
 
+
 ## Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii
 
 Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Structura de baza a acestui fisier este:
 
 
-```
+```json
 {
     "Invoice": {...},
     "meta_info": {...},
@@ -127,26 +130,13 @@ An [example of JSON generated file is available here](./invoice_json_model_.md)
 
 ## Download xl2roefact library
 
-
-
-* 0.1.20.dev invoice customer address [WHEEL](../dist/xl2roefact-0.1.20-py3-none-any.whl "download")
-* 0.1.20.dev invoice customer address [DIST](../dist/xl2roefact-0.1.20.tar.gz "download")
+* [Pachete instalare biblioteca Python formate WHEEL si DIST](../../doc_src/downloads.md#format-biblioteca-python)
 
 
 
 
 
-### Arhiva versiuni publicate disponibile
 
-
-
-* 0.1.19.dev invoice customer and partial invoice total values calculations [WHEEL](../dist/0.1.19/xl2roefact-0.1.19-py3-none-any.whl "download")
-* 0.1.19.dev invoice customer and partial invoice total values calculations [DIST](../dist/0.1.19/xl2roefact-0.1.19.tar.gz "download")
-
-
-
-* 0.1.18.dev invoice customer CUI partial invoice total values calculations [WHEEL](../dist/0.1.18/xl2roefact-0.1.18-py3-none-any.whl "download")
-* 0.1.18.dev invoice customer CUI partial invoice total values calculations [DIST](../dist/0.1.18/xl2roefact-0.1.18.tar.gz "download")
 
 
 

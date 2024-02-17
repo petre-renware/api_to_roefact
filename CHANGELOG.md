@@ -46,7 +46,7 @@
 
 
 
-### #TODO..._wip... 0.1.22.dev xl2roefact application interface improvements & invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
+### #TODO..._wip... 0.1.23??? xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -63,32 +63,21 @@
 
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
-* wip...
+* wip... last used 240217piu_b
 
-* TODO: wip ...240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended. Detailed specs:
-    * [x] dedicated downloads page `doc_src/downloads.md`  #NOTE use template from main README.md
-    * [x] collected all existing dwndld links in `doc_src/downloads.md` - need to be moved at their right positions in file
-    * [x] for next items, in `downloads.md` there are **already built links to sections** (as html comments in file):
-        * [ ] refer that page in `xl2roefact/README.md`
-        * [ ] refer that page in `xl2roefact/doc/README_xl2roefact_library.md`, `excel_invoice_template/README.md`
-        * [ ] refer that page in `excel_invoice_template/README.md`
-    * [x] `mkdocs.yml` nav entry for  "Help --> Descarcare resurse (Downloads)" to `doc_src/downloads.md`
-    * [x] fill in `...downloads.md` page with all existing deliverables GROUPED BY file types & ORDER BY version DESC
 
-* -------TODO:.from.here.to.up:-------- test & rebuild all (`pdm build_all`) & site. Updates to check:
-        - page "Help --> Downloads" (or in topnav area?)
-        - `app_cli.settings()` function docstring: display arguments in "Referinta API"
-        - chk if show `-r`  option in "Referinta CLI"
 
-* 240216piu_a automate GitHub site build & publishing
-  * First run up to mkdocs build, including.
-  * 1st try; FAILED w/ERROR `mkdocs_typer._exceptions.MkDocsTyperException: Module 'xl2roefact.app_cli' has no attribute 'run'`
-  * 2nd try: `xl2roefact.app_cli` module created a `run()` function as copy of existing `main()`. Renamed workflow to `build_site.yml` and cleaned `gh-workflow/` directory.
-    FAILED w.ERROR: `mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got <class 'function'>`
-  * 3rd try: change `run` object to `app_cli` one
 
-    RESOLUTION: __TEST PASS. CLOSED issue__
 
+
+
+
+### 0.1.22b xl2roefact application interface improvements (240217 h12:00)
+
+* 240217piu_b updated site with new `0.1.22b` deliverables, `xl2roefact CLI, WHEEL & DIST`
+* 240217piu_a automated build of xl2roefact artifacts (on merge to branch `build-xl2roefact`)
+* 240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended
+* 240216piu_a automated GitHub site build & publishing. FIXED ERROR: `mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got <class 'function'>` was changed `run` object to `app_cli` one
 * 240214piu_c.BUGFIX ref `240213piu_a.FAILED` fixed & enabled `.github/.../ci.yml`. To test by merging to `build`
 * 240214piu_a xl2roefact component (`.../app_cli.py`) function `settings(...)` add `--rules` option (param) to display `config_settings.__doc__`
 * 240213piu_a.FAILED merged for `/requirements.txt` lief package update as OK-PAS & disabled gh-workflow by renaming `ci.yml` to `ci.yml temp_disabled`. Actions tried:  (-1.) updated `.gh-workflow.../ci.yml`  (-2.) "small change" in `/README.md` in copyright year to test  (-3.) merge to `build` branch for test
@@ -106,7 +95,7 @@
 ### 0.1.21.post3 cleaned system documentation and site (240211 h23:59)
 
 * 240211piu_b tested & reviewed `240211piu_a` ==> published site
-* 240211piu_a updated `xl2roefact/README.md` clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point
+* 240211piu_a upated `xl2roefact/README.md` clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point
 * 240210piu_b test for iss `240210piu_a` ==> PASS
     * [x] app as functional (there are updates in code),
     * [x] re-build tech doc (`pdm build_doc`),
@@ -205,152 +194,32 @@
 
 
 
-### 0.1.19.dev invoice customer and partial invoice total values calculations (240116 h06:00)
-
-* 2401_xl2roefact_doc_01 `xl2roefact` update technical documentation, file `xl2roefact/doc/810.05a-xl2roefact_component.md`
-
-* 240112piu_b 95% clean code `rdinv()` from customer area identification, from line 204 (kept a DBG print just for area identification (useful for next task ref the same opers but for Supplier))
-
-* 240112piu_a module `app_cli.py`, created `called_when_no_command(...)` function called when no command is invoked and to provide only application version (for external users to test it!)
-
-* 240110piu_c `xl2json` `about` command to get version & "nice" LOGO from `xl2roefact/__version__.py`, vars `__version__` & `__doc__`
-
-* 240110piu_b `xl2roefact/setup.py`ref get app version from file when build EXE/MSI test for `__version__` is correctly get and release
-
-* 240110piu.a reviewed & updated `xl2roefact` package `README.md` + `xl2roefact/__version__.py` with an app logo and for text mistyping bugs
-
-* 240108piu_c changed `pyproject.toml` for auto update package version from file `xl2roefact/__version__.py` (see also opiss 240108piu_b)
-
-* 240108piu_b created `xl2roefact/__version__` file that contains variable `__version__` with INTENTION to use in `pyproject.toml` for app version key (in a future issue)
-
-* 240108piu_a more items:
-    * `config_settings.py` created entry `PATTERN_FOR_PARTNER_ADDRESS` & updated `rdinv` module in constants area
-    * add comments in `app_cli.py` ref `def_inv_dir` issue &&...
-    * updated environment dependencies and installed `pyinstaller` development package with intention to make "single EXE" application to be able to run "from USB stick"
-
-* 240107piu_a reviewed `xl2roefact` package `README.md`:
-    - (c) explained proposed & promoted directory structure used by CLI application
-    - (b) short invoice JSON file structure
-    - (a) created first version of tutorial section
-
-* 240106piu_a invoice customer search and persist for "RegistrationName"
-
-
-
-
-
-
-### 0.1.18.dev invoice customer CUI partial invoice total values calculations  (240105 h08:00)
-
-* 240105piu_c updated `xl2roefact` package `README.md` file (with new sections for intro to Excel invoice content rules, tutorial TODO, reference to technical doc)
-
-* 240105piu_b invoice customer search and persist for "CUI"
-
-* 240105piu_a `rdinv.def get_excel_data_at_label(...)` changed strategy for DOWN search-method made it optional with default True (useful for Partners set-of KVs where is supposed to be or IN-LABEL or in RIGHT but NOT DOWN because there is a list of KVs not just one placed anywhere in Excel doc)  #TODO tgis is subject of doc update
-
-* 240103piu_d `rdinv.def get_excel_data_at_label(...)` changed strategy for IN-LABEL search-method to return all string except first word (supposed to be label) separated by space character (old strategy was to get only last work from all string)
-
-* 240103piu_c ref invoice customer created in `config_settings.py` PATTERNs for search keys `PATTERN_FOR_PARTNER_ID` (CUI or ID), `PATTERN_FOR_PARTNER_LEGAL_NAME`
-
-* 240103piu_b calculated item lines VAT amount as `cac_InvoiceLine.LineVatAmmount` as raw float value (not rounded to be able to round just invoice TOTAL)
-
-* 240103piu_a `rdinv.rdinv()` updated JSON -- XML map (part of function `_build_meta_info_key(...)`)
-
-* 240102piu_a `rdinv.rdinv()` upd & improved a clear Customer specific XML compliant structure. Targeted this XML structure:
-                ```
-                    <cac:PartyLegalEntity>
-                        <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
-                        <cbc:CompanyID>21986376</cbc:CompanyID>
-                    </cac:PartyLegalEntity>
-                ```
-
-* 240101piu_a clean useless & obsolete project files, test new full build (MSI, Python wheel, documentation) ==> PASS OK
-
-* 231229piu_a invoice customer (`<cac:AccountingCustomerParty>`) detect & set area to search for specific keys (like CUI, RegCom, IBAN, ...)
-    * [x] 1. established AREA TO SEARCH for PARTNER data an `_area_to_search` (~line 244)
-    * [x] 2. updated `config_settings.py` changed: (for a clear understating of constant scope, because will follow others for specific keys like: "reg com", "CUI", "bank / IBAN / cont", ...)
-        - `PATTERN_FOR_INVOICE_CUSTOMER_LABEL` --> `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER`
-        - `PATTERN_FOR_INVOICE_SUPPLIER_LABEL` --> `PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER`
-    * [x] 3. set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references) - `rdinv()` ~line 239
-    * [x] 4. updated main xl2roefact README.md document ref latter changes and app structuring, concepts, ...(ideas evolving :)...
-    * [x] 5. done code for `cac_AccountingSupplierParty` key by iterating full `invoice_header_area["customer_area"]` structure
-
-* 231228piu_a improved documentation generation:
-    * [x] updated all modules docstring(s) to a right markdown representation in generated documentation (ex: when use bullets THEN DO NOT indent at 1st level)
-    * [x] __@IMP_NOTE:__ Changed generated documentation file to `doc/810.05a-xl2roefact_DLD_specs.md` and referred in main `doc/810.05a-xl2roefact_component.md` as this being a final solution for whole project documentation (that generated with `mkdocs`)
-    * [x] updated `pyproject.toml, [tool.pdm.scripts]` table with new generated doc file name (810.05a-xl2roefact_DLD_specs.md)
-
-* 231227piu_b updated `xl2roefact.rdinv` module ref dropped `_` chars from internal function names to allow doc generation by PyDoc until will produce a YAML file for PyDoc generator (where will be able to specify concrete list of objects regarding their names)
-
-* 231227piu_a generated a first draft of markdown documentation:
-    * [x] used Pydoc Markdown @ `https://niklasrosenstein.github.io/pydoc-markdown/usage/yaml/#yaml-example`
-    * [x] results ==> `<PJ_ROOT>/xl2roefact/doc/generated_810.05a-xl2roefact_component.md`
-    * [x] created PDM shell command `pdm run` (command just for quick remembers: `pydoc-markdown -I xl2roefact --render-toc >doc/generated_810.05a-xl2roefact_component.md`)
-
-* 231226piu_b reviewed `xl2roefact` all "in use" code and updated `docstrings`
-
-* 231226piu_a made some useful PDM scripts (ref `pyproject.toml`, table section `[tool.pdm.scripts]`) like build commands for:
-    * [x] **`pdm build_wheel`** Python package,
-    * [x] **`pdm build_msi`** MSI package,
-    * [x] **`pdm build_all`** build all packages
-    * [x] **`pdm xl2roefact`** run xl2roefact command
-    * [x] updated `doc/810.05a-xl2roefact_component.md`
-
-
-
-
-
-
-### 0.1.17.dev fixed all application & package running standard ways (231224 h05:30)
-
-* RELEASES:
-    * `.<PROJECT>/xl2roefact/dist/xl2roefact-0.1.17-win64.msi`
-    * `<PROJECT>/xl2roefact/dist/xl2roefact-0.1.17.tar.gz`
-    * `<PROJECT>/xl2roefact/dist/xl2roefact-0.1.17-py3-none-any.whl`
-
-* 231224piu_a made cli app to run as: Python package main app (`python -m xl2roefact`) and as script (`python xl2roefact.py`) while still letting the Python library `xl2roefact` as importable and use in a programmatic way:
-    * [x] make `.../xl2roefact/app_cli.py` (from actual `.../xl2roefact/__main__.py`) which is complete code of CLI app plus a `run()` function that just launch it
-    * [x] make `.../xl2roefact/__main__.py` that just import `app_cli` for `run()` function and call it
-    * [x] change actual `<xl2roefact ROOT/>xl2roefact.py` to import `xl2roefact.app_cli` for `run()` function and call it
-    * [x] test for MSI package builds ref `<xl2roefact ROOT/>xl2roefact.py`
-    * [x] clean code, test and close issue:
-        * `python xl2roefact.py [OPTIONS] COMMAND [ARGS]...`
-        * `python -m xl2roefact [OPTIONS] COMMAND [ARGS]...`
-
-* 231223piu_a multiple changes ref main code: `xl2roefact.py` and library `xl2roefact`, MAINLY created `xl2roefact/__main__.py` as normal of xl2roefact.py
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Archived CHANGELOGs
 
-* [0.1.16.dev improving Excel kv-data search with "IN-LABEL" method](./changelog_history/CHANGELOG-0.1.16.dev.md)
-* [0.1.15 updated solution portal `http://invoicetoroefact.renware.eu/`](./changelog_history/CHANGELOG-0.1.15.md)
-* [0.1.14.dev invoice issue date](./changelog_history/CHANGELOG-0.1.14.dev.md)
-* [0.1.13.dev invoice currency](./changelog_history/CHANGELOG-0.1.13.dev.md)
-* [0.1.12.dev invoice number](./changelog_history/CHANGELOG-0.1.12.dev.md)
-* [0.1.11.dev packaging improvements for app & xl2roefact package](./changelog_history/CHANGELOG-0.1.11.dev.md)
-* [0.1.10.dev command interface improved, `msi` package building, invoice template & updated documentation](./changelog_history/CHANGELOG-0.1.10.dev.md)
-* [0.1.9.dev `xl2roefact.RDINV` running executable and distribution kit](./changelog_history/CHANGELOG-0.1.9.dev.md)
-* [0.1.8.dev improved application structure and first executable release](./changelog_history/CHANGELOG-0.1.8.dev.md)
-* [0.1.7.dev `xl2roefact.RDINV` invoice items & metadata + *OPEN ISSUES*](./changelog_history/CHANGELOG-0.1.7.dev.md)
-* [0.1.6.dev commercial agreement OPTIONS document](changelog_history/CHANGELOG-0.1.6.dev.md)
-* [0.1.5.dev init component *xl2roefact* for CLI application](./changelog_history/CHANGELOG-0.1.5.dev.md)
-* [0.1.4.dev Create system backbone structure](./changelog_history/CHANGELOG-0.1.4.dev.md)
-* [0.1.3.dev Enhancing `payments_validation_board` technical proposal](./changelog_history/CHANGELOG-0.1.3.dev.md)
-* [0.1.2.dev Enhancing `APItoROefact` technical proposal](./changelog_history/CHANGELOG-0.1.2.dev.md)
-* [0.1.1.dev Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.dev.md)
-* [0.1.0.dev System raw backbone](./changelog_history/CHANGELOG-0.1.0.dev.md)
+## 0.1 version
+
+* [`0.1.19.dev` invoice customer and partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.19.dev.md)
+* [`0.1.18.dev` invoice customer CUI partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.18.dev.md)
+* [`0.1.17.dev` fixed all application & package running standard ways](./changelog_history/CHANGELOG-0.1.17.dev.md)
+* [`0.1.16.dev` improving Excel kv-data search with "IN-LABEL" method](./changelog_history/CHANGELOG-0.1.16.dev.md)
+* [`0.1.15` updated solution portal `http://invoicetoroefact.renware.eu/`](./changelog_history/CHANGELOG-0.1.15.md)
+* [`0.1.14.dev` invoice issue date](./changelog_history/CHANGELOG-0.1.14.dev.md)
+* [`0.1.13.dev` invoice currency](./changelog_history/CHANGELOG-0.1.13.dev.md)
+* [`0.1.12.dev` invoice number](./changelog_history/CHANGELOG-0.1.12.dev.md)
+* [`0.1.11.dev` packaging improvements for app & xl2roefact package](./changelog_history/CHANGELOG-0.1.11.dev.md)
+* [`0.1.10.dev` command interface improved, `msi` package building, invoice template & updated documentation](./changelog_history/CHANGELOG-0.1.10.dev.md)
+* [`0.1.9.dev` `xl2roefact.RDINV` running executable and distribution kit](./changelog_history/CHANGELOG-0.1.9.dev.md)
+* [`0.1.8.dev` improved application structure and first executable release](./changelog_history/CHANGELOG-0.1.8.dev.md)
+* [`0.1.7.dev` `xl2roefact.RDINV` invoice items & metadata + *OPEN ISSUES*](./changelog_history/CHANGELOG-0.1.7.dev.md)
+* [`0.1.6.dev` commercial agreement OPTIONS document](changelog_history/CHANGELOG-0.1.6.dev.md)
+* [`0.1.5.dev` init component *xl2roefact* for CLI application](./changelog_history/CHANGELOG-0.1.5.dev.md)
+* [`0.1.4.dev` Create system backbone structure](./changelog_history/CHANGELOG-0.1.4.dev.md)
+* [`0.1.3.dev` Enhancing `payments_validation_board` technical proposal](./changelog_history/CHANGELOG-0.1.3.dev.md)
+* [`0.1.2.dev` Enhancing `APItoROefact` technical proposal](./changelog_history/CHANGELOG-0.1.2.dev.md)
+* [`0.1.1.dev` Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.dev.md)
+* [`0.1.0.dev` System raw backbone](./changelog_history/CHANGELOG-0.1.0.dev.md)
 
 
 
