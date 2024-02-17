@@ -3,7 +3,7 @@ name: build_site
 on:
   push:
     branches:
-      - build
+      - build-site
 permissions:
   contents: write
 jobs:
