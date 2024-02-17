@@ -131,6 +131,6 @@ weasyprint==59.0
 webencodings==0.5.1
 websocket-client==1.6.1
 wsproto==1.2.0
--e git+https://github.com/petre-renware/api_to_roefact@9cba471b5d9e4fb04f49df8359d0800e46c4c621#egg=xl2roefact&subdirectory=xl2roefact
+# -e git+https://github.com/petre-renware/api_to_roefact@9cba471b5d9e4fb04f49df8359d0800e46c4c621#egg=xl2roefact&subdirectory=xl2roefact
 zipp==3.16.2
 zopfli==0.2.2
