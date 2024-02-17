@@ -74,7 +74,7 @@
 
 ### 0.1.22b xl2roefact application interface improvements (240217 h12:00)
 
-* ...wip... #TODO: 240217piu_b updated site with new `0.1.22b` deliverables, `xl2roefact CLI, WHEEL & DIST`
+* 240217piu_b updated site with new `0.1.22b` deliverables, `xl2roefact CLI, WHEEL & DIST`
 * 240217piu_a automated build of xl2roefact artifacts (on merge to branch `build-xl2roefact`)
 * 240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended
 * 240216piu_a automated GitHub site build & publishing. FIXED ERROR: `mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got <class 'function'>` was changed `run` object to `app_cli` one
