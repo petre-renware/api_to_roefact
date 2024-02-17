@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 #!../.venv/bin/python3
 """app_cli: the command line application for all xl2roefact functionalities.
 
@@ -66,7 +64,7 @@ def settings(
     ] = False
 ):
     """display application configuration parameters and settings that are subject to be changed by user.
-    
+
     Args:
         `rules`: show recommended rules to follow when change application configurable settings (available in both RO & EN languages). Defaults to `False`.
     """
@@ -178,4 +176,3 @@ run = app_cli  # NOTE: for `run` "reason to be" as copy of `app_cli` see iss `0.
 if __name__ == "__main__":
     main()
 
->>>>>>> petre-dev
