@@ -65,22 +65,7 @@
 
 * wip...
 
-* TODO: wip ...240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended. Detailed specs:
-    * [x] dedicated downloads page `doc_src/downloads.md`  #NOTE use template from main README.md
-    * [x] collected all existing dwndld links in `doc_src/downloads.md` - need to be moved at their right positions in file
-    * [x] for next items, in `downloads.md` there are **already built links to sections** (as html comments in file):
-        * [x] refer that page in `xl2roefact/README.md`
-        * [ ] refer that page in `xl2roefact/doc/README_xl2roefact_library.md`, `excel_invoice_template/README.md`
-        * [ ] refer that page in `excel_invoice_template/README.md`
-    * [x] `mkdocs.yml` nav entry for  "Help --> Descarcare resurse (Downloads)" to `doc_src/downloads.md`
-    * [x] fill in `...downloads.md` page with all existing deliverables GROUPED BY file types & ORDER BY version DESC
-
-* -------TODO:.from.here.to.up:-------- test & rebuild all (`pdm build_all`) & site. Updates to check:
-        - page "Help --> Downloads" (or in topnav area?)
-        - `app_cli.settings()` function docstring: display arguments in "Referinta API"
-        - chk if show `-r`  option in "Referinta CLI"
-
-
+* 240214piu_b make in site a dedicated page for downloads: "Help --> Downloads" and refer it in all places where downloads are intended
 * 240216piu_a automated GitHub site build & publishing. FIXED ERROR: `mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got <class 'function'>` was changed `run` object to `app_cli` one
 * 240214piu_c.BUGFIX ref `240213piu_a.FAILED` fixed & enabled `.github/.../ci.yml`. To test by merging to `build`
 * 240214piu_a xl2roefact component (`.../app_cli.py`) function `settings(...)` add `--rules` option (param) to display `config_settings.__doc__`

@@ -211,7 +211,10 @@ Cheile de la primul nivel contin:
 
 
 
-## [Descarcare (download) aplicatie xl2roefact CLI](../doc_src/downloads.md#format-msi-instalare-windows-x64)
+## Descarcare (download) aplicatie xl2roefact CLI
+
+* [Pachet instalare aplicatie Windows](../doc_src/downloads.md#format-msi-instalare-windows-x64)
+* [Pachet instalare script Python](../doc_src/downloads.md#format-biblioteca-python)
 
 
 

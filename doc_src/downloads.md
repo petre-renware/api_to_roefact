@@ -10,13 +10,6 @@
 [TOC]
 
 
-<!-- #FIXME DROP SECTION AFTER TEST...
-
-* [x] (../doc_src/downloads.md#format-msi-instalare-windows-x64)
-* [ ] (../doc_src/downloads.md#format-biblioteca-python)
-* [ ] (../doc_src/downloads.md#format-xlsx-office-excel)
-
-#FIXME up here to drop------------------------------------>
 
 
 ## Format biblioteca Python
