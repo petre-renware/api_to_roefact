@@ -1948,6 +1948,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.settings">settings</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.xl2json">xl2json</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.called_when_no_command">called_when_no_command</a></li>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.run">run</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkisld">chkisld</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkxml">chkxml</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings">config_settings</a></li>
@@ -1971,19 +1972,8 @@ cit si la nivel detaliat pentru fiecare comanda
 <p>app_cli: the command line application for all xl2roefact functionalities.</p>
 <p>Identification:</p>
 <ul>
-<li>code-name: <code>xl2roefact</code></li>
 <li>copyright: (c) 2023 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
-</ul>
-<p>Deployments:</p>
-<ul>
-<li>Windows:  MSI installer with EXE application.</li>
-<li>Linux: <code>xl2roefact</code> executable shell as wrapper for <code>xl2roefact.py</code>.</li>
-</ul>
-<p>Specifications:</p>
-<ul>
-<li>command general format: <code>xl2roefact [file(s)-to-convert] COMMAND [OPTIONS]</code>.</li>
-<li>help: <code>xl2roefact [COMMAND] --help</code>.</li>
 </ul>
 <p><a id="app_cli.about"></a></p>
 <h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-about">about</h4>
@@ -2051,6 +2041,9 @@ cit si la nivel detaliat pentru fiecare comanda
     <span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <p>function called when no command is invoked and to provide only application version (for external users to test it!).</p>
+<p><a id="app_cli.run"></a></p>
+<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-run">run</h4>
+<p>NOTE: for <code>run</code> "reason to be" as copy of <code>app_cli</code> see iss <code>0.1.22b 240216piu_a</code></p>
 <p><a id="chkisld"></a></p>
 <h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkisld">chkisld</h1>
 <p>chkisld: modul de verificare a starii de incarcare a unei facturi emise</p>
@@ -2880,7 +2873,7 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 </ul>
 </li>
 <li><a href="#doc_src-downloads-format-msi-instalare-windows-x64">Format MSI instalare Windows x64</a><ul>
-<li><a href="#doc_src-downloads-aplicatia-xl2roefact-linie-comanda">Aplicatia xl2roefact linie comanda</a></li>
+<li><a href="#doc_src-downloads-aplicatia-xl2roefact-linie-comanda-win64-msi">Aplicatia xl2roefact linie comanda (win64-msi)</a></li>
 </ul>
 </li>
 <li><a href="#doc_src-downloads-format-deb-instalare-linux">Format DEB instalare Linux</a></li>
@@ -2895,30 +2888,33 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <h2 id="doc_src-downloads-format-biblioteca-python">Format biblioteca Python</h2>
 <h3 id="doc_src-downloads-pachetul-xl2roefact-pypi-library">Pachetul xl2roefact PyPi library</h3>
 <ul>
-<li><a href="xl2roefact/dist/xl2roefact-0.1.20-py3-none-any.whl" title="download">0.1.20.dev invoice customer address WHEEL</a></li>
-<li><a href="xl2roefact/dist/xl2roefact-0.1.20.tar.gz" title="download">0.1.20.dev invoice customer address DIST</a></li>
-<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19-py3-none-any.whl" title="download">0.1.19.dev invoice customer and partial invoice total values calculations WHEEL</a></li>
-<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19.tar.gz" title="download">0.1.19.dev invoice customer and partial invoice total values calculations DIST</a></li>
-<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18-py3-none-any.whl" title="download">0.1.18.dev invoice customer CUI partial invoice total values calculations WHEEL</a></li>
-<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18.tar.gz" title="download">0.1.18.dev invoice customer CUI partial invoice total values calculations DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.22b0-py3-none-any.whl" title="download"><code>0.1.22b</code> xl2roefact application interface improvements WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.22b0.tar.gz" title="download"><code>0.1.22b</code> xl2roefact application interface improvements DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.20-py3-none-any.whl" title="download"><code>0.1.20.dev</code> invoice customer address WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.20.tar.gz" title="download"><code>0.1.20.dev</code> invoice customer address DIST</a></li>
+<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19-py3-none-any.whl" title="download"><code>0.1.19.dev</code> invoice customer and partial invoice total values calculations WHEEL</a></li>
+<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19.tar.gz" title="download"><code>0.1.19.dev</code> invoice customer and partial invoice total values calculations DIST</a></li>
+<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18-py3-none-any.whl" title="download"><code>0.1.18.dev</code> invoice customer CUI partial invoice total values calculations WHEEL</a></li>
+<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18.tar.gz" title="download"><code>0.1.18.dev</code> invoice customer CUI partial invoice total values calculations DIST</a></li>
 </ul>
 <h3 id="doc_src-downloads-pachetul-web2roefact-pypi-library">Pachetul web2roefact PyPi library</h3>
 <p>Nici o resursa disponibila.</p>
 <h2 id="doc_src-downloads-format-msi-instalare-windows-x64">Format MSI instalare Windows x64</h2>
-<h3 id="doc_src-downloads-aplicatia-xl2roefact-linie-comanda">Aplicatia xl2roefact linie comanda</h3>
+<h3 id="doc_src-downloads-aplicatia-xl2roefact-linie-comanda-win64-msi">Aplicatia xl2roefact linie comanda (win64-msi)</h3>
 <ul>
-<li><a href="xl2roefact/dist/xl2roefact-0.1.20-win64.msi" title="download">0.1.20.dev invoice customer address MSI installer win64</a></li>
-<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19-win64.msi" title="download">0.1.19.dev invoice customer and partial invoice total values calculations MSI installer win64</a></li>
-<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18-win64.msi" title="download">0.1.18.dev invoice customer CUI partial invoice total values calculations MSI installer win64</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi" title="download"><code>0.1.22b</code> xl2roefact application interface improvements</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.20-win64.msi" title="download"><code>0.1.20.dev</code> invoice customer address</a></li>
+<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19-win64.msi" title="download"><code>0.1.19.dev</code> invoice customer and partial invoice total values calculations</a></li>
+<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18-win64.msi" title="download"><code>0.1.18.dev</code> invoice customer CUI partial invoice total values calculations</a></li>
 </ul>
 <h2 id="doc_src-downloads-format-deb-instalare-linux">Format DEB instalare Linux</h2>
 <p>Nici o resursa disponibila.</p>
 <h2 id="doc_src-downloads-format-xlsx-office-excel">Format XLSX Office Excel</h2>
 <h3 id="doc_src-downloads-sablon-factura-in-office-excel">Sablon factura in Office Excel</h3>
 <ul>
-<li><a href="excel_invoice_template/invoice_template_CU_tva.xlsx" title="download">office Excel XLSX 0.1.20</a></li>
-<li><a href="excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip" title="download">arhiva ZIP 0.1.20</a></li>
-<li><a href="excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip" title="download">arhiva ZIP 0.1.11</a></li>
+<li><a href="excel_invoice_template/invoice_template_CU_tva.xlsx" title="download"><code>0.1.20</code> office Excel XLSX</a></li>
+<li><a href="excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip" title="download"><code>0.1.20</code> arhiva ZIP</a></li>
+<li><a href="excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip" title="download"><code>0.1.11</code> arhiva ZIP</a></li>
 </ul>
 <p>.</p></section><h1 class='nav-section-title-end'>Ended: Help</h1>
                         <h1 class='nav-section-title' id='section-about'>
@@ -3547,18 +3543,21 @@ Public License instead of this License.  But first, please read
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-01-note_wip">0.1 (-#NOTE_wip...)</a><ul>
-<li><a href="#changelog-todo_wip-0122dev-xl2roefact-application-interface-improvements-invoice-customer-info-optional-items-bank-email-reg-com-phone-note-upd-dev-qualifier-set-date-here">#TODO..._wip... 0.1.22.dev xl2roefact application interface improvements &amp; invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier &amp; set date here...)</a></li>
+<li><a href="#changelog-todo_wip-0123-xl2roefact-invoice-customer-info-optional-items-bank-email-reg-com-phone-note-upd-dev-qualifier-set-date-here">#TODO..._wip... 0.1.23??? xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier &amp; set date here...)</a></li>
+<li><a href="#changelog-0122b-xl2roefact-application-interface-improvements-240217-h1200">0.1.22b xl2roefact application interface improvements (240217 h12:00)</a></li>
 <li><a href="#changelog-0121post3-cleaned-system-documentation-and-site-240211-h2359">0.1.21.post3 cleaned system documentation and site (240211 h23:59)</a></li>
 <li><a href="#changelog-0121post2-xl2roefact-app-detailed-section-with-commands-options-help-like-240206-h2359">0.1.21.post2 xl2roefact app detailed section with commands &amp; options "--help" like (240206 h23:59)</a></li>
 <li><a href="#changelog-0121post1-fixed-missing-links-in-site-root-index-page-240203-h1030">0.1.21.post1 fixed missing links in site root index page (240203 h10:30)</a></li>
 <li><a href="#changelog-0121-rollout-news-in-system-portal-invoicetoroefactrenwareeu-240203-h0900">0.1.21 rollout news in system portal invoicetoroefact.renware.eu (240203 h09:00)</a></li>
 <li><a href="#changelog-0120dev-invoice-customer-address-240123-h1000">0.1.20.dev invoice customer address (240123 h10:00)</a></li>
-<li><a href="#changelog-0119dev-invoice-customer-and-partial-invoice-total-values-calculations-240116-h0600">0.1.19.dev invoice customer and partial invoice total values calculations (240116 h06:00)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#changelog-archived-changelogs">Archived CHANGELOGs</a></li>
+<li><a href="#changelog-archived-changelogs">Archived CHANGELOGs</a><ul>
+<li><a href="#changelog-01-version">0.1 version</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <h1 id="changelog-changelog">CHANGELOG</h1>
@@ -3594,7 +3593,7 @@ Public License instead of this License.  But first, please read
             * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build &amp; write &quot;Invoice&quot; key)
     -------------------------------------------------------------------------------------------------
 </code></pre></div>
-<h3 id="changelog-todo_wip-0122dev-xl2roefact-application-interface-improvements-invoice-customer-info-optional-items-bank-email-reg-com-phone-note-upd-dev-qualifier-set-date-here">#TODO..._wip... 0.1.22.dev xl2roefact application interface improvements &amp; invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier &amp; set date here...)</h3>
+<h3 id="changelog-todo_wip-0123-xl2roefact-invoice-customer-info-optional-items-bank-email-reg-com-phone-note-upd-dev-qualifier-set-date-here">#TODO..._wip... 0.1.23??? xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier &amp; set date here...)</h3>
 <ul>
 <li>
 <p>tbd.Must... @RELEASE <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></p>
@@ -3620,11 +3619,14 @@ Public License instead of this License.  But first, please read
 <p>tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in <code>rdinv()</code> w./line 179 &amp; then 331)</p>
 </li>
 <li>
-<p>wip...</p>
+<p>wip... last used 240217piu_b</p>
 </li>
-<li>
-<p>240214piu_b make in site a dedicated page for downloads: "Help --&gt; Downloads" and refer it in all places where downloads are intended</p>
-</li>
+</ul>
+<h3 id="changelog-0122b-xl2roefact-application-interface-improvements-240217-h1200">0.1.22b xl2roefact application interface improvements (240217 h12:00)</h3>
+<ul>
+<li>...wip... #TODO: 240217piu_b updated site with new <code>0.1.22b</code> deliverables, <code>xl2roefact CLI, WHEEL &amp; DIST</code></li>
+<li>240217piu_a automated build of xl2roefact artifacts (on merge to branch <code>build-xl2roefact</code>)</li>
+<li>240214piu_b make in site a dedicated page for downloads: "Help --&gt; Downloads" and refer it in all places where downloads are intended</li>
 <li>240216piu_a automated GitHub site build &amp; publishing. FIXED ERROR: <code>mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got &lt;class 'function'&gt;</code> was changed <code>run</code> object to <code>app_cli</code> one</li>
 <li>240214piu_c.BUGFIX ref <code>240213piu_a.FAILED</code> fixed &amp; enabled <code>.github/.../ci.yml</code>. To test by merging to <code>build</code></li>
 <li>240214piu_a xl2roefact component (<code>.../app_cli.py</code>) function <code>settings(...)</code> add <code>--rules</code> option (param) to display <code>config_settings.__doc__</code></li>
@@ -3728,54 +3730,10 @@ Public License instead of this License.  But first, please read
 <p>240116_admin_01 upd <strong>version</strong> for 0.1.20</p>
 </li>
 </ul>
-<h3 id="changelog-0119dev-invoice-customer-and-partial-invoice-total-values-calculations-240116-h0600">0.1.19.dev invoice customer and partial invoice total values calculations (240116 h06:00)</h3>
-<ul>
-<li>
-<p>2401_xl2roefact_doc_01 <code>xl2roefact</code> update technical documentation, file <code>xl2roefact/doc/810.05a-xl2roefact_component.md</code></p>
-</li>
-<li>
-<p>240112piu_b 95% clean code <code>rdinv()</code> from customer area identification, from line 204 (kept a DBG print just for area identification (useful for next task ref the same opers but for Supplier))</p>
-</li>
-<li>
-<p>240112piu_a module <code>app_cli.py</code>, created <code>called_when_no_command(...)</code> function called when no command is invoked and to provide only application version (for external users to test it!)</p>
-</li>
-<li>
-<p>240110piu_c <code>xl2json</code> <code>about</code> command to get version &amp; "nice" LOGO from <code>xl2roefact/__version__.py</code>, vars <code>__version__</code> &amp; <code>__doc__</code></p>
-</li>
-<li>
-<p>240110piu_b <code>xl2roefact/setup.py</code>ref get app version from file when build EXE/MSI test for <code>__version__</code> is correctly get and release</p>
-</li>
-<li>
-<p>240110piu.a reviewed &amp; updated <code>xl2roefact</code> package <code>README.md</code> + <code>xl2roefact/__version__.py</code> with an app logo and for text mistyping bugs</p>
-</li>
-<li>
-<p>240108piu_c changed <code>pyproject.toml</code> for auto update package version from file <code>xl2roefact/__version__.py</code> (see also opiss 240108piu_b)</p>
-</li>
-<li>
-<p>240108piu_b created <code>xl2roefact/__version__</code> file that contains variable <code>__version__</code> with INTENTION to use in <code>pyproject.toml</code> for app version key (in a future issue)</p>
-</li>
-<li>
-<p>240108piu_a more items:</p>
-<ul>
-<li><code>config_settings.py</code> created entry <code>PATTERN_FOR_PARTNER_ADDRESS</code> &amp; updated <code>rdinv</code> module in constants area</li>
-<li>add comments in <code>app_cli.py</code> ref <code>def_inv_dir</code> issue &amp;&amp;...</li>
-<li>updated environment dependencies and installed <code>pyinstaller</code> development package with intention to make "single EXE" application to be able to run "from USB stick"</li>
-</ul>
-</li>
-<li>
-<p>240107piu_a reviewed <code>xl2roefact</code> package <code>README.md</code>:</p>
-<ul>
-<li>(c) explained proposed &amp; promoted directory structure used by CLI application</li>
-<li>(b) short invoice JSON file structure</li>
-<li>(a) created first version of tutorial section</li>
-</ul>
-</li>
-<li>
-<p>240106piu_a invoice customer search and persist for "RegistrationName"</p>
-</li>
-</ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
+<h2 id="changelog-01-version">0.1 version</h2>
 <ul>
+<li><a href="#changelog_history-changelog-0.1.19.dev"><code>0.1.19.dev</code> invoice customer and partial invoice total values calculations</a></li>
 <li><a href="#changelog_history-changelog-0.1.18.dev"><code>0.1.18.dev</code> invoice customer CUI partial invoice total values calculations</a></li>
 <li><a href="#changelog_history-changelog-0.1.17.dev"><code>0.1.17.dev</code> fixed all application &amp; package running standard ways</a></li>
 <li><a href="#changelog_history-changelog-0.1.16.dev"><code>0.1.16.dev</code> improving Excel kv-data search with "IN-LABEL" method</a></li>
