@@ -231,6 +231,7 @@
 
 # Archived CHANGELOGs
 
+## 0.1 version
 
 * [`0.1.18.dev` invoice customer CUI partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.18.dev.md)
 * [`0.1.17.dev` fixed all application & package running standard ways](./changelog_history/CHANGELOG-0.1.17.dev.md)
