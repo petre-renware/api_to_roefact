@@ -220,9 +220,7 @@
 
 
 <details markdown="1"><summary markdown="1">
-
 ## 0.1 version
-
 </summary>
 
 <!--#TODO collect rest of 0.1 items here... List of them; -->
@@ -233,11 +231,10 @@ Items not yet reviewed, extracted and archived:
 * `0.1.21.post2` xl2roefact app detailed section with commands & options "--help" like
 * `0.1.21.post1` fixed missing links in site root index page
 * `0.1.21` rollout news in system portal invoicetoroefact.renware.eu
-* `0.1.20.dev` invoice customer address
-
 
 Items reviewed and archived:
 
+* [`0.1.20.dev` invoice customer address](./changelog_history/CHANGELOG-0.1.20.dev.md)
 * [`0.1.19.dev` invoice customer and partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.19.dev.md)
 * [`0.1.18.dev` invoice customer CUI partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.18.dev.md)
 * [`0.1.17.dev` fixed all application & package running standard ways](./changelog_history/CHANGELOG-0.1.17.dev.md)
