@@ -215,15 +215,15 @@
 </summary>
 
 <!--#TODO collect rest of 0.1 items here... List of them;
-    
-    * 0.1.20.dev invoice customer address
-    * 0.1.21 rollout news in system portal invoicetoroefact.renware.eu
-    * 0.1.21.post1 fixed missing links in site root index page (240203 h10:30)
-    * 0.1.21.post2 xl2roefact app detailed section with commands & options "--help" like (240206 h23:59)
-    * ### 0.1.21.post3 cleaned system documentation and site (240211 h23:59)
-    * ### 0.1.22b xl2roefact application interface improvements (240217 h12:00)
-    * 
+
+* 0.1.22b xl2roefact application interface improvements (240217 h12:00)
+* 0.1.21.post3 cleaned system documentation and site (240211 h23:59)
+* 0.1.21.post2 xl2roefact app detailed section with commands & options "--help" like (240206 h23:59)
+* 0.1.21.post1 fixed missing links in site root index page (240203 h10:30)
+* 0.1.21 rollout news in system portal invoicetoroefact.renware.eu (240203 h09:00)
+* 0.1.20.dev invoice customer address (240123 h10:00)
 -->
+
 * [`0.1.19.dev` invoice customer and partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.19.dev.md)
 * [`0.1.18.dev` invoice customer CUI partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.18.dev.md)
 * [`0.1.17.dev` fixed all application & package running standard ways](./changelog_history/CHANGELOG-0.1.17.dev.md)
