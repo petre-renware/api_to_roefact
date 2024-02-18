@@ -1,0 +1,18 @@
+{
+    "invoices": [
+		{
+            "serie_nr": "RENF1005",
+            "cantitate": 1,
+            "client": "CONNECTIONS CONSULT SRL",
+            "curs": 4.9358,
+            "data_emitere": "2023-Aug-28",
+            "moneda": "LEI",
+            "pu": 14807.40,
+            "pu_eur": 3000,
+            "um": "buc",
+            "val_neta": 14807.40,
+            "val_totala": 17620.81,
+            "val_tva": 2813.41
+        }
+    ]
+}
