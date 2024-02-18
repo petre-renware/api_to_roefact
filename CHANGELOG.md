@@ -217,7 +217,7 @@
 </summary>
 
 <!--#TODO collect rest of 0.1 items here... List of them; -->
-Items not yet reviewed, extracted and archived;
+Items not yet reviewed, extracted and archived:
 
 * `0.1.22b` xl2roefact application interface improvements
 * `0.1.21.post3` cleaned system documentation and site
