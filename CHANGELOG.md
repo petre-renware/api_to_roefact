@@ -211,8 +211,7 @@
 
 
 <details markdown="1"><summary markdown="1">
-## 0.1 version
-    
+**0.1 version**
 </summary>
 
 <!--#TODO collect rest of 0.1 items here... List of them; -->
