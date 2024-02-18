@@ -184,6 +184,8 @@
 
 
 
+
+-#FIXME: from.here ------------
 ### 0.1.20.dev invoice customer address (240123 h10:00)
 
 * 240123piu_b make a full chk / review for FIXME & run `pdm build_all`
@@ -206,7 +208,7 @@
     * [x] 6. updated invoice template for country explicit field
 
 * 240116_admin_01 upd __version__ for 0.1.20
-
+-#FIXME: to.here ------------
 
 
 
