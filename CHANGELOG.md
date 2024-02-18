@@ -210,8 +210,8 @@
 # Archived CHANGELOGs
 
 
-## <details><summary>
-0.1 version
+<details><summary>
+## 0.1 version
 
 </summary>
 
