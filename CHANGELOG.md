@@ -15,7 +15,7 @@
 
 
 
-## 0.1 (-#NOTE_wip...)
+## 0.2 (-#NOTE_wip...)
 
 ```
     - ---[ #TODO general planning board ]---------------------------
@@ -46,7 +46,7 @@
 
 
 
-### #TODO..._wip... 0.1.23??? xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
+### #TODO..._wip... 0.2.0 xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -63,7 +63,9 @@
 
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
-* wip... last used 240217piu_b
+* wip...
+
+* 240218piu_a documentation improvements by using dropdown items
 
 
 
@@ -71,6 +73,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 0.1 (closed 240217 h21:30)
 
 ### 0.1.22b xl2roefact application interface improvements (240217 h12:00)
 
@@ -198,7 +216,25 @@
 
 # Archived CHANGELOGs
 
+
+<details markdown="1"><summary markdown="1">
+
 ## 0.1 version
+
+</summary>
+
+<!--#TODO collect rest of 0.1 items here... List of them; -->
+Items not yet reviewed, extracted and archived:
+
+* `0.1.22b` xl2roefact application interface improvements
+* `0.1.21.post3` cleaned system documentation and site
+* `0.1.21.post2` xl2roefact app detailed section with commands & options "--help" like
+* `0.1.21.post1` fixed missing links in site root index page
+* `0.1.21` rollout news in system portal invoicetoroefact.renware.eu
+* `0.1.20.dev` invoice customer address
+
+
+Items reviewed and archived:
 
 * [`0.1.19.dev` invoice customer and partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.19.dev.md)
 * [`0.1.18.dev` invoice customer CUI partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.18.dev.md)
@@ -221,15 +257,6 @@
 * [`0.1.1.dev` Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.dev.md)
 * [`0.1.0.dev` System raw backbone](./changelog_history/CHANGELOG-0.1.0.dev.md)
 
+</details> 
 
 
-
-
-
-<!-- #TODO create this ? released notes are alreay (@240207) published in GitHub releases
-
-# [Release Notes](RELNOTE.md)
-
-* wip... [not_yet_created... 0.1]  (./changelog_history/...)
-
--->
