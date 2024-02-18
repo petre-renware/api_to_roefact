@@ -3547,7 +3547,6 @@ Public License instead of this License.  But first, please read
 <li><a href="#changelog-0121post2-xl2roefact-app-detailed-section-with-commands-options-help-like-240206-h2359">0.1.21.post2 xl2roefact app detailed section with commands &amp; options "--help" like (240206 h23:59)</a></li>
 <li><a href="#changelog-0121post1-fixed-missing-links-in-site-root-index-page-240203-h1030">0.1.21.post1 fixed missing links in site root index page (240203 h10:30)</a></li>
 <li><a href="#changelog-0121-rollout-news-in-system-portal-invoicetoroefactrenwareeu-240203-h0900">0.1.21 rollout news in system portal invoicetoroefact.renware.eu (240203 h09:00)</a></li>
-<li><a href="#changelog-0120dev-invoice-customer-address-240123-h1000">0.1.20.dev invoice customer address (240123 h10:00)</a></li>
 </ul>
 </li>
 </ul>
@@ -3699,39 +3698,6 @@ Public License instead of this License.  But first, please read
 <li>240127piu_a updated <code>810-DSGN/810.05a-system_components.md</code>, defined a classification usable to quickly find out <em>who-does-what</em></li>
 <li>240125piu_a updated <code>mkdocs.yml</code> by including <code>mkdocs-same-dir</code> plug-in</li>
 </ul>
-<h3 id="changelog-0120dev-invoice-customer-address-240123-h1000">0.1.20.dev invoice customer address (240123 h10:00)</h3>
-<ul>
-<li>
-<p>240123piu_b make a full chk / review for FIXME &amp; run <code>pdm build_all</code></p>
-</li>
-<li>
-<p>240123piu_a <code>def_inv_dir</code> issue ref Excel invoices default get directory, see comments in <code>app_cli.py</code> function <code>xl2json(...)</code></p>
-</li>
-<li>
-<p>240121piu_a updated <code>config_settings.py</code> &amp; <code>rdinv.py</code> with constants: <code>PATTERN_FOR_PARTNER_REGCOM</code>, <code>PATTERN_FOR_PARTNER_IBAN</code>, <code>PATTERN_FOR_PARTNER_TEL</code>, <code>PATTERN_FOR_PARTNER_EMAIL</code>, <code>PATTERN_FOR_PARTNER_BANK</code></p>
-</li>
-<li>
-<p>@CANCELED 240118_admin02 generalize a function <code>get_partner_info(partner_type: str "customer" | "supplier")</code> to get partner info with partner type as being parameter</p>
-</li>
-<li>
-<p>240118piu_a reviewed and cleaned code: <code>rdinv.rdinv()</code>, <code>config_settings</code>, <code>excel_invoice_template/invoice_template_CU_tva.xlsx</code> (according to updates in testing used invoice)</p>
-</li>
-<li>
-<p>240113piu_a to find <code>cac:PostalAddress</code> and write to:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. right set position of key <code>"cac_PostalAddress"</code> in basic structure (invoice_header_area)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2a. find excel area ref customer address (...invoice_header_area...)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2b. disseminate &amp; save excel original area (...invoice_header_area...)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. get &amp; set <code>["Invoice"]["cac_PostalAddress"]</code> and all is subsequent keys</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. update XML - JSON map for item "under" <code>cac_PostalAddress</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. defined and included for use <code>DEFAULT_SUPPLIER_COUNTRY</code> and <code>DEFAULT_CUSTOMER_COUNTRY</code> both for "RO". Detailed desc and usage in <code>config_settings.py</code> &amp; <code>rdinv.rdinv(...)</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 6. updated invoice template for country explicit field</li>
-</ul>
-</li>
-<li>
-<p>240116_admin_01 upd <strong>version</strong> for 0.1.20</p>
-</li>
-</ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
 <details>
 <summary markdown="1">
@@ -3745,10 +3711,10 @@ Public License instead of this License.  But first, please read
 <li><code>0.1.21.post2</code> xl2roefact app detailed section with commands &amp; options "--help" like</li>
 <li><code>0.1.21.post1</code> fixed missing links in site root index page</li>
 <li><code>0.1.21</code> rollout news in system portal invoicetoroefact.renware.eu</li>
-<li><code>0.1.20.dev</code> invoice customer address</li>
 </ul>
 <p>Items reviewed and archived:</p>
 <ul>
+<li><a href="#changelog_history-changelog-0.1.20.dev"><code>0.1.20.dev</code> invoice customer address</a></li>
 <li><a href="#changelog_history-changelog-0.1.19.dev"><code>0.1.19.dev</code> invoice customer and partial invoice total values calculations</a></li>
 <li><a href="#changelog_history-changelog-0.1.18.dev"><code>0.1.18.dev</code> invoice customer CUI partial invoice total values calculations</a></li>
 <li><a href="#changelog_history-changelog-0.1.17.dev"><code>0.1.17.dev</code> fixed all application &amp; package running standard ways</a></li>
