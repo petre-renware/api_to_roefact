@@ -74,7 +74,7 @@
                     }
                 },
                 "cac_Price": {
-                    "cbc_PriceAmount": 855.1216,
+                    "cbc_PriceAmount": 855.1216000000001,
                     "cbc_currencyID": "RON"
                 },
                 "cbc_LineExtensionAmount": 855.12,
@@ -85,7 +85,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-17T19:04:43.023419+00:00",
+        "last_processing_time": "2024-02-18T17:39:03.128757+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -248,9 +248,9 @@
                 [
                     "Acciza de test (2%)",
                     1,
-                    855.1216,
+                    855.1216000000001,
                     0,
-                    855.1216,
+                    855.1216000000001,
                     0
                 ]
             ]
