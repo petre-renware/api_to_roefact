@@ -1,0 +1,360 @@
+{
+    "Invoice": {
+        "cbc_ID": "11017969",
+        "cbc_DocumentCurrencyCode": "RON",
+        "cbc_IssueDate": "2023-10-17",
+        "cac_AccountingCustomerParty": {
+            "cac:Party": {
+                "cac_PartyLegalEntity": {
+                    "cbc_CompanyID": "RO1590082",
+                    "cbc_RegistrationName": "OMV Petrom S.A."
+                },
+                "cac_PostalAddress": {
+                    "cbc_StreetName": "Coralilor Nr. 22",
+                    "cbc_CityName": "",
+                    "cbc_PostalZone": "Postal 013329",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
+                }
+            }
+        },
+        "cac_InvoiceLine": [
+            {
+                "cbc_ID": "1",
+                "cbc_InvoicedQuantity": 1,
+                "cbc_unitCode": null,
+                "cac_Item": {
+                    "cbc_Name": "Inlocuit conducta PSI coloana C2 DAV.",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": 0.19,
+                        "cac_TaxScheme": {
+                            "cbc_ID": "VAT"
+                        }
+                    }
+                },
+                "cac_Price": {
+                    "cbc_PriceAmount": 42756.08,
+                    "cbc_currencyID": "RON"
+                },
+                "cbc_LineExtensionAmount": 42756.08,
+                "LineVatAmount": 8123.6552
+            },
+            {
+                "cbc_ID": "1.NOTE-a",
+                "cbc_InvoicedQuantity": null,
+                "cbc_unitCode": null,
+                "cac_Item": {
+                    "cbc_Name": "SES 8105685514",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": null,
+                        "cac_TaxScheme": {
+                            "cbc_ID": null
+                        }
+                    }
+                },
+                "cac_Price": {
+                    "cbc_PriceAmount": null,
+                    "cbc_currencyID": null
+                },
+                "cbc_LineExtensionAmount": null,
+                "LineVatAmount": null
+            },
+            {
+                "cbc_ID": "2",
+                "cbc_InvoicedQuantity": 1,
+                "cbc_unitCode": null,
+                "cac_Item": {
+                    "cbc_Name": "Acciza de test (2%)",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": 0.0,
+                        "cac_TaxScheme": {
+                            "cbc_ID": "VAT"
+                        }
+                    }
+                },
+                "cac_Price": {
+                    "cbc_PriceAmount": 855.1216,
+                    "cbc_currencyID": "RON"
+                },
+                "cbc_LineExtensionAmount": 855.12,
+                "LineVatAmount": 0.0
+            }
+        ]
+    },
+    "meta_info": {
+        "file": "Fact_Petrom_11017969.xlsx",
+        "file_CRC": "...file CRC (uniquely identify the invoice file used)",
+        "last_processing_time": "2024-02-17T19:04:43.023419+00:00",
+        "invoice_worksheet": "Factura(Invoice)",
+        "invoice_max_rows": 49,
+        "invoice_max_cols": 8,
+        "items_table_start_marker": "No. crt.",
+        "items_table_start_cell": [
+            29,
+            1
+        ],
+        "invoice_XML_schemes": {
+            "xmlns": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+            "xmlns:cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+            "xmlns:cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+            "xmlns:ns4": "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2",
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xsi:schemaLocation": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"
+        },
+        "map_JSONkeys_XMLtags": [
+            [
+                "cac_InvoiceLine",
+                "cac:InvoiceLine"
+            ],
+            [
+                "cac_Item",
+                "cac:Item"
+            ],
+            [
+                "cac_ClassifiedTaxCategory",
+                "cac:ClassifiedTaxCategory"
+            ],
+            [
+                "cac_TaxScheme",
+                "cac:TaxScheme"
+            ],
+            [
+                "cac_Price",
+                "cac:Price"
+            ],
+            [
+                "cbc_ID",
+                "cbc:ID"
+            ],
+            [
+                "cbc_InvoicedQuantity",
+                "cbc:InvoicedQuantity"
+            ],
+            [
+                "cbc_unitCode",
+                "cbc:unitCode"
+            ],
+            [
+                "cbc_Name",
+                "cbc:Name"
+            ],
+            [
+                "cbc_Percent",
+                "cbc:Percent"
+            ],
+            [
+                "cbc_PriceAmount",
+                "cbc:PriceAmount"
+            ],
+            [
+                "cbc_currencyID",
+                "cbc:currencyID"
+            ],
+            [
+                "cbc_LineExtensionAmount",
+                "cbc:LineExtensionAmount"
+            ],
+            [
+                "cbc_ID",
+                "cbc:ID"
+            ],
+            [
+                "cbc_DocumentCurrencyCode",
+                "cbc:DocumentCurrencyCode"
+            ],
+            [
+                "cbc_IssueDate",
+                "cbc:IssueDate"
+            ],
+            [
+                "cac_AccountingCustomerParty",
+                "cac:AccountingCustomerParty"
+            ],
+            [
+                "cac_Party",
+                "cac:Party"
+            ],
+            [
+                "cac_PartyLegalEntity",
+                "cac:PartyLegalEntity"
+            ],
+            [
+                "cbc_CompanyID",
+                "cbc:CompanyID"
+            ],
+            [
+                "cbc_RegistrationName",
+                "cbc:RegistrationName"
+            ],
+            [
+                "cac_PostalAddress",
+                "cac:PostalAddress"
+            ],
+            [
+                "cbc_StreetName",
+                "cbc:StreetName"
+            ],
+            [
+                "cbc_CityName",
+                "cbc:CityName"
+            ],
+            [
+                "cbc_PostalZone",
+                "cbc:PostalZone"
+            ],
+            [
+                "cac_Country",
+                "cac:Country"
+            ],
+            [
+                "cbc_IdentificationCode",
+                "cbc:IdentificationCode"
+            ]
+        ]
+    },
+    "excel_original_data": {
+        "invoice_items_area": {
+            "keyrows": [
+                1,
+                "1.NOTE-a",
+                2
+            ],
+            "keycols": [
+                "Denumirea lucrarii                                  (Request description)",
+                "Cantitatea (Quantity)",
+                "Pret unitar (Unit price)",
+                "Cota TVA (VAT %)",
+                "Valoare fara TVA (Value without VAT)",
+                "Valoare TVA (Value VAT)"
+            ],
+            "data": [
+                [
+                    "Inlocuit conducta PSI coloana C2 DAV.",
+                    1,
+                    42756.08,
+                    0.19,
+                    42756.08,
+                    8123.6552
+                ],
+                [
+                    "SES 8105685514",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "Acciza de test (2%)",
+                    1,
+                    855.1216,
+                    0,
+                    855.1216,
+                    0
+                ]
+            ]
+        },
+        "invoice_header_area": {
+            "start_cell": [
+                1,
+                1
+            ],
+            "end_cell": [
+                28,
+                8
+            ],
+            "invoice_number": {
+                "value": "11017969",
+                "location": [
+                    10,
+                    6
+                ],
+                "label_value": "Nr. Facturii",
+                "label_location": [
+                    10,
+                    5
+                ]
+            },
+            "issued_date": {
+                "value": "2023-10-17",
+                "location": [
+                    11,
+                    6
+                ],
+                "label_value": "Data Factura",
+                "label_location": [
+                    11,
+                    5
+                ]
+            },
+            "currency": {
+                "value": "RON",
+                "location": [
+                    28,
+                    8
+                ],
+                "label_value": "Currency: RON",
+                "label_location": [
+                    28,
+                    8
+                ]
+            },
+            "customer_area": {
+                "area_info": {
+                    "value": "OMV Petrom S.A.",
+                    "location": [
+                        [
+                            8,
+                            2
+                        ],
+                        [
+                            18,
+                            3
+                        ]
+                    ]
+                },
+                "CUI": {
+                    "value": "RO1590082",
+                    "location": [
+                        10,
+                        2
+                    ],
+                    "label_value": "C.U.I. RO1590082",
+                    "label_location": [
+                        10,
+                        2
+                    ]
+                },
+                "RegistrationName": {
+                    "value": "OMV Petrom S.A.",
+                    "location": [
+                        8,
+                        2
+                    ],
+                    "label_value": "n/a",
+                    "label_location": "n/a"
+                },
+                "PostalAddress": {
+                    "cbc_StreetName": "Coralilor Nr. 22",
+                    "cbc_CityName": "",
+                    "cbc_PostalZone": "Postal 013329",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
+                }
+            },
+            "supplier_area": "...future..."
+        },
+        "invoice_footer_area": {
+            "start_cell": [
+                34,
+                1
+            ],
+            "end_cell": [
+                49,
+                8
+            ]
+        }
+    }
+}
