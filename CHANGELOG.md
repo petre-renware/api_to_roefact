@@ -65,6 +65,10 @@
 
 * wip...
 
+* ... 240218piu_b create an automation workflow to run `xl2roefact xl2json` in directory `xl2roefact/tests/` and to obtain JSON of invoice to test it
+    * [x] 1. moved test Excel invoices from `.../xl2roefact/invoice_files/` to `.../xl2roefact/tests/`
+    * [ ] 2. create automation YAML file
+    * [ ] 3. test it. ? PASS/FAIL ?
 * 240218piu_a documentation improvements by using dropdown items
 
 
