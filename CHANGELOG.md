@@ -63,7 +63,14 @@
 
 * tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
 
-* wip... last used 240217piu_b
+* wip...
+
+* 240218piu_a documentation improvements by using dropdown items
+
+
+
+
+
 
 
 
