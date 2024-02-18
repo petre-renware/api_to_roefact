@@ -209,7 +209,15 @@
 
 # Archived CHANGELOGs
 
+
+
+<details><summary>
+
 ## 0.1 version
+
+</summary>
+
+
 
 * [`0.1.19.dev` invoice customer and partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.19.dev.md)
 * [`0.1.18.dev` invoice customer CUI partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.18.dev.md)
@@ -233,14 +241,6 @@
 * [`0.1.0.dev` System raw backbone](./changelog_history/CHANGELOG-0.1.0.dev.md)
 
 
+</details> 
 
 
-
-
-<!-- #TODO create this ? released notes are alreay (@240207) published in GitHub releases
-
-# [Release Notes](RELNOTE.md)
-
-* wip... [not_yet_created... 0.1]  (./changelog_history/...)
-
--->
