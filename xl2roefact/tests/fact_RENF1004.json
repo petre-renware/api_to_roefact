@@ -125,7 +125,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-19T09:25:09.551172+00:00",
+        "last_processing_time": "2024-02-19T16:29:52.733667+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
@@ -406,6 +406,66 @@
                     "cac_Country": {
                         "cbc_IdentificationCode": "RO"
                     }
+                },
+                "reg_com": {
+                    "value": "J40/11864/06.07.2005",
+                    "location": [
+                        10,
+                        6
+                    ],
+                    "label_value": "Reg. com.:     ",
+                    "label_location": [
+                        10,
+                        5
+                    ]
+                },
+                "bank": {
+                    "value": "BCR Ag Sala Palatului",
+                    "location": [
+                        16,
+                        6
+                    ],
+                    "label_value": "Banca:",
+                    "label_location": [
+                        16,
+                        5
+                    ]
+                },
+                "IBAN": {
+                    "value": "RO65 RNCB 0080 0056 9790 0001",
+                    "location": [
+                        17,
+                        6
+                    ],
+                    "label_value": "Cont:",
+                    "label_location": [
+                        17,
+                        5
+                    ]
+                },
+                "phone": {
+                    "value": null,
+                    "location": [
+                        null,
+                        null
+                    ],
+                    "label_value": "Tel:",
+                    "label_location": [
+                        15,
+                        5
+                    ]
+                },
+                "email": {
+                    "value": null,
+                    "location": [
+                        null,
+                        null
+                    ],
+                    "label_value": "Email:",
+                    "label_location": [
+                        14,
+                        5
+                    ]
                 }
             },
             "supplier_area": "...future..."
