@@ -344,7 +344,14 @@ def rdinv(
     # search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"
     #TODO: ...hereuare... 
     #TODO: ...@rdy.mv.me.to.327 because NOTE: this is mandatory a continuation of prev code. Use its defined search area
-    #FIXME ........ nu a adus nimic pe REN, iar ptr OMV a gasit banca ca "Comerciala Romana"
+    #FIXME ... upd sear function ... nu a adus nimic pe REN, iar ptr OMV a gasit banca ca "Comerciala Romana"
+    search_address_parts = partial(  # define a partial function to be used for all address items search
+        get_excel_data_at_label,  # function to call
+        worksheet=ws,
+        area_to_scan=area_to_scan_address_items,
+        targeted_type=str,
+        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )
     _tmp_reg_com = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)["value"]).replace("None", "").strip()
     _tmp_bank = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)["value"]).replace("None", "").strip()
     _tmp_IBAN = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)["value"]).replace("None", "").strip()
