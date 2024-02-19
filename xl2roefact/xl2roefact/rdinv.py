@@ -357,11 +357,11 @@ def rdinv(
     _tmp_email = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)["value"]
     ... # wip_TODO: let prev variab "pure" as full dict
     ... # wip_TODO: and next ones "clean" for store in `Invoice` key (for XML specific keys)
-    #_tmp_reg_com_cleaned = str(_tmp_reg_com).replace("None", "").strip()
-    #_tmp_bank_cleaned = str(_tmp_bank).replace("None", "").strip()
-    #_tmp_IBAN_cleaned = str(_tmp_IBAN).replace("None", "").strip()
-    #_tmp_tel_cleaned = str(_tmp_tel).replace("None", "").strip()
-    #_tmp_email_cleaned = str(_tmp_email).replace("None", "").strip()
+    _tmp_reg_com_cleaned = str(_tmp_reg_com).replace("None", "").strip()
+    _tmp_bank_cleaned = str(_tmp_bank).replace("None", "").strip()
+    _tmp_IBAN_cleaned = str(_tmp_IBAN).replace("None", "").strip()
+    _tmp_tel_cleaned = str(_tmp_tel).replace("None", "").strip()
+    _tmp_email_cleaned = str(_tmp_email).replace("None", "").strip()
     print()  #FIXME ...drop.me DBG line
     print(f"[red]******------ GET/READ VALUES AS:[/]")  #FIXME ...drop.me DBG line
     print(f"[red]******------ tmp_reg_com \n{_tmp_reg_com}[/]")  #FIXME ...drop.me DBG line
@@ -370,6 +370,7 @@ def rdinv(
     print(f"[red]******------ tmp_tel \n{_tmp_tel}[/]")  #FIXME ...drop.me DBG line
     print(f"[red]******------ tmp_email \n{_tmp_email}[/]")  #FIXME ...drop.me DBG line
     print()  #FIXME ...drop.me DBG line
+    ...  #TODO store "full" variables in `customer_area...` excel original values
     '''NOTE: values read:
     - REN invoice
 ******------ GET/READ VALUES AS:
