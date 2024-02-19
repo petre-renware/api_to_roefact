@@ -16,7 +16,7 @@ Format sintaxa: `JSON -> XML @ invoice_header_area["customer_area"][...]`
 * IBAN  -->  ...n/a...  @  ["IBAN"] 
 
 
-## Alte key in JSON "Invoice" ce nu sunt in schema XML that si care trebuie trecute in *map structure* key `"map_JSONkeys_XMLtags"`
+#### Alte key in JSON "Invoice" ce nu sunt in schema XML that si care trebuie trecute in *map structure* key `"map_JSONkeys_XMLtags"`
 
 * LineVatAmount  -->  ...n/a...
 
