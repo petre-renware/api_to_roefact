@@ -334,8 +334,27 @@ def rdinv(
         "cbc_PostalZone": _tmp_zipcode,
         "cac_Country": {"cbc_IdentificationCode": _tmp_country},
     }
-    # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE start w./line 185
-    ...
+
+
+
+
+
+            
+    # TODO: ... 
+    # search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE start w./line 185
+    # ...hereuare... change PATTERN... to correct constants
+    _tmp_reg_com = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]).replace("None", "").strip()
+    _tmp_bank = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]).replace("None", "").strip()
+    _tmp_IBAN = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
+    _tmp_tel = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
+    _tmp_email = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
+    ...  # got from line 323 to replicate them ...hereuare
+
+
+
+            
+
+            
     # NOTE: see how replicate code for Customer --to--> Supplier
     # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
     # NOTE: si mai este ceva legat de o sumarizare XML a totalului facturi (comentarii in zona in care scrii key Invoice, citeva linii mai jos)
