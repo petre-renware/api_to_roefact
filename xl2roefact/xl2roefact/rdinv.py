@@ -369,14 +369,24 @@ def rdinv(
     #print(f"[red]******------ tmp_email \n{_tmp_email}[/]")  #FIXME ...drop.me DBG line
     #print()  #FIXME ...drop.me DBG line
     ...  #TODO store "full" variables in `customer_area...` excel original values...
-    ...  # NOTE: ... view line #-265 for exaple 1 key (CUI) but NOTE: that here you have 5
     ...  # ...hereuare...
     '''NOTE: values read:
+    - how looks like for CUI (line #-265)
+    invoice_header_area["customer_area"]["CUI"] = {
+        "value": _temp_found_data["value"],
+        "location": _temp_found_data["location"],
+        "label_value": _temp_found_data["label_value"],
+        "label_location": _temp_found_data["label_location"]
+    }
+    
     - REN invoice
 ******------ GET/READ VALUES AS:
-******------ tmp_reg_com
-{'value': 'J40/11864/06.07.2005', 'location': (10, 6), 'label_value': 'Reg.
-com.:     ', 'label_location': (10, 5)}
+******------ tmp_reg_com = {  # ...this one is reformatted, so is identical with those already stored
+    'value': 'J40/11864/06.07.2005', 
+    'location': (10, 6), 
+    'label_value': 'Reg.com.:     ', 
+    'label_location': (10, 5)
+}
 ******------ tmp_bank
 {'value': 'BCR Ag Sala Palatului', 'location': (16, 6), 'label_value':
 'Banca:', 'label_location': (16, 5)}
