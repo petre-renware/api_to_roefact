@@ -344,6 +344,7 @@ def rdinv(
     # search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"
     #TODO: ...hereuare... 
     #TODO: ...@rdy.mv.me.to.327 because NOTE: this is mandatory a continuation of prev code. Use its defined search area
+    #FIXME ........ nu a adus nimic pe REN, iar ptr OMV a gasit banca ca "Comerciala Romana"
     _tmp_reg_com = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)["value"]).replace("None", "").strip()
     _tmp_bank = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)["value"]).replace("None", "").strip()
     _tmp_IBAN = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)["value"]).replace("None", "").strip()
