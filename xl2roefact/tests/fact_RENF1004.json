@@ -125,7 +125,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-19T09:25:09.551172+00:00",
+        "last_processing_time": "2024-02-19T15:50:52.202460+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
@@ -406,6 +406,18 @@
                     "cac_Country": {
                         "cbc_IdentificationCode": "RO"
                     }
+                },
+                "reg_com": {
+                    "value": "J40/11864/06.07.2005",
+                    "location": [
+                        10,
+                        6
+                    ],
+                    "label_value": "Reg. com.:     ",
+                    "label_location": [
+                        10,
+                        5
+                    ]
                 }
             },
             "supplier_area": "...future..."
