@@ -352,6 +352,12 @@ def rdinv(
     print()  #FIXME ...drop.me DBG line
     print(f"[red]******------ Read values as; ...irrelevant now, but exec w/o errs here...[/]")  #FIXME ...drop.me DBG line
     print(f"[red]******------ {=_tmp_reg_com}[/]")  #FIXME ...drop.me DBG line
+    '''#FIXME run ERR here
+    line 354
+    print(f"[red]******------ {=_tmp_reg_com}[/]")  #FIXME ...drop.me DBG line
+                                                 ^
+    SyntaxError: f-string: empty expression not allowed
+    '''
     print(f"[red]******------ {=_tmp_bank}[/]")  #FIXME ...drop.me DBG line
     print(f"[red]******------ {=_tmp_IBAN}[/]")  #FIXME ...drop.me DBG line 
     print(f"[red]******------ {=_tmp_tel}[/]")  #FIXME ...drop.me DBG line
