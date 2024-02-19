@@ -183,7 +183,7 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = None,  # TODO: some more items to do: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE: to cont on line 335
+        customer_area = None,
         supplier_area = "...future..."  # TODO: ... future tbd  ...
     )  #FIXME_TODO: ............hereuare............
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
@@ -319,7 +319,7 @@ def rdinv(
         area_to_scan=area_to_scan_address_items,
         targeted_type=str,
         down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
-    )
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
     _tmp_country = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]).replace("None", "").strip()
     _tmp_city = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]).replace("None", "").strip()
     _tmp_street = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
@@ -334,8 +334,88 @@ def rdinv(
         "cbc_PostalZone": _tmp_zipcode,
         "cac_Country": {"cbc_IdentificationCode": _tmp_country},
     }
-    # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE start w./line 185
-    ...
+
+
+
+
+
+            
+    
+    # search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")
+    #TODO: ... start code of search_extended_parts
+    search_extended_parts = partial(  # define a partial function to be used for all "search_extended_parts"
+        get_excel_data_at_label,  # function to call
+        worksheet=ws,
+        area_to_scan=_area_to_search,  # supposed to still contain customer info found area
+        targeted_type=str,
+        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    _tmp_reg_com = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)
+    _tmp_bank = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)
+    _tmp_IBAN = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)
+    _tmp_tel = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)
+    _tmp_email = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)
+    _tmp_reg_com_cleaned = str(_tmp_reg_com["value"]).replace("None", "").strip()
+    _tmp_bank_cleaned = str(_tmp_bank["value"]).replace("None", "").strip()
+    _tmp_IBAN_cleaned = str(_tmp_IBAN["value"]).replace("None", "").strip()
+    _tmp_tel_cleaned = str(_tmp_tel["value"]).replace("None", "").strip()
+    _tmp_email_cleaned = str(_tmp_email["value"]).replace("None", "").strip()
+    #print()  #FIXME ...drop.me DBG line
+    #print(f"[red]******------ GET/READ VALUES AS:[/]")  #FIXME ...drop.me DBG line
+    #print(f"[red]******------ tmp_reg_com \n{_tmp_reg_com}[/]")  #FIXME ...drop.me DBG line
+    #print(f"[red]******------ tmp_bank \n{_tmp_bank}[/]")  #FIXME ...drop.me DBG line
+    #print(f"[red]******------ tmp_IBAN \n{_tmp_IBAN}[/]")  #FIXME ...drop.me DBG line 
+    #print(f"[red]******------ tmp_tel \n{_tmp_tel}[/]")  #FIXME ...drop.me DBG line
+    #print(f"[red]******------ tmp_email \n{_tmp_email}[/]")  #FIXME ...drop.me DBG line
+    #print()  #FIXME ...drop.me DBG line
+    ...  #TODO store "full" variables in `customer_area...` excel original values...
+    ...  # ... ... see in prev code ref how and where... 
+    ...  # ...hereuare...
+    '''NOTE: values read:
+    - REN invoice
+******------ GET/READ VALUES AS:
+******------ tmp_reg_com 
+{'value': 'J40/11864/06.07.2005', 'location': (10, 6), 'label_value': 'Reg. 
+com.:     ', 'label_location': (10, 5)}
+******------ tmp_bank 
+{'value': 'BCR Ag Sala Palatului', 'location': (16, 6), 'label_value': 
+'Banca:', 'label_location': (16, 5)}
+******------ tmp_IBAN 
+{'value': 'RO65 RNCB 0080 0056 9790 0001', 'location': (17, 6), 'label_value': 
+'Cont:', 'label_location': (17, 5)}
+******------ tmp_tel 
+{'value': None, 'location': (None, None), 'label_value': 'Tel:', 
+'label_location': (15, 5)}
+******------ tmp_email 
+{'value': None, 'location': (None, None), 'label_value': 'Email:', 
+'label_location': (14, 5)}
+    
+    - OMV invoice
+******------ GET/READ VALUES AS:
+******------ tmp_reg_com 
+{'value': None, 'location': (None, None), 'label_value': None, 
+'label_location': None}
+******------ tmp_bank 
+{'value': 'Comerciala Romana', 'location': (16, 2), 'label_value': 'Banca 
+Comerciala Romana', 'label_location': (16, 2)}
+******------ tmp_IBAN 
+{'value': None, 'location': (None, None), 'label_value': None, 
+'label_location': None}
+******------ tmp_tel 
+{'value': None, 'location': (None, None), 'label_value': None, 
+'label_location': None}
+******------ tmp_email 
+{'value': None, 'location': (None, None), 'label_value': None, 
+'label_location': None}
+    '''
+    #TODO store data in "Invoice" key oj JSON ... see down how and where...
+    #TODO ... end code of search_extended_parts
+
+
+
+            
+
+            
     # NOTE: see how replicate code for Customer --to--> Supplier
     # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
     # NOTE: si mai este ceva legat de o sumarizare XML a totalului facturi (comentarii in zona in care scrii key Invoice, citeva linii mai jos)
