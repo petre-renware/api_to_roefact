@@ -340,14 +340,15 @@ def rdinv(
 
 
             
-    # TODO: ... 
+    
     # search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"
-    # ...hereuare... change PATTERN... to correct constants
-    _tmp_reg_com = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]).replace("None", "").strip()
-    _tmp_bank = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]).replace("None", "").strip()
-    _tmp_IBAN = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
-    _tmp_tel = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
-    _tmp_email = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
+    #TODO: ...hereuare... 
+    #TODO: ...@rdy.mv.me.to.327 because NOTE: this is mandatory a continuation of prev code. Use its defined search area
+    _tmp_reg_com = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)["value"]).replace("None", "").strip()
+    _tmp_bank = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)["value"]).replace("None", "").strip()
+    _tmp_IBAN = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)["value"]).replace("None", "").strip()
+    _tmp_tel = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)["value"]).replace("None", "").strip()
+    _tmp_email = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)["value"]).replace("None", "").strip()
     print()  #FIXME ...drop.me DBG line
     print(f"[red]******------ Read values as; ...irrelevant now, but exec w/o errs here...[/]")  #FIXME ...drop.me DBG line
     print()  #FIXME ...drop.me DBG line
