@@ -351,11 +351,11 @@ def rdinv(
     _tmp_email = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)["value"]).replace("None", "").strip()
     print()  #FIXME ...drop.me DBG line
     print(f"[red]******------ Read values as; ...irrelevant now, but exec w/o errs here...[/]")  #FIXME ...drop.me DBG line
-    print(f"[red]******------ {=_tmp_reg_com }[/]")  #FIXME ...drop.me DBG line
-    print(f"[red]******------ {=_tmp_bank }[/]")  #FIXME ...drop.me DBG line
-    print(f"[red]******------ {=_tmp_IBAN }[/]")  #FIXME ...drop.me DBG line 
-    print(f"[red]******------ {=_tmp_tel }[/]")  #FIXME ...drop.me DBG line
-    print(f"[red]******------ {=_tmp_email }[/]")  #FIXME ...drop.me DBG line
+    print(f"[red]******------ {=_tmp_reg_com}[/]")  #FIXME ...drop.me DBG line
+    print(f"[red]******------ {=_tmp_bank}[/]")  #FIXME ...drop.me DBG line
+    print(f"[red]******------ {=_tmp_IBAN}[/]")  #FIXME ...drop.me DBG line 
+    print(f"[red]******------ {=_tmp_tel}[/]")  #FIXME ...drop.me DBG line
+    print(f"[red]******------ {=_tmp_email}[/]")  #FIXME ...drop.me DBG line
     print()  #FIXME ...drop.me DBG line
     ...  # got from line 323 to replicate them ...hereuare
 
