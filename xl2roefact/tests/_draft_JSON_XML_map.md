@@ -2,32 +2,23 @@
 
 --- #TODO: a se sterge la final...
 
-Format sintax: `JSON -> XML @ invoice_header_area["customer_area"][...]`
+Format sintaxa: `JSON -> XML @ invoice_header_area["customer_area"][...]`
 
 
 * cac_Contact  ->  cac:Contact  @  ...n/a...
     * cbc_Telephone  ->  cbc:Telephone  @  ["phone"]
     * cbc_ElectronicMail  ->  cbc:ElectronicMail  @  ["email"]
 
+* RegCom  -->  ...n/a...  @  ["reg_com"] 
+
+* Bank  -->  ...n/a...  @  ["bank"] 
+
+* IBAN  -->  ...n/a...  @  ["IBAN"] 
 
 
+## Alte key in JSON "Invoice" ce nu sunt in schema XML that si care trebuie trecute in *map structure* key `"map_JSONkeys_XMLtags"`
 
+* LineVatAmount  -->  ...n/a...
 
-["reg_com"] 
-
-["bank"] 
-
-["IBAN"] 
-
-
-
-
-
-
-
-## Other keys in JSON "Invoice" but not in XML that should be wriiten in *map structure* key `"map_JSONkeys_XMLtags"`
-
-* LineVatAmount
-* ...
 
 
