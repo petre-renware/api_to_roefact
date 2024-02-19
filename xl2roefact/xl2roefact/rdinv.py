@@ -339,8 +339,8 @@ def rdinv(
 
 
 
-            
-    
+
+
     # search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")
     #TODO: ... start code of search_extended_parts
     search_extended_parts = partial(  # define a partial function to be used for all "search_extended_parts"
@@ -364,48 +364,48 @@ def rdinv(
     #print(f"[red]******------ GET/READ VALUES AS:[/]")  #FIXME ...drop.me DBG line
     #print(f"[red]******------ tmp_reg_com \n{_tmp_reg_com}[/]")  #FIXME ...drop.me DBG line
     #print(f"[red]******------ tmp_bank \n{_tmp_bank}[/]")  #FIXME ...drop.me DBG line
-    #print(f"[red]******------ tmp_IBAN \n{_tmp_IBAN}[/]")  #FIXME ...drop.me DBG line 
+    #print(f"[red]******------ tmp_IBAN \n{_tmp_IBAN}[/]")  #FIXME ...drop.me DBG line
     #print(f"[red]******------ tmp_tel \n{_tmp_tel}[/]")  #FIXME ...drop.me DBG line
     #print(f"[red]******------ tmp_email \n{_tmp_email}[/]")  #FIXME ...drop.me DBG line
     #print()  #FIXME ...drop.me DBG line
     ...  #TODO store "full" variables in `customer_area...` excel original values...
-    ...  # ... ... see in prev code ref how and where... 
+    ...  # NOTE: ... view line #-265 for exaple 1 key (CUI) but NOTE: that here you have 5
     ...  # ...hereuare...
     '''NOTE: values read:
     - REN invoice
 ******------ GET/READ VALUES AS:
-******------ tmp_reg_com 
-{'value': 'J40/11864/06.07.2005', 'location': (10, 6), 'label_value': 'Reg. 
+******------ tmp_reg_com
+{'value': 'J40/11864/06.07.2005', 'location': (10, 6), 'label_value': 'Reg.
 com.:     ', 'label_location': (10, 5)}
-******------ tmp_bank 
-{'value': 'BCR Ag Sala Palatului', 'location': (16, 6), 'label_value': 
+******------ tmp_bank
+{'value': 'BCR Ag Sala Palatului', 'location': (16, 6), 'label_value':
 'Banca:', 'label_location': (16, 5)}
-******------ tmp_IBAN 
-{'value': 'RO65 RNCB 0080 0056 9790 0001', 'location': (17, 6), 'label_value': 
+******------ tmp_IBAN
+{'value': 'RO65 RNCB 0080 0056 9790 0001', 'location': (17, 6), 'label_value':
 'Cont:', 'label_location': (17, 5)}
-******------ tmp_tel 
-{'value': None, 'location': (None, None), 'label_value': 'Tel:', 
+******------ tmp_tel
+{'value': None, 'location': (None, None), 'label_value': 'Tel:',
 'label_location': (15, 5)}
-******------ tmp_email 
-{'value': None, 'location': (None, None), 'label_value': 'Email:', 
+******------ tmp_email
+{'value': None, 'location': (None, None), 'label_value': 'Email:',
 'label_location': (14, 5)}
-    
+
     - OMV invoice
 ******------ GET/READ VALUES AS:
-******------ tmp_reg_com 
-{'value': None, 'location': (None, None), 'label_value': None, 
+******------ tmp_reg_com
+{'value': None, 'location': (None, None), 'label_value': None,
 'label_location': None}
-******------ tmp_bank 
-{'value': 'Comerciala Romana', 'location': (16, 2), 'label_value': 'Banca 
+******------ tmp_bank
+{'value': 'Comerciala Romana', 'location': (16, 2), 'label_value': 'Banca
 Comerciala Romana', 'label_location': (16, 2)}
-******------ tmp_IBAN 
-{'value': None, 'location': (None, None), 'label_value': None, 
+******------ tmp_IBAN
+{'value': None, 'location': (None, None), 'label_value': None,
 'label_location': None}
-******------ tmp_tel 
-{'value': None, 'location': (None, None), 'label_value': None, 
+******------ tmp_tel
+{'value': None, 'location': (None, None), 'label_value': None,
 'label_location': None}
-******------ tmp_email 
-{'value': None, 'location': (None, None), 'label_value': None, 
+******------ tmp_email
+{'value': None, 'location': (None, None), 'label_value': None,
 'label_location': None}
     '''
     #TODO store data in "Invoice" key oj JSON ... see down how and where...
@@ -413,9 +413,9 @@ Comerciala Romana', 'label_location': (16, 2)}
 
 
 
-            
 
-            
+
+
     # NOTE: see how replicate code for Customer --to--> Supplier
     # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
     # NOTE: si mai este ceva legat de o sumarizare XML a totalului facturi (comentarii in zona in care scrii key Invoice, citeva linii mai jos)
