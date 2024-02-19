@@ -2,14 +2,16 @@
 
 --- #TODO: a se sterge la final...
 
-
-cac:Contact --- email
-    cbc:Telephone --- phone
-    cbc:ElectronicMail --- email
+* Format sintax: `JSON -> XML @ invoice_header_area["customer_area"][...]`
 
 
+ cac_Contact -> cac:Contact @ ...n/a...
+    cbc_Telephone -> cbc:Telephone @ phone
+    cbc_ElectronicMail -> cbc:ElectronicMail @ email
 
-    invoice_header_area["customer_area"]...
+
+
+
 
 ["reg_com"] 
 
@@ -22,5 +24,11 @@ cac:Contact --- email
 ["email"] 
 
 
+
+
+## Other keys in JSON "Invoice" but not in XML that should be wriiten in *map structure* key `"map_JSONkeys_XMLtags"`
+
+* LineVatAmount
+* ...
 
 
