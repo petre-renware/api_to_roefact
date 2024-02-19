@@ -341,22 +341,20 @@ def rdinv(
 
             
     
-    # search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"
+    # search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")
     #TODO: ...hereuare... 
-    #TODO: ...@rdy.mv.me.to.327 because NOTE: this is mandatory a continuation of prev code. Use its defined search area
-    #FIXME ... upd sear function ... nu a adus nimic pe REN, iar ptr OMV a gasit banca ca "Comerciala Romana"
-    search_address_parts = partial(  # define a partial function to be used for all address items search
+    search_extended_parts = partial(  # define a partial function to be used for all "search_extended_parts"
         get_excel_data_at_label,  # function to call
         worksheet=ws,
-        area_to_scan=area_to_scan_address_items,
+        area_to_scan=_area_to_search,  # supposed to still contain customer info found area
         targeted_type=str,
         down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
-    )
-    _tmp_reg_com = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)["value"]).replace("None", "").strip()
-    _tmp_bank = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)["value"]).replace("None", "").strip()
-    _tmp_IBAN = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)["value"]).replace("None", "").strip()
-    _tmp_tel = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)["value"]).replace("None", "").strip()
-    _tmp_email = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)["value"]).replace("None", "").strip()
+    )            
+    _tmp_reg_com = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)["value"]).replace("None", "").strip()
+    _tmp_bank = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)["value"]).replace("None", "").strip()
+    _tmp_IBAN = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)["value"]).replace("None", "").strip()
+    _tmp_tel = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)["value"]).replace("None", "").strip()
+    _tmp_email = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)["value"]).replace("None", "").strip()
     print()  #FIXME ...drop.me DBG line
     print(f"[red]******------ GET/READ VALUES AS:[/]")  #FIXME ...drop.me DBG line
     print(f"[red]******------ tmp_reg_com \n{_tmp_reg_com}[/]")  #FIXME ...drop.me DBG line
