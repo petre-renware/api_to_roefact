@@ -353,65 +353,18 @@ def rdinv(
     _tmp_reg_com = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)
     _tmp_bank = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)
     _tmp_IBAN = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)
-    _tmp_tel = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)
+    _tmp_phone = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)
     _tmp_email = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)
     # store "full" variables in `customer_area...` for excel original values
     invoice_header_area["customer_area"]["reg_com"] = _tmp_reg_com
-    #invoice_header_area["customer_area"]["..."] = ...
-    #invoice_header_area["customer_area"]["..."] = ...
-    #invoice_header_area["customer_area"]["..."] = ...
-    #invoice_header_area["customer_area"]["..."] = ...
+    invoice_header_area["customer_area"]["bank"] = _tmp_bank
+    invoice_header_area["customer_area"]["IBAN"] = _tmp_IBAN
+    invoice_header_area["customer_area"]["phone"] = _tmp_phone
+    invoice_header_area["customer_area"]["email"] = _tmp_email
     ...  # ...hereuare...
-    '''NOTE: values read:
-    - how looks like for CUI (line #-265)
-    invoice_header_area["customer_area"]["CUI"] = {
-        "value": _temp_found_data["value"],
-        "location": _temp_found_data["location"],
-        "label_value": _temp_found_data["label_value"],
-        "label_location": _temp_found_data["label_location"]
-    }
-    
-    - REN invoice
-******------ GET/READ VALUES AS:
-******------ tmp_reg_com = {  # ...this one is reformatted, so is identical with those already stored
-    'value': 'J40/11864/06.07.2005', 
-    'location': (10, 6), 
-    'label_value': 'Reg.com.:     ', 
-    'label_location': (10, 5)
-}
-******------ tmp_bank
-{'value': 'BCR Ag Sala Palatului', 'location': (16, 6), 'label_value':
-'Banca:', 'label_location': (16, 5)}
-******------ tmp_IBAN
-{'value': 'RO65 RNCB 0080 0056 9790 0001', 'location': (17, 6), 'label_value':
-'Cont:', 'label_location': (17, 5)}
-******------ tmp_tel
-{'value': None, 'location': (None, None), 'label_value': 'Tel:',
-'label_location': (15, 5)}
-******------ tmp_email
-{'value': None, 'location': (None, None), 'label_value': 'Email:',
-'label_location': (14, 5)}
-
-    - OMV invoice
-******------ GET/READ VALUES AS:
-******------ tmp_reg_com
-{'value': None, 'location': (None, None), 'label_value': None,
-'label_location': None}
-******------ tmp_bank
-{'value': 'Comerciala Romana', 'location': (16, 2), 'label_value': 'Banca
-Comerciala Romana', 'label_location': (16, 2)}
-******------ tmp_IBAN
-{'value': None, 'location': (None, None), 'label_value': None,
-'label_location': None}
-******------ tmp_tel
-{'value': None, 'location': (None, None), 'label_value': None,
-'label_location': None}
-******------ tmp_email
-{'value': None, 'location': (None, None), 'label_value': None,
-'label_location': None}
-    '''
-    #TODO store data in "Invoice" key oj JSON ... see down how and where...
-    #TODO ... end code of search_extended_parts
+    ... #TODO: store in `Invoice` key, see lin 405, 406 - NOTE: ATTN mv `,` from lin 406 begin at 405 end
+    #TODO ... end code of search_extended_parts 
+    #TODO ...&&... DO NOT FORGET SUMMARIZING ITEMS (ck if left comment down from lin 406)
 
 
 
