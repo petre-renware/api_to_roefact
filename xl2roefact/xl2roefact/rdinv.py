@@ -183,7 +183,7 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = None,  # TODO: some more items to do: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE: to cont on line 335
+        customer_area = None,
         supplier_area = "...future..."  # TODO: ... future tbd  ...
     )  #FIXME_TODO: ............hereuare............
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
@@ -341,13 +341,15 @@ def rdinv(
 
             
     # TODO: ... 
-    # search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE start w./line 185
+    # search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"
     # ...hereuare... change PATTERN... to correct constants
     _tmp_reg_com = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]).replace("None", "").strip()
     _tmp_bank = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]).replace("None", "").strip()
     _tmp_IBAN = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
     _tmp_tel = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
     _tmp_email = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
+    print()  #FIXME ...drop.me DBG line
+    print(f"[red]******------ Read values as; ...irrelevant now, but exec w/o errs here...[/]")  #FIXME ...drop.me DBG line
     ...  # got from line 323 to replicate them ...hereuare
 
 
