@@ -65,7 +65,7 @@
 
 * ...wip.Must... 240219piu_a invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
     * [x] 1. read req informnation and stored in local vars, as full dict (for excel original key) and as cleaned (for invoice key)
-    * [ ] 2. store info in customer_header_area --> excel original data key
+    * [x] 2. store info in customer_header_area --> excel original data key
     * [ ] 3. store info in customer_header_area --> Invoice key
     * [ ] 4. test app and its results
     * [ ] 5. update DLD documentation & build xl2roefact
