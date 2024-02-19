@@ -355,45 +355,60 @@ def rdinv(
     _tmp_IBAN = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)
     _tmp_tel = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)
     _tmp_email = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)
-    ... # wip_TODO: let prev variab "pure" as full dict
-    ... # wip_TODO: and next ones "clean" for store in `Invoice` key (for XML specific keys)
     _tmp_reg_com_cleaned = str(_tmp_reg_com["value"]).replace("None", "").strip()
     _tmp_bank_cleaned = str(_tmp_bank["value"]).replace("None", "").strip()
     _tmp_IBAN_cleaned = str(_tmp_IBAN["value"]).replace("None", "").strip()
     _tmp_tel_cleaned = str(_tmp_tel["value"]).replace("None", "").strip()
     _tmp_email_cleaned = str(_tmp_email["value"]).replace("None", "").strip()
-    print()  #FIXME ...drop.me DBG line
-    print(f"[red]******------ GET/READ VALUES AS:[/]")  #FIXME ...drop.me DBG line
-    print(f"[red]******------ tmp_reg_com \n{_tmp_reg_com}[/]")  #FIXME ...drop.me DBG line
-    print(f"[red]******------ tmp_bank \n{_tmp_bank}[/]")  #FIXME ...drop.me DBG line
-    print(f"[red]******------ tmp_IBAN \n{_tmp_IBAN}[/]")  #FIXME ...drop.me DBG line 
-    print(f"[red]******------ tmp_tel \n{_tmp_tel}[/]")  #FIXME ...drop.me DBG line
-    print(f"[red]******------ tmp_email \n{_tmp_email}[/]")  #FIXME ...drop.me DBG line
-    print()  #FIXME ...drop.me DBG line
-    ...  #TODO store "full" variables in `customer_area...` excel original values
+    #print()  #FIXME ...drop.me DBG line
+    #print(f"[red]******------ GET/READ VALUES AS:[/]")  #FIXME ...drop.me DBG line
+    #print(f"[red]******------ tmp_reg_com \n{_tmp_reg_com}[/]")  #FIXME ...drop.me DBG line
+    #print(f"[red]******------ tmp_bank \n{_tmp_bank}[/]")  #FIXME ...drop.me DBG line
+    #print(f"[red]******------ tmp_IBAN \n{_tmp_IBAN}[/]")  #FIXME ...drop.me DBG line 
+    #print(f"[red]******------ tmp_tel \n{_tmp_tel}[/]")  #FIXME ...drop.me DBG line
+    #print(f"[red]******------ tmp_email \n{_tmp_email}[/]")  #FIXME ...drop.me DBG line
+    #print()  #FIXME ...drop.me DBG line
+    ...  #TODO store "full" variables in `customer_area...` excel original values...
+    ...  # ... ... see in prev code ref how and where... 
+    ...  # ...hereuare...
     '''NOTE: values read:
     - REN invoice
 ******------ GET/READ VALUES AS:
 ******------ tmp_reg_com 
-J40/11864/06.07.2005
+{'value': 'J40/11864/06.07.2005', 'location': (10, 6), 'label_value': 'Reg. 
+com.:     ', 'label_location': (10, 5)}
 ******------ tmp_bank 
-BCR Ag Sala Palatului
+{'value': 'BCR Ag Sala Palatului', 'location': (16, 6), 'label_value': 
+'Banca:', 'label_location': (16, 5)}
 ******------ tmp_IBAN 
-RO65 RNCB 0080 0056 9790 0001
+{'value': 'RO65 RNCB 0080 0056 9790 0001', 'location': (17, 6), 'label_value': 
+'Cont:', 'label_location': (17, 5)}
 ******------ tmp_tel 
+{'value': None, 'location': (None, None), 'label_value': 'Tel:', 
+'label_location': (15, 5)}
+******------ tmp_email 
+{'value': None, 'location': (None, None), 'label_value': 'Email:', 
+'label_location': (14, 5)}
     
     - OMV invoice
 ******------ GET/READ VALUES AS:
 ******------ tmp_reg_com 
-
+{'value': None, 'location': (None, None), 'label_value': None, 
+'label_location': None}
 ******------ tmp_bank 
-Comerciala Romana
+{'value': 'Comerciala Romana', 'location': (16, 2), 'label_value': 'Banca 
+Comerciala Romana', 'label_location': (16, 2)}
 ******------ tmp_IBAN 
-
+{'value': None, 'location': (None, None), 'label_value': None, 
+'label_location': None}
 ******------ tmp_tel 
-
+{'value': None, 'location': (None, None), 'label_value': None, 
+'label_location': None}
 ******------ tmp_email 
+{'value': None, 'location': (None, None), 'label_value': None, 
+'label_location': None}
     '''
+    #TODO store data in "Invoice" key oj JSON ... see down how and where...
     #TODO ... end code of search_extended_parts
 
 
