@@ -85,7 +85,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-19T15:50:52.124203+00:00",
+        "last_processing_time": "2024-02-19T16:29:52.671714+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -344,6 +344,45 @@
                     }
                 },
                 "reg_com": {
+                    "value": null,
+                    "location": [
+                        null,
+                        null
+                    ],
+                    "label_value": null,
+                    "label_location": null
+                },
+                "bank": {
+                    "value": "Comerciala Romana",
+                    "location": [
+                        16,
+                        2
+                    ],
+                    "label_value": "Banca Comerciala Romana",
+                    "label_location": [
+                        16,
+                        2
+                    ]
+                },
+                "IBAN": {
+                    "value": null,
+                    "location": [
+                        null,
+                        null
+                    ],
+                    "label_value": null,
+                    "label_location": null
+                },
+                "phone": {
+                    "value": null,
+                    "location": [
+                        null,
+                        null
+                    ],
+                    "label_value": null,
+                    "label_location": null
+                },
+                "email": {
                     "value": null,
                     "location": [
                         null,
