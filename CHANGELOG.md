@@ -65,8 +65,10 @@
 
 * ...wip.Must... 240219piu_a invoice customer search for other keys: "reg com", "bank / IBAN / cont", "phone", "email"
     * [x] 1. read req informnation and stored in local vars, as full dict (for excel original key) and as cleaned (for invoice key)
-    * [x] 2. store info in customer_header_area --> excel original data key
-    * [ ] 3. store info in customer_header_area --> Invoice key
+    * [x] 2. store info in `customer_header_area` --> `excel...original` data key
+    * [ ] 3.a. make a work-file with map XML-JSON ref key names (search in xml file for supplier area which is more elaborated)
+    * [ ] 3.b. update `customer_header_area` XML-JSON map key
+    * [ ] 3.c. store info in `customer_header_area` --> `Invoice` key
     * [ ] 4. test app and its results
     * [ ] 5. update DLD documentation & build xl2roefact
     * [ ] 6. update site documentation ...if needed / something new to say :) ...
