@@ -319,7 +319,7 @@ def rdinv(
         area_to_scan=area_to_scan_address_items,
         targeted_type=str,
         down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
-    )
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
     _tmp_country = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]).replace("None", "").strip()
     _tmp_city = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]).replace("None", "").strip()
     _tmp_street = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
@@ -349,19 +349,19 @@ def rdinv(
         area_to_scan=_area_to_search,  # supposed to still contain customer info found area
         targeted_type=str,
         down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
-    )            
-    _tmp_reg_com = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)["value"]
-    _tmp_bank = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)["value"]
-    _tmp_IBAN = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)["value"]
-    _tmp_tel = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)["value"]
-    _tmp_email = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)["value"]
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    _tmp_reg_com = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)
+    _tmp_bank = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)
+    _tmp_IBAN = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)
+    _tmp_tel = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)
+    _tmp_email = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)
     ... # wip_TODO: let prev variab "pure" as full dict
     ... # wip_TODO: and next ones "clean" for store in `Invoice` key (for XML specific keys)
-    _tmp_reg_com_cleaned = str(_tmp_reg_com).replace("None", "").strip()
-    _tmp_bank_cleaned = str(_tmp_bank).replace("None", "").strip()
-    _tmp_IBAN_cleaned = str(_tmp_IBAN).replace("None", "").strip()
-    _tmp_tel_cleaned = str(_tmp_tel).replace("None", "").strip()
-    _tmp_email_cleaned = str(_tmp_email).replace("None", "").strip()
+    _tmp_reg_com_cleaned = str(_tmp_reg_com["value"]).replace("None", "").strip()
+    _tmp_bank_cleaned = str(_tmp_bank["value"]).replace("None", "").strip()
+    _tmp_IBAN_cleaned = str(_tmp_IBAN["value"]).replace("None", "").strip()
+    _tmp_tel_cleaned = str(_tmp_tel["value"]).replace("None", "").strip()
+    _tmp_email_cleaned = str(_tmp_email["value"]).replace("None", "").strip()
     print()  #FIXME ...drop.me DBG line
     print(f"[red]******------ GET/READ VALUES AS:[/]")  #FIXME ...drop.me DBG line
     print(f"[red]******------ tmp_reg_com \n{_tmp_reg_com}[/]")  #FIXME ...drop.me DBG line
