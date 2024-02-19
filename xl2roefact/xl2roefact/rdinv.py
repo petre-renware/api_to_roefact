@@ -350,11 +350,11 @@ def rdinv(
         targeted_type=str,
         down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )            
-    _tmp_reg_com = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)["value"]).replace("None", "").strip()
-    _tmp_bank = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)["value"]).replace("None", "").strip()
-    _tmp_IBAN = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)["value"]).replace("None", "").strip()
-    _tmp_tel = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)["value"]).replace("None", "").strip()
-    _tmp_email = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)["value"]).replace("None", "").strip()
+    _tmp_reg_com = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)["value"]
+    _tmp_bank = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)["value"]
+    _tmp_IBAN = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)["value"]
+    _tmp_tel = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)["value"]
+    _tmp_email = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)["value"]
     ... # wip_TODO: let prev variab "pure" as full dict
     ... # wip_TODO: and next ones "clean" for store in `Invoice` key (for XML specific keys)
     #_tmp_reg_com_cleaned = str(_tmp_reg_com).replace("None", "").strip()
