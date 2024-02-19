@@ -341,8 +341,8 @@ def rdinv(
 
             
     
-    # search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")
-    #TODO: ...hereuare... 
+    # search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")
+    #TODO: ... start code of search_extended_parts
     search_extended_parts = partial(  # define a partial function to be used for all "search_extended_parts"
         get_excel_data_at_label,  # function to call
         worksheet=ws,
@@ -355,6 +355,13 @@ def rdinv(
     _tmp_IBAN = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)["value"]).replace("None", "").strip()
     _tmp_tel = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)["value"]).replace("None", "").strip()
     _tmp_email = str(search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)["value"]).replace("None", "").strip()
+    ... # wip_TODO: let prev variab "pure" as full dict
+    ... # wip_TODO: and next ones "clean" for store in `Invoice` key (for XML specific keys)
+    #_tmp_reg_com_cleaned = str(_tmp_reg_com).replace("None", "").strip()
+    #_tmp_bank_cleaned = str(_tmp_bank).replace("None", "").strip()
+    #_tmp_IBAN_cleaned = str(_tmp_IBAN).replace("None", "").strip()
+    #_tmp_tel_cleaned = str(_tmp_tel).replace("None", "").strip()
+    #_tmp_email_cleaned = str(_tmp_email).replace("None", "").strip()
     print()  #FIXME ...drop.me DBG line
     print(f"[red]******------ GET/READ VALUES AS:[/]")  #FIXME ...drop.me DBG line
     print(f"[red]******------ tmp_reg_com \n{_tmp_reg_com}[/]")  #FIXME ...drop.me DBG line
@@ -363,7 +370,30 @@ def rdinv(
     print(f"[red]******------ tmp_tel \n{_tmp_tel}[/]")  #FIXME ...drop.me DBG line
     print(f"[red]******------ tmp_email \n{_tmp_email}[/]")  #FIXME ...drop.me DBG line
     print()  #FIXME ...drop.me DBG line
-    ...  # got from line 323 to replicate them ...hereuare
+    '''NOTE: values read:
+    - REN invoice
+******------ GET/READ VALUES AS:
+******------ tmp_reg_com 
+J40/11864/06.07.2005
+******------ tmp_bank 
+BCR Ag Sala Palatului
+******------ tmp_IBAN 
+RO65 RNCB 0080 0056 9790 0001
+******------ tmp_tel 
+    
+    - OMV invoice
+******------ GET/READ VALUES AS:
+******------ tmp_reg_com 
+
+******------ tmp_bank 
+Comerciala Romana
+******------ tmp_IBAN 
+
+******------ tmp_tel 
+
+******------ tmp_email 
+    '''
+    #TODO ... end code of search_extended_parts
 
 
 
