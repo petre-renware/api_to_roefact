@@ -2,12 +2,12 @@
 
 --- #TODO: a se sterge la final...
 
-* Format sintax: `JSON -> XML @ invoice_header_area["customer_area"][...]`
+Format sintax: `JSON -> XML @ invoice_header_area["customer_area"][...]`
 
 
- cac_Contact  ->  cac:Contact  @  ...n/a...
-    cbc_Telephone  ->  cbc:Telephone  @  ["phone"]
-    cbc_ElectronicMail  ->  cbc:ElectronicMail  @  ["email"]
+* cac_Contact  ->  cac:Contact  @  ...n/a...
+    * cbc_Telephone  ->  cbc:Telephone  @  ["phone"]
+    * cbc_ElectronicMail  ->  cbc:ElectronicMail  @  ["email"]
 
 
 
