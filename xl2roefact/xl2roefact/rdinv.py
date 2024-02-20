@@ -334,15 +334,8 @@ def rdinv(
         "cbc_PostalZone": _tmp_zipcode,
         "cac_Country": {"cbc_IdentificationCode": _tmp_country},
     }
-
-
-
-
-
-
-
-    # search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")
-    #TODO: ... start code of search_extended_parts
+    #
+    # search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")*
     search_extended_parts = partial(  # define a partial function to be used for all "search_extended_parts"
         get_excel_data_at_label,  # function to call
         worksheet=ws,
@@ -361,15 +354,6 @@ def rdinv(
     invoice_header_area["customer_area"]["IBAN"] = _tmp_IBAN
     invoice_header_area["customer_area"]["phone"] = _tmp_phone
     invoice_header_area["customer_area"]["email"] = _tmp_email
-    ...  # ...hereuare...
-    ... #TODO: store in `Invoice` key, see lin 405, 406 - NOTE: ATTN mv `,` from lin 406 begin at 405 end
-    #TODO ... end code of search_extended_parts 
-    #TODO ...&&... DO NOT FORGET SUMMARIZING ITEMS (ck if left comment down from lin 406)
-
-
-
-
-
 
     # NOTE: see how replicate code for Customer --to--> Supplier
     # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
@@ -404,7 +388,15 @@ def rdinv(
                         "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
                     },
                     "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
-                    "wip_ext_info": None,  # ..... here extended info
+                    # ...hereuare... 
+                    #TODO: store in `Invoice` key, see lin 405, 406 - NOTE: ATTN mv `,` from lin 406 begin at 405 end
+                    "cac_Contact": {
+                        "1": 1,
+                        "2": 2,
+                        "3": 3,
+                        "4": 4,
+                        "5": 5,
+                    },
                 }
             },
             #TODO ...here to add rest of `invoice_header_area`: "reg com", "bank / IBAN / cont", "tel", "email"
