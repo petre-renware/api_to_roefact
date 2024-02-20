@@ -16,8 +16,7 @@ authors = [
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" },
     { name = "RENware Software Systems", email = "renware.systems@gmail.com" }
 ]
-dependencies = [
-]
+# dependencies = []  # is expected to be created by `pdm init`
 license = {file = "LICENSE.md"}
 requires-python = ">= 3.10"
 classifiers = [  #  [piu@231226] just informative key at this moment
@@ -62,8 +61,7 @@ version = { source = "file", path = "__version__.py" }
 
 
 [tool.pdm.dev-dependencies]  # dependencies used only in develeopment and not transfered in Pythn package building
-dev = [
-]
+# dev = []  # will add after init of PDM
 
 
 
