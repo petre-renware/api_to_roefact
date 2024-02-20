@@ -16,7 +16,8 @@
                     "cac_Country": {
                         "cbc_IdentificationCode": "RO"
                     }
-                }
+                },
+                "wip_ext_info": null
             }
         },
         "cac_InvoiceLine": [
@@ -85,7 +86,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-19T16:29:52.671714+00:00",
+        "last_processing_time": "2024-02-20T02:51:24.115960+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -210,6 +211,34 @@
             [
                 "cbc_IdentificationCode",
                 "cbc:IdentificationCode"
+            ],
+            [
+                "LineVatAmount",
+                null
+            ],
+            [
+                "cac_Contact",
+                "cac:Contact"
+            ],
+            [
+                "cbc_Telephone",
+                "cbc:Telephone"
+            ],
+            [
+                "cbc_ElectronicMail",
+                "cbc:ElectronicMail"
+            ],
+            [
+                "RegCom",
+                null
+            ],
+            [
+                "Bank",
+                null
+            ],
+            [
+                "IBAN",
+                null
             ]
         ]
     },

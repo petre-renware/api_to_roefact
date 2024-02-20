@@ -16,7 +16,8 @@
                     "cac_Country": {
                         "cbc_IdentificationCode": "RO"
                     }
-                }
+                },
+                "wip_ext_info": null
             }
         },
         "cac_InvoiceLine": [
@@ -125,7 +126,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-19T16:29:52.733667+00:00",
+        "last_processing_time": "2024-02-20T02:51:24.178469+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
@@ -250,6 +251,34 @@
             [
                 "cbc_IdentificationCode",
                 "cbc:IdentificationCode"
+            ],
+            [
+                "LineVatAmount",
+                null
+            ],
+            [
+                "cac_Contact",
+                "cac:Contact"
+            ],
+            [
+                "cbc_Telephone",
+                "cbc:Telephone"
+            ],
+            [
+                "cbc_ElectronicMail",
+                "cbc:ElectronicMail"
+            ],
+            [
+                "RegCom",
+                null
+            ],
+            [
+                "Bank",
+                null
+            ],
+            [
+                "IBAN",
+                null
             ]
         ]
     },
