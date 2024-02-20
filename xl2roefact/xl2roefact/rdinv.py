@@ -391,11 +391,11 @@ def rdinv(
                     "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
                     # ...hereuare... TEST WIP...
                     "cac_Contact": {
-                        "cbc_Telephone": copy.deepcopy(invoice_header_area["customer_area"]["phone"]),
-                        "cbc_ElectronicMail": copy.deepcopy(invoice_header_area["customer_area"]["email"]),
-                        "RegCom": copy.deepcopy(invoice_header_area["customer_area"]["reg_com"]),
-                        "Bank": copy.deepcopy(invoice_header_area["customer_area"]["bank"]),
-                        "IBAN": copy.deepcopy(invoice_header_area["customer_area"]["IBAN"]),
+                        "cbc_Telephone": copy.deepcopy(invoice_header_area["customer_area"]["phone"]["value"]),
+                        "cbc_ElectronicMail": copy.deepcopy(invoice_header_area["customer_area"]["email"]["value"]),
+                        "RegCom": copy.deepcopy(invoice_header_area["customer_area"]["reg_com"]["value"]),
+                        "Bank": copy.deepcopy(invoice_header_area["customer_area"]["bank"]["value"]),
+                        "IBAN": copy.deepcopy(invoice_header_area["customer_area"]["IBAN"]["value"]),
                     },
                 }
             },
