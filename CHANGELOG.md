@@ -68,7 +68,7 @@
     * [x] 2. store info in `customer_header_area` --> `excel...original` data key
     * [x] 3.a. make a work-file with map XML-JSON ref key names (search in xml file for supplier area which is more elaborated)
     * [x] 3.b. update `customer_header_area` XML-JSON map key
-    * [ ] 3.c. store info in `customer_header_area` --> `Invoice` key
+    * [...] 3.c. store info in `customer_header_area` --> `Invoice` key
     * [ ] 4. test app and its results
     * [ ] 5. update DLD documentation & build xl2roefact
     * [ ] 6. update site documentation ...if needed / something new to say :) ...
