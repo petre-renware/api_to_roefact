@@ -391,11 +391,11 @@ def rdinv(
                     # ...hereuare... 
                     #TODO: store in `Invoice` key, see lin 405, 406 - NOTE: ATTN mv `,` from lin 406 begin at 405 end
                     "cac_Contact": {
-                        "1": 1,
-                        "2": 2,
-                        "3": 3,
-                        "4": 4,
-                        "5": 5,
+                        "cbc_Telephone": copy.deepcopy(invoice_header_area["customer_area"]["phone"]),
+                        "2": copy.deepcopy(invoice_header_area["customer_area"]["..."]),
+                        "3": copy.deepcopy(invoice_header_area["customer_area"]["..."]),
+                        "4": copy.deepcopy(invoice_header_area["customer_area"]["..."]),
+                        "5": copy.deepcopy(invoice_header_area["customer_area"]["..."]),
                     },
                 }
             },
