@@ -901,6 +901,13 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_PostalZone", "cbc:PostalZone"),  # invoice customer inforation - DETAIL L3 RECORD
         ("cac_Country", "cac:Country"),  # invoice customer inforation - DETAIL L3 RECORD
         ("cbc_IdentificationCode", "cbc:IdentificationCode"),  # invoice customer inforation - DETAIL L3 RECORD
+        (),  # 1
+        (),  # 2
+        (),  # 3
+        (),  # 4
+        (),  # 5
+        (),  # 6
+        (),  # 7
         #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 
