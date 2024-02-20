@@ -46,7 +46,7 @@
 
 
 
-### #TODO..._wip... 0.2.0 xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
+### #TODO..._wip... 0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE: date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -70,8 +70,8 @@
     * [x] 3.b. update `customer_header_area` XML-JSON map key
     * [x] 3.c. store info in `customer_header_area` --> `Invoice` key
     * [x] 4. test app and its results. Clean up code
-    * [ ] 5.a. update tech doc ref JSON structure
-    * [ ] 5.b. build xl2roefact
+    * [x] 5.a. update tech doc ref JSON structure
+    * [x] 5.b. build xl2roefact `0.2.0b`
     * [ ] 6. update site documentation ...if needed / something new to say :) ...
     * [ ] 7. test code, publish, test site
 
