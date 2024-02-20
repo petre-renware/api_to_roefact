@@ -46,7 +46,7 @@
 
 
 
-### #TODO wip... 0.2.??? xl2roefact invoice summary of items table (#NOTE: date here...)
+### #TODO wip... 0.2.1b xl2roefact invoice summary of items table (#NOTE: date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -55,12 +55,17 @@
 * tbd.Must... publish `xl2roefact` package --> read PDM doc ref package release
 
 * tbd.Could... init a PDM simple env in project root. Keep in mind:
-    * root project is for SITE GENERATION. ? the `web2roefact` will need its own directory5like `xl2roefact` ?
-    * as consequence the project name is **INVOICEtoROefact**
-    * and the version is last from CHANGELOG
+    * [x] (@ 200220piu_b) root project is for SITE GENERATION
+    * [X] (@ 240220piu_a) The `web2roefact` will need its own directory5like `xl2roefact`
+    * [x] (@ 200220piu_b) as consequence the project name is **INVOICEtoROefact** and the version is last from CHANGELOG
+    * [ ] run `pdm init` then `pdm update` to get dependencies
+
 
 * wip...
 
+* 200220piu_b init a PDM simple env in project root
+    * root project is for SITE GENERATION
+    * project name set to **INVOICEtoROefact** and the version dynamic from `/__version__.py`
 * 240220piu_a reorganized `INVOICEtoROeFact` project by preparing python directory structure for **`web2roefact`** component as installable package (model xl2roefact)
 
 
