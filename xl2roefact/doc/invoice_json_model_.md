@@ -28,7 +28,7 @@
                     "cbc_ElectronicMail": "...",
                     "RegCom": "J40/.../...",
                     "Bank": "BCR Ag Sala Palatului",
-                    "IBAN": "RO65 RNCB ... ..."
+                    "IBAN": "ROxx RNCB ... ... ... ..."
                 }
             }
         },
