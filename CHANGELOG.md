@@ -59,7 +59,10 @@
     * as consequence the project name is **INVOICEtoROefact**
     * and the version is last from CHANGELOG
 
-* wip... (lst item 240219piu_a)
+* wip...
+
+* 240220piu_a reorganized `INVOICEtoROeFact` project by preparing python directory structure for **`web2roefact`** component as installable package (model xl2roefact)
+
 
 
 
