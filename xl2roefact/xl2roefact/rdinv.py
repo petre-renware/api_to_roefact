@@ -403,8 +403,8 @@ def rdinv(
                         "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
                         "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
                     },
-                    "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"])
-                    ,
+                    "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
+                    "wip_ext_info": None,  # ..... here extended info
                 }
             },
             #TODO ...here to add rest of `invoice_header_area`: "reg com", "bank / IBAN / cont", "tel", "email"
