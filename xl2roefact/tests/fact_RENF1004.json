@@ -17,7 +17,13 @@
                         "cbc_IdentificationCode": "RO"
                     }
                 },
-                "wip_ext_info": null
+                "cac_Contact": {
+                    "cbc_Telephone": null,
+                    "cbc_ElectronicMail": null,
+                    "RegCom": "J40/11864/06.07.2005",
+                    "Bank": "BCR Ag Sala Palatului",
+                    "IBAN": "RO65 RNCB 0080 0056 9790 0001"
+                }
             }
         },
         "cac_InvoiceLine": [
@@ -126,7 +132,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-20T02:51:24.178469+00:00",
+        "last_processing_time": "2024-02-20T04:07:19.846066+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
