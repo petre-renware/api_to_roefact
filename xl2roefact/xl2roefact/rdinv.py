@@ -389,7 +389,6 @@ def rdinv(
                         "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
                     },
                     "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
-                    # ...hereuare... TEST WIP...
                     "cac_Contact": {
                         "cbc_Telephone": copy.deepcopy(invoice_header_area["customer_area"]["phone"]["value"]),
                         "cbc_ElectronicMail": copy.deepcopy(invoice_header_area["customer_area"]["email"]["value"]),
@@ -397,7 +396,7 @@ def rdinv(
                         "Bank": copy.deepcopy(invoice_header_area["customer_area"]["bank"]["value"]),
                         "IBAN": copy.deepcopy(invoice_header_area["customer_area"]["IBAN"]["value"]),
                     },
-                }
+                },
             },
             #TODO ...here to add rest of `invoice_header_area`: "reg com", "bank / IBAN / cont", "tel", "email"
             "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
