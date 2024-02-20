@@ -388,14 +388,13 @@ def rdinv(
                         "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
                     },
                     "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
-                    # ...hereuare... 
-                    #TODO: store in `Invoice` key, see lin 405, 406 - NOTE: ATTN mv `,` from lin 406 begin at 405 end
+                    # ...hereuare... TEST WIP...
                     "cac_Contact": {
                         "cbc_Telephone": copy.deepcopy(invoice_header_area["customer_area"]["phone"]),
                         "cbc_ElectronicMail": copy.deepcopy(invoice_header_area["customer_area"]["email"]),
                         "RegCom": copy.deepcopy(invoice_header_area["customer_area"]["reg_com"]),
-                        "4": copy.deepcopy(invoice_header_area["customer_area"]["..."]),
-                        "5": copy.deepcopy(invoice_header_area["customer_area"]["..."]),
+                        "Bank": copy.deepcopy(invoice_header_area["customer_area"]["bank"]),
+                        "IBAN": copy.deepcopy(invoice_header_area["customer_area"]["IBAN"]),
                     },
                 }
             },
