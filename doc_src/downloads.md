@@ -16,11 +16,8 @@
 
 </summary>
 
-[`0.2.0b` xl2roefact application interface improvements WHEEL](../xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl "download")
-
-[`0.2.0b` xl2roefact application interface improvements DIST](../xl2roefact/dist/xl2roefact-0.2.0b0.tar.gz "download")
-
-
+* [`0.2.0b` xl2roefact application interface improvements WHEEL](../xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl "download")
+* [`0.2.0b` xl2roefact application interface improvements DIST](../xl2roefact/dist/xl2roefact-0.2.0b0.tar.gz "download")
 * [`0.1.22b` xl2roefact application interface improvements WHEEL](../xl2roefact/dist/xl2roefact-0.1.22b0-py3-none-any.whl "download")
 * [`0.1.22b` xl2roefact application interface improvements DIST](../xl2roefact/dist/xl2roefact-0.1.22b0.tar.gz "download")
 * [`0.1.20.dev` invoice customer address WHEEL](../xl2roefact/dist/xl2roefact-0.1.20-py3-none-any.whl "download")
@@ -58,6 +55,8 @@ Nici o resursa disponibila.
 ### Aplicatia xl2roefact linie comanda (win64-msi)
 
 </summary>
+
+
 
 * [`0.1.22b` xl2roefact application interface improvements](../xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi "download")
 * [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
