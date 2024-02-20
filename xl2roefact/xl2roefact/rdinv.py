@@ -403,8 +403,8 @@ def rdinv(
                         "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
                         "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
                     },
-                    "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"])
-                    ,
+                    "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
+                    "wip_ext_info": None,  # ..... here extended info
                 }
             },
             #TODO ...here to add rest of `invoice_header_area`: "reg com", "bank / IBAN / cont", "tel", "email"
@@ -901,6 +901,13 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_PostalZone", "cbc:PostalZone"),  # invoice customer inforation - DETAIL L3 RECORD
         ("cac_Country", "cac:Country"),  # invoice customer inforation - DETAIL L3 RECORD
         ("cbc_IdentificationCode", "cbc:IdentificationCode"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("LineVatAmount", None),  # line / item total VAT. Has no correspondent in XML schema - DETAIL L3 RECORD
+        ("cac_Contact", "cac:Contact"),  #  customer contact information: email, phone - DETAIL L2 RECORD
+        ("cbc_Telephone", "cbc:Telephone"),  # customer phone -- DETAIL L3 RECORD
+        ("cbc_ElectronicMail", "cbc:ElectronicMail"),  # customer email - DETAIL L3 RECORD
+        ("RegCom", None),  # customer commerce register number (company legal registration number). Has no correspondent in XML schema - DETAIL L3 RECORD
+        ("Bank", None),  # customer bank. Has no correspondent in XML schema - DETAIL L3 RECORD
+        ("IBAN", None),  # customer bank account number (IBAN). Has no correspondent in XML schema - DETAIL L3 RECORD
         #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 

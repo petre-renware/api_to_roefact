@@ -5,7 +5,7 @@
 Format sintaxa: `JSON -> XML @ invoice_header_area["customer_area"][...]`
 
 
-* cac_Contact  ->  cac:Contact  @  ...n/a...
+* cac_Contact  ->  cac:Contact  @  ...n/a... *Part of `<cac:Party>` XML tag/key*
     * cbc_Telephone  ->  cbc:Telephone  @  ["phone"]
     * cbc_ElectronicMail  ->  cbc:ElectronicMail  @  ["email"]
 
