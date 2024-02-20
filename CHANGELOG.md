@@ -46,7 +46,7 @@
 
 
 
-### #TODO wip... 0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE: date here...)
+### #TODO wip... 0.2.... xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE: date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -59,9 +59,16 @@
     * as consequence the project name is **INVOICEtoROefact**
     * and the version is last from CHANGELOG
 
-* wip...
+* wip... (lst item 240219piu_a)
 
-* ...wip.Must... 240219piu_a invoice customer search for other keys: "reg com", "bank / IBAN / cont", "phone", "email"
+
+
+
+
+
+### 0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (240220 h10:00)
+
+* 240219piu_a invoice customer search for other keys: "reg com", "bank / IBAN / cont", "phone", "email"
     * [x] 1. read req informnation and stored in local vars, as full dict (for excel original key) and as cleaned (for invoice key)
     * [x] 2. store info in `customer_header_area` --> `excel...original` data key
     * [x] 3.a. make a work-file with map XML-JSON ref key names (search in xml file for supplier area which is more elaborated)
@@ -71,7 +78,7 @@
     * [x] 5.a. update tech doc ref JSON structure
     * [x] 5.b. build xl2roefact `0.2.0b`
     * [x] 6. update site documentation ref new xl2roefact deliverables download 
-    * [ ] 7. build & publish, test site
+    * [...] 7. build & publish, test site
 
 * 240218piu_b created an automation workflow to run `xl2roefact xl2json` in directory `xl2roefact/tests/` and to obtain JSON of invoice to test it
     * [x] 1. moved test Excel invoices from `.../xl2roefact/invoice_files/` to `.../xl2roefact/tests/`
