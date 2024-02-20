@@ -22,6 +22,13 @@
                     "cac_Country": {
                         "cbc_IdentificationCode": "RO"
                     }
+                },
+                "cac_Contact": {
+                    "cbc_Telephone": "...",
+                    "cbc_ElectronicMail": "...",
+                    "RegCom": "J40/.../...",
+                    "Bank": "BCR Ag Sala Palatului",
+                    "IBAN": "RO65 RNCB ... ..."
                 }
             }
         },
