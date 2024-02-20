@@ -70,7 +70,7 @@
     * [x] 4. test app and its results. Clean up code
     * [x] 5.a. update tech doc ref JSON structure
     * [x] 5.b. build xl2roefact `0.2.0b`
-    * [ ] 6. update site documentation ...if there are news to say :) ...
+    * [...] 6. update site documentation ref new xl2roefact deliverables download 
     * [ ] 7. test code, publish, test site
 
 * 240218piu_b created an automation workflow to run `xl2roefact xl2json` in directory `xl2roefact/tests/` and to obtain JSON of invoice to test it
