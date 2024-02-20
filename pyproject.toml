@@ -1,0 +1,76 @@
+# NOTE: @(200220) this `toml` file is a copy of `xlroefact/pyproject.tml`
+# NOTE: @(200220) clearly it need to adjusted at least tables: `porject.name`, `porject.description`, `project.dependencies`
+# NOTE: @(200220) start cleaning...
+
+
+
+
+
+
+[project]
+name = "INVOICEtoROefact"
+# version = "...""  #NOTE this entry is maintained from `xl2roefact/__version__` file
+dynamic = ["version"]
+description = "Issued invoices, Excel & Web, import, export & upload to RO E-Fact system"
+authors = [
+    { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" },
+    { name = "RENware Software Systems", email = "renware.systems@gmail.com" }
+]
+# dependencies = []  # is expected to be created by `pdm init`
+license = {file = "LICENSE.md"}
+requires-python = ">= 3.10"
+classifiers = [  #  [piu@231226] just informative key at this moment
+    "Product code :: 0000-0095",  # [piu @ 231226] to test if accepted here
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End users",
+    "Topic :: Invoices :: Upload invoices :: RO EFact",
+    "License :: GNU License",
+    # Specify the Python versions you support here.
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+
+
+[project.urls]
+Homepage = "https://https://invoicetoroefact.renware.eu"
+PDF-Documentation = "https://invoicetoroefact.renware.eu/pdfs/print_page.html/print_page.pdf"
+Repository = "https://github.com/petre-renware/api_to_roefact"
+
+
+
+
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+
+
+
+[tool.pdm]
+version = { source = "file", path = "__version__.py" }
+
+
+
+
+[tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
+#TODO: `mkdocs build`
+
+
+
+[tool.pdm.dev-dependencies]  # dependencies used only in develeopment and not transfered in Pythn package building
+# dev = []  # will add after init of PDM
+
+
+
+
+
+#NOTE section add for `cxFreeze`, for details see here: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
+[tool.distutils.build_exe]
+excludes = ["tkinter", "unittest"]
+zip_include_packages = ["encodings", "PySide6"]
+
+
+
