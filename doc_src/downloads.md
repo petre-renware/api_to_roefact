@@ -18,13 +18,13 @@
 
 #### 0.2
 
-* [`0.2.0b` xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) WHEEL](../xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl "download")
-* [`0.2.0b` xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) DIST](../xl2roefact/dist/xl2roefact-0.2.0b0.tar.gz "download")
+* [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone) WHEEL](../xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl "download")
+* [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone) DIST](../xl2roefact/dist/xl2roefact-0.2.0b0.tar.gz "download")
 
 #### 0.1
 
-* [`0.1.22b` xl2roefact application interface improvements WHEEL](../xl2roefact/dist/xl2roefact-0.1.22b0-py3-none-any.whl "download")
-* [`0.1.22b` xl2roefact application interface improvements DIST](../xl2roefact/dist/xl2roefact-0.1.22b0.tar.gz "download")
+* [`0.1.22b` application interface improvements WHEEL](../xl2roefact/dist/xl2roefact-0.1.22b0-py3-none-any.whl "download")
+* [`0.1.22b` application interface improvements DIST](../xl2roefact/dist/xl2roefact-0.1.22b0.tar.gz "download")
 * [`0.1.20.dev` invoice customer address WHEEL](../xl2roefact/dist/xl2roefact-0.1.20-py3-none-any.whl "download")
 * [`0.1.20.dev` invoice customer address DIST](../xl2roefact/dist/xl2roefact-0.1.20.tar.gz "download")
 * [`0.1.19.dev` invoice customer and partial invoice total values calculations WHEEL](../xl2roefact/dist/0.1.19/xl2roefact-0.1.19-py3-none-any.whl "download")
@@ -63,11 +63,11 @@ Nici o resursa disponibila.
 
 #### 0.2
 
-* [`0.2.0b` xl2roefact invoice customer info-optional items (bank, email, reg-com, phone)](../xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl "download")
+* [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone)](../xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl "download")
 
 #### 0.1
 
-* [`0.1.22b` xl2roefact application interface improvements](../xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi "download")
+* [`0.1.22b` application interface improvements](../xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi "download")
 * [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
 * [`0.1.19.dev` invoice customer and partial invoice total values calculations](../xl2roefact/dist/0.1.19/xl2roefact-0.1.19-win64.msi "download")
 * [`0.1.18.dev` invoice customer CUI partial invoice total values calculations](../xl2roefact/dist/0.1.18/xl2roefact-0.1.18-win64.msi "download")
