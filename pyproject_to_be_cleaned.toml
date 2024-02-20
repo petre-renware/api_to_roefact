@@ -1,6 +1,6 @@
-#NOTE: this `toml` file is a copy of `xlroefact/pyproject.tml`
-#NOTE: clearly it need to adjusted at least tables: `porject.name`, `porject.description`, `project.dependencies`
-
+# NOTE: @(200220) this `toml` file is a copy of `xlroefact/pyproject.tml`
+# NOTE: @(200220) clearly it need to adjusted at least tables: `porject.name`, `porject.description`, `project.dependencies`
+# NOTE: @(200220) start cleaning...
 
 
 
@@ -8,50 +8,17 @@
 
 
 [project]
-name = "xl2roefact"
+name = "INVOICEtoROefact"
 # version = "...""  #NOTE this entry is maintained from `xl2roefact/__version__` file
 dynamic = ["version"]
-description = "Excel invoices data retrieve, export & upload to RO E-Fact system"
+description = "Issued invoices, Excel & Web, import, export & upload to RO E-Fact system"
 authors = [
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" },
     { name = "RENware Software Systems", email = "renware.systems@gmail.com" }
 ]
 dependencies = [
-    "altgraph~=0.17",
-    "argcomplete~=3.2",
-    "commonmark~=0.9",
-    "et-xmlfile~=1.1",
-    "Fraction~=2.2",
-    "Jinja2~=3.1",
-    "lief~=0.13",
-    "markdown-it-py~=3.0",
-    "MarkupSafe~=2.1",
-    "mdurl~=0.1",
-    "openpyxl~=3.1",
-    "packaging~=23.2",
-    "pefile~=2023.2",
-    "pdm~=2.12",
-    "pip~=23.3",
-    "platformdirs~=4.1",
-    "Pygments~=2.17",
-    "pylightxl~=1.61",
-    "pyproject-hooks~=1.0",
-    "python-dateutil~=2.8",
-    "pytzdata~=2020.1",
-    "pywin32-ctypes~=0.2",
-    "rich~=13.7",
-    "setuptools~=69.0",
-    "shellingham~=1.5",
-    "six~=1.16",
-    "time-machine~=2.13",
-    "tomli~=2.0",
-    "typing-extensions~=4.9",
-    "tzdata~=2023.4",
-    "userpath~=1.9",
-    "wheel~=0.42",
-]  #FIXME @231217 `pendulum` package raise error when import (#NOTE_ERR MSG: `File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
-readme = "README.md"
-license = {file = "LICENSE"}
+]
+license = {file = "LICENSE.md"}
 requires-python = ">= 3.10"
 classifiers = [  #  [piu@231226] just informative key at this moment
     "Product code :: 0000-0095",  # [piu @ 231226] to test if accepted here
@@ -84,41 +51,20 @@ build-backend = "pdm.backend"
 
 
 [tool.pdm]
-version = { source = "file", path = "xl2roefact/__version__.py" }
-
-
-
-[project.scripts]
-# xl2roefact = "xl2roefact.__main__:main"  #NOTE should make more tests, firts regarding path... but probably after lib publishing on PyPi and installation on a separated env...
+version = { source = "file", path = "__version__.py" }
 
 
 
 
 [tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
-build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
-build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
-#TODO: to add `build_single_exe` to build a single EXE file with `PyInstaller`, file usable for pure remote purposes (no install, ready-2-run from a stick). When rdy, update `build_all` next command from this scripts section / table
-build_doc = {shell = "pydoc-markdown -I xl2roefact --render-toc >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`)
-build_all = {composite = ["build_wheel", "build_msi", "build_doc"]}  # build all packages (MSI, python package wheel, python package sdist, design doc)
-xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python module
+#TODO: `mkdocs build`
 
 
 
 [tool.pdm.dev-dependencies]  # dependencies used only in develeopment and not transfered in Pythn package building
 dev = [
-    "build~=1.0",
-    "click~=8.1",
-    "typer~=0.9",
-    "pydoc-markdown~=4.8",
-    "cx-Freeze~=6.15",
-    "cx-Logging~=3.1",
-    "pyinstaller~=4.5",
-    "pyinstaller-hooks-contrib~=2023.12",
 ]
 
-
-[tool.hatch.metadata]  #FIXME piu: i think this is related to `Hatchling builder` so is useless with `PDM builder` - DROP this table after some tests
-allow-direct-references = true
 
 
 
@@ -130,4 +76,3 @@ zip_include_packages = ["encodings", "PySide6"]
 
 
 
-# #NOTE: see `https://github.com/pypa/sampleproject/blob/main/pyproject.toml` for all keywords description
