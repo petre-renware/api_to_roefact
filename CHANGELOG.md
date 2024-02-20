@@ -59,7 +59,13 @@
     * as consequence the project name is **INVOICEtoROefact**
     * and the version is last from CHANGELOG
 
-* wip... (lst item 240219piu_a)
+* wip...
+
+* 240220piu_a reorganized `INVOICEtoROeFact` project by preparing python directory structure for **`web2roefact`** component as installable package (model xl2roefact)
+
+
+
+
 
 
 
@@ -69,7 +75,7 @@
 ### 0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (240220 h10:00)
 
 * 240219piu_a invoice customer search for other keys: "reg com", "bank / IBAN / cont", "phone", "email"
-    * [x] 1. read req informnation and stored in local vars, as full dict (for excel original key) and as cleaned (for invoice key)
+    * [x] 1. read req information and stored in local vars, as full dict (for excel original key) and as cleaned (for invoice key)
     * [x] 2. store info in `customer_header_area` --> `excel...original` data key
     * [x] 3.a. make a work-file with map XML-JSON ref key names (search in xml file for supplier area which is more elaborated)
     * [x] 3.b. update `customer_header_area` XML-JSON map key
@@ -77,23 +83,13 @@
     * [x] 4. test app and its results. Clean up code
     * [x] 5.a. update tech doc ref JSON structure
     * [x] 5.b. build xl2roefact `0.2.0b`
-    * [x] 6. update site documentation ref new xl2roefact deliverables download 
+    * [x] 6. update site documentation ref new xl2roefact deliverables download
     * [x] 7. build & publish, test site
 * 240218piu_b created an automation workflow to run `xl2roefact xl2json` in directory `xl2roefact/tests/` and to obtain JSON of invoice to test it
     * [x] 1. moved test Excel invoices from `.../xl2roefact/invoice_files/` to `.../xl2roefact/tests/`
     * [x] 2. created automation YAML file (`run_xl2roefact.yml`)
     * [x] 3. test ==> PASS (exec results + `stdout --> _test_results.txt` written on `xl2roefact/tests/`)
 * 240218piu_a documentation improvements by using dropdown items
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -248,6 +244,6 @@ Items reviewed and archived:
 * [`0.1.1.dev` Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.dev.md)
 * [`0.1.0.dev` System raw backbone](./changelog_history/CHANGELOG-0.1.0.dev.md)
 
-</details> 
+</details>
 
 
