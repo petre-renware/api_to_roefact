@@ -63,7 +63,7 @@ Nici o resursa disponibila.
 
 #### 0.2
 
-* [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone)](../xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl "download")
+* [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone)](../xl2roefact/dist/(../xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi "download")
 
 #### 0.1
 
