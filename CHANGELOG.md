@@ -38,7 +38,7 @@
     * -#NOTE Plan for `rdinv` module:
         * invoice header
             * [ ] invoice supplier (`<cac:AccountingSupplierParty>`)
-            * [ ] invoice summary of items table (there are left comments in code, in zone where write "Invoice" key)
+            * [ ] TODO: ... invoice summary of items table (there are left comments in code, in zone where write "Invoice" key)
             * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
     -------------------------------------------------------------------------------------------------
 ```
@@ -46,7 +46,7 @@
 
 
 
-### #TODO wip... 0.2.... xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE: date here...)
+### #TODO wip... 0.2.??? xl2roefact invoice summary of items table (#NOTE: date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -78,8 +78,7 @@
     * [x] 5.a. update tech doc ref JSON structure
     * [x] 5.b. build xl2roefact `0.2.0b`
     * [x] 6. update site documentation ref new xl2roefact deliverables download 
-    * [...] 7. build & publish, test site
-
+    * [x] 7. build & publish, test site
 * 240218piu_b created an automation workflow to run `xl2roefact xl2json` in directory `xl2roefact/tests/` and to obtain JSON of invoice to test it
     * [x] 1. moved test Excel invoices from `.../xl2roefact/invoice_files/` to `.../xl2roefact/tests/`
     * [x] 2. created automation YAML file (`run_xl2roefact.yml`)
@@ -107,7 +106,7 @@
 
 
 
-## 0.1 (closed 240217 h21:30)
+## 0.1
 
 ### 0.1.22b xl2roefact application interface improvements (240217 h12:00)
 
