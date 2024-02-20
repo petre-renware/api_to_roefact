@@ -29,16 +29,16 @@
     -
     * ... FUTURE NEW APP COMMANDS :
         * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-        * `xl2json` - crt_wip... (last upd @ 240123)
+        * `xl2json` - crt_wip... (last upd @ 240219piu_a)
         * `json2xml` - see module WRXML,
-        * `json2pdf` - new tbd..,
-        * `xml2roefact` - see mpdule LDXML
-        * chk for other commands from doc `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
+        * `json2pdf` - new module. tbd..,
+        * `xml2roefact` - see module LDXML
+        * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
     -
-    * -#NOTE_PLAN `rdinv` module:
+    * -#NOTE Plan for `rdinv` module:
         * invoice header
-            * [...] wip... @ `§240219piu_a` invoice header - customer bank, RegCom, email, tel, ...
-            * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
+            * [ ] invoice supplier (`<cac:AccountingSupplierParty>`)
+            * [ ] invoice summary of items table (there are left comments in code, in zone where write "Invoice" key)
             * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
     -------------------------------------------------------------------------------------------------
 ```
@@ -46,13 +46,11 @@
 
 
 
-### #TODO..._wip... 0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE: date here...)
+### #TODO wip... 0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE: date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
-* wip.Would... automate GitHub site build & publishing. Last attempt @`240216piu_a`.
-
-* tbd.Should... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
+* tbd.Should... [piu @_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
 
 * tbd.Must... publish `xl2roefact` package --> read PDM doc ref package release
 
@@ -72,7 +70,7 @@
     * [x] 4. test app and its results. Clean up code
     * [x] 5.a. update tech doc ref JSON structure
     * [x] 5.b. build xl2roefact `0.2.0b`
-    * [ ] 6. update site documentation ...if needed / something new to say :) ...
+    * [ ] 6. update site documentation ...if there are news to say :) ...
     * [ ] 7. test code, publish, test site
 
 * 240218piu_b created an automation workflow to run `xl2roefact xl2json` in directory `xl2roefact/tests/` and to obtain JSON of invoice to test it
