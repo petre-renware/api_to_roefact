@@ -355,6 +355,7 @@ def rdinv(
     invoice_header_area["customer_area"]["phone"] = _tmp_phone
     invoice_header_area["customer_area"]["email"] = _tmp_email
 
+
     # NOTE: see how replicate code for Customer --to--> Supplier
     # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
     # NOTE: si mai este ceva legat de o sumarizare XML a totalului facturi (comentarii in zona in care scrii key Invoice, citeva linii mai jos)
