@@ -68,11 +68,12 @@
     * [x] 2. store info in `customer_header_area` --> `excel...original` data key
     * [x] 3.a. make a work-file with map XML-JSON ref key names (search in xml file for supplier area which is more elaborated)
     * [x] 3.b. update `customer_header_area` XML-JSON map key
-    * [...] 3.c. store info in `customer_header_area` --> `Invoice` key
-    * [ ] 4. test app and its results
-    * [ ] 5. update DLD documentation & build xl2roefact
+    * [x] 3.c. store info in `customer_header_area` --> `Invoice` key
+    * [x] 4. test app and its results. Clean up code
+    * [ ] 5.a. update tech doc ref JSON structure
+    * [ ] 5.b. build xl2roefact
     * [ ] 6. update site documentation ...if needed / something new to say :) ...
-    * [ ] 7. CLEAN UP CODE, test code, publish, test site
+    * [ ] 7. test code, publish, test site
 
 * 240218piu_b created an automation workflow to run `xl2roefact xl2json` in directory `xl2roefact/tests/` and to obtain JSON of invoice to test it
     * [x] 1. moved test Excel invoices from `.../xl2roefact/invoice_files/` to `.../xl2roefact/tests/`
