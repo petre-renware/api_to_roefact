@@ -183,7 +183,7 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
-        customer_area = None,  # TODO: some more items to do: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE: to cont on line 335
+        customer_area = None,
         supplier_area = "...future..."  # TODO: ... future tbd  ...
     )  #FIXME_TODO: ............hereuare............
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
@@ -319,7 +319,7 @@ def rdinv(
         area_to_scan=area_to_scan_address_items,
         targeted_type=str,
         down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
-    )
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
     _tmp_country = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]).replace("None", "").strip()
     _tmp_city = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]).replace("None", "").strip()
     _tmp_street = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
@@ -334,8 +334,28 @@ def rdinv(
         "cbc_PostalZone": _tmp_zipcode,
         "cac_Country": {"cbc_IdentificationCode": _tmp_country},
     }
-    # TODO: ... continue with search for the rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email"  #NOTE start w./line 185
-    ...
+    #
+    # search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")*
+    search_extended_parts = partial(  # define a partial function to be used for all "search_extended_parts"
+        get_excel_data_at_label,  # function to call
+        worksheet=ws,
+        area_to_scan=_area_to_search,  # supposed to still contain customer info found area
+        targeted_type=str,
+        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    _tmp_reg_com = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)
+    _tmp_bank = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)
+    _tmp_IBAN = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)
+    _tmp_phone = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)
+    _tmp_email = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)
+    # store "full" variables in `customer_area...` for excel original values
+    invoice_header_area["customer_area"]["reg_com"] = _tmp_reg_com
+    invoice_header_area["customer_area"]["bank"] = _tmp_bank
+    invoice_header_area["customer_area"]["IBAN"] = _tmp_IBAN
+    invoice_header_area["customer_area"]["phone"] = _tmp_phone
+    invoice_header_area["customer_area"]["email"] = _tmp_email
+
+
     # NOTE: see how replicate code for Customer --to--> Supplier
     # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
     # NOTE: si mai este ceva legat de o sumarizare XML a totalului facturi (comentarii in zona in care scrii key Invoice, citeva linii mai jos)
@@ -368,9 +388,15 @@ def rdinv(
                         "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
                         "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
                     },
-                    "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"])
-                    ,
-                }
+                    "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
+                    "cac_Contact": {
+                        "cbc_Telephone": copy.deepcopy(invoice_header_area["customer_area"]["phone"]["value"]),
+                        "cbc_ElectronicMail": copy.deepcopy(invoice_header_area["customer_area"]["email"]["value"]),
+                        "RegCom": copy.deepcopy(invoice_header_area["customer_area"]["reg_com"]["value"]),
+                        "Bank": copy.deepcopy(invoice_header_area["customer_area"]["bank"]["value"]),
+                        "IBAN": copy.deepcopy(invoice_header_area["customer_area"]["IBAN"]["value"]),
+                    },
+                },
             },
             #TODO ...here to add rest of `invoice_header_area`: "reg com", "bank / IBAN / cont", "tel", "email"
             "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
@@ -866,6 +892,13 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_PostalZone", "cbc:PostalZone"),  # invoice customer inforation - DETAIL L3 RECORD
         ("cac_Country", "cac:Country"),  # invoice customer inforation - DETAIL L3 RECORD
         ("cbc_IdentificationCode", "cbc:IdentificationCode"),  # invoice customer inforation - DETAIL L3 RECORD
+        ("LineVatAmount", None),  # line / item total VAT. Has no correspondent in XML schema - DETAIL L3 RECORD
+        ("cac_Contact", "cac:Contact"),  #  customer contact information: email, phone - DETAIL L2 RECORD
+        ("cbc_Telephone", "cbc:Telephone"),  # customer phone -- DETAIL L3 RECORD
+        ("cbc_ElectronicMail", "cbc:ElectronicMail"),  # customer email - DETAIL L3 RECORD
+        ("RegCom", None),  # customer commerce register number (company legal registration number). Has no correspondent in XML schema - DETAIL L3 RECORD
+        ("Bank", None),  # customer bank. Has no correspondent in XML schema - DETAIL L3 RECORD
+        ("IBAN", None),  # customer bank account number (IBAN). Has no correspondent in XML schema - DETAIL L3 RECORD
         #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 

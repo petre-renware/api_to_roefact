@@ -15,7 +15,7 @@
 
 
 
-## 0.1 (-#NOTE_wip...)
+## 0.2 (-#NOTE_wip...)
 
 ```
     - ---[ #TODO general planning board ]---------------------------
@@ -29,16 +29,16 @@
     -
     * ... FUTURE NEW APP COMMANDS :
         * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-        * `xl2json` - crt_wip... (last upd @ 240123)
+        * `xl2json` - crt_wip... (last upd @ 240219piu_a)
         * `json2xml` - see module WRXML,
-        * `json2pdf` - new tbd..,
-        * `xml2roefact` - see mpdule LDXML
-        * chk for other commands from doc `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
+        * `json2pdf` - new module. tbd..,
+        * `xml2roefact` - see module LDXML
+        * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
     -
-    * -#NOTE_PLAN `rdinv` module:
+    * -#NOTE Plan for `rdinv` module:
         * invoice header
-            * [ ] wip... invoice header - customer bank, RegCom, email, tel, ...
-            * [ ] invoice header - supplier (`<cac:AccountingSupplierParty>`)
+            * [ ] invoice supplier (`<cac:AccountingSupplierParty>`)
+            * [ ] TODO: ... invoice summary of items table (there are left comments in code, in zone where write "Invoice" key)
             * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
     -------------------------------------------------------------------------------------------------
 ```
@@ -46,13 +46,11 @@
 
 
 
-### #TODO..._wip... 0.1.23??? xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (#NOTE upd ".dev" qualifier & set date here...)
+### #TODO wip... 0.2.??? xl2roefact invoice summary of items table (#NOTE: date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
-* wip.Would... automate GitHub site build & publishing. Last attempt @`240216piu_a`.
-
-* tbd.Should... [piu_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, ...)
+* tbd.Should... [piu @_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
 
 * tbd.Must... publish `xl2roefact` package --> read PDM doc ref package release
 
@@ -61,16 +59,54 @@
     * as consequence the project name is **INVOICEtoROefact**
     * and the version is last from CHANGELOG
 
-* tbd.Must... invoice customer search for other keys: "reg com", "bank / IBAN / cont", "tel", "email" (start in `rdinv()` w./line 179 & then 331)
-
-* wip... last used 240217piu_b
+* wip... (lst item 240219piu_a)
 
 
 
 
 
 
+### 0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (240220 h10:00)
 
+* 240219piu_a invoice customer search for other keys: "reg com", "bank / IBAN / cont", "phone", "email"
+    * [x] 1. read req informnation and stored in local vars, as full dict (for excel original key) and as cleaned (for invoice key)
+    * [x] 2. store info in `customer_header_area` --> `excel...original` data key
+    * [x] 3.a. make a work-file with map XML-JSON ref key names (search in xml file for supplier area which is more elaborated)
+    * [x] 3.b. update `customer_header_area` XML-JSON map key
+    * [x] 3.c. store info in `customer_header_area` --> `Invoice` key
+    * [x] 4. test app and its results. Clean up code
+    * [x] 5.a. update tech doc ref JSON structure
+    * [x] 5.b. build xl2roefact `0.2.0b`
+    * [x] 6. update site documentation ref new xl2roefact deliverables download 
+    * [x] 7. build & publish, test site
+* 240218piu_b created an automation workflow to run `xl2roefact xl2json` in directory `xl2roefact/tests/` and to obtain JSON of invoice to test it
+    * [x] 1. moved test Excel invoices from `.../xl2roefact/invoice_files/` to `.../xl2roefact/tests/`
+    * [x] 2. created automation YAML file (`run_xl2roefact.yml`)
+    * [x] 3. test ==> PASS (exec results + `stdout --> _test_results.txt` written on `xl2roefact/tests/`)
+* 240218piu_a documentation improvements by using dropdown items
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 0.1
 
 ### 0.1.22b xl2roefact application interface improvements (240217 h12:00)
 
@@ -166,30 +202,6 @@
 
 
 
-### 0.1.20.dev invoice customer address (240123 h10:00)
-
-* 240123piu_b make a full chk / review for FIXME & run `pdm build_all`
-
-* 240123piu_a `def_inv_dir` issue ref Excel invoices default get directory, see comments in `app_cli.py` function `xl2json(...)`
-
-* 240121piu_a updated `config_settings.py` & `rdinv.py` with constants: `PATTERN_FOR_PARTNER_REGCOM`, `PATTERN_FOR_PARTNER_IBAN`, `PATTERN_FOR_PARTNER_TEL`, `PATTERN_FOR_PARTNER_EMAIL`, `PATTERN_FOR_PARTNER_BANK`
-
-* @CANCELED 240118_admin02 generalize a function `get_partner_info(partner_type: str "customer" | "supplier")` to get partner info with partner type as being parameter
-
-* 240118piu_a reviewed and cleaned code: `rdinv.rdinv()`, `config_settings`, `excel_invoice_template/invoice_template_CU_tva.xlsx` (according to updates in testing used invoice)
-
-* 240113piu_a to find `cac:PostalAddress` and write to:
-    * [x] 1. right set position of key `"cac_PostalAddress"` in basic structure (invoice_header_area)
-    * [x] 2a. find excel area ref customer address (...invoice_header_area...)
-    * [x] 2b. disseminate & save excel original area (...invoice_header_area...)
-    * [x] 3. get & set `["Invoice"]["cac_PostalAddress"]` and all is subsequent keys
-    * [x] 4. update XML - JSON map for item "under" `cac_PostalAddress`
-    * [x] 5. defined and included for use `DEFAULT_SUPPLIER_COUNTRY` and `DEFAULT_CUSTOMER_COUNTRY` both for "RO". Detailed desc and usage in `config_settings.py` & `rdinv.rdinv(...)`
-    * [x] 6. updated invoice template for country explicit field
-
-* 240116_admin_01 upd __version__ for 0.1.20
-
-
 
 
 
@@ -198,8 +210,23 @@
 
 # Archived CHANGELOGs
 
-## 0.1 version
 
+<details markdown="1"><summary markdown="1">
+## 0.1 version
+</summary>
+
+<!--#TODO collect rest of 0.1 items here... List of them; -->
+Items not yet reviewed, extracted and archived:
+
+* `0.1.22b` xl2roefact application interface improvements
+* `0.1.21.post3` cleaned system documentation and site
+* `0.1.21.post2` xl2roefact app detailed section with commands & options "--help" like
+* `0.1.21.post1` fixed missing links in site root index page
+* `0.1.21` rollout news in system portal invoicetoroefact.renware.eu
+
+Items reviewed and archived:
+
+* [`0.1.20.dev` invoice customer address](./changelog_history/CHANGELOG-0.1.20.dev.md)
 * [`0.1.19.dev` invoice customer and partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.19.dev.md)
 * [`0.1.18.dev` invoice customer CUI partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.18.dev.md)
 * [`0.1.17.dev` fixed all application & package running standard ways](./changelog_history/CHANGELOG-0.1.17.dev.md)
@@ -221,15 +248,6 @@
 * [`0.1.1.dev` Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.dev.md)
 * [`0.1.0.dev` System raw backbone](./changelog_history/CHANGELOG-0.1.0.dev.md)
 
+</details> 
 
 
-
-
-
-<!-- #TODO create this ? released notes are alreay (@240207) published in GitHub releases
-
-# [Release Notes](RELNOTE.md)
-
-* wip... [not_yet_created... 0.1]  (./changelog_history/...)
-
--->
