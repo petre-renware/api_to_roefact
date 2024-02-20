@@ -71,7 +71,7 @@
     * [x] 5.a. update tech doc ref JSON structure
     * [x] 5.b. build xl2roefact `0.2.0b`
     * [x] 6. update site documentation ref new xl2roefact deliverables download 
-    * [ ] 7. publish, test site
+    * [ ] 7. build & publish, test site
 
 * 240218piu_b created an automation workflow to run `xl2roefact xl2json` in directory `xl2roefact/tests/` and to obtain JSON of invoice to test it
     * [x] 1. moved test Excel invoices from `.../xl2roefact/invoice_files/` to `.../xl2roefact/tests/`
