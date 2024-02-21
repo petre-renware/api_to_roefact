@@ -64,9 +64,9 @@
 * wip...
 
 * 200220piu_b init a PDM simple env in project root
-    * root project is for SITE GENERATION
-    * project name set to **INVOICEtoROefact** and the version dynamic from `/__version__.py`
-    * small updates to `pyproject.toml` made by `pdm init` - to be checked in other issue && generated a 1sy `pdm.lock`
+    * 1. root project is for SITE GENERATION
+    * 2. project name set to **INVOICEtoROefact** and the version dynamic from `/__version__.py`
+    * 3. updated `pyproject.toml` default dependencies
 * 240220piu_a reorganized `INVOICEtoROeFact` project by preparing python directory structure for **`web2roefact`** component as installable package (model xl2roefact)
 
 
