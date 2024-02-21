@@ -118,20 +118,20 @@ dependencies = [
     "pyphen==0.14.0",
     "pyproject_hooks==1.0.0",
     "PySocks==1.7.1",
-    pysondb==1.6.7
-    python-dateutil==2.8.2
-    python-dotenv==1.0.1
-    pytz==2023.3
-    pytzdata==2020.1
-    pywin32-ctypes==0.2.2
-    PyYAML==6.0.1
-    pyyaml_env_tag==0.1
-    qt4w==2.1.5
-    qtaf==5.6.8
-    regex==2023.8.8
-    requests==2.31.0
-    requests-toolbelt==1.0.0
-    resolvelib==1.0.1
+    "pysondb==1.6.7",
+    "python-dateutil==2.8.2",
+    "python-dotenv==1.0.1",
+    "pytz==2023.3",
+    "pytzdata==2020.1",
+    "pywin32-ctypes==0.2.2",
+    "PyYAML==6.0.1",
+    "pyyaml_env_tag==0.1",
+    "qt4w==2.1.5",
+    "qtaf==5.6.8",
+    "regex==2023.8.8",
+    "requests==2.31.0",
+    "requests-toolbelt==1.0.0",
+    "resolvelib==1.0.1",
     rich==13.7.0
     selenium==4.11.2
     shellingham==1.5.4
