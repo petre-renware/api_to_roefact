@@ -29,6 +29,9 @@ classifiers = [  #  [piu@231226] just informative key at this moment
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
 ]
+version = "0.1.0"
+dependencies = []
+readme = "README.md"
 
 
 
@@ -41,16 +44,9 @@ Repository = "https://github.com/petre-renware/api_to_roefact"
 
 
 
-[build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
-
-
-
-
-
 [tool.pdm]
 version = { source = "file", path = "__version__.py" }
+distribution = false
 
 
 
