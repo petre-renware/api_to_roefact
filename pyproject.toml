@@ -68,22 +68,22 @@ dependencies = [
     "ghp-import==2.1.0",
     "gitdb==4.0.10",
     "GitPython==3.1.32",
-    h11==0.14.0
-    html5lib==1.1
-    idna==3.4
-    importlib-metadata==6.8.0
-    installer==0.7.0
-    Jinja2==3.1.2
-    lief==0.14.1
-    Markdown==3.4.4
-    markdown-exec==1.6.0
-    markdown-it-py==3.0.0
-    MarkupSafe==2.1.3
-    mdurl==0.1.2
-    mergedeep==1.3.4
-    mkdocs==1.5.2
-    mkdocs-autorefs==0.5.0
-    mkdocs-git-revision-date-localized-plugin==1.2.0
+    "h11==0.14.0",
+    "html5lib==1.1",
+    "idna==3.4",
+    "importlib-metadata==6.8.0",
+    "installer==0.7.0",
+    "Jinja2==3.1.2",
+    "lief==0.14.1",
+    "Markdown==3.4.4",
+    "markdown-exec==1.6.0",
+    "markdown-it-py==3.0.0",
+    "MarkupSafe==2.1.3",
+    "mdurl==0.1.2",
+    "mergedeep==1.3.4",
+    "mkdocs==1.5.2",
+    "mkdocs-autorefs==0.5.0",
+    "mkdocs-git-revision-date-localized-plugin==1.2.0",
     mkdocs-include-markdown-plugin==6.0.0
     mkdocs-macros-plugin==1.0.4
     mkdocs-material==9.1.21
