@@ -171,6 +171,8 @@
 
 
 
+-#FIXME------------
+
 ### 0.1.21 rollout news in system portal invoicetoroefact.renware.eu (240203 h09:00)
 
 * 240201piu_a reorganized `xl2roefact*` components by disseminating the installable application, which is something available "as is now" just for Windows operating system. For Linux there is no difference between command line application and Python package *from an end user point of view*.
@@ -199,7 +201,7 @@
 * 240127piu_a updated `810-DSGN/810.05a-system_components.md`, defined a classification usable to quickly find out *who-does-what*
 * 240125piu_a updated `mkdocs.yml` by including `mkdocs-same-dir` plug-in
 
-
+-#FIXME------------
 
 
 
@@ -228,8 +230,6 @@ Items not yet reviewed, extracted and archived:
 Items reviewed and archived:
 
 * [`0.1.21` rollout news in system portal invoicetoroefact.renware.eu](./changelog_history/CHANGELOG-0.1.21.md)
-
-
 * [`0.1.20.dev` invoice customer address](./changelog_history/CHANGELOG-0.1.20.dev.md)
 * [`0.1.19.dev` invoice customer and partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.19.dev.md)
 * [`0.1.18.dev` invoice customer CUI partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.18.dev.md)
