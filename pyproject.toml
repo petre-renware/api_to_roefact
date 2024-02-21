@@ -104,20 +104,20 @@ dependencies = [
     "pathspec==0.11.2",
     "pdm==2.12.3",
     "pdoc==14.2.0",
-    pefile==2023.2.7
-    Pillow==10.0.0
-    platformdirs==4.1.0
-    ply==3.11
-    pycparser==2.21
-    pydyf==0.7.0
-    Pygments==2.17.2
-    pygments-ansi-color==0.3.0
-    pyinstaller-hooks-contrib==2023.12
-    pylightxl==1.61
-    pymdown-extensions==10.1
-    pyphen==0.14.0
-    pyproject_hooks==1.0.0
-    PySocks==1.7.1
+    "pefile==2023.2.7",
+    "Pillow==10.0.0",
+    "platformdirs==4.1.0",
+    "ply==3.11",
+    "pycparser==2.21",
+    "pydyf==0.7.0",
+    "Pygments==2.17.2",
+    "pygments-ansi-color==0.3.0",
+    "pyinstaller-hooks-contrib==2023.12",
+    "pylightxl==1.61",
+    "pymdown-extensions==10.1",
+    "pyphen==0.14.0",
+    "pyproject_hooks==1.0.0",
+    "PySocks==1.7.1",
     pysondb==1.6.7
     python-dateutil==2.8.2
     python-dotenv==1.0.1
