@@ -31,6 +31,7 @@ classifiers = [  #  [piu@231226] just informative key at this moment
 ]
 
 dependencies = [
+    #FIXME wip... correct list entries
     "altgraph==0.17.4",
     "argcomplete==3.2.1",
     "async-generator==1.10",
@@ -47,18 +48,18 @@ dependencies = [
     "cffi==1.15.1",
     "charset-normalizer==3.2.0",
     "chrome-headless-browser==0.12.0",
-    chrome-master==1.4.0
-    click==8.1.7
-    click-man==0.4.1
-    colorama==0.4.6
-    commonmark==0.9.1
-    cssselect2==0.7.0
-    cx-Freeze==6.15.12
-    cx-Logging==3.1.0
-    dep-logic==0.0.4
-    distlib==0.3.8
-    et-xmlfile==1.1.0
-    exceptiongroup==1.1.3
+    "chrome-master==1.4.0",
+    "click==8.1.7",
+    "click-man==0.4.1",
+    "colorama==0.4.6",
+    "commonmark==0.9.1",
+    "cssselect2==0.7.0",
+    "cx-Freeze==6.15.12"
+    "cx-Logging==3.1.0",
+    "dep-logic==0.0.4",
+    "distlib==0.3.8",
+    "et-xmlfile==1.1.0",
+    "exceptiongroup==1.1.3",
     filelock==3.12.3
     findpython==0.4.1
     fonttools==4.42.0
