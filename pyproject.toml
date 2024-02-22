@@ -168,7 +168,7 @@ dependencies = [
     # NOTE: install variants:
     # (1st) `0.1.22.dev` wheel from (ATTN this version is not allowed as gh-action because free account which not accept install from direct external URL except PyPi)
     # (2nd) direct development from default branch
-    # xl2roefact @ file://invoicetoroefact.renware.eu/xl2roefact/dist/xl2roefact-0.1.22.dev0-py3-none-any.whl
+    # xl2roefact @ file://invoicetoroefact.renware.eu/xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl
     "-e git+https://github.com/petre-renware/api_to_roefact@74283c95c90e9b267b29e52a7e99b77c400cdcd6#egg=xl2roefact&subdirectory=xl2roefact",
     
     "zipp==3.16.2",
