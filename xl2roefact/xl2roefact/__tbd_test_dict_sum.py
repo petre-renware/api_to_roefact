@@ -30,7 +30,7 @@ test_data = {
 }
 
 
-if main == "__main__":
+if __name__ == "__main__":
     x = dict_sum_by_key(test_data, "k1")
     print(x)
 
