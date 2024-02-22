@@ -26,8 +26,7 @@
 </cac:LegalMonetaryTotal>
 
 
-... existing info ... useful to detect structure level ...
-
+... existing info ...
 <cac:LegalMonetaryTotal>...</cac:LegalMonetaryTotal>
 ...
 <cac:InvoiceLine>...</cac:InvoiceLine>
