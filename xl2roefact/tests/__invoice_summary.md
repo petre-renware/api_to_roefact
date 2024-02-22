@@ -2,7 +2,7 @@
 
 * place: tdinv.py lin 442
 * note text; TOTAL_invoice_strucuture (NOTE: refered by line "TODO: need  to contsruct TOTAL invoice structure ...", line ~>= 314)
-                
+
 
 
 
@@ -35,3 +35,19 @@ Other notes made by me:
 - TOTAL invoice VAT can be obtained as `SUM(from existing key cac_InvoiceLine.LineVatAmount`) adding lines VAT
 
 
+
+## Map to be created
+
+```python
+[
+    #... previous code here
+
+    ("cac_LegalMonetaryTotal", "cac:LegalMonetaryTotal"),
+    ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount"),
+    ("cbc_TaxExclusiveAmount", "cbc:TaxExclusiveAmount"),
+    ("cbc_TaxInclusiveAmount", "cbc:TaxInclusiveAmount",),
+    ("cbc_PayableAmount", "cbc:PayableAmount"),
+
+    #... not needed from here
+]
+```
