@@ -49,29 +49,22 @@
 ### #TODO wip... 0.2.1b xl2roefact invoice summary of items table (#NOTE: date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
-
 * tbd.Should... [piu @_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
-
 * tbd.Must... publish `xl2roefact` package --> read PDM doc ref package release
-
-* tbd.Could... init a PDM simple env in project root. Keep in mind:
-    * [x] (@ 200220piu_b) root project is for SITE GENERATION
-    * [X] (@ 240220piu_a) The `web2roefact` will need its own directory5like `xl2roefact`
-    * [x] (@ 200220piu_b) as consequence the project name is **INVOICEtoROefact** and the version is last from CHANGELOG
-    * [ ] finalize PDM usage. Run `pdm init` then `pdm update` to get dependencies
-
 
 * wip...
 
-* ... 240221piu_a invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key) 
-  * 1. new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
-  * 2. doc with extracted required summary structure `.../xl2roefact/tests/__invoice_summary.md`
-  * 3. ....tbd... code some calculations...
+* ... 240221piu_a invoice grand totals
+    * [x] 1. new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
+    * [x] 2. doc with wk.specs ref summary structure `.../xl2roefact/tests/__invoice_summary.md` (NOTE: will be deleted after finish)
+    * [ ] 3. code some calculations...
 
-* 200220piu_b init a PDM simple env in project root
-    * 1. root project is for SITE GENERATION
-    * 2. project name set to **INVOICEtoROefact** and the version dynamic from `/__version__.py`
-    * 3. updated `pyproject.toml` default dependencies
+* ... 200220piu_b init a PDM simple env in project root
+    * [x] 1. root project is for SITE GENERATION
+    * [x]  2. project name set to **INVOICEtoROefact** and the version dynamic from `/__version__.py`
+    * [x] 3. updated `pyproject.toml` default dependencies
+    * [ ] 4. finalize PDM usage. Run `pdm init` then `pdm update` to get dependencies
+
 * 240220piu_a reorganized `INVOICEtoROeFact` project by preparing python directory structure for **`web2roefact`** component as installable package (model xl2roefact)
 
 
