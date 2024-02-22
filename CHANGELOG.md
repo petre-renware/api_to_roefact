@@ -39,7 +39,7 @@
         * invoice header
             * [ ] invoice supplier (`<cac:AccountingSupplierParty>`)
             * [ ] TODO: ... invoice summary of items table (there are left comments in code, in zone where write "Invoice" key)
-            * [ ] invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
+            * [...] wip@240221piu_a invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key) 
     -------------------------------------------------------------------------------------------------
 ```
 
@@ -63,7 +63,11 @@
 
 * wip...
 
-* 240221piu_a new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
+* ... 240221piu_a invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key) 
+  * 1. new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
+  * 2. doc with extracted required summary structure `.../xl2roefact/tests/__invoice_summary.md`
+  * 3. ....tbd... code some calculations...
+
 * 200220piu_b init a PDM simple env in project root
     * 1. root project is for SITE GENERATION
     * 2. project name set to **INVOICEtoROefact** and the version dynamic from `/__version__.py`
