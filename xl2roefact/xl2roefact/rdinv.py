@@ -398,19 +398,11 @@ def rdinv(
                     },
                 },
             },
-            #TODO ...here to add rest of `invoice_header_area`: "reg com", "bank / IBAN / cont", "tel", "email"
             "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
-            #TODO: after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
-        },
-        "meta_info": copy.deepcopy(meta_info),
-        "excel_original_data": dict(
-            invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE ready, test PASS @ 231205 by [piu]
-            invoice_header_area = copy.deepcopy(invoice_header_area),  #TODO wip...
-            invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO to be done... (just localized `invoice_footer_area`)
-        )
-    }
-    ''' #NOTE: TOTAL_invoice_strucuture (NOTE: refered by line "TODO: need  to contsruct TOTAL invoice structure ...", line ~>= 314)
-                <cac:LegalMonetaryTotal>
+
+
+            #FIXME: ...hereuare... after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
+            "cac_LegalMonetaryTotal":
                     <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
                         -NOTE SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
                     <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
@@ -419,11 +411,20 @@ def rdinv(
                         -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
                     <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
                         -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
-                </cac:LegalMonetaryTotal>
-            - NOTE-IMPORTANT-NOTE: only TOTALIZED values need to be rounded 2 decimals (because LineVatAmount is let raw calculation to ve able to round here after SUM)
-            - NOTE: TOTAL invoice VAT can be obtained as `SUM(from existing key cac_InvoiceLine.LineVatAmount`) adding lines VAT
-    '''
+            
+            #FIXME ...END of ...hereuare...
 
+
+
+        },
+        "meta_info": copy.deepcopy(meta_info),
+        "excel_original_data": dict(
+            invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE ready, test PASS @ 231205 by [piu]
+            invoice_header_area = copy.deepcopy(invoice_header_area),  #TODO wip...
+            invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO to be done... (just localized `invoice_footer_area`)
+        )
+    }
+    #
     # write `invoice` dict to `f-JSON`
     """ useful NOTE(s):
         - ref `f-JSON` file, see doc: `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#vedere-de-ansamblu-a-solutiei`
