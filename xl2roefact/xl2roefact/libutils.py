@@ -4,18 +4,45 @@
 Identification:
 
 * code-name: `libutils`
-* copyright: (c) 2023 RENWare Software Systems
+* copyright: (c) 2023, 2024 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 Components:
 
-* `isnumber(a_string: str) -> bool`
+* `dict_sum_by_key(dict, str) -> float` to sum a dictionary for a given key at all depth levels
+* `isnumber(str) -> bool`
     Test a string if it could be used as number (int or float)
-* `find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int`
+* `find_str_in_list(list, list) -> int`
     Search more strings (ie, a list) in list of strings
 """
 
 from fractions import Fraction
+
+
+# NOTE - ready, unit test PASS @240221
+def dict_sum_by_key(
+    search_dict: dict,
+    sum_key: str
+) -> float:
+    """Sum all dictionary items, at all levels, for a given key.
+    
+    Args:
+        `search_dict`: dictionary to be searched for
+        `sum_key`: key to be searched
+
+    Returns:
+        `float` with required sum
+    """
+    s = 0
+    for k in search_dict:
+        if isinstance(search_dict[k], dict):
+            s += dict_sum_by_key(search_dict[k], sum_key)
+        if k == sum_key:
+            try: kval = int(search_dict[k])
+            except: kval = 0
+            s += kval    
+    return float(s)
+
 
 
 # NOTE - ready, test PASS @231123

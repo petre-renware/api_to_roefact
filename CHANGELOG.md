@@ -58,11 +58,12 @@
     * [x] (@ 200220piu_b) root project is for SITE GENERATION
     * [X] (@ 240220piu_a) The `web2roefact` will need its own directory5like `xl2roefact`
     * [x] (@ 200220piu_b) as consequence the project name is **INVOICEtoROefact** and the version is last from CHANGELOG
-    * [ ] run `pdm init` then `pdm update` to get dependencies
+    * [ ] finalize PDM usage. Run `pdm init` then `pdm update` to get dependencies
 
 
 * wip...
 
+* 240221piu_a new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
 * 200220piu_b init a PDM simple env in project root
     * 1. root project is for SITE GENERATION
     * 2. project name set to **INVOICEtoROefact** and the version dynamic from `/__version__.py`
