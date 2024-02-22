@@ -4,7 +4,7 @@
 Identification:
 
 * code-name: `libutils`
-* copyright: (c) 2023 RENWare Software Systems
+* copyright: (c) 2023, 2024 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 Components:
