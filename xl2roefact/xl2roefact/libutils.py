@@ -18,6 +18,32 @@ Components:
 from fractions import Fraction
 
 
+# NOTE - ready, unit test PASS @240221
+def dict_sum_by_key(
+    search_dict: dict,
+    sum_key: str
+) -> float:
+    """Sum all dictionary items, at all levels, for a given key.
+    
+    Args:
+        `search_dict`: dictionary to be searched for
+        `sum_key`: key to be searched
+
+    Returns:
+        `float` with required sum
+    """
+    s = 0
+    for k in search_dict:
+        if isinstance(search_dict[k], dict):
+            s += dict_sum_by_key(search_dict[k], sum_key)
+        if k == sum_key:
+            try: kval = int(search_dict[k])
+            except: kval = 0
+            s += kval    
+    return float(s)
+
+
+
 # NOTE - ready, test PASS @231123
 def isnumber(a_string: str) -> bool:
     """test if a string is valid as any kind of number.
