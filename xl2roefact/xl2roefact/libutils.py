@@ -9,6 +9,7 @@ Identification:
 
 Components:
 
+* `dict_sum_by_key(...)` to sum a dictionary for a given key at all depth levels
 * `isnumber(a_string: str) -> bool`
     Test a string if it could be used as number (int or float)
 * `find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int`
