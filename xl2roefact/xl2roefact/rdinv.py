@@ -28,8 +28,10 @@ from functools import partial
 import pylightxl as xl
 import openpyxl as opnxl
 
-# local modules (built in and part of package)
-from .libutils import isnumber, find_str_in_list  # application misc/general utilities
+# local modules (part of package), application misc/general utilities
+from .libutils import isnumber
+from .libutils import find_str_in_list
+from .libutils import dict_sum_by_key
 from . import config_settings  # application configuration parameters
 
 # local constants. Change them with caution only for a functional objective
