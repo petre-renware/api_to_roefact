@@ -63,9 +63,7 @@
 
 * wip...
 
-* ...wip 240221piu_a created `xl2roefact/xl2roefact/__tbd_test_dict_sum.py` to sum a dict at all levels for a key.
-  TODO: test & incorporate in `libutil.py`
-
+* 240221piu_a new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
 * 200220piu_b init a PDM simple env in project root
     * 1. root project is for SITE GENERATION
     * 2. project name set to **INVOICEtoROefact** and the version dynamic from `/__version__.py`
