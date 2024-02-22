@@ -22,7 +22,7 @@ def dict_sum_by_key(
 test_data = {
     "k1": 2.0,
     "set2": {
-        "k1"; 2.0
+        "k1": 2.0
     },
     "set3": {
         "k1": "nan"
