@@ -37,10 +37,6 @@
 
 
 
-Other notes made by me:
-
-- TOTALIZED values need to be rounded 2 decimals (because LineVatAmount is let raw calculation to ve able to round here after SUM)
-
 
 
 ## Map to be created
