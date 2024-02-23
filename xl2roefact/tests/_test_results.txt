@@ -8,7 +8,8 @@ INFO note: `rdinv` module, no worksheet specified, will open first one:
 'Factura(Invoice)'
 
 =================== tmp_InvoiceLine_list is 
-([{'cbc_ID': '1', 'cbc_InvoicedQuantity': 1, 'cbc_unitCode': None, 'cac_Item': 
+(
+[{'cbc_ID': '1', 'cbc_InvoicedQuantity': 1, 'cbc_unitCode': None, 'cac_Item': 
 {'cbc_Name': 'Inlocuit conducta PSI coloana C2 DAV.', 
 'cac_ClassifiedTaxCategory': {'cbc_Percent': 0.19, 'cac_TaxScheme': {'cbc_ID': 
 'VAT'}}}, 'cac_Price': {'cbc_PriceAmount': 42756.08, 'cbc_currencyID': 'RON'}, 
