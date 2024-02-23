@@ -402,20 +402,28 @@ def rdinv(
                 },
             },
             "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),
-            #FIXME: ...hereuare... after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
+            #FIXME: ...hereuare... CHECK NEXT CALCULATIONS
             "cac_LegalMonetaryTotal": {
                 # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
-                "cbc_LineExtensionAmount": round( sum([  dict_sum_by_key(i, "cbc_LineExtensionAmount")  for i in tmp_InvoiceLine_list]), 2),
-
+                "cbc_LineExtensionAmount": round(
+                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]
+                       ), 2),
                 # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
-                "cbc_TaxExclusiveAmount": round(  sum([  dict_sum_by_key(i, "cbc_LineExtensionAmount")  for i in tmp_InvoiceLine_list]), 2),
-
-                #FIXME seems good, but lines w/o VAT (acciza) will not be add to total (next 2 items) because the are in not formula because they ARE NOT VAT
+                "cbc_TaxExclusiveAmount": round(
+                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]
+                       ), 2),
                 # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
-                "cbc_TaxInclusiveAmount": round(  sum([  dict_sum_by_key(i, "cbc_LineExtensionAmount")  for i in tmp_InvoiceLine_list] + [  dict_sum_by_key(i, "LineVatAmount")  for i in tmp_InvoiceLine_list]), 2),
-
+                "cbc_TaxInclusiveAmount": round(
+                    sum(
+                        [dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
+                        [dict_sum_by_key(i, "LineVatAmount")           for i in tmp_InvoiceLine_list]
+                    ), 2),
                 # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
-                "cbc_PayableAmount":      round(  sum([  dict_sum_by_key(i, "cbc_LineExtensionAmount")  for i in tmp_InvoiceLine_list] + [  dict_sum_by_key(i, "LineVatAmount")  for i in tmp_InvoiceLine_list]), 2),
+                "cbc_PayableAmount":      round(
+                    sum(
+                        [ dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
+                        [ dict_sum_by_key(i, "LineVatAmount")           for i in tmp_InvoiceLine_list]
+                    ), 2),
             },
             #FIXME ...END of ...hereuare...
         },
