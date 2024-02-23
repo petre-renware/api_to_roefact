@@ -49,16 +49,16 @@
             }
         ],
         "cac_LegalMonetaryTotal": {
-            "cbc_LineExtensionAmount": "...",
-            "cbc_TaxExclusiveAmount": "...",
-            "cbc_TaxInclusiveAmount": "...",
-            "cbc_PayableAmount": "..."
+            "cbc_LineExtensionAmount": 38890.0,
+            "cbc_TaxExclusiveAmount": 38890.0,
+            "cbc_TaxInclusiveAmount": 46279.0,
+            "cbc_PayableAmount": 46279.0
         }
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-23T02:34:48.965372+00:00",
+        "last_processing_time": "2024-02-23T05:13:32.982009+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,

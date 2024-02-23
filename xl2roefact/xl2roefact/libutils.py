@@ -17,16 +17,18 @@ Components:
     Search more strings (ie, a list) in list of strings
 """
 
+import sys
+from rich import print
 from fractions import Fraction
 
 
-# NOTE - ready, unit test PASS @240221
+# NOTE - ready, unit test PASS @240223
 def dict_sum_by_key(
     search_dict: dict | list[dict],
     sum_key: str
 ) -> float:
     """Sum all dictionary (or list off dictionaries) items, at all levels, for a given key.
-    
+
     Args:
         `search_dict`: dictionary to be searched for
         `sum_key`: key to be searched
@@ -35,7 +37,7 @@ def dict_sum_by_key(
         `float` with required sum
     """
     s = 0
-    if isinstance(search_dict, list):
+    if isinstance(search_dict, list) or isinstance(search_dict, tuple):
         for local_search_dict in search_dict:
             for k in local_search_dict:
                 if isinstance(local_search_dict[k], dict):
@@ -45,11 +47,6 @@ def dict_sum_by_key(
                     except: kval = 0
                     s += kval
     else:
-        #FIXME ERROR
-        '''
-        D:\a\api_to_roefact\api_to_roefact\xl2roefact\xl2roefact\libutils.py:49 
-        TypeError: tuple indices must be integers or slices, not dict
-        '''
         for k in search_dict:
             if isinstance(search_dict[k], dict):
                 s += dict_sum_by_key(search_dict[k], sum_key)
@@ -58,6 +55,7 @@ def dict_sum_by_key(
                 except: kval = 0
                 s += kval
     return float(s)
+
 
 
 

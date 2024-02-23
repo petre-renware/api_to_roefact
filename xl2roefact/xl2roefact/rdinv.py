@@ -406,10 +406,18 @@ def rdinv(
 
             #FIXME: ...hereuare... after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
             "cac_LegalMonetaryTotal": {
+                # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
                 "cbc_LineExtensionAmount": round(dict_sum_by_key(tmp_InvoiceLine_list, "cbc_LineExtensionAmount"), 2),
-                "cbc_TaxExclusiveAmount": "...",  #  ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount`)
-                "cbc_TaxInclusiveAmount": "...",  #  ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
-                "cbc_PayableAmount": "...",  #       ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
+
+                # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
+                "cbc_TaxExclusiveAmount": round(dict_sum_by_key(tmp_InvoiceLine_list, "cbc_LineExtensionAmount"), 2),
+
+                #FIXME seems good, but lines w/o VAT (acciza) will not be add to total (next 2 items) because the are in not formula because they ARE NOT VAT
+                # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
+                "cbc_TaxInclusiveAmount": round(dict_sum_by_key(tmp_InvoiceLine_list, "cbc_LineExtensionAmount") + dict_sum_by_key(tmp_InvoiceLine_list, "LineVatAmount"), 2),
+
+                # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
+                "cbc_PayableAmount": round(dict_sum_by_key(tmp_InvoiceLine_list, "cbc_LineExtensionAmount") + dict_sum_by_key(tmp_InvoiceLine_list, "LineVatAmount"), 2),
             },
             #FIXME ...END of ...hereuare...
 
