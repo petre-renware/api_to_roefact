@@ -379,7 +379,7 @@ def rdinv(
         found_cell=tuple(_found_cell_for_invoice_items_area_marker))
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
-    tmp_InvoiceLine_list = [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is list of dicts with keys as XML RO E-Fact standard
+    tmp_InvoiceLine_list = [_i for _i in invoice_items_as_kv_pairs][0],  # first item is `invoice_items_as_kv_pairs` is list of dicts with keys as XML RO E-Fact standard
     print(f"\n=================== tmp_InvoiceLine_list is \n{tmp_InvoiceLine_list}\n")  #FIXME DBG drop me
     invoice = {
         "Invoice": {
