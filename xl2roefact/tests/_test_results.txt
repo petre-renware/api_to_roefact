@@ -1,68 +1,8 @@
-Skip to content
-
-Code
-Issues
-Pull requests
-run_xl2roefact_cli_app
-Update rdinv.py #25
-deploy
-succeeded 1 minute ago in 1m 10s
-Beta
-Give feedback
-1s
-11s
-2s
-0s
-54s
-| |                           }                                             | |
-| |                       },                                                | |
-| |                       'cac_Price': {                                    | |
-| |                           'cbc_PriceAmount': 42756.08,                  | |
-| |                           'cbc_currencyID': 'RON'                       | |
-| |                       },                                                | |
-| |                       'cbc_LineExtensionAmount': 42756.08,              | |
-| |                       'LineVatAmount': 8123.6552                        | |
-| |                   },                                                    | |
-| |               )                                                         | |
-| |     sum_key = 'cbc_LineExtensionAmount'                                 | |
-| +-------------------------------------------------------------------------+ |
-|                                                                             |
-| D:\a\api_to_roefact\api_to_roefact\xl2roefact\xl2roefact\libutils.py:48 in  |
-| dict_sum_by_key                                                             |
-|                                                                             |
-|    45                     except: kval = 0                                  |
-|    46                     s += kval                                         |
-|    47     else:                                                             |
-| >  48         s += dict_sum_by_key(search_dict, sum_key)                    |
-|    49     return float(s)                                                   |
-|    50                                                                       |
-|    51                                                                       |
-|                                                                             |
-| +-------------------------------- locals ---------------------------------+ |
-| |           s = 0                                                         | |
-| | search_dict = (                                                         | |
-| |                   {                                                     | |
-| |                       'cbc_ID': '1',                                    | |
-| |                       'cbc_InvoicedQuantity': 1,                        | |
-| |                       'cbc_unitCode': None,                             | |
-| |                       'cac_Item': {                                     | |
-| |                           'cbc_Name': 'Inlocuit conducta PSI coloana C2 | |
-| |               DAV.',                                                    | |
-| |                           'cac_ClassifiedTaxCategory': {                | |
-| |                               'cbc_Percent': 0.19,                      | |
-| |                               'cac_TaxScheme': {'cbc_ID': 'VAT'}        | |
-| |                           }                                             | |
-| |                       },                                                | |
-| |                       'cac_Price': {                                    | |
-| |                           'cbc_PriceAmount': 42756.08,                  | |
-| |                           'cbc_currencyID': 'RON'                       | |
-| |                       },                                                | |
-| |                       'cbc_LineExtensionAmount': 42756.08,              | |
-| |                       'LineVatAmount': 8123.6552                        | |
-| |                   },                                                    | |
-| |               )                                                         | |
-| |     sum_key = 'cbc_LineExtensionAmount'                                 | |
-| +-------------------------------------------------------------------------+ |
-|                                                                             |
-0s
-1s
+*** Application xl2roefact launched at 2024-02-23 03:10:33.501855
+INFO note: files to process: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\*.xlsx
+*** Module rdinv started at 2024-02-23 03:10:33.501855 to process file 
+Fact_Petrom_11017969.xlsx (full path: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.xlsx)
+INFO note: `rdinv` module, no worksheet specified, will open first one: 
+'Factura(Invoice)'
