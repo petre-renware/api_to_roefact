@@ -127,7 +127,11 @@ Give feedback
 0s
 1s
 
-
+RecursionError: maximum recursion depth exceeded while calling a Python object
+[test-xl2roefact e4b04e1] Automated xl2roefact test-run (by RENware Software Systems)
+ 1 file changed, 8 insertions(+), 68 deletions(-)
+To https://github.com/petre-renware/api_to_roefact
+   99ed060..e4b04e1  test-xl2roefact -> test-xl2roefact
 
 ```
 
