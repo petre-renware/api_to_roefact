@@ -400,7 +400,7 @@ def rdinv(
                 },
             },
             "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),
-            ...
+            #
             #FIXME: ...hereuare... CHECK NEXT CALCULATIONS
             "cac_LegalMonetaryTotal": {
                 "cbc_LineExtensionAmount": round(
