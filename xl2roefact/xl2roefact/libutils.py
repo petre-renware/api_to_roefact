@@ -45,6 +45,11 @@ def dict_sum_by_key(
                     except: kval = 0
                     s += kval
     else:
+        #FIXME ERROR
+        '''
+        D:\a\api_to_roefact\api_to_roefact\xl2roefact\xl2roefact\libutils.py:49 
+        TypeError: tuple indices must be integers or slices, not dict
+        '''
         for k in search_dict:
             if isinstance(search_dict[k], dict):
                 s += dict_sum_by_key(search_dict[k], sum_key)
