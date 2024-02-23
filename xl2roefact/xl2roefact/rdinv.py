@@ -903,6 +903,12 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("RegCom", None),  # customer commerce register number (company legal registration number). Has no correspondent in XML schema - DETAIL L3 RECORD
         ("Bank", None),  # customer bank. Has no correspondent in XML schema - DETAIL L3 RECORD
         ("IBAN", None),  # customer bank account number (IBAN). Has no correspondent in XML schema - DETAIL L3 RECORD
+        ("cac_LegalMonetaryTotal", "cac:LegalMonetaryTotal"),  # summary item
+        ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount"),  # summary item
+        ("cbc_TaxExclusiveAmount", "cbc:TaxExclusiveAmount"),  # summary item
+        ("cbc_TaxInclusiveAmount", "cbc:TaxInclusiveAmount",),  # summary item
+        ("cbc_PayableAmount", "cbc:PayableAmount"),  # summary item
+
         #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 
