@@ -379,6 +379,7 @@ def rdinv(
         found_cell=tuple(_found_cell_for_invoice_items_area_marker))
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
+    tmp_InvoiceLine_dict = [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is list of dicts with keys as XML RO E-Fact standard
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
@@ -400,12 +401,12 @@ def rdinv(
                     },
                 },
             },
-            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
+            "cac_InvoiceLine": tmp_InvoiceLine_dict,
 
 
             #FIXME: ...hereuare... after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
             "cac_LegalMonetaryTotal": {
-                "cbc_LineExtensionAmount": "...",  # ROUND...SUM  dict_sum_by_key(...dict.ATTN.you.will.calc.over.right.me.as.Invoice..., `cac_InvoiceLine.cbc_LineExtensionAmount`)
+                "cbc_LineExtensionAmount": "...",  # ROUND...SUM  dict_sum_by_key(tmp_InvoiceLine_dict, `cac_InvoiceLine.cbc_LineExtensionAmount`)
                 "cbc_TaxExclusiveAmount": "...",  #  ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount`)
                 "cbc_TaxInclusiveAmount": "...",  #  ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
                 "cbc_PayableAmount": "...",  #       ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
