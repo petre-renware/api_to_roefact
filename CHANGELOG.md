@@ -54,7 +54,7 @@
 
 * wip...
 
-* -#FIXME_#FIXME urgent to clean all xl2roefact distributions as they install in root project with `...xl2roefact/src/` which contains that **.txt sensitive file with mail content**
+* -#FIXME clean all xl2roefact distributions as they install in root project with `...xl2roefact/src/` which contains that **.txt sensitive file with mail content**
 
 * ... 240221piu_a invoice grand totals
     * [x] 1. new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
