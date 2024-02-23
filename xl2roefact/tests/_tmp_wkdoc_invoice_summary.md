@@ -58,6 +58,9 @@
 
 ```python
 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\xl2roefact\libutils.py:49 
+
 TypeError: tuple indices must be integers or slices, not dict
 [test-xl2roefact bf2cbb9] Automated xl2roefact test-run (by RENware Software Systems)
 
