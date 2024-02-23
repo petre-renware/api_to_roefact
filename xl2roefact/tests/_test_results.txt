@@ -1,27 +1,60 @@
-*** Application xl2roefact launched at 2024-02-23 02:23:24.037384
+*** Application xl2roefact launched at 2024-02-23 02:27:58.648798
 INFO note: files to process: 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\*.xlsx
-*** Module rdinv started at 2024-02-23 02:23:24.053008 to process file 
+*** Module rdinv started at 2024-02-23 02:27:58.648798 to process file 
 Fact_Petrom_11017969.xlsx (full path: 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.xlsx)
 INFO note: `rdinv` module, no worksheet specified, will open first one: 
 'Factura(Invoice)'
 
- = = = = = = = = = = = = = = = = = = =   t m p _ I n v o i c e L i n e _ l i s 
-t   i s   
- { t m p _ I n v o i c e L i n e _ l i s t } 
+=================== tmp_InvoiceLine_list is 
+([{'cbc_ID': '1', 'cbc_InvoicedQuantity': 1, 'cbc_unitCode': None, 'cac_Item': 
+{'cbc_Name': 'Inlocuit conducta PSI coloana C2 DAV.', 
+'cac_ClassifiedTaxCategory': {'cbc_Percent': 0.19, 'cac_TaxScheme': {'cbc_ID': 
+'VAT'}}}, 'cac_Price': {'cbc_PriceAmount': 42756.08, 'cbc_currencyID': 'RON'}, 
+'cbc_LineExtensionAmount': 42756.08, 'LineVatAmount': 8123.6552}, {'cbc_ID': 
+'1.NOTE-a', 'cbc_InvoicedQuantity': None, 'cbc_unitCode': None, 'cac_Item': 
+{'cbc_Name': 'SES 8105685514', 'cac_ClassifiedTaxCategory': {'cbc_Percent': 
+None, 'cac_TaxScheme': {'cbc_ID': None}}}, 'cac_Price': {'cbc_PriceAmount': 
+None, 'cbc_currencyID': None}, 'cbc_LineExtensionAmount': None, 
+'LineVatAmount': None}, {'cbc_ID': '2', 'cbc_InvoicedQuantity': 1, 
+'cbc_unitCode': None, 'cac_Item': {'cbc_Name': 'Acciza de test (2%)', 
+'cac_ClassifiedTaxCategory': {'cbc_Percent': 0.0, 'cac_TaxScheme': {'cbc_ID': 
+'VAT'}}}, 'cac_Price': {'cbc_PriceAmount': 855.1216000000001, 'cbc_currencyID':
+'RON'}, 'cbc_LineExtensionAmount': 855.12, 'LineVatAmount': 0.0}],)
 
 INFO note: `rdinv` module, written invoice JSON data to: 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.json
-*** Module rdinv started at 2024-02-23 02:23:24.099881 to process file 
+*** Module rdinv started at 2024-02-23 02:27:58.711302 to process file 
 fact_RENF1004.xlsx (full path: 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\fact_RENF1004.xlsx)
 INFO note: `rdinv` module, no worksheet specified, will open first one: 
 'FACTURA FINALA'
 
- = = = = = = = = = = = = = = = = = = =   t m p _ I n v o i c e L i n e _ l i s 
-t   i s   
- { t m p _ I n v o i c e L i n e _ l i s t } 
+=================== tmp_InvoiceLine_list is 
+([{'cbc_ID': '1', 'cbc_InvoicedQuantity': 3.5, 'cbc_unitCode': 'buc', 
+'cac_Item': {'cbc_Name': 'Elaborare documentatie tehnica aplicatie NEXGEN.AI', 
+'cac_ClassifiedTaxCategory': {'cbc_Percent': 0.19, 'cac_TaxScheme': {'cbc_ID': 
+'VAT'}}}, 'cac_Price': {'cbc_PriceAmount': 11111.5, 'cbc_currencyID': 'RON'}, 
+'cbc_LineExtensionAmount': 38890.25, 'LineVatAmount': 7389.1475}, {'cbc_ID': 
+'1.NOTE-a', 'cbc_InvoicedQuantity': None, 'cbc_unitCode': None, 'cac_Item': 
+{'cbc_Name': 'conf Comanda 1/30.06.2023, Contract 3662.1/ 30.06.2023', 
+'cac_ClassifiedTaxCategory': {'cbc_Percent': None, 'cac_TaxScheme': {'cbc_ID': 
+None}}}, 'cac_Price': {'cbc_PriceAmount': None, 'cbc_currencyID': None}, 
+'cbc_LineExtensionAmount': None, 'LineVatAmount': None}, {'cbc_ID': '1.NOTE-b',
+'cbc_InvoicedQuantity': None, 'cbc_unitCode': None, 'cac_Item': {'cbc_Name': 
+'si PV acceptanta 1/24.08.2023', 'cac_ClassifiedTaxCategory': {'cbc_Percent': 
+None, 'cac_TaxScheme': {'cbc_ID': None}}}, 'cac_Price': {'cbc_PriceAmount': 
+None, 'cbc_currencyID': None}, 'cbc_LineExtensionAmount': None, 
+'LineVatAmount': None}, {'cbc_ID': '1.NOTE-c', 'cbc_InvoicedQuantity': None, 
+'cbc_unitCode': None, 'cac_Item': {'cbc_Name': "'*** valoare 3000EUR la curs 
+BNR", 'cac_ClassifiedTaxCategory': {'cbc_Percent': None, 'cac_TaxScheme': 
+{'cbc_ID': None}}}, 'cac_Price': {'cbc_PriceAmount': None, 'cbc_currencyID': 
+None}, 'cbc_LineExtensionAmount': None, 'LineVatAmount': None}, {'cbc_ID': '2',
+'cbc_InvoicedQuantity': 1, 'cbc_unitCode': '', 'cac_Item': {'cbc_Name': 'Acciza
+1%', 'cac_ClassifiedTaxCategory': {'cbc_Percent': None, 'cac_TaxScheme': 
+{'cbc_ID': None}}}, 'cac_Price': {'cbc_PriceAmount': 111.115, 'cbc_currencyID':
+'RON'}, 'cbc_LineExtensionAmount': 111.11, 'LineVatAmount': 0.0}],)
 
 INFO note: `rdinv` module, written invoice JSON data to: 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\fact_RENF1004.json
