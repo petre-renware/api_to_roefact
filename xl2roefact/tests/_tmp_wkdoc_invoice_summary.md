@@ -58,80 +58,8 @@
 
 ```python
 
-Skip to content
+...
 
-Code
-Issues
-Pull requests
-run_xl2roefact_cli_app
-Update rdinv.py #25
-deploy
-succeeded 1 minute ago in 1m 10s
-Beta
-Give feedback
-1s
-11s
-2s
-0s
-54s
-| |                           }                                             | |
-| |                       },                                                | |
-| |                       'cac_Price': {                                    | |
-| |                           'cbc_PriceAmount': 42756.08,                  | |
-| |                           'cbc_currencyID': 'RON'                       | |
-| |                       },                                                | |
-| |                       'cbc_LineExtensionAmount': 42756.08,              | |
-| |                       'LineVatAmount': 8123.6552                        | |
-| |                   },                                                    | |
-| |               )                                                         | |
-| |     sum_key = 'cbc_LineExtensionAmount'                                 | |
-| +-------------------------------------------------------------------------+ |
-|                                                                             |
-| D:\a\api_to_roefact\api_to_roefact\xl2roefact\xl2roefact\libutils.py:48 in  |
-| dict_sum_by_key                                                             |
-|                                                                             |
-|    45                     except: kval = 0                                  |
-|    46                     s += kval                                         |
-|    47     else:                                                             |
-| >  48         s += dict_sum_by_key(search_dict, sum_key)                    |
-|    49     return float(s)                                                   |
-|    50                                                                       |
-|    51                                                                       |
-|                                                                             |
-| +-------------------------------- locals ---------------------------------+ |
-| |           s = 0                                                         | |
-| | search_dict = (                                                         | |
-| |                   {                                                     | |
-| |                       'cbc_ID': '1',                                    | |
-| |                       'cbc_InvoicedQuantity': 1,                        | |
-| |                       'cbc_unitCode': None,                             | |
-| |                       'cac_Item': {                                     | |
-| |                           'cbc_Name': 'Inlocuit conducta PSI coloana C2 | |
-| |               DAV.',                                                    | |
-| |                           'cac_ClassifiedTaxCategory': {                | |
-| |                               'cbc_Percent': 0.19,                      | |
-| |                               'cac_TaxScheme': {'cbc_ID': 'VAT'}        | |
-| |                           }                                             | |
-| |                       },                                                | |
-| |                       'cac_Price': {                                    | |
-| |                           'cbc_PriceAmount': 42756.08,                  | |
-| |                           'cbc_currencyID': 'RON'                       | |
-| |                       },                                                | |
-| |                       'cbc_LineExtensionAmount': 42756.08,              | |
-| |                       'LineVatAmount': 8123.6552                        | |
-| |                   },                                                    | |
-| |               )                                                         | |
-| |     sum_key = 'cbc_LineExtensionAmount'                                 | |
-| +-------------------------------------------------------------------------+ |
-|                                                                             |
-0s
-1s
-
-RecursionError: maximum recursion depth exceeded while calling a Python object
-[test-xl2roefact e4b04e1] Automated xl2roefact test-run (by RENware Software Systems)
- 1 file changed, 8 insertions(+), 68 deletions(-)
-To https://github.com/petre-renware/api_to_roefact
-   99ed060..e4b04e1  test-xl2roefact -> test-xl2roefact
 
 ```
 
