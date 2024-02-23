@@ -406,16 +406,9 @@ def rdinv(
             #FIXME: ...hereuare... after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
             "cac_LegalMonetaryTotal": {
                 "cbc_LineExtensionAmount": "...",
-                "currencyID": "RON",  #FIXME replace with const CURRENCY...
-
                 "cbc_TaxExclusiveAmount": "...",
-                "currencyID": "RON",  #FIXME replace with const CURRENCY...
-
                 "cbc_TaxInclusiveAmount": "...",
-                "currencyID": "RON",  #FIXME replace with const CURRENCY...
-
                 "cbc_PayableAmount": "...",
-                "currencyID": "RON",  #FIXME replace with const CURRENCY...
             },
             #FIXME ...END of ...hereuare...
 
