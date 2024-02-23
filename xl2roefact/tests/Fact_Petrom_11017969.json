@@ -27,38 +27,80 @@
             }
         },
         "cac_InvoiceLine": [
-            {
-                "cbc_ID": "1",
-                "cbc_InvoicedQuantity": 1,
-                "cbc_unitCode": null,
-                "cac_Item": {
-                    "cbc_Name": "Inlocuit conducta PSI coloana C2 DAV.",
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": 0.19,
-                        "cac_TaxScheme": {
-                            "cbc_ID": "VAT"
+            [
+                {
+                    "cbc_ID": "1",
+                    "cbc_InvoicedQuantity": 1,
+                    "cbc_unitCode": null,
+                    "cac_Item": {
+                        "cbc_Name": "Inlocuit conducta PSI coloana C2 DAV.",
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": 0.19,
+                            "cac_TaxScheme": {
+                                "cbc_ID": "VAT"
+                            }
                         }
-                    }
+                    },
+                    "cac_Price": {
+                        "cbc_PriceAmount": 42756.08,
+                        "cbc_currencyID": "RON"
+                    },
+                    "cbc_LineExtensionAmount": 42756.08,
+                    "LineVatAmount": 8123.6552
                 },
-                "cac_Price": {
-                    "cbc_PriceAmount": 42756.08,
-                    "cbc_currencyID": "RON"
+                {
+                    "cbc_ID": "1.NOTE-a",
+                    "cbc_InvoicedQuantity": null,
+                    "cbc_unitCode": null,
+                    "cac_Item": {
+                        "cbc_Name": "SES 8105685514",
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": null,
+                            "cac_TaxScheme": {
+                                "cbc_ID": null
+                            }
+                        }
+                    },
+                    "cac_Price": {
+                        "cbc_PriceAmount": null,
+                        "cbc_currencyID": null
+                    },
+                    "cbc_LineExtensionAmount": null,
+                    "LineVatAmount": null
                 },
-                "cbc_LineExtensionAmount": 42756.08,
-                "LineVatAmount": 8123.6552
-            }
+                {
+                    "cbc_ID": "2",
+                    "cbc_InvoicedQuantity": 1,
+                    "cbc_unitCode": null,
+                    "cac_Item": {
+                        "cbc_Name": "Acciza de test (2%)",
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": 0.0,
+                            "cac_TaxScheme": {
+                                "cbc_ID": "VAT"
+                            }
+                        }
+                    },
+                    "cac_Price": {
+                        "cbc_PriceAmount": 855.1216000000001,
+                        "cbc_currencyID": "RON"
+                    },
+                    "cbc_LineExtensionAmount": 855.12,
+                    "LineVatAmount": 0.0
+                }
+            ]
         ],
         "cac_LegalMonetaryTotal": {
-            "cbc_LineExtensionAmount": 42756.0,
-            "cbc_TaxExclusiveAmount": 42756.0,
-            "cbc_TaxInclusiveAmount": 50879.0,
-            "cbc_PayableAmount": 50879.0
+            "cbc_LineExtensionAmount": 43611.0,
+            "cbc_TaxExclusiveAmount": 43611.0,
+            "cbc_TaxInclusiveAmount": 51734.0,
+            "cbc_PayableAmount": 51734.0
         }
     },
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-23T05:13:32.852560+00:00",
+        "last_processing_time": "2024-02-23T06:53:56.715447+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
