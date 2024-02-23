@@ -10,37 +10,29 @@
 <cac:LegalMonetaryTotal>
 
   <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
-    -NOTE SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
+    -NOTE ROUND...SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
 
   <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
-    -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
+    -NOTE: ROUND...SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
     -NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
 
   <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
-    -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
+    -NOTE: ROUND...SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
 
   <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
-    -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
+    -NOTE: ROUND...SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
     =NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
 
 </cac:LegalMonetaryTotal>
 
 
-... existing info ... useful to detect structure level ...
-
-<cac:LegalMonetaryTotal>...</cac:LegalMonetaryTotal>
-...
+... existing info ...
 <cac:InvoiceLine>...</cac:InvoiceLine>
 ...
 
 ```
 
 
-
-Other notes made by me:
-
-- only TOTALIZED values need to be rounded 2 decimals (because LineVatAmount is let raw calculation to ve able to round here after SUM)
-- TOTAL invoice VAT can be obtained as `SUM(from existing key cac_InvoiceLine.LineVatAmount`) adding lines VAT
 
 
 
@@ -59,3 +51,22 @@ Other notes made by me:
     #... not needed from here
 ]
 ```
+
+
+
+## run @240223 05:40
+
+```python
+
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\xl2roefact\libutils.py:49 
+
+TypeError: tuple indices must be integers or slices, not dict
+[test-xl2roefact bf2cbb9] Automated xl2roefact test-run (by RENware Software Systems)
+
+
+```
+
+
+
+EOF...

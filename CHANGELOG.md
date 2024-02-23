@@ -58,9 +58,15 @@
 
 * ... 240221piu_a invoice grand totals
     * [x] 1. new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
-    * [x] 2. doc with wk.specs ref summary structure `.../xl2roefact/tests/__invoice_summary.md` (NOTE: will be deleted after finish)
-    * [x] 3. created the JSON-XML map required structure in `.../xl2roefact/tests/__invoice_summary.md`
-    * [ ] 4. code some calculations...
+    * [x] 2. doc with wk.specs ref summary structure `.../xl2roefact/tests/_tmp_wkdoc_invoice_summary.md` (NOTE: will be deleted after finish)
+    * [x] 3. created work JSON-XML map required structure in `.../xl2roefact/tests/__invoice_summary.md`
+    * [...] 4. code for some calculations
+      #FIXME ERROR:
+        '''
+        D:\a\api_to_roefact\api_to_roefact\xl2roefact\xl2roefact\libutils.py:49 
+        TypeError: tuple indices must be integers or slices, not dict
+        '''
+    * [ ] 5. update JSON-XML map in code (rdinv.py)
 
 * ... 200220piu_b init a PDM simple env in project root
     * [x] 1. root project is for SITE GENERATION

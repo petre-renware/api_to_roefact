@@ -28,8 +28,10 @@ from functools import partial
 import pylightxl as xl
 import openpyxl as opnxl
 
-# local modules (built in and part of package)
-from .libutils import isnumber, find_str_in_list  # application misc/general utilities
+# local modules (part of package), application misc/general utilities
+from .libutils import isnumber
+from .libutils import find_str_in_list
+from .libutils import dict_sum_by_key
 from . import config_settings  # application configuration parameters
 
 # local constants. Change them with caution only for a functional objective
@@ -377,6 +379,7 @@ def rdinv(
         found_cell=tuple(_found_cell_for_invoice_items_area_marker))
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
+    tmp_InvoiceLine_list = [_i for _i in invoice_items_as_kv_pairs][0],  # first item is `invoice_items_as_kv_pairs` is list of dicts with keys as XML RO E-Fact standard
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
@@ -398,9 +401,20 @@ def rdinv(
                     },
                 },
             },
-            #TODO ...here to add rest of `invoice_header_area`: "reg com", "bank / IBAN / cont", "tel", "email"
-            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
-            #TODO: after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
+            "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),  #FIXME @240223 04:00 is list[listtdict]]. Expected list[dict]. Symptom: The effective list is included in other useless list.
+
+
+            #FIXME: ...hereuare... after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
+            "cac_LegalMonetaryTotal": {
+                "cbc_LineExtensionAmount": round(dict_sum_by_key(tmp_InvoiceLine_list, "cbc_LineExtensionAmount"), 2),
+                "cbc_TaxExclusiveAmount": "...",  #  ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount`)
+                "cbc_TaxInclusiveAmount": "...",  #  ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
+                "cbc_PayableAmount": "...",  #       ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
+            },
+            #FIXME ...END of ...hereuare...
+
+
+
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
@@ -409,21 +423,7 @@ def rdinv(
             invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO to be done... (just localized `invoice_footer_area`)
         )
     }
-    ''' #NOTE: TOTAL_invoice_strucuture (NOTE: refered by line "TODO: need  to contsruct TOTAL invoice structure ...", line ~>= 314)
-                <cac:LegalMonetaryTotal>
-                    <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
-                        -NOTE SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
-                    <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
-                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
-                    <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
-                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
-                    <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
-                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
-                </cac:LegalMonetaryTotal>
-            - NOTE-IMPORTANT-NOTE: only TOTALIZED values need to be rounded 2 decimals (because LineVatAmount is let raw calculation to ve able to round here after SUM)
-            - NOTE: TOTAL invoice VAT can be obtained as `SUM(from existing key cac_InvoiceLine.LineVatAmount`) adding lines VAT
-    '''
-
+    #
     # write `invoice` dict to `f-JSON`
     """ useful NOTE(s):
         - ref `f-JSON` file, see doc: `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#vedere-de-ansamblu-a-solutiei`
