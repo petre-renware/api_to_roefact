@@ -27,108 +27,26 @@
             }
         },
         "cac_InvoiceLine": [
-            [
-                {
-                    "cbc_ID": "1",
-                    "cbc_InvoicedQuantity": 3.5,
-                    "cbc_unitCode": "buc",
-                    "cac_Item": {
-                        "cbc_Name": "Elaborare documentatie tehnica aplicatie NEXGEN.AI",
-                        "cac_ClassifiedTaxCategory": {
-                            "cbc_Percent": 0.19,
-                            "cac_TaxScheme": {
-                                "cbc_ID": "VAT"
-                            }
+            {
+                "cbc_ID": "1",
+                "cbc_InvoicedQuantity": 3.5,
+                "cbc_unitCode": "buc",
+                "cac_Item": {
+                    "cbc_Name": "Elaborare documentatie tehnica aplicatie NEXGEN.AI",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": 0.19,
+                        "cac_TaxScheme": {
+                            "cbc_ID": "VAT"
                         }
-                    },
-                    "cac_Price": {
-                        "cbc_PriceAmount": 11111.5,
-                        "cbc_currencyID": "RON"
-                    },
-                    "cbc_LineExtensionAmount": 38890.25,
-                    "LineVatAmount": 7389.1475
+                    }
                 },
-                {
-                    "cbc_ID": "1.NOTE-a",
-                    "cbc_InvoicedQuantity": null,
-                    "cbc_unitCode": null,
-                    "cac_Item": {
-                        "cbc_Name": "conf Comanda 1/30.06.2023, Contract 3662.1/ 30.06.2023",
-                        "cac_ClassifiedTaxCategory": {
-                            "cbc_Percent": null,
-                            "cac_TaxScheme": {
-                                "cbc_ID": null
-                            }
-                        }
-                    },
-                    "cac_Price": {
-                        "cbc_PriceAmount": null,
-                        "cbc_currencyID": null
-                    },
-                    "cbc_LineExtensionAmount": null,
-                    "LineVatAmount": null
+                "cac_Price": {
+                    "cbc_PriceAmount": 11111.5,
+                    "cbc_currencyID": "RON"
                 },
-                {
-                    "cbc_ID": "1.NOTE-b",
-                    "cbc_InvoicedQuantity": null,
-                    "cbc_unitCode": null,
-                    "cac_Item": {
-                        "cbc_Name": "si PV acceptanta 1/24.08.2023",
-                        "cac_ClassifiedTaxCategory": {
-                            "cbc_Percent": null,
-                            "cac_TaxScheme": {
-                                "cbc_ID": null
-                            }
-                        }
-                    },
-                    "cac_Price": {
-                        "cbc_PriceAmount": null,
-                        "cbc_currencyID": null
-                    },
-                    "cbc_LineExtensionAmount": null,
-                    "LineVatAmount": null
-                },
-                {
-                    "cbc_ID": "1.NOTE-c",
-                    "cbc_InvoicedQuantity": null,
-                    "cbc_unitCode": null,
-                    "cac_Item": {
-                        "cbc_Name": "'*** valoare 3000EUR la curs BNR",
-                        "cac_ClassifiedTaxCategory": {
-                            "cbc_Percent": null,
-                            "cac_TaxScheme": {
-                                "cbc_ID": null
-                            }
-                        }
-                    },
-                    "cac_Price": {
-                        "cbc_PriceAmount": null,
-                        "cbc_currencyID": null
-                    },
-                    "cbc_LineExtensionAmount": null,
-                    "LineVatAmount": null
-                },
-                {
-                    "cbc_ID": "2",
-                    "cbc_InvoicedQuantity": 1,
-                    "cbc_unitCode": "",
-                    "cac_Item": {
-                        "cbc_Name": "Acciza 1%",
-                        "cac_ClassifiedTaxCategory": {
-                            "cbc_Percent": null,
-                            "cac_TaxScheme": {
-                                "cbc_ID": null
-                            }
-                        }
-                    },
-                    "cac_Price": {
-                        "cbc_PriceAmount": 111.115,
-                        "cbc_currencyID": "RON"
-                    },
-                    "cbc_LineExtensionAmount": 111.11,
-                    "LineVatAmount": 0.0
-                }
-            ]
+                "cbc_LineExtensionAmount": 38890.25,
+                "LineVatAmount": 7389.1475
+            }
         ],
         "cac_LegalMonetaryTotal": {
             "cbc_LineExtensionAmount": "...",
@@ -140,7 +58,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-23T02:27:58.773794+00:00",
+        "last_processing_time": "2024-02-23T02:34:48.965372+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
