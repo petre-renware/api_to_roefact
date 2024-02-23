@@ -9,7 +9,8 @@ Identification:
 
 Components:
 
-* `dict_sum_by_key(dict, str) -> float` to sum a dictionary for a given key at all depth levels
+* `dict_sum_by_key(dict, str) -> float`
+ to sum a dictionary for a given key at all depth levels
 * `isnumber(str) -> bool`
     Test a string if it could be used as number (int or float)
 * `find_str_in_list(list, list) -> int`
@@ -21,10 +22,10 @@ from fractions import Fraction
 
 # NOTE - ready, unit test PASS @240221
 def dict_sum_by_key(
-    search_dict: dict,
+    search_dict: dict | list[dict],
     sum_key: str
 ) -> float:
-    """Sum all dictionary items, at all levels, for a given key.
+    """Sum all dictionary (or list off dictionaries) items, at all levels, for a given key.
     
     Args:
         `search_dict`: dictionary to be searched for
@@ -34,13 +35,17 @@ def dict_sum_by_key(
         `float` with required sum
     """
     s = 0
-    for k in search_dict:
-        if isinstance(search_dict[k], dict):
-            s += dict_sum_by_key(search_dict[k], sum_key)
-        if k == sum_key:
-            try: kval = int(search_dict[k])
-            except: kval = 0
-            s += kval    
+    if isinstance(search_dict, list):
+        for local_search_dict in search_dict:
+            for k in local_search_dict:
+                if isinstance(local_search_dict[k], dict):
+                    s += dict_sum_by_key(local_search_dict[k], sum_key)
+                if k == sum_key:
+                    try: kval = int(local_search_dict[k])
+                    except: kval = 0
+                    s += kval
+    else:
+        s += dict_sum_by_key(search_dict, sum_key)
     return float(s)
 
 
