@@ -187,7 +187,7 @@ def rdinv(
         currency = None,
         customer_area = None,
         supplier_area = "...future..."  # TODO: ... future tbd  ...
-    )  #FIXME_TODO: ............hereuare............
+    )  #FIXME_TODO: `supplier_area` key ............hereuare............
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
@@ -227,7 +227,7 @@ def rdinv(
         area_to_scan=(invoice_header_area["start_cell"], invoice_header_area["end_cell"]),
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    # set a dedicated AREAs TO SEARCH for customer
+    # set a dedicated area to search for customer
     _area_to_search_start_cell = [  # use `label_location` as being supposed "most far away" from effective-good info, so more chances to find info
         0 if invoice_customer_info["label_location"][0] <= 0 else invoice_customer_info["label_location"][0] - 1,  # set one line up if this line exists
         invoice_customer_info["label_location"][1],
@@ -239,15 +239,14 @@ def rdinv(
     for __i in range(_area_to_search_start_cell[0], ws.size[0] + 1):  # scan rest of lines for a blank one
         _crt_scanned_cell_idx = (__i, _area_to_search_start_cell[1])
         _crt_scanned_cell_val = ws.index(*_crt_scanned_cell_idx)
-        if _crt_scanned_cell_val.strip() == "":  # here you must stop
-            break
-        # save current position to be used after break
-        _last_ok_position = copy.deepcopy(_crt_scanned_cell_idx)
+        if _crt_scanned_cell_val.strip() == "":
+            break  # case where stop
+        _last_ok_position = copy.deepcopy(_crt_scanned_cell_idx)  # save current position to be used after a break in other iteration
     _area_to_search_end_cell = [
         _last_ok_position[0],
         ws.size[1] if _last_ok_position[1] > ws.size[1] else _last_ok_position[1] + 1,  # set one row right if this row exists
     ]
-    # set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
+    # persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
     _area_to_search = (tuple(_area_to_search_start_cell), tuple(_area_to_search_end_cell))
     invoice_header_area["customer_area"] = {
         "area_info": {
@@ -337,7 +336,7 @@ def rdinv(
         "cac_Country": {"cbc_IdentificationCode": _tmp_country},
     }
     #
-    # search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")*
+    # find / search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")*
     search_extended_parts = partial(  # define a partial function to be used for all "search_extended_parts"
         get_excel_data_at_label,  # function to call
         worksheet=ws,
@@ -358,9 +357,8 @@ def rdinv(
     invoice_header_area["customer_area"]["email"] = _tmp_email
 
 
-    # NOTE: see how replicate code for Customer --to--> Supplier
-    # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
-    # NOTE: si mai este ceva legat de o sumarizare XML a totalului facturi (comentarii in zona in care scrii key Invoice, citeva linii mai jos)
+    # TODO: see how replicate code for Customer --to--> Supplier
+    # TODO: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 
 
@@ -369,7 +367,7 @@ def rdinv(
     """
     # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
     invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
-
+    
     # preserve processed Excel file meta information: start address, size.
     meta_info = _build_meta_info_key(
         excel_file_to_process=file_to_process,
@@ -402,28 +400,23 @@ def rdinv(
                 },
             },
             "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),
+            #
             #FIXME: ...hereuare... CHECK NEXT CALCULATIONS
             "cac_LegalMonetaryTotal": {
-                # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
                 "cbc_LineExtensionAmount": round(
                     sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]
-                       ), 2),
-                # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
+                ), 2),
                 "cbc_TaxExclusiveAmount": round(
                     sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]
-                       ), 2),
-                # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
+                ), 2),
                 "cbc_TaxInclusiveAmount": round(
-                    sum(
-                        [dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
+                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
                         [dict_sum_by_key(i, "LineVatAmount")           for i in tmp_InvoiceLine_list]
-                    ), 2),
-                # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
+                ), 2),
                 "cbc_PayableAmount":      round(
-                    sum(
-                        [ dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
-                        [ dict_sum_by_key(i, "LineVatAmount")           for i in tmp_InvoiceLine_list]
-                    ), 2),
+                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
+                        [dict_sum_by_key(i, "LineVatAmount")           for i in tmp_InvoiceLine_list]
+                ), 2),
             },
             #FIXME ...END of ...hereuare...
         },
@@ -435,8 +428,8 @@ def rdinv(
         )
     }
     #
-    # write `invoice` dict to `f-JSON`
-    """ useful NOTE(s):
+    # write `invoice` dict to file `f-JSON`
+    """ useful notes ref `f-JSON`:
         - ref `f-JSON` file, see doc: `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#vedere-de-ansamblu-a-solutiei`
         - create `f-JSON` filename as Excel filename but with json extention
         - helpers:
