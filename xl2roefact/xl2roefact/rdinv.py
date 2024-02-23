@@ -404,16 +404,19 @@ def rdinv(
 
 
             #FIXME: ...hereuare... after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
-            "cac_LegalMonetaryTotal":
-                    <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
-                        -NOTE SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
-                    <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
-                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
-                    <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
-                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
-                    <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
-                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
-            
+            "cac_LegalMonetaryTotal": {
+                "cbc_LineExtensionAmount": "...",
+                "currencyID": "RON",  #FIXME replace with const CURRENCY...
+
+                "cbc_TaxExclusiveAmount": "...",
+                "currencyID": "RON",  #FIXME replace with const CURRENCY...
+
+                "cbc_TaxInclusiveAmount": "...",
+                "currencyID": "RON",  #FIXME replace with const CURRENCY...
+
+                "cbc_PayableAmount": "...",
+                "currencyID": "RON",  #FIXME replace with const CURRENCY...
+            },
             #FIXME ...END of ...hereuare...
 
 
