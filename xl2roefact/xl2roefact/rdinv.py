@@ -415,7 +415,7 @@ def rdinv(
                 "cbc_TaxInclusiveAmount": round(  sum([  dict_sum_by_key(i, "cbc_LineExtensionAmount")  for i in tmp_InvoiceLine_list] + [  dict_sum_by_key(i, "LineVatAmount")  for i in tmp_InvoiceLine_list]), 2),
 
                 # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
-                "cbc_PayableAmount": 0,#round(dict_sum_by_key(tmp_InvoiceLine_list, "cbc_LineExtensionAmount") + dict_sum_by_key(tmp_InvoiceLine_list, "LineVatAmount"), 2),
+                "cbc_PayableAmount":      round(  sum([  dict_sum_by_key(i, "cbc_LineExtensionAmount")  for i in tmp_InvoiceLine_list] + [  dict_sum_by_key(i, "LineVatAmount")  for i in tmp_InvoiceLine_list]), 2),
             },
             #FIXME ...END of ...hereuare...
         },
