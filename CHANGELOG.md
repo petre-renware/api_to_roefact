@@ -46,11 +46,30 @@
 
 
 
-### #TODO wip... 0.2.1b xl2roefact invoice summary of items table (#NOTE: date here...)
+### #TODO wip... 0.2.1b xl2roefact invoice values and taxes summary (#NOTE: date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 * tbd.Should... [piu @_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
 * tbd.Must... publish `xl2roefact` package --> read PDM doc ref package release
+
+* tbd.Must... there is one more summary ref taxes (doc `xl2roefact/invoice_files/_PLAN_model...xml`, lines 91-104):
+```xml
+<cac:TaxTotal>  #TODO tbd...
+    <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
+    <cac:TaxSubtotal>
+        <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
+        <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
+        <cac:TaxCategory>
+            <cbc:ID>S</cbc:ID>
+            <cbc:Percent>19.00</cbc:Percent>
+            <cac:TaxScheme>
+                <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+        </cac:TaxCategory>
+    </cac:TaxSubtotal>
+</cac:TaxTotal>
+```
+
 
 * wip...
 
