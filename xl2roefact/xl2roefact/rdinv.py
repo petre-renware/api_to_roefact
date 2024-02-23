@@ -380,7 +380,6 @@ def rdinv(
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
     tmp_InvoiceLine_list = [_i for _i in invoice_items_as_kv_pairs][0],  # first item is `invoice_items_as_kv_pairs` is list of dicts with keys as XML RO E-Fact standard
-    print(f"\n=================== tmp_InvoiceLine_list is \n{tmp_InvoiceLine_list}\n")  #FIXME DBG drop me
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
@@ -407,7 +406,7 @@ def rdinv(
 
             #FIXME: ...hereuare... after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
             "cac_LegalMonetaryTotal": {
-                "cbc_LineExtensionAmount": "...",  # ROUND...SUM  dict_sum_by_key(tmp_InvoiceLine_dict, "cbc_LineExtensionAmount")
+                "cbc_LineExtensionAmount": round(dict_sum_by_key(tmp_InvoiceLine_list, "cbc_LineExtensionAmount"), 2),
                 "cbc_TaxExclusiveAmount": "...",  #  ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount`)
                 "cbc_TaxInclusiveAmount": "...",  #  ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
                 "cbc_PayableAmount": "...",  #       ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
