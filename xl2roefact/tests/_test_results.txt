@@ -1,7 +1,7 @@
-*** Application xl2roefact launched at 2024-02-23 03:40:56.933148
+*** Application xl2roefact launched at 2024-02-23 04:03:58.972810
 INFO note: files to process: 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\*.xlsx
-*** Module rdinv started at 2024-02-23 03:40:56.948771 to process file 
+*** Module rdinv started at 2024-02-23 04:03:58.972810 to process file 
 Fact_Petrom_11017969.xlsx (full path: 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.xlsx)
 INFO note: `rdinv` module, no worksheet specified, will open first one: 
