@@ -45,13 +45,13 @@ def dict_sum_by_key(
                     except: kval = 0
                     s += kval
     else:
-        if isinstance(search_dict[k], dict):
-            s += dict_sum_by_key(search_dict[k], sum_key)
-        if k == sum_key:
-            try: kval = int(search_dict[k])
-            except: kval = 0
-            s += kval
-
+        for k in search_dict:
+            if isinstance(search_dict[k], dict):
+                s += dict_sum_by_key(search_dict[k], sum_key)
+            if k == sum_key:
+                try: kval = int(search_dict[k])
+                except: kval = 0
+                s += kval
     return float(s)
 
 
