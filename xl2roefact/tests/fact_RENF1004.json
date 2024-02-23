@@ -140,7 +140,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-23T11:53:05.654329+00:00",
+        "last_processing_time": "2024-02-23T14:51:55.161391+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
@@ -293,6 +293,26 @@
             [
                 "IBAN",
                 null
+            ],
+            [
+                "cac_LegalMonetaryTotal",
+                "cac:LegalMonetaryTotal"
+            ],
+            [
+                "cbc_LineExtensionAmount",
+                "cbc:LineExtensionAmount"
+            ],
+            [
+                "cbc_TaxExclusiveAmount",
+                "cbc:TaxExclusiveAmount"
+            ],
+            [
+                "cbc_TaxInclusiveAmount",
+                "cbc:TaxInclusiveAmount"
+            ],
+            [
+                "cbc_PayableAmount",
+                "cbc:PayableAmount"
             ]
         ]
     },
