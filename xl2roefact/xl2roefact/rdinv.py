@@ -401,9 +401,7 @@ def rdinv(
                     },
                 },
             },
-            "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),  #FIXME @240223 04:00 is list[listtdict]]. Expected list[dict]. Symptom: The effective list is included in other useless list.
-
-
+            "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),
             #FIXME: ...hereuare... after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
             "cac_LegalMonetaryTotal": {
                 # SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
@@ -420,9 +418,6 @@ def rdinv(
                 "cbc_PayableAmount": round(dict_sum_by_key(tmp_InvoiceLine_list, "cbc_LineExtensionAmount") + dict_sum_by_key(tmp_InvoiceLine_list, "LineVatAmount"), 2),
             },
             #FIXME ...END of ...hereuare...
-
-
-
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
