@@ -406,7 +406,7 @@ def rdinv(
 
             #FIXME: ...hereuare... after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
             "cac_LegalMonetaryTotal": {
-                "cbc_LineExtensionAmount": "...",  # ROUND...SUM  dict_sum_by_key(...ai.copy.of.invoice_line.care.este.lista.si.la.traversare.tb,dict..., `cac_InvoiceLine.cbc_LineExtensionAmount`)
+                "cbc_LineExtensionAmount": "...",  # ROUND...SUM  dict_sum_by_key(tmp_InvoiceLine_dict, "cbc_LineExtensionAmount")
                 "cbc_TaxExclusiveAmount": "...",  #  ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount`)
                 "cbc_TaxInclusiveAmount": "...",  #  ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
                 "cbc_PayableAmount": "...",  #       ROUND...SUM   (`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
