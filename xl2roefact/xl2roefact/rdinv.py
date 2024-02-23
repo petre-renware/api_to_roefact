@@ -401,7 +401,7 @@ def rdinv(
                     },
                 },
             },
-            "cac_InvoiceLine": tmp_InvoiceLine_dict,
+            "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_dict},
 
 
             #FIXME: ...hereuare... after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
