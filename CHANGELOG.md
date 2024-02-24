@@ -185,12 +185,10 @@
 
 
 
--FIXME -----
-
+-FIXME ----- drop me
 ### 0.1.21.post1 fixed missing links in site root index page (240203 h10:30)
 
 * 240203piu_a fixed links in `/README.md` for: `xl2roefact PyPi` entry
-
 -#FIXME --------
 
 
@@ -215,9 +213,7 @@ Items not yet reviewed, extracted and archived:
 
 Items reviewed and archived:
 
-* [`0.1.21.post1` fixed missing links in site root index page](
-./changelog_history/CHANGELOG-0.1.21.post1.md
-)
+* [`0.1.21.post1` fixed missing links in site root index page](./changelog_history/CHANGELOG-0.1.21.post1.md)
 
 * [`0.1.21` rollout news in system portal invoicetoroefact.renware.eu](./changelog_history/CHANGELOG-0.1.21.md)
 * [`0.1.20.dev` invoice customer address](./changelog_history/CHANGELOG-0.1.20.dev.md)
