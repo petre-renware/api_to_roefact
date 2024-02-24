@@ -184,13 +184,6 @@
 
 
 
-### 0.1.21.post1 fixed missing links in site root index page (240203 h10:30)
-
-* 240203piu_a fixed links in `/README.md` for: `xl2roefact PyPi` entry
-
-
-
-
 
 
 
@@ -208,10 +201,10 @@ Items not yet reviewed, extracted and archived:
 * `0.1.22b` xl2roefact application interface improvements
 * `0.1.21.post3` cleaned system documentation and site
 * `0.1.21.post2` xl2roefact app detailed section with commands & options "--help" like
-* `0.1.21.post1` fixed missing links in site root index page
 
 Items reviewed and archived:
 
+* [`0.1.21.post1` fixed missing links in site root index page](./changelog_history/CHANGELOG-0.1.21.post1.md)
 * [`0.1.21` rollout news in system portal invoicetoroefact.renware.eu](./changelog_history/CHANGELOG-0.1.21.md)
 * [`0.1.20.dev` invoice customer address](./changelog_history/CHANGELOG-0.1.20.dev.md)
 * [`0.1.19.dev` invoice customer and partial invoice total values calculations](./changelog_history/CHANGELOG-0.1.19.dev.md)
