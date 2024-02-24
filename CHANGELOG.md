@@ -172,20 +172,6 @@
 
 
 
--#FIXME ----------
-### 0.1.21.post2 xl2roefact app detailed section with commands & options "--help" like (240206 h23:59)
-
-* 240206piu_c test & release: -- create release, -- publish site, -- save deliverable archives
-* 240206piu_b install package: `pip install mkdocs-typer` & upd back `requirements.txt`
-* 240206piu_a add `mkdocs-typer` extension and update `xl2roefact/README.md`, section `Comenzile aplicatiei` page with generated documentation by this plugin
--#FIXME ----------
-
-
-
-
-
-
-
 
 
 # Archived CHANGELOGs
@@ -204,7 +190,6 @@ Items not yet reviewed, extracted and archived:
 Items reviewed and archived:
 
 * [`0.1.21.post2` xl2roefact app detailed section with commands & options "--help" like](./changelog_history/CHANGELOG-0.1.21.post2.md)
-
 * [`0.1.21.post1` fixed missing links in site root index page](./changelog_history/CHANGELOG-0.1.21.post1.md)
 * [`0.1.21` rollout news in system portal invoicetoroefact.renware.eu](./changelog_history/CHANGELOG-0.1.21.md)
 * [`0.1.20.dev` invoice customer address](./changelog_history/CHANGELOG-0.1.20.dev.md)
