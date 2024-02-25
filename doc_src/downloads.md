@@ -18,8 +18,8 @@
 
 #### 0.2  <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
-* [`0.2.1b` invoice customer info-optional items (bank, email, reg-com, phone) WHEEL](../xl2roefact/dist/xl2roefact-0.2.1b0-py3-none-any.whl "download")
-* [`0.2.1b` invoice customer info-optional items (bank, email, reg-com, phone) DIST](../xl2roefact/dist/xl2roefact-0.2.1b0.tar.gz "download")
+* [`0.2.1b` invoice values summary WHEEL](../xl2roefact/dist/xl2roefact-0.2.1b0-py3-none-any.whl "download")
+* [`0.2.1b` invoice values summary DIST](../xl2roefact/dist/xl2roefact-0.2.1b0.tar.gz "download")
 * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone) WHEEL](../xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl "download")
 * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone) DIST](../xl2roefact/dist/xl2roefact-0.2.0b0.tar.gz "download")
 
@@ -68,7 +68,7 @@ Nici o resursa disponibila.
 
 #### 0.2
 
-* [`0.2.1b` invoice customer info-optional items (bank, email, reg-com, phone)](../xl2roefact/dist/xl2roefact-0.2.1b0-win64.msi "download")
+* [`0.2.1b` xl2roefact invoice values summary](../xl2roefact/dist/xl2roefact-0.2.1b0-win64.msi "download")
 * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone)](../xl2roefact/dist/xl2roefact-0.2.0b0-win64.msi "download")
 
 #### 0.1
