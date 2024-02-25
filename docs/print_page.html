@@ -1955,6 +1955,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings.DEFAULT_SUPPLIER_COUNTRY">DEFAULT_SUPPLIER_COUNTRY</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-ldxml">ldxml</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils">libutils</a></li>
+<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils.dict_sum_by_key">dict_sum_by_key</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils.isnumber">isnumber</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils.find_str_in_list">find_str_in_list</a></li>
 <li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv">rdinv</a></li>
@@ -2124,16 +2125,30 @@ cit si la nivel detaliat pentru fiecare comanda
 <p>Identification:</p>
 <ul>
 <li>code-name: <code>libutils</code></li>
-<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>copyright: (c) 2023, 2024 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
 <p>Components:</p>
 <ul>
-<li><code>isnumber(a_string: str) -&gt; bool</code>
+<li><code>dict_sum_by_key(dict, str) -&gt; float</code>
+ to sum a dictionary for a given key at all depth levels</li>
+<li><code>isnumber(str) -&gt; bool</code>
     Test a string if it could be used as number (int or float)</li>
-<li><code>find_str_in_list(list_of_str_to_find: list, list_to_search: list) -&gt; int</code>
+<li><code>find_str_in_list(list, list) -&gt; int</code>
     Search more strings (ie, a list) in list of strings</li>
 </ul>
+<p><a id="libutils.dict_sum_by_key"></a></p>
+<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-dict_sum_by_key">dict_sum_by_key</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dict_sum_by_key</span><span class="p">(</span><span class="n">search_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="n">sum_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
+</code></pre></div>
+<p>Sum all dictionary (or list off dictionaries) items, at all levels, for a given key.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>search_dict</code> - dictionary to be searched for</li>
+<li><code>sum_key</code> - key to be searched</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<p><code>float</code> with required sum</p>
 <p><a id="libutils.isnumber"></a></p>
 <h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-isnumber">isnumber</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">isnumber</span><span class="p">(</span><span class="n">a_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
@@ -2870,12 +2885,17 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <summary markdown="1">
 <h3 id="doc_src-downloads-pachetul-xl2roefact-pypi-library">Pachetul xl2roefact PyPi library</h3>
 </summary>
-<h4 id="doc_src-downloads-02">0.2</h4>
+<h4 id="doc_src-downloads-02">0.2  <!--NOTE: for each version there is a pair: WHEEL & DIST --></h4>
 <ul>
+<li><a href="xl2roefact/dist/xl2roefact-0.2.1b0-py3-none-any.whl" title="download"><code>0.2.1b</code> invoice customer info-optional items (bank, email, reg-com, phone) WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.2.1b0.tar.gz" title="download"><code>0.2.1b</code> invoice customer info-optional items (bank, email, reg-com, phone) DIST</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl" title="download"><code>0.2.0b</code> invoice customer info-optional items (bank, email, reg-com, phone) WHEEL</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.2.0b0.tar.gz" title="download"><code>0.2.0b</code> invoice customer info-optional items (bank, email, reg-com, phone) DIST</a></li>
 </ul>
 <h4 id="doc_src-downloads-01">0.1</h4>
+<blockquote>
+<p>NOTA: versiunile <code>0.1</code> nu mai sunt intretinute de la 01-Martie-2024 (end of life support).</p>
+</blockquote>
 <ul>
 <li><a href="xl2roefact/dist/xl2roefact-0.1.22b0-py3-none-any.whl" title="download"><code>0.1.22b</code> application interface improvements WHEEL</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.1.22b0.tar.gz" title="download"><code>0.1.22b</code> application interface improvements DIST</a></li>
@@ -2900,9 +2920,13 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 </summary>
 <h4 id="doc_src-downloads-02_1">0.2</h4>
 <ul>
-<li><a href="xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi" title="download"><code>0.2.0b</code> invoice customer info-optional items (bank, email, reg-com, phone)</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.2.1b0-win64.msi" title="download"><code>0.2.1b</code> invoice customer info-optional items (bank, email, reg-com, phone)</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.2.0b0-win64.msi" title="download"><code>0.2.0b</code> invoice customer info-optional items (bank, email, reg-com, phone)</a></li>
 </ul>
 <h4 id="doc_src-downloads-01_1">0.1</h4>
+<blockquote>
+<p>NOTA: versiunile <code>0.1</code> nu mai sunt intretinute de la 01-Martie-2024 (end of life support).</p>
+</blockquote>
 <ul>
 <li><a href="xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi" title="download"><code>0.1.22b</code> application interface improvements</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.1.20-win64.msi" title="download"><code>0.1.20.dev</code> invoice customer address</a></li>
@@ -3549,20 +3573,15 @@ Public License instead of this License.  But first, please read
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-02-note_wip">0.2 (-#NOTE_wip...)</a><ul>
-<li><a href="#changelog-todo-wip-021b-xl2roefact-invoice-summary-of-items-table-note-date-here">#TODO wip... 0.2.1b xl2roefact invoice summary of items table (#NOTE: date here...)</a></li>
+<li><a href="#changelog-todo-nextwip-022b-xl2roefact-invoice-taxes-summary-note-date-here">TODO: next.wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</a></li>
+<li><a href="#changelog-021b-xl2roefact-invoice-values-summary-note-date-here">0.2.1b xl2roefact invoice values summary (#NOTE: date here...)</a></li>
 <li><a href="#changelog-020b-xl2roefact-invoice-customer-info-optional-items-bank-email-reg-com-phone-240220-h1000">0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (240220 h10:00)</a></li>
-</ul>
-</li>
-<li><a href="#changelog-01">0.1</a><ul>
-<li><a href="#changelog-0122b-xl2roefact-application-interface-improvements-240217-h1200">0.1.22b xl2roefact application interface improvements (240217 h12:00)</a></li>
-<li><a href="#changelog-0121post3-cleaned-system-documentation-and-site-240211-h2359">0.1.21.post3 cleaned system documentation and site (240211 h23:59)</a></li>
-<li><a href="#changelog-0121post2-xl2roefact-app-detailed-section-with-commands-options-help-like-240206-h2359">0.1.21.post2 xl2roefact app detailed section with commands &amp; options "--help" like (240206 h23:59)</a></li>
-<li><a href="#changelog-0121post1-fixed-missing-links-in-site-root-index-page-240203-h1030">0.1.21.post1 fixed missing links in site root index page (240203 h10:30)</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#changelog-archived-changelogs">Archived CHANGELOGs</a><ul>
+<li><a href="#changelog-02-version">0.2 version</a></li>
 <li><a href="#changelog-01-version">0.1 version</a></li>
 </ul>
 </li>
@@ -3598,10 +3617,10 @@ Public License instead of this License.  But first, please read
         * invoice header
             * [ ] invoice supplier (`&lt;cac:AccountingSupplierParty&gt;`)
             * [ ] TODO: ... invoice summary of items table (there are left comments in code, in zone where write &quot;Invoice&quot; key)
-            * [...] wip@240221piu_a invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build &amp; write &quot;Invoice&quot; key)
+            * [... cls.`0.2.1b` + wip.`0.2.2b`]  invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build &amp; write &quot;Invoice&quot; key)
     -------------------------------------------------------------------------------------------------
 </code></pre></div>
-<h3 id="changelog-todo-wip-021b-xl2roefact-invoice-summary-of-items-table-note-date-here">#TODO wip... 0.2.1b xl2roefact invoice summary of items table (#NOTE: date here...)</h3>
+<h3 id="changelog-todo-nextwip-022b-xl2roefact-invoice-taxes-summary-note-date-here">TODO: next.wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</h3>
 <ul>
 <li>tbd.Must... @RELEASE <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></li>
 <li>tbd.Should... [piu @_240126] left in <code>setup.py</code> comments &amp; example ref how to <strong><em>pre-set MSI build meta information</em></strong> / parameters (obj: default target dir where install, path registration, icon, ...)</li>
@@ -3609,32 +3628,44 @@ Public License instead of this License.  But first, please read
 <p>tbd.Must... publish <code>xl2roefact</code> package --&gt; read PDM doc ref package release</p>
 </li>
 <li>
-<p>wip...</p>
+<p>tbd.Must... there is one more summary ref taxes (doc <code>xl2roefact/invoice_files/_PLAN_model...xml</code>, lines 91-104):
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;cac:TaxTotal&gt;</span><span class="w">  </span>#TODO<span class="w"> </span>tbd...
+<span class="w">    </span><span class="nt">&lt;cbc:TaxAmount</span><span class="w"> </span><span class="na">currencyID=</span><span class="s">&quot;RON&quot;</span><span class="nt">&gt;</span>190.00<span class="nt">&lt;/cbc:TaxAmount&gt;</span>
+<span class="w">    </span><span class="nt">&lt;cac:TaxSubtotal&gt;</span>
+<span class="w">        </span><span class="nt">&lt;cbc:TaxableAmount</span><span class="w"> </span><span class="na">currencyID=</span><span class="s">&quot;RON&quot;</span><span class="nt">&gt;</span>1000.00<span class="nt">&lt;/cbc:TaxableAmount&gt;</span>
+<span class="w">        </span><span class="nt">&lt;cbc:TaxAmount</span><span class="w"> </span><span class="na">currencyID=</span><span class="s">&quot;RON&quot;</span><span class="nt">&gt;</span>190.00<span class="nt">&lt;/cbc:TaxAmount&gt;</span>
+<span class="w">        </span><span class="nt">&lt;cac:TaxCategory&gt;</span>
+<span class="w">            </span><span class="nt">&lt;cbc:ID&gt;</span>S<span class="nt">&lt;/cbc:ID&gt;</span>
+<span class="w">            </span><span class="nt">&lt;cbc:Percent&gt;</span>19.00<span class="nt">&lt;/cbc:Percent&gt;</span>
+<span class="w">            </span><span class="nt">&lt;cac:TaxScheme&gt;</span>
+<span class="w">                </span><span class="nt">&lt;cbc:ID&gt;</span>VAT<span class="nt">&lt;/cbc:ID&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/cac:TaxScheme&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/cac:TaxCategory&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/cac:TaxSubtotal&gt;</span>
+<span class="nt">&lt;/cac:TaxTotal&gt;</span>
+</code></pre></div></p>
 </li>
-<li>
-<p>-#FIXME_#FIXME urgent to clean all xl2roefact distributions as they install in root project with <code>...xl2roefact/src/</code> which contains that <strong>.txt sensitive file with mail content</strong></p>
-</li>
-<li>
-<p>... 240221piu_a invoice grand totals</p>
-<ul class="task-list">
+<li>next wip...</li>
+</ul>
+<h3 id="changelog-021b-xl2roefact-invoice-values-summary-note-date-here">0.2.1b xl2roefact invoice values summary (#NOTE: date here...)</h3>
+<ul>
+<li>240221piu_a invoice grand totals<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. new function <code>dict_sum_by_key(...)</code> to sum a dict at all levels for a key. Implemented in <code>xl2roefact libutils</code> module.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. doc with wk.specs ref summary structure <code>.../xl2roefact/tests/__invoice_summary.md</code> (NOTE: will be deleted after finish)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. created the JSON-XML map required structure in <code>.../xl2roefact/tests/__invoice_summary.md</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 4. code some calculations...</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. doc with wk.specs ref summary structure <code>.../xl2roefact/tests/_tmp_wkdoc_invoice_summary.md</code> (NOTE: will be deleted after finish)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. created work JSON-XML map required structure in <code>.../xl2roefact/tests/__invoice_summary.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. code for some calculations, test &amp; fix formulas</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. update JSON-XML map in code (rdinv.py)</li>
 </ul>
 </li>
-<li>
-<p>... 200220piu_b init a PDM simple env in project root</p>
-<ul class="task-list">
+<li>200220piu_b init a PDM simple env in project root<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. root project is for SITE GENERATION</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. project name set to <strong>INVOICEtoROefact</strong> and the version dynamic from <code>/__version__.py</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. updated <code>pyproject.toml</code> default dependencies</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 4. finalize PDM usage. Run <code>pdm init</code> then <code>pdm update</code> to get dependencies</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. incomplete finalized PDM usage. Run <code>pdm init</code> then <code>pdm update</code> to get dependencies
+  <em>RESOLUTION:</em> item 4. will be finalied in next releases because is a long run task under Windows</li>
 </ul>
 </li>
-<li>
-<p>240220piu_a reorganized <code>INVOICEtoROeFact</code> project by preparing python directory structure for <strong><code>web2roefact</code></strong> component as installable package (model xl2roefact)</p>
-</li>
+<li>240220piu_a reorganized <code>INVOICEtoROeFact</code> project by preparing python directory structure for <strong><code>web2roefact</code></strong> component as installable package (model xl2roefact)</li>
 </ul>
 <h3 id="changelog-020b-xl2roefact-invoice-customer-info-optional-items-bank-email-reg-com-phone-240220-h1000">0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (240220 h10:00)</h3>
 <ul>
@@ -3659,65 +3690,24 @@ Public License instead of this License.  But first, please read
 </li>
 <li>240218piu_a documentation improvements by using dropdown items</li>
 </ul>
-<h2 id="changelog-01">0.1</h2>
-<h3 id="changelog-0122b-xl2roefact-application-interface-improvements-240217-h1200">0.1.22b xl2roefact application interface improvements (240217 h12:00)</h3>
-<ul>
-<li>240217piu_b updated site with new <code>0.1.22b</code> deliverables, <code>xl2roefact CLI, WHEEL &amp; DIST</code></li>
-<li>240217piu_a automated build of xl2roefact artifacts (on merge to branch <code>build-xl2roefact</code>)</li>
-<li>240214piu_b make in site a dedicated page for downloads: "Help --&gt; Downloads" and refer it in all places where downloads are intended</li>
-<li>240216piu_a automated GitHub site build &amp; publishing. FIXED ERROR: <code>mkdocs_typer._exceptions.MkDocsTyperException: 'run' must be a 'typer.main.Typer' object, got &lt;class 'function'&gt;</code> was changed <code>run</code> object to <code>app_cli</code> one</li>
-<li>240214piu_c.BUGFIX ref <code>240213piu_a.FAILED</code> fixed &amp; enabled <code>.github/.../ci.yml</code>. To test by merging to <code>build</code></li>
-<li>240214piu_a xl2roefact component (<code>.../app_cli.py</code>) function <code>settings(...)</code> add <code>--rules</code> option (param) to display <code>config_settings.__doc__</code></li>
-<li>240213piu_a.FAILED merged for <code>/requirements.txt</code> lief package update as OK-PAS &amp; disabled gh-workflow by renaming <code>ci.yml</code> to <code>ci.yml temp_disabled</code>. Actions tried:  (-1.) updated <code>.gh-workflow.../ci.yml</code>  (-2.) "small change" in <code>/README.md</code> in copyright year to test  (-3.) merge to <code>build</code> branch for test</li>
-<li>240212piu_e.BUGFIX navigation "xl2roefact --&gt; Referinta CLI" (file <code>/mkdocs.yml</code>). Updated <code>xl2roefact/README.md</code> add a <code>&lt;a id="comenzile-aplicatiei"&gt;&lt;/a&gt;</code> after header "## Comenzile aplicatiei" paragraph "Detalii comenzi:" and ref it accordingly in mkdocs.yml navigation following HTML file, not MARKDOWN one</li>
-<li>240212piu_d rebuild all deliverables <code>pdm build_all</code> ==&gt; v0.1.22 MSI, WHL, SDIST &amp; moved them to a dedicated <code>_WIP_0.1.22_/</code> until decide to rebuild or keep</li>
-<li>240212piu_c added navigation "xl2roefact --&gt; Referinta CLI" (file <code>/mkdocs.yml</code>). Built &amp; published site (<code>mkdocs build</code>).</li>
-<li>240212piu_b updated <code>.../xl2roefact/app_cli.py</code> to format app logo string as markdown. Updated packages (<code>pdm build_all</code>).</li>
-<li>240212piu_a review and updated xl2roefact logo (file: <code>...xl2roefact/__version__</code>). Updated API Reference doc (<code>pdm build_doc</code>). Clean project of obsolete files &amp; open issues</li>
-</ul>
-<h3 id="changelog-0121post3-cleaned-system-documentation-and-site-240211-h2359">0.1.21.post3 cleaned system documentation and site (240211 h23:59)</h3>
-<ul>
-<li>240211piu_b tested &amp; reviewed <code>240211piu_a</code> ==&gt; published site</li>
-<li>240211piu_a upated <code>xl2roefact/README.md</code> clean section "Instalarea", preserved only Windows and Linux specs to run CLI component, ie, dropped library references as irrelevant at this point</li>
-<li>240210piu_b test for iss <code>240210piu_a</code> ==&gt; PASS<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> app as functional (there are updates in code),</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> re-build tech doc (<code>pdm build_doc</code>),</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> build &amp; publish site</li>
-</ul>
-</li>
-<li>240210piu_a reviewed &amp; updated all <code>xl2roefact</code> modules for their docstring</li>
-<li>240209piu_c updated <code>xl2roefact</code> component, README file, restructured info ref JSON file format (dropped redundant info)</li>
-<li>240209piu_b reviewed &amp; corrected <code>240209piu_a, 240208piu_a</code>. Published site</li>
-<li>240209piu_a updated <code>xl2roefact *</code> documentation to drop redundant info (badges, prev versions useless details)</li>
-<li>240208piu_a updated <code>xl2roefact library</code> documentation, docstring(s) and <code>mkdocs.yml</code> navigation entries to clarify subjects by using specific technical terms (this component address technical users not business ones)</li>
-<li>240207piu_b improve site readability by detailed description at bullet items level and dropping / moving in other parts the content non "end user related" from: <code>/README.md</code>, <code>doc_src/.../810.05a-system_components.md</code></li>
-<li>240207piu_a updated all site in pages references to system components &amp; deliverables version</li>
-</ul>
-<h3 id="changelog-0121post2-xl2roefact-app-detailed-section-with-commands-options-help-like-240206-h2359">0.1.21.post2 xl2roefact app detailed section with commands &amp; options "--help" like (240206 h23:59)</h3>
-<ul>
-<li>240206piu_c test &amp; release: -- create release, -- publish site, -- save deliverable archives</li>
-<li>240206piu_b install package: <code>pip install mkdocs-typer</code> &amp; upd back <code>requirements.txt</code></li>
-<li>240206piu_a add <code>mkdocs-typer</code> extension and update <code>xl2roefact/README.md</code>, section <code>Comenzile aplicatiei</code> page with generated documentation by this plugin</li>
-</ul>
-<h3 id="changelog-0121post1-fixed-missing-links-in-site-root-index-page-240203-h1030">0.1.21.post1 fixed missing links in site root index page (240203 h10:30)</h3>
-<ul>
-<li>240203piu_a fixed links in <code>/README.md</code> for: <code>xl2roefact PyPi</code> entry</li>
-</ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
+<details>
+<summary markdown="1">
+<h2 id="changelog-02-version">0.2 version</h2>
+</summary>
+<ul>
+<li>no item here yet</li>
+</ul>
+</details>
 <details>
 <summary markdown="1">
 <h2 id="changelog-01-version">0.1 version</h2>
 </summary>
-<!--#TODO collect rest of 0.1 items here... List of them; -->
-<p>Items not yet reviewed, extracted and archived:</p>
 <ul>
-<li><code>0.1.22b</code> xl2roefact application interface improvements</li>
-<li><code>0.1.21.post3</code> cleaned system documentation and site</li>
-<li><code>0.1.21.post2</code> xl2roefact app detailed section with commands &amp; options "--help" like</li>
-<li><code>0.1.21.post1</code> fixed missing links in site root index page</li>
-</ul>
-<p>Items reviewed and archived:</p>
-<ul>
+<li><a href="#changelog_history-changelog-0.1.22b"><code>0.1.22b</code> xl2roefact application interface improvements</a></li>
+<li><a href="#changelog_history-changelog-0.1.21.post3"><code>0.1.21.post3</code> cleaned system documentation and site</a></li>
+<li><a href="#changelog_history-changelog-0.1.21.post2"><code>0.1.21.post2</code> xl2roefact app detailed section with commands &amp; options "--help" like</a></li>
+<li><a href="#changelog_history-changelog-0.1.21.post1"><code>0.1.21.post1</code> fixed missing links in site root index page</a></li>
 <li><a href="#changelog_history-changelog-0.1.21"><code>0.1.21</code> rollout news in system portal invoicetoroefact.renware.eu</a></li>
 <li><a href="#changelog_history-changelog-0.1.20.dev"><code>0.1.20.dev</code> invoice customer address</a></li>
 <li><a href="#changelog_history-changelog-0.1.19.dev"><code>0.1.19.dev</code> invoice customer and partial invoice total values calculations</a></li>
