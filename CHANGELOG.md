@@ -73,6 +73,9 @@
 
 * wip...
 
+* -#TODO... consider release here `0.2.1b` and let tax summarization for nxt version. Build a deliverable with this version. ...>
+  ...> RELEASE_CODE: 0.2.1b xl2roefact invoice values and taxes summary
+
 * -#FIXME clean all xl2roefact distributions as they install in root project with `...xl2roefact/src/` which contains that **.txt sensitive file with mail content**
 
 * 240221piu_a invoice grand totals
