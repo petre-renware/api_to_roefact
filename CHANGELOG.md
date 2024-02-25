@@ -87,7 +87,10 @@
 
 * wip...
 
-* tbd... update site downloads doc with 0.2.1b deliverables, mark "not supported from 1 March 2024" all prev deliverables from it
+* tbd...
+    * update site downloads doc with 0.2.1b deliverables
+    * mark "not supported from 1 March 2024" all prev deliverables from it
+    * build site
 
 * 240221piu_a invoice grand totals
     * [x] 1. new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
