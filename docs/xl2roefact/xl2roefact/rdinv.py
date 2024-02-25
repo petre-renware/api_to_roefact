@@ -28,8 +28,10 @@ from functools import partial
 import pylightxl as xl
 import openpyxl as opnxl
 
-# local modules (built in and part of package)
-from .libutils import isnumber, find_str_in_list  # application misc/general utilities
+# local modules (part of package), application misc/general utilities
+from .libutils import isnumber
+from .libutils import find_str_in_list
+from .libutils import dict_sum_by_key
 from . import config_settings  # application configuration parameters
 
 # local constants. Change them with caution only for a functional objective
@@ -185,7 +187,7 @@ def rdinv(
         currency = None,
         customer_area = None,
         supplier_area = "...future..."  # TODO: ... future tbd  ...
-    )  #FIXME_TODO: ............hereuare............
+    )  #FIXME_TODO: `supplier_area` key ............hereuare............
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
@@ -225,7 +227,7 @@ def rdinv(
         area_to_scan=(invoice_header_area["start_cell"], invoice_header_area["end_cell"]),
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    # set a dedicated AREAs TO SEARCH for customer
+    # set a dedicated area to search for customer
     _area_to_search_start_cell = [  # use `label_location` as being supposed "most far away" from effective-good info, so more chances to find info
         0 if invoice_customer_info["label_location"][0] <= 0 else invoice_customer_info["label_location"][0] - 1,  # set one line up if this line exists
         invoice_customer_info["label_location"][1],
@@ -237,15 +239,14 @@ def rdinv(
     for __i in range(_area_to_search_start_cell[0], ws.size[0] + 1):  # scan rest of lines for a blank one
         _crt_scanned_cell_idx = (__i, _area_to_search_start_cell[1])
         _crt_scanned_cell_val = ws.index(*_crt_scanned_cell_idx)
-        if _crt_scanned_cell_val.strip() == "":  # here you must stop
-            break
-        # save current position to be used after break
-        _last_ok_position = copy.deepcopy(_crt_scanned_cell_idx)
+        if _crt_scanned_cell_val.strip() == "":
+            break  # case where stop
+        _last_ok_position = copy.deepcopy(_crt_scanned_cell_idx)  # save current position to be used after a break in other iteration
     _area_to_search_end_cell = [
         _last_ok_position[0],
         ws.size[1] if _last_ok_position[1] > ws.size[1] else _last_ok_position[1] + 1,  # set one row right if this row exists
     ]
-    # set-persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
+    # persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
     _area_to_search = (tuple(_area_to_search_start_cell), tuple(_area_to_search_end_cell))
     invoice_header_area["customer_area"] = {
         "area_info": {
@@ -335,7 +336,7 @@ def rdinv(
         "cac_Country": {"cbc_IdentificationCode": _tmp_country},
     }
     #
-    # search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")*
+    # find / search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")*
     search_extended_parts = partial(  # define a partial function to be used for all "search_extended_parts"
         get_excel_data_at_label,  # function to call
         worksheet=ws,
@@ -356,9 +357,8 @@ def rdinv(
     invoice_header_area["customer_area"]["email"] = _tmp_email
 
 
-    # NOTE: see how replicate code for Customer --to--> Supplier
-    # NOTE: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
-    # NOTE: si mai este ceva legat de o sumarizare XML a totalului facturi (comentarii in zona in care scrii key Invoice, citeva linii mai jos)
+    # TODO: see how replicate code for Customer --to--> Supplier
+    # TODO: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 
 
@@ -367,7 +367,7 @@ def rdinv(
     """
     # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
     invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
-
+    
     # preserve processed Excel file meta information: start address, size.
     meta_info = _build_meta_info_key(
         excel_file_to_process=file_to_process,
@@ -377,6 +377,7 @@ def rdinv(
         found_cell=tuple(_found_cell_for_invoice_items_area_marker))
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
+    tmp_InvoiceLine_list = [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is list of dicts with keys as XML RO E-Fact standard
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
@@ -398,9 +399,26 @@ def rdinv(
                     },
                 },
             },
-            #TODO ...here to add rest of `invoice_header_area`: "reg com", "bank / IBAN / cont", "tel", "email"
-            "cac_InvoiceLine": [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is a list of dicts with keys as XML/XSD RO E-Fact standard
-            #TODO: after finish `invoice_header_area` need  to contsruct TOTAL invoice structure (see #NOTE: "TOTAL_invoice_strucuture")
+            "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),
+            #
+            #FIXME: ...hereuare... CHECK NEXT CALCULATIONS
+            "cac_LegalMonetaryTotal": {
+                "cbc_LineExtensionAmount": round(
+                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]
+                ), 2),
+                "cbc_TaxExclusiveAmount": round(
+                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]
+                ), 2),
+                "cbc_TaxInclusiveAmount": round(
+                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
+                        [dict_sum_by_key(i, "LineVatAmount")           for i in tmp_InvoiceLine_list]
+                ), 2),
+                "cbc_PayableAmount":      round(
+                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
+                        [dict_sum_by_key(i, "LineVatAmount")           for i in tmp_InvoiceLine_list]
+                ), 2),
+            },
+            #FIXME ...END of ...hereuare...
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
@@ -409,23 +427,9 @@ def rdinv(
             invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO to be done... (just localized `invoice_footer_area`)
         )
     }
-    ''' #NOTE: TOTAL_invoice_strucuture (NOTE: refered by line "TODO: need  to contsruct TOTAL invoice structure ...", line ~>= 314)
-                <cac:LegalMonetaryTotal>
-                    <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
-                        -NOTE SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)
-                    <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
-                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
-                    <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
-                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)
-                    <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
-                        -NOTE: SUM(`cac_InvoiceLine.cbc_LineExtensionAmount` + `cac_InvoiceLine.LineVatAmount`)  NOTE-[piu@240103] nu m-am prins inca care-i diferenta fata de item anterior, pentru ca aici este totalul mare al facturii...
-                </cac:LegalMonetaryTotal>
-            - NOTE-IMPORTANT-NOTE: only TOTALIZED values need to be rounded 2 decimals (because LineVatAmount is let raw calculation to ve able to round here after SUM)
-            - NOTE: TOTAL invoice VAT can be obtained as `SUM(from existing key cac_InvoiceLine.LineVatAmount`) adding lines VAT
-    '''
-
-    # write `invoice` dict to `f-JSON`
-    """ useful NOTE(s):
+    #
+    # write `invoice` dict to file `f-JSON`
+    """ useful notes ref `f-JSON`:
         - ref `f-JSON` file, see doc: `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#vedere-de-ansamblu-a-solutiei`
         - create `f-JSON` filename as Excel filename but with json extention
         - helpers:
@@ -627,7 +631,7 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format):
                 _item_total = round(_item_quantity * _unit_price, 2)
                 # line VAT calculation is subject of VAT existence and right calculation as number, otherwise it is set to NULL
                 if _item_total and _vat_percent:
-                    _item_VAT = float(_item_quantity * _unit_price * _vat_percent)  # this line does not round info to be able to round only the total
+                    _item_VAT = round(float(_item_quantity * _unit_price * _vat_percent), 2)
                 else:
                     _item_VAT = 0.0
 
@@ -899,6 +903,12 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("RegCom", None),  # customer commerce register number (company legal registration number). Has no correspondent in XML schema - DETAIL L3 RECORD
         ("Bank", None),  # customer bank. Has no correspondent in XML schema - DETAIL L3 RECORD
         ("IBAN", None),  # customer bank account number (IBAN). Has no correspondent in XML schema - DETAIL L3 RECORD
+        ("cac_LegalMonetaryTotal", "cac:LegalMonetaryTotal"),  # summary item
+        ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount"),  # summary item
+        ("cbc_TaxExclusiveAmount", "cbc:TaxExclusiveAmount"),  # summary item
+        ("cbc_TaxInclusiveAmount", "cbc:TaxInclusiveAmount",),  # summary item
+        ("cbc_PayableAmount", "cbc:PayableAmount"),  # summary item
+
         #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 
