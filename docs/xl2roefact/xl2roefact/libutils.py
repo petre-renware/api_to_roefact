@@ -4,18 +4,59 @@
 Identification:
 
 * code-name: `libutils`
-* copyright: (c) 2023 RENWare Software Systems
+* copyright: (c) 2023, 2024 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 Components:
 
-* `isnumber(a_string: str) -> bool`
+* `dict_sum_by_key(dict, str) -> float`
+ to sum a dictionary for a given key at all depth levels
+* `isnumber(str) -> bool`
     Test a string if it could be used as number (int or float)
-* `find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int`
+* `find_str_in_list(list, list) -> int`
     Search more strings (ie, a list) in list of strings
 """
 
+import sys
+from rich import print
 from fractions import Fraction
+
+
+# NOTE - ready, unit test PASS @240223
+def dict_sum_by_key(
+    search_dict: dict | list[dict],
+    sum_key: str
+) -> float:
+    """Sum all dictionary (or list off dictionaries) items, at all levels, for a given key.
+
+    Args:
+        `search_dict`: dictionary to be searched for
+        `sum_key`: key to be searched
+
+    Returns:
+        `float` with required sum
+    """
+    s = 0
+    if isinstance(search_dict, list) or isinstance(search_dict, tuple):
+        for local_search_dict in search_dict:
+            for k in local_search_dict:
+                if isinstance(local_search_dict[k], dict):
+                    s += dict_sum_by_key(local_search_dict[k], sum_key)
+                if k == sum_key:
+                    try: kval = int(local_search_dict[k])
+                    except: kval = 0
+                    s += kval
+    else:
+        for k in search_dict:
+            if isinstance(search_dict[k], dict):
+                s += dict_sum_by_key(search_dict[k], sum_key)
+            if k == sum_key:
+                try: kval = int(search_dict[k])
+                except: kval = 0
+                s += kval
+    return float(s)
+
+
 
 
 # NOTE - ready, test PASS @231123
