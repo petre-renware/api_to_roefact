@@ -631,7 +631,7 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format):
                 _item_total = round(_item_quantity * _unit_price, 2)
                 # line VAT calculation is subject of VAT existence and right calculation as number, otherwise it is set to NULL
                 if _item_total and _vat_percent:
-                    _item_VAT = float(_item_quantity * _unit_price * _vat_percent)  # this line does not round info to be able to round only the total
+                    _item_VAT = round(float(_item_quantity * _unit_price * _vat_percent), 2)
                 else:
                     _item_VAT = 0.0
 
