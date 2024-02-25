@@ -46,7 +46,7 @@
                         "cbc_currencyID": "RON"
                     },
                     "cbc_LineExtensionAmount": 42756.08,
-                    "LineVatAmount": 8123.6552
+                    "LineVatAmount": 8123.66
                 },
                 {
                     "cbc_ID": "1.NOTE-a",
@@ -100,7 +100,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-23T14:51:55.098895+00:00",
+        "last_processing_time": "2024-02-25T03:46:22.421917+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
