@@ -46,7 +46,7 @@
 
 
 
-### #TODO wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)
+### TODO: next.wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 * tbd.Should... [piu @_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
@@ -83,9 +83,7 @@
 
 -#FIXME ...local save of 0.2.1b deliverables 
 
-### 0.2.1b xl2roefact invoice values summary
-
-* wip...
+### ...TODO: in.rlse... 0.2.1b xl2roefact invoice values summary (#NOTE: date here...)
 
 * tbd...
     * update site downloads doc with 0.2.1b deliverables
