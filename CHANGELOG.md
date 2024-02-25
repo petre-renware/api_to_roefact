@@ -83,7 +83,7 @@
 
 
 
-### 0.2.1b xl2roefact invoice values summary (#NOTE: date here...)
+### 0.2.1b xl2roefact invoice values summary (240225 h18:30)
 
 * 240221piu_a invoice grand totals
     * [x] 1. new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
