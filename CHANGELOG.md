@@ -39,14 +39,14 @@
         * invoice header
             * [ ] invoice supplier (`<cac:AccountingSupplierParty>`)
             * [ ] TODO: ... invoice summary of items table (there are left comments in code, in zone where write "Invoice" key)
-            * [...] wip@240221piu_a invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
+            * [... cls.`0.2.1b` + wip.`0.2.2b`]  invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
     -------------------------------------------------------------------------------------------------
 ```
 
 
 
 
-### #TODO wip... 0.2.1b xl2roefact invoice values and taxes summary (#NOTE: date here...)
+### #TODO wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 * tbd.Should... [piu @_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
@@ -69,14 +69,25 @@
     </cac:TaxSubtotal>
 </cac:TaxTotal>
 ```
+* next wip...
 
+
+
+
+
+
+
+
+
+
+
+-#FIXME ...local save of 0.2.1b deliverables 
+
+### 0.2.1b xl2roefact invoice values summary
 
 * wip...
 
-* -#TODO... consider release here `0.2.1b` and let tax summarization for nxt version. Build a deliverable with this version. ...>
-  ...> RELEASE_CODE: 0.2.1b xl2roefact invoice values and taxes summary
-
-* -#FIXME clean all xl2roefact distributions as they install in root project with `...xl2roefact/src/` which contains that **.txt sensitive file with mail content**
+* tbd... update site downloads doc with 0.2.1b deliverables, mark "not supported from 1 March 2024" all prev deliverables from it
 
 * 240221piu_a invoice grand totals
     * [x] 1. new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
@@ -91,10 +102,6 @@
     * [x] 4. incomplete finalized PDM usage. Run `pdm init` then `pdm update` to get dependencies
       _RESOLUTION:_ item 4. will be finalied in next releases because is a long run task under Windows
 * 240220piu_a reorganized `INVOICEtoROeFact` project by preparing python directory structure for **`web2roefact`** component as installable package (model xl2roefact)
-
-
-
-
 
 
 
