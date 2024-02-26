@@ -187,7 +187,12 @@ distribution = false
 
 
 [tool.pdm.dev-dependencies]  # dependencies used only in develeopment and not transfered in Pythn package building
- dev = []  # #FIXME: will add more after init of PDM
+#TODO : to move here:
+#  - all `mkdocs` packages & extensions
+#  - all `cx-*`packages
+#  - `pydoc` and all other doc generators
+#  - ...NOTE; write here more as detected...
+dev = []
 
 
 
