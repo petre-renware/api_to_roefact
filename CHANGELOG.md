@@ -73,10 +73,10 @@
 * wip...
 
 * ...wip `240226piu04` updated workflow `pypi-publish.yml` to run on brach `pypi-publish`. Steps:
-    * [ ] change workflow code to move `.msi` files in a temporary directory, execute publish then get back moved files
-    * [ ] move versions 0.1.18 & 0.1.19 in main `dist/` directory
-    * [ ] clean code and directories
-    * [ ] prep main project (INVOICEtoROefact) `requirements.txt` to use normal installation of `xl2roefact` package
+    * [x] 1. change workflow code to move `.msi` files in a temporary directory, execute publish then get back moved files
+    * [ ] 2. move versions 0.1.18 & 0.1.19 in main `dist/` directory
+    * [ ] 3. clean code and directories
+    * [ ] 4. prep main project (INVOICEtoROefact) `requirements.txt` to use normal installation of `xl2roefact` package
 
 * `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
 * `250226piu02` created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
