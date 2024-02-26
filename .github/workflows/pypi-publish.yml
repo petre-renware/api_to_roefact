@@ -29,8 +29,12 @@ jobs:
           cd xl2roefact
           python -m pip install --upgrade pip
           pip install setuptools --upgrade
+
+          #  create a temp dir and move all `.msi`
+          mkdir tmp_msi_files
+          mv ./dist/*.msi ./tmp_msi_files
           
-          #   install PDM and build environment
+          #  install PDM and build environment
           python -m pip install pdm
           python -m pdm install
         
