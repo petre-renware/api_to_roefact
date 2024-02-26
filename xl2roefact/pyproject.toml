@@ -44,16 +44,16 @@ dependencies = [
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">= 3.10"
-classifiers = [  #  [piu@231226] just informative key at this moment
-    "Product code :: 0000-0095",  # [piu @ 231226] to test if accepted here
+classifiers = [
+    # *1) "Product code :: 0000-0095",  # [piu @ 231226] to test if accepted here
     "Development Status :: 4 - Beta",
-    "Intended Audience :: End users",
-    "Topic :: Invoices :: Upload invoices :: RO EFact",
-    "License :: GNU License",
+    # *1) "Intended Audience :: End users",
+    # *1) "Topic :: Invoices :: Upload invoices :: RO EFact",
+    # *1) "License :: GNU License",
     # Specify the Python versions you support here.
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
-]
+]  # NOTE: *1) commented keys because not accepted by `PyPi`
 
 
 
