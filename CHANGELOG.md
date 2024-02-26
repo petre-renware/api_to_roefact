@@ -72,13 +72,14 @@
 
 * wip...
 
-* ...wip `240226piu04` updated workflow `pypi-publish.yml` to run on brach `pypi-publish`.
-    * Encountered error:
+* ...wip `240226piu04` updated workflow `pypi-publish.yml` to run on brach `pypi-publish`. Encountered error:
     ```
-    Getting PyPI token via GitHub Actions OIDC...
-    Failed to get PyPI token via GitHub Actions OIDC
-    [PdmUsageError]: Username and password are required
-    ```
+    All complete!
+    See /tmp/pdm-publish-2cu3u203.log for detailed debug log.
+    [PdmUsageError]: Unknown distribution file type: /home/runner/work/api_to_roefact/api_to_roefact/xl2roefact/dist/xl2roefact-0.1.22.dev0-win64.msi
+    ``` <br>
+  TODO: @ 240226 h33:30 DIDN'T published
+      * ... try build MSI in other directory (or manually move it) but need to update `doc_src/.../downloads.md`
 
 * `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
 * `250226piu02` created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
