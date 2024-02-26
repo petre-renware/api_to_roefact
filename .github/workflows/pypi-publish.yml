@@ -4,6 +4,14 @@
 #   - PyPi registered project name: `xl2roefact` with declared workflow: `pypi-publish.yml`
 #   - NOTE: PyPi publishing will be managed by PDM package manager
 #
+
+name: pypi-publish
+on:
+  push:
+    branches:
+      - pypi-publish
+permissions:
+  contents: write
 jobs:
   pypi-publish:
     name: PyPi publish of xl2roefact
