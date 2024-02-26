@@ -6,7 +6,7 @@
 #
 jobs:
   pypi-publish:
-    name: upload xl2roefact to PyPI
+    name: PyPi publish of xl2roefact
     runs-on: ubuntu-latest
     permissions:
       # This permission is needed for private repositories.
@@ -18,6 +18,6 @@ jobs:
 
       - uses: pdm-project/setup-pdm@v3
 
-      - name: Publish xl2roefact package to PyPI
+      - name: PyPi publish of xl2roefact package
         run: pdm publish
 
