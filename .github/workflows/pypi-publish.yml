@@ -23,9 +23,17 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v3
-
       - uses: pdm-project/setup-pdm@v3
-
       - name: PyPi publish of xl2roefact package
-        run: pdm publish
+        run: |
+          cd xl2roefact
+          python -m pip install --upgrade pip
+          pip install setuptools --upgrade
+          
+          #   install PDM and build environment
+          python -m pip install pdm
+          python -m pdm install
+        
+          #  publish package
+          pdm publish
 
