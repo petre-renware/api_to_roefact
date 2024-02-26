@@ -35,5 +35,5 @@ jobs:
           python -m pdm install
         
           #  publish package
-          pdm publish --no-build --username xxx --password xxx
+          pdm publish --no-build --username petrei --password Radical$din_3
 
