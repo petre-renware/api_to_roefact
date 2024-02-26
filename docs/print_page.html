@@ -2923,10 +2923,6 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <li><a href="xl2roefact/dist/xl2roefact-0.1.22b0.tar.gz" title="download"><code>0.1.22b</code> application interface improvements DIST</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.1.20-py3-none-any.whl" title="download"><code>0.1.20.dev</code> invoice customer address WHEEL</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.1.20.tar.gz" title="download"><code>0.1.20.dev</code> invoice customer address DIST</a></li>
-<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19-py3-none-any.whl" title="download"><code>0.1.19.dev</code> invoice customer and partial invoice total values calculations WHEEL</a></li>
-<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19.tar.gz" title="download"><code>0.1.19.dev</code> invoice customer and partial invoice total values calculations DIST</a></li>
-<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18-py3-none-any.whl" title="download"><code>0.1.18.dev</code> invoice customer CUI partial invoice total values calculations WHEEL</a></li>
-<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18.tar.gz" title="download"><code>0.1.18.dev</code> invoice customer CUI partial invoice total values calculations DIST</a></li>
 </ul>
 </details>
 <details>
@@ -2952,8 +2948,6 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <ul>
 <li><a href="xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi" title="download"><code>0.1.22b</code> application interface improvements</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.1.20-win64.msi" title="download"><code>0.1.20.dev</code> invoice customer address</a></li>
-<li><a href="xl2roefact/dist/0.1.19/xl2roefact-0.1.19-win64.msi" title="download"><code>0.1.19.dev</code> invoice customer and partial invoice total values calculations</a></li>
-<li><a href="xl2roefact/dist/0.1.18/xl2roefact-0.1.18-win64.msi" title="download"><code>0.1.18.dev</code> invoice customer CUI partial invoice total values calculations</a></li>
 </ul>
 </details>
 <h2 id="doc_src-downloads-format-deb-instalare-linux">Format DEB instalare Linux</h2>
@@ -3671,8 +3665,29 @@ Public License instead of this License.  But first, please read
 <p>wip...</p>
 </li>
 <li>
-<p>250226piu01 improved documentation "visibility" with INVOICEtoROefact components features</p>
+<p>...wip <code>240226piu04</code> updated workflow <code>pypi-publish.yml</code> to run on brach <code>pypi-publish</code>. Steps:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. change workflow code to move <code>.msi</code> files in a temporary directory, execute publish then get back moved files</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. drop directories for versions <code>0.1.18/</code> &amp; <code>0.1.19/</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. test packages publish. FAILED with err:
+<div class="highlight"><pre><span></span><code>[PublishError]: 400 Client Error: Invalid value for classifiers. Error: Classifiers [&#39;Intended Audience :: End users&#39;, &#39;License :: GNU License&#39;, &#39;Product code :: 0000-0095&#39;, &#39;Topic :: Invoices :: Upload invoices :: RO EFact&#39;] are not valid classifiers. for url: https://upload.pypi.org/legacy/
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. update <code>doc_src/.../downloads.md</code> ref item 2. of this issue</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. build &amp; publish site</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 6. update <code>pyproject.toml</code> to remove all classifier claimed at item 3.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 7. retest packages publish</li>
+</ul>
 </li>
+<li>
+<p><code>240226piu03</code> updated root <code>pyproject.toml</code> (project <code>INVOICEtoROefact</code>) ref <code>xl2roefact</code> dependency and ref development dependencies section</p>
+</li>
+<li><code>250226piu02</code> created empty /draft workflow <code>pypi-publish.yml</code> to be used to PyPi publish <code>xl2roefact</code> python packages.<ul>
+<li>Project publisher was registered on PyPi @ <code>https://pypi.org/manage/account/publishing/</code> for GitHub repository <code>INVOICEtoROefact</code>.</li>
+<li>Declared PyPi project name: <code>xl2roefact</code></li>
+<li>PyPi status: <code>Pending publishers</code> @ 240226 06:00</li>
+</ul>
+</li>
+<li><code>250226piu01</code> improved documentation "visibility" with INVOICEtoROefact components features</li>
 </ul>
 <h3 id="changelog-021b-xl2roefact-invoice-values-summary-240225-h1830">0.2.1b xl2roefact invoice values summary (240225 h18:30)</h3>
 <ul>

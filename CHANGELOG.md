@@ -80,7 +80,9 @@
     [PublishError]: 400 Client Error: Invalid value for classifiers. Error: Classifiers ['Intended Audience :: End users', 'License :: GNU License', 'Product code :: 0000-0095', 'Topic :: Invoices :: Upload invoices :: RO EFact'] are not valid classifiers. for url: https://upload.pypi.org/legacy/
     ```
     * [x] 4. update `doc_src/.../downloads.md` ref item 2. of this issue
-    * [ ] 5. build & publish site
+
+    * [x] 5. build & publish site
+
     * [ ] 6. update `pyproject.toml` to remove all classifier claimed at item 3.
     * [ ] 7. retest packages publish
 

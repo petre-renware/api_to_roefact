@@ -659,8 +659,29 @@ div.download-btn {
 <p>wip...</p>
 </li>
 <li>
-<p>250226piu01 improved documentation "visibility" with INVOICEtoROefact components features</p>
+<p>...wip <code>240226piu04</code> updated workflow <code>pypi-publish.yml</code> to run on brach <code>pypi-publish</code>. Steps:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. change workflow code to move <code>.msi</code> files in a temporary directory, execute publish then get back moved files</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. drop directories for versions <code>0.1.18/</code> &amp; <code>0.1.19/</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. test packages publish. FAILED with err:
+<div class="highlight"><pre><span></span><code>[PublishError]: 400 Client Error: Invalid value for classifiers. Error: Classifiers ['Intended Audience :: End users', 'License :: GNU License', 'Product code :: 0000-0095', 'Topic :: Invoices :: Upload invoices :: RO EFact'] are not valid classifiers. for url: https://upload.pypi.org/legacy/
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. update <code>doc_src/.../downloads.md</code> ref item 2. of this issue</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. build &amp; publish site</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 6. update <code>pyproject.toml</code> to remove all classifier claimed at item 3.</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 7. retest packages publish</li>
+</ul>
 </li>
+<li>
+<p><code>240226piu03</code> updated root <code>pyproject.toml</code> (project <code>INVOICEtoROefact</code>) ref <code>xl2roefact</code> dependency and ref development dependencies section</p>
+</li>
+<li><code>250226piu02</code> created empty /draft workflow <code>pypi-publish.yml</code> to be used to PyPi publish <code>xl2roefact</code> python packages.<ul>
+<li>Project publisher was registered on PyPi @ <code>https://pypi.org/manage/account/publishing/</code> for GitHub repository <code>INVOICEtoROefact</code>.</li>
+<li>Declared PyPi project name: <code>xl2roefact</code></li>
+<li>PyPi status: <code>Pending publishers</code> @ 240226 06:00</li>
+</ul>
+</li>
+<li><code>250226piu01</code> improved documentation "visibility" with INVOICEtoROefact components features</li>
 </ul>
 <h3 id="021b-xl2roefact-invoice-values-summary-240225-h1830">0.2.1b xl2roefact invoice values summary (240225 h18:30)</h3>
 <ul>
@@ -675,8 +696,8 @@ div.download-btn {
 <li>200220piu_b init a PDM simple env in project root<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. root project is for SITE GENERATION</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. project name set to <strong>INVOICEtoROefact</strong> and the version dynamic from <code>/__version__.py</code></li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. updated <code>pyproject.toml</code> default dependencies</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. incomplete finalized PDM usage. Run <code>pdm init</code> then <code>pdm update</code> to get dependencies
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3. updated <code>pyproject.toml</code> default dependencies</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 4. incomplete finalized PDM usage. Run <code>pdm init</code> then <code>pdm update</code> to get dependencies
   <em>RESOLUTION:</em> item 4. will be finalied in next releases because is a long run task under Windows</li>
 </ul>
 </li>
@@ -685,11 +706,11 @@ div.download-btn {
 <h3 id="020b-xl2roefact-invoice-customer-info-optional-items-bank-email-reg-com-phone-240220-h1000">0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (240220 h10:00)</h3>
 <ul>
 <li>240219piu_a invoice customer search for other keys: "reg com", "bank / IBAN / cont", "phone", "email"<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. read req information and stored in local vars, as full dict (for excel original key) and as cleaned (for invoice key)</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. store info in <code>customer_header_area</code> --&gt; <code>excel...original</code> data key</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3.a. make a work-file with map XML-JSON ref key names (search in xml file for supplier area which is more elaborated)</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3.b. update <code>customer_header_area</code> XML-JSON map key</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3.c. store info in <code>customer_header_area</code> --&gt; <code>Invoice</code> key</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 1. read req information and stored in local vars, as full dict (for excel original key) and as cleaned (for invoice key)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 2. store info in <code>customer_header_area</code> --&gt; <code>excel...original</code> data key</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3.a. make a work-file with map XML-JSON ref key names (search in xml file for supplier area which is more elaborated)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3.b. update <code>customer_header_area</code> XML-JSON map key</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3.c. store info in <code>customer_header_area</code> --&gt; <code>Invoice</code> key</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 4. test app and its results. Clean up code</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 5.a. update tech doc ref JSON structure</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 5.b. build xl2roefact <code>0.2.0b</code></li>
