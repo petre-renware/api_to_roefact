@@ -72,16 +72,11 @@
 
 * wip...
 
-* ...wip `240226piu04` updated workflow `pypi-publish.yml` to run on brach `pypi-publish`. Encountered error:
-    ```
-    All complete!
-    See /tmp/pdm-publish-2cu3u203.log for detailed debug log.
-    [PdmUsageError]: Unknown distribution file type: /home/runner/work/api_to_roefact/api_to_roefact/xl2roefact/dist/xl2roefact-0.1.22.dev0-win64.msi
-    ``` <br>
-  TODO: @ 240226 h33:30 DIDN'T published
-      * ... try build MSI in other directory (or manually move it) but need to update `doc_src/.../downloads.md`
-      * see also pdm publish option `--skip-existing`
-      * see what is good for a file `__pypackages__`
+* ...wip `240226piu04` updated workflow `pypi-publish.yml` to run on brach `pypi-publish`. Steps:
+    * [ ] change workflow code to move `.msi` files in a temporary directory, execute publish then get back moved files
+    * [ ] move versions 0.1.18 & 0.1.19 in main `dist/` directory
+    * [ ] clean code and directories
+    * [ ] prep main project (INVOICEtoROefact) `requirements.txt` to use normal installation of `xl2roefact` package
 
 * `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
 * `250226piu02` created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
