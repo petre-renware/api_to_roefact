@@ -80,6 +80,8 @@
     ``` <br>
   TODO: @ 240226 h33:30 DIDN'T published
       * ... try build MSI in other directory (or manually move it) but need to update `doc_src/.../downloads.md`
+      * see also pdm publish option `--skip-existing`
+      * see what is good for a file `__pypackages__`
 
 * `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
 * `250226piu02` created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
