@@ -72,6 +72,7 @@
 
 * wip...
 
+# 250226piu02 created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages. Project and workflow was registered on PyPi @ `xxx`.
 * 250226piu01 improved documentation "visibility" with INVOICEtoROefact components features
 
 
