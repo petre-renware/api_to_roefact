@@ -72,6 +72,7 @@
 
 * wip...
 
+* 240226piu03 updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
 * 250226piu02 created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
     * Project publisher was registered on PyPi @ `https://pypi.org/manage/account/publishing/` for GitHub repository `INVOICEtoROefact`.
     * Declared PyPi project name: `xl2roefact`
