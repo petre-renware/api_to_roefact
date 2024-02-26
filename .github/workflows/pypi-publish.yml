@@ -1,8 +1,8 @@
 #
 # Petre Iordanescu @ 2402226:
-#     - this workflow is intended to run and generate PyPi token usabl6 to publish Python `xl2roefact` package
-#     - PyPi registered project name: `xl2roefact` with declared workflow: `pypi-publish.yml`
-#     - NOTE: PyPi publishing will be managed by PDM package manager
+#   - workflow intended to publish `xl2roefact` on PyPi. Workflow is registered on PyPi.
+#   - PyPi registered project name: `xl2roefact` with declared workflow: `pypi-publish.yml`
+#   - NOTE: PyPi publishing will be managed by PDM package manager
 #
 jobs:
   pypi-publish:
