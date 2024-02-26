@@ -157,6 +157,7 @@ dependencies = [
     "wsproto==1.2.0",
     "zipp==3.16.2",
     "zopfli==0.2.2",
+    "./xl2roefact/dist/xl2roefact-0.2.1b0-py3-none-any.whl",
 ]
 readme = "README.md"
 
@@ -186,13 +187,7 @@ distribution = false
 
 
 [tool.pdm.dev-dependencies]  # dependencies used only in develeopment and not transfered in Pythn package building
- dev = [
-    # NOTE: install variants:
-    # (1st) `0.1.22.dev` wheel from (ATTN this version is not allowed as gh-action because free account which not accept install from direct external URL except PyPi)
-    # (2nd) direct development from default branch
-    # xl2roefact @ file://invoicetoroefact.renware.eu/xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl
-    "-e git+https://github.com/petre-renware/api_to_roefact@ae18eb4a66077e9721b44822d8d52b279e966024#egg=xl2roefact&subdirectory=xl2roefact",
- ]  # #FIXME: will add more after init of PDM
+ dev = []  # #FIXME: will add more after init of PDM
 
 
 
