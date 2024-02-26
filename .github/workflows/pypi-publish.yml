@@ -38,11 +38,11 @@ jobs:
           python -m pip install pdm
           python -m pdm install
         
-          #  publish package
+          #  publish package (#TODO: consider to store in secrets the token value)
           pdm publish --no-build --username __token__ --password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw
 
           #  move back `.msi` files and drop temp directory
           mv ./tmp_msi_files/*.msi ./dist
-          rm ./tmp_msi_files
+          rm -r ./tmp_msi_files
 
           
