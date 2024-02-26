@@ -75,8 +75,11 @@
 * ...wip `240226piu04` updated workflow `pypi-publish.yml` to run on brach `pypi-publish`.
     * Encountered error:
     ```
-    [ProjectError]: tool.pdm.distribution must be `true` to be built.
+    Getting PyPI token via GitHub Actions OIDC...
+    Failed to get PyPI token via GitHub Actions OIDC
+    [PdmUsageError]: Username and password are required
     ```
+
 * `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
 * `250226piu02` created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
     * Project publisher was registered on PyPi @ `https://pypi.org/manage/account/publishing/` for GitHub repository `INVOICEtoROefact`.
