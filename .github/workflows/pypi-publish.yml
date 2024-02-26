@@ -4,4 +4,20 @@
 #     - PyPi registered project name: `xl2roefact` with declared workflow: `pypi-publish.yml`
 #     - NOTE: PyPi publishing will be managed by PDM package manager
 #
+jobs:
+  pypi-publish:
+    name: upload xl2roefact to PyPI
+    runs-on: ubuntu-latest
+    permissions:
+      # This permission is needed for private repositories.
+      contents: read
+      # IMPORTANT: this permission is mandatory for trusted publishing
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pdm-project/setup-pdm@v3
+
+      - name: Publish xl2roefact package to PyPI
+        run: pdm publish
 
