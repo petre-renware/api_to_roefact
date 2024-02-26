@@ -1423,7 +1423,7 @@
 <li><a href="#doc_src-810-dsgn-810.05a-system_components-componente">Componente</a><ul>
 <li><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></li>
 <li><a href="#doc_src-810-dsgn-810.05a-system_components-web2roefact">web2roefact</a></li>
-<li><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-pypi-library">xl2roefact PyPi library</a></li>
+<li><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></li>
 <li><a href="#doc_src-810-dsgn-810.05a-system_components-invoice-template">invoice template</a></li>
 </ul>
 </li>
@@ -1441,10 +1441,10 @@
 <p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></strong> - procesarea facturilor in mod linie de comanda</p>
 </li>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-web2roefact">web2roefact</a></strong> - procesarea facturilor din interfara web</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></strong> - procesarea facturilor prin cod / program (development propriu)</p>
 </li>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-pypi-library">xl2roefact PyPi library</a></strong> - procesarea facturilor prin cod / program (development propriu)</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-web2roefact">web2roefact</a></strong> - procesarea facturilor din interfara web</p>
 </li>
 <li>
 <p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-invoice-template">invoice template</a></strong> - model / sablon factura in Excel</p>
@@ -1454,49 +1454,64 @@
 <h3 id="doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</h3>
 <p>Aplicatie <em>linie de comanda</em> pentru procesarea facturilor. Facilitati (<em><a href="#doc_src-810-dsgn-810.05a-system_components-criterii-de-clasificare">vezi "Criterii de clasificare"</a></em>):  <!-- (stat: WIP) --></p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> OpM CLI</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> OpM WEB</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> INp XLSX</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> INp JSON</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> INp FORM</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp JSON</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp XML</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp EXCEL</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp PDF</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> R2R</li>
+<li>Operare: <strong>CLI</strong></li>
+<li>Introducere si import factura (INp):<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> XLSX</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> JSON</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> FORM</li>
+</ul>
+</li>
+<li>Export si salvare factura electronica (EXp);<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> JSON</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> XML</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXCEL (pentru recipisa incarcare ROeF)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> PDF</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ready to Run</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> ROeF</li>
 </ul>
 <p><a class="md-button" href="#xl2roefact-index">Descriere detaliata aici</a></p>
 <h3 id="doc_src-810-dsgn-810.05a-system_components-web2roefact">web2roefact</h3>
 <p>Aplicatie <em>web</em> pentru procesarea facturilor. Facilitati (<em><a href="#doc_src-810-dsgn-810.05a-system_components-criterii-de-clasificare">vezi "Criterii de clasificare"</a></em>):  <!-- (stat: TBD) --></p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> OpM CLI</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> OpM WEB</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> INp XLSX</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> INp JSON</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> INp FORM</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp JSON</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp XML</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp EXCEL</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp PDF</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> R2R</li>
+<li>Operare: <strong>WEB</strong></li>
+<li>Introducere si import factura (INp):<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> XLSX</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> JSON</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> FORM</li>
+</ul>
+</li>
+<li>Export si salvare factura electronica (EXp);<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> JSON</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> XML</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXCEL (pentru recipisa incarcare ROeF)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> PDF</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ready to Run</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> ROeF</li>
 </ul>
 <!--#TODO_tbd... [Descriere detaliata aici](../../xxx/README.md){ .md-button } -->
 
-<h3 id="doc_src-810-dsgn-810.05a-system_components-xl2roefact-pypi-library">xl2roefact PyPi library</h3>
+<h3 id="doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</h3>
 <p>Pachet (biblioteca) public <em>Python</em> utilizabil pentru dezvoltare / extindere aplicatii proprii. Facilitati (<em><a href="#doc_src-810-dsgn-810.05a-system_components-criterii-de-clasificare">vezi "Criterii de clasificare"</a></em>):  <!-- (stat: WIP) --></p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> OpM CLI</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> OpM WEB</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> INp XLSX</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> INp JSON</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> INp FORM</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp JSON</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp XML</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp EXCEL</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp PDF</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> R2R</li>
+<li>Operare: <strong>din cod software</strong></li>
+<li>Introducere si import factura (INp):<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> XLSX</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> JSON</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> FORM</li>
+</ul>
+</li>
+<li>Export si salvare factura electronica (EXp);<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> JSON</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> XML</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXCEL (pentru recipisa incarcare ROeF)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> PDF</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ready to Run</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> ROeF</li>
 </ul>
 <!-- README: activated on 240202 h04;30  #FIXME drop after publish -->
@@ -1504,16 +1519,21 @@
 <h3 id="doc_src-810-dsgn-810.05a-system_components-invoice-template">invoice template</h3>
 <p>Sablon factura in format <em>Office Excel</em>. Facilitati (<em><a href="#doc_src-810-dsgn-810.05a-system_components-criterii-de-clasificare">vezi "Criterii de clasificare"</a></em>):  <!-- status: DONE --></p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> OpM CLI</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> OpM WEB</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> INp XLSX</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> INp JSON</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> INp FORM</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> EXp JSON</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> EXp XML</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXp EXCEL</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> EXp PDF</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> R2R</li>
+<li>Operare: <strong>din aplicatie Office Excel</strong></li>
+<li>Introducere si import factura (INp):<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> XLSX</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> JSON</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> FORM</li>
+</ul>
+</li>
+<li>Export si salvare factura electronica (EXp);<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> JSON</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> XML</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> EXCEL</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> PDF (din aplicatia Office Excel)</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ready to Run</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ROeF</li>
 </ul>
 <p><a class="md-button" href="#excel_invoice_template-index">Descriere detaliata aici</a></p>
@@ -1521,10 +1541,12 @@
 <p>In scopul identificarii mai usoare a componentelor necesare acestea sunt clasificate dupa urmatoarele criterii:</p>
 <ul>
 <li>
-<p><strong>OpM</strong> modul de operare al componentei:</p>
+<p><strong>Operare</strong> interfata de operare al componentei:</p>
 <ul>
-<li><strong>CLI</strong> specifica o componenta ce va fi executata in mod linie de comanda (Windows din <code>Command</code>, Linux din <code>Terminal</code>)</li>
-<li><strong>WEB</strong> specifica o componenta ce va fi accesata dintr-un browser</li>
+<li><strong>CLI</strong> linie de comanda (din consola tip "command prompt" sau terminal)</li>
+<li><strong>WEB</strong> web din browser</li>
+<li>din cod software</li>
+<li>din aplicatia locala Office Excel</li>
 </ul>
 </li>
 <li>
@@ -1536,7 +1558,7 @@
 </ul>
 </li>
 <li>
-<p><strong>EXp</strong> formatul de exportare a facturilor<sup id="fnref:out_fmt"><a class="footnote-ref" href="#doc_src-810-dsgn-810.05a-system_components-fn:out_fmt">1</a></sup>:</p>
+<p><strong>EXp</strong> formatul de exportare si salvare a facturii electronice<sup id="fnref:out_fmt"><a class="footnote-ref" href="#doc_src-810-dsgn-810.05a-system_components-fn:out_fmt">1</a></sup>:</p>
 </li>
 <li><strong>JSON</strong> format folosit pentru interschimbarea, interfatarea datelor cu sisteme standard <code>REST</code> (de exemplu <em>Oracle EBS</em>)</li>
 <li><strong>XML</strong> format folosit pentru interschimbarea, interfatarea datelor cu sisteme standard <code>SOAP</code><sup id="fnref:xml_schemas"><a class="footnote-ref" href="#doc_src-810-dsgn-810.05a-system_components-fn:xml_schemas">2</a></sup> (de exemplu <em>RO eFact</em>, <em>SAP</em>)</li>
@@ -1545,7 +1567,7 @@
 <p><strong>PDF</strong> format Adobe PDF tiparibil</p>
 </li>
 <li>
-<p><strong>R2R</strong> specifica faptul ca acea componenta poate fi folosita ca atare, fara o instalare prealabila ("ready to run") altfel aceasta trebuie instalata inainte de utilizare</p>
+<p><strong>Ready to Run</strong> specifica faptul ca acea componenta poate fi folosita ca atare, fara o instalare prealabila ("ready to run") altfel aceasta trebuie instalata inainte de utilizare</p>
 </li>
 <li>
 <p><strong>ROeF</strong> specifica faptul ca acea componenta permite incarcarea automata<sup id="fnref:load_spv"><a class="footnote-ref" href="#doc_src-810-dsgn-810.05a-system_components-fn:load_spv">3</a></sup> a facturii in sistemul <em>ANAF SPV RO eFact</em></p>
@@ -3573,7 +3595,7 @@ Public License instead of this License.  But first, please read
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-02-note_wip">0.2 (-#NOTE_wip...)</a><ul>
-<li><a href="#changelog-todo-nextwip-022b-xl2roefact-invoice-taxes-summary-note-date-here">TODO: next.wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</a></li>
+<li><a href="#changelog-todo_wip-022b-xl2roefact-invoice-taxes-summary-note-date-here">#TODO_wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</a></li>
 <li><a href="#changelog-021b-xl2roefact-invoice-values-summary-240225-h1830">0.2.1b xl2roefact invoice values summary (240225 h18:30)</a></li>
 <li><a href="#changelog-020b-xl2roefact-invoice-customer-info-optional-items-bank-email-reg-com-phone-240220-h1000">0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (240220 h10:00)</a></li>
 </ul>
@@ -3620,7 +3642,7 @@ Public License instead of this License.  But first, please read
             * [... cls.`0.2.1b` + wip.`0.2.2b`]  invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build &amp; write &quot;Invoice&quot; key)
     -------------------------------------------------------------------------------------------------
 </code></pre></div>
-<h3 id="changelog-todo-nextwip-022b-xl2roefact-invoice-taxes-summary-note-date-here">TODO: next.wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</h3>
+<h3 id="changelog-todo_wip-022b-xl2roefact-invoice-taxes-summary-note-date-here">#TODO_wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</h3>
 <ul>
 <li>tbd.Must... @RELEASE <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></li>
 <li>tbd.Should... [piu @_240126] left in <code>setup.py</code> comments &amp; example ref how to <strong><em>pre-set MSI build meta information</em></strong> / parameters (obj: default target dir where install, path registration, icon, ...)</li>
@@ -3645,7 +3667,12 @@ Public License instead of this License.  But first, please read
 <span class="nt">&lt;/cac:TaxTotal&gt;</span>
 </code></pre></div></p>
 </li>
-<li>next wip...</li>
+<li>
+<p>wip...</p>
+</li>
+<li>
+<p>250226piu01 improved documentation "visibility" with INVOICEtoROefact components features</p>
+</li>
 </ul>
 <h3 id="changelog-021b-xl2roefact-invoice-values-summary-240225-h1830">0.2.1b xl2roefact invoice values summary (240225 h18:30)</h3>
 <ul>
