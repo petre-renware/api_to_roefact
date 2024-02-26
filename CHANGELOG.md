@@ -72,6 +72,10 @@
 
 * wip...
 
+* 250226piu02 created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
+    * Project publisher was registered on PyPi @ `https://pypi.org/manage/account/publishing/` for GitHub repository `INVOICEtoROefact`.
+    * Declared PyPi project name: `xl2roefact`
+    * PyPi status: `Pending publishers` @ 240226 06:00
 * 250226piu01 improved documentation "visibility" with INVOICEtoROefact components features
 
 
