@@ -46,7 +46,7 @@
 
 
 
-### TODO: next.wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)
+### #TODO_wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)
 
 * tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 * tbd.Should... [piu @_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
@@ -69,14 +69,10 @@
     </cac:TaxSubtotal>
 </cac:TaxTotal>
 ```
-* next wip...
 
+* wip...
 
-
-
-
-
-
+* 250226piu01 improved documentation "visibility" with INVOICEtoROefact components features
 
 
 
