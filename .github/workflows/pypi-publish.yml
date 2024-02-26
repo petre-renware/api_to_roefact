@@ -35,5 +35,5 @@ jobs:
           python -m pdm install
         
           #  publish package
-          pdm publish --no-build --username xxx 
+          pdm publish --no-build --username xxx --password xxx
 
