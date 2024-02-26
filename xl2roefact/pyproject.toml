@@ -65,7 +65,6 @@ Repository = "https://github.com/petre-renware/api_to_roefact"
 
 
 
-
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
@@ -73,9 +72,10 @@ build-backend = "pdm.backend"
 
 
 
-
 [tool.pdm]
 version = { source = "file", path = "xl2roefact/__version__.py" }
+distribution = true  # required for PyPi package publishing
+
 
 
 
