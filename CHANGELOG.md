@@ -72,16 +72,17 @@
 
 * wip...
 
-* ...wip `240226piu04` updated workflow `pypi-publish.yml` to run on brach `pypi-publish`. Encountered error:
+* ...wip `240226piu04` updated workflow `pypi-publish.yml` to run on brach `pypi-publish`. Steps:
+    * [x] 1. change workflow code to move `.msi` files in a temporary directory, execute publish then get back moved files
+    * [x] 2. drop directories for versions `0.1.18/` & `0.1.19/`
+    * [x] 3. test packages publish. FAILED with err:
     ```
-    All complete!
-    See /tmp/pdm-publish-2cu3u203.log for detailed debug log.
-    [PdmUsageError]: Unknown distribution file type: /home/runner/work/api_to_roefact/api_to_roefact/xl2roefact/dist/xl2roefact-0.1.22.dev0-win64.msi
-    ``` <br>
-  TODO: @ 240226 h33:30 DIDN'T published
-      * ... try build MSI in other directory (or manually move it) but need to update `doc_src/.../downloads.md`
-      * see also pdm publish option `--skip-existing`
-      * see what is good for a file `__pypackages__`
+    [PublishError]: 400 Client Error: Invalid value for classifiers. Error: Classifiers ['Intended Audience :: End users', 'License :: GNU License', 'Product code :: 0000-0095', 'Topic :: Invoices :: Upload invoices :: RO EFact'] are not valid classifiers. for url: https://upload.pypi.org/legacy/
+    ```
+    * [ ] 4. update `doc_src/.../downloads.md` ref item 2. of this issue
+    * [ ] 5. build & publish site
+    * [ ] 6. update `pyproject.toml` to remove all classifier claimed at item 3.
+    * [ ] 7. retest packages publish
 
 * `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
 * `250226piu02` created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
