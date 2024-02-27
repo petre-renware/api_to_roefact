@@ -44,23 +44,25 @@ dependencies = [
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">= 3.10"
-classifiers = [  #  [piu@231226] just informative key at this moment
-    "Product code :: 0000-0095",  # [piu @ 231226] to test if accepted here
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: End users",
-    "Topic :: Invoices :: Upload invoices :: RO EFact",
-    "License :: GNU License",
-    # Specify the Python versions you support here.
+classifiers = [
+    # "Product code :: 0000-0095",  # not accepted by PyPi
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License (GPL)",
+    "Operating System :: OS Independent",
+    "Topic :: Office/Business :: Financial",
 ]
 
 
 
+
 [project.urls]
-Homepage = "https://https://invoicetoroefact.renware.eu"
+Homepage = "https://invoicetoroefact.renware.eu"
 PDF-Documentation = "https://invoicetoroefact.renware.eu/pdfs/print_page.html/print_page.pdf"
-Repository = "https://github.com/petre-renware/api_to_roefact"
+PyPi-Package = "https://pypi.org/project/xl2roefact/"
+GitHub = "https://github.com/petre-renware/api_to_roefact"
 
 
 
