@@ -72,15 +72,19 @@
 
 * wip...
 
-* ...wip `240226piu04` updated workflow `pypi-publish.yml` to run on brach `pypi-publish`. Steps:
+* ...wip `240226piu04` publish `xl2roefact` package --> read PDM doc ref package release. Steps;
+    * [x] 0. updated workflow `pypi-publish.yml` to run on brach `pypi-publish`
     * [x] 1. change workflow code to move `.msi` files in a temporary directory, execute publish then get back moved files
     * [x] 2. drop directories for versions `0.1.18/` & `0.1.19/`
     * [x] 3. test packages publish. FAILED.
     * [x] 4. update `doc_src/.../downloads.md` ref crt item 2.
     * [x] 5. build & publish site
     * [x] 6. update `pyproject.toml` to update classifiers list according to approved standard
-    * [ ] 7. update workflow to ignore all old / previous packages (not compliant "classifiers" section)
-    * [ ] 8. clean workflow code, retest packages publish on PyPi
+    * [x] 7. update workflow to ignore all old / previous packages (not compliant "classifiers" section)
+    * [x] 8. TEST PASS, here running messages: 
+        Uploading xl2roefact-0.2.1b0-py3-none-any.whl = 100% 
+        Uploading xl2roefact-0.2.1b0.tar.gz = 100% 
+    * [ ] 9. clean workflow code, update `pyproject.toml` with site URL
 
 * `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
 * `250226piu02` created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
