@@ -3,7 +3,7 @@
 
 [TOC]
 
-## RELEASE QA checklist
+## Release mandatory QA checklist
 
 Before to publuc release a version check and do the following:
 
@@ -21,10 +21,10 @@ Before to publuc release a version check and do the following:
 * [ ] clean if necessary the `.../dist/` directory
 
 
-Optional if possible do:
 
-* [ ] extract version items in a dedicated file in `changelog_history/`. The pattern for name is `CHANGELOG-<version>.md`
-* [ ] in main CHANGELOG refer thet file (archives section) and clean it from not achieved entries
+## Release optional (if possible) checklist:
+
+* [ ] archive CHANGELOG old releases in `changelog_history/` (pattern for file name is `CHANGELOG-<version>.md`)
 * [ ] archive locally (in `880-RLSE/.../` directory) all resulted deliverable
 
 
