@@ -48,9 +48,10 @@
 
 ### #TODO_wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)
 
-* tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
+* tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
+
 * tbd.Should... [piu @_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
-* tbd.Must... publish `xl2roefact` package --> read PDM doc ref package release
+
 
 * tbd.Must... there is one more summary ref taxes (doc `xl2roefact/invoice_files/_PLAN_model...xml`, lines 91-104):
 ```xml
