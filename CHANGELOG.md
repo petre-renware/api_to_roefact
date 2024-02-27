@@ -36,10 +36,8 @@
         * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
     -
     * -#NOTE Plan for `rdinv` module:
-        * invoice header
-            * [ ] invoice supplier (`<cac:AccountingSupplierParty>`)
-            * [ ] TODO: ... invoice summary of items table (there are left comments in code, in zone where write "Invoice" key)
-            * [... cls.`0.2.1b` + wip.`0.2.2b`]  invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build & write "Invoice" key)
+        * [ ] invoice supplier (`<cac:AccountingSupplierParty>`)
+        * [... wip.`0.2.2b`] invoice taxes summary
     -------------------------------------------------------------------------------------------------
 ```
 
@@ -48,9 +46,11 @@
 
 ### #TODO_wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)
 
-* tbd.Must... @RELEASE [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
+* tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
+
 * tbd.Should... [piu @_240126] left in `setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
-* tbd.Must... publish `xl2roefact` package --> read PDM doc ref package release
+
+* tbd.Could... check how use SECRETs in gh actions (ref PyPi publish workflow token used)
 
 * tbd.Must... there is one more summary ref taxes (doc `xl2roefact/invoice_files/_PLAN_model...xml`, lines 91-104):
 ```xml
