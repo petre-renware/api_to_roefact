@@ -2,7 +2,9 @@
 
 # xl2roefact
 
-Pentru accesul la toate link-urile din acest document vizitati [**site-ul dedicat**: `https://invoicetoroefact.renware.eu/`](https://invoicetoroefact.renware.eu/) acestui sistem.
+* Pentru accesul la toate link-urile din acest document vizitati [**site-ul dedicat**](https://invoicetoroefact.renware.eu/) acestui sistem.
+* [Pachetul pe *PyPi*](https://pypi.org/project/xl2roefact/)
+* [Pachetul pe *GitHub*](https://github.com/petre-renware/api_to_roefact/xl2roefact/)
 
 
 
