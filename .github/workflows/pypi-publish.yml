@@ -49,7 +49,7 @@ jobs:
           python -m pdm install
 
           #  create a temp dir and move all `.msi`
-          mkdir tmp_msi_files
+          mkdir tmp_dist_files
           mv ./dist/* ./tmp_dist_files
           
           #  install PDM and build environment
