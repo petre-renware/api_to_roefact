@@ -119,6 +119,7 @@
 
 
 
+-#FIXME ___________
 
 ### 0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (240220 h10:00)
 
@@ -139,6 +140,7 @@
     * [x] 3. test ==> PASS (exec results + `stdout --> _test_results.txt` written on `xl2roefact/tests/`)
 * 240218piu_a documentation improvements by using dropdown items
 
+-#FIXME ___________
 
 
 
