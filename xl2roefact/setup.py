@@ -45,9 +45,9 @@ bdist_msi_options = {
 '''
 
 
-#TODO: varianta de punct de exec pachet instalat bazat pe script Python parte din pachet sau dependentele acestuia
+#TODO: pct.2*) varianta de punct de exec din/cu pachet instalat bazat pe script Python parte din pachet sau dependentele acestuia
 '''
-entry_points = {
+entry_points_definition = {
     'console_scripts': [
         'command-name = package.module:main_func_name',                  
     ],              
@@ -57,15 +57,14 @@ entry_points = {
 
 
 
+
+
+
 setup(
     options = {"build_exe": build_options},
     version = ver.__version__,
     executables = executables,
-    entry_points = {
-        'console_scripts': [
-            'command-name = package.module:main_func_name',                  
-        ],              
-    },
+    entry_points = entry_points_definition,  # NOTE: pct.2*)
 )
 
 
