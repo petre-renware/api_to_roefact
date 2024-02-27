@@ -158,8 +158,7 @@
 ## 0.2 version
 </summary>
 
-* [`0.2.0b` xl2roefact invoice customer info-optional items (bank, email, reg-com, phone)]ace improvements]
-(./changelog_history/CHANGELOG-0.2.0b.md)
+* [`0.2.0b` xl2roefact invoice customer info-optional items (bank, email, reg-com, phone)](./changelog_history/CHANGELOG-0.2.0b.md)
 
 </details>
 
