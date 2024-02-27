@@ -72,7 +72,7 @@
 
 * wip...
 
-* ...wip `240226piu04` publish `xl2roefact` package --> read PDM doc ref package release. Steps;
+* `240226piu04` publish `xl2roefact` package --> read PDM doc ref package release. Steps;
     * [x] 0. updated workflow `pypi-publish.yml` to run on brach `pypi-publish`
     * [x] 1. change workflow code to move `.msi` files in a temporary directory, execute publish then get back moved files
     * [x] 2. drop directories for versions `0.1.18/` & `0.1.19/`
@@ -84,8 +84,7 @@
     * [x] 8. TEST PASS, here running messages: 
         Uploading xl2roefact-0.2.1b0-py3-none-any.whl = 100% 
         Uploading xl2roefact-0.2.1b0.tar.gz = 100% 
-    * [ ] 9. clean workflow code, update `pyproject.toml` with site URL
-
+    * [x] 9. clean workflow code, update `pyproject.toml` with site URL
 * `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
 * `250226piu02` created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
     * Project publisher was registered on PyPi @ `https://pypi.org/manage/account/publishing/` for GitHub repository `INVOICEtoROefact`.
