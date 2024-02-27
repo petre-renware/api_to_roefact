@@ -59,7 +59,7 @@ classifiers = [
 
 
 [project.urls]
-Homepage = "https://https://invoicetoroefact.renware.eu"
+Homepage = "https://invoicetoroefact.renware.eu"
 PDF-Documentation = "https://invoicetoroefact.renware.eu/pdfs/print_page.html/print_page.pdf"
 Repository = "https://github.com/petre-renware/api_to_roefact"
 
