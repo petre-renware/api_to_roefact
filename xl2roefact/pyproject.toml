@@ -45,15 +45,15 @@ readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">= 3.10"
 classifiers = [
+    # "Product code :: 0000-0095",  # not accepted by PyPi
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
-]  
-#     NOTE: commented keys because rejected by `PyPi`
-# "Product code :: 0000-0095",  # [piu @ 231226] to test if accepted here
-# "Development Status :: 4 - Beta",
-# "Intended Audience :: End users",
-# "Topic :: Invoices :: Upload invoices :: RO EFact",
-# "License :: GNU License",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License (GPL)",
+    "Operating System :: OS Independent",
+    "Topic :: Office/Business :: Financial",
+]
 
 
 
