@@ -13,7 +13,7 @@ Before to publuc release a version check and do the following:
     * **xl2roefact** `.../xl2roefact/__version__.py`
     * **INVOICEtoROefact** `/__version__`
     * ...not yet rdy, future web2roefact...
-    * `/mkdocs.yml` section `extra`
+    * **site** `/mkdocs.yml` section `extra`
 * [ ] build all: app, documentations, site (git branch `build-xl2roefact` or run `pdm build_all`)
 * [ ] publish xl2roefact on PyPi (git branch `pypi-publish`)
 * [ ] build site (git branch `build-site`)
