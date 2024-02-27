@@ -29,6 +29,8 @@ jobs:
           #   install PDM and build environment
           python -m pip install pdm
           python -m pdm install
+
+          #   build all deliverables
           python -m pdm run build_all
           
           #    commit work done and push it back to server (attn!!!, here you are on client machine of GitHub organization)
