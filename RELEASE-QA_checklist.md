@@ -1,9 +1,8 @@
-
-# Useful TODOs 
+# Release QA activities checklist
 
 [TOC]
 
-## Release mandatory QA checklist
+## Mandatory QA checklist
 
 Before to publuc release a version check and do the following:
 
@@ -22,21 +21,10 @@ Before to publuc release a version check and do the following:
 
 
 
-## Release optional (if possible) checklist:
+## Optional (if possible) checklist:
 
 * [ ] archive CHANGELOG old releases in `changelog_history/` (pattern for file name is `CHANGELOG-<version>.md`)
 * [ ] archive locally (in `880-RLSE/.../` directory) all resulted deliverable
-
-
-
-
-
-
-
-
-## How to Install `xl2roefact` as local in project package
-
-In master project root (ie, not `xl2roefact/` directory, but main project directory) execute `pip install -e xl2roefact`. Now package is installed and all its modules are available.
 
 
 
