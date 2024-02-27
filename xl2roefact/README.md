@@ -2,10 +2,7 @@
 
 # xl2roefact
 
-***Cuprins:***
-
-[TOC]
-
+Pentru accesul la toate link-urile din acest document vizitati [**site-ul dedicat**: `https://invoicetoroefact.renware.eu/`](https://invoicetoroefact.renware.eu/) acestui sistem.
 
 
 
