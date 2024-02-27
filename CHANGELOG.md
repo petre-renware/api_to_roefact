@@ -79,8 +79,8 @@
     * [x] 4. update `doc_src/.../downloads.md` ref crt item 2.
     * [x] 5. build & publish site
     * [x] 6. update `pyproject.toml` to update classifiers list according to approved standard
-    * [ ] 7. update workflow to ignore all old / previous packages (not compliant "classifiers" section)
-    * [ ] 8. clean workflow code, retest packages publish on PyPi
+    * [x] 7. update workflow to ignore all old / previous packages (not compliant "classifiers" section)
+    * [ ] 8. clean workflow code, update `pyproject.toml` with site URL, retest packages publish on PyPi
 
 * `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
 * `250226piu02` created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
