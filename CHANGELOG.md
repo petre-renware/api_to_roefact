@@ -75,17 +75,11 @@
 * ...wip `240226piu04` updated workflow `pypi-publish.yml` to run on brach `pypi-publish`. Steps:
     * [x] 1. change workflow code to move `.msi` files in a temporary directory, execute publish then get back moved files
     * [x] 2. drop directories for versions `0.1.18/` & `0.1.19/`
-    * [x] 3. test packages publish. FAILED with err:
-    ```
-    [PublishError]: 400 Client Error: Invalid value for classifiers. Error: Classifiers ['Intended Audience :: End users', 'License :: GNU License', 'Product code :: 0000-0095', 'Topic :: Invoices :: Upload invoices :: RO EFact'] are not valid classifiers. for url: https://upload.pypi.org/legacy/
-    ```
-    * [x] 4. update `doc_src/.../downloads.md` ref item 2. of this issue
+    * [x] 3. test packages publish. FAILED.
+    * [x] 4. update `doc_src/.../downloads.md` ref crt item 2.
     * [x] 5. build & publish site
-    * [Err...] 6. update `pyproject.toml` to remove all classifier claimed at item 3.
-    ```
-    ERROR. (TODO: why do not use updated file?)
-    [PublishError]: 400 Client Error: Invalid value for classifiers. Error: Classifiers ['Intended Audience :: End users', 'License :: GNU License', 'Product code :: 0000-0095', 'Topic :: Invoices :: Upload invoices :: RO EFact'] are not valid classifiers.
-    ```
+    * [x] 6. update `pyproject.toml` to update classifiers list according to approved standard
+    * [ ] 7. update workflow to ignore all old / previous packages (not compliant "classifiers" section)
     * [ ] 7. retest packages publish
 
 * `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
