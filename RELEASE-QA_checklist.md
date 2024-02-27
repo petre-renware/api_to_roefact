@@ -7,12 +7,12 @@
 
 Before to publuc release a version check and do the following:
 
-* [ ] full chk / review for FIXME & run `pdm build_all`
+* [ ] full chk / review for FIXME & TODOs
 * [ ] change release name from ".dev" to final one (change all occurrences)
 * [ ] update version string in:
     * `.../xl2roefact/__version__.py` variable `__version__`
     * `/mkdocs.yml` section `extra`
-* [ ] build all: app, documentations, site (git branch `build-xl2roefact`)
+* [ ] build all: app, documentations, site (git branch `build-xl2roefact` or run `pdm build_all`)
 * [ ] publish xl2roefact on PyPi (git branch `pypi-publish`)
 * [ ] build site (git branch `build-site`)
 * [ ] publish site (git branch `publishing`)
