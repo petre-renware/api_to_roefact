@@ -86,7 +86,7 @@
       Uploading xl2roefact-0.2.1b0-py3-none-any.whl = 100% 
       Uploading xl2roefact-0.2.1b0.tar.gz = 100%
       ```
-    * [x] 9. clean workflow code, update `pyproject.toml` with site URL, update `xl2roefact library` doc with PyPi URL
+    * [x] 9. clean workflow code, update `pyproject.toml` with site URL
 * `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
 * `250226piu02` created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
     * Project publisher was registered on PyPi @ `https://pypi.org/manage/account/publishing/` for GitHub repository `INVOICEtoROefact`.
