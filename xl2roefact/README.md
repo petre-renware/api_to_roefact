@@ -53,6 +53,7 @@ Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si s
 * **`MSI`** pachet instalare pentru *Windows*
 * `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemului de operare folosit de dvs)
 * `EXE` executabil *Windows in format "portabil" (un singur fisier)*
+* [Pachet Python pe PyPi](https://pypi.org/project/xl2roefact/) este de fapt biblioteca xl2roefact care poate fi folosita ca si script independent de sistemul de operare daca aveti Python 3 instalat
 
 >*NOTA 1:* pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python ([vezi sectiunea `xl2roefact PyPi library`](.doc/../doc/README_xl2roefact_library.md)) dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
 >
