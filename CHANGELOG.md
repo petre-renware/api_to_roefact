@@ -72,7 +72,7 @@
 
 * wip...
 
-* `240226piu04` publish `xl2roefact` package --> read PDM doc ref package release. Steps;
+* `240226piu04` published `xl2roefact` package & created automation workflow. Steps;
     * [x] 0. updated workflow `pypi-publish.yml` to run on brach `pypi-publish`
     * [x] 1. change workflow code to move `.msi` files in a temporary directory, execute publish then get back moved files
     * [x] 2. drop directories for versions `0.1.18/` & `0.1.19/`
