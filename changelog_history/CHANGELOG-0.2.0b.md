@@ -6,7 +6,7 @@
 # CHANGELOG 0.2.0b
 
 
-### 0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (240220 h10:00)
+### `0.2.0b` xl2roefact invoice customer info - optional items (bank, email, reg-com, phone) (240220 h10:00)
 
 * 240219piu_a invoice customer search for other keys: "reg com", "bank / IBAN / cont", "phone", "email"
     * [x] 1. read req information and stored in local vars, as full dict (for excel original key) and as cleaned (for invoice key)
