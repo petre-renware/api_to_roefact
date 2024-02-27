@@ -44,7 +44,6 @@ dependencies = [
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">= 3.10"
-
 classifiers = [
     # "Product code :: 0000-0095",  # not accepted by PyPi
     "Programming Language :: Python :: 3.10",
@@ -54,8 +53,8 @@ classifiers = [
     "License :: OSI Approved :: GNU General Public License (GPL)",
     "Operating System :: OS Independent",
     "Topic :: Office/Business :: Financial",
-
 ]
+
 
 
 
