@@ -1593,37 +1593,11 @@
                         </h1>
                         <section class="print-page" id="xl2roefact-index"><p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact-index-xl2roefact">xl2roefact</h1>
-<p><strong><em>Cuprins:</em></strong></p>
-<div class="toc">
 <ul>
-<li><a href="#xl2roefact-index-xl2roefact">xl2roefact</a><ul>
-<li><a href="#xl2roefact-index-facilitati">Facilitati</a></li>
-<li><a href="#xl2roefact-index-instalarea-aplicatiei-xl2roefact">Instalarea aplicatiei xl2roefact</a></li>
-<li><a href="#xl2roefact-index-configurarea-aplicatiei-xl2roefact">Configurarea aplicatiei xl2roefact</a></li>
-<li><a href="#xl2roefact-index-comenzile-aplicatiei">Comenzile aplicatiei</a><ul>
-<li><a href="#xl2roefact-index-xl2roefact_1">xl2roefact</a><ul>
-<li><a href="#xl2roefact-index-about">about</a></li>
-<li><a href="#xl2roefact-index-settings">settings</a></li>
-<li><a href="#xl2roefact-index-xl2json">xl2json</a></li>
+<li>Pentru accesul la toate link-urile din acest document vizitati <a href="https://invoicetoroefact.renware.eu/"><strong>site-ul dedicat</strong></a> acestui sistem.</li>
+<li><a href="https://pypi.org/project/xl2roefact/">Pachetul pe <em>PyPi</em></a></li>
+<li><a href="https://github.com/petre-renware/api_to_roefact/xl2roefact/">Pachetul pe <em>GitHub</em></a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><a href="#xl2roefact-index-practici-si-regului-referitoare-la-continutul-facturilor-din-excel">Practici si regului referitoare la continutul facturilor din Excel</a></li>
-<li><a href="#xl2roefact-index-tutorial-utilizare-aplicatie">Tutorial utilizare aplicatie</a><ul>
-<li><a href="#xl2roefact-index-organizarea-informatiei">Organizarea informatiei</a></li>
-<li><a href="#xl2roefact-index-exemplu-de-procesare-a-unei-facturi">Exemplu de procesare a unei facturi</a></li>
-</ul>
-</li>
-<li><a href="#xl2roefact-index-aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii</a></li>
-<li><a href="#xl2roefact-index-descarcare-download-aplicatie-xl2roefact-cli">Descarcare (download) aplicatie xl2roefact CLI</a></li>
-<li><a href="#xl2roefact-index-date-identificare">Date identificare</a></li>
-<li><a href="#xl2roefact-index-license">License</a></li>
-<li><a href="#xl2roefact-index-note">Note</a></li>
-</ul>
-</li>
-</ul>
-</div>
 <h2 id="xl2roefact-index-facilitati">Facilitati</h2>
 <p><img alt="Static Badge" src="https://img.shields.io/badge/MSI_installer-YES-blue" />
 <img alt="Static Badge" src="https://img.shields.io/badge/format_JSON-YES-orange" />
@@ -1662,6 +1636,7 @@ Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si s
 <li><strong><code>MSI</code></strong> pachet instalare pentru <em>Windows</em></li>
 <li><code>DEB</code> pachet instalare pentru <em>Linux Debian</em> (verificati disponibilitatea pentru varianta sistemului de operare folosit de dvs)</li>
 <li><code>EXE</code> executabil <em>Windows in format "portabil" (un singur fisier)</em></li>
+<li><a href="https://pypi.org/project/xl2roefact/">Pachet Python pe PyPi</a> este de fapt biblioteca xl2roefact care poate fi folosita ca si script independent de sistemul de operare daca aveti Python 3 instalat</li>
 </ul>
 <blockquote>
 <p><em>NOTA 1:</em> pentru echivalent utilizare  <em>portabila pentru Linux</em> se va instala biblioteca Python (<a href="#xl2roefact-doc-readme_xl2roefact_library">vezi sectiunea <code>xl2roefact PyPi library</code></a>) dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"</p>
@@ -3591,7 +3566,6 @@ Public License instead of this License.  But first, please read
 <li><a href="#changelog-02-note_wip">0.2 (-#NOTE_wip...)</a><ul>
 <li><a href="#changelog-todo_wip-022b-xl2roefact-invoice-taxes-summary-note-date-here">#TODO_wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</a></li>
 <li><a href="#changelog-021b-xl2roefact-invoice-values-summary-240225-h1830">0.2.1b xl2roefact invoice values summary (240225 h18:30)</a></li>
-<li><a href="#changelog-020b-xl2roefact-invoice-customer-info-optional-items-bank-email-reg-com-phone-240220-h1000">0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (240220 h10:00)</a></li>
 </ul>
 </li>
 </ul>
@@ -3630,18 +3604,20 @@ Public License instead of this License.  But first, please read
         * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
     -
     * -#NOTE Plan for `rdinv` module:
-        * invoice header
-            * [ ] invoice supplier (`&lt;cac:AccountingSupplierParty&gt;`)
-            * [ ] TODO: ... invoice summary of items table (there are left comments in code, in zone where write &quot;Invoice&quot; key)
-            * [... cls.`0.2.1b` + wip.`0.2.2b`]  invoice grand totals (there was left a comment ref whole XML structure in rdinv(), line # ~ where build &amp; write &quot;Invoice&quot; key)
+        * [ ] invoice supplier (`&lt;cac:AccountingSupplierParty&gt;`)
+        * [... wip.`0.2.2b`] invoice taxes summary
     -------------------------------------------------------------------------------------------------
 </code></pre></div>
 <h3 id="changelog-todo_wip-022b-xl2roefact-invoice-taxes-summary-note-date-here">#TODO_wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</h3>
 <ul>
-<li>tbd.Must... @RELEASE <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></li>
-<li>tbd.Should... [piu @_240126] left in <code>setup.py</code> comments &amp; example ref how to <strong><em>pre-set MSI build meta information</em></strong> / parameters (obj: default target dir where install, path registration, icon, ...)</li>
 <li>
-<p>tbd.Must... publish <code>xl2roefact</code> package --&gt; read PDM doc ref package release</p>
+<p>tbd.Must... @RELEASE update version files &amp; <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></p>
+</li>
+<li>
+<p>tbd.Should... [piu @_240126] left in <code>setup.py</code> comments &amp; example ref how to <strong><em>pre-set MSI build meta information</em></strong> / parameters (obj: default target dir where install, path registration, icon, ...)</p>
+</li>
+<li>
+<p>tbd.Could... check how use SECRETs in gh actions (ref PyPi publish workflow token used)</p>
 </li>
 <li>
 <p>tbd.Must... there is one more summary ref taxes (doc <code>xl2roefact/invoice_files/_PLAN_model...xml</code>, lines 91-104):
@@ -3665,22 +3641,25 @@ Public License instead of this License.  But first, please read
 <p>wip...</p>
 </li>
 <li>
-<p>...wip <code>240226piu04</code> updated workflow <code>pypi-publish.yml</code> to run on brach <code>pypi-publish</code>. Steps:</p>
-<ul class="task-list">
+<p><code>240227piu01</code> improve xl2roefact package documenting the PyPi link to package (<code>https://pypi.org/project/xl2roefact/</code>)</p>
+</li>
+<li><code>240226piu04</code> published <code>xl2roefact</code> package &amp; created automation workflow. Steps;<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 0. updated workflow <code>pypi-publish.yml</code> to run on brach <code>pypi-publish</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. change workflow code to move <code>.msi</code> files in a temporary directory, execute publish then get back moved files</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. drop directories for versions <code>0.1.18/</code> &amp; <code>0.1.19/</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. test packages publish. FAILED with err:
-<div class="highlight"><pre><span></span><code>[PublishError]: 400 Client Error: Invalid value for classifiers. Error: Classifiers [&#39;Intended Audience :: End users&#39;, &#39;License :: GNU License&#39;, &#39;Product code :: 0000-0095&#39;, &#39;Topic :: Invoices :: Upload invoices :: RO EFact&#39;] are not valid classifiers. for url: https://upload.pypi.org/legacy/
-</code></pre></div></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. update <code>doc_src/.../downloads.md</code> ref item 2. of this issue</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. test packages publish. FAILED.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. update <code>doc_src/.../downloads.md</code> ref crt item 2.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. build &amp; publish site</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 6. update <code>pyproject.toml</code> to remove all classifier claimed at item 3.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 7. retest packages publish</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 6. update <code>pyproject.toml</code> to update classifiers list according to approved standard</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 7. update workflow to ignore all old / previous packages (not compliant "classifiers" section)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 8. TEST PASS, here running messages: 
+  <div class="highlight"><pre><span></span><code>Uploading xl2roefact-0.2.1b0-py3-none-any.whl = 100% 
+Uploading xl2roefact-0.2.1b0.tar.gz = 100%
+</code></pre></div></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 9. clean workflow code, update <code>pyproject.toml</code> with site URL</li>
 </ul>
 </li>
-<li>
-<p><code>240226piu03</code> updated root <code>pyproject.toml</code> (project <code>INVOICEtoROefact</code>) ref <code>xl2roefact</code> dependency and ref development dependencies section</p>
-</li>
+<li><code>240226piu03</code> updated root <code>pyproject.toml</code> (project <code>INVOICEtoROefact</code>) ref <code>xl2roefact</code> dependency and ref development dependencies section</li>
 <li><code>250226piu02</code> created empty /draft workflow <code>pypi-publish.yml</code> to be used to PyPi publish <code>xl2roefact</code> python packages.<ul>
 <li>Project publisher was registered on PyPi @ <code>https://pypi.org/manage/account/publishing/</code> for GitHub repository <code>INVOICEtoROefact</code>.</li>
 <li>Declared PyPi project name: <code>xl2roefact</code></li>
@@ -3691,7 +3670,7 @@ Public License instead of this License.  But first, please read
 </ul>
 <h3 id="changelog-021b-xl2roefact-invoice-values-summary-240225-h1830">0.2.1b xl2roefact invoice values summary (240225 h18:30)</h3>
 <ul>
-<li>240221piu_a invoice grand totals<ul class="task-list">
+<li><code>240221piu_a</code> invoice grand totals<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. new function <code>dict_sum_by_key(...)</code> to sum a dict at all levels for a key. Implemented in <code>xl2roefact libutils</code> module.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. doc with wk.specs ref summary structure <code>.../xl2roefact/tests/_tmp_wkdoc_invoice_summary.md</code> (NOTE: will be deleted after finish)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. created work JSON-XML map required structure in <code>.../xl2roefact/tests/__invoice_summary.md</code></li>
@@ -3699,7 +3678,7 @@ Public License instead of this License.  But first, please read
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. update JSON-XML map in code (rdinv.py)</li>
 </ul>
 </li>
-<li>200220piu_b init a PDM simple env in project root<ul class="task-list">
+<li><code>200220piu_b</code> init a PDM simple env in project root<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. root project is for SITE GENERATION</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. project name set to <strong>INVOICEtoROefact</strong> and the version dynamic from <code>/__version__.py</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. updated <code>pyproject.toml</code> default dependencies</li>
@@ -3707,30 +3686,7 @@ Public License instead of this License.  But first, please read
   <em>RESOLUTION:</em> item 4. will be finalied in next releases because is a long run task under Windows</li>
 </ul>
 </li>
-<li>240220piu_a reorganized <code>INVOICEtoROeFact</code> project by preparing python directory structure for <strong><code>web2roefact</code></strong> component as installable package (model xl2roefact)</li>
-</ul>
-<h3 id="changelog-020b-xl2roefact-invoice-customer-info-optional-items-bank-email-reg-com-phone-240220-h1000">0.2.0b xl2roefact invoice customer info-optional items (bank, email, reg-com, phone) (240220 h10:00)</h3>
-<ul>
-<li>240219piu_a invoice customer search for other keys: "reg com", "bank / IBAN / cont", "phone", "email"<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. read req information and stored in local vars, as full dict (for excel original key) and as cleaned (for invoice key)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. store info in <code>customer_header_area</code> --&gt; <code>excel...original</code> data key</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3.a. make a work-file with map XML-JSON ref key names (search in xml file for supplier area which is more elaborated)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3.b. update <code>customer_header_area</code> XML-JSON map key</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3.c. store info in <code>customer_header_area</code> --&gt; <code>Invoice</code> key</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. test app and its results. Clean up code</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5.a. update tech doc ref JSON structure</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5.b. build xl2roefact <code>0.2.0b</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 6. update site documentation ref new xl2roefact deliverables download</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 7. build &amp; publish, test site</li>
-</ul>
-</li>
-<li>240218piu_b created an automation workflow to run <code>xl2roefact xl2json</code> in directory <code>xl2roefact/tests/</code> and to obtain JSON of invoice to test it<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. moved test Excel invoices from <code>.../xl2roefact/invoice_files/</code> to <code>.../xl2roefact/tests/</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. created automation YAML file (<code>run_xl2roefact.yml</code>)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. test ==&gt; PASS (exec results + <code>stdout --&gt; _test_results.txt</code> written on <code>xl2roefact/tests/</code>)</li>
-</ul>
-</li>
-<li>240218piu_a documentation improvements by using dropdown items</li>
+<li><code>240220piu_a</code> reorganized <code>INVOICEtoROeFact</code> project by preparing python directory structure for <strong><code>web2roefact</code></strong> component as installable package (model xl2roefact)</li>
 </ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
 <details>
@@ -3738,7 +3694,7 @@ Public License instead of this License.  But first, please read
 <h2 id="changelog-02-version">0.2 version</h2>
 </summary>
 <ul>
-<li>no item here yet</li>
+<li><a href="#changelog_history-changelog-0.2.0b"><code>0.2.0b</code> xl2roefact invoice customer info-optional items (bank, email, reg-com, phone)</a></li>
 </ul>
 </details>
 <details>
