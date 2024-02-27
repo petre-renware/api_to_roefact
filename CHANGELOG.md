@@ -70,6 +70,8 @@
 </cac:TaxTotal>
 ```
 
+* tbd.Must... update `.../downloads.md` for xl2roefact Python area to point to PyPi for versions starting with `0.2.1b` and make this link agnostic to WHEEL or DIST as PyPi will decide best option
+
 * wip...
 
 * `240227piu01` improve xl2roefact package documenting the PyPi link to package (`https://pypi.org/project/xl2roefact/`)
