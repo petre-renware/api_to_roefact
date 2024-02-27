@@ -25,14 +25,14 @@ executables = [
 ]
 
 
-#TODO: Example of how pre-set MSI build options.
+#TODO: pct.1*) Example of how pre-set MSI build options.
 # NOTE: to be compared with command line arguments / options can be sent
 # NOTE: obj are:
 #    -1) to install by default in "C:\ProgramFiles...\xl2roefact\"
 #    -2) to have the PATH set so can use app from any directory
 #    -3) optional to have icon, copyright , license ...
 '''
-bdist_msi_options = {
+bdist_msi_options_definition = {
     "data": {
         "ProgId": [
             ("Prog.Id", None, None, "This is a description", "IconId", None),
@@ -64,7 +64,8 @@ setup(
     options = {"build_exe": build_options},
     version = ver.__version__,
     executables = executables,
-    entry_points = entry_points_definition,  # NOTE: pct.2*)
+    # bdist_msi_options = bdist_msi_options_definition,  # NOTE: pct.1*) ref `bdist_msi_options`  
+    # entry_points = entry_points_definition,  # NOTE: pct.2*)
 )
 
 
