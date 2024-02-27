@@ -46,6 +46,7 @@ bdist_msi_options_definition = {
 
 
 #TODO: pct.2*) varianta de punct de exec din/cu pachet instalat bazat pe script Python parte din pachet sau dependentele acestuia
+# vezi si `https://stackoverflow.com/questions/4840182/setup-py-and-adding-file-to-bin`
 '''
 entry_points_definition = {
     'console_scripts': [
@@ -55,6 +56,11 @@ entry_points_definition = {
 '''
 
 
+# TODO: pct.3*) varianta de pubcte de intrare "de orice tip de executabil de oriunde ar fi pe acea masina"
+# vezi si `https://stackoverflow.com/questions/4840182/setup-py-and-adding-file-to-bin`
+'''
+scripts_definition = ['scripts/xmlproc_parse', 'scripts/xmlproc_val']
+'''
 
 
 
@@ -66,6 +72,7 @@ setup(
     executables = executables,
     # bdist_msi_options = bdist_msi_options_definition,  # NOTE: pct.1*) ref `bdist_msi_options`  
     # entry_points = entry_points_definition,  # NOTE: pct.2*)
+    # scripts = scripts_definition  # NOTE pct.3*)
 )
 
 
