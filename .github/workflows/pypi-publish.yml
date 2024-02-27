@@ -51,10 +51,6 @@ jobs:
           #  create a temp dir and move all `.msi`
           mkdir tmp_dist_files
           mv ./dist/* ./tmp_dist_files
-          
-          #  install PDM and build environment
-          python -m pip install pdm
-          python -m pdm install
         
           #  build a new package for current version (NOTE: mandatory as directory is cleaned & empty here)
           python -m pdm run build_wheel 
