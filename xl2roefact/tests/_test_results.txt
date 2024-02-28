@@ -1,1 +1,13 @@
-empty file
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact># this command script will be run on CI automation workflow; 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>#     - workflow; `adhoc-run.yml` 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>#     - trigger event: merge to branch `adhoc` 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>#     - stdout redirection: `./tests/_test_results.txt` 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>#     - crt directory; `xl2roefact/` 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo "=== Test run of `adhoc.cmd` ======" 
+"=== Test run of `adhoc.cmd` ======"
