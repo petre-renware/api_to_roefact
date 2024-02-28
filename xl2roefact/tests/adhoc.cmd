@@ -11,10 +11,3 @@ rem -------------------------
 rem echo "=== Test run of `adhoc.cmd` ======"
 
 
-cd ..
-dir
-echo "Run PDM update in / dir"
-pdm update -v
-
-
-
