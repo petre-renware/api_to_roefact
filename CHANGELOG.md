@@ -75,6 +75,10 @@
 
 * wip...
 
+* `240228piu01` created a mechanism to run adhoc commands *for xl2roefact component*:
+    * [x] skeleton windows-cmd-file to be run by adhoc script (usable as template) `xl2roefact/tests/adhoc.cmd` (NOTE: running OS = Windows)
+    * [x] workflow `adhoc-run.yml` to install pdm environment & run `./tests/adhoc.cmd &>./tests/_test_results.txt` (with crt directory `xl2roefact/`) triggered by merge to branch `adhoc`. Run results (stdout) written to `./tests/_test_results.txt`
+    * [x] documented this feature in `/README_git_automation_tools.md`
 * `240227piu01` improve xl2roefact package documenting the PyPi link to package (`https://pypi.org/project/xl2roefact/`)
 * `240226piu04` published `xl2roefact` package & created automation workflow. Steps;
     * [x] 0. updated workflow `pypi-publish.yml` to run on brach `pypi-publish`
