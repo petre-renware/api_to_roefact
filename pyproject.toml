@@ -172,12 +172,14 @@ Repository = "https://github.com/petre-renware/api_to_roefact"
 
 
 
-
-
 [tool.pdm]
 version = { source = "file", path = "__version__.py" }
 distribution = false
 
+
+
+[tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
+build_site = {shell = "mkdocs build"}  # run `mkdocs` to build site with parameters defined in `mkdocs.yml`
 
 
 
@@ -191,13 +193,10 @@ dev = []
 
 
 
-
-
 #NOTE section add for `cxFreeze`, for details see here: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
 [tool.distutils.build_exe]
 excludes = ["tkinter", "unittest"]
 zip_include_packages = ["encodings", "PySide6"]
-
 
 
 
