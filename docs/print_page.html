@@ -3559,13 +3559,12 @@ Public License instead of this License.  But first, please read
                             Despre INVOICEtoROefact <a class='headerlink' href='#section-despre-invoicetoroefact' title='Permanent link'>↵</a>
                         </h2>
                         <h1 class='nav-section-title-end'>Ended: Despre INVOICEtoROefact</h1><section class="print-page" id="changelog"><p><small><strong>RENware Software Systems</strong></small></p>
-<p><strong>INVOICEtoROefact</strong> Project</p>
+<p><strong>INVOICEtoROeFact</strong> Project</p>
 <div class="toc">
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-02-note_wip">0.2 (-#NOTE_wip...)</a><ul>
 <li><a href="#changelog-todo_wip-022b-xl2roefact-invoice-taxes-summary-note-date-here">#TODO_wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</a></li>
-<li><a href="#changelog-021b-xl2roefact-invoice-values-summary-240225-h1830">0.2.1b xl2roefact invoice values summary (240225 h18:30)</a></li>
 </ul>
 </li>
 </ul>
@@ -3614,7 +3613,10 @@ Public License instead of this License.  But first, please read
 <p>tbd.Must... @RELEASE update version files &amp; <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></p>
 </li>
 <li>
-<p>tbd.Should... [piu @_240126] left in <code>setup.py</code> comments &amp; example ref how to <strong><em>pre-set MSI build meta information</em></strong> / parameters (obj: default target dir where install, path registration, icon, ...)</p>
+<p>tbd.Should... [piu @_240126] left in <code>xl2roefact/setup.py</code> comments &amp; example ref how to <strong><em>pre-set MSI build meta information</em></strong> / parameters (obj: default target dir where install, path registration, icon, ...)</p>
+</li>
+<li>
+<p>tbd.Could... idem comments in <code>xl2roefact/setup.py</code> ref exec scripts with installed package</p>
 </li>
 <li>
 <p>tbd.Could... check how use SECRETs in gh actions (ref PyPi publish workflow token used)</p>
@@ -3638,11 +3640,20 @@ Public License instead of this License.  But first, please read
 </code></pre></div></p>
 </li>
 <li>
+<p>tbd.Must... update <code>.../downloads.md</code> for xl2roefact Python area to point to PyPi for versions starting with <code>0.2.1b</code> and make this link agnostic to WHEEL or DIST as PyPi will decide best option</p>
+</li>
+<li>
 <p>wip...</p>
 </li>
 <li>
-<p><code>240227piu01</code> improve xl2roefact package documenting the PyPi link to package (<code>https://pypi.org/project/xl2roefact/</code>)</p>
+<p><code>240228piu01</code> created a mechanism to run adhoc commands <em>for xl2roefact component</em>:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> skeleton windows-cmd-file to be run by adhoc script (usable as template) <code>xl2roefact/tests/adhoc.cmd</code> (NOTE: running OS = Windows)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> workflow <code>adhoc-run.yml</code> to install pdm environment &amp; run <code>./tests/adhoc.cmd &amp;&gt;./tests/_test_results.txt</code> (with crt directory <code>xl2roefact/</code>) triggered by merge to branch <code>adhoc</code>. Run results (stdout) written to <code>./tests/_test_results.txt</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> documented this feature in <code>/README_git_automation_tools.md</code></li>
+</ul>
 </li>
+<li><code>240227piu01</code> improve xl2roefact package documenting the PyPi link to package (<code>https://pypi.org/project/xl2roefact/</code>)</li>
 <li><code>240226piu04</code> published <code>xl2roefact</code> package &amp; created automation workflow. Steps;<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 0. updated workflow <code>pypi-publish.yml</code> to run on brach <code>pypi-publish</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. change workflow code to move <code>.msi</code> files in a temporary directory, execute publish then get back moved files</li>
@@ -3652,8 +3663,8 @@ Public License instead of this License.  But first, please read
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. build &amp; publish site</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 6. update <code>pyproject.toml</code> to update classifiers list according to approved standard</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 7. update workflow to ignore all old / previous packages (not compliant "classifiers" section)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 8. TEST PASS, here running messages: 
-  <div class="highlight"><pre><span></span><code>Uploading xl2roefact-0.2.1b0-py3-none-any.whl = 100% 
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 8. TEST PASS, here running messages:
+  <div class="highlight"><pre><span></span><code>Uploading xl2roefact-0.2.1b0-py3-none-any.whl = 100%
 Uploading xl2roefact-0.2.1b0.tar.gz = 100%
 </code></pre></div></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 9. clean workflow code, update <code>pyproject.toml</code> with site URL</li>
@@ -3668,32 +3679,13 @@ Uploading xl2roefact-0.2.1b0.tar.gz = 100%
 </li>
 <li><code>250226piu01</code> improved documentation "visibility" with INVOICEtoROefact components features</li>
 </ul>
-<h3 id="changelog-021b-xl2roefact-invoice-values-summary-240225-h1830">0.2.1b xl2roefact invoice values summary (240225 h18:30)</h3>
-<ul>
-<li><code>240221piu_a</code> invoice grand totals<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. new function <code>dict_sum_by_key(...)</code> to sum a dict at all levels for a key. Implemented in <code>xl2roefact libutils</code> module.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. doc with wk.specs ref summary structure <code>.../xl2roefact/tests/_tmp_wkdoc_invoice_summary.md</code> (NOTE: will be deleted after finish)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. created work JSON-XML map required structure in <code>.../xl2roefact/tests/__invoice_summary.md</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. code for some calculations, test &amp; fix formulas</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. update JSON-XML map in code (rdinv.py)</li>
-</ul>
-</li>
-<li><code>200220piu_b</code> init a PDM simple env in project root<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. root project is for SITE GENERATION</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. project name set to <strong>INVOICEtoROefact</strong> and the version dynamic from <code>/__version__.py</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. updated <code>pyproject.toml</code> default dependencies</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. incomplete finalized PDM usage. Run <code>pdm init</code> then <code>pdm update</code> to get dependencies
-  <em>RESOLUTION:</em> item 4. will be finalied in next releases because is a long run task under Windows</li>
-</ul>
-</li>
-<li><code>240220piu_a</code> reorganized <code>INVOICEtoROeFact</code> project by preparing python directory structure for <strong><code>web2roefact</code></strong> component as installable package (model xl2roefact)</li>
-</ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
 <details>
 <summary markdown="1">
 <h2 id="changelog-02-version">0.2 version</h2>
 </summary>
 <ul>
+<li><a href="#changelog_history-changelog-0.2.1b"><code>0.2.1b</code> invoice grand totals</a></li>
 <li><a href="#changelog_history-changelog-0.2.0b"><code>0.2.0b</code> xl2roefact invoice customer info-optional items (bank, email, reg-com, phone)</a></li>
 </ul>
 </details>
