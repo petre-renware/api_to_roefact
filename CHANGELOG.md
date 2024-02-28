@@ -15,7 +15,7 @@
 
 
 
-## 0.2 (-#NOTE_wip...)
+## 0.3 (TODO:_next...)
 
 ```
     - ---[ #TODO general planning board ]---------------------------
@@ -44,7 +44,7 @@
 
 
 
-### wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)
+### TODO:_next... 0.3.??? xl2roefact invoice taxes summary (#NOTE: date here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -71,7 +71,21 @@
 </cac:TaxTotal>
 ```
 
-* tbd.Must... update `.../downloads.md` for xl2roefact Python area to point to PyPi for versions starting with `0.2.1b` and make this link agnostic to WHEEL or DIST as PyPi will decide best option
+
+
+
+
+
+
+
+
+
+## 0.2 (TODO:_wip...)
+
+
+### wip... 0.2.2.dev project development environment improvements (#NOTE: date here...)
+
+* tbd.Must... update `.../downloads.md` for xl2roefact section to link PyPi for versions `>= 0.2.1b` and let WHEEL & DIST as "Download package source"
 
 * wip...
 
