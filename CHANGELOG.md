@@ -1,6 +1,6 @@
 <small>**RENware Software Systems**</small>
 
-**INVOICEtoROefact** Project
+**INVOICEtoROeFact** Project
 
 [TOC]
 
@@ -89,9 +89,9 @@
     * [x] 5. build & publish site
     * [x] 6. update `pyproject.toml` to update classifiers list according to approved standard
     * [x] 7. update workflow to ignore all old / previous packages (not compliant "classifiers" section)
-    * [x] 8. TEST PASS, here running messages: 
+    * [x] 8. TEST PASS, here running messages:
       ```
-      Uploading xl2roefact-0.2.1b0-py3-none-any.whl = 100% 
+      Uploading xl2roefact-0.2.1b0-py3-none-any.whl = 100%
       Uploading xl2roefact-0.2.1b0.tar.gz = 100%
       ```
     * [x] 9. clean workflow code, update `pyproject.toml` with site URL
@@ -104,24 +104,6 @@
 
 
 
-
-
-
-### 0.2.1b xl2roefact invoice values summary (240225 h18:30)
-
-* `240221piu_a` invoice grand totals
-    * [x] 1. new function `dict_sum_by_key(...)` to sum a dict at all levels for a key. Implemented in `xl2roefact libutils` module.
-    * [x] 2. doc with wk.specs ref summary structure `.../xl2roefact/tests/_tmp_wkdoc_invoice_summary.md` (NOTE: will be deleted after finish)
-    * [x] 3. created work JSON-XML map required structure in `.../xl2roefact/tests/__invoice_summary.md`
-    * [x] 4. code for some calculations, test & fix formulas
-    * [x] 5. update JSON-XML map in code (rdinv.py)
-* `200220piu_b` init a PDM simple env in project root
-    * [x] 1. root project is for SITE GENERATION
-    * [x]  2. project name set to **INVOICEtoROefact** and the version dynamic from `/__version__.py`
-    * [x] 3. updated `pyproject.toml` default dependencies
-    * [x] 4. incomplete finalized PDM usage. Run `pdm init` then `pdm update` to get dependencies
-      _RESOLUTION:_ item 4. will be finalied in next releases because is a long run task under Windows
-* `240220piu_a` reorganized `INVOICEtoROeFact` project by preparing python directory structure for **`web2roefact`** component as installable package (model xl2roefact)
 
 
 
@@ -138,6 +120,7 @@
 ## 0.2 version
 </summary>
 
+* [`0.2.1b` invoice grand totals](./changelog_history/CHANGELOG-0.2.1b.md)
 * [`0.2.0b` xl2roefact invoice customer info-optional items (bank, email, reg-com, phone)](./changelog_history/CHANGELOG-0.2.0b.md)
 
 </details>
