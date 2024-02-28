@@ -1,13 +1,62 @@
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact># this command script will be run on CI automation workflow; 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem --------------- 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>#     - workflow; `adhoc-run.yml` 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem copyright (c) 2024 Petre Iordanescu, petre.iordanescu@yahoo.com, RENware Software Systems 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>#     - trigger event: merge to branch `adhoc` 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem this command script will be run on CI automation workflow; 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>#     - stdout redirection: `./tests/_test_results.txt` 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem     - workflow; `adhoc-run.yml` 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>#     - crt directory; `xl2roefact/` 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem     - trigger event: merge to branch `adhoc` 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo "=== Test run of `adhoc.cmd` ======" 
-"=== Test run of `adhoc.cmd` ======"
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem     - stdout redirection: `./tests/_test_results.txt` 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem     - crt directory; `xl2roefact/` 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem ------------------------- 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem echo "=== Test run of `adhoc.cmd` ======" 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>cd .. 
+
+D:\a\api_to_roefact\api_to_roefact>dir
+ Volume in drive D is Temporary Storage
+ Volume Serial Number is 142D-CBCD
+
+ Directory of D:\a\api_to_roefact\api_to_roefact
+
+02/28/2024  07:22 AM    <DIR>          .
+02/28/2024  07:22 AM    <DIR>          ..
+02/28/2024  07:22 AM                24 .gitconfig
+02/28/2024  07:22 AM    <DIR>          .github
+02/28/2024  07:22 AM             3,265 .gitignore
+02/28/2024  07:22 AM             9,379 CHANGELOG.md
+02/28/2024  07:22 AM    <DIR>          changelog_history
+02/28/2024  07:22 AM                29 CNAME
+02/28/2024  07:22 AM    <DIR>          docs
+02/28/2024  07:22 AM    <DIR>          doc_src
+02/28/2024  07:22 AM    <DIR>          excel_invoice_template
+02/28/2024  07:22 AM            35,823 LICENSE.md
+02/28/2024  07:22 AM             9,034 mkdocs.yml
+02/28/2024  07:22 AM           139,040 pdm.lock
+02/28/2024  07:22 AM               222 print_page.md
+02/28/2024  07:22 AM             9,426 pyproject.toml
+02/28/2024  07:22 AM             1,404 README.md
+02/28/2024  07:22 AM             1,342 README_git_automation_tools.md
+02/28/2024  07:22 AM    <DIR>          README_setup_chromium
+02/28/2024  07:22 AM             1,041 RELEASE-QA_checklist.md
+02/28/2024  07:22 AM             2,657 requirements.txt
+02/28/2024  07:22 AM    <DIR>          web2roefact
+02/28/2024  07:23 AM    <DIR>          xl2roefact
+02/28/2024  07:22 AM             2,556 _curs_share_experience.md
+02/28/2024  07:22 AM               187 __version__.py
+              15 File(s)        215,429 bytes
+              10 Dir(s)  157,460,418,560 bytes free
+
+D:\a\api_to_roefact\api_to_roefact>echo "Run PDM update in / dir" 
+"Run PDM update in / dir"
+
+D:\a\api_to_roefact\api_to_roefact>pdm update -v 
+created virtual environment CPython3.10.11.final.0-64 in 57ms
+  creator CPython3Windows(dest=D:\a\api_to_roefact\api_to_roefact\.venv, clear=False, no_vcs_ignore=False, global=False)
+  activators BashActivator,BatchActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
