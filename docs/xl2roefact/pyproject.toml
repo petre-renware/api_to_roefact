@@ -91,7 +91,7 @@ distribution = true  # required for PyPi package publishing
 build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
 build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
 #TODO: to add `build_single_exe` to build a single EXE file with `PyInstaller`, file usable for pure remote purposes (no install, ready-2-run from a stick). When rdy, update `build_all` next command from this scripts section / table
-build_doc = {shell = "pydoc-markdown -I xl2roefact --render-toc >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`)
+build_doc = {shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc` 
 build_all = {composite = ["build_wheel", "build_msi", "build_doc"]}  # build all packages (MSI, python package wheel, python package sdist, design doc)
 xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python module
 

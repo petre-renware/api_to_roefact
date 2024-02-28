@@ -44,7 +44,7 @@
 
 
 
-### #TODO_wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)
+### wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -75,6 +75,7 @@
 
 * wip...
 
+* `240228piu03` project review, cleanup and update: workflows, useless files, TODO & FIXME comments, etc...
 * `240228piu02` FIXED main project for use with PDM. `pdm update` command successfully run. **RESOLUTION: pdm can be used in main project as package manager. Should run locally to create venv and must update it with pdm update.** 10xG!
 * `240228piu01` created a mechanism to run adhoc commands *for xl2roefact component*:
     * [x] skeleton windows-cmd-file to be run by adhoc script (usable as template) `xl2roefact/tests/adhoc.cmd` (NOTE: running OS = Windows)

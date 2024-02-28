@@ -667,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="xl2roefact/doc/810.05a-xl2roefact_DLD_specs.html" class="md-nav__link">
+      <a href="xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html" class="md-nav__link">
         Referinta API
       </a>
     </li>
@@ -1254,7 +1254,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs" class="md-nav__link">
+  <a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs" class="md-nav__link">
     11. Referinta API
   </a>
   
@@ -1860,7 +1860,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>config_settings</code> define system settings &amp; parameters mainly used in invoice info / data detection and extract from invoice Excel format file</li>
 <li><code>app_cli</code> contains the code for <code>xl2roefact</code> application command line (CLI) format</li>
 </ul>
-<p>Below is presented the <strong><em>skeleton logic</em></strong> of those modules which and where is relevant <small markdown="1">ie meaning where is not enough obvious from code or code complexity exceed usual limits (<em>for example nore than 100 lines of code per function</em>)</small>. For more technical details and specification regarding modules <a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs">see API Reference</a></p>
+<p>Below is presented the <strong><em>skeleton logic</em></strong> of those modules which and where is relevant <small markdown="1">ie meaning where is not enough obvious from code or code complexity exceed usual limits (<em>for example nore than 100 lines of code per function</em>)</small>. For more technical details and specification regarding modules <a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs">see API Reference</a></p>
 <h3 id="xl2roefact-doc-readme_xl2roefact_library-rdinv-module-logic">rdinv module logic</h3>
 <p>Main function of <code>rdinv</code> module is <code>rdinv(...)</code> which has the following logic sections which are in <strong><em>strict sequence in presented order</em></strong>:</p>
 <ul>
@@ -1934,39 +1934,77 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><strong><code>excel_original_data</code></strong> - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel</li>
 </ul>
 <p>An <a href="#xl2roefact-doc-invoice_json_model_">example of JSON generated file is available here</a></p>
-<h2 id="xl2roefact-doc-readme_xl2roefact_library-api-reference"><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs">API Reference</a></h2>
+<h2 id="xl2roefact-doc-readme_xl2roefact_library-api-reference"><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs">API Reference</a></h2>
 <h2 id="xl2roefact-doc-readme_xl2roefact_library-download-xl2roefact-library">Download xl2roefact library</h2>
 <ul>
 <li><a href="#doc_src-downloads-format-biblioteca-python">Pachete instalare biblioteca Python formate WHEEL si DIST</a></li>
-</ul></section><section class="print-page" id="xl2roefact-doc-810.05a-xl2roefact_dld_specs"><h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-table-of-contents">Table of Contents</h1>
+</ul></section><section class="print-page" id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs"><!-- this doc is a wrapper intended just to create a better Table of Contents that one created by `pydoc` in built document -->
+<div class="toc">
 <ul>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli">app_cli</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.about">about</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.settings">settings</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.xl2json">xl2json</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.called_when_no_command">called_when_no_command</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli.run">run</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkisld">chkisld</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkxml">chkxml</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings">config_settings</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings.DEFAULT_SUPPLIER_COUNTRY">DEFAULT_SUPPLIER_COUNTRY</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-ldxml">ldxml</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils">libutils</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils.dict_sum_by_key">dict_sum_by_key</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils.isnumber">isnumber</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils.find_str_in_list">find_str_in_list</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv">rdinv</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.rdinv">rdinv</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.get_excel_data_at_label">get_excel_data_at_label</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.mk_kv_invoice_items_area">mk_kv_invoice_items_area</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv.get_invoice_items_area">get_invoice_items_area</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-wrxml">wrxml</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__init__">__init__</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__main__">__main__</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs-__version__">__version__</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-table-of-contents">Table of Contents</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-app_cli">app_cli</a><ul>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-about">about</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-settings">settings</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2json">xl2json</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-called_when_no_command">called_when_no_command</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-run">run</a></li>
+</ul>
+</li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-chkisld">chkisld</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-chkxml">chkxml</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-config_settings">config_settings</a><ul>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-default_supplier_country">DEFAULT_SUPPLIER_COUNTRY</a></li>
+</ul>
+</li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-ldxml">ldxml</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-libutils">libutils</a><ul>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-dict_sum_by_key">dict_sum_by_key</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-isnumber">isnumber</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-find_str_in_list">find_str_in_list</a></li>
+</ul>
+</li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rdinv">rdinv</a><ul>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rdinv_1">rdinv</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-get_excel_data_at_label">get_excel_data_at_label</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-mk_kv_invoice_items_area">mk_kv_invoice_items_area</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-get_invoice_items_area">get_invoice_items_area</a></li>
+</ul>
+</li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-wrxml">wrxml</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__init__">__init__</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__main__">__main__</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version__">__version__</a></li>
+</ul>
+</div>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-app_cli">app_cli</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-app_cli.about">about</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-app_cli.settings">settings</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-app_cli.xl2json">xl2json</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-app_cli.called_when_no_command">called_when_no_command</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-app_cli.run">run</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-chkisld">chkisld</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-chkxml">chkxml</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-config_settings">config_settings</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-config_settings.DEFAULT_SUPPLIER_COUNTRY">DEFAULT_SUPPLIER_COUNTRY</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-ldxml">ldxml</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-libutils">libutils</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-libutils.dict_sum_by_key">dict_sum_by_key</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-libutils.isnumber">isnumber</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-libutils.find_str_in_list">find_str_in_list</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rdinv">rdinv</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rdinv.rdinv">rdinv</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rdinv.get_excel_data_at_label">get_excel_data_at_label</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rdinv.mk_kv_invoice_items_area">mk_kv_invoice_items_area</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rdinv.get_invoice_items_area">get_invoice_items_area</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-wrxml">wrxml</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__init__">__init__</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__main__">__main__</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version__">__version__</a></li>
 </ul>
 <p><a id="app_cli"></a></p>
-<h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-app_cli">app_cli</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-app_cli">app_cli</h1>
 <p>app_cli: the command line application for all xl2roefact functionalities.</p>
 <p>Identification:</p>
 <ul>
@@ -1974,13 +2012,13 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
 <p><a id="app_cli.about"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-about">about</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-about">about</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">about</span><span class="p">()</span>
 </code></pre></div>
 <p>provide a short application description.</p>
 <p><a id="app_cli.settings"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-settings">settings</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-settings">settings</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">settings</span><span class="p">(</span><span class="n">rules</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
     <span class="nb">bool</span><span class="p">,</span>
@@ -1994,7 +2032,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>rules</code> - show recommended rules to follow when change application configurable settings (available in both RO &amp; EN languages). Defaults to <code>False</code>.</li>
 </ul>
 <p><a id="app_cli.xl2json"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-xl2json">xl2json</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2json">xl2json</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">xl2json</span><span class="p">(</span>
     <span class="n">file_name</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
@@ -2029,7 +2067,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>verbose</code> - show detailed processing messages". Defaults to <code>False</code>.</li>
 </ul>
 <p><a id="app_cli.called_when_no_command"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-called_when_no_command">called_when_no_command</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-called_when_no_command">called_when_no_command</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">invoke_without_command</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">called_when_no_command</span><span class="p">(</span>
     <span class="n">ctx</span><span class="p">:</span> <span class="n">typer</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
@@ -2040,10 +2078,10 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div>
 <p>function called when no command is invoked and to provide only application version (for external users to test it!).</p>
 <p><a id="app_cli.run"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-run">run</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-run">run</h4>
 <p>NOTE: for <code>run</code> "reason to be" as copy of <code>app_cli</code> see iss <code>0.1.22b 240216piu_a</code></p>
 <p><a id="chkisld"></a></p>
-<h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkisld">chkisld</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-chkisld">chkisld</h1>
 <p>chkisld: modul de verificare a starii de incarcare a unei facturi emise</p>
 <p>Identification:</p>
 <ul>
@@ -2058,7 +2096,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>IESIRI: valoarea echivalent <code>TRUE</code> daca factura a fost deja incarcata sau valoare echivalent <code>FALSE</code> daca factura nu a fost incarcata</li>
 </ul>
 <p><a id="chkxml"></a></p>
-<h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-chkxml">chkxml</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-chkxml">chkxml</h1>
 <p>chkxml: modul de validare a facturii in sistemul ANAF E-Factura</p>
 <p>Identification:</p>
 <ul>
@@ -2073,7 +2111,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>IESIRI: raport cu eventualele erori de validare</li>
 </ul>
 <p><a id="config_settings"></a></p>
-<h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-config_settings">config_settings</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-config_settings">config_settings</h1>
 <p>Configuration and setting parameters.  <!-- <code>TODO</code> all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel") --></p>
 <p>(en-us) README before making changes:</p>
 <ul>
@@ -2096,13 +2134,13 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>pentru datele calendaristice in celulul Excel a se utiliza formatul standard de data (<code>date</code>) si modificati formatul de afisare in formatul dorit pe factura tiparibila</li>
 </ul>
 <p><a id="config_settings.DEFAULT_SUPPLIER_COUNTRY"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-default_supplier_country">DEFAULT_SUPPLIER_COUNTRY</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-default_supplier_country">DEFAULT_SUPPLIER_COUNTRY</h4>
 <hr />
 <p><strong>NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de</strong></p>
 <p>__  comanda <code>xl2json</code> reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)__</p>
 <hr />
 <p><a id="ldxml"></a></p>
-<h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-ldxml">ldxml</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-ldxml">ldxml</h1>
 <p>ldxml: modul de incarcare a facturii in sistemul ANAF E-Factura</p>
 <p>Identification:</p>
 <ul>
@@ -2117,7 +2155,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>IESIRI: raport cu validarea si identificatorul incarcarii</li>
 </ul>
 <p><a id="libutils"></a></p>
-<h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-libutils">libutils</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-libutils">libutils</h1>
 <p>general utilities library for all <code>xl2roefact</code> components and modules.</p>
 <p>Identification:</p>
 <ul>
@@ -2135,7 +2173,7 @@ cit si la nivel detaliat pentru fiecare comanda
     Search more strings (ie, a list) in list of strings</li>
 </ul>
 <p><a id="libutils.dict_sum_by_key"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-dict_sum_by_key">dict_sum_by_key</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-dict_sum_by_key">dict_sum_by_key</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dict_sum_by_key</span><span class="p">(</span><span class="n">search_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="n">sum_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
 </code></pre></div>
 <p>Sum all dictionary (or list off dictionaries) items, at all levels, for a given key.</p>
@@ -2147,7 +2185,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><strong>Returns</strong>:</p>
 <p><code>float</code> with required sum</p>
 <p><a id="libutils.isnumber"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-isnumber">isnumber</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-isnumber">isnumber</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">isnumber</span><span class="p">(</span><span class="n">a_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <p>test if a string is valid as any kind of number.</p>
@@ -2160,7 +2198,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>True</code> - if input string is valid as any kind of number, orherwise <code>False</code>.</li>
 </ul>
 <p><a id="libutils.find_str_in_list"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-find_str_in_list">find_str_in_list</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-find_str_in_list">find_str_in_list</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_str_in_list</span><span class="p">(</span><span class="n">list_of_str_to_find</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">list_to_search</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </code></pre></div>
 <p>find a substring from <code>list_of_str_to_find</code> in elements of <code>list_to_search</code>.</p>
@@ -2174,7 +2212,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>index</code> - the index of list item which contains <code>str_to_find</code> (first found) or <code>None</code> if not found.</li>
 </ul>
 <p><a id="rdinv"></a></p>
-<h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv">rdinv</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rdinv">rdinv</h1>
 <p>rdinv: modul de procesare a fisierului Excel ce contine factura si colectare a datelor aferente.</p>
 <p>Formatul acceptat fisier Excel este <code>XLSX</code>.</p>
 <p>Identification:</p>
@@ -2190,7 +2228,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>IESIRI: fisier format JSON imagine a datelor facturii (cod: <code>f-JSON</code>)</li>
 </ul>
 <p><a id="rdinv.rdinv"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-rdinv_1">rdinv</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rdinv_1">rdinv</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rdinv</span><span class="p">(</span><span class="n">file_to_process</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
           <span class="n">invoice_worksheet_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
           <span class="o">*</span><span class="p">,</span>
@@ -2212,7 +2250,7 @@ cit si la nivel detaliat pentru fiecare comanda
   * <code>db: pylightxl object</code>: EXCEL object with invoice (as a whole)
   * <code>ws: pylightxl object</code>: WORKSHEET object with invoice</p>
 <p><a id="rdinv.get_excel_data_at_label"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-get_excel_data_at_label">get_excel_data_at_label</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-get_excel_data_at_label">get_excel_data_at_label</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_excel_data_at_label</span><span class="p">(</span><span class="n">pattern_to_search_for</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
                             <span class="n">worksheet</span><span class="p">:</span> <span class="n">xl</span><span class="o">.</span><span class="n">Database</span><span class="o">.</span><span class="n">ws</span><span class="p">,</span>
                             <span class="n">area_to_scan</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2237,7 +2275,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>normal scan order is 1.RIGHT, 2.DOWN (if allowed), 3.IN-LABEL only in given area and pattern.</li>
 </ul>
 <p><a id="rdinv.mk_kv_invoice_items_area"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-mk_kv_invoice_items_area">mk_kv_invoice_items_area</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-mk_kv_invoice_items_area">mk_kv_invoice_items_area</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">mk_kv_invoice_items_area</span><span class="p">(</span><span class="n">invoice_items_area_xl_format</span><span class="p">)</span>
 </code></pre></div>
 <p>transform <code>invoice_items_area</code> in "canonical JSON format" (as kv pairs).</p>
@@ -2254,7 +2292,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>for ROefact XML model (&amp; plan) see <code>invoice_files/__model_test_factura_generat_anaf.xml</code>.</li>
 </ul>
 <p><a id="rdinv.get_invoice_items_area"></a></p>
-<h4 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-get_invoice_items_area">get_invoice_items_area</h4>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-get_invoice_items_area">get_invoice_items_area</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_invoice_items_area</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">invoice_items_area_marker</span><span class="p">,</span> <span class="n">wks_name</span><span class="p">)</span>
 </code></pre></div>
 <p>get invoice for <code>invoice_items_area</code>, process it and return its Excel format.</p>
@@ -2275,7 +2313,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>invoice_items_area</code> - dictionary with invoice items in Excel format (ie, rows, columns).</li>
 </ul>
 <p><a id="wrxml"></a></p>
-<h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-wrxml">wrxml</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-wrxml">wrxml</h1>
 <p>wrxml: modul de generare a fisierului format XML</p>
 <p>Identification:</p>
 <ul>
@@ -2290,9 +2328,9 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>IESIRI: fisier format XML conform cerintelor si sistemului ANAF E-Factura (cod: <code>f-XML</code>)</li>
 </ul>
 <p><a id="__init__"></a></p>
-<h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-__init__">__init__</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__init__">__init__</h1>
 <p><a id="__main__"></a></p>
-<h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-__main__">__main__</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__main__">__main__</h1>
 <p><strong>xl2roefact.<strong>main</strong></strong>: Python package standard file to assure run as <code>python -m xl2roefact</code>.</p>
 <p>Identification:</p>
 <ul>
@@ -2311,7 +2349,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>help: <code>python -m xl2roefact --help</code>.</li>
 </ul>
 <p><a id="__version__"></a></p>
-<h1 id="xl2roefact-doc-810.05a-xl2roefact_dld_specs-__version__">__version__</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version__">__version__</h1>
 <p>xl2roefact version info.
 <div class="highlight"><pre><span></span><code> ######## ####              ########  ######
  #  ##  # #  #              #      # ##    ##
@@ -2330,7 +2368,15 @@ cit si la nivel detaliat pentru fiecare comanda
  #  # #   #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  #
  #  #  #  ##    ##          #      # #  #     #  ##  # ##    ##   #  #
  ####   #  ######           ######## ####     ########  ######    ####
-</code></pre></div></p></section><h1 class='nav-section-title-end'>Ended: xl2roefact PyPi library</h1>
+</code></pre></div></p>
+<!-- FIXME drop these when finished
+
+DONE. - and reference it in xl2roefact lib doc (adjacent file in this location) instead of `810.05a-xl2roefact_DLD_specs.md`
+DONE. - and in mkdocs.yml nevigation
+
+DONE. - and update pdm script for pydoc to not build TOC
+
+--></section><h1 class='nav-section-title-end'>Ended: xl2roefact PyPi library</h1>
                         <h1 class='nav-section-title' id='section-invoice-template'>
                             invoice template <a class='headerlink' href='#section-invoice-template' title='Permanent link'>↵</a>
                         </h1>
@@ -3564,7 +3610,7 @@ Public License instead of this License.  But first, please read
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-02-note_wip">0.2 (-#NOTE_wip...)</a><ul>
-<li><a href="#changelog-todo_wip-022b-xl2roefact-invoice-taxes-summary-note-date-here">#TODO_wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</a></li>
+<li><a href="#changelog-wip-022b-xl2roefact-invoice-taxes-summary-note-date-here">wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</a></li>
 </ul>
 </li>
 </ul>
@@ -3607,7 +3653,7 @@ Public License instead of this License.  But first, please read
         * [... wip.`0.2.2b`] invoice taxes summary
     -------------------------------------------------------------------------------------------------
 </code></pre></div>
-<h3 id="changelog-todo_wip-022b-xl2roefact-invoice-taxes-summary-note-date-here">#TODO_wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</h3>
+<h3 id="changelog-wip-022b-xl2roefact-invoice-taxes-summary-note-date-here">wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</h3>
 <ul>
 <li>
 <p>tbd.Must... @RELEASE update version files &amp; <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></p>
@@ -3616,7 +3662,7 @@ Public License instead of this License.  But first, please read
 <p>tbd.Should... [piu @_240126] left in <code>xl2roefact/setup.py</code> comments &amp; example ref how to <strong><em>pre-set MSI build meta information</em></strong> / parameters (obj: default target dir where install, path registration, icon, ...)</p>
 </li>
 <li>
-<p>tbd.Could... idem comments in <code>xl2roefact/setup.py</code> ref exec scripts with installed package</p>
+<p>tbd.Could... define <code>xl2roefact</code> entry points and/or scripts. comments in <code>xl2roefact/setup.py</code> ref exec scripts with installed package</p>
 </li>
 <li>
 <p>tbd.Could... check how use SECRETs in gh actions (ref PyPi publish workflow token used)</p>
@@ -3644,6 +3690,9 @@ Public License instead of this License.  But first, please read
 </li>
 <li>
 <p>wip...</p>
+</li>
+<li>
+<p>... <code>240228piu03</code> project review, cleanup and update: workflows, useless files, TODO &amp; FIXME comments, etc...</p>
 </li>
 <li>
 <p><code>240228piu02</code> FIXED main project for use with PDM. <code>pdm update</code> command successfully run. <strong>RESOLUTION: pdm can be used in main project as package manager. Should run locally to create venv and must update it with pdm update.</strong> 10xG!</p>
