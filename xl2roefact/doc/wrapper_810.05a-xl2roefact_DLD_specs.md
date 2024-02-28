@@ -7,9 +7,9 @@
 
 <!--FIXME drop these when finished
 
-- and reference it in xl2roefact lib doc (adjacent file in this location) instead of `810.05a-xl2roefact_DLD_specs.md`
-- and in mkdocs.yml nevigation
+DONE. - and reference it in xl2roefact lib doc (adjacent file in this location) instead of `810.05a-xl2roefact_DLD_specs.md`
+DONE. - and in mkdocs.yml nevigation
 
-- and update pdm script for pydoc to not build TOC
+DONE. - and update pdm script for pydoc to not build TOC
 
 -->
