@@ -8,7 +8,6 @@ rem     - stdout redirection: `./tests/_test_results.txt`
 rem     - crt directory; `xl2roefact/`
 rem -------------------------
 
-echo "=== Test run of `adhoc.cmd` ======"
-
+rem echo "=== Test run of `adhoc.cmd` ======"
 
 
