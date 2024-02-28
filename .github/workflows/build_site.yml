@@ -29,9 +29,8 @@ jobs:
           python -m pip install pdm
           python -m pdm install
 
-          #FIXME consider to make a POOL DM script in main project `pyproject.toml`
           #    build site with mkdocs
-          python -m mkdocs build
+          python -m pdm run build_site
 
           #    commit work done and push it back to server (attn!!!, here you are on client machine of GitHub organization)
           git add docs/*
