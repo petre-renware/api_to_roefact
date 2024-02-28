@@ -5,7 +5,7 @@
 {% include './810.05a-xl2roefact_DLD_specs.md' %}
 
 
-<!--FIXME drop these when finished
+<!-- FIXME drop these when finished
 
 DONE. - and reference it in xl2roefact lib doc (adjacent file in this location) instead of `810.05a-xl2roefact_DLD_specs.md`
 DONE. - and in mkdocs.yml nevigation
