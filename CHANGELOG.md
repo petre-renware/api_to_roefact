@@ -75,6 +75,12 @@
 
 * wip...
 
+* wip... `240228piu01` created a mechanism to run adhoc commands *for xl2roefact component*:
+    * [ ] 1. pdm script `pdm run adhoc` (in pyproject.toml)
+    * [ ] 2. skeleton shell to be run by adhoc pdm script (ref step 1) usable as template `xl2roefact/tests/adhoc.sh`
+    * [ ] 3. workflow `adhoc-run.yml` to install pdm environment & run pdm script (ref step 1) triggered by merge to branch `adhoc`
+    * [ ] 4. document this feature in `/README_git_automation_tools.md`
+
 * `240227piu01` improve xl2roefact package documenting the PyPi link to package (`https://pypi.org/project/xl2roefact/`)
 * `240226piu04` published `xl2roefact` package & created automation workflow. Steps;
     * [x] 0. updated workflow `pypi-publish.yml` to run on brach `pypi-publish`
