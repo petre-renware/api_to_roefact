@@ -1,10 +1,10 @@
 <!-- NOTE:
-- This is the general technical design for `xl2roefactPyPi` component
+- This is the general technical design for `xl2roefact python library` component
 - The DLD doc is a tech desc of every module, functions
 -->
 
 
-# xl2roefact PyPi library
+# xl2roefact python library
 
 [TOC]
 

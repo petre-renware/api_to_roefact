@@ -75,6 +75,7 @@
 
 * wip...
 
+* `240228piu04` improved `xl2roefact python library` API Reference document ref to TOC and Title
 * `240228piu03` project review, cleanup and update: workflows, useless files, TODO & FIXME comments, etc...
 * `240228piu02` FIXED main project for use with PDM. `pdm update` command successfully run. **RESOLUTION: pdm can be used in main project as package manager. Should run locally to create venv and must update it with pdm update.** 10xG!
 * `240228piu01` created a mechanism to run adhoc commands *for xl2roefact component*:
