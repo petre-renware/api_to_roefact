@@ -24,13 +24,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install setuptools --upgrade
-          python -m pip install -r requirements.txt
-          python -m pip install -e xl2roefact  # reinstall xl2roefact package instead of existing stable version. Reason: you want to build site for actual dev-in-progres situation
-          python -m pip install --upgrade pip
+          
+          #   install PDM and build environment
+          python -m pip install pdm
+          python -m pdm install
 
-          #    next line will write back a fresh requirements.txt file with created environment and could be useful for xl2roefact package to be collected back to work branch as actual environment installation. This will not be useful anymore after publishing it in PyPi.
-          # python -m pip freeze >requirements.txt
-
+          #FIXME consider to make a POOL DM script in main project `pyproject.toml`
           #    build site with mkdocs
           python -m mkdocs build
 
