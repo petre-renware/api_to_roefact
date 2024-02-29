@@ -12,7 +12,17 @@
 
 <details markdown="1"><summary markdown="1">
 
-### Pachetul xl2roefact PyPi library
+### Pachetul xl2roefact pe PyPi
+
+Versiunea de pe pe repository-ul public `PyPi` permite instalarea directa in mediul Python local astfel:
+```bash
+pip install xl2roefact
+```
+In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https://pypi.org/project/xl2roefact/)*. Accesati linkul anterior pentru a putea accesa alte versiuni publicate pe *PyPi* si modul de instalare a acestora.
+
+
+
+### Pachetul xl2roefact python library format sursa
 
 </summary>
 
