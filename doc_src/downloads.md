@@ -95,7 +95,7 @@ Nici o resursa disponibila.
 
 
 
-## Sablon factura in Office Excel
+## Sablon (template) factura
 
 Format XLSX Office Excel:
 
