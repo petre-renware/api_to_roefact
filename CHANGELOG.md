@@ -85,13 +85,9 @@
 
 ### wip... 0.2.2.dev project development environment improvements (#NOTE: date here...)
 
-<!-- TODO: @240229 12:30 piu says;
-
-REORGANIZARE pagina download.md ... 
-arata "greu" ca headere cu sumarizarea...
-
-* [ ] BUILD site,
-* [ ] PUBLISH site
+<!-- TODO:
+* [x] BUILD site,
+* [x] PUBLISH site
 * [ ] RELEASE 0.2.2.dev -->
 
 * `240229piu01` updated `.../downloads.md` for xl2roefact section to link PyPi for versions `>= 0.2.1b` and let WHEEL & DIST as "Download package source"

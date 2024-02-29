@@ -64,7 +64,6 @@ markdown_extensions:
     - admonition
     - tables
     - mkdocs-typer  #NOTE [0.1.21.post2 240206piu_a] extension to generate Typer apps doc inside a markdown file
-    - pymdownx.details
     - pymdownx.superfences:
         custom_fences:  #NOTE: [piu] is very important to respect syntax ref `-` character at beginning of items (otherwise not right JSON result !)
             - name: mermaid
@@ -76,11 +75,13 @@ markdown_extensions:
     - pymdownx.keys
     - pymdownx.mark
     - pymdownx.tilde
+    - pymdownx.details
     - def_list
     - attr_list
     - md_in_html
     - pymdownx.tasklist:
         custom_checkbox: true
+
 
 
 
