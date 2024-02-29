@@ -22,7 +22,7 @@ dependencies = [
     "packaging~=23.2",
     "pefile~=2023.2",
     "pdm~=2.12",
-    "pip~=23.3",
+    "pip~=24.0",
     "platformdirs~=4.1",
     "Pygments~=2.17",
     "pylightxl~=1.61",
@@ -40,28 +40,29 @@ dependencies = [
     "tzdata~=2023.4",
     "userpath~=1.9",
     "wheel~=0.42",
+    "pyinstaller>=4.10",
 ]  #FIXME @231217 `pendulum` package raise error when import (#NOTE_ERR MSG: `File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 readme = "README.md"
 license = {file = "LICENSE"}
-requires-python = ">= 3.10"
-classifiers = [  #  [piu@231226] just informative key at this moment
-    "Product code :: 0000-0095",  # [piu @ 231226] to test if accepted here
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: End users",
-    "Topic :: Invoices :: Upload invoices :: RO EFact",
-    "License :: GNU License",
-    # Specify the Python versions you support here.
+requires-python = ">=3.10,<3.11"  # <3.11,>=3.6
+classifiers = [
+    # "Product code :: 0000-0095",  # not accepted by PyPi
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License (GPL)",
+    "Operating System :: OS Independent",
+    "Topic :: Office/Business :: Financial",
 ]
 
 
 
 [project.urls]
-Homepage = "https://https://invoicetoroefact.renware.eu"
+Homepage = "https://invoicetoroefact.renware.eu"
 PDF-Documentation = "https://invoicetoroefact.renware.eu/pdfs/print_page.html/print_page.pdf"
-Repository = "https://github.com/petre-renware/api_to_roefact"
-
+PyPi-Package = "https://pypi.org/project/xl2roefact/"
+GitHub = "https://github.com/petre-renware/api_to_roefact"
 
 
 
@@ -73,14 +74,9 @@ build-backend = "pdm.backend"
 
 
 
-
 [tool.pdm]
 version = { source = "file", path = "xl2roefact/__version__.py" }
-
-
-
-[project.scripts]
-# xl2roefact = "xl2roefact.__main__:main"  #NOTE should make more tests, firts regarding path... but probably after lib publishing on PyPi and installation on a separated env...
+distribution = true  # required for PyPi package publishing
 
 
 
@@ -89,7 +85,7 @@ version = { source = "file", path = "xl2roefact/__version__.py" }
 build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
 build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
 #TODO: to add `build_single_exe` to build a single EXE file with `PyInstaller`, file usable for pure remote purposes (no install, ready-2-run from a stick). When rdy, update `build_all` next command from this scripts section / table
-build_doc = {shell = "pydoc-markdown -I xl2roefact --render-toc >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`)
+build_doc = {shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
 build_all = {composite = ["build_wheel", "build_msi", "build_doc"]}  # build all packages (MSI, python package wheel, python package sdist, design doc)
 xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python module
 

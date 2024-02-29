@@ -22,7 +22,7 @@ Sistemul ofera urmatoarele componente:
 
 * __web2roefact__ - procesarea facturilor din interfara web  <!--#TODO link tbd -->
 
-* __[xl2roefact PyPi library](xl2roefact/doc/README_xl2roefact_library.md)__ - procesarea facturilor prin cod / program (development propriu)
+* __[xl2roefact python library](xl2roefact/doc/README_xl2roefact_library.md)__ - procesarea facturilor prin cod / program (development propriu)
 
 * __[invoice template](./excel_invoice_template/README.md)__ - model / sablon factura in Excel
 

@@ -1,17 +1,20 @@
-*** Application xl2roefact launched at 2024-02-25 03:46:22.375033
-INFO note: files to process: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\*.xlsx
-*** Module rdinv started at 2024-02-25 03:46:22.375033 to process file 
-Fact_Petrom_11017969.xlsx (full path: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.xlsx)
-INFO note: `rdinv` module, no worksheet specified, will open first one: 
-'Factura(Invoice)'
-INFO note: `rdinv` module, written invoice JSON data to: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.json
-*** Module rdinv started at 2024-02-25 03:46:22.421917 to process file 
-fact_RENF1004.xlsx (full path: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\fact_RENF1004.xlsx)
-INFO note: `rdinv` module, no worksheet specified, will open first one: 
-'FACTURA FINALA'
-INFO note: `rdinv` module, written invoice JSON data to: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\fact_RENF1004.json
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem --------------- 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem copyright (c) 2024 Petre Iordanescu, petre.iordanescu@yahoo.com, RENware Software Systems 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem this command script will be run on CI automation workflow; 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem     - workflow; `adhoc-run.yml` 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem     - trigger event: merge to branch `adhoc` 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem     - stdout redirection: `./tests/_test_results.txt` 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem     - crt directory; `xl2roefact/` 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem ------------------------- 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem echo "=== Test run of `adhoc.cmd` ======" 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_doc 
