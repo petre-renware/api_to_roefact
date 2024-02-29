@@ -85,7 +85,10 @@
 
 ### wip... 0.2.2.dev project development environment improvements (#NOTE: date here...)
 
-**...TODO: BUILD site, PUBLISH and RELEASE version ...**
+<!-- **...TODO:**
+* [x] BUILD site,
+* [ ] PUBLISH site
+* [ ] RELEASE 0.2.2.dev -->
 
 * `240229piu01` updated `.../downloads.md` for xl2roefact section to link PyPi for versions `>= 0.2.1b` and let WHEEL & DIST as "Download package source"
 * `240228piu04` improved `xl2roefact python library` API Reference document ref to TOC and Title
