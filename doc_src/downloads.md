@@ -18,12 +18,9 @@ pip install xl2roefact
 In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https://pypi.org/project/xl2roefact/)*. Accesati linkul anterior pentru a putea accesa alte versiuni publicate pe *PyPi* si modul de instalare a acestora.
 
 
-<details markdown="1">
-<summary markdown="1">
-
 ### Pachetul xl2roefact python library format sursa
 
-</summary>
+
 
 #### 0.2  <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
@@ -42,20 +39,18 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 * [`0.1.20.dev` invoice customer address WHEEL](../xl2roefact/dist/xl2roefact-0.1.20-py3-none-any.whl "download")
 * [`0.1.20.dev` invoice customer address DIST](../xl2roefact/dist/xl2roefact-0.1.20.tar.gz "download")
 
-</details>
 
 
 
 
-<details markdown="1"><summary markdown="1">
+
 
 ### Pachetul web2roefact PyPi library
 
-</summary>
 
 Nici o resursa disponibila.
 
-</details>
+
 
 
 
@@ -65,11 +60,10 @@ Nici o resursa disponibila.
 
 ## Format MSI instalare Windows x64
 
-<details markdown="1"><summary markdown="1">
 
 ### Aplicatia xl2roefact linie comanda (win64-msi)
 
-</summary>
+
 
 #### 0.2
 
@@ -83,7 +77,6 @@ Nici o resursa disponibila.
 * [`0.1.22b` application interface improvements](../xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi "download")
 * [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
 
-</details>
 
 
 
