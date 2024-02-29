@@ -22,8 +22,9 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 ### Pachetul xl2roefact python library format sursa
 
-??? note "0.2"  <!--NOTE: for each version there is a pair: WHEEL & DIST -->
+<!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
+??? note "0.2"
     * [`0.2.1b` invoice values summary WHEEL](../xl2roefact/dist/xl2roefact-0.2.1b0-py3-none-any.whl "download")
     * [`0.2.1b` invoice values summary DIST](../xl2roefact/dist/xl2roefact-0.2.1b0.tar.gz "download")
     * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone) WHEEL](../xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl "download")
@@ -95,7 +96,7 @@ Nici o resursa disponibila.
 
 
 
-## Sablon (template) factura
+## Sablon template factura
 
 ??? note "Format XLSX Office Excel"
 
