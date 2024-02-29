@@ -92,19 +92,18 @@ Nici o resursa disponibila.
 
 
 
-## Format XLSX Office Excel
 
-<details markdown="1"><summary markdown="1">
 
-### Sablon factura in Office Excel
 
-</summary>
+## Sablon factura in Office Excel
+
+Format XLSX Office Excel:
 
 * [`0.1.20` office Excel XLSX](../excel_invoice_template/invoice_template_CU_tva.xlsx "download")
 * [`0.1.20` arhiva ZIP](../excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip "download")
 * [`0.1.11` arhiva ZIP](../excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip "download")
 
-</details>
+
 
 
 
