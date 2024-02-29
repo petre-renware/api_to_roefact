@@ -2893,7 +2893,12 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
 <h2 id="doc_src-downloads-format-biblioteca-python">Format biblioteca Python</h2>
 <details>
 <summary markdown="1">
-<h3 id="doc_src-downloads-pachetul-xl2roefact-pypi-library">Pachetul xl2roefact PyPi library</h3>
+<h3 id="doc_src-downloads-pachetul-xl2roefact-pe-pypi">Pachetul xl2roefact pe PyPi</h3>
+<p>Versiunea de pe pe repository-ul public <code>PyPi</code> permite instalarea directa in mediul Python local astfel:
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>xl2roefact
+</code></pre></div>
+In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="https://pypi.org/project/xl2roefact/">PyPi</a></em>. Accesati linkul anterior pentru a putea accesa alte versiuni publicate pe <em>PyPi</em> si modul de instalare a acestora.</p>
+<h3 id="doc_src-downloads-pachetul-xl2roefact-python-library-format-sursa">Pachetul xl2roefact python library format sursa</h3>
 </summary>
 <h4 id="doc_src-downloads-02">0.2  <!--NOTE: for each version there is a pair: WHEEL & DIST --></h4>
 <ul>
@@ -3576,8 +3581,12 @@ Public License instead of this License.  But first, please read
 <div class="toc">
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
-<li><a href="#changelog-02-note_wip">0.2 (-#NOTE_wip...)</a><ul>
-<li><a href="#changelog-wip-022b-xl2roefact-invoice-taxes-summary-note-date-here">wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</a></li>
+<li><a href="#changelog-03-todo_next">0.3 (TODO:_next...)</a><ul>
+<li><a href="#changelog-todo_next-03-xl2roefact-invoice-taxes-summary-note-date-here">TODO:_next... 0.3.??? xl2roefact invoice taxes summary (#NOTE: date here...)</a></li>
+</ul>
+</li>
+<li><a href="#changelog-02-todo_wip">0.2 (TODO:_wip...)</a><ul>
+<li><a href="#changelog-wip-022dev-project-development-environment-improvements-note-date-here">wip... 0.2.2.dev project development environment improvements (#NOTE: date here...)</a></li>
 </ul>
 </li>
 </ul>
@@ -3597,7 +3606,7 @@ Public License instead of this License.  But first, please read
 <li><code>&lt;PROJECT ROOT&gt;/doc_src/</code> is the default starting location in a file path (if not clear from context) (<strong>ATTN</strong> - in production environment is <code>docs/</code>)</li>
 <li><code>&lt;WEB_ROOT&gt;/</code> is the HTTP server root directory, as default <code>docs/</code> and supposed if no other parent is specified</li>
 </ul>
-<h2 id="changelog-02-note_wip">0.2 (-#NOTE_wip...)</h2>
+<h2 id="changelog-03-todo_next">0.3 (TODO:_next...)</h2>
 <div class="highlight"><pre><span></span><code>    - ---[ #TODO general planning board ]---------------------------
     * ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
     * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
@@ -3620,7 +3629,7 @@ Public License instead of this License.  But first, please read
         * [... wip.`0.2.2b`] invoice taxes summary
     -------------------------------------------------------------------------------------------------
 </code></pre></div>
-<h3 id="changelog-wip-022b-xl2roefact-invoice-taxes-summary-note-date-here">wip... 0.2.2b xl2roefact invoice taxes summary (#NOTE: date here...)</h3>
+<h3 id="changelog-todo_next-03-xl2roefact-invoice-taxes-summary-note-date-here">TODO:_next... 0.3.??? xl2roefact invoice taxes summary (#NOTE: date here...)</h3>
 <ul>
 <li>
 <p>tbd.Must... @RELEASE update version files &amp; <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></p>
@@ -3652,15 +3661,17 @@ Public License instead of this License.  But first, please read
 <span class="nt">&lt;/cac:TaxTotal&gt;</span>
 </code></pre></div></p>
 </li>
-<li>
-<p>tbd.Must... update <code>.../downloads.md</code> for xl2roefact Python area to point to PyPi for versions starting with <code>0.2.1b</code> and make this link agnostic to WHEEL or DIST as PyPi will decide best option</p>
-</li>
-<li>
-<p>wip...</p>
-</li>
-<li>
-<p><code>240228piu04</code> improved <code>xl2roefact python library</code> API Reference document ref to TOC and Title</p>
-</li>
+</ul>
+<h2 id="changelog-02-todo_wip">0.2 (TODO:_wip...)</h2>
+<h3 id="changelog-wip-022dev-project-development-environment-improvements-note-date-here">wip... 0.2.2.dev project development environment improvements (#NOTE: date here...)</h3>
+<!-- **...TODO:**
+* [x] BUILD site,
+* [ ] PUBLISH site
+* [ ] RELEASE 0.2.2.dev -->
+
+<ul>
+<li><code>240229piu01</code> updated <code>.../downloads.md</code> for xl2roefact section to link PyPi for versions <code>&gt;= 0.2.1b</code> and let WHEEL &amp; DIST as "Download package source"</li>
+<li><code>240228piu04</code> improved <code>xl2roefact python library</code> API Reference document ref to TOC and Title</li>
 <li><code>240228piu03</code> project review, cleanup and update: workflows, useless files, TODO &amp; FIXME comments, etc...</li>
 <li><code>240228piu02</code> FIXED main project for use with PDM. <code>pdm update</code> command successfully run. <strong>RESOLUTION: pdm can be used in main project as package manager. Should run locally to create venv and must update it with pdm update.</strong> 10xG!</li>
 <li><code>240228piu01</code> created a mechanism to run adhoc commands <em>for xl2roefact component</em>:<ul class="task-list">

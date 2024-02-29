@@ -40,10 +40,11 @@ dependencies = [
     "tzdata~=2023.4",
     "userpath~=1.9",
     "wheel~=0.42",
+    "pyinstaller>=4.10",
 ]  #FIXME @231217 `pendulum` package raise error when import (#NOTE_ERR MSG: `File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 readme = "README.md"
 license = {file = "LICENSE"}
-requires-python = ">= 3.10"
+requires-python = ">=3.10,<3.11"  # <3.11,>=3.6
 classifiers = [
     # "Product code :: 0000-0095",  # not accepted by PyPi
     "Programming Language :: Python :: 3.10",
@@ -54,7 +55,6 @@ classifiers = [
     "Operating System :: OS Independent",
     "Topic :: Office/Business :: Financial",
 ]
-
 
 
 
@@ -81,17 +81,11 @@ distribution = true  # required for PyPi package publishing
 
 
 
-[project.scripts]
-# xl2roefact = "xl2roefact.__main__:main"  #NOTE should make more tests, firts regarding path... but probably after lib publishing on PyPi and installation on a separated env...
-
-
-
-
 [tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
 build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
 build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
 #TODO: to add `build_single_exe` to build a single EXE file with `PyInstaller`, file usable for pure remote purposes (no install, ready-2-run from a stick). When rdy, update `build_all` next command from this scripts section / table
-build_doc = {shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc` 
+build_doc = {shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
 build_all = {composite = ["build_wheel", "build_msi", "build_doc"]}  # build all packages (MSI, python package wheel, python package sdist, design doc)
 xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python module
 
