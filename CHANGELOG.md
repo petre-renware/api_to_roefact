@@ -85,10 +85,9 @@
 
 ### wip... 0.2.2.dev project development environment improvements (#NOTE: date here...)
 
-* tbd.Must... update `.../downloads.md` for xl2roefact section to link PyPi for versions `>= 0.2.1b` and let WHEEL & DIST as "Download package source"
+**...TODO: BUILD site, PUBLISH and RELEASE version ...**
 
-* wip...
-
+* `240229piu01` updated `.../downloads.md` for xl2roefact section to link PyPi for versions `>= 0.2.1b` and let WHEEL & DIST as "Download package source"
 * `240228piu04` improved `xl2roefact python library` API Reference document ref to TOC and Title
 * `240228piu03` project review, cleanup and update: workflows, useless files, TODO & FIXME comments, etc...
 * `240228piu02` FIXED main project for use with PDM. `pdm update` command successfully run. **RESOLUTION: pdm can be used in main project as package manager. Should run locally to create venv and must update it with pdm update.** 10xG!
