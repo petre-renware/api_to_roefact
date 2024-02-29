@@ -22,7 +22,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 ### Pachetul xl2roefact python library format sursa
 
-??? 0.2  <!--NOTE: for each version there is a pair: WHEEL & DIST -->
+??? note "0.2"  <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
     * [`0.2.1b` invoice values summary WHEEL](../xl2roefact/dist/xl2roefact-0.2.1b0-py3-none-any.whl "download")
     * [`0.2.1b` invoice values summary DIST](../xl2roefact/dist/xl2roefact-0.2.1b0.tar.gz "download")
@@ -30,7 +30,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
     * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone) DIST](../xl2roefact/dist/xl2roefact-0.2.0b0.tar.gz "download")
 
 
-??? 0.1
+??? note "0.1"
 
     <small markdown="1">NOTA: versiunile `0.1` nu mai sunt intretinute de la 01-Martie-2024 (end of life support).</small>
 
@@ -65,12 +65,12 @@ Nici o resursa disponibila.
 
 
 
-??? 0.2
+??? note "0.2"
 
     * [`0.2.1b` xl2roefact invoice values summary](../xl2roefact/dist/xl2roefact-0.2.1b0-win64.msi "download")
     * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone)](../xl2roefact/dist/xl2roefact-0.2.0b0-win64.msi "download")
 
-??? 0.1
+??? note "0.1"
 
     <small markdown="1">NOTA: versiunile `0.1` nu mai sunt intretinute de la 01-Martie-2024 (end of life support).</small>
 
@@ -97,7 +97,7 @@ Nici o resursa disponibila.
 
 ## Sablon (template) factura
 
-??? Format XLSX Office Excel:
+??? note "Format XLSX Office Excel"
 
     * [`0.1.20` office Excel XLSX](../excel_invoice_template/invoice_template_CU_tva.xlsx "download")
     * [`0.1.20` arhiva ZIP](../excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip "download")
