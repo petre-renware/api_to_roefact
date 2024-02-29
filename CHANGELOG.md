@@ -85,8 +85,12 @@
 
 ### wip... 0.2.2.dev project development environment improvements (#NOTE: date here...)
 
-<!-- **...TODO:**
-* [x] BUILD site,
+<!-- TODO: @240229 12:30 piu says;
+
+REORGANIZARE pagina download.md ... 
+arata "greu" ca headere cu sumarizarea...
+
+* [ ] BUILD site,
 * [ ] PUBLISH site
 * [ ] RELEASE 0.2.2.dev -->
 
