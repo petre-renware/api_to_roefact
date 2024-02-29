@@ -44,7 +44,7 @@
 
 
 
-### TODO:_next... 0.3.??? xl2roefact invoice taxes summary (#NOTE: date here...)
+### TODO:_next... 0.3.0?rc,b,.dev? xl2roefact invoice taxes summary (#NOTE: date here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
