@@ -1,5 +1,6 @@
 
 name: adhoc_command_run
+run-name: adhoc command run
 on:
   push:
     branches:
