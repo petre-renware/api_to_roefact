@@ -6,6 +6,7 @@
 #
 
 name: pypi-publish
+run-name: Automated publish `xl2roefact` on PyPi (by RENware Software Systems)
 on:
   push:
     branches:

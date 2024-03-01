@@ -1,5 +1,6 @@
 
 name: run_xl2roefact_cli_app
+run-name: Automated `xl2roefact` test-run (by RENware Software Systems)
 on:
   push:
     branches:
