@@ -1,6 +1,6 @@
 
 name: build_site
-run-name: Automated site built (by RENware Software Systems)
+run-name: Automated site build (by RENware Software Systems)
 on:
   push:
     branches:
