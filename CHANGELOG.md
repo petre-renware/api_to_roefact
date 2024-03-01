@@ -15,7 +15,7 @@
 
 
 
-## 0.3 (TODO:_next...)
+## 0.3 (TODO: wip...)
 
 ```
     - ---[ #TODO general planning board ]---------------------------
@@ -44,7 +44,7 @@
 
 
 
-### TODO:_next... 0.3.0?rc,b,.dev? xl2roefact invoice taxes summary (#NOTE: date here...)
+### wip... 0.3.0_(rc? b?) xl2roefact invoice taxes summary (#NOTE: date here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
