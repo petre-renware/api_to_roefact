@@ -367,7 +367,7 @@ def rdinv(
     """
     # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
     invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
-    
+
     # preserve processed Excel file meta information: start address, size.
     meta_info = _build_meta_info_key(
         excel_file_to_process=file_to_process,
@@ -378,6 +378,10 @@ def rdinv(
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
     tmp_InvoiceLine_list = [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is list of dicts with keys as XML RO E-Fact standard
+    tmp_reusable_items = dict(
+        cbc_LineExtensionAmount = sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]),
+        LineVatAmount = sum([dict_sum_by_key(i, "LineVatAmount") for i in tmp_InvoiceLine_list]),
+    )  # reusable calculations to be used in next code. see details in issue `0.3.0b+240302piu01`
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
@@ -400,33 +404,38 @@ def rdinv(
                 },
             },
             "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),
-            #
-            #FIXME: ...hereuare... CHECK NEXT CALCULATIONS
             "cac_LegalMonetaryTotal": {
-                "cbc_LineExtensionAmount": round(
-                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]
-                ), 2),
-                "cbc_TaxExclusiveAmount": round(
-                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]
-                ), 2),
-                "cbc_TaxInclusiveAmount": round(
-                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
-                        [dict_sum_by_key(i, "LineVatAmount")           for i in tmp_InvoiceLine_list]
-                ), 2),
-                "cbc_PayableAmount":      round(
-                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
-                        [dict_sum_by_key(i, "LineVatAmount")           for i in tmp_InvoiceLine_list]
-                ), 2),
+                "cbc_LineExtensionAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
+                "cbc_TaxExclusiveAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
+                "cbc_TaxInclusiveAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
+                "cbc_PayableAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
             },
-            #FIXME ...END of ...hereuare...
+            #NOTE: ....place intended for `cac:TaxTotal`  (see next comment "NOTE:cac:TaxTotal" line ~423)
+            # TODO: .................................. hereuare code: structure values and !-update XLM-JSON map
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
             invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE ready, test PASS @ 231205 by [piu]
-            invoice_header_area = copy.deepcopy(invoice_header_area),  #TODO wip...
-            invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO to be done... (just localized `invoice_footer_area`)
-        )
+            invoice_header_area = copy.deepcopy(invoice_header_area),  #TODO wip... lrft supplier info
+            invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO wip... TBD-(cac_TaxTotal) / RDY-(cac_LegalMonetaryTotal
+        ),
     }
+    '''TODO: :cac:TaxTotal XML required structure (NOTE: intended in `0.3.3b` version)
+        <cac:TaxTotal>  # NOTE: ...at same level as "cac_LegalMonetaryTotal"
+            <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
+            <cac:TaxSubtotal>
+                <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
+                <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
+                <cac:TaxCategory>
+                    <cbc:ID>S</cbc:ID>
+                    <cbc:Percent>19.00</cbc:Percent>
+                    <cac:TaxScheme>
+                        <cbc:ID>VAT</cbc:ID>
+                    </cac:TaxScheme>
+                </cac:TaxCategory>
+            </cac:TaxSubtotal>
+        </cac:TaxTotal>
+    '''
     #
     # write `invoice` dict to file `f-JSON`
     """ useful notes ref `f-JSON`:

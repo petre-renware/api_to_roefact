@@ -88,7 +88,7 @@
         <cbc:PaymentMeansCode>1</cbc:PaymentMeansCode>
     </cac:PaymentMeans>
 
-    <cac:TaxTotal>  #TODO tbd...
+    <cac:TaxTotal>  #TODO tbd... (#NOTE: intended in `0.3.3b` version)
         <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
         <cac:TaxSubtotal>
             <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
@@ -103,7 +103,7 @@
         </cac:TaxSubtotal>
     </cac:TaxTotal>
 
-    <cac:LegalMonetaryTotal>  #TODO tbd...
+    <cac:LegalMonetaryTotal>  #NOTE DONE / RDY (whole struture done)
         <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
         <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
         <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
