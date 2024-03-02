@@ -26,17 +26,17 @@ Structure to be includ as _invoice footer_ in XML format:
 
 ```python
 
-("xxx", "cac:TaxTotal"),
-("xxx", "cbc:TaxAmount"),
-("xxx", "cac:TaxSubtotal"),
-("xxx", "cbc:TaxableAmount"),
+("cac_TaxTotal", "cac:TaxTotal"),
+("cbc_TaxAmount", "cbc:TaxAmount"),
+("cac_TaxSubtotal", "cac:TaxSubtotal"),
+("cbc_TaxableAmount", "cbc:TaxableAmount"),
 
 # NOTE: items that could already exists in map. TO CHECK.
 
-("xxx", "cac:TaxCategory"),
-("xxx", "cbc:Percent"),
-("xxx", "cbc:ID"),
-("xxx", "cac:TaxScheme"),
+("cac_TaxCategory", "cac:TaxCategory"),
+("cbc_Percent", "cbc:Percent"),
+("cbc_ID", "cbc:ID"),
+("cac_TaxScheme", "cac:TaxScheme"),
 
 
 ```
