@@ -4,7 +4,7 @@
 Structure to be includ as _invoice footer_ in XML format:
 
 ```xml
-<cac:TaxTotal>  #TODO tbd...
+<cac:TaxTotal>
     <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
     <cac:TaxSubtotal>
         <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
@@ -20,6 +20,18 @@ Structure to be includ as _invoice footer_ in XML format:
 </cac:TaxTotal>
 ```
 
+## Calculation of items
+
+```python
+
+cbc_TaxableAmount: float = ...
+
+cbc_TaxAmount
+
+
+
+
+```
 
 
 # XMLGJSON map
