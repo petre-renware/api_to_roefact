@@ -53,27 +53,12 @@
 
 * tbd.Could... check how use SECRETs in gh actions (ref PyPi publish workflow token used)
 
-* tbd.Must... there is one more summary ref taxes ...
-...        (ref doc `xl2roefact/invoice_files/_PLAN_model...xml`, lines 91-104)
-...        prepared place in rdinv() search "NOTE: ....place intended for `cac:TaxTotal`" line ~413:
-```xml
-<cac:TaxTotal>  #TODO tbd...
-    <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
-    <cac:TaxSubtotal>
-        <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
-        <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
-        <cac:TaxCategory>
-            <cbc:ID>S</cbc:ID>
-            <cbc:Percent>19.00</cbc:Percent>
-            <cac:TaxScheme>
-                <cbc:ID>VAT</cbc:ID>
-            </cac:TaxScheme>
-        </cac:TaxCategory>
-    </cac:TaxSubtotal>
-</cac:TaxTotal>
-```
+* wip....
 
-* wip...
+* wip... `240302piu01` invoice taxes summary:
+    * ref doc `xl2roefact/invoice_files/_PLAN_model...xml`, lines 91-104)
+    * prepared place in rdinv() search "NOTE: ....place intended for `cac:TaxTotal`" line ~413
+    * [x] 1. prepared a work file `xl2roefact/tests/__wk_invoice_tax_total.md`
 
 * `240302piu01` updated `xl2rofact.rdinv` function, area commented "...build final structure..." created variable `_tmp_reusable_items: dict` to keep "partial variables" that are calculated and potentially will be reused in next code
 * `240301piu_01` set all workflows `run-name`
