@@ -24,9 +24,11 @@ Structure to be includ as _invoice footer_ in XML format:
 
 ```python
 
-cbc_TaxableAmount: float = ...
+cbc_TaxableAmount: rounded float  # taxable vaue, is the value where the tax will be applied
+cbc_TaxAmount: rounded float  # is the tax resulted from application on `cbc_TaxableAmount`
 
-cbc_TaxAmount
+
+
 
 
 
