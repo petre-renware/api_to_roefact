@@ -26,7 +26,18 @@ Structure to be includ as _invoice footer_ in XML format:
 
 ```python
 
-tbd...
+("xxx", "cac:TaxTotal"),
+("xxx", "cbc:TaxAmount"),
+("xxx", "cac:TaxSubtotal"),
+("xxx", "cbc:TaxableAmount"),
+
+# NOTE: items that could already exists in map. TO CHECK.
+
+("xxx", "cac:TaxCategory"),
+("xxx", "cbc:Percent"),
+("xxx", "cbc:ID"),
+("xxx", "cac:TaxScheme"),
+
 
 ```
 
