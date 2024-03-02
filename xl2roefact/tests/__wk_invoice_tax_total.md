@@ -24,7 +24,10 @@ Structure to be includ as _invoice footer_ in XML format:
 
 ```python
 
-cac_TaxSubtotal = [ {
+"cbc_TaxAmount": round(sum(cac_TaxSubtotal, 2),  #NOTE it is a summarization of next item which is a list (a detailed presentation of info)
+
+cac_TaxSubtotal = [
+{
     "cbc_TaxableAmount": rounded float,  # taxable vaue, is the value where the tax will be applied, the total value w/o VAT of an item
     # ... `tmp_InvoiceLine_list["cbc_LineExtensionAmount"]` which in code is constructed before reusable parts from `Invoice` "big" dict
 
@@ -34,9 +37,9 @@ cac_TaxSubtotal = [ {
     # ...next one are just from peoduct line keys...
 },
 # {...},   ...another product iteration here, for prev_dict in Invoice big dict
-]  # end.of `cac_TaxSubtotal`
 
-
+]
+#NOTE attn DON'T close last list line with comma `,`
 
 
 ```
