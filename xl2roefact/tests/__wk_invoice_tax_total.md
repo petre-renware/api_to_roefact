@@ -25,6 +25,8 @@ Structure to be includ as _invoice footer_ in XML format:
 # XMLGJSON map
 
 ```python
+{ ...  #FIXME ignore.me
+
 
 ("xxx", "cac:TaxTotal"),
 ("xxx", "cbc:TaxAmount"),
@@ -39,5 +41,6 @@ Structure to be includ as _invoice footer_ in XML format:
 ("xxx", "cac:TaxScheme"),
 
 
+... }  #FIXME ignore.me
 ```
 
