@@ -24,11 +24,11 @@ Structure to be includ as _invoice footer_ in XML format:
 
 ```python
 
-cac_TaxSubtotal = [ (
-    cbc_TaxableAmount: rounded float,  # taxable vaue, is the value where the tax will be applied, the total value w/o VAT of an item
+cac_TaxSubtotal = [ {
+    "cbc_TaxableAmount": rounded float,  # taxable vaue, is the value where the tax will be applied, the total value w/o VAT of an item
     # ... `tmp_InvoiceLine_list["cbc_LineExtensionAmount"]` which in code is constructed before reusable parts from `Invoice` "big" dict
 
-    cbc_TaxAmount: rounded float,  # is the tax resulted from application on `cbc_TaxableAmount`
+    "cbc_TaxAmount": rounded float,  # is the tax resulted from application on `cbc_TaxableAmount`
     # ... `LineVatAmount`
 
     # ...next one are just from peoduct line keys...
