@@ -35,7 +35,9 @@ def invoice_taxes_summary(
     Return:
         `dict` with required structure as define in ...#FIXME.see.if.keep.thet.detail.and.update.it.with.structure.def.in.wk.file
     """
-    tmp_InvoiceLine_list = copy.deepcopy(invoice_lines)
+    copyof_invoice_lines = copy.deepcopy(invoice_lines)
+    tmp_InvoiceLine_list = dict()
+    tmp_InvoiceLine_list = ...copyof_invoice_lines
     ...  ##FIXME calculate `tmp_InvoiceLine_list`
     return tmp_InvoiceLine_list
 
