@@ -38,7 +38,7 @@ def invoice_taxes_summary(
     # make a copy and keep only and necessary keys
     copyof_invoice_lines = copy.deepcopy(invoice_lines)
     tmp_InvoiceLine_list = list()
-    for item_info in copyof_invoice_lines;
+    for item_info in copyof_invoice_lines:
         req_item_info = dict()
         req_item_info["cbc_LineExtensionAmount"] = item_info.get("cbc_LineExtensionAmount", 0)
         req_item_info["LineVatAmount"] = item_info.get("LineVatAmount", 0)
