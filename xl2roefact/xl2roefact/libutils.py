@@ -22,7 +22,30 @@ from rich import print
 from fractions import Fraction
 
 
-# NOTE - ready, unit test PASS @240223
+# NOTE: wip...
+def invoice_taxes_summary(
+    invoice_lines: list[dict]
+) -> dict:
+    """calculatesinvoice taxes summary as required by ROefact requirements.
+
+    Args:
+        `invoice_lines`: section with item lines from 'big' invoice dictionary
+        
+    Returns:
+        `dict` with required structure as define in ...#FIXME.see.if.keep.thet.detail.and.update.it.with.structure.def.in.wk.file
+    """
+    tmp_InvoiceLine_list = copy.deepcopy(invoice_lines)
+    ...
+    pass
+
+
+
+
+
+
+
+
+# NOTE: ready, unit test PASS @240223
 def dict_sum_by_key(
     search_dict: dict | list[dict],
     sum_key: str
@@ -59,7 +82,7 @@ def dict_sum_by_key(
 
 
 
-# NOTE - ready, test PASS @231123
+# NOTE: ready, test PASS @231123
 def isnumber(a_string: str) -> bool:
     """test if a string is valid as any kind of number.
 
@@ -81,7 +104,7 @@ def isnumber(a_string: str) -> bool:
 
 
 
-# NOTE - ready, test PASS @231123
+# NOTE: ready, test PASS @231123
 def find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int:
     """find a substring from `list_of_str_to_find` in elements of `list_to_search`.
 
