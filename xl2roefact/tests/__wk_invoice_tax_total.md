@@ -31,7 +31,9 @@ cac_TaxTotal = {
         # ... basically `tmp_InvoiceLine_list["cbc_LineExtensionAmount"]` which in code is constructed before reusable parts from `Invoice` "big" dict
         # ... detaild specs calculation:
         # SUM( tmp_InvoiceLine_list["cbc_LineExtensionAmount"])
-        # WHERE tmp_InvoiceLine_list["cac_Item"]...
+        # WHERE
+        #     tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"][
+...
         # 
 
         "cbc_TaxAmount": rounded float,  # is the tax resulted from application on `cbc_TaxableAmount` === `LineVatAmount`
