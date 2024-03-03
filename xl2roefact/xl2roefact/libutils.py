@@ -20,6 +20,7 @@ Components:
 import sys
 from rich import print
 from fractions import Fraction
+import copy
 
 
 # NOTE: wip...
