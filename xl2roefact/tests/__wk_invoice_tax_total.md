@@ -51,6 +51,7 @@ SELECT
         SUM(tmp_InvoiceLine_list["cbc_LineExtensionAmount"])
     cbc_TaxAmount as
         SUM(tmp_InvoiceLine_list["LineVatAmount"])
+   VAT_percet_from_group_by
 WHERE
     tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
 GROUP BY
