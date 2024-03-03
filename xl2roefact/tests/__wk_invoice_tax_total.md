@@ -22,6 +22,8 @@ Structure to be includ as _invoice footer_ in XML format:
 
 ## Calculation of items
 
+### Items "in scope" and as dict desired structure
+
 ```python
 cac_TaxTotal = {
     "cbc_TaxAmount": round(sum(cac_TaxSubtotal, 2),  #NOTE it is a summarization of next item which is a list (a detailed presentation of info)
@@ -40,7 +42,8 @@ cac_TaxTotal = {
 }
 ```
 
-## detaild specs calculation
+
+### detaild specs calculation as "SQL view"
 
 ```sql
 
@@ -51,7 +54,7 @@ SELECT
         SUM(tmp_InvoiceLine_list["LineVatAmount"])
 WHERE
     tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
-GROUP_BY
+GROUP BY
     tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]
 
 ```
