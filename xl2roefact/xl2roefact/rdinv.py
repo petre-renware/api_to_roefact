@@ -32,6 +32,7 @@ import openpyxl as opnxl
 from .libutils import isnumber
 from .libutils import find_str_in_list
 from .libutils import dict_sum_by_key
+from .libutils import invoice_taxes_summary
 from . import config_settings  # application configuration parameters
 
 # local constants. Change them with caution only for a functional objective
@@ -382,6 +383,10 @@ def rdinv(
         cbc_LineExtensionAmount = sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]),
         LineVatAmount = sum([dict_sum_by_key(i, "LineVatAmount") for i in tmp_InvoiceLine_list]),
     )  # reusable calculations to be used in next code. see details in issue `0.3.0b+240302piu01`
+    tmp_cac_TaxTotal = invoice_taxes_summary(tmp_InvoiceLine_list)
+    print("[red]********* CALCULATED tmp_cacTaxTotal:")  #FIXME dbd, drop.me
+    print(f"{tmp_cac_TaxTotal} [/]")  #FIXME dbd, drop.me
+    ... #FIXME ...test in progress here
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
