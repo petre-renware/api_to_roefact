@@ -32,8 +32,9 @@ cac_TaxTotal = {
         # ... detaild specs calculation:
         # SUM( tmp_InvoiceLine_list["cbc_LineExtensionAmount"])
         # WHERE
-        #     tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"][
-...
+        #     tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
+        # GROUP_BY
+        #     tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]
         # 
 
         "cbc_TaxAmount": rounded float,  # is the tax resulted from application on `cbc_TaxableAmount` === `LineVatAmount`
