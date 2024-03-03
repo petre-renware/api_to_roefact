@@ -29,13 +29,6 @@ cac_TaxTotal = {
         "cbc_TaxableAmount": rounded float,  # ...nxt.comments...
         # ... taxable vaue, is the value where the tax will be applied, the total value w/o VAT of an item
         # ... basically `tmp_InvoiceLine_list["cbc_LineExtensionAmount"]` which in code is constructed before reusable parts from `Invoice` "big" dict
-        # ... detaild specs calculation:
-        # SUM( tmp_InvoiceLine_list["cbc_LineExtensionAmount"])
-        # WHERE
-        #     tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
-        # GROUP_BY
-        #     tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]
-        # 
 
         "cbc_TaxAmount": rounded float,  # is the tax resulted from application on `cbc_TaxableAmount` === `LineVatAmount`
         # ...next one keys are just from peoduct line keys...
@@ -46,6 +39,24 @@ cac_TaxTotal = {
 
 }
 ```
+
+## detaild specs calculation
+
+```sql
+
+SELECT
+    cbc_TaxableAmount as
+        SUM(tmp_InvoiceLine_list["cbc_LineExtensionAmount"])
+    cbc_TaxAmount as
+        SUM(tmp_InvoiceLine_list["LineVatAmount"])
+WHERE
+    tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
+GROUP_BY
+    tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]
+
+```
+
+
 
 
 # XMLGJSON map
