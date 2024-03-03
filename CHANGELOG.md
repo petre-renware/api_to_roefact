@@ -64,7 +64,7 @@
     * [ ] 4. effective code of item 3. function `libutils.invoice_taxes_summary(...)`
     * [ ] ...
     * [ ] update JSON example used in documentation
-    * [ ] update version number of xl2roefact app (component & mkdocs.yml)
+    * [x] updated version number of xl2roefact app (component & mkdocs.yml)
     * [ ] build version deliverables (incl DLD doc)
     * [ ] build site & publish
 
