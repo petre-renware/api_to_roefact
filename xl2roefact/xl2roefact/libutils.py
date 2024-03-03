@@ -9,12 +9,11 @@ Identification:
 
 Components:
 
-* `dict_sum_by_key(dict, str) -> float`
- to sum a dictionary for a given key at all depth levels
-* `isnumber(str) -> bool`
-    Test a string if it could be used as number (int or float)
-* `find_str_in_list(list, list) -> int`
-    Search more strings (ie, a list) in list of strings
+* `dict_sum_by_key(dict, str) -> float`: Sum a dictionary for a given key at all depth levels
+* `find_str_in_list(list, list) -> int`: Search more strings (ie, a list) in list of strings
+* `invoice_taxes_summary(list[dict]) -> dict`: Calculates invoice taxes summary as required by ROefact requirements
+* `isnumber(str) -> bool`: Test a string if it could be used as number (int or float)
+
 """
 
 import sys
@@ -27,7 +26,7 @@ import copy
 def invoice_taxes_summary(
     invoice_lines: list[dict]
 ) -> dict:
-    """calculatesinvoice taxes summary as required by ROefact requirements.
+    """Calculates invoice taxes summary as required by ROefact requirements.
 
     Args:
         `invoice_lines`: section with item lines from 'big' invoice dictionary
@@ -35,8 +34,23 @@ def invoice_taxes_summary(
     Return:
         `dict` with required structure as define in ...#FIXME.see.if.keep.thet.detail.and.update.it.with.structure.def.in.wk.file
     """
-    tmp_InvoiceLine_list = copy.deepcopy(invoice_lines)
-    ...  ##FIXME calculate `tmp_InvoiceLine_list`
+        
+    # make a copy and keep only and necessary keys
+    copyof_invoice_lines = copy.deepcopy(invoice_lines)
+    tmp_InvoiceLine_list = list()
+    for item_info in copyof_invoice_lines[0]:  # keep only real-effective list
+        req_item_info = dict()
+        req_item_info["cbc_LineExtensionAmount"] = item_info.get("cbc_LineExtensionAmount", 0)
+        req_item_info["LineVatAmount"] = item_info.get("LineVatAmount", 0)
+        # to.get.pieces.of... ["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
+        ...
+        tmp_InvoiceLine_list.append(req_item_info)
+    
+    # ...??? build dict parts of final structure
+    
+    ...
+    
+    
     return tmp_InvoiceLine_list
 
 
