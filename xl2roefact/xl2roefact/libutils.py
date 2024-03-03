@@ -9,12 +9,11 @@ Identification:
 
 Components:
 
-* `dict_sum_by_key(dict, str) -> float`
- to sum a dictionary for a given key at all depth levels
-* `isnumber(str) -> bool`
-    Test a string if it could be used as number (int or float)
-* `find_str_in_list(list, list) -> int`
-    Search more strings (ie, a list) in list of strings
+* `dict_sum_by_key(dict, str) -> float`: Sum a dictionary for a given key at all depth levels
+* `find_str_in_list(list, list) -> int`: Search more strings (ie, a list) in list of strings
+* `invoice_taxes_summary(list[dict]) -> dict`: Calculates invoice taxes summary as required by ROefact requirements
+* `isnumber(str) -> bool`: Test a string if it could be used as number (int or float)
+
 """
 
 import sys
@@ -27,7 +26,7 @@ import copy
 def invoice_taxes_summary(
     invoice_lines: list[dict]
 ) -> dict:
-    """calculatesinvoice taxes summary as required by ROefact requirements.
+    """Calculates invoice taxes summary as required by ROefact requirements.
 
     Args:
         `invoice_lines`: section with item lines from 'big' invoice dictionary
