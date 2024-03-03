@@ -60,6 +60,7 @@
     * prepared place in rdinv() search "NOTE: ....place intended for `cac:TaxTotal`" line ~413
     * [x] 1. prepared a work file `xl2roefact/tests/__wk_invoice_tax_total.md` with dev specs & TODOs
     * [x] 2. defined calculation formulas in `xl2roefact/tests/__wk_invoice_tax_total.md`
+    * [ ] 3. wip... make a function `invoice_taxes_summary(invoice_lines: list[dict])` in `libutils` that calculated whole required structure. Receive as parameter the `Invoice dict` part related to items list, ie existing variable `tmp_InvoiceLine_list`
     * [ ] ...
 
 * `240301piu02` refactored `xl2roefact/invoice_files/` to `xl2roefact/refact_xml_models_and_specs/`
