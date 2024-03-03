@@ -42,7 +42,7 @@ def invoice_taxes_summary(
         req_item_info = dict()
         req_item_info["cbc_LineExtensionAmount"] = item_info.get("cbc_LineExtensionAmount", 0)
         req_item_info["LineVatAmount"] = item_info.get("LineVatAmount", 0)
-        ...
+        # to.get.pieces.of... ["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
     
     # ...??? build dict parts of final structure
     
