@@ -26,8 +26,14 @@ Structure to be includ as _invoice footer_ in XML format:
 cac_TaxTotal = {
     "cbc_TaxAmount": round(sum(cac_TaxSubtotal, 2),  #NOTE it is a summarization of next item which is a list (a detailed presentation of info)
     "cac_TaxSubtotal" = [{
-        "cbc_TaxableAmount": rounded float,  # taxable vaue, is the value where the tax will be applied, the total value w/o VAT of an item
-        # ... `tmp_InvoiceLine_list["cbc_LineExtensionAmount"]` which in code is constructed before reusable parts from `Invoice` "big" dict
+        "cbc_TaxableAmount": rounded float,  # ...nxt.comments...
+        # ... taxable vaue, is the value where the tax will be applied, the total value w/o VAT of an item
+        # ... basically `tmp_InvoiceLine_list["cbc_LineExtensionAmount"]` which in code is constructed before reusable parts from `Invoice` "big" dict
+        # ... detaild specs calculation:
+        # SUM( tmp_InvoiceLine_list["cbc_LineExtensionAmount"])
+        # WHERE tmp_InvoiceLine_list["cac_Item"]...
+        # 
+
         "cbc_TaxAmount": rounded float,  # is the tax resulted from application on `cbc_TaxableAmount` === `LineVatAmount`
         # ...next one keys are just from peoduct line keys...
     },
