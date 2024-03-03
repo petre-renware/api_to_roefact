@@ -36,7 +36,7 @@ def invoice_taxes_summary(
     """
         
     # make a copy and keep only and necessary keys
-    copyof_invoice_lines = copy.deepcopy(invoice_lines)
+    copyof_invoice_lines = copy.deepcopy(invoice_lines[0])  # keep only first object (real list is list of listjust for a right XML translation)
     tmp_InvoiceLine_list = list()
     for item_info in copyof_invoice_lines:
         req_item_info = dict()
