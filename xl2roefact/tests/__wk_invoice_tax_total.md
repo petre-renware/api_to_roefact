@@ -28,7 +28,7 @@ Structure to be includ as _invoice footer_ in XML format:
 cac_TaxTotal = {
     "cbc_TaxAmount": round(sum(cac_TaxSubtotal, 2),  #NOTE it is a summarization of next item which is a list (a detailed presentation of info)
     "cac_TaxSubtotal" = [{
-        "cbc_TaxableAmount": rounded float,  # taxable vaue, is the value where the tax will be applied, the total value w/o VAT of an item
+        "cbc_TaxableAmount": rounded float,  # taxable value, is the value where the tax will be applied, the total value w/o VAT of an item
         "cbc_TaxAmount": rounded float,  # is the tax resulted from application on `cbc_TaxableAmount` === `LineVatAmount`
         # ... and next keys are just from peoduct line keys...
     },
