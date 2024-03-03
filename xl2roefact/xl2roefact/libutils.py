@@ -31,8 +31,8 @@ def invoice_taxes_summary(
 
     Args:
         `invoice_lines`: section with item lines from 'big' invoice dictionary
-        
-    Returns:
+
+    Return:
         `dict` with required structure as define in ...#FIXME.see.if.keep.thet.detail.and.update.it.with.structure.def.in.wk.file
     """
     tmp_InvoiceLine_list = copy.deepcopy(invoice_lines)
@@ -57,7 +57,7 @@ def dict_sum_by_key(
         `search_dict`: dictionary to be searched for
         `sum_key`: key to be searched
 
-    Returns:
+    Return:
         `float` with required sum
     """
     s = 0
@@ -90,7 +90,7 @@ def isnumber(a_string: str) -> bool:
     Args:
         `a_string`: input string.
 
-    Returns:
+    Return:
         `True`: if input string is valid as any kind of number, orherwise `False`.
     """
     try:
@@ -113,7 +113,7 @@ def find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int:
         `list_of_str_to_find`: list of strings to search for.
         `list_to_search`: liste where to search for substrings.
 
-    Returns:
+    Return:
         `index`: the index of list item which contains `str_to_find` (first found) or `None` if not found.
     """
     __found = False
