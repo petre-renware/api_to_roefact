@@ -30,10 +30,10 @@ cac_TaxTotal = {
     "cac_TaxSubtotal" = [{
         "cbc_TaxableAmount": rounded float,  # ...nxt.comments...
         # ... taxable vaue, is the value where the tax will be applied, the total value w/o VAT of an item
-        # ... basically `tmp_InvoiceLine_list["cbc_LineExtensionAmount"]` which in code is constructed before reusable parts from `Invoice` "big" dict
+        # ... basically `tmp_InvoiceLine_list["cbc_LineExtensionAmount"]`
 
         "cbc_TaxAmount": rounded float,  # is the tax resulted from application on `cbc_TaxableAmount` === `LineVatAmount`
-        # ...next one keys are just from peoduct line keys...
+        # ...next keys are just from peoduct line keys...
     },
     # {...},   ...another product iteration here, for prev_dict in Invoice big dict
 ]
@@ -44,6 +44,8 @@ cac_TaxTotal = {
 
 
 ### detaild specs calculation as "SQL view"
+
+>NOTE: code must constructed before "rdinv() reusable parts" dict because in use temporary extracted items list from whole Ivoice dict structure.
 
 ```sql
 
