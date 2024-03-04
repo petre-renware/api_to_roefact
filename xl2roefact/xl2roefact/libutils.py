@@ -65,8 +65,7 @@ def invoice_taxes_summary(
         # ... and temporary make a new compounded key, helper to group the values by it
         req_item_info["cac_TaxCategory"] = work_cac_item
         tmpCompondedVAT = work_cac_item.get("cac_TaxCategory").get("cac_ClassifiedTaxCategory")
-        tmpCompondedVAT = str(tmpCompondedVAT.get("cbc_Percent")) + 
-                          str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID"))
+        tmpCompondedVAT = str(tmpCompondedVAT.get("cbc_Percent")) + str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID"))
         req_item_info["tmpCompondedVAT"] = tmpCompondedVAT
         # ... sum += (ExtAmnt ai VatAmnt) for this key
         # ... if exists should be updated.
