@@ -77,23 +77,8 @@ def invoice_taxes_summary(
         # ... sum += (ExtAmnt ai VatAmnt) for this key
         # ... if exists should be updated.
         # ... if not take care to add with 0 as being first time when add it
-        ''' #FIXME dbg can drop. INFORMATIA CREATA pina in acest punct este: :
-        {
-            "cbc_LineExtensionAmount": 38890.25,
-            "LineVatAmount": 7389.15,
-            "cac_TaxCategory": {
-                "cac_ClassifiedTaxCategory": {
-                    "cbc_Percent": 0.19,
-                    "cac_TaxScheme": {
-                        "cbc_ID": "VAT"
-                    }
-                },
-                "ID": "S"
-            }
-        }
-        '''  # si de verificat nivelul "cac_Item" care trebuie pastrat doar continutul sau, ie work_cac_item["cac_Item"]
         req_item_info["cac_TaxCategory"]["ID"] = "S"  # acesta este hard coded pentru `xl2roefact` - a face mai mult de atit poate un ERP #TODO subject of documentation update
-        tmp_InvoiceLine_list.append(req_item_info)
+        tmp_InvoiceLine_list.append(tmpCompondedVAT: {req_item_info})  #FIXME original assigned only `req_item_info`. This version assign a "keyed" dict in order to deduplicate and sum (ie, do GROUP BY). #NOTE: keep like that it consider a good solution
     # ...??? build dict parts of final structure
     ...
     return tmp_InvoiceLine_list
