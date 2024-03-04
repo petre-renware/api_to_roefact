@@ -61,9 +61,18 @@ def invoice_taxes_summary(
         # to.get.pieces.of... ["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
         work_cac_item = item_info.get("cac_Item")  # get first level as `dict`
         del work_cac_item["cbc_Name"]  # drop not neede information
-        ...  # continue to get rest of structure from work_cac_item  #NOTE: si nu uita de acesta `<cbc:ID>S</cbc:ID>`
+        # get rest of structure from work_cac_item
+        # ... and temporary make a new compounded key, helper to group the values by it
         req_item_info["cac_TaxCategory"] = work_cac_item
-        req_item_info["cac_TaxCategory"]["ID"] = "S"  # acesta este hard coded pentru `xl2roefact` - a face mai mult de atit poate un ERP #TODO subject of documentation update
+        tmpCompondedVAT = work_cac_item.get("cac_TaxCategory").get("cac_ClassifiedTaxCategory")
+        tmpCompondedVAT = str(tmpCompondedVAT.get("cbc_Percent")) + str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID"))
+        #FIXME up line err `AttributeError: 'NoneType' object has no attribute 'get'`
+        # probably must test when "cac_TaxScheme" is null and not to get "ID" ...
+        # ... anyway avoid "chain of get-s"...
+        req_item_info["tmpCompondedVAT"] = tmpCompondedVAT
+        # ... sum += (ExtAmnt ai VatAmnt) for this key
+        # ... if exists should be updated.
+        # ... if not take care to add with 0 as being first time when add it
         ''' #FIXME dbg can drop. INFORMATIA CREATA pina in acest punct este: :
         {
             "cbc_LineExtensionAmount": 38890.25,
@@ -79,6 +88,7 @@ def invoice_taxes_summary(
             }
         }
         '''  # si de verificat nivelul "cac_Item" care trebuie pastrat doar continutul sau, ie work_cac_item["cac_Item"]
+        req_item_info["cac_TaxCategory"]["ID"] = "S"  # acesta este hard coded pentru `xl2roefact` - a face mai mult de atit poate un ERP #TODO subject of documentation update
         tmp_InvoiceLine_list.append(req_item_info)
     # ...??? build dict parts of final structure
     ...
