@@ -57,13 +57,13 @@ def invoice_taxes_summary(
     for item_info in copyof_invoice_lines[0]:  # keep only real-effective list
         req_item_info = dict()
         req_item_info["cbc_LineExtensionAmount"] = item_info.get("cbc_LineExtensionAmount", 0)
-        req_item_info["LineVatAmount"] = item_info.get("LineVatAmount", 0)  #FIXME #TODO this line must be moved after getting coumpoded val (line 71) and checking that exists, so add it as 1st one or update it by making += the 2 values
+        req_item_info["LineVatAmount"] = item_info.get("LineVatAmount", 0)
         # to.get.pieces.of... ["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
         work_cac_item = item_info.get("cac_Item")  # get first level as `dict`
         del work_cac_item["cbc_Name"]  # drop not neede information
         # get rest of structure from work_cac_item
         # ... and temporary make a new compounded key, helper to group the values by it
-        req_item_info["cac_TaxCategory"] = work_cac_item
+        req_item_info["cac_TaxCategory"] = work_cac_item  #FIXME #TODO this line must be moved after getting coumpoded val (line 71) and checking that exists, so add it as 1st one or update it by making += the 2 values
         tmpCompondedVAT = work_cac_item.get("cac_ClassifiedTaxCategory", dict())  # default return an empty dictionary
         tmpCompondedVAT_1 = str(tmpCompondedVAT.get("cbc_Percent"))
         tmpCompondedVAT_2 = str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID"))
