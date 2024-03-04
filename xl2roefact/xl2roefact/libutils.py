@@ -32,9 +32,25 @@ def invoice_taxes_summary(
         `invoice_lines`: section with item lines from 'big' invoice dictionary
 
     Return:
-        `dict` with required structure as define in ...#FIXME.see.if.keep.thet.detail.and.update.it.with.structure.def.in.wk.file
+        `dict` with required structure
     """
-        
+
+    '''  #FIXME drop.me -- NOTE: STRUCTURA LA CARE TREBUIE SA AJUNGI
+    <cac:TaxTotal>
+        <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
+        <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+                <cbc:ID>S</cbc:ID>
+                <cbc:Percent>19.00</cbc:Percent>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+    '''
     # make a copy and keep only and necessary keys
     copyof_invoice_lines = copy.deepcopy(invoice_lines)
     tmp_InvoiceLine_list = list()
@@ -42,15 +58,30 @@ def invoice_taxes_summary(
         req_item_info = dict()
         req_item_info["cbc_LineExtensionAmount"] = item_info.get("cbc_LineExtensionAmount", 0)
         req_item_info["LineVatAmount"] = item_info.get("LineVatAmount", 0)
-        # to.get.pieces.of... ["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
-        ...
+        # to.get.pieces.of... ["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
+        work_cac_item = item_info.get("cac_Item")  # get first level as `dict`
+        del work_cac_item["cbc_Name"]  # drop not neede information
+        ...  # continue to get rest of structure from work_cac_item  #NOTE: si nu uita de acesta `<cbc:ID>S</cbc:ID>`
+        req_item_info["cac_TaxCategory"] = work_cac_item
+        req_item_info["cac_TaxCategory"]["ID"] = "S"  # acesta este hard coded pentru `xl2roefact` - a face mai mult de atit poate un ERP #TODO subject of documentation update
+        ''' #FIXME dbg can drop. INFORMATIA CREATA pina in acest punct este: :
+        {
+            "cbc_LineExtensionAmount": 38890.25,
+            "LineVatAmount": 7389.15,
+            "cac_TaxCategory": {
+                "cac_ClassifiedTaxCategory": {
+                    "cbc_Percent": 0.19,
+                    "cac_TaxScheme": {
+                        "cbc_ID": "VAT"
+                    }
+                },
+                "ID": "S"
+            }
+        }
+        '''  # si de verificat nivelul "cac_Item" care trebuie pastrat doar continutul sau, ie work_cac_item["cac_Item"]
         tmp_InvoiceLine_list.append(req_item_info)
-    
     # ...??? build dict parts of final structure
-    
     ...
-    
-    
     return tmp_InvoiceLine_list
 
 

@@ -1,7 +1,7 @@
 
 # Structure
 
-Structure to be includ as _invoice footer_ in XML format:
+Structure to be included as _invoice footer_ in XML format:
 
 ```xml
 <cac:TaxTotal>
@@ -30,7 +30,11 @@ cac_TaxTotal = {
     "cac_TaxSubtotal" = [{
         "cbc_TaxableAmount": rounded float,  # taxable value, is the value where the tax will be applied, the total value w/o VAT of an item
         "cbc_TaxAmount": rounded float,  # is the tax resulted from application on `cbc_TaxableAmount` === `LineVatAmount`
-        # ... and next keys are just from peoduct line keys...
+        # next keys are identically get from `["cac_Item"]["cac_ClassifiedTaxCategory"]`
+        "cbc_Percent": rounded float,
+        "cac_TaxScheme": {
+            "cbc_ID": "VAT"
+        }
     },
     {...},  # ...another product iteration here, for prev_dict in Invoice big dict
 ]
@@ -48,9 +52,10 @@ cac_TaxTotal = {
 
 SELECT
     cbc_TaxableAmount as
-        SUM(tmp_InvoiceLine_list["cbc_LineExtensionAmount"])
+        SUM(tmp_InvoiceLine_list["cbc_LineExtensionAmount"]),
     cbc_TaxAmount as
-        SUM(tmp_InvoiceLine_list["LineVatAmount"])
+        SUM(tmp_InvoiceLine_list["LineVatAmount"]),
+    cac_Item, cac_ClassifiedTaxCategory  -- got as is from corresponding hierarchy
    VAT_percet_from_group_by
 WHERE
     tmp_InvoiceLine_list["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"

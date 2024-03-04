@@ -139,30 +139,75 @@
         "cac_TaxTotal": [
             {
                 "cbc_LineExtensionAmount": 38890.25,
-                "LineVatAmount": 7389.15
+                "LineVatAmount": 7389.15,
+                "cac_TaxCategory": {
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": 0.19,
+                        "cac_TaxScheme": {
+                            "cbc_ID": "VAT"
+                        }
+                    },
+                    "ID": "S"
+                }
             },
             {
                 "cbc_LineExtensionAmount": null,
-                "LineVatAmount": null
+                "LineVatAmount": null,
+                "cac_TaxCategory": {
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": null,
+                        "cac_TaxScheme": {
+                            "cbc_ID": null
+                        }
+                    },
+                    "ID": "S"
+                }
             },
             {
                 "cbc_LineExtensionAmount": null,
-                "LineVatAmount": null
+                "LineVatAmount": null,
+                "cac_TaxCategory": {
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": null,
+                        "cac_TaxScheme": {
+                            "cbc_ID": null
+                        }
+                    },
+                    "ID": "S"
+                }
             },
             {
                 "cbc_LineExtensionAmount": null,
-                "LineVatAmount": null
+                "LineVatAmount": null,
+                "cac_TaxCategory": {
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": null,
+                        "cac_TaxScheme": {
+                            "cbc_ID": null
+                        }
+                    },
+                    "ID": "S"
+                }
             },
             {
                 "cbc_LineExtensionAmount": 111.11,
-                "LineVatAmount": 0.0
+                "LineVatAmount": 0.0,
+                "cac_TaxCategory": {
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": null,
+                        "cac_TaxScheme": {
+                            "cbc_ID": null
+                        }
+                    },
+                    "ID": "S"
+                }
             }
         ]
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-03-03T19:38:06.634633+00:00",
+        "last_processing_time": "2024-03-04T02:40:01.286856+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
