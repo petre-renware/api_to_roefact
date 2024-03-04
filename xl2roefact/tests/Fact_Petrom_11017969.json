@@ -108,7 +108,8 @@
                         }
                     },
                     "ID": "S"
-                }
+                },
+                "tmpCompondedVAT": "0.19VAT"
             },
             {
                 "cbc_LineExtensionAmount": null,
@@ -121,7 +122,8 @@
                         }
                     },
                     "ID": "S"
-                }
+                },
+                "tmpCompondedVAT": "NoneNone"
             },
             {
                 "cbc_LineExtensionAmount": 855.12,
@@ -134,14 +136,15 @@
                         }
                     },
                     "ID": "S"
-                }
+                },
+                "tmpCompondedVAT": "0.0VAT"
             }
         ]
     },
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-03-04T02:40:01.138453+00:00",
+        "last_processing_time": "2024-03-04T05:35:34.135906+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
