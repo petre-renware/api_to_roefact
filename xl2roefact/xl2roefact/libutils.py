@@ -65,7 +65,8 @@ def invoice_taxes_summary(
         # ... and temporary make a new compounded key, helper to group the values by it
         req_item_info["cac_TaxCategory"] = work_cac_item
         tmpCompondedVAT = work_cac_item.get("cac_TaxCategory").get("cac_ClassifiedTaxCategory")
-        tmpCompondedVAT = str(tmpCompondedVAT.get("cbc_Percent")) + str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID"))
+        tmpCompondedVAT = str(tmpCompondedVAT.get("cbc_Percent"))
+        tmpCompondedVAT = tmpCompondedVAT + str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID"))
         #FIXME up line err `AttributeError: 'NoneType' object has no attribute 'get'`
         # probably must test when "cac_TaxScheme" is null and not to get "ID" ...
         # ... anyway avoid "chain of get-s"...
