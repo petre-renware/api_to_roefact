@@ -66,8 +66,11 @@ def invoice_taxes_summary(
         req_item_info["cac_TaxCategory"] = work_cac_item
         tmpCompondedVAT = work_cac_item.get("cac_TaxCategory").get("cac_ClassifiedTaxCategory")
         tmpCompondedVAT = str(tmpCompondedVAT.get("cbc_Percent")) + 
-                          str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID“))
+                          str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID"))
         req_item_info["tmpCompondedVAT"] = tmpCompondedVAT
+        # ... sum += (ExtAmnt ai VatAmnt) for this key
+        # ... if exists should be updated.
+        # ... if not take care to add with 0 as being first time when add it
         ''' #FIXME dbg can drop. INFORMATIA CREATA pina in acest punct este: :
         {
             "cbc_LineExtensionAmount": 38890.25,
