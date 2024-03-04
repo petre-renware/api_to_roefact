@@ -69,6 +69,11 @@ def invoice_taxes_summary(
         tmpCompondedVAT_2 = str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID"))
         tmpCompondedVAT = tmpCompondedVAT_1 + tmpCompondedVAT_2
         req_item_info["tmpCompondedVAT"] = tmpCompondedVAT
+        ''' #NOTE: kind of keys resulted (to see GROUP BY combinations)
+            "tmpCompondedVAT": "0.19VAT"
+            "tmpCompondedVAT": "NoneNone"
+            "tmpCompondedVAT": "0.0VAT"
+        '''  #NOTE: these are subject of GROUP BY sum
         # ... sum += (ExtAmnt ai VatAmnt) for this key
         # ... if exists should be updated.
         # ... if not take care to add with 0 as being first time when add it
