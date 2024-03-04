@@ -1,0 +1,21 @@
+*** Application xl2roefact launched at 2024-03-04 07:47:23.446888
+INFO note: files to process: 
+/home/runner/work/api_to_roefact/api_to_roefact/xl2roefact/tests/*.xlsx
+*** Module rdinv started at 2024-03-04 07:47:23.450527 to process file 
+Fact_Petrom_11017969.xlsx (full path: 
+/home/runner/work/api_to_roefact/api_to_roefact/xl2roefact/tests/Fact_Petrom_110
+17969.xlsx)
+INFO note: `rdinv` module, no worksheet specified, will open first one: 
+'Factura(Invoice)'
+INFO note: `rdinv` module, written invoice JSON data to: 
+/home/runner/work/api_to_roefact/api_to_roefact/xl2roefact/tests/Fact_Petrom_110
+17969.json
+*** Module rdinv started at 2024-03-04 07:47:23.500927 to process file 
+fact_RENF1004.xlsx (full path: 
+/home/runner/work/api_to_roefact/api_to_roefact/xl2roefact/tests/fact_RENF1004.x
+lsx)
+INFO note: `rdinv` module, no worksheet specified, will open first one: 'FACTURA
+FINALA'
+INFO note: `rdinv` module, written invoice JSON data to: 
+/home/runner/work/api_to_roefact/api_to_roefact/xl2roefact/tests/fact_RENF1004.j
+son
