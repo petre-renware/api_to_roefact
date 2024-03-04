@@ -61,7 +61,7 @@
     * [x] 1. prepared a work file `xl2roefact/tests/__wk_invoice_tax_total.md` with dev specs & TODOs
     * [x] 2. defined calculation formulas in `xl2roefact/tests/__wk_invoice_tax_total.md`
     * [x] 3. made a function skeleton `invoice_taxes_summary(invoice_lines: list[dict])` in `libutils` that calculates whole required structure. Receive as parameter the `Invoice dict` part related to items list, ie existing variable `tmp_InvoiceLine_list`
-    * [ ] 4. #NOTE: wip.@.line.69... effective code of item 3. function `libutils.invoice_taxes_summary(...)`
+    * [ ] 4. #NOTE: wip.@.line.71... effective code of item 3. function `libutils.invoice_taxes_summary(...)`
     * [ ] ...
     * [ ] update JSON example used in documentation
     * [x] updated version number of xl2roefact app (component & mkdocs.yml)
