@@ -78,12 +78,12 @@ def invoice_taxes_summary(
         # ... if exists should be updated.
         # ... if not take care to add with 0 as being first time when add it
         req_item_info["cac_TaxCategory"]["ID"] = "S"  # acesta este hard coded pentru `xl2roefact` - a face mai mult de atit poate un ERP #TODO subject of documentation update
-        tmp_InvoiceLine_list.append(tmpCompondedVAT: {req_item_info})  #FIXME original assigned only `req_item_info`. This version assign a "keyed" dict in order to deduplicate and sum (ie, do GROUP BY). #NOTE: keep like that it consider a good solution
-        ```  # ERROR: revert to prev line after error text
+        #FIXME.SYNTAX.ERR    tmp_InvoiceLine_list.append(tmpCompondedVAT: {req_item_info})  #FIXME original assigned only `req_item_info`. This version assign a "keyed" dict in order to deduplicate and sum (ie, do GROUP BY). #NOTE: keep like that it consider a good solution
+        '''  # ERROR: revert to prev line after error text
         libutils.py", line 81
         tmp_InvoiceLine_list.append(tmpCompondedVAT: {req_item_info})  #FIXME original assigned only `req_item_info`. This version assign a "keyed" dict in order to deduplicate and sum (ie, do GROUP BY). #NOTE: keep like that it consider a good solution      ^^^
         SyntaxError: invalid syntax
-        ```  #FIXME next is reverted / previous line because error. drop when fixed
+        '''  #FIXME next is reverted / previous line because error. drop when fixed
         tmp_InvoiceLine_list.append(req_item_info)
         
     # ...??? build dict final dict structure (as commented at start of this function)
