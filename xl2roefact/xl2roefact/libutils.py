@@ -65,7 +65,8 @@ def invoice_taxes_summary(
         # ... and temporary make a new compounded key, helper to group the values by it
         req_item_info["cac_TaxCategory"] = work_cac_item
         tmpCompondedVAT = work_cac_item.get("cac_TaxCategory").get("cac_ClassifiedTaxCategory")
-        tmpCompondedVAT = str(tmpCompondedVAT.get(...)) + str(tmpCompondedVAT.get(...))
+        tmpCompondedVAT = str(tmpCompondedVAT.get("cbc_Percent")) + 
+                          str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID“))
         req_item_info["tmpCompondedVAT"] = tmpCompondedVAT
         ''' #FIXME dbg can drop. INFORMATIA CREATA pina in acest punct este: :
         {
