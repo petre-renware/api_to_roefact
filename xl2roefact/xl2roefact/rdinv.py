@@ -413,7 +413,9 @@ def rdinv(
                 "cbc_PayableAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
             },
             "cac_TaxTotal": {  #FIXME drop.me -- NOTE: ptr STRUCTURA LA CARE TREBUIE SA AJUNGI vezi dupa ce se inchide `}` dictionarul este un long comment cu referinta aici
-                # TODO: ... hereuare ... to chk & clean code 
+                # TODO: ... hereuare ... to chk & clean code
+                #FIXME err@419 `TypeError: string indices must be integers`
+                #FIXME ... don't see it as dict ???
                 "cbc_TaxAmount": sum([i["cbc_TaxAmount"] for i in tmp_cac_TaxSummary[0]]),
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
