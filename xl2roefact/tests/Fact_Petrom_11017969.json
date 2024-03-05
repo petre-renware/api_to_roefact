@@ -96,55 +96,55 @@
             "cbc_TaxInclusiveAmount": 51734.0,
             "cbc_PayableAmount": 51734.0
         },
-        "cac_TaxTotal": [
-            {
-                "cbc_LineExtensionAmount": 42756.08,
-                "LineVatAmount": 8123.66,
-                "cac_TaxCategory": {
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": 0.19,
-                        "cac_TaxScheme": {
-                            "cbc_ID": "VAT"
-                        }
-                    },
-                    "ID": "S"
+        "cac_TaxTotal": {
+            "cbc_TaxAmount": "...wip... SUM of `cac_TaxSubtotal['cbc_TaxAmount']` key",
+            "cac_TaxSubtotal": [
+                {
+                    "cbc_TaxableAmount": 42756.08,
+                    "cbc_TaxAmount": 8123.66,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": 0.19,
+                            "cac_TaxScheme": {
+                                "cbc_ID": "VAT"
+                            }
+                        },
+                        "ID": "S"
+                    }
                 },
-                "tmpCompondedVAT": "0.19VAT"
-            },
-            {
-                "cbc_LineExtensionAmount": null,
-                "LineVatAmount": null,
-                "cac_TaxCategory": {
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": null,
-                        "cac_TaxScheme": {
-                            "cbc_ID": null
-                        }
-                    },
-                    "ID": "S"
+                {
+                    "cbc_TaxableAmount": null,
+                    "cbc_TaxAmount": null,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": null,
+                            "cac_TaxScheme": {
+                                "cbc_ID": null
+                            }
+                        },
+                        "ID": "S"
+                    }
                 },
-                "tmpCompondedVAT": "NoneNone"
-            },
-            {
-                "cbc_LineExtensionAmount": 855.12,
-                "LineVatAmount": 0.0,
-                "cac_TaxCategory": {
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": 0.0,
-                        "cac_TaxScheme": {
-                            "cbc_ID": "VAT"
-                        }
-                    },
-                    "ID": "S"
-                },
-                "tmpCompondedVAT": "0.0VAT"
-            }
-        ]
+                {
+                    "cbc_TaxableAmount": 855.12,
+                    "cbc_TaxAmount": 0.0,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": 0.0,
+                            "cac_TaxScheme": {
+                                "cbc_ID": "VAT"
+                            }
+                        },
+                        "ID": "S"
+                    }
+                }
+            ]
+        }
     },
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-03-04T14:32:09.400886+00:00",
+        "last_processing_time": "2024-03-05T01:35:52.782261+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,

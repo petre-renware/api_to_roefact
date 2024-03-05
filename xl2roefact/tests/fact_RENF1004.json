@@ -136,83 +136,42 @@
             "cbc_TaxInclusiveAmount": 46390.0,
             "cbc_PayableAmount": 46390.0
         },
-        "cac_TaxTotal": [
-            {
-                "cbc_LineExtensionAmount": 38890.25,
-                "LineVatAmount": 7389.15,
-                "cac_TaxCategory": {
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": 0.19,
-                        "cac_TaxScheme": {
-                            "cbc_ID": "VAT"
-                        }
-                    },
-                    "ID": "S"
+        "cac_TaxTotal": {
+            "cbc_TaxAmount": "...wip... SUM of `cac_TaxSubtotal['cbc_TaxAmount']` key",
+            "cac_TaxSubtotal": [
+                {
+                    "cbc_TaxableAmount": 38890.25,
+                    "cbc_TaxAmount": 7389.15,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": 0.19,
+                            "cac_TaxScheme": {
+                                "cbc_ID": "VAT"
+                            }
+                        },
+                        "ID": "S"
+                    }
                 },
-                "tmpCompondedVAT": "0.19VAT"
-            },
-            {
-                "cbc_LineExtensionAmount": null,
-                "LineVatAmount": null,
-                "cac_TaxCategory": {
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": null,
-                        "cac_TaxScheme": {
-                            "cbc_ID": null
-                        }
-                    },
-                    "ID": "S"
-                },
-                "tmpCompondedVAT": "NoneNone"
-            },
-            {
-                "cbc_LineExtensionAmount": null,
-                "LineVatAmount": null,
-                "cac_TaxCategory": {
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": null,
-                        "cac_TaxScheme": {
-                            "cbc_ID": null
-                        }
-                    },
-                    "ID": "S"
-                },
-                "tmpCompondedVAT": "NoneNone"
-            },
-            {
-                "cbc_LineExtensionAmount": null,
-                "LineVatAmount": null,
-                "cac_TaxCategory": {
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": null,
-                        "cac_TaxScheme": {
-                            "cbc_ID": null
-                        }
-                    },
-                    "ID": "S"
-                },
-                "tmpCompondedVAT": "NoneNone"
-            },
-            {
-                "cbc_LineExtensionAmount": 111.11,
-                "LineVatAmount": 0.0,
-                "cac_TaxCategory": {
-                    "cac_ClassifiedTaxCategory": {
-                        "cbc_Percent": null,
-                        "cac_TaxScheme": {
-                            "cbc_ID": null
-                        }
-                    },
-                    "ID": "S"
-                },
-                "tmpCompondedVAT": "NoneNone"
-            }
-        ]
+                {
+                    "cbc_TaxableAmount": null,
+                    "cbc_TaxAmount": null,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": null,
+                            "cac_TaxScheme": {
+                                "cbc_ID": null
+                            }
+                        },
+                        "ID": "S"
+                    }
+                }
+            ]
+        }
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-03-04T14:32:09.463385+00:00",
+        "last_processing_time": "2024-03-05T01:35:52.870745+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,

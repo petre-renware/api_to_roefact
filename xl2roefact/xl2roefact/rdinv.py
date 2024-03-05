@@ -383,7 +383,7 @@ def rdinv(
         cbc_LineExtensionAmount = sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]),
         LineVatAmount = sum([dict_sum_by_key(i, "LineVatAmount") for i in tmp_InvoiceLine_list]),
     )  # reusable calculations to be used in next code. see details in issue `0.3.0b+240302piu01`
-    tmp_cac_TaxTotal = invoice_taxes_summary(tmp_InvoiceLine_list)  # invoke invoice tax summary calculation
+    tmp_cac_TaxSummary = invoice_taxes_summary(tmp_InvoiceLine_list)  # invoke invoice tax summary calculation
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
@@ -412,8 +412,11 @@ def rdinv(
                 "cbc_TaxInclusiveAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
                 "cbc_PayableAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
             },
-            # TODO: ............................ hereuare
-            "cac_TaxTotal": copy.deepcopy(tmp_cac_TaxTotal),
+            "cac_TaxTotal": {  #FIXME drop.me -- NOTE: ptr STRUCTURA LA CARE TREBUIE SA AJUNGI vezi dupa ce se inchide `}` dictionarul este un long comment cu referinta aici
+                # TODO: ............................ hereuare
+                "cbc_TaxAmount": "...wip... SUM of `cac_TaxSubtotal['cbc_TaxAmount']` key",
+                "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
+            },
             # TODO: ............................ hereuare code: structure values and !-update XLM-JSON map
         },
         "meta_info": copy.deepcopy(meta_info),
@@ -423,6 +426,22 @@ def rdinv(
             invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO wip... TBD-(cac_TaxTotal) / RDY-(cac_LegalMonetaryTotal
         ),
     }
+    '''#FIXME drop.me -- NOTE: ref `cac_TaxTotal` STRUCTURA LA CARE TREBUIE SA AJUNGI ...
+    <cac:TaxTotal>
+        <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
+        <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+                <cbc:ID>S</cbc:ID>
+                <cbc:Percent>19.00</cbc:Percent>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+'''
     #
     # write `invoice` dict to file `f-JSON`
     """ useful notes ref `f-JSON`:

@@ -22,77 +22,56 @@ from fractions import Fraction
 import copy
 
 
-# NOTE: wip...
+
+# NOTE: ready, unit test PASS @240305
 def invoice_taxes_summary(
     invoice_lines: list[dict]
-) -> dict:
+) -> list:
     """Calculates invoice taxes summary as required by ROefact requirements.
 
     Args:
         `invoice_lines`: section with item lines from 'big' invoice dictionary
 
     Return:
-        `dict` with required structure
+        `list` usable for "cac_TaxSubtotal" key
     """
-
-    '''  #FIXME drop.me -- NOTE: STRUCTURA LA CARE TREBUIE SA AJUNGI
-    <cac:TaxTotal>
-        <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
-        <cac:TaxSubtotal>
-            <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
-            <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
-            <cac:TaxCategory>
-                <cbc:ID>S</cbc:ID>
-                <cbc:Percent>19.00</cbc:Percent>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
-            </cac:TaxCategory>
-        </cac:TaxSubtotal>
-    </cac:TaxTotal>
-    '''
-    # make a copy and keep only and necessary keys
-    copyof_invoice_lines = copy.deepcopy(invoice_lines)[0]  # keep only real-effective list
-    tmp_InvoiceLine_list = list()
+    copyof_invoice_lines = copy.deepcopy(invoice_lines)[0]  # make a copy and keep only real-effective list (first item of)
+    tmp_InvoiceLine_dict = dict()
+    tmpCompondedVAT_list = list()  # intended to keep found `VAT_types-Percent` combinations (ie, to do opera SQL-UPSERT like)
     for item_info in copyof_invoice_lines:
         req_item_info = dict()
-        req_item_info["cbc_LineExtensionAmount"] = item_info.get("cbc_LineExtensionAmount", 0)
-        req_item_info["LineVatAmount"] = item_info.get("LineVatAmount", 0)
-        # to.get.pieces.of... ["cac_Item"]["cac_ClassifiedTaxCategory"]["cbc_Percent"]["cac_TaxScheme"]["cbc_ID"] == "VAT"
+        req_item_info["cbc_TaxableAmount"] = item_info.get("cbc_LineExtensionAmount", 0)
+        req_item_info["cbc_TaxAmount"] = item_info.get("LineVatAmount", 0)
         work_cac_item = item_info.get("cac_Item")  # get first level as `dict`
         del work_cac_item["cbc_Name"]  # drop not neede information
-        # get rest of structure from work_cac_item
-        # ... and temporary make a new compounded key, helper to group the values by it
-        req_item_info["cac_TaxCategory"] = work_cac_item  #FIXME #TODO this line must be moved after getting coumpoded val (line 71) and checking that exists, so add it as 1st one or update it by making += the 2 values
+        # temporary make a new compounded key as helper to GROUP the values by it (SQL GROUP BY like)
+        req_item_info["cac_TaxCategory"] = work_cac_item
         tmpCompondedVAT = work_cac_item.get("cac_ClassifiedTaxCategory", dict())  # default return an empty dictionary
         tmpCompondedVAT_1 = str(tmpCompondedVAT.get("cbc_Percent"))
         tmpCompondedVAT_2 = str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID"))
         tmpCompondedVAT = tmpCompondedVAT_1 + tmpCompondedVAT_2
-        req_item_info["tmpCompondedVAT"] = tmpCompondedVAT
-        ''' #NOTE: kind of keys resulted (to see GROUP BY combinations)
-            "tmpCompondedVAT": "0.19VAT"
-            "tmpCompondedVAT": "NoneNone"
-            "tmpCompondedVAT": "0.0VAT"
-        '''  #NOTE: these are subject of GROUP BY sum
-        # ... sum += (ExtAmnt ai VatAmnt) for this key
-        # ... if exists should be updated.
-        # ... if not take care to add with 0 as being first time when add it
-        req_item_info["cac_TaxCategory"]["ID"] = "S"  # acesta este hard coded pentru `xl2roefact` - a face mai mult de atit poate un ERP #TODO subject of documentation update
-        #FIXME.SYNTAX.ERR    tmp_InvoiceLine_list.append(tmpCompondedVAT: {req_item_info})  #FIXME original assigned only `req_item_info`. This version assign a "keyed" dict in order to deduplicate and sum (ie, do GROUP BY). #NOTE: keep like that it consider a good solution
-        '''  # ERROR: revert to prev line after error text
-        libutils.py", line 81
-        tmp_InvoiceLine_list.append(tmpCompondedVAT: {req_item_info})  #FIXME original assigned only `req_item_info`. This version assign a "keyed" dict in order to deduplicate and sum (ie, do GROUP BY). #NOTE: keep like that it consider a good solution      ^^^
-        SyntaxError: invalid syntax
-        '''  #FIXME next is reverted / previous line because error. drop when fixed
-        tmp_InvoiceLine_list.append(req_item_info)
-        
-    # ...??? build dict final dict structure (as commented at start of this function)
-    ...
+        #NOTE: acesta este hard coded in `xl2roefact`. Nu se va face mai mult de atit, variante cu alte TaxCategory fiind pentru un alt ERP  #TODO subject of documentation update
+        req_item_info["cac_TaxCategory"]["ID"] = "S"  # NOTE: hard coded. see previous comment
+        # next calc do SQL-UPSERT operation like
+        if tmpCompondedVAT in tmpCompondedVAT_list:  # this info already exists, so adjust info for SQL-UPSERT like operation
+            _prev_cbc_TaxableAmount = tmp_InvoiceLine_dict[tmpCompondedVAT]["cbc_TaxableAmount"]
+            _prev_cbc_TaxAmount = tmp_InvoiceLine_dict[tmpCompondedVAT]["cbc_TaxAmount"]
+            _actual_cbc_TaxableAmount = req_item_info["cbc_TaxableAmount"]
+            _actual_cbc_TaxAmount = req_item_info["cbc_TaxAmount"]
+            if (_actual_cbc_TaxableAmount is None) or (_prev_cbc_TaxableAmount is None):  # let unchanged (as was)
+                req_item_info["cbc_TaxableAmount"] = _prev_cbc_TaxableAmount
+            else:  # add with prev value
+                req_item_info["cbc_TaxableAmount"] = _actual_cbc_TaxableAmount + _prev_cbc_TaxableAmount
+            if (_actual_cbc_TaxAmount is None) or (_prev_cbc_TaxAmount is None):  # let unchanged (as was)
+                req_item_info["cbc_TaxAmount"] = _prev_cbc_TaxAmount
+            else:  # add with prev value
+                req_item_info["cbc_TaxAmount"] = _actual_cbc_TaxableAmount + _prev_cbc_TaxAmount
+        else:
+            tmpCompondedVAT_list.append(tmpCompondedVAT)  # mark it as found
+        tmp_InvoiceLine_dict[tmpCompondedVAT] = req_item_info
+    # extract values of 1st level keys and preserve as list
+    tmp_InvoiceLine_list = [tmp_InvoiceLine_dict[i] for i in tmp_InvoiceLine_dict]  # keep only values of "CompondedVAT" constructed keys
     return tmp_InvoiceLine_list
-
-
-
-
 
 
 
