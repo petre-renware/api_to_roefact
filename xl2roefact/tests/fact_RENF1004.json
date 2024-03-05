@@ -137,7 +137,7 @@
             "cbc_PayableAmount": 46390.0
         },
         "cac_TaxTotal": {
-            "cbc_TaxAmount": "...wip... SUM of `cac_TaxSubtotal['cbc_TaxAmount']` key",
+            "cbc_TaxAmount": 7389.15,
             "cac_TaxSubtotal": [
                 {
                     "cbc_TaxableAmount": 38890.25,
@@ -171,7 +171,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-03-05T01:57:04.099601+00:00",
+        "last_processing_time": "2024-03-05T08:17:15.606834+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
