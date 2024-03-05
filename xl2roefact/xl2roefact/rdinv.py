@@ -413,11 +413,11 @@ def rdinv(
                 "cbc_PayableAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
             },
             "cac_TaxTotal": {  #FIXME drop.me -- NOTE: ptr STRUCTURA LA CARE TREBUIE SA AJUNGI vezi dupa ce se inchide `}` dictionarul este un long comment cu referinta aici
-                # TODO: ............................ hereuare
-                "cbc_TaxAmount": sum([i["cbc_TaxAmount"] for i in tmp_cac_TaxSummary]),
+                # TODO: ... hereuare ... to chk & clean code 
+                "cbc_TaxAmount": sum([i["cbc_TaxAmount"] for i in tmp_cac_TaxSummary[0]]),
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
-            # TODO: ............................ hereuare code: structure values and check XLM-JSON map
+            # TODO: ............................ hereuare code: remained structure values and check XLM-JSON map
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
@@ -441,7 +441,7 @@ def rdinv(
             </cac:TaxCategory>
         </cac:TaxSubtotal>
     </cac:TaxTotal>
-'''
+    '''
     #
     # write `invoice` dict to file `f-JSON`
     """ useful notes ref `f-JSON`:
@@ -470,12 +470,12 @@ def rdinv(
 
 # #NOTE - ready, test PASS @ 231212 by [piu]
 def get_excel_data_at_label(
-        pattern_to_search_for: list[str],
-        worksheet: xl.Database.ws,
-        area_to_scan: list[list[int]] = None,
-        targeted_type: Callable = str,
-        down_search_try: bool = True
-    ) -> dict:
+    pattern_to_search_for: list[str],
+    worksheet: xl.Database.ws,
+    area_to_scan: list[list[int]] = None,
+    targeted_type: Callable = str,
+    down_search_try: bool = True
+) -> dict:
     """get "one key Excel values", like invoice number or invoice issue date.
 
     Args:
@@ -575,7 +575,7 @@ def get_excel_data_at_label(
 
 
 # #NOTE - ready, test PASS @ 231126 by [piu]
-def mk_kv_invoice_items_area(invoice_items_area_xl_format):
+def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
     """transform `invoice_items_area` in "canonical JSON format" (as kv pairs).
 
     Args:
@@ -682,7 +682,11 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format):
 
 
 # #NOTE - ready, test PASS @ 231121 by [piu]
-def get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
+def get_invoice_items_area(
+    worksheet,
+    invoice_items_area_marker,
+    wks_name
+) -> dict:
     """get invoice for `invoice_items_area`, process it and return its Excel format.
 
     Process steps & notes:
@@ -775,7 +779,11 @@ def get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
 
 
 # #NOTE - ready, test PASS @ 231111 by [piu]
-def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name, keep_cells_of_items_ssd_marker = None):
+def _get_merged_cells_tobe_changed(
+    file_to_scan,
+    invoice_worksheet_name,
+    keep_cells_of_items_ssd_marker = None
+) -> list:
     """scan Excel file to detect all merged ranges.
 
     Args:
@@ -844,11 +852,13 @@ def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name, keep_ce
 
 
 # #NOTE - ready, test PASS @ 231127 by [piu]
-def _build_meta_info_key(excel_file_to_process: str,
-                         invoice_worksheet_name: str,
-                         ws_size: list,
-                         keyword_for_items_table_marker: str,
-                         found_cell: list) -> dict:
+def _build_meta_info_key(
+    excel_file_to_process: str,
+    invoice_worksheet_name: str,
+    ws_size: list,
+    keyword_for_items_table_marker: str,
+    found_cell: list
+) -> dict:
     """build meta_info key to preserve processed Excel file meta information: start address, size.
 
     Notes:
