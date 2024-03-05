@@ -412,8 +412,7 @@ def rdinv(
                 "cbc_TaxInclusiveAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
                 "cbc_PayableAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
             },
-            "cac_TaxTotal": {  #FIXME drop.me -- NOTE: ptr STRUCTURA LA CARE TREBUIE SA AJUNGI vezi dupa ce se inchide `}` dictionarul este un long comment cu referinta aici
-                # TODO: ... hereuare ... to chk TaxTotal completeness & clean code
+            "cac_TaxTotal": {
                 "cbc_TaxAmount": round(sum([i["cbc_TaxAmount"] if i["cbc_TaxAmount"] is not None else 0 for i in tmp_cac_TaxSummary]), 2),
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
@@ -426,22 +425,6 @@ def rdinv(
             invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO wip... TBD-(cac_TaxTotal) / RDY-(cac_LegalMonetaryTotal
         ),
     }
-    '''#FIXME drop.me -- NOTE: ref `cac_TaxTotal` STRUCTURA LA CARE TREBUIE SA AJUNGI ...
-    <cac:TaxTotal>
-        <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
-        <cac:TaxSubtotal>
-            <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
-            <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
-            <cac:TaxCategory>
-                <cbc:ID>S</cbc:ID>
-                <cbc:Percent>19.00</cbc:Percent>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
-            </cac:TaxCategory>
-        </cac:TaxSubtotal>
-    </cac:TaxTotal>
-    '''
     #
     # write `invoice` dict to file `f-JSON`
     """ useful notes ref `f-JSON`:
