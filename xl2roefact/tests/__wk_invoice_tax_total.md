@@ -67,22 +67,13 @@ GROUP BY
 
 
 
-# XMLGJSON map
+# XML-JSON map
 
 ```python
-
 ("cac_TaxTotal", "cac:TaxTotal"),
 ("cbc_TaxAmount", "cbc:TaxAmount"),
 ("cac_TaxSubtotal", "cac:TaxSubtotal"),
 ("cbc_TaxableAmount", "cbc:TaxableAmount"),
-
-# NOTE: items that could already exists in map. TO CHECK.
-
 ("cac_TaxCategory", "cac:TaxCategory"),
-("cbc_Percent", "cbc:Percent"),
-("cbc_ID", "cbc:ID"),
-("cac_TaxScheme", "cac:TaxScheme"),
-
-
 ```
 

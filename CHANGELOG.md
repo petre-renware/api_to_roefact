@@ -62,12 +62,14 @@
     * [x] 2. defined calculation formulas in `xl2roefact/tests/__wk_invoice_tax_total.md`
     * [x] 3. made a function skeleton `invoice_taxes_summary(invoice_lines: list[dict])` in `libutils` that calculates whole required structure. Receive as parameter the `Invoice dict` part related to items list, ie existing variable `tmp_InvoiceLine_list`
     * [x] 4. calculated `cac_TaxTotal` calculation code of item 3. in function `libutils.invoice_taxes_summary(...)`. Code test PASS. Function closed
-    * [ ] 5. ... obtain cbc_TaxAmount #NOTE rdinv.py line 416
+    * [x] 5. updated XML-JSON map
+    * [ ] 6. ... obtain cbc_TaxAmount #NOTE rdinv.py line 416
     * [ ] ...
     * [ ] update JSON example used in documentation
     * [x] updated version number of xl2roefact app (component & mkdocs.yml)
     * [ ] build version deliverables (incl DLD doc)
     * [ ] build site & publish
+    * [ ] clean code, drop `xl2roefact/tests/__wk_invoice_tax_total.md`
 
 * `240301piu02` refactored `xl2roefact/invoice_files/` to `xl2roefact/refact_xml_models_and_specs/`
 * `240302piu01` updated `xl2rofact.rdinv` function, area commented "...build final structure..." created variable `_tmp_reusable_items: dict` to keep "partial variables" that are calculated and potentially will be reused in next code

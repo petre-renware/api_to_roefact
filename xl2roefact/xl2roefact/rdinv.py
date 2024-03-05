@@ -417,7 +417,7 @@ def rdinv(
                 "cbc_TaxAmount": "...wip... SUM of `cac_TaxSubtotal['cbc_TaxAmount']` key",
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
-            # TODO: ............................ hereuare code: structure values and !-update XLM-JSON map
+            # TODO: ............................ hereuare code: structure values and check XLM-JSON map
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
@@ -897,7 +897,6 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_PriceAmount", "cbc:PriceAmount"),
         ("cbc_currencyID", "cbc:currencyID"),  # this is attribute of more tags (all monetary tags)
         ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount"),
-        ("cbc_ID", "cbc:ID"),  # invoice number
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
         ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
         ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer information - MASTER RECORD
@@ -923,7 +922,11 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_TaxExclusiveAmount", "cbc:TaxExclusiveAmount"),  # summary item
         ("cbc_TaxInclusiveAmount", "cbc:TaxInclusiveAmount",),  # summary item
         ("cbc_PayableAmount", "cbc:PayableAmount"),  # summary item
-
+        ("cac_TaxTotal", "cac:TaxTotal"),  # specific for Tax Summary section
+        ("cbc_TaxAmount", "cbc:TaxAmount"),  # specific for Tax Summary section
+        ("cac_TaxSubtotal", "cac:TaxSubtotal"),  # specific for Tax Summary section
+        ("cbc_TaxableAmount", "cbc:TaxableAmount"),  # specific for Tax Summary section
+        ("cac_TaxCategory", "cac:TaxCategory"),  # specific for Tax Summary section
         #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 

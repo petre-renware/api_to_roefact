@@ -144,7 +144,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-03-05T01:35:52.782261+00:00",
+        "last_processing_time": "2024-03-05T01:57:04.011638+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -213,10 +213,6 @@
             [
                 "cbc_LineExtensionAmount",
                 "cbc:LineExtensionAmount"
-            ],
-            [
-                "cbc_ID",
-                "cbc:ID"
             ],
             [
                 "cbc_DocumentCurrencyCode",
@@ -317,6 +313,26 @@
             [
                 "cbc_PayableAmount",
                 "cbc:PayableAmount"
+            ],
+            [
+                "cac_TaxTotal",
+                "cac:TaxTotal"
+            ],
+            [
+                "cbc_TaxAmount",
+                "cbc:TaxAmount"
+            ],
+            [
+                "cac_TaxSubtotal",
+                "cac:TaxSubtotal"
+            ],
+            [
+                "cbc_TaxableAmount",
+                "cbc:TaxableAmount"
+            ],
+            [
+                "cac_TaxCategory",
+                "cac:TaxCategory"
             ]
         ]
     },
