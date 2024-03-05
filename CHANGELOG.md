@@ -66,7 +66,7 @@
     * [x] 4. calculated `cac_TaxTotal` calculation code of item 3. in function `libutils.invoice_taxes_summary(...)`. Code test PASS. Function closed
     * [x] 5. updated XML-JSON map
     * [x] 6. calculated cbc_TaxAmount
-    * [ ] 7. update JSON example used in documentation
+    * [x] 7. update JSON example used in documentation
     * [x] 8. updated version number of xl2roefact app (component & mkdocs.yml)
     * [x] 9. run `pdm build_all` ==> version deliverables incl DLD doc
     * [ ] 10.a build site & publish
