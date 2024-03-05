@@ -414,7 +414,7 @@ def rdinv(
             },
             "cac_TaxTotal": {  #FIXME drop.me -- NOTE: ptr STRUCTURA LA CARE TREBUIE SA AJUNGI vezi dupa ce se inchide `}` dictionarul este un long comment cu referinta aici
                 # TODO: ............................ hereuare
-                "cbc_TaxAmount": "...wip... SUM of `cac_TaxSubtotal['cbc_TaxAmount']` key",
+                "cbc_TaxAmount": sum([i["cbc_TaxAmount"] for i in tmp_cac_TaxSummary]),
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
             # TODO: ............................ hereuare code: structure values and check XLM-JSON map
