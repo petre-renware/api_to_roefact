@@ -69,8 +69,10 @@
     * [ ] 7. update JSON example used in documentation
     * [x] 8. updated version number of xl2roefact app (component & mkdocs.yml)
     * [x] 9. run `pdm build_all` ==> version deliverables incl DLD doc
-    * [ ] 10. build site & publish
+    * [ ] 10.a build site & publish
+    * [ ] 10.b publish library on PyPi (use CI workflow by branch `pypi-publish`)
     * [x] 11. clean code, drop `xl2roefact/tests/__wk_invoice_tax_total.md
+
 * `240301piu02` refactored `xl2roefact/invoice_files/` to `xl2roefact/refact_xml_models_and_specs/`
 * `240302piu01` updated `xl2rofact.rdinv` function, area commented "...build final structure..." created variable `_tmp_reusable_items: dict` to keep "partial variables" that are calculated and potentially will be reused in next code
 * `240301piu_01` set all workflows `run-name`
