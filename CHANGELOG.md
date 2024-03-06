@@ -54,10 +54,11 @@
 
 * tbd.Must... make single EXE with `pyinstaller`
 
-
 * tbd.NOW... can refer in gh `0.3.1b` release notes being identical with the file `changelog_history/CHANGELOG-0.3.0b.md`
 
-* wip.... (last used 240306piu03)
+* wip...
+
+* `240306piu04` archived 0.3.0b & 0.3.1b versions
 
 
 
