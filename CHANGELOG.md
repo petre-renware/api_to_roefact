@@ -70,6 +70,7 @@
 
 
 
+<!--#NOTE: piu@240306 said: 0.3.0b & 0.3.1b kept for commodity reasons and should be dropped max after 15.mar.2024 or when next release available -->
 
 ### 0.3.1b promote v0.3.0b0 deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`
 
@@ -77,10 +78,6 @@
 * `240306piu02` promote `0.3.0b0` deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`
 * `240306piu01` archived locally all `0.3.0b` deliverables: WHEEL, TRA.GZ, MSI, repository tag
 
-
-
-
-<!--#NOTE: piu@240306 said: 0.3.0b kept for commodity reasons and should be dropped max after 15.mar.2024 or when next release available -->
 ### 0.3.0b xl2roefact invoice taxes summary (240306 07:00)
 
 * `240302piu03` invoice taxes summary:
