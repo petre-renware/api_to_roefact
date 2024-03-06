@@ -44,16 +44,25 @@
 
 
 
-### wip... 0.3.0b xl2roefact invoice taxes summary (#NOTE: date here...)
+### TODO... ???_3.xxx single EXE version (#NOTE: date here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
-* tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 
-* tbd.Could... check how use SECRETs in gh actions (ref PyPi publish workflow token used)
+* tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
 
 * wip....
+
+
+
+
+
+
+
+
+
+### wip... 0.3.0b xl2roefact invoice taxes summary (#NOTE: date here...)
 
 * tbd... archive locally all `0.3.0b` deliverables: WHEEL, TRA.GZ, MSI, repository tag
 
@@ -69,10 +78,10 @@
     * [x] 7. update JSON example used in documentation
     * [x] 8. updated version number of xl2roefact app (component & mkdocs.yml)
     * [x] 9. run `pdm build_all` ==> version deliverables incl DLD doc
-    * [ ] 10.a build site & publish
-    * [ ] 10.b publish library on PyPi (use CI workflow by branch `pypi-publish`)
+    * [x] 10.a update `downloads.md` with `0.3.0b` deliverables
+    * [ ] 10.b build site & publish
+    * [ ] 10.c publish library on PyPi (use CI workflow by branch `pypi-publish`)
     * [x] 11. clean code, drop `xl2roefact/tests/__wk_invoice_tax_total.md
-
 * `240301piu02` refactored `xl2roefact/invoice_files/` to `xl2roefact/refact_xml_models_and_specs/`
 * `240302piu01` updated `xl2rofact.rdinv` function, area commented "...build final structure..." created variable `_tmp_reusable_items: dict` to keep "partial variables" that are calculated and potentially will be reused in next code
 * `240301piu_01` set all workflows `run-name`
