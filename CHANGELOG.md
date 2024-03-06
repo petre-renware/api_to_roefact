@@ -54,12 +54,10 @@
 
 * tbd.Must... make single EXE with `pyinstaller`
 
-* tbd.NOW... can refer in gh `0.3.1b` release notes being identical with the file `changelog_history/CHANGELOG-0.3.0b.md`
 
-* wip... (last used 230406piu07)
+* wip... (last used `230406piu07`)
 
-
-
+* `230406piu08` updated `downloads.md` ref end-of-life date of all `0.1...` versions: 10-March-2024
 
 
 
@@ -67,6 +65,11 @@
 
 
 
+
+
+
+
+<!--#NOTE: to be archived ASAP -->
 
 ### 0.3.1b1 fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] (230306 h19:30)
 
@@ -76,7 +79,6 @@
      * [x] 3. update downloads.md doc
      * [x] 3. build site
      * [x] 4. publish on PyPi
-
 * `230406piu06` FIXED `240306piu05` ref JSON->["Invoice"]["cac_InvoiceLine"] list[list] bug by transforming in 1-dimensional list using strategy from `TO FIX -> item 3`. TEST PASS.
 * `240306piu05` TEST POINT: converted online the invoice JSON file to XML ==> `Fact_Petrom_11017969.xml`. **RESOLUTIONS:**
     * ATTN: the usable part is strict those related to "Invoice" key, any other information is not relevant and will not be included in application generated XML

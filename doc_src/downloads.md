@@ -84,7 +84,7 @@ Nici o resursa disponibila.
 
 ??? note "0.1"
 
-    <small markdown="1">NOTA: versiunile `0.1` nu mai sunt intretinute de la 01-Martie-2024 (end of life support).</small>
+    <small markdown="1">NOTA: versiunile `0.1` nu mai sunt intretinute de la 10-Martie-2024 (end of life support).</small>
 
     * [`0.1.22b` application interface improvements](../xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi "download")
     * [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
