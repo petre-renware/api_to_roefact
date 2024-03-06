@@ -32,6 +32,7 @@ import openpyxl as opnxl
 from .libutils import isnumber
 from .libutils import find_str_in_list
 from .libutils import dict_sum_by_key
+from .libutils import invoice_taxes_summary
 from . import config_settings  # application configuration parameters
 
 # local constants. Change them with caution only for a functional objective
@@ -367,7 +368,7 @@ def rdinv(
     """
     # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
     invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
-    
+
     # preserve processed Excel file meta information: start address, size.
     meta_info = _build_meta_info_key(
         excel_file_to_process=file_to_process,
@@ -378,6 +379,11 @@ def rdinv(
 
     # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
     tmp_InvoiceLine_list = [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is list of dicts with keys as XML RO E-Fact standard
+    tmp_reusable_items = dict(
+        cbc_LineExtensionAmount = sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]),
+        LineVatAmount = sum([dict_sum_by_key(i, "LineVatAmount") for i in tmp_InvoiceLine_list]),
+    )  # reusable calculations to be used in next code. see details in issue `0.3.0b+240302piu01`
+    tmp_cac_TaxSummary = invoice_taxes_summary(tmp_InvoiceLine_list)  # invoke invoice tax summary calculation
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
@@ -400,32 +406,24 @@ def rdinv(
                 },
             },
             "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),
-            #
-            #FIXME: ...hereuare... CHECK NEXT CALCULATIONS
             "cac_LegalMonetaryTotal": {
-                "cbc_LineExtensionAmount": round(
-                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]
-                ), 2),
-                "cbc_TaxExclusiveAmount": round(
-                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]
-                ), 2),
-                "cbc_TaxInclusiveAmount": round(
-                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
-                        [dict_sum_by_key(i, "LineVatAmount")           for i in tmp_InvoiceLine_list]
-                ), 2),
-                "cbc_PayableAmount":      round(
-                    sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list] + 
-                        [dict_sum_by_key(i, "LineVatAmount")           for i in tmp_InvoiceLine_list]
-                ), 2),
+                "cbc_LineExtensionAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
+                "cbc_TaxExclusiveAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
+                "cbc_TaxInclusiveAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
+                "cbc_PayableAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
             },
-            #FIXME ...END of ...hereuare...
+            "cac_TaxTotal": {
+                "cbc_TaxAmount": round(sum([i["cbc_TaxAmount"] if i["cbc_TaxAmount"] is not None else 0 for i in tmp_cac_TaxSummary]), 2),
+                "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
+            },
+            # TODO: ............................ hereuare code: remained structure values and check XLM-JSON map
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
             invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE ready, test PASS @ 231205 by [piu]
-            invoice_header_area = copy.deepcopy(invoice_header_area),  #TODO wip...
-            invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO to be done... (just localized `invoice_footer_area`)
-        )
+            invoice_header_area = copy.deepcopy(invoice_header_area),  #TODO wip... lrft supplier info
+            invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO wip... TBD-(cac_TaxTotal) / RDY-(cac_LegalMonetaryTotal
+        ),
     }
     #
     # write `invoice` dict to file `f-JSON`
@@ -455,12 +453,12 @@ def rdinv(
 
 # #NOTE - ready, test PASS @ 231212 by [piu]
 def get_excel_data_at_label(
-        pattern_to_search_for: list[str],
-        worksheet: xl.Database.ws,
-        area_to_scan: list[list[int]] = None,
-        targeted_type: Callable = str,
-        down_search_try: bool = True
-    ) -> dict:
+    pattern_to_search_for: list[str],
+    worksheet: xl.Database.ws,
+    area_to_scan: list[list[int]] = None,
+    targeted_type: Callable = str,
+    down_search_try: bool = True
+) -> dict:
     """get "one key Excel values", like invoice number or invoice issue date.
 
     Args:
@@ -560,7 +558,7 @@ def get_excel_data_at_label(
 
 
 # #NOTE - ready, test PASS @ 231126 by [piu]
-def mk_kv_invoice_items_area(invoice_items_area_xl_format):
+def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
     """transform `invoice_items_area` in "canonical JSON format" (as kv pairs).
 
     Args:
@@ -667,7 +665,11 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format):
 
 
 # #NOTE - ready, test PASS @ 231121 by [piu]
-def get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
+def get_invoice_items_area(
+    worksheet,
+    invoice_items_area_marker,
+    wks_name
+) -> dict:
     """get invoice for `invoice_items_area`, process it and return its Excel format.
 
     Process steps & notes:
@@ -760,7 +762,11 @@ def get_invoice_items_area(worksheet, invoice_items_area_marker, wks_name):
 
 
 # #NOTE - ready, test PASS @ 231111 by [piu]
-def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name, keep_cells_of_items_ssd_marker = None):
+def _get_merged_cells_tobe_changed(
+    file_to_scan,
+    invoice_worksheet_name,
+    keep_cells_of_items_ssd_marker = None
+) -> list:
     """scan Excel file to detect all merged ranges.
 
     Args:
@@ -829,11 +835,13 @@ def _get_merged_cells_tobe_changed(file_to_scan, invoice_worksheet_name, keep_ce
 
 
 # #NOTE - ready, test PASS @ 231127 by [piu]
-def _build_meta_info_key(excel_file_to_process: str,
-                         invoice_worksheet_name: str,
-                         ws_size: list,
-                         keyword_for_items_table_marker: str,
-                         found_cell: list) -> dict:
+def _build_meta_info_key(
+    excel_file_to_process: str,
+    invoice_worksheet_name: str,
+    ws_size: list,
+    keyword_for_items_table_marker: str,
+    found_cell: list
+) -> dict:
     """build meta_info key to preserve processed Excel file meta information: start address, size.
 
     Notes:
@@ -882,7 +890,6 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_PriceAmount", "cbc:PriceAmount"),
         ("cbc_currencyID", "cbc:currencyID"),  # this is attribute of more tags (all monetary tags)
         ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount"),
-        ("cbc_ID", "cbc:ID"),  # invoice number
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
         ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
         ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer information - MASTER RECORD
@@ -908,7 +915,11 @@ def _build_meta_info_key(excel_file_to_process: str,
         ("cbc_TaxExclusiveAmount", "cbc:TaxExclusiveAmount"),  # summary item
         ("cbc_TaxInclusiveAmount", "cbc:TaxInclusiveAmount",),  # summary item
         ("cbc_PayableAmount", "cbc:PayableAmount"),  # summary item
-
+        ("cac_TaxTotal", "cac:TaxTotal"),  # specific for Tax Summary section
+        ("cbc_TaxAmount", "cbc:TaxAmount"),  # specific for Tax Summary section
+        ("cac_TaxSubtotal", "cac:TaxSubtotal"),  # specific for Tax Summary section
+        ("cbc_TaxableAmount", "cbc:TaxableAmount"),  # specific for Tax Summary section
+        ("cac_TaxCategory", "cac:TaxCategory"),  # specific for Tax Summary section
         #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 

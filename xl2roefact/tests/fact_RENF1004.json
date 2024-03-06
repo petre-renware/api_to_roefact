@@ -135,12 +135,43 @@
             "cbc_TaxExclusiveAmount": 39001.0,
             "cbc_TaxInclusiveAmount": 46390.0,
             "cbc_PayableAmount": 46390.0
+        },
+        "cac_TaxTotal": {
+            "cbc_TaxAmount": 7389.15,
+            "cac_TaxSubtotal": [
+                {
+                    "cbc_TaxableAmount": 38890.25,
+                    "cbc_TaxAmount": 7389.15,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": 0.19,
+                            "cac_TaxScheme": {
+                                "cbc_ID": "VAT"
+                            }
+                        },
+                        "ID": "S"
+                    }
+                },
+                {
+                    "cbc_TaxableAmount": null,
+                    "cbc_TaxAmount": null,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": null,
+                            "cac_TaxScheme": {
+                                "cbc_ID": null
+                            }
+                        },
+                        "ID": "S"
+                    }
+                }
+            ]
         }
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-25T03:46:22.484402+00:00",
+        "last_processing_time": "2024-03-05T13:20:10.240815+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
@@ -209,10 +240,6 @@
             [
                 "cbc_LineExtensionAmount",
                 "cbc:LineExtensionAmount"
-            ],
-            [
-                "cbc_ID",
-                "cbc:ID"
             ],
             [
                 "cbc_DocumentCurrencyCode",
@@ -313,6 +340,26 @@
             [
                 "cbc_PayableAmount",
                 "cbc:PayableAmount"
+            ],
+            [
+                "cac_TaxTotal",
+                "cac:TaxTotal"
+            ],
+            [
+                "cbc_TaxAmount",
+                "cbc:TaxAmount"
+            ],
+            [
+                "cac_TaxSubtotal",
+                "cac:TaxSubtotal"
+            ],
+            [
+                "cbc_TaxableAmount",
+                "cbc:TaxableAmount"
+            ],
+            [
+                "cac_TaxCategory",
+                "cac:TaxCategory"
             ]
         ]
     },

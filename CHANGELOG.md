@@ -15,7 +15,7 @@
 
 
 
-## 0.3 (TODO:_next...)
+## 0.3 (TODO: wip...)
 
 ```
     - ---[ #TODO general planning board ]---------------------------
@@ -44,34 +44,15 @@
 
 
 
-### TODO:_next... 0.3.??? xl2roefact invoice taxes summary (#NOTE: date here...)
+### TODO... ???_3.xxx single EXE version (#NOTE: date here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
-* tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 
-* tbd.Could... check how use SECRETs in gh actions (ref PyPi publish workflow token used)
+* tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
 
-* tbd.Must... there is one more summary ref taxes (doc `xl2roefact/invoice_files/_PLAN_model...xml`, lines 91-104):
-```xml
-<cac:TaxTotal>  #TODO tbd...
-    <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
-    <cac:TaxSubtotal>
-        <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
-        <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
-        <cac:TaxCategory>
-            <cbc:ID>S</cbc:ID>
-            <cbc:Percent>19.00</cbc:Percent>
-            <cac:TaxScheme>
-                <cbc:ID>VAT</cbc:ID>
-            </cac:TaxScheme>
-        </cac:TaxCategory>
-    </cac:TaxSubtotal>
-</cac:TaxTotal>
-```
-
-* wip...
+* wip....
 
 
 
@@ -79,43 +60,31 @@
 
 
 
+* tbd... archive locally all `0.3.0b` deliverables: WHEEL, TRA.GZ, MSI, repository tag
+
+### 0.3.0b xl2roefact invoice taxes summary (240306 07:00)
+
+* `240302piu03` invoice taxes summary:
+    * ref doc `xl2roefact/invoice_files/_PLAN_model...xml`, lines 91-104)
+    * prepared place in rdinv() search "NOTE: ....place intended for `cac:TaxTotal`" line ~413
+    * [x] 1. prepared a work file `xl2roefact/tests/__wk_invoice_tax_total.md` with dev specs & TODOs
+    * [x] 2. defined calculation formulas in `xl2roefact/tests/__wk_invoice_tax_total.md`
+    * [x] 3. made a function skeleton `invoice_taxes_summary(invoice_lines: list[dict])` in `libutils` that calculates whole required structure. Receive as parameter the `Invoice dict` part related to items list, ie existing variable `tmp_InvoiceLine_list`
+    * [x] 4. calculated `cac_TaxTotal` calculation code of item 3. in function `libutils.invoice_taxes_summary(...)`. Code test PASS. Function closed
+    * [x] 5. updated XML-JSON map
+    * [x] 6. calculated cbc_TaxAmount
+    * [x] 7. update JSON example used in documentation
+    * [x] 8. updated version number of xl2roefact app (component & mkdocs.yml)
+    * [x] 9. run `pdm build_all` ==> version deliverables incl DLD doc
+    * [x] 10.a update `downloads.md` with `0.3.0b` deliverables
+    * [x] 10.b build site & publish
+    * [x] 10.c publish library on PyPi (use CI workflow by branch `pypi-publish`)
+    * [x] 11. clean code, drop `xl2roefact/tests/__wk_invoice_tax_total.md
+* `240301piu02` refactored `xl2roefact/invoice_files/` to `xl2roefact/refact_xml_models_and_specs/`
+* `240302piu01` updated `xl2rofact.rdinv` function, area commented "...build final structure..." created variable `_tmp_reusable_items: dict` to keep "partial variables" that are calculated and potentially will be reused in next code
+* `240301piu_01` set all workflows `run-name`
 
 
-
-## 0.2
-
-### 0.2.2.dev project development environment improvements (240229 h19:00)
-
-* `240229piu01` updated `.../downloads.md` for xl2roefact section to link PyPi for versions `>= 0.2.1b` and let WHEEL & DIST as "Download package source"
-* `240228piu04` improved `xl2roefact python library` API Reference document ref to TOC and Title
-* `240228piu03` project review, cleanup and update: workflows, useless files, TODO & FIXME comments, etc...
-* `240228piu02` FIXED main project for use with PDM. `pdm update` command successfully run. **RESOLUTION: pdm can be used in main project as package manager. Should run locally to create venv and must update it with pdm update.** 10xG!
-* `240228piu01` created a mechanism to run adhoc commands *for xl2roefact component*:
-    * [x] skeleton windows-cmd-file to be run by adhoc script (usable as template) `xl2roefact/tests/adhoc.cmd` (NOTE: running OS = Windows)
-    * [x] workflow `adhoc-run.yml` to install pdm environment & run `./tests/adhoc.cmd &>./tests/_test_results.txt` (with crt directory `xl2roefact/`) triggered by merge to branch `adhoc`. Run results (stdout) written to `./tests/_test_results.txt`
-    * [x] documented this feature in `/README_git_automation_tools.md`
-* `240227piu01` improve xl2roefact package documenting the PyPi link to package (`https://pypi.org/project/xl2roefact/`)
-* `240226piu04` published `xl2roefact` package & created automation workflow. Steps;
-    * [x] 0. updated workflow `pypi-publish.yml` to run on brach `pypi-publish`
-    * [x] 1. change workflow code to move `.msi` files in a temporary directory, execute publish then get back moved files
-    * [x] 2. drop directories for versions `0.1.18/` & `0.1.19/`
-    * [x] 3. test packages publish. FAILED.
-    * [x] 4. update `doc_src/.../downloads.md` ref crt item 2.
-    * [x] 5. build & publish site
-    * [x] 6. update `pyproject.toml` to update classifiers list according to approved standard
-    * [x] 7. update workflow to ignore all old / previous packages (not compliant "classifiers" section)
-    * [x] 8. TEST PASS, here running messages:
-      ```
-      Uploading xl2roefact-0.2.1b0-py3-none-any.whl = 100%
-      Uploading xl2roefact-0.2.1b0.tar.gz = 100%
-      ```
-    * [x] 9. clean workflow code, update `pyproject.toml` with site URL
-* `240226piu03` updated root `pyproject.toml` (project `INVOICEtoROefact`) ref `xl2roefact` dependency and ref development dependencies section
-* `250226piu02` created empty /draft workflow `pypi-publish.yml` to be used to PyPi publish `xl2roefact` python packages.
-    * Project publisher was registered on PyPi @ `https://pypi.org/manage/account/publishing/` for GitHub repository `INVOICEtoROefact`.
-    * Declared PyPi project name: `xl2roefact`
-    * PyPi status: `Pending publishers` @ 240226 06:00
-* `250226piu01` improved documentation "visibility" with INVOICEtoROefact components features
 
 
 
@@ -130,15 +99,25 @@
 
 # Archived CHANGELOGs
 
+<details markdown="1"><summary markdown="1">
+## 0.3 version
+</summary>
+
+* ... no items here yet
+</details>
+
+
+
 
 <details markdown="1"><summary markdown="1">
 ## 0.2 version
 </summary>
 
+* [`0.2.2.dev` project development environment improvements](./changelog_history/CHANGELOG-0.2.2.dev.md)
 * [`0.2.1b` invoice grand totals](./changelog_history/CHANGELOG-0.2.1b.md)
 * [`0.2.0b` xl2roefact invoice customer info-optional items (bank, email, reg-com, phone)](./changelog_history/CHANGELOG-0.2.0b.md)
-
 </details>
+
 
 
 
@@ -172,7 +151,6 @@
 * [`0.1.2.dev` Enhancing `APItoROefact` technical proposal](./changelog_history/CHANGELOG-0.1.2.dev.md)
 * [`0.1.1.dev` Elaborating technical proposal](./changelog_history/CHANGELOG-0.1.1.dev.md)
 * [`0.1.0.dev` System raw backbone](./changelog_history/CHANGELOG-0.1.0.dev.md)
-
 </details>
 
 

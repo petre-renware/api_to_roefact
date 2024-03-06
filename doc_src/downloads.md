@@ -24,6 +24,12 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
+
+??? note "0.3"
+    * [`0.3.0b` xl2roefact invoice taxes summary WHEEL](../xl2roefact/dist/xl2roefact-0.3.0b0-py3-none-any.whl "download")
+    * [`0.3.0b` xl2roefact invoice taxes summary DIST](../xl2roefact/dist/xl2roefact-0.3.0b0.tar.gz "download")
+
+
 ??? note "0.2"
     * [`0.2.1b` invoice values summary WHEEL](../xl2roefact/dist/xl2roefact-0.2.1b0-py3-none-any.whl "download")
     * [`0.2.1b` invoice values summary DIST](../xl2roefact/dist/xl2roefact-0.2.1b0.tar.gz "download")
@@ -43,11 +49,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 
-
-
-
-### Pachetul web2roefact PyPi library
-
+### Pachetul web2roefact pe PyPi
 
 Nici o resursa disponibila.
 
@@ -59,17 +61,20 @@ Nici o resursa disponibila.
 
 
 
-## Format MSI instalare Windows x64
+
+## Format executabil Windows x64
+
+### Aplicatia xl2roefact linie comanda pachet instalare (win64-msi)
 
 
-### Aplicatia xl2roefact linie comanda (win64-msi)
-
+??? note "0.3"
+    * [`0.3.0b` xl2roefact invoice taxes summary](../xl2roefact/dist/xl2roefact-0.3.0b0-win64.msi "download")
 
 
 ??? note "0.2"
-
     * [`0.2.1b` xl2roefact invoice values summary](../xl2roefact/dist/xl2roefact-0.2.1b0-win64.msi "download")
     * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone)](../xl2roefact/dist/xl2roefact-0.2.0b0-win64.msi "download")
+
 
 ??? note "0.1"
 
@@ -77,6 +82,19 @@ Nici o resursa disponibila.
 
     * [`0.1.22b` application interface improvements](../xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi "download")
     * [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
+
+
+### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)
+
+Nici o resursa disponibila.
+
+
+### Aplicatia web2roefact pachet instalare (win64-msi)
+
+Nici o resursa disponibila.
+
+
+
 
 
 
@@ -96,10 +114,10 @@ Nici o resursa disponibila.
 
 
 
+
 ## Sablon template factura
 
 ??? note "Format XLSX Office Excel"
-
     * [`0.1.20` office Excel XLSX](../excel_invoice_template/invoice_template_CU_tva.xlsx "download")
     * [`0.1.20` arhiva ZIP](../excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip "download")
     * [`0.1.11` arhiva ZIP](../excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip "download")

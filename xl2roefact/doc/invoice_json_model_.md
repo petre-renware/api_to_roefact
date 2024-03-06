@@ -133,7 +133,44 @@
                 "cbc_LineExtensionAmount": 111.11,
                 "LineVatAmount": 0.0
             }
-        ]
+        ],
+        "cac_LegalMonetaryTotal": {
+            "cbc_LineExtensionAmount": 39001.0,
+            "cbc_TaxExclusiveAmount": 39001.0,
+            "cbc_TaxInclusiveAmount": 46390.0,
+            "cbc_PayableAmount": 46390.0
+        },
+        "cac_TaxTotal": {
+            "cbc_TaxAmount": 7389.15,
+            "cac_TaxSubtotal": [
+                {
+                    "cbc_TaxableAmount": 38890.25,
+                    "cbc_TaxAmount": 7389.15,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": 0.19,
+                            "cac_TaxScheme": {
+                                "cbc_ID": "VAT"
+                            }
+                        },
+                        "ID": "S"
+                    }
+                },
+                {
+                    "cbc_TaxableAmount": null,
+                    "cbc_TaxAmount": null,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": null,
+                            "cac_TaxScheme": {
+                                "cbc_ID": null
+                            }
+                        },
+                        "ID": "S"
+                    }
+                }
+            ]
+        },
     },
     "meta_info": {
         "file": "invoice_json_model_.xlsx",

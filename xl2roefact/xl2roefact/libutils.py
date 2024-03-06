@@ -9,20 +9,74 @@ Identification:
 
 Components:
 
-* `dict_sum_by_key(dict, str) -> float`
- to sum a dictionary for a given key at all depth levels
-* `isnumber(str) -> bool`
-    Test a string if it could be used as number (int or float)
-* `find_str_in_list(list, list) -> int`
-    Search more strings (ie, a list) in list of strings
+* `dict_sum_by_key(dict, str) -> float`: Sum a dictionary for a given key at all depth levels
+* `find_str_in_list(list, list) -> int`: Search more strings (ie, a list) in list of strings
+* `invoice_taxes_summary(list[dict]) -> dict`: Calculates invoice taxes summary as required by ROefact requirements
+* `isnumber(str) -> bool`: Test a string if it could be used as number (int or float)
+
 """
 
 import sys
 from rich import print
 from fractions import Fraction
+import copy
 
 
-# NOTE - ready, unit test PASS @240223
+
+# NOTE: ready, unit test PASS @240305
+def invoice_taxes_summary(
+    invoice_lines: list[dict]
+) -> list:
+    """Calculates invoice taxes summary as required by ROefact requirements.
+
+    Args:
+        `invoice_lines`: section with item lines from 'big' invoice dictionary
+
+    Return:
+        `list` usable for "cac_TaxSubtotal" key
+    """
+    copyof_invoice_lines = copy.deepcopy(invoice_lines)[0]  # make a copy and keep only real-effective list (first item of)
+    tmp_InvoiceLine_dict = dict()
+    tmpCompondedVAT_list = list()  # intended to keep found `VAT_types-Percent` combinations (ie, to do opera SQL-UPSERT like)
+    for item_info in copyof_invoice_lines:
+        req_item_info = dict()
+        req_item_info["cbc_TaxableAmount"] = item_info.get("cbc_LineExtensionAmount", 0)
+        req_item_info["cbc_TaxAmount"] = item_info.get("LineVatAmount", 0)
+        work_cac_item = item_info.get("cac_Item")  # get first level as `dict`
+        del work_cac_item["cbc_Name"]  # drop not neede information
+        # temporary make a new compounded key as helper to GROUP the values by it (SQL GROUP BY like)
+        req_item_info["cac_TaxCategory"] = work_cac_item
+        tmpCompondedVAT = work_cac_item.get("cac_ClassifiedTaxCategory", dict())  # default return an empty dictionary
+        tmpCompondedVAT_1 = str(tmpCompondedVAT.get("cbc_Percent"))
+        tmpCompondedVAT_2 = str(tmpCompondedVAT.get("cac_TaxScheme").get("cbc_ID"))
+        tmpCompondedVAT = tmpCompondedVAT_1 + tmpCompondedVAT_2
+        #NOTE: acesta este hard coded in `xl2roefact`. Nu se va face mai mult de atit, variante cu alte TaxCategory fiind pentru un alt ERP  #TODO subject of documentation update
+        req_item_info["cac_TaxCategory"]["ID"] = "S"  # NOTE: hard coded. see previous comment
+        # next calc do SQL-UPSERT operation like
+        if tmpCompondedVAT in tmpCompondedVAT_list:  # this info already exists, so adjust info for SQL-UPSERT like operation
+            _prev_cbc_TaxableAmount = tmp_InvoiceLine_dict[tmpCompondedVAT]["cbc_TaxableAmount"]
+            _prev_cbc_TaxAmount = tmp_InvoiceLine_dict[tmpCompondedVAT]["cbc_TaxAmount"]
+            _actual_cbc_TaxableAmount = req_item_info["cbc_TaxableAmount"]
+            _actual_cbc_TaxAmount = req_item_info["cbc_TaxAmount"]
+            if (_actual_cbc_TaxableAmount is None) or (_prev_cbc_TaxableAmount is None):  # let unchanged (as was)
+                req_item_info["cbc_TaxableAmount"] = _prev_cbc_TaxableAmount
+            else:  # add with prev value
+                req_item_info["cbc_TaxableAmount"] = _actual_cbc_TaxableAmount + _prev_cbc_TaxableAmount
+            if (_actual_cbc_TaxAmount is None) or (_prev_cbc_TaxAmount is None):  # let unchanged (as was)
+                req_item_info["cbc_TaxAmount"] = _prev_cbc_TaxAmount
+            else:  # add with prev value
+                req_item_info["cbc_TaxAmount"] = _actual_cbc_TaxableAmount + _prev_cbc_TaxAmount
+        else:
+            tmpCompondedVAT_list.append(tmpCompondedVAT)  # mark it as found
+        tmp_InvoiceLine_dict[tmpCompondedVAT] = req_item_info
+    # extract values of 1st level keys and preserve as list
+    tmp_InvoiceLine_list = [tmp_InvoiceLine_dict[i] for i in tmp_InvoiceLine_dict]  # keep only values of "CompondedVAT" constructed keys
+    return tmp_InvoiceLine_list
+
+
+
+
+# NOTE: ready, unit test PASS @240223
 def dict_sum_by_key(
     search_dict: dict | list[dict],
     sum_key: str
@@ -33,7 +87,7 @@ def dict_sum_by_key(
         `search_dict`: dictionary to be searched for
         `sum_key`: key to be searched
 
-    Returns:
+    Return:
         `float` with required sum
     """
     s = 0
@@ -59,14 +113,14 @@ def dict_sum_by_key(
 
 
 
-# NOTE - ready, test PASS @231123
+# NOTE: ready, test PASS @231123
 def isnumber(a_string: str) -> bool:
     """test if a string is valid as any kind of number.
 
     Args:
         `a_string`: input string.
 
-    Returns:
+    Return:
         `True`: if input string is valid as any kind of number, orherwise `False`.
     """
     try:
@@ -81,7 +135,7 @@ def isnumber(a_string: str) -> bool:
 
 
 
-# NOTE - ready, test PASS @231123
+# NOTE: ready, test PASS @231123
 def find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int:
     """find a substring from `list_of_str_to_find` in elements of `list_to_search`.
 
@@ -89,7 +143,7 @@ def find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int:
         `list_of_str_to_find`: list of strings to search for.
         `list_to_search`: liste where to search for substrings.
 
-    Returns:
+    Return:
         `index`: the index of list item which contains `str_to_find` (first found) or `None` if not found.
     """
     __found = False

@@ -95,12 +95,56 @@
             "cbc_TaxExclusiveAmount": 43611.0,
             "cbc_TaxInclusiveAmount": 51734.0,
             "cbc_PayableAmount": 51734.0
+        },
+        "cac_TaxTotal": {
+            "cbc_TaxAmount": 8123.66,
+            "cac_TaxSubtotal": [
+                {
+                    "cbc_TaxableAmount": 42756.08,
+                    "cbc_TaxAmount": 8123.66,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": 0.19,
+                            "cac_TaxScheme": {
+                                "cbc_ID": "VAT"
+                            }
+                        },
+                        "ID": "S"
+                    }
+                },
+                {
+                    "cbc_TaxableAmount": null,
+                    "cbc_TaxAmount": null,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": null,
+                            "cac_TaxScheme": {
+                                "cbc_ID": null
+                            }
+                        },
+                        "ID": "S"
+                    }
+                },
+                {
+                    "cbc_TaxableAmount": 855.12,
+                    "cbc_TaxAmount": 0.0,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": 0.0,
+                            "cac_TaxScheme": {
+                                "cbc_ID": "VAT"
+                            }
+                        },
+                        "ID": "S"
+                    }
+                }
+            ]
         }
     },
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-02-25T03:46:22.421917+00:00",
+        "last_processing_time": "2024-03-05T13:20:09.982292+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -169,10 +213,6 @@
             [
                 "cbc_LineExtensionAmount",
                 "cbc:LineExtensionAmount"
-            ],
-            [
-                "cbc_ID",
-                "cbc:ID"
             ],
             [
                 "cbc_DocumentCurrencyCode",
@@ -273,6 +313,26 @@
             [
                 "cbc_PayableAmount",
                 "cbc:PayableAmount"
+            ],
+            [
+                "cac_TaxTotal",
+                "cac:TaxTotal"
+            ],
+            [
+                "cbc_TaxAmount",
+                "cbc:TaxAmount"
+            ],
+            [
+                "cac_TaxSubtotal",
+                "cac:TaxSubtotal"
+            ],
+            [
+                "cbc_TaxableAmount",
+                "cbc:TaxableAmount"
+            ],
+            [
+                "cac_TaxCategory",
+                "cac:TaxCategory"
             ]
         ]
     },
