@@ -24,6 +24,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
+
 ??? note "0.3"
     * [`0.3.0b` xl2roefact invoice taxes summary WHEEL](../xl2roefact/dist/xl2roefact-0.3.0b0-py3-none-any.whl "download")
     * [`0.3.0b` xl2roefact invoice taxes summary DIST](../xl2roefact/dist/xl2roefact-0.3.0b0.tar.gz "download")
@@ -48,11 +49,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 
-
-
-
 ### Pachetul web2roefact PyPi library
-
 
 Nici o resursa disponibila.
 
@@ -64,8 +61,8 @@ Nici o resursa disponibila.
 
 
 
-## Format MSI instalare Windows x64
 
+## Format MSI instalare Windows x64
 
 ### Aplicatia xl2roefact linie comanda (win64-msi)
 
@@ -92,9 +89,13 @@ Nici o resursa disponibila.
 
 
 
+
+
+
 ## Format DEB instalare Linux
 
 Nici o resursa disponibila.
+
 
 
 
