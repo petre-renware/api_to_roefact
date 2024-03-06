@@ -58,6 +58,14 @@
 
 * wip...
 
+
+
+
+
+
+### 0.3.1b.post0 
+
+* `230406piu06` FIXED `240306piu05` ref JSON->["Invoice"]["cac_InvoiceLine"] list[list] bug by transforming in 1-dimensional list using strategy from `TO FIX -> item 3`
 * `240306piu05` TEST POINT: converted online the invoice JSON file to XML ==> `Fact_Petrom_11017969.xml`. **RESOLUTIONS:**
     * ATTN: the usable part is strict those related to "Invoice" key, any other information is not relevant and will not be included in application generated XML
     * TO FIX: JSON generated key "cac_InvoiceLine" is list[list] the first list being obsolete (just item 0 which is the effective list). Proposals:
@@ -69,7 +77,6 @@
                 ```python
                 "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list)[0],
                 ```
-    * TO CHECK: phone XML application dud not recognized XML format but didn't tried with final version (only "Invoice" key). Anyway **a check on an online XML VALIDATION site is useful**
 * `240306piu04` archived 0.3.0b & 0.3.1b versions
 
 
