@@ -1,0 +1,45 @@
+
+name: adhoc_command_run
+run-name: adhoc command run in xl2roefact context
+on:
+  push:
+    branches:
+      - adhoc
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run adhoc Windows command
+        run: |
+          cd xl2roefact
+          python -m pip install --upgrade pip
+          pip install setuptools --upgrade
+          
+          #   install PDM and build environment
+          python -m pip install pdm
+          python -m pdm install
+          ./tests/adhoc.cmd >./tests/_test_results.txt
+          # #FIXME_drop.me.if.not.used     python -m pdm run ahhoc &>./tests/_test_results.txt
+          
+          #    commit work done and push it back to server (attn!!!, here you are on client machine of GitHub organization)
+          git add tests/*
+          git commit -am "Automated adhoc command run (by RENware Software Systems)"
+          git push
+
+
+
+
+
+      
