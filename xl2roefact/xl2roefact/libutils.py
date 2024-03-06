@@ -33,7 +33,7 @@ def invoice_taxes_summary(
         `invoice_lines`: section with item lines from 'big' invoice dictionary
 
     Return:
-        `list` usable for "cac_TaxSubtotal" key
+        `list`: usable for "cac_TaxSubtotal" key
     """
     copyof_invoice_lines = copy.deepcopy(invoice_lines)[0]  # make a copy and keep only real-effective list (first item of)
     tmp_InvoiceLine_dict = dict()
@@ -88,7 +88,7 @@ def dict_sum_by_key(
         `sum_key`: key to be searched
 
     Return:
-        `float` with required sum
+        `float`: with required sum
     """
     s = 0
     if isinstance(search_dict, list) or isinstance(search_dict, tuple):

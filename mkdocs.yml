@@ -6,10 +6,10 @@ copyright: 'Copyright (c) RENware Software Systems'
 
 
 extra:    #NOTE ...ATTN here are components version used as Jinja fields in markdown docs  #FIXME find a way to build them auto at different events like MSI build for example
-    xl2roefact_version: "0.3.1b"
+    xl2roefact_version: "0.3.1b1"
     web2roefact_version: "n/a"
     invoice_template_version: "0.1.20"
-    INVOICEtoROefact_version: "0.3.1b"
+    INVOICEtoROefact_version: "0.3.1b1"
 
 
 

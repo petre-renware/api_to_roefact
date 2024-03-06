@@ -43,7 +43,7 @@
 
 
 
-### wip... 0.3.2b single EXE version (#NOTE: date here...)
+### TODO:next... ???-(0.3.2b sau 0.4.0) single EXE version (#NOTE: date here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -54,11 +54,9 @@
 
 * tbd.Must... make single EXE with `pyinstaller`
 
+* tbd.NOW... can refer in gh `0.3.1b` release notes being identical with the file `changelog_history/CHANGELOG-0.3.0b.md`
 
-* tbd.NOW... can refer in gh `0.3.0b` release notes the file `changelog_history/CHANGELOG-0.3.0b.md`
-
-* wip.... (las used 240306piu03)
-
+* wip... (last used 230406piu07)
 
 
 
@@ -70,38 +68,28 @@
 
 
 
+### 0.3.1b1 fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] (230306 h19:30)
 
-### 0.3.1b promote `0.3.0b0` deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`
+* `230406piu07` release version:
+     * [x] 1. update xl2roefact version
+     * [x] 2. build new app
+     * [x] 3. update downloads.md doc
+     * [x] 3. build site
+     * [x] 4. publish on PyPi
 
-* `240306piu03` build all components, `downloads.md`, build site and republish on PyPi. Archived locally
-* `240306piu02` promote `0.3.0b0` deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`
-* `240306piu01` archived locally all `0.3.0b` deliverables: WHEEL, TRA.GZ, MSI, repository tag
-
-
-
-
-<!--#NOTE: piu@240306 said: 0.3.0b kept for commodity reasons and should be dropped max after 15.mar.2024 or when next release available -->
-### 0.3.0b xl2roefact invoice taxes summary (240306 07:00)
-
-* `240302piu03` invoice taxes summary:
-    * ref doc `xl2roefact/invoice_files/_PLAN_model...xml`, lines 91-104)
-    * prepared place in rdinv() search "NOTE: ....place intended for `cac:TaxTotal`" line ~413
-    * [x] 1. prepared a work file `xl2roefact/tests/__wk_invoice_tax_total.md` with dev specs & TODOs
-    * [x] 2. defined calculation formulas in `xl2roefact/tests/__wk_invoice_tax_total.md`
-    * [x] 3. made a function skeleton `invoice_taxes_summary(invoice_lines: list[dict])` in `libutils` that calculates whole required structure. Receive as parameter the `Invoice dict` part related to items list, ie existing variable `tmp_InvoiceLine_list`
-    * [x] 4. calculated `cac_TaxTotal` calculation code of item 3. in function `libutils.invoice_taxes_summary(...)`. Code test PASS. Function closed
-    * [x] 5. updated XML-JSON map
-    * [x] 6. calculated cbc_TaxAmount
-    * [x] 7. update JSON example used in documentation
-    * [x] 8. updated version number of xl2roefact app (component & mkdocs.yml)
-    * [x] 9. run `pdm build_all` ==> version deliverables incl DLD doc
-    * [x] 10.a update `downloads.md` with `0.3.0b` deliverables
-    * [x] 10.b build site & publish
-    * [x] 10.c publish library on PyPi (use CI workflow by branch `pypi-publish`)
-    * [x] 11. clean code, drop `xl2roefact/tests/__wk_invoice_tax_total.md
-* `240301piu02` refactored `xl2roefact/invoice_files/` to `xl2roefact/refact_xml_models_and_specs/`
-* `240302piu01` updated `xl2rofact.rdinv` function, area commented "...build final structure..." created variable `_tmp_reusable_items: dict` to keep "partial variables" that are calculated and potentially will be reused in next code
-* `240301piu_01` set all workflows `run-name`
+* `230406piu06` FIXED `240306piu05` ref JSON->["Invoice"]["cac_InvoiceLine"] list[list] bug by transforming in 1-dimensional list using strategy from `TO FIX -> item 3`. TEST PASS.
+* `240306piu05` TEST POINT: converted online the invoice JSON file to XML ==> `Fact_Petrom_11017969.xml`. **RESOLUTIONS:**
+    * ATTN: the usable part is strict those related to "Invoice" key, any other information is not relevant and will not be included in application generated XML
+    * TO FIX: JSON generated key "cac_InvoiceLine" is list[list] the first list being obsolete (just item 0 which is the effective list). Proposals:
+        * 1. at XML generation to preserve only `cac_InvoiceLine[0]` - *pro*: SIMPLE, REASONABLE, LATERAL EFFECTS FREE - *cons*: JSON file remain for this key as "non-intuitive" information
+        * 2. re-engineer `rdinv.py` to generate right info structure for this key - *pro*: right and intuitive JSON information presentation - *cons*: a lot of lateral effects, there is "a lot of code" that already extract only item 0 and this code could be in functions out of `rdinv.py` module, for example in `libutils.py`
+        * 3. update module `rdinv.py` to preserve only index 0 **when create key `cac_InvoiceLine`, line ~408 so:**
+            - ACTUAL value: `"cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),`
+            - DESIRED value:
+                ```python
+                "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list)[0],
+                ```
+* `240306piu04` archived 0.3.0b & 0.3.1b versions
 
 
 
@@ -122,6 +110,7 @@
 ## 0.3 version
 </summary>
 
+* [`0.3.1b`  promote v0.3.0b0 deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`](./changelog_history/CHANGELOG-0.3.1b.md)
 * [`0.3.0b` xl2roefact invoice taxes summary](./changelog_history/CHANGELOG-0.3.0b.md)
 </details>
 
