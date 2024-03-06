@@ -58,6 +58,7 @@
 
 * wip...
 
+* `240306piu05` TEST POINT: converted online the invoice JSON file to XML ==> `Fact_Petrom_11017969.xml`
 * `240306piu04` archived 0.3.0b & 0.3.1b versions
 
 
