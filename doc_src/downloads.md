@@ -71,14 +71,13 @@ Nici o resursa disponibila.
 
 
 ??? note "0.3"
-
     * [`0.3.0b` xl2roefact invoice taxes summary](../xl2roefact/dist/xl2roefact-0.3.0b0-win64.msi "download")
 
 
 ??? note "0.2"
-
     * [`0.2.1b` xl2roefact invoice values summary](../xl2roefact/dist/xl2roefact-0.2.1b0-win64.msi "download")
     * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone)](../xl2roefact/dist/xl2roefact-0.2.0b0-win64.msi "download")
+
 
 ??? note "0.1"
 
@@ -108,7 +107,6 @@ Nici o resursa disponibila.
 ## Sablon template factura
 
 ??? note "Format XLSX Office Excel"
-
     * [`0.1.20` office Excel XLSX](../excel_invoice_template/invoice_template_CU_tva.xlsx "download")
     * [`0.1.20` arhiva ZIP](../excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip "download")
     * [`0.1.11` arhiva ZIP](../excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip "download")
