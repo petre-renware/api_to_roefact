@@ -2913,6 +2913,8 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.3</summary>
 <ul>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.1b0-py3-none-any.whl" title="download"><code>0.3.1b</code> xl2roefact documentation fixes WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.1b0.tar.gz" title="download"><code>0.3.1b</code> xl2roefact documentation fixes DIST</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.3.0b0-py3-none-any.whl" title="download"><code>0.3.0b</code> xl2roefact invoice taxes summary WHEEL</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.3.0b0.tar.gz" title="download"><code>0.3.0b</code> xl2roefact invoice taxes summary DIST</a></li>
 </ul>
@@ -2943,6 +2945,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.3</summary>
 <ul>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.1b0-win64.msi" title="download"><code>0.3.1b</code> xl2roefact documentation fixes</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.3.0b0-win64.msi" title="download"><code>0.3.0b</code> xl2roefact invoice taxes summary</a></li>
 </ul>
 </details>
@@ -3602,7 +3605,8 @@ Public License instead of this License.  But first, please read
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-03-todo-wip">0.3 (TODO: wip...)</a><ul>
-<li><a href="#changelog-todo-_3xxx-single-exe-version-note-date-here">TODO... ???_3.xxx single EXE version (#NOTE: date here...)</a></li>
+<li><a href="#changelog-wip-032b-single-exe-version-note-date-here">wip... 0.3.2b single EXE version (#NOTE: date here...)</a></li>
+<li><a href="#changelog-031b-promote-030b0-deliverables-wheel-tragz-msi-to-031b">0.3.1b promote 0.3.0b0 deliverables: WHEEL, TRA.GZ, MSI to 0.3.1b</a></li>
 <li><a href="#changelog-030b-xl2roefact-invoice-taxes-summary-240306-0700">0.3.0b xl2roefact invoice taxes summary (240306 07:00)</a></li>
 </ul>
 </li>
@@ -3644,13 +3648,15 @@ Public License instead of this License.  But first, please read
     -
     * -#NOTE Plan for `rdinv` module:
         * [ ] invoice supplier (`&lt;cac:AccountingSupplierParty&gt;`)
-        * [... wip.`0.2.2b`] invoice taxes summary
     -------------------------------------------------------------------------------------------------
 </code></pre></div>
-<h3 id="changelog-todo-_3xxx-single-exe-version-note-date-here">TODO... ???_3.xxx single EXE version (#NOTE: date here...)</h3>
+<h3 id="changelog-wip-032b-single-exe-version-note-date-here">wip... 0.3.2b single EXE version (#NOTE: date here...)</h3>
 <ul>
 <li>
 <p>tbd.Must... @RELEASE update version files &amp; <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></p>
+</li>
+<li>
+<p>tbd.Must... <code>xl2roefact</code> need to make invoice supplier (<code>&lt;cac:AccountingSupplierParty&gt;</code>) - MANDATORY to plan for next version</p>
 </li>
 <li>
 <p>tbd.Could... define <code>xl2roefact</code> entry points and/or scripts. comments in <code>xl2roefact/setup.py</code> ref exec scripts with installed package</p>
@@ -3659,12 +3665,22 @@ Public License instead of this License.  But first, please read
 <p>tbd.Should... [piu @_240126] left in <code>xl2roefact/setup.py</code> comments &amp; example ref how to <strong><em>pre-set MSI build meta information</em></strong> / parameters (obj: default target dir where install, path registration, icon, ...)</p>
 </li>
 <li>
-<p>wip....</p>
+<p>tbd.Must... make single EXE with <code>pyinstaller</code></p>
 </li>
 <li>
-<p>tbd... archive locally all <code>0.3.0b</code> deliverables: WHEEL, TRA.GZ, MSI, repository tag</p>
+<p>tbd.NOW... can refer in gh <code>0.3.0b</code> release notes the file <code>changelog_history/CHANGELOG-0.3.0b.md</code></p>
+</li>
+<li>
+<p>wip.... (las used 240306piu03)</p>
 </li>
 </ul>
+<h3 id="changelog-031b-promote-030b0-deliverables-wheel-tragz-msi-to-031b">0.3.1b promote <code>0.3.0b0</code> deliverables: WHEEL, TRA.GZ, MSI to <code>0.3.1b</code></h3>
+<ul>
+<li><code>240306piu03</code> build all components, <code>downloads.md</code>, build site and republish on PyPi. Archived locally</li>
+<li><code>240306piu02</code> promote <code>0.3.0b0</code> deliverables: WHEEL, TRA.GZ, MSI to <code>0.3.1b</code></li>
+<li><code>240306piu01</code> archived locally all <code>0.3.0b</code> deliverables: WHEEL, TRA.GZ, MSI, repository tag</li>
+</ul>
+<!--#NOTE: piu@240306 said: 0.3.0b kept for commodity reasons and should be dropped max after 15.mar.2024 or when next release available -->
 <h3 id="changelog-030b-xl2roefact-invoice-taxes-summary-240306-0700">0.3.0b xl2roefact invoice taxes summary (240306 07:00)</h3>
 <ul>
 <li><code>240302piu03</code> invoice taxes summary:<ul class="task-list">
@@ -3695,7 +3711,7 @@ Public License instead of this License.  But first, please read
 <h2 id="changelog-03-version">0.3 version</h2>
 </summary>
 <ul>
-<li>... no items here yet</li>
+<li><a href="#changelog_history-changelog-0.3.0b"><code>0.3.0b</code> xl2roefact invoice taxes summary</a></li>
 </ul>
 </details>
 <details>

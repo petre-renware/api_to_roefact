@@ -6,5 +6,5 @@ Identification
 * Author: Petre Iordanescu (petre.iordanescu@gmail.com)
 """
 
-__version__ = "0.2.2.dev"
+__version__ = "0.3.1b"
 

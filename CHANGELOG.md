@@ -37,22 +37,27 @@
     -
     * -#NOTE Plan for `rdinv` module:
         * [ ] invoice supplier (`<cac:AccountingSupplierParty>`)
-        * [... wip.`0.2.2b`] invoice taxes summary
     -------------------------------------------------------------------------------------------------
 ```
 
 
 
 
-### TODO... ???_3.xxx single EXE version (#NOTE: date here...)
+### wip... 0.3.2b single EXE version (#NOTE: date here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
-* tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
+* tbd.Must... `xl2roefact` need to make invoice supplier (`<cac:AccountingSupplierParty>`) - MANDATORY to plan for next version
 
+* tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 * tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
 
-* wip....
+* tbd.Must... make single EXE with `pyinstaller`
+
+
+* tbd.NOW... can refer in gh `0.3.0b` release notes the file `changelog_history/CHANGELOG-0.3.0b.md`
+
+* wip.... (las used 240306piu03)
 
 
 
@@ -60,8 +65,22 @@
 
 
 
-* tbd... archive locally all `0.3.0b` deliverables: WHEEL, TRA.GZ, MSI, repository tag
 
+
+
+
+
+
+### 0.3.1b promote `0.3.0b0` deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`
+
+* `240306piu03` build all components, `downloads.md`, build site and republish on PyPi. Archived locally
+* `240306piu02` promote `0.3.0b0` deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`
+* `240306piu01` archived locally all `0.3.0b` deliverables: WHEEL, TRA.GZ, MSI, repository tag
+
+
+
+
+<!--#NOTE: piu@240306 said: 0.3.0b kept for commodity reasons and should be dropped max after 15.mar.2024 or when next release available -->
 ### 0.3.0b xl2roefact invoice taxes summary (240306 07:00)
 
 * `240302piu03` invoice taxes summary:
@@ -103,7 +122,7 @@
 ## 0.3 version
 </summary>
 
-* ... no items here yet
+* [`0.3.0b` xl2roefact invoice taxes summary](./changelog_history/CHANGELOG-0.3.0b.md)
 </details>
 
 

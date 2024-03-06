@@ -26,6 +26,8 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 ??? note "0.3"
+    * [`0.3.1b` xl2roefact documentation fixes WHEEL](../xl2roefact/dist/xl2roefact-0.3.1b0-py3-none-any.whl "download")
+    * [`0.3.1b` xl2roefact documentation fixes DIST](../xl2roefact/dist/xl2roefact-0.3.1b0.tar.gz "download")
     * [`0.3.0b` xl2roefact invoice taxes summary WHEEL](../xl2roefact/dist/xl2roefact-0.3.0b0-py3-none-any.whl "download")
     * [`0.3.0b` xl2roefact invoice taxes summary DIST](../xl2roefact/dist/xl2roefact-0.3.0b0.tar.gz "download")
 
@@ -68,6 +70,7 @@ Nici o resursa disponibila.
 
 
 ??? note "0.3"
+    * [`0.3.1b` xl2roefact documentation fixes](../xl2roefact/dist/xl2roefact-0.3.1b0-win64.msi "download")
     * [`0.3.0b` xl2roefact invoice taxes summary](../xl2roefact/dist/xl2roefact-0.3.0b0-win64.msi "download")
 
 
