@@ -60,13 +60,11 @@
 
 
 
-
-
-### wip... 0.3.0b xl2roefact invoice taxes summary (#NOTE: date here...)
-
 * tbd... archive locally all `0.3.0b` deliverables: WHEEL, TRA.GZ, MSI, repository tag
 
-* wip... `240302piu03` invoice taxes summary:
+### 0.3.0b xl2roefact invoice taxes summary (240306 07:00)
+
+* `240302piu03` invoice taxes summary:
     * ref doc `xl2roefact/invoice_files/_PLAN_model...xml`, lines 91-104)
     * prepared place in rdinv() search "NOTE: ....place intended for `cac:TaxTotal`" line ~413
     * [x] 1. prepared a work file `xl2roefact/tests/__wk_invoice_tax_total.md` with dev specs & TODOs
@@ -79,7 +77,7 @@
     * [x] 8. updated version number of xl2roefact app (component & mkdocs.yml)
     * [x] 9. run `pdm build_all` ==> version deliverables incl DLD doc
     * [x] 10.a update `downloads.md` with `0.3.0b` deliverables
-    * [ ] 10.b build site & publish
+    * [x] 10.b build site & publish
     * [x] 10.c publish library on PyPi (use CI workflow by branch `pypi-publish`)
     * [x] 11. clean code, drop `xl2roefact/tests/__wk_invoice_tax_total.md
 * `240301piu02` refactored `xl2roefact/invoice_files/` to `xl2roefact/refact_xml_models_and_specs/`
