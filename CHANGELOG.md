@@ -43,7 +43,7 @@
 
 
 
-### wip... 0.3.2b single EXE version (#NOTE: date here...)
+### TODO:next... 0.3.2b single EXE version (#NOTE: date here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -56,14 +56,21 @@
 
 * tbd.NOW... can refer in gh `0.3.1b` release notes being identical with the file `changelog_history/CHANGELOG-0.3.0b.md`
 
-* wip...
+* wip... (last
 
 
 
 
 
 
-### 0.3.1b.post0 
+### wip... 0.3.1b.post0 (2303... h...)
+
+* tbd.Must... `230406piu07` release version:
+     * [ ] 1. update xl2roefact version
+     * [ ] 2. update downloads.md doc
+     * [ ] 3. build site
+     * [ ] 4. build new app
+     * [ ] 5. publish on PyPi
 
 * `230406piu06` FIXED `240306piu05` ref JSON->["Invoice"]["cac_InvoiceLine"] list[list] bug by transforming in 1-dimensional list using strategy from `TO FIX -> item 3`
 * `240306piu05` TEST POINT: converted online the invoice JSON file to XML ==> `Fact_Petrom_11017969.xml`. **RESOLUTIONS:**
