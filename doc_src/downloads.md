@@ -70,6 +70,10 @@ Nici o resursa disponibila.
 ### Aplicatia xl2roefact linie comanda (win64-msi)
 
 
+??? note "0.3"
+
+    * [`0.3.0b` xl2roefact invoice taxes summary](../xl2roefact/dist/xl2roefact-0.3.0b0-win64.msi "download")
+
 
 ??? note "0.2"
 
