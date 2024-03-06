@@ -78,7 +78,7 @@
     * [x] 7. update JSON example used in documentation
     * [x] 8. updated version number of xl2roefact app (component & mkdocs.yml)
     * [x] 9. run `pdm build_all` ==> version deliverables incl DLD doc
-    * [ ] 10.a update `downloads.md` with `0.3.0b` deliverables
+    * [x] 10.a update `downloads.md` with `0.3.0b` deliverables
     * [ ] 10.b build site & publish
     * [ ] 10.c publish library on PyPi (use CI workflow by branch `pypi-publish`)
     * [x] 11. clean code, drop `xl2roefact/tests/__wk_invoice_tax_total.md
