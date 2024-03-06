@@ -533,6 +533,7 @@ div.download-btn {
 </li>
 <li><a href="#ldxml">ldxml</a></li>
 <li><a href="#libutils">libutils</a><ul>
+<li><a href="#invoice_taxes_summary">invoice_taxes_summary</a></li>
 <li><a href="#dict_sum_by_key">dict_sum_by_key</a></li>
 <li><a href="#isnumber">isnumber</a></li>
 <li><a href="#find_str_in_list">find_str_in_list</a></li>
@@ -713,13 +714,22 @@ div.download-btn {
 </ul>
 <p>Components:</p>
 <ul>
-<li><code>dict_sum_by_key(dict, str) -&gt; float</code>
- to sum a dictionary for a given key at all depth levels</li>
-<li><code>isnumber(str) -&gt; bool</code>
-    Test a string if it could be used as number (int or float)</li>
-<li><code>find_str_in_list(list, list) -&gt; int</code>
-    Search more strings (ie, a list) in list of strings</li>
+<li><code>dict_sum_by_key(dict, str) -&gt; float</code>: Sum a dictionary for a given key at all depth levels</li>
+<li><code>find_str_in_list(list, list) -&gt; int</code>: Search more strings (ie, a list) in list of strings</li>
+<li><code>invoice_taxes_summary(list[dict]) -&gt; dict</code>: Calculates invoice taxes summary as required by ROefact requirements</li>
+<li><code>isnumber(str) -&gt; bool</code>: Test a string if it could be used as number (int or float)</li>
 </ul>
+<p><a id="libutils.invoice_taxes_summary"></a></p>
+<h4 id="invoice_taxes_summary">invoice_taxes_summary</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">invoice_taxes_summary</span><span class="p">(</span><span class="n">invoice_lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span>
+</code></pre></div>
+<p>Calculates invoice taxes summary as required by ROefact requirements.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>invoice_lines</code> - section with item lines from 'big' invoice dictionary</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<p><code>list</code> usable for "cac_TaxSubtotal" key</p>
 <p><a id="libutils.dict_sum_by_key"></a></p>
 <h4 id="dict_sum_by_key">dict_sum_by_key</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dict_sum_by_key</span><span class="p">(</span><span class="n">search_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="n">sum_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
@@ -824,7 +834,7 @@ div.download-btn {
 </ul>
 <p><a id="rdinv.mk_kv_invoice_items_area"></a></p>
 <h4 id="mk_kv_invoice_items_area">mk_kv_invoice_items_area</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">mk_kv_invoice_items_area</span><span class="p">(</span><span class="n">invoice_items_area_xl_format</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">mk_kv_invoice_items_area</span><span class="p">(</span><span class="n">invoice_items_area_xl_format</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
 </code></pre></div>
 <p>transform <code>invoice_items_area</code> in "canonical JSON format" (as kv pairs).</p>
 <p><strong>Arguments</strong>:</p>
@@ -841,7 +851,8 @@ div.download-btn {
 </ul>
 <p><a id="rdinv.get_invoice_items_area"></a></p>
 <h4 id="get_invoice_items_area">get_invoice_items_area</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_invoice_items_area</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">invoice_items_area_marker</span><span class="p">,</span> <span class="n">wks_name</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_invoice_items_area</span><span class="p">(</span><span class="n">worksheet</span><span class="p">,</span> <span class="n">invoice_items_area_marker</span><span class="p">,</span>
+                           <span class="n">wks_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
 </code></pre></div>
 <p>get invoice for <code>invoice_items_area</code>, process it and return its Excel format.</p>
 <p>Process steps &amp; notes:
@@ -922,7 +933,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 29, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 6, 2024</span>
 </small>
 </div>
 </article>

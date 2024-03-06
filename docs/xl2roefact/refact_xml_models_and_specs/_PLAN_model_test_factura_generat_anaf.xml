@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+    xmlns:ns4="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd">
+
+    <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:efactura.mfinante.ro:CIUS-RO:1.0.1</cbc:CustomizationID>
+
+    <cbc:ID>nr_factura</cbc:ID>  #NOTE DONE / RDY
+    <cbc:IssueDate>2013-11-17</cbc:IssueDate>  #NOTE DONE / RDY
+    <cbc:DueDate>2023-11-21</cbc:DueDate>  #TODO tbd... - acesta est edata scadentei - planned for application version 2.x.x
+    <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>  #TODO tbd... # this must remain as is here and check also `factura_facuta_in_anaf_sintaxa_UBL_20231128.xml` (380 value means == NORMAL INVOICE, not credit note, return invoice, canceling invoice, ...)
+    <cbc:Note>test generat 2023-11-21</cbc:Note>  #TODO tbd...
+    <cbc:TaxPointDate>2013-11-20</cbc:TaxPointDate>  #TODO tbd...
+    <cbc:DocumentCurrencyCode>RON</cbc:DocumentCurrencyCode>  #NOTE DONE / RDY
+
+    <cac:OrderReference>  #NOTE_??? do not know if simple Excel processing can give this info - NEEED ERP   #NOTE `COMANDA FERMA`
+        <cbc:ID>referinta_comanda</cbc:ID>
+    </cac:OrderReference>
+
+    <cac:BillingReference>  #NOTE_??? do not know if simple Excel processing can give this info - NEEED ERP  #NOTE `FACTURA PRECEDENTA - face sens cu un contract sau comanda`
+        <cac:InvoiceDocumentReference>
+            <cbc:ID>referinta_factura_precedenta</cbc:ID>
+        </cac:InvoiceDocumentReference>
+    </cac:BillingReference>
+
+    <cac:ContractDocumentReference>  #NOTE_??? do not know if simple Excel processing can give this info - NEEED ERP  #NOTE `CONTRACT`
+        <cbc:ID>referinta_contract</cbc:ID>
+    </cac:ContractDocumentReference>
+
+    <cac:AccountingSupplierParty>  #TODO tbd...
+        <cac:Party>
+            <cac:PostalAddress>
+                <cbc:StreetName>Nicolae Titulescu 81-87</cbc:StreetName>
+                <cbc:CityName>Sectorul 1</cbc:CityName>
+                <cbc:PostalZone>010011</cbc:PostalZone>
+                <cac:Country>
+                    <cbc:IdentificationCode>RO</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:PostalAddress>
+            <cac:PartyTaxScheme>
+                <cbc:CompanyID>42561459</cbc:CompanyID>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:PartyTaxScheme>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>REN-CONSULTING SOFT ACTIVITY </cbc:RegistrationName>
+                <cbc:CompanyID>42561459</cbc:CompanyID>
+            </cac:PartyLegalEntity>
+            <cac:Contact>
+                <cbc:Telephone>0744684867</cbc:Telephone>
+                <cbc:ElectronicMail>petre.iordanescu@gmail.com</cbc:ElectronicMail>
+            </cac:Contact>
+        </cac:Party>
+    </cac:AccountingSupplierParty>
+
+
+
+
+    <cac:AccountingCustomerParty>  #NOTE DONE / RDY all items
+        <cac:Party>
+            <cac:PostalAddress>
+                <cbc:StreetName>Nicolae titulescu 81-87</cbc:StreetName>
+                <cbc:CityName>Sectorul 1</cbc:CityName>
+                <cbc:PostalZone>010011</cbc:PostalZone>
+                <cac:Country>
+                    <cbc:IdentificationCode>RO</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:PostalAddress>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>IORDANESCU PETRE PFA</cbc:RegistrationName>
+                <cbc:CompanyID>21986376</cbc:CompanyID>  # this is "CUI"
+            </cac:PartyLegalEntity>
+        </cac:Party>
+    </cac:AccountingCustomerParty>
+
+
+
+
+    <cac:Delivery>  #TODO tbd...  #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
+        <cbc:ActualDeliveryDate>2023-11-19</cbc:ActualDeliveryDate>
+    </cac:Delivery>
+
+    <cac:PaymentMeans>  #TODO tbd...   #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
+        <cbc:PaymentMeansCode>1</cbc:PaymentMeansCode>
+    </cac:PaymentMeans>
+
+    <cac:TaxTotal>  #TODO tbd... (#NOTE: intended in `0.3.3b` version)
+        <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
+        <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+                <cbc:ID>S</cbc:ID>
+                <cbc:Percent>19.00</cbc:Percent>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+
+    <cac:LegalMonetaryTotal>  #NOTE DONE / RDY (whole struture done)
+        <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
+        <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
+        <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
+        <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
+    </cac:LegalMonetaryTotal>
+
+    <cac:InvoiceLine>
+        <cbc:ID>1</cbc:ID>  #NOTE DONE / RDY
+        <cbc:InvoicedQuantity unitCode="OT">1.00</cbc:InvoicedQuantity>  #NOTE DONE / RDY (incl `unitCode` as `cbc:unitCode`)
+        <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>  #NOTE DONE / RDY
+        <cac:Item>  #NOTE DONE / RDY
+            <cbc:Name>servicii consultanta</cbc:Name>  #NOTE DONE / RDY
+            <cac:ClassifiedTaxCategory>  #NOTE DONE / RDY
+                <cbc:ID>S</cbc:ID>  #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???
+                <cbc:Percent>19.00</cbc:Percent>  #NOTE DONE / RDY
+                <cac:TaxScheme>  #NOTE DONE / RDY
+                    <cbc:ID>VAT</cbc:ID>  #NOTE DONE / RDY
+                </cac:TaxScheme>
+            </cac:ClassifiedTaxCategory>
+        </cac:Item>
+        <cac:Price>  #NOTE DONE / RDY
+            <cbc:PriceAmount currencyID="RON">1000.00</cbc:PriceAmount>  #NOTE this will be identifyed in `invoice_header_area`
+        </cac:Price>
+    </cac:InvoiceLine>
+
+</Invoice>
