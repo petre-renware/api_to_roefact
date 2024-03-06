@@ -1,0 +1,269 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <Invoice>
+    <cbc_ID>11017969</cbc_ID>
+    <cbc_DocumentCurrencyCode>RON</cbc_DocumentCurrencyCode>
+    <cbc_IssueDate>2023-10-17</cbc_IssueDate>
+    <cac_AccountingCustomerParty>
+      <cac:Party>
+        <cac_PartyLegalEntity>
+          <cbc_CompanyID>RO1590082</cbc_CompanyID>
+          <cbc_RegistrationName>OMV Petrom S.A.</cbc_RegistrationName>
+        </cac_PartyLegalEntity>
+        <cac_PostalAddress>
+          <cbc_StreetName>Coralilor Nr. 22</cbc_StreetName>
+          <cbc_CityName></cbc_CityName>
+          <cbc_PostalZone>Postal 013329</cbc_PostalZone>
+          <cac_Country>
+            <cbc_IdentificationCode>RO</cbc_IdentificationCode>
+          </cac_Country>
+        </cac_PostalAddress>
+        <cac_Contact>
+          <cbc_Telephone/>
+          <cbc_ElectronicMail/>
+          <RegCom/>
+          <Bank>Comerciala Romana</Bank>
+          <IBAN/>
+        </cac_Contact>
+      </cac:Party>
+    </cac_AccountingCustomerParty>
+    <cac_InvoiceLine>
+      <node>
+        <cbc_ID>1</cbc_ID>
+        <cbc_InvoicedQuantity>1</cbc_InvoicedQuantity>
+        <cbc_unitCode/>
+        <cac_Item>
+          <cbc_Name>Inlocuit conducta PSI coloana C2 DAV.</cbc_Name>
+          <cac_ClassifiedTaxCategory>
+            <cbc_Percent>0.19</cbc_Percent>
+            <cac_TaxScheme>
+              <cbc_ID>VAT</cbc_ID>
+            </cac_TaxScheme>
+          </cac_ClassifiedTaxCategory>
+        </cac_Item>
+        <cac_Price>
+          <cbc_PriceAmount>42756.08</cbc_PriceAmount>
+          <cbc_currencyID>RON</cbc_currencyID>
+        </cac_Price>
+        <cbc_LineExtensionAmount>42756.08</cbc_LineExtensionAmount>
+        <LineVatAmount>8123.66</LineVatAmount>
+      </node>
+      <node>
+        <cbc_ID>1.NOTE-a</cbc_ID>
+        <cbc_InvoicedQuantity/>
+        <cbc_unitCode/>
+        <cac_Item>
+          <cbc_Name>SES 8105685514</cbc_Name>
+          <cac_ClassifiedTaxCategory>
+            <cbc_Percent/>
+            <cac_TaxScheme>
+              <cbc_ID/>
+            </cac_TaxScheme>
+          </cac_ClassifiedTaxCategory>
+        </cac_Item>
+        <cac_Price>
+          <cbc_PriceAmount/>
+          <cbc_currencyID/>
+        </cac_Price>
+        <cbc_LineExtensionAmount/>
+        <LineVatAmount/>
+      </node>
+      <node>
+        <cbc_ID>2</cbc_ID>
+        <cbc_InvoicedQuantity>1</cbc_InvoicedQuantity>
+        <cbc_unitCode/>
+        <cac_Item>
+          <cbc_Name>Acciza de test (2%)</cbc_Name>
+          <cac_ClassifiedTaxCategory>
+            <cbc_Percent>0</cbc_Percent>
+            <cac_TaxScheme>
+              <cbc_ID>VAT</cbc_ID>
+            </cac_TaxScheme>
+          </cac_ClassifiedTaxCategory>
+        </cac_Item>
+        <cac_Price>
+          <cbc_PriceAmount>855.1216000000001</cbc_PriceAmount>
+          <cbc_currencyID>RON</cbc_currencyID>
+        </cac_Price>
+        <cbc_LineExtensionAmount>855.12</cbc_LineExtensionAmount>
+        <LineVatAmount>0</LineVatAmount>
+      </node>
+    </cac_InvoiceLine>
+    <cac_LegalMonetaryTotal>
+      <cbc_LineExtensionAmount>43611</cbc_LineExtensionAmount>
+      <cbc_TaxExclusiveAmount>43611</cbc_TaxExclusiveAmount>
+      <cbc_TaxInclusiveAmount>51734</cbc_TaxInclusiveAmount>
+      <cbc_PayableAmount>51734</cbc_PayableAmount>
+    </cac_LegalMonetaryTotal>
+    <cac_TaxTotal>
+      <cbc_TaxAmount>8123.66</cbc_TaxAmount>
+      <cac_TaxSubtotal>
+        <cbc_TaxableAmount>42756.08</cbc_TaxableAmount>
+        <cbc_TaxAmount>8123.66</cbc_TaxAmount>
+        <cac_TaxCategory>
+          <cac_ClassifiedTaxCategory>
+            <cbc_Percent>0.19</cbc_Percent>
+            <cac_TaxScheme>
+              <cbc_ID>VAT</cbc_ID>
+            </cac_TaxScheme>
+          </cac_ClassifiedTaxCategory>
+          <ID>S</ID>
+        </cac_TaxCategory>
+      </cac_TaxSubtotal>
+      <cac_TaxSubtotal>
+        <cbc_TaxableAmount/>
+        <cbc_TaxAmount/>
+        <cac_TaxCategory>
+          <cac_ClassifiedTaxCategory>
+            <cbc_Percent/>
+            <cac_TaxScheme>
+              <cbc_ID/>
+            </cac_TaxScheme>
+          </cac_ClassifiedTaxCategory>
+          <ID>S</ID>
+        </cac_TaxCategory>
+      </cac_TaxSubtotal>
+      <cac_TaxSubtotal>
+        <cbc_TaxableAmount>855.12</cbc_TaxableAmount>
+        <cbc_TaxAmount>0</cbc_TaxAmount>
+        <cac_TaxCategory>
+          <cac_ClassifiedTaxCategory>
+            <cbc_Percent>0</cbc_Percent>
+            <cac_TaxScheme>
+              <cbc_ID>VAT</cbc_ID>
+            </cac_TaxScheme>
+          </cac_ClassifiedTaxCategory>
+          <ID>S</ID>
+        </cac_TaxCategory>
+      </cac_TaxSubtotal>
+    </cac_TaxTotal>
+  </Invoice>
+  <meta_info>
+    <file>Fact_Petrom_11017969.xlsx</file>
+    <file_CRC>...file CRC (uniquely identify the invoice file used)</file_CRC>
+    <last_processing_time>2024-03-05T13:20:09.982292+00:00</last_processing_time>
+    <invoice_worksheet>Factura(Invoice)</invoice_worksheet>
+    <invoice_max_rows>49</invoice_max_rows>
+    <invoice_max_cols>8</invoice_max_cols>
+    <items_table_start_marker>No. crt.</items_table_start_marker>
+    <items_table_start_cell>29</items_table_start_cell>
+    <items_table_start_cell>1</items_table_start_cell>
+    <invoice_XML_schemes>
+      <xmlns>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlns><
+      xmlns:cbc>urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2
+    </
+    xmlns:cbc><
+    xmlns:cac>urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+  </
+  xmlns:cac><
+  xmlns:ns4>urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2
+</
+xmlns:ns4><
+xmlns:xsi>http://www.w3.org/2001/XMLSchema-instanceundefined</undefinedxmlns:xsi>undefined<xsi:schemaLocation>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd</xsi:schemaLocation>undefined</invoice_XML_schemes>undefined<map_JSONkeys_XMLtags>undefined<node>cac_InvoiceLine</node>undefined<node>cac:InvoiceLine</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_Item</node>undefined<node>cac:Item</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_ClassifiedTaxCategory</node>undefined<node>cac:ClassifiedTaxCategory</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_TaxScheme</node>undefined<node>cac:TaxScheme</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_Price</node>undefined<node>cac:Price</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_ID</node>undefined<node>cbc:ID</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_InvoicedQuantity</node>undefined<node>cbc:InvoicedQuantity</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_unitCode</node>undefined<node>cbc:unitCode</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_Name</node>undefined<node>cbc:Name</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_Percent</node>undefined<node>cbc:Percent</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_PriceAmount</node>undefined<node>cbc:PriceAmount</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_currencyID</node>undefined<node>cbc:currencyID</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_LineExtensionAmount</node>undefined<node>cbc:LineExtensionAmount</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_DocumentCurrencyCode</node>undefined<node>cbc:DocumentCurrencyCode</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_IssueDate</node>undefined<node>cbc:IssueDate</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_AccountingCustomerParty</node>undefined<node>cac:AccountingCustomerParty</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_Party</node>undefined<node>cac:Party</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_PartyLegalEntity</node>undefined<node>cac:PartyLegalEntity</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_CompanyID</node>undefined<node>cbc:CompanyID</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_RegistrationName</node>undefined<node>cbc:RegistrationName</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_PostalAddress</node>undefined<node>cac:PostalAddress</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_StreetName</node>undefined<node>cbc:StreetName</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_CityName</node>undefined<node>cbc:CityName</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_PostalZone</node>undefined<node>cbc:PostalZone</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_Country</node>undefined<node>cac:Country</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_IdentificationCode</node>undefined<node>cbc:IdentificationCode</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>LineVatAmount</node>undefined<node></node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_Contact</node>undefined<node>cac:Contact</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_Telephone</node>undefined<node>cbc:Telephone</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_ElectronicMail</node>undefined<node>cbc:ElectronicMail</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>RegCom</node>undefined<node></node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>Bank</node>undefined<node></node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>IBAN</node>undefined<node></node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_LegalMonetaryTotal</node>undefined<node>cac:LegalMonetaryTotal</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_LineExtensionAmount</node>undefined<node>cbc:LineExtensionAmount</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_TaxExclusiveAmount</node>undefined<node>cbc:TaxExclusiveAmount</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_TaxInclusiveAmount</node>undefined<node>cbc:TaxInclusiveAmount</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_PayableAmount</node>undefined<node>cbc:PayableAmount</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_TaxTotal</node>undefined<node>cac:TaxTotal</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_TaxAmount</node>undefined<node>cbc:TaxAmount</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_TaxSubtotal</node>undefined<node>cac:TaxSubtotal</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cbc_TaxableAmount</node>undefined<node>cbc:TaxableAmount</node>undefined</map_JSONkeys_XMLtags>undefined<map_JSONkeys_XMLtags>undefined<node>cac_TaxCategory</node>undefined<node>cac:TaxCategory</node>undefined</map_JSONkeys_XMLtags>undefined</meta_info>undefined<excel_original_data>undefined<invoice_items_area>undefined<keyrows>1</keyrows>undefined<keyrows>1.NOTE-a</keyrows>undefined<keyrows>2</keyrows>undefined<keycols>Denumirea lucrarii                                  (Request description)</keycols>undefined<keycols>Cantitatea (Quantity)</keycols>undefined<keycols>Pret unitar (Unit price)</keycols>undefined<keycols>Cota TVA (VAT %)</keycols>undefined<keycols>Valoare fara TVA (Value without VAT)</keycols>undefined<keycols>Valoare TVA (Value VAT)</keycols>undefined<data>
+<row>Inlocuit conducta PSI coloana C2 DAV.</row>
+<row>1</row>
+<row>42756.08</row>
+<row>0.19</row>
+<row>42756.08</row>
+<row>8123.6552</row>undefined</data>undefined<data>
+<row>SES 8105685514</row>
+<row></row>
+<row></row>
+<row></row>
+<row></row>
+<row></row>undefined</data>undefined<data>
+<row>Acciza de test (2%)</row>
+<row>1</row>
+<row>855.1216000000001</row>
+<row>0</row>
+<row>855.1216000000001</row>
+<row>0</row>undefined</data>undefined</invoice_items_area>undefined<invoice_header_area>undefined<start_cell>1</start_cell>undefined<start_cell>1</start_cell>undefined<end_cell>28</end_cell>undefined<end_cell>8</end_cell>undefined<invoice_number>
+<value>11017969</value>
+<location>10</location>
+<location>6</location>
+<label_value>Nr. Facturii</label_value>
+<label_location>10</label_location>
+<label_location>5</label_location>undefined</invoice_number>undefined<issued_date>
+<value>2023-10-17</value>
+<location>11</location>
+<location>6</location>
+<label_value>Data Factura</label_value>
+<label_location>11</label_location>
+<label_location>5</label_location>undefined</issued_date>undefined<currency>
+<value>RON</value>
+<location>28</location>
+<location>8</location>
+<label_value>Currency: RON</label_value>
+<label_location>28</label_location>
+<label_location>8</label_location>undefined</currency>undefined<customer_area>
+<area_info>
+  <value>OMV Petrom S.A.</value>
+  <location>
+    <key>8</key>
+    <key>2</key>
+  </location>
+  <location>
+    <key>18</key>
+    <key>3</key>
+  </location>
+</area_info>
+<CUI>
+  <value>RO1590082</value>
+  <location>10</location>
+  <location>2</location>
+  <label_value>C.U.I. RO1590082</label_value>
+  <label_location>10</label_location>
+  <label_location>2</label_location>
+</CUI>
+<RegistrationName>
+  <value>OMV Petrom S.A.</value>
+  <location>8</location>
+  <location>2</location>
+  <label_value>n/a</label_value>
+  <label_location>n/a</label_location>
+</RegistrationName>
+<PostalAddress>
+  <cbc_StreetName>Coralilor Nr. 22</cbc_StreetName>
+  <cbc_CityName></cbc_CityName>
+  <cbc_PostalZone>Postal 013329</cbc_PostalZone>
+  <cac_Country>
+    <cbc_IdentificationCode>RO</cbc_IdentificationCode>
+  </cac_Country>
+</PostalAddress>
+<reg_com>
+  <value/>
+  <location></location>
+  <location></location>
+  <label_value/>
+  <label_location/>
+</reg_com>
+<bank>
+  <value>Comerciala Romana</value>
+  <location>16</location>
+  <location>2</location>
+  <label_value>Banca Comerciala Romana</label_value>
+  <label_location>16</label_location>
+  <label_location>2</label_location>
+</bank>
+<IBAN>
+  <value/>
+  <location></location>
+  <location></location>
+  <label_value/>
+  <label_location/>
+</IBAN>
+<phone>
+  <value/>
+  <location></location>
+  <location></location>
+  <label_value/>
+  <label_location/>
+</phone>
+<email>
+  <value/>
+  <location></location>
+  <location></location>
+  <label_value/>
+  <label_location/>
+</email>undefined</customer_area>undefined<supplier_area>...future...</supplier_area>undefined</invoice_header_area>undefined<invoice_footer_area>undefined<start_cell>34</start_cell>undefined<start_cell>1</start_cell>undefined<end_cell>49</end_cell>undefined<end_cell>8</end_cell>undefined</invoice_footer_area>undefined</excel_original_data>undefined</root>
