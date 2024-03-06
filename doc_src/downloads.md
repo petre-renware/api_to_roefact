@@ -49,7 +49,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 
-### Pachetul web2roefact PyPi library
+### Pachetul web2roefact pe PyPi
 
 Nici o resursa disponibila.
 
@@ -82,6 +82,14 @@ Nici o resursa disponibila.
 
     * [`0.1.22b` application interface improvements](../xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi "download")
     * [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
+
+
+### Aplicatia xl2roefact portabila (win64-exe)
+
+Nici o resursa disponibila.
+
+
+### Aplicatia ...xl2roefact... linie comanda (win64-msi)
 
 
 
