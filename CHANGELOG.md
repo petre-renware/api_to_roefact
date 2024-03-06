@@ -58,6 +58,12 @@
 
 * wip...
 
+* `240306piu05` TEST POINT: converted online the invoice JSON file to XML ==> `Fact_Petrom_11017969.xml`. **RESOLUTIONS:**
+    * ATTN: the usable part is strict those related to "Invoice" key, any other information is not relevant and will not be included in application generated XML
+    * TO FIX: JSON generated key "cac_InvoiceLine" is list[list]] the first list being obsolete (just item 0 which is the effective list). Proposals:
+        * 1. at XML generation to preserve only `cac_InvoiceLine[0]` - *pro*: SIMPLE, REASONABLE, LATERAL EFFECTS FREE - *cons*: JSON file remain for this key as "non-intuitive" information
+        * 2. re-engineer `rdinv.py` to generate right info structure for this key - *pro*: right and intuitive JSON information presentation - *cons*: a lot of lateral effects, there is "a lot of code" that already extract only item 0 and this code could be in functions out of `rdinv.py` module, for example in `livutils.py`
+    * TO CHECK: phone XML application dud not recognized XML format but didn't tried with final version (only "Invoice" key). Anyway **a check on an online XML VALIDATION site is useful**
 * `240306piu04` archived 0.3.0b & 0.3.1b versions
 
 
