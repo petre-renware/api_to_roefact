@@ -62,9 +62,9 @@ Nici o resursa disponibila.
 
 
 
-## Format MSI instalare Windows x64
+## Format executabil Windows x64
 
-### Aplicatia xl2roefact linie comanda (win64-msi)
+### Aplicatia xl2roefact linie comanda pachet instalare (win64-msi)
 
 
 ??? note "0.3"
@@ -84,12 +84,14 @@ Nici o resursa disponibila.
     * [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
 
 
-### Aplicatia xl2roefact portabila (win64-exe)
+### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)
 
 Nici o resursa disponibila.
 
 
-### Aplicatia ...xl2roefact... linie comanda (win64-msi)
+### Aplicatia web2roefact pachet instalare (win64-msi)
+
+Nici o resursa disponibila.
 
 
 
