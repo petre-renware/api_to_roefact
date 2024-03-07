@@ -88,11 +88,12 @@ build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist
 build_doc = {shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
 build_all = {composite = ["build_wheel", "build_msi", "build_doc"]}  # build all packages (MSI, python package wheel, python package sdist, design doc)
 xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python module
-#NOTE here intention for PyPi-publish shell:
-#        mkdir tmp_dist_files; mv ./dist/* ./tmp_dist_files
-#        pdm publish --no-build --username __token__ --password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw
-#        mv ./tmp_dist_files/* ./dist; rm -r ./tmp_dist_files
-
+# TODO:...test.me... #NOTE here intention for PyPi-publish shell:
+pypi_publish = {
+    shell = "mkdir tmp_dist_files; mv ./dist/* ./tmp_dist_files",
+    shell = "pdm publish --no-build --username __token__ --password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw",
+    shell = "mv ./tmp_dist_files/* ./dist; rm -r ./tmp_dist_files",
+}
 
 
 
