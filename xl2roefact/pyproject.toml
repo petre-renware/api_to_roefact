@@ -89,7 +89,7 @@ build_doc = {shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_s
 build_all = {composite = ["build_wheel", "build_msi", "build_doc"]}  # build all packages (MSI, python package wheel, python package sdist, design doc)
 xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python module
 # TODO:...test.me... #NOTE here intention for PyPi-publish shell
-# #FIXME @240307 06:50: `tomlkit.exceptions.EmptyKeyError: Empty key at line 95 col 24`
+# #FIXME @240307 15:30: `tomlkit.exceptions.EmptyKeyError: Empty key at line 96 col 1`
 pypi_publish = {
     shell = "bash mkdir tmp_dist_files",
     shell = "bash mv ./dist/* ./tmp_dist_files",
