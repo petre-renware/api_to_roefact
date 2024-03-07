@@ -55,5 +55,3 @@ jobs:
           #  move back `.msi` files and drop temp directory
           mv ./tmp_dist_files/* ./dist
           rm -r ./tmp_dist_files
-
-

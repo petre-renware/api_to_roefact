@@ -57,8 +57,7 @@
 
 * wip...
 
-* TEST FAIL `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script is mainly intended to be used in build_pypi automation to hide PyPi token.
-    see `pyproject.toml` for error
+* `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one
 * `230406piu08` updated `downloads.md` ref end-of-life date of all `0.1...` versions: 10-March-2024
 
 
