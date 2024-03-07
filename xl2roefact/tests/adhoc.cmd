@@ -10,5 +10,5 @@ rem -------------------------
 
 rem echo "=== Test run of `adhoc.cmd` ======"
 
-
+pdm run pypi_publish
 
