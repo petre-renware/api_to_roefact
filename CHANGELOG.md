@@ -55,8 +55,9 @@
 * tbd.Must... make single EXE with `pyinstaller`
 
 
-* wip... (last used `230406piu07`)
+* wip...
 
+* ... `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script is mainly intended to be used in build_pypi automation to hide PyPi token
 * `230406piu08` updated `downloads.md` ref end-of-life date of all `0.1...` versions: 10-March-2024
 
 
