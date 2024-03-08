@@ -15,5 +15,5 @@ rem echo "=== Test run of `adhoc.cmd` ======"
 rem wip.tests.... pdm run pypi_publish >_test_results.txt
 
 rem wip.tests ... pyinstaller 
-pyinstaller myscript.py >_test_results.txt
+python -m pyinstaller myscript.py >_test_results.txt
 
