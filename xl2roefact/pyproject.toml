@@ -101,7 +101,8 @@ pypi_publish = {composite = [
     {shell = "rm -r ./tmp_dist_files"}
 ]}  # publish xl2roefact package on PyPi
 #FIXME: @240308 07:35 `[TypeError]: expected string or bytes-like object` ...
-#FIXME ... most probably because in composite action expect str in list not dicts (with shell cmd...)
+#FIXME ... most probably because in composite action expect str in list not dicts (with shell cmd) ...
+#FIXME ... PROPOSAL: a good option is to exec commands as python: `python -c os.mkdir ...as.idea...`
 
 
 
