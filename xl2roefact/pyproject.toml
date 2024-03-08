@@ -84,6 +84,7 @@ distribution = true  # required for PyPi package publishing
 [tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
 build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
 build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
+#FIXME `Error: The output directory "D:\a\api_to_roefact\api_to_roefact\xl2roefact\dist\xl2roefact" is not empty. Please remove all its contents or use the -y option (remove output directory without confirmation).`
 build_sexe = {cmd = [
     "pyinstaller",
     "xl2roefact.py",
