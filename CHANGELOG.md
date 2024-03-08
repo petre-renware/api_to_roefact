@@ -51,7 +51,8 @@
 
 * wip...`240308piu01` make single EXE with `pyinstaller`
     * [x] 1. ck & install `pyinstaller` in local environment. Update it if neccesary
-    * [ ] 2. adhoc try to execute it. Make a command for (`sexscmd`)
+    * [x] 2. adhoc try to execute it. Make a command for (`sexscmd`)
+          RESULTS: `.../xl2roefact/dist/xl2roefact/.. ` with exe & various files
     * [ ] 3. adjust the command `sexecmd` to onbtaint right file name containing version and opsys specs
     * [ ] 4. adjust the command `sexecmd` to be placed in `...xl2roefact/dist/` directory
     * [ ] 5. create a PDM script for command `sexecmd` => `build_single_exe`
