@@ -15,5 +15,8 @@ rem echo "=== Test run of `adhoc.cmd` ======"
 rem wip.tests.... pdm run pypi_publish >_test_results.txt
 
 rem wip.tests ... pyinstaller 
-python -m pyinstaller myscript.py >_test_results.txt
+python -m pyinstaller xl2roefact.py >_test_results.txt
+rem err: `C:\hostedtoolcache\windows\Python\3.10.11\x64\python.exe: No module named pyinstaller`
+
+
 
