@@ -21,4 +21,4 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem wip.tests.... pdm run pypi_pub
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem wip.tests ... pyinstaller  
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_sexe  1>./tests/_test_results.txt 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_sexe 
