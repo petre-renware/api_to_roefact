@@ -21,6 +21,4 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem wip.tests.... pdm run pypi_pub
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem wip.tests ... pyinstaller  
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run pyinstaller xl2roefact.py  1>_test_results.txt 
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem err: `C:\hostedtoolcache\windows\Python\3.10.11\x64\python.exe: No module named pyinstaller` 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_sexe  1>_test_results.txt 
