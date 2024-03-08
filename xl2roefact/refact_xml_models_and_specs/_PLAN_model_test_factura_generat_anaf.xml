@@ -89,7 +89,7 @@
     </cac:PaymentMeans>
 
 
-    
+
     <cac:TaxTotal>  #NOTE DONE / RDY all items
         <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
         <cac:TaxSubtotal>
