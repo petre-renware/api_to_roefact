@@ -88,6 +88,7 @@ build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist
 build_sexe = {cmd = [
     "pyinstaller",
     "--distpath ./dist_sexe",  # folder where to write deliverables
+    #TODO: engineer it to have name containing xl2roefact version and `win64` spec:  "--name NAME",  # name of deliverable (bundled exe file)
     "--log-level WARN",
     "--onefile",  # Create a one-file bundled executable
     "--noconfirm",  # Replace output directory without asking confirmation
