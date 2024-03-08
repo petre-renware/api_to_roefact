@@ -18,16 +18,11 @@
 ## 0.3 (TODO: wip...)
 
 ```
-    - ---[ #TODO general planning board ]---------------------------
-    * ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
+    - ---[ #TODO general planning board ]---:
     * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
     * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
-
-    - ---[ #TODO short planning board ]---------------------------
-    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed).
-      ...Aici descrierea pe scurt: in file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
     -
-    * ... FUTURE NEW APP COMMANDS :
+    * ---[ FUTURE NEW APP COMMANDS ]---:
         * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
         * `xl2json` - crt_wip... (last upd @ 240219piu_a)
         * `json2xml` - see module WRXML,
@@ -52,10 +47,17 @@
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 * tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
 
-* tbd.Must... make single EXE with `pyinstaller`
-
-
 * wip...
+
+* wip...`240308piu01` make single EXE with `pyinstaller`
+    * [ ] 1. ck & install `pyinstaller` in local environment. Update it if neccesary
+    * [ ] 2. adhoc try to execute it. Make a command for (`sexscmd`)
+    * [ ] 3. adjust the command `sexecmd` to onbtaint right file name containing version and opsys specs
+    * [ ] 4. adjust the command `sexecmd` to be placed in `...xl2roefact/dist/` directory
+    * [ ] 5. create a PDM script for command `sexecmd` => `build_single_exe`
+    * [ ] 6. build sing e exe for current version of xl2roefact
+    * [ ] 7. update `downloads.md` to include
+    * [ ] 8. update site
 
 * `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one
 * `230406piu08` updated `downloads.md` ref end-of-life date of all `0.1...` versions: 10-March-2024
