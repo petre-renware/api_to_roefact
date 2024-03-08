@@ -54,7 +54,8 @@
     * [x] 2. adhoc try to execute it. Make a command for (`build_sexe`)
           RESULTS: `.../xl2roefact/dist/xl2roefact/.. ` with exe & various files
     * [x] 3. created a PDM script for command `build_sexe`
-    * [ ] x. adjust the command `build_sexe` to contait right file name containing version and op.sys specs and in right dir = `...xl2roefact/dist/`
+    * [x] 4. result is pruduced in `...xl2roefact/dist/`
+    * [ ] x. adjust the command `build_sexe` to produce right file name as `xl2roefact-0.3.1.b1-win64.exe` amd directly in `.../dist/` dir
     * [ ] x. in `pyproject.toml` include `build_sexe` cmd in `build_all`
     * [ ] x. build single exe for current version of xl2roefact
     * [ ] x. update `downloads.md` to include
