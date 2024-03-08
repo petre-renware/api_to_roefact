@@ -85,7 +85,7 @@ distribution = true  # required for PyPi package publishing
 build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
 build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
 build_sexe = {cmd = [
-    "pdm run pyinstaller",
+    "pyinstaller",
     "xl2roefact.py",
     # oth params here like -F for single file
 ]}  # build portable single EXE file
