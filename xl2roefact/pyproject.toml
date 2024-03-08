@@ -89,6 +89,7 @@ build_sexe = {cmd = [
     "pyinstaller",
     "--distpath ./dist_sexe",  # folder where to write deliverables
     "--log-level WARN",
+    "--noconfirm",  # Replace output directory without asking confirmation
     # oth params here like -F for single file
     "xl2roefact.py"
 ]}  # build portable single EXE file
