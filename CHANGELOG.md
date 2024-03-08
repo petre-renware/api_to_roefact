@@ -50,7 +50,7 @@
 * wip...
 
 * wip...`240308piu01` make single EXE with `pyinstaller`
-    * [ ] 1. ck & install `pyinstaller` in local environment. Update it if neccesary
+    * [x] 1. ck & install `pyinstaller` in local environment. Update it if neccesary
     * [ ] 2. adhoc try to execute it. Make a command for (`sexscmd`)
     * [ ] 3. adjust the command `sexecmd` to onbtaint right file name containing version and opsys specs
     * [ ] 4. adjust the command `sexecmd` to be placed in `...xl2roefact/dist/` directory
