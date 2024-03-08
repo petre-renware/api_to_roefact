@@ -51,13 +51,15 @@
 
 * wip...`240308piu01` make single EXE with `pyinstaller`
     * [x] 1. ck & install `pyinstaller` in local environment. Update it if neccesary
-    * [ ] 2. adhoc try to execute it. Make a command for (`sexscmd`)
-    * [ ] 3. adjust the command `sexecmd` to onbtaint right file name containing version and opsys specs
-    * [ ] 4. adjust the command `sexecmd` to be placed in `...xl2roefact/dist/` directory
-    * [ ] 5. create a PDM script for command `sexecmd` => `build_single_exe`
-    * [ ] 6. build sing e exe for current version of xl2roefact
-    * [ ] 7. update `downloads.md` to include
-    * [ ] 8. update site
+    * [x] 2. adhoc try to execute it. Make a command for (`build_sexe`)
+          RESULTS: `.../xl2roefact/dist/xl2roefact/.. ` with exe & various files
+    * [x] 3. created a PDM script for command `build_sexe`
+    * [x] 4. result is pruduced in `...xl2roefact/dist/`
+    * [ ] x. adjust the command `build_sexe` to produce right file name as `xl2roefact-0.3.1.b1-win64.exe` amd directly in `.../dist/` dir
+    * [ ] x. in `pyproject.toml` include `build_sexe` cmd in `build_all`
+    * [ ] x. build single exe for current version of xl2roefact
+    * [ ] x. update `downloads.md` to include
+    * [ ] x. update site
 
 * `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one
 * `230406piu08` updated `downloads.md` ref end-of-life date of all `0.1...` versions: 10-March-2024

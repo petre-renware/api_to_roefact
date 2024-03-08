@@ -17,4 +17,8 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem -------------------------
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem echo "=== Test run of `adhoc.cmd` ======" 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run pypi_publish 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem wip.tests.... pdm run pypi_publish >_test_results.txt 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem wip.tests ... pyinstaller  
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_sexe  1>_test_results.txt 

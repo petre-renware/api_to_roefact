@@ -10,5 +10,12 @@ rem -------------------------
 
 rem echo "=== Test run of `adhoc.cmd` ======"
 
-pdm run pypi_publish
+
+
+rem wip.tests.... pdm run pypi_publish >_test_results.txt
+
+rem wip.tests ... pyinstaller 
+pdm run build_sexe >_test_results.txt
+
+
 
