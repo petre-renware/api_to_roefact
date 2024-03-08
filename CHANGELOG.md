@@ -55,7 +55,9 @@
           RESULTS: `.../xl2roefact/dist/xl2roefact/.. ` with exe & various files
     * [x] 3. created a PDM script for command `build_sexe`
     * [x] 4. result produced in `...dist/xl2roefact/dist/` - a little bit unacceptable but ok for that step
-    * [ ...to.test... ] 5. adjust command `build_sexe` to produce a single file EXE
+    * [x] 5. adjust command `build_sexe` to produce a single file EXE
+          RESOLUTION: up here resulted one file `xl2roefact.exe` in `.../dist/` directory
+    * [ ] x. adjust command `build_sexe` to produce exe in other-tenp directory for name processing (req here in nxt item-step)
     * [ ] x. adjust command `build_sexe` to produce right file name as `xl2roefact-0.3.1.b1-win64.exe` amd directly in `.../dist/` dir
     * [ ] x. in `pyproject.toml` include `build_sexe` cmd in `build_all`
     * [ ] x. build single exe for current version of xl2roefact
