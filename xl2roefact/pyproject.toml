@@ -87,11 +87,11 @@ build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist
 #FIXME `Error: The output directory "D:\a\api_to_roefact\api_to_roefact\xl2roefact\dist\xl2roefact" is not empty. Please remove all its contents or use the -y option (remove output directory without confirmation).`
 build_sexe = {cmd = [
     "pyinstaller",
-    "--distpath ./dist_sexe ",  # folder where to write deliverables
+    #wip.tst... "--distpath ./dist_sexe ",  # folder where to write deliverables
     #TODO: engineer it to have name containing xl2roefact version and `win64` spec:  "--name NAME",  # name of deliverable (bundled exe file)
-    "--log-level WARN",
+    #wip.tst... "--log-level WARN",
     "--onefile",  # Create a one-file bundled executable
-    "--noconfirm",  # Replace output directory without asking confirmation
+    #wip.tst... "--noconfirm",  # Replace output directory without asking confirmation
     # oth params here like -F for single file
     "xl2roefact.py",
 ]}  # build portable single EXE file
