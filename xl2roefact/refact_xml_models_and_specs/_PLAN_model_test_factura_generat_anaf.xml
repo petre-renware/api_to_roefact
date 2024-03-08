@@ -88,7 +88,9 @@
         <cbc:PaymentMeansCode>1</cbc:PaymentMeansCode>
     </cac:PaymentMeans>
 
-    <cac:TaxTotal>  #TODO tbd... (#NOTE: intended in `0.3.3b` version)
+
+    
+    <cac:TaxTotal>  #NOTE DONE / RDY all items
         <cbc:TaxAmount currencyID="RON">190.00</cbc:TaxAmount>
         <cac:TaxSubtotal>
             <cbc:TaxableAmount currencyID="RON">1000.00</cbc:TaxableAmount>
@@ -103,28 +105,28 @@
         </cac:TaxSubtotal>
     </cac:TaxTotal>
 
-    <cac:LegalMonetaryTotal>  #NOTE DONE / RDY (whole struture done)
+    <cac:LegalMonetaryTotal>  #NOTE DONE / RDY for all items
         <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
         <cbc:TaxExclusiveAmount currencyID="RON">1000.00</cbc:TaxExclusiveAmount>
         <cbc:TaxInclusiveAmount currencyID="RON">1190.00</cbc:TaxInclusiveAmount>
         <cbc:PayableAmount currencyID="RON">1190.00</cbc:PayableAmount>
     </cac:LegalMonetaryTotal>
 
-    <cac:InvoiceLine>
-        <cbc:ID>1</cbc:ID>  #NOTE DONE / RDY
-        <cbc:InvoicedQuantity unitCode="OT">1.00</cbc:InvoicedQuantity>  #NOTE DONE / RDY (incl `unitCode` as `cbc:unitCode`)
-        <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>  #NOTE DONE / RDY
-        <cac:Item>  #NOTE DONE / RDY
-            <cbc:Name>servicii consultanta</cbc:Name>  #NOTE DONE / RDY
-            <cac:ClassifiedTaxCategory>  #NOTE DONE / RDY
+    <cac:InvoiceLine>  #NOTE DONE / RDY for all items
+        <cbc:ID>1</cbc:ID>
+        <cbc:InvoicedQuantity unitCode="OT">1.00</cbc:InvoicedQuantity>  #NOTE `unitCode` as `cbc:unitCode`
+        <cbc:LineExtensionAmount currencyID="RON">1000.00</cbc:LineExtensionAmount>
+        <cac:Item>
+            <cbc:Name>servicii consultanta</cbc:Name>
+            <cac:ClassifiedTaxCategory>
                 <cbc:ID>S</cbc:ID>  #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???
-                <cbc:Percent>19.00</cbc:Percent>  #NOTE DONE / RDY
-                <cac:TaxScheme>  #NOTE DONE / RDY
-                    <cbc:ID>VAT</cbc:ID>  #NOTE DONE / RDY
+                <cbc:Percent>19.00</cbc:Percent>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
             </cac:ClassifiedTaxCategory>
         </cac:Item>
-        <cac:Price>  #NOTE DONE / RDY
+        <cac:Price>
             <cbc:PriceAmount currencyID="RON">1000.00</cbc:PriceAmount>  #NOTE this will be identifyed in `invoice_header_area`
         </cac:Price>
     </cac:InvoiceLine>
