@@ -93,12 +93,12 @@ build_all = {composite = [
 ]}  # build all packages (MSI, python package wheel, python package sdist, design doc)
 xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python module
 pypi_publish = {composite = [
-    "mkdir tmp_dist_files",
-    "mv ./dist/* ./tmp_dist_files/",
+    {shell = "mkdir tmp_dist_files"},
+    {shell = "mv ./dist/* ./tmp_dist_files/"},
     "build_wheel",
     "pdm publish --no-build --username __token__ --password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw",
-    "mv ./tmp_dist_files/* ./dist/",
-    "rm -r ./tmp_dist_files"
+    {shell = "mv ./tmp_dist_files/* ./dist/"},
+    {shell = "rm -r ./tmp_dist_files"}
 ]}  # publish xl2roefact package on PyPi  #FIXME: `[PdmUsageError]: Command 'mkdir' is not found in your PATH.`
 
 
