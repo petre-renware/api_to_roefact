@@ -29,3 +29,5 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_sexe
 ******Test results
 ---tstsrc=True
 ---tstdst=True
+******Move oper returned
+--- op_result=WindowsPath('dist/xl2roefact-0.3.1b1-win64.exe')
