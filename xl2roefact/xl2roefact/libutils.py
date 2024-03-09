@@ -49,12 +49,15 @@ def complete_sexe_file() -> bool:
     tstdst = bool(dest_file.is_file() and dest_file.exists())
     tstsrc = bool(source_file.is_file() and source_file.exists())
     print(f"******Test results\n---{tstsrc=}\n---{tstdst=}")  #FIXME dbg can drop
-    if tstdst and tstsrc:
+    if not tstsrc:  # we have no work object. exit with False
+        return False
+    # here on `tstsrc` for sure True so do not test it anymore
+    if tstdst:
         # drop dest
         ...
-        tstdst = False  # prep for nxt test to pass anyway
-    if not tstdst and tstsrc;
-        # now shoul fail on windows. then nmove / rename op to put here
+        tstdst = False  # prep for nxt test to pass depending on source file test
+    if not tstdst;  # NOTE: pay attn and don not put on else branch of prev test. They neex
+        # now should fail on windows. then nmove / rename op to put hereto work in chain and prev test influence current one
        ...
     op_result = source_file.rename(dest_file)
     print(f"******Move oper returned\n--- {op_result=}")  #FIXME dbg drop me   
