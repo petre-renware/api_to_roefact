@@ -53,13 +53,12 @@ def complete_sexe_file() -> bool:
         return False
     # here on `tstsrc` for sure True so do not test it anymore
     if tstdst:
-        # drop dest
-        ...
+        # drop destination file
+        dest_file.xxx...
         tstdst = False  # prep for nxt test to pass depending on source file test
     if not tstdst:  # NOTE: pay attn and don not put on else branch of prev test. They neex
-        # now should fail on windows. then nmove / rename op to put hereto work in chain and prev test influence current one
-       ...
-    op_result = source_file.rename(dest_file)
+        # move / rename op to put hereto work in chain and prev test influence current one
+        op_result = source_file.rename(dest_file)
     print(f"******Move oper returned\n--- {op_result=}")  #FIXME dbg drop me   
     process_stat = bool(op_result)
     return process_stat
