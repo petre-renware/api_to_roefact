@@ -14,8 +14,8 @@
 - `<WEB_ROOT>/` is the HTTP server root directory, as default `docs/` and supposed if no other parent is specified
 
 
-
-## 0.3 (TODO: wip...)
+<!--#FIXME uncomment when finish 0.3...
+## 0.4 (TODO:.next)
 
 ```
     - ---[ #TODO general planning board ]---:
@@ -35,21 +35,31 @@
     -------------------------------------------------------------------------------------------------
 ```
 
-
-
-
-### TODO:next... ???-(0.3.2b sau 0.4.0) single EXE version (#NOTE: date here...)
+### TODO:next... 0.4.0rc invoice supplier (#NOTE: date here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
 * tbd.Must... `xl2roefact` need to make invoice supplier (`<cac:AccountingSupplierParty>`) - MANDATORY to plan for next version
-
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 * tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
+-->
 
-* wip...
 
-* wip...`240308piu01` make single EXE with `pyinstaller`
+
+
+
+
+
+
+
+## 0.3 (NOTE:...wip...)
+
+### NOTE:...wip... 0.3.2b single EXE version (#NOTE: date here...)
+
+* tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
+* tbd Should... update `app_cli`, option `--version` to get normalized version string
+
+* wip... `240308piu01` make single EXE with `pyinstaller`
     * [x] 1. ck & install `pyinstaller` in local environment. Update it if neccesary
     * [x] 2. adhoc try to execute it. Make a command for (`build_sexe`)
           RESULTS: `.../xl2roefact/dist/xl2roefact/.. ` with exe & various files
@@ -59,23 +69,17 @@
           RESOLUTION: up here resulted one file `xl2roefact.exe` in `.../dist/` directory
     * [x] 6. adjust command `build_sexe` to produce exe in other-tenp directory for name processing (req here in nxt item-step)
     * [x] 7. installed `packaging` package and updated `xl2roefact.__version__` module with function `normalized_version(raw_version: str) -> str`
-    * [ ] ... 8. adjust command `build_sexe` to produce right file name as `xl2roefact-0.3.1.b1-win64.exe` and move it in `.../dist/` dir. Specs:
+    * [x] 8. adjust command `build_sexe` to produce right file name as `xl2roefact-0.3.1.b1-win64.exe` and move it in `.../dist/` dir. Specs:
         - [x] in pyproject.toml make `post_build_sexe` entry of call type `{call = "xl2roefact.libutils:complete_sexe_file()"}`
         - [x] update `__version__` modules to accommodate this function
         - [x] skeleton rdy `libutils` module for function `complete_sexe_file()` that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe`
-        - [ ] ... finalize code of `complete_sexe_file()`
-    * [ ] x. in `pyproject.toml` include `build_sexe` cmd in `build_all`
-    * [ ] x. build single exe for current version of xl2roefact
-    * [ ] x. update `downloads.md` to include
+        - [x] finalize & test code of `complete_sexe_file()` ==> PASS
+    * [ ] 9. in `pyproject.toml` include `build_sexe` cmd in `build_all`
+    * [ ] x. build single exe for current stable version of xl2roefact = `0.3.1b1`
+    * [ ] x. update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
     * [ ] x. update site
-
 * `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one
 * `230406piu08` updated `downloads.md` ref end-of-life date of all `0.1...` versions: 10-March-2024
-
-
-
-
-
 
 
 
