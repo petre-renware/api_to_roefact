@@ -26,3 +26,5 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_sexe
 --- source_file=WindowsPath('dist_sexe/xl2roefact_to_update_name.exe')
 --- dest_file=WindowsPath('dist/xl2roefact-0.3.1b1-win64.exe')
 --- canonical_version='0.3.1b1'
+******Move oper returned
+--- op_result=WindowsPath('dist/xl2roefact-0.3.1b1-win64.exe')
