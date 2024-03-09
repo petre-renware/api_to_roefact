@@ -49,13 +49,12 @@ def complete_sexe_file() -> bool:
     print(f"******Test results\n---{tstsrc=}\n---{tstdst=}")  #FIXME dbg can drop
     if not tstsrc:  # we have no work object. exit with False
         return False
-    # here on `tstsrc` for sure True so do not test it anymore
-    if tstdst:
-        # drop destination file
+    # from this point down `tstsrc` is True so do not test it anymore
+    if tstdst:  # drop destination file
         dest_file.unlink()
         tstdst = False  # prep for nxt test to pass depending on source file test
-    if not tstdst:  # NOTE: pay attn and don not put on else branch of prev test. They neex
-        # move / rename op to put hereto work in chain and prev test influence current one
+    if not tstdst:  # NOTE: pay attn and don not put on else branch of prev test. They need to work in chain and prev test influence current one
+        # move source to destination
         op_result = source_file.rename(dest_file)
     print(f"******Move oper returned\n--- {op_result=}")  #FIXME dbg drop me   
     process_stat = bool(op_result)
