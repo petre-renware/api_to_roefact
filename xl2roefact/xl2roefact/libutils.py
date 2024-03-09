@@ -9,6 +9,7 @@ Identification:
 
 Components:
 
+* `complete_sexe_file()-> None`: Rename and move resulted exe file (called from `build_sexe` script)
 * `dict_sum_by_key(dict, str) -> float`: Sum a dictionary for a given key at all depth levels
 * `find_str_in_list(list, list) -> int`: Search more strings (ie, a list) in list of strings
 * `invoice_taxes_summary(list[dict]) -> dict`: Calculates invoice taxes summary as required by ROefact requirements
@@ -24,6 +25,13 @@ import copy
 
 ''' #TODO: ...wip @240309T0735
 update `libutils` module for function `complete_sexe_file()` that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe`
+
+def complete_sexe_file():
+    """Rename and move resulted exe file.
+
+    Specs: `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
+    """
+    pass
 '''
 
 
