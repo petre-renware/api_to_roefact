@@ -28,7 +28,9 @@ __version__ = "0.3.1b1"
 
 
 
-def normalized_version(raw_version: str) -> str:
+def normalized_version(
+    raw_version: str = __version__
+) -> str:
     """transform version string in canonical form.
 
     Usage:
@@ -36,7 +38,7 @@ def normalized_version(raw_version: str) -> str:
     - `xl2roefact.__version__.normalized_version()`
 
     Args:
-        `raw_version (str)`: raw version string
+        `raw_version (str)`: a raw version string. Defaults to package current version string.
 
     Returns:
         `str:` canonical version string

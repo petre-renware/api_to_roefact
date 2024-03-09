@@ -9,6 +9,7 @@ Identification:
 
 Components:
 
+* `complete_sexe_file() -> bool`: Rename and move resulted exe file (called from `build_sexe` script)
 * `dict_sum_by_key(dict, str) -> float`: Sum a dictionary for a given key at all depth levels
 * `find_str_in_list(list, list) -> int`: Search more strings (ie, a list) in list of strings
 * `invoice_taxes_summary(list[dict]) -> dict`: Calculates invoice taxes summary as required by ROefact requirements
@@ -20,6 +21,36 @@ import sys
 from rich import print
 from fractions import Fraction
 import copy
+
+
+#TODO: ...wip @240309T0835
+from xl2roefact.__version__ import normalized_version
+from pathlib import Path
+def complete_sexe_file() -> bool:
+    """Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.
+
+    Specs: file to process `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
+
+    Return:
+        `bool`: True if file was found, renamed and moved with no error
+    """
+    # NOTE: all function suppose that current directory is where xl2roefact package "start"
+    process_stat = True
+    # get canonical version string
+    canonical_version = str(normalized_version())
+    # construct a Path() type for source
+    source_file = Path("./dist_sexe/xl2roefact_to_update_name.exe")
+    # construct a Path() type for for destination
+    dest_file = Path(f"./dist/xl2roefact-{canonical_version}-win64.exe")
+    print(f"******\n--- {source_file=}\n--- {dest_file=}\n--- {canonical_version=}")  #FIXME dbg drop me
+    # mv source file to dest using new name (FIXME:to.check there is no need to drop source file as it was moved)
+    #...tbd  op_result = os.move...
+    #...tbd process_stat = bool(op_result)
+    return process_stat
+
+
+
+
 
 
 
