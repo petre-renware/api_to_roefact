@@ -22,6 +22,11 @@ from fractions import Fraction
 import copy
 
 
+''' #TODO: ...wip @240309T0735
+update `libutils` module for function `complete_sexe_file()` that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe`
+'''
+
+
 
 # NOTE: ready, unit test PASS @240305
 def invoice_taxes_summary(
