@@ -47,7 +47,7 @@ def complete_sexe_file() -> bool:
     #FIXME:to.check if dwst exists and drop. On Windows can raise eee. See Path.rename doc
     #TODO.wip...  tests that should be made
     tstdst = bool(dest_file.is_file() and dest_file.exists())
-    tstsrc = bool(source_file.is_file(l and source_file.exists())
+    tstsrc = bool(source_file.is_file() and source_file.exists())
     print(f"******Test results\n---{tstsrc=}\n---{tstdst=}")  #FIXME dbg can drop
     if tstdst and tstsrc:
         # grop dest
