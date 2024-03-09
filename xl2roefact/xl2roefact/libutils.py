@@ -24,7 +24,7 @@ import copy
 
 
 #TODO: ...wip @240309T0835
-from import xl2roefact.__version__ import normalized_version
+from xl2roefact.__version__ import normalized_version
 from pathlib import Path
 def complete_sexe_file() -> bool:
     """Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.
