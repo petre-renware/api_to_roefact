@@ -45,6 +45,13 @@ def complete_sexe_file() -> bool:
     print(f"******\n--- {source_file=}\n--- {dest_file=}\n--- {canonical_version=}")  #FIXME dbg drop me
     # mv source file to dest using new nam
     #FIXME:to.check if dwst exists and drop. On Windows can raise eee. See Path.rename doc
+    #TODO.wip...  tests that should be made
+    tstdst = bool(dest_file.is_file() and dest_file.exists())
+    tstsrc = bool(source_file.is_file(l and source_file.exists())
+    print(f"******Test results\n---{tstsrc=}\n---{tstdst=}")  #FIXME dbg can drop
+    if tstdst and tstsrc:
+        # grop dest
+        ...
     op_result = source_file.rename(dest_file)
     print(f"******Move oper returned\n--- {op_result=}")  #FIXME dbg drop me   
     process_stat = bool(op_result)
