@@ -58,7 +58,8 @@
     * [x] 5. adjust command `build_sexe` to produce a single file EXE
           RESOLUTION: up here resulted one file `xl2roefact.exe` in `.../dist/` directory
     * [x] 6. adjust command `build_sexe` to produce exe in other-tenp directory for name processing (req here in nxt item-step)
-    * [ ] ... 7. adjust command `build_sexe` to produce right file name as `xl2roefact-0.3.1.b1-win64.exe` and move it in `.../dist/` dir
+    * [x] 7. installed `packaging` package and updated `xl2roefact.__version__` module with function `normalized_version(raw_version: str) -> str`
+    * [ ] ... 8. adjust command `build_sexe` to produce right file name as `xl2roefact-0.3.1.b1-win64.exe` and move it in `.../dist/` dir
           Specs:
           - in pyproject.toml make `post_build_sexe` entry of call type `{call = "xl2roefact.__version__:normalized_version()"}`
           - update `__version__` module to accommodate this function
