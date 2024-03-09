@@ -50,8 +50,12 @@ def complete_sexe_file() -> bool:
     tstsrc = bool(source_file.is_file() and source_file.exists())
     print(f"******Test results\n---{tstsrc=}\n---{tstdst=}")  #FIXME dbg can drop
     if tstdst and tstsrc:
-        # grop dest
+        # drop dest
         ...
+        tstdst = False  # prep for nxt test to pass anyway
+    if not tstdst and tstsrc;
+        # now shoul fail on windows. then nmove / rename op to put here
+       ...
     op_result = source_file.rename(dest_file)
     print(f"******Move oper returned\n--- {op_result=}")  #FIXME dbg drop me   
     process_stat = bool(op_result)
