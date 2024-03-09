@@ -38,8 +38,15 @@ def complete_sexe_file() -> bool:
     ...
     # get canonical version string
     canonical_version = str(normalized_version())
-    # construct a Path() type for file: 1 for source and 1 for destination as intended to be, with version str in filename
+    ...
+    # init Path() variables for source and target files
+    source_file = Path()
+    ...
     #FIXME:example.to.drop tmp_files_to_process = Paandth(a path type here)
+    # construct a Path() type for source. Preserve extension
+    ...
+    # construct a Path() type for for destination. Extension is taken from source
+    ...
     return process_stat
 
 
