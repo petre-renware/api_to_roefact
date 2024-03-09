@@ -29,7 +29,7 @@ update `libutils` module for function `complete_sexe_file()` that rename and mov
 def complete_sexe_file() -> bool:
     """Rename and move resulted exe file.
 
-    Specs: `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
+    Specs: file to process `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
     """
     # if everything ok...
     return True
