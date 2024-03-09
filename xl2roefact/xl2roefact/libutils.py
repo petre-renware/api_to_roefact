@@ -21,20 +21,22 @@ import sys
 from rich import print
 from fractions import Fraction
 import copy
-
-
-# NOTE: in tests @240309T1600
 from xl2roefact.__version__ import normalized_version
 from pathlib import Path
+
+
+
+
+# NOTE: rdy, unit test PASS @240309
 def complete_sexe_file() -> bool:
     """Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.
 
     Specs: file to process `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
-
+    NOTE: all function code suppose that current directory is root of `xl2roefact`, ie where is located `pyproject.toml` of package
+    
     Return:
         `bool`: True if file was found, renamed and moved with no error
     """
-    # NOTE: all function suppose that current directory is where xl2roefact package "start"
     process_stat = True
     # get canonical version string
     canonical_version = str(normalized_version())
@@ -42,23 +44,17 @@ def complete_sexe_file() -> bool:
     source_file = Path("./dist_sexe/xl2roefact_to_update_name.exe")
     # construct a Path() type for for destination
     dest_file = Path(f"./dist/xl2roefact-{canonical_version}-win64.exe")
-    print(f"******\n--- {source_file=}\n--- {dest_file=}\n--- {canonical_version=}")  #FIXME dbg drop me
     # mv source file to dest using new name. If destination exists is replaced
     tstdst = bool(dest_file.is_file() and dest_file.exists())
     tstsrc = bool(source_file.is_file() and source_file.exists())
-    print(f"******Test results\n---{tstsrc=}\n---{tstdst=}")  #FIXME dbg can drop
     if not tstsrc:  # we have no work object. exit with False
         return False
     if tstdst:  # drop destination file
         dest_file.unlink()
     # move source to destination
     op_result = source_file.rename(dest_file)
-    print(f"******Move oper returned\n--- {op_result=}")  #FIXME dbg drop me   
     process_stat = bool(op_result)
     return process_stat
-
-
-
 
 
 
