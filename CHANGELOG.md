@@ -61,8 +61,9 @@
     * [x] 7. installed `packaging` package and updated `xl2roefact.__version__` module with function `normalized_version(raw_version: str) -> str`
     * [ ] ... 8. adjust command `build_sexe` to produce right file name as `xl2roefact-0.3.1.b1-win64.exe` and move it in `.../dist/` dir
           Specs:
-          - in pyproject.toml make `post_build_sexe` entry of call type `{call = "xl2roefact.__version__:normalized_version()"}`
-          - update `__version__` module to accommodate this function
+          - ...wip in pyproject.toml make `post_build_sexe` entry of call type `{call = "xl2roefact.libutils:complete_sexe_file()"}`
+          - update `__version__` modules to accommodate this function
+          - ...tbd update `libutils` module for function `complete_sexe_file()` that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe`
     * [ ] x. in `pyproject.toml` include `build_sexe` cmd in `build_all`
     * [ ] x. build single exe for current version of xl2roefact
     * [ ] x. update `downloads.md` to include
