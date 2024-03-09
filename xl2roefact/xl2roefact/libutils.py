@@ -27,7 +27,7 @@ import copy
 from import xl2roefact.__version__ import normalized_version
 from pathlib import Path
 def complete_sexe_file() -> bool:
-    """Rename and move resulted exe file.
+    """Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.
 
     Specs: file to process `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
 
@@ -38,15 +38,14 @@ def complete_sexe_file() -> bool:
     ...
     # get canonical version string
     canonical_version = str(normalized_version())
-    ...
-    # init Path() variables for source and target files
-    source_file = Path()
-    ...
-    #FIXME:example.to.drop tmp_files_to_process = Paandth(a path type here)
-    # construct a Path() type for source. Preserve extension
-    ...
-    # construct a Path() type for for destination. Extension is taken from source
-    ...
+    # construct a Path() type for source
+    source_file = Path("./dist_sexe/xl2roefact_to_update_name.exe")
+    # construct a Path() type for for destination
+    dest_file = Path(f"./dist/xl2roefact-{canonical_version}-win64.exe")
+    print(f"******\n--- {source_file=}\n--- {dest_file=}\n--- {canonical_version=}")  #FIXME dbg drop me
+    # mv source file to dest using new name (FIXME:to.check there is no need to drop source file as it was moved)
+    #...tbd  op_result = os.move...
+    #...tbd process_stat = bool(op_result)
     return process_stat
 
 
