@@ -23,17 +23,23 @@ from fractions import Fraction
 import copy
 
 
-''' #TODO: ...wip @240309T0735
-update `libutils` module for function `complete_sexe_file()` that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe`
-
+#TODO: ...wip @240309T0835
+from import xl2roefact.__version__ import normalized_version
 def complete_sexe_file() -> bool:
     """Rename and move resulted exe file.
 
     Specs: file to process `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
+
+    Return:
+        `bool`: True if file was found, renamed and moved with no error
     """
-    # if everything ok...
-    return True
-'''
+    process_stat = True
+    ...
+    return process_stat
+
+
+
+
 
 
 
