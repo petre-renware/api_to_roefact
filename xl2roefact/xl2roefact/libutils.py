@@ -44,8 +44,9 @@ def complete_sexe_file() -> bool:
     dest_file = Path(f"./dist/xl2roefact-{canonical_version}-win64.exe")
     print(f"******\n--- {source_file=}\n--- {dest_file=}\n--- {canonical_version=}")  #FIXME dbg drop me
     # mv source file to dest using new name (FIXME:to.check there is no need to drop source file as it was moved)
-    #...tbd  op_result = Path.rename(target)  # target must be type Path()
-    #...tbd process_stat = bool(op_result)
+    op_result = source_file.rename(dest_file)
+    print(f"******Move oper returned\n--- {op_result=}")  #FIXME dbg drop me   
+    process_stat = bool(op_result)
     return process_stat
 
 
