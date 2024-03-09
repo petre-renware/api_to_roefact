@@ -31,9 +31,9 @@ from pathlib import Path
 def complete_sexe_file() -> bool:
     """Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.
 
-    Specs: file to process `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
-    NOTE: all function code suppose that current directory is root of `xl2roefact`, ie where is located `pyproject.toml` of package
-    
+    * Specs: file to process `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
+    * NOTE: all function code suppose that current directory is root of `xl2roefact`, ie where is located `pyproject.toml` of package
+
     Return:
         `bool`: True if file was found, renamed and moved with no error
     """
