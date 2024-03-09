@@ -96,7 +96,7 @@ build_sexe = {cmd = [
     "xl2roefact.py",
 ]}  # build portable single EXE file
 #TODO: wip & what to call maybe set in final version variable...
-# post_build_sexe = {call = "xl2roefact.libutils:complete_sexe_file()"}  # process resulted exe to normalise its name and move to `.../dist/`
+post_build_sexe = {call = "xl2roefact.libutils:complete_sexe_file()"}  # process resulted exe to normalise its name and move to `.../dist/`
 
 build_doc = {shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
 build_all = {composite = [
