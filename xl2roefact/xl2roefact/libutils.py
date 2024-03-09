@@ -37,7 +37,7 @@ def complete_sexe_file() -> bool:
     Return:
         `bool`: True if file was found, renamed and moved with no error
     """
-    process_stat = True
+    process_stat = False
     # get canonical version string
     canonical_version = str(normalized_version())
     # construct a Path() type for source
