@@ -34,6 +34,7 @@ def complete_sexe_file() -> bool:
     Return:
         `bool`: True if file was found, renamed and moved with no error
     """
+    # NOTE: all function suppose that current directory is where xl2roefact package "start"
     process_stat = True
     # get canonical version string
     canonical_version = str(normalized_version())
