@@ -56,7 +56,7 @@ def complete_sexe_file() -> bool:
         # drop dest
         ...
         tstdst = False  # prep for nxt test to pass depending on source file test
-    if not tstdst;  # NOTE: pay attn and don not put on else branch of prev test. They neex
+    if not tstdst:  # NOTE: pay attn and don not put on else branch of prev test. They neex
         # now should fail on windows. then nmove / rename op to put hereto work in chain and prev test influence current one
        ...
     op_result = source_file.rename(dest_file)
