@@ -25,6 +25,7 @@ import copy
 
 #TODO: ...wip @240309T0835
 from import xl2roefact.__version__ import normalized_version
+from pathlib import Path
 def complete_sexe_file() -> bool:
     """Rename and move resulted exe file.
 
@@ -35,6 +36,10 @@ def complete_sexe_file() -> bool:
     """
     process_stat = True
     ...
+    # get canonical version string
+    canonical_version = str(normalized_version())
+    # construct a Path() type for file: 1 for source and 1 for destination as intended to be, with version str in filename
+    #FIXME:example.to.drop tmp_files_to_process = Paandth(a path type here)
     return process_stat
 
 
