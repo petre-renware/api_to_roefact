@@ -23,7 +23,7 @@ from fractions import Fraction
 import copy
 
 
-#TODO: ...wip @240309T0835
+# NOTE: in tests @240309T1600
 from xl2roefact.__version__ import normalized_version
 from pathlib import Path
 def complete_sexe_file() -> bool:
@@ -43,9 +43,7 @@ def complete_sexe_file() -> bool:
     # construct a Path() type for for destination
     dest_file = Path(f"./dist/xl2roefact-{canonical_version}-win64.exe")
     print(f"******\n--- {source_file=}\n--- {dest_file=}\n--- {canonical_version=}")  #FIXME dbg drop me
-    # mv source file to dest using new nam
-    #FIXME:to.check if dwst exists and drop. On Windows can raise eee. See Path.rename doc
-    #TODO.wip...  tests that should be made
+    # mv source file to dest using new name. If destination exists is replaced
     tstdst = bool(dest_file.is_file() and dest_file.exists())
     tstsrc = bool(source_file.is_file() and source_file.exists())
     print(f"******Test results\n---{tstsrc=}\n---{tstdst=}")  #FIXME dbg can drop
@@ -54,7 +52,7 @@ def complete_sexe_file() -> bool:
     # here on `tstsrc` for sure True so do not test it anymore
     if tstdst:
         # drop destination file
-        dest_file.xxx...
+        dest_file.unlink()
         tstdst = False  # prep for nxt test to pass depending on source file test
     if not tstdst:  # NOTE: pay attn and don not put on else branch of prev test. They neex
         # move / rename op to put hereto work in chain and prev test influence current one
