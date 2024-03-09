@@ -74,8 +74,8 @@
         - [x] update `__version__` modules to accommodate this function
         - [x] skeleton rdy `libutils` module for function `complete_sexe_file()` that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe`
         - [x] finalize & test code of `complete_sexe_file()` ==> PASS
-    * [ ] 9. in `pyproject.toml` include `build_sexe` cmd in `build_all`
-    * [ ] x. build single exe for current stable version of xl2roefact = `0.3.1b1`
+    * [x] 9. in `pyproject.toml` include `build_sexe` cmd in `build_all`
+    * [x] 10. build single exe for current stable version of xl2roefact = `0.3.1b1`
     * [ ] x. update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
     * [ ] x. update site
 * `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one
