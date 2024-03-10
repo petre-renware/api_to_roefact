@@ -58,9 +58,6 @@
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
-* tbd.Must... #FIXME: single does not work properly. Just runt, without any error but do not display anything
-
-
 * wip... `240308piu01` make single EXE with `pyinstaller`
     * [x] 1. ck & install `pyinstaller` in local environment. Update it if necessary
     * [x] 2. adhoc try to execute it. Make a command for (`build_sexe`)
@@ -77,7 +74,11 @@
         - [x] skeleton rdy `libutils` module for function `complete_sexe_file()` that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe`
         - [x] finalize & test code of `complete_sexe_file()` ==> PASS
     * [x] 9. in `pyproject.toml` include `build_sexe` cmd in `build_all`
-    * [x] 10. build single exe for current stable version of xl2roefact = `0.3.1b1`. Updated tech doc DLD (xl2roefact API Reference).
+    * [x] 10. build single exe for current stable version of xl2roefact = `0.3.1b1`. Updated tech doc DLD (xl2roefact API Reference)
+    * [ ] ...11. #FIXME:
+          - single exe not work properly
+          - See `pyproject.toml` lines ~93..96 for a TESTED SOLUTION
+          - !!! CHANGE adhoc cmd file, drop test running line to avoid exe error
     * [ ] x. update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
     * [ ] x. update site
 * `240308piu00` update `app_cli`, option `--version` to get normalized version string
