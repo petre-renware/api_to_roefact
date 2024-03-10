@@ -75,7 +75,10 @@
         - [x] finalize & test code of `complete_sexe_file()` ==> PASS
     * [x] 9. in `pyproject.toml` include `build_sexe` cmd in `build_all`
     * [x] 10. build single exe for current stable version of xl2roefact = `0.3.1b1`. Updated tech doc DLD (xl2roefact API Reference)
-    * [ ] ...11. #FIXME: single exe not work properly. See `pyproject.toml` lines ~93..96 for a TESTED SOLUTION
+    * [ ] ...11. #FIXME:
+          - single exe not work properly
+          - See `pyproject.toml` lines ~93..96 for a TESTED SOLUTION
+          - !!! CHANGE adhoc cmd file, drop test running line to avoid exe error
     * [ ] x. update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
     * [ ] x. update site
 * `240308piu00` update `app_cli`, option `--version` to get normalized version string
