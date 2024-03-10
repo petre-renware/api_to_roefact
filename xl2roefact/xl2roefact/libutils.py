@@ -23,6 +23,7 @@ from fractions import Fraction
 import copy
 from xl2roefact.__version__ import normalized_version
 from pathlib import Path
+import shutil
 
 
 
@@ -59,7 +60,7 @@ def complete_sexe_file(
     if drop_source:
         op_result = source_file.rename(dest_file)
     else:
-        op_result = source_file.copy(dest_file)
+        shutil.copyfile(source_file, dest_file)
     process_stat = bool(op_result)
     return process_stat
 
