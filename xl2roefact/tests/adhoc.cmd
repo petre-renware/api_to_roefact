@@ -15,8 +15,7 @@ rem echo "=== Test run of `adhoc.cmd` ======"
 rem wip.tests.... pdm run pypi_publish >_test_results.txt
 
 rem ...wip.tests ... pyinstaller 
-mklink xl2roefact_symlink_for_sexe.py xl2roefact.py
-rem pdm run build_sexe
+pdm run build_sexe
 
 
 
