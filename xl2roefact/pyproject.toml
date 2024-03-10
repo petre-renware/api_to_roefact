@@ -75,21 +75,21 @@ version = { source = "file", path = "xl2roefact/__version__.py" }
 distribution = true                                               # required for PyPi package publishing
 
 
-[tool.pdm.scripts] # reference: `https://pdm-project.org/latest/usage/scripts/`
-build_wheel = { shell = "pdm build --no-clean" } # build python packages (wheel & sdist) in `dist/` directory
-build_msi = { shell = "python setup.py bdist_msi" } # build MSI pachkage in `dist/` directory
+[tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
+build_wheel = { shell = "pdm build --no-clean" }  # build python packages (wheel & sdist) in `dist/` directory
+build_msi = { shell = "python setup.py bdist_msi" }  # build MSI pachkage in `dist/` directory
 build_sexe = { cmd = [
     "pyinstaller",
-    "--distpath=dist_sexe/",            # folder where to write deliverables
-    "--name=xl2roefact_to_update_name", # name of deliverable (bundled exe file)
+    "--distpath=dist_sexe/",             # folder where to write deliverables
+    "--name=xl2roefact_to_update_name",  # name of deliverable (bundled exe file)
     "--log-level=WARN",
-    "--onefile",                        # Create a one-file bundled executable
-    "--noconfirm",                      # Replace output directory without asking confirmation
+    "--onefile",                         # Create a one-file bundled executable
+    "--noconfirm",                       # Replace output directory without asking confirmation
 
     "xl2roefact.py",
 ] } # build portable single EXE file
-post_build_sexe = { call = "xl2roefact.libutils:complete_sexe_file" } # process resulted exe to normalise its name and move to `.../dist/`
-build_doc = { shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md" } # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
+post_build_sexe = { call = "xl2roefact.libutils:complete_sexe_file(drop_source=False)" } #FIXME.temp.set.keep.source.file...@rdy.drop.all.args.let.as.callable # process resulted exe to normalise its name and move to `.../dist/`
+build_doc = { shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md" }  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
 build_all = { composite = [
     "build_wheel",
     "build_msi",
