@@ -4,7 +4,7 @@
 block_cipher = None
 
 
-a = Analysis(['xl2roefact_symlink_for_sexe.py'],
+a = Analysis(['xl2roefact_copy_for_sexe.py'],
              pathex=[],
              binaries=[],
              datas=[],
