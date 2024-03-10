@@ -21,7 +21,10 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem wip.tests.... pdm run pypi_pub
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem ...wip.tests ... pyinstaller  
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>mklink xl2roefact_symlink_for_sexe.py xl2roefact.py 
-symbolic link created for xl2roefact_symlink_for_sexe.py <<===>> xl2roefact.py
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_sexe 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem pdm run build_sexe 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem And a short test... 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>cd dist 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\dist>.\xl2roefact-0.3.1b1-win64.exe --version  1>zzz_drop_me.txt 
