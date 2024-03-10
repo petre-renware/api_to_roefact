@@ -77,6 +77,7 @@
     * [x] 10. build single exe for current stable version of xl2roefact = `0.3.1b1`. Updated tech doc DLD (xl2roefact API Reference)
     * [x] 11. FIX: single exe not work. FIX: Must to HAVE DIFFERENT NAME THAN DIRECTORY `xl2roefact/`. Created copy `xl2roefact_copy_for_sexe.py` for xl2roefact.py to be used by pyinstaller in build_sexe script. **This file should be kept on as a perfect copy of original** (as sym-link doesn't work).
     * [ ] x. update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
+    * [ ] x. run script build_doc to update ref `libutils.py` module
     * [ ] x. update site
 * `240308piu00` update `app_cli`, option `--version` to get normalized version string
 * `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one
