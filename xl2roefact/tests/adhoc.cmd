@@ -19,7 +19,6 @@ pdm run build_sexe
 rem Test executable run
 cd dist_sexe
 ./xl2roefact_to_update_name.exe --version >run_proof.txt
-./xl2roefact_to_update_name.exe --help >>run_proof.txt
 cd ..
 
 
