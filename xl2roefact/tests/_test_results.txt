@@ -21,6 +21,7 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem wip.tests.... pdm run pypi_pub
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem ...wip.tests ... pyinstaller  
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>mklink xl2roefact.py xl2roefact_symlink_for_sexe.py 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>mklink xl2roefact_symlink_for_sexe.py xl2roefact.py 
+symbolic link created for xl2roefact_symlink_for_sexe.py <<===>> xl2roefact.py
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem pdm run build_sexe 
