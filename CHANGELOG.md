@@ -75,10 +75,7 @@
         - [x] finalize & test code of `complete_sexe_file()` ==> PASS
     * [x] 9. in `pyproject.toml` include `build_sexe` cmd in `build_all`
     * [x] 10. build single exe for current stable version of xl2roefact = `0.3.1b1`. Updated tech doc DLD (xl2roefact API Reference)
-    * [ ] ...11. #FIXME: single exe not work. FIX: Must to HAVE DIFFERENT NAME THAN DIRECTORY `xl2roefact/` - will temporary rename up to generating EXE
-          - #NOTE-SOLVED: See `pyproject.toml` lines ~93..96 for a TESTED SOLUTION
-          - !!! CHANGE adhoc cmd file, drop test running line to avoid exe error
-          - INFO: the EXE from dist/ is ok, so item 10. remain closed
+    * [ ] ...11. #FIXME: single exe not work. FIX: Must to HAVE DIFFERENT NAME THAN DIRECTORY `xl2roefact/`. Created sym-link `xl2roefact_symlink_for_sexe.py` for xl2roefact.py to be used by pyinstaller in build_sexe script
     * [ ] x. update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
     * [ ] x. update site
 * `240308piu00` update `app_cli`, option `--version` to get normalized version string
