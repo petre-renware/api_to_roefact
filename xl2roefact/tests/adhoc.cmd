@@ -17,8 +17,4 @@ rem wip.tests.... pdm run pypi_publish >_test_results.txt
 rem ...wip.tests ... pyinstaller 
 pdm run build_sexe
 
-rem And a short test...
-cd dist
-.\xl2roefact-0.3.1b1-win64.exe --version >zzz_drop_me.txt
-
 
