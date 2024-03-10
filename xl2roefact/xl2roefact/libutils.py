@@ -28,12 +28,16 @@ from pathlib import Path
 
 
 # NOTE: rdy, unit test PASS @240309
-def complete_sexe_file() -> bool:
+def complete_sexe_file(
+    drop_source: bool = True
+) -> bool:
     """Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.
 
     * Specs: file to process `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
     * NOTE: all function code suppose that current directory is root of `xl2roefact`, ie where is located `pyproject.toml` of package
 
+    Args:
+        `drop_source`: indicate to delete source file after copying, ie make a "move" operation, otherwise make a copy keeping the source file. Default behaviour is to delete source.
     Return:
         `bool`: True if file was found, renamed and moved with no error
     """
@@ -51,8 +55,11 @@ def complete_sexe_file() -> bool:
         return False
     if tstdst:  # drop destination file
         dest_file.unlink()
-    # move source to destination
-    op_result = source_file.rename(dest_file)
+    # move or copy source to destination
+    if drop_source:
+        op_result = source_file.rename(dest_file)
+    else:
+        op_result = source_file.copy(dest_file)
     process_stat = bool(op_result)
     return process_stat
 
