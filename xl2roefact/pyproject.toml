@@ -86,9 +86,9 @@ build_sexe = { cmd = [
     "--onefile",                         # Create a one-file bundled executable
     "--noconfirm",                       # Replace output directory without asking confirmation
 
-    "xl2roefact.py",
+    "xl2roefact_tst_chgd_name.py", #FIXME changed temporary name to test built exe running 
 ] } # build portable single EXE file
-#FIXME.post_build_sexe temp.set.keep.source.file...@rdy.drop.all.args.let.as.callable
+#FIXME.post_build_sexe temp.set.keep.source.file...@rdy.drop.all.args.let.as.callable.  #NOTE also changed name of xl2roefact.py (line 89)
 post_build_sexe = { call = "xl2roefact.libutils:complete_sexe_file(drop_source=False)" }  # process resulted exe to normalise its name and move to `.../dist/`
 build_doc = { shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md" }  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
 build_all = { composite = [
