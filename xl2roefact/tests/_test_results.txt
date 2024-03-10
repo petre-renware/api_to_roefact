@@ -27,6 +27,6 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem Test executable run
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>cd dist_sexe 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\dist_sexe>./xl2roefact_to_update_name.exe --version  1>run_proof.txt 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\dist_sexe>.\xl2roefact_to_update_name.exe --version  1>run_proof.txt 
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\dist_sexe>cd .. 
