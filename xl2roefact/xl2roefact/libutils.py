@@ -60,7 +60,7 @@ def complete_sexe_file(
     if drop_source:
         op_result = source_file.rename(dest_file)
     else:
-        shutil.copyfile(source_file, dest_file)
+        op_result = shutil.copyfile(source_file, dest_file)
     process_stat = bool(op_result)
     return process_stat
 
