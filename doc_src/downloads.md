@@ -92,7 +92,8 @@ Nici o resursa disponibila.
 
 ### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)
 
-Nici o resursa disponibila.
+??? note "0.3"
+    * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe "download")
 
 
 ### Aplicatia web2roefact pachet instalare (win64-msi)
