@@ -65,8 +65,7 @@
 * tbd.Must... update site 
 * tbd.Must... run script build_doc to update ref `libutils.py` module
 
-* ...`240311piu01` update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
-
+* `240311piu01` update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
 * `240308piu00` update `app_cli`, option `--version` to get normalized version string
 * `240308piu01` make single EXE with `pyinstaller`
     * [x] 1. ck & install `pyinstaller` in local environment. Update it if necessary
