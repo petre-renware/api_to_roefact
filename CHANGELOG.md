@@ -15,8 +15,7 @@
 
 
 <!--#FIXME uncomment when finish 0.3...
-## 0.4 (TODO:.next)
-
+### 0.4.1? xxx (...date_here...)
 ```
     - ---[ #TODO general planning board ]---:
     * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
@@ -35,7 +34,7 @@
     -------------------------------------------------------------------------------------------------
 ```
 
-### TODO:next... 0.4.0rc invoice supplier (#NOTE: date here...)
+### TODO:next... 0.4.0rc invoice supplier (#NOTE: ...date_here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -54,11 +53,21 @@
 
 ## 0.3
 
-### NOTE:...wip... 0.3.2b single EXE version (#NOTE: date here...)
+### wip... 0.3.2b0 single EXE version (...date_here...)
+
+???+ info "Release versions"
+    * xl2roefact: "0.3.1b1"
+    * web2roefact: "n/a"
+    * invoice_template: "0.1.20"
+    * INVOICEtoROefact: "0.3.2b0"
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
+* tbd.Must... update site 
+* tbd.Must... run script build_doc to update ref `libutils.py` module
+* tbd.Must... update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
 
-* wip... `240308piu01` make single EXE with `pyinstaller`
+* `240308piu00` update `app_cli`, option `--version` to get normalized version string
+* `240308piu01` make single EXE with `pyinstaller`
     * [x] 1. ck & install `pyinstaller` in local environment. Update it if necessary
     * [x] 2. adhoc try to execute it. Make a command for (`build_sexe`)
           RESULTS: `.../xl2roefact/dist/xl2roefact/.. ` with exe & various files
@@ -76,10 +85,6 @@
     * [x] 9. in `pyproject.toml` include `build_sexe` cmd in `build_all`
     * [x] 10. build single exe for current stable version of xl2roefact = `0.3.1b1`. Updated tech doc DLD (xl2roefact API Reference)
     * [x] 11. FIX: single exe not work. FIX: Must to HAVE DIFFERENT NAME THAN DIRECTORY `xl2roefact/`. Created copy `xl2roefact_copy_for_sexe.py` for xl2roefact.py to be used by pyinstaller in build_sexe script. **This file should be kept on as a perfect copy of original** (as sym-link doesn't work).
-    * [ ] x. update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
-    * [ ] x. run script build_doc to update ref `libutils.py` module
-    * [ ] x. update site
-* `240308piu00` update `app_cli`, option `--version` to get normalized version string
 * `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one
 * `230406piu08` updated `downloads.md` ref end-of-life date of all `0.1...` versions: 10-March-2024
 
@@ -91,6 +96,12 @@
 <!--#NOTE: to be archived ASAP -->
 
 ### 0.3.1b1 fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] (230306 h19:30)
+
+???+ info "Release versions"
+    * xl2roefact: "0.3.1b1"
+    * web2roefact: "n/a"
+    * invoice_template: "0.1.20"
+    * INVOICEtoROefact: "0.3.1b1"
 
 * `230406piu07` release version:
      * [x] 1. update xl2roefact version
