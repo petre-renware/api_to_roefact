@@ -16,7 +16,7 @@
 ![Static Badge](https://img.shields.io/badge/format_JSON-YES-orange)
 ![Static Badge](https://img.shields.io/badge/format_XML-YES-orange)
 ![Static Badge](https://img.shields.io/badge/format_PDF-YES-orange)
-![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-blue)
+![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-red)
 
 
 
