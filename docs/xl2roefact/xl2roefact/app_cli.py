@@ -22,6 +22,7 @@ from rich.markdown import Markdown
 
 # xl2roefact specific libraries
 from xl2roefact import __version__ as appver
+from xl2roefact.__version__ import normalized_version
 import xl2roefact.config_settings as configs  # configuration elements to use with `settings` command
 from xl2roefact.rdinv import rdinv  # status #TODO: wip...
 from xl2roefact.wrxml import wrxml  # status #FIXME: not yet started
@@ -40,7 +41,7 @@ app_cli = typer.Typer(name="xl2roefact")
 def about():
     """provide a short application description.
     """
-    version_string = appver.__version__
+    version_string = normalized_version()
     app_logo = appver.__doc__
     app_logo = Markdown(app_logo)
     print(app_logo)
