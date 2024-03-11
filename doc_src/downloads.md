@@ -26,6 +26,8 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 ??? note "0.3"
+    * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] WHEEL](../xl2roefact/dist/xl2roefact-0.3.1b1-py3-none-any.whl "download")
+    * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] DIST](../xl2roefact/dist/xl2roefact-0.3.1b1.tar.gz "download")
     * [`0.3.1b` xl2roefact documentation fixes WHEEL](../xl2roefact/dist/xl2roefact-0.3.1b0-py3-none-any.whl "download")
     * [`0.3.1b` xl2roefact documentation fixes DIST](../xl2roefact/dist/xl2roefact-0.3.1b0.tar.gz "download")
     * [`0.3.0b` xl2roefact invoice taxes summary WHEEL](../xl2roefact/dist/xl2roefact-0.3.0b0-py3-none-any.whl "download")
@@ -41,7 +43,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 ??? note "0.1"
 
-    <small markdown="1">NOTA: versiunile `0.1` nu mai sunt intretinute de la 01-Martie-2024 (end of life support).</small>
+    <small markdown="1">NOTA: versiunile `0.1` nu mai sunt intretinute de la 10-Martie-2024 (end of life support).</small>
 
     * [`0.1.22b` application interface improvements WHEEL](../xl2roefact/dist/xl2roefact-0.1.22b0-py3-none-any.whl "download")
     * [`0.1.22b` application interface improvements DIST](../xl2roefact/dist/xl2roefact-0.1.22b0.tar.gz "download")
@@ -70,6 +72,7 @@ Nici o resursa disponibila.
 
 
 ??? note "0.3"
+    * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.msi "download")
     * [`0.3.1b` xl2roefact documentation fixes](../xl2roefact/dist/xl2roefact-0.3.1b0-win64.msi "download")
     * [`0.3.0b` xl2roefact invoice taxes summary](../xl2roefact/dist/xl2roefact-0.3.0b0-win64.msi "download")
 
@@ -81,7 +84,7 @@ Nici o resursa disponibila.
 
 ??? note "0.1"
 
-    <small markdown="1">NOTA: versiunile `0.1` nu mai sunt intretinute de la 01-Martie-2024 (end of life support).</small>
+    <small markdown="1">NOTA: versiunile `0.1` nu mai sunt intretinute de la 10-Martie-2024 (end of life support).</small>
 
     * [`0.1.22b` application interface improvements](../xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi "download")
     * [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
@@ -89,7 +92,8 @@ Nici o resursa disponibila.
 
 ### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)
 
-Nici o resursa disponibila.
+??? note "0.3"
+    * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe "download")
 
 
 ### Aplicatia web2roefact pachet instalare (win64-msi)

@@ -4,7 +4,9 @@
 
 ## Mandatory QA checklist
 
-Before to publuc release a version check and do the following:
+>NOTE: ___do not delete versions from PyPi except MUST BE DELETED. The version number used cannot be reused even package deleted !!!___
+
+Before to public release a version check and do the following:
 
 * [ ] full chk / review for FIXME & TODOs
 * [ ] change release name from ".dev" to final one (change all occurrences)
@@ -18,6 +20,8 @@ Before to publuc release a version check and do the following:
 * [ ] build site (git branch `build-site`)
 * [ ] publish site (git branch `publishing`)
 * [ ] clean if necessary the `.../dist/` directory
+
+
 
 
 

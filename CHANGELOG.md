@@ -14,20 +14,14 @@
 - `<WEB_ROOT>/` is the HTTP server root directory, as default `docs/` and supposed if no other parent is specified
 
 
-
-## 0.3 (TODO: wip...)
-
+<!--#FIXME uncomment when finish 0.3...
+### 0.4.1? xxx (...date_here...)
 ```
-    - ---[ #TODO general planning board ]---------------------------
-    * ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
+    - ---[ #TODO general planning board ]---:
     * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
     * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
-
-    - ---[ #TODO short planning board ]---------------------------
-    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed).
-      ...Aici descrierea pe scurt: in file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
     -
-    * ... FUTURE NEW APP COMMANDS :
+    * ---[ FUTURE NEW APP COMMANDS ]---:
         * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
         * `xl2json` - crt_wip... (last upd @ 240219piu_a)
         * `json2xml` - see module WRXML,
@@ -40,24 +34,14 @@
     -------------------------------------------------------------------------------------------------
 ```
 
-
-
-
-### wip... 0.3.2b single EXE version (#NOTE: date here...)
+### TODO:next... 0.4.0rc invoice supplier (#NOTE: ...date_here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
 * tbd.Must... `xl2roefact` need to make invoice supplier (`<cac:AccountingSupplierParty>`) - MANDATORY to plan for next version
-
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 * tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
-
-* tbd.Must... make single EXE with `pyinstaller`
-
-
-* tbd.NOW... can refer in gh `0.3.0b` release notes the file `changelog_history/CHANGELOG-0.3.0b.md`
-
-* wip.... (las used 240306piu03)
+-->
 
 
 
@@ -67,41 +51,74 @@
 
 
 
+## 0.3
+
+### 0.3.2b0 single EXE version (240311 h16:30)
+
+???+ info "Release versions"
+    * xl2roefact: "0.3.1b1"
+    * web2roefact: "n/a"
+    * invoice_template: "0.1.20"
+    * INVOICEtoROefact: "0.3.2b0"
+
+* `240311piu02` run script build_doc to update ref `libutils.py` module. Update & publish site.
+* `240311piu01` update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
+* `240308piu00` update `app_cli`, option `--version` to get normalized version string
+* `240308piu01` make single EXE with `pyinstaller`
+    * [x] 1. ck & install `pyinstaller` in local environment. Update it if necessary
+    * [x] 2. adhoc try to execute it. Make a command for (`build_sexe`)
+          RESULTS: `.../xl2roefact/dist/xl2roefact/.. ` with exe & various files
+    * [x] 3. created a PDM script for command `build_sexe`
+    * [x] 4. result produced in `...dist/xl2roefact/dist/` - a little bit unacceptable but ok for that step
+    * [x] 5. adjust command `build_sexe` to produce a single file EXE
+          RESOLUTION: up here resulted one file `xl2roefact.exe` in `.../dist/` directory
+    * [x] 6. adjust command `build_sexe` to produce exe in other-temp directory for name processing (req here in nxt item-step)
+    * [x] 7. installed `packaging` package and updated `xl2roefact.__version__` module with function `normalized_version(raw_version: str) -> str`
+    * [x] 8. adjust command `build_sexe` to produce right file name as `xl2roefact-0.3.1.b1-win64.exe` and move it in `.../dist/` dir. Specs:
+        - [x] in pyproject.toml make `post_build_sexe` entry of call type `{call = "xl2roefact.libutils:complete_sexe_file()"}`
+        - [x] update `__version__` modules to accommodate this function
+        - [x] skeleton rdy `libutils` module for function `complete_sexe_file()` that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe`
+        - [x] finalize & test code of `complete_sexe_file()` ==> PASS
+    * [x] 9. in `pyproject.toml` include `build_sexe` cmd in `build_all`
+    * [x] 10. build single exe for current stable version of xl2roefact = `0.3.1b1`. Updated tech doc DLD (xl2roefact API Reference)
+    * [x] 11. FIX: single exe not work. FIX: Must to HAVE DIFFERENT NAME THAN DIRECTORY `xl2roefact/`. Created copy `xl2roefact_copy_for_sexe.py` for xl2roefact.py to be used by pyinstaller in build_sexe script. **This file should be kept on as a perfect copy of original** (as sym-link doesn't work).
+* `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one
+* `230406piu08` updated `downloads.md` ref end-of-life date of all `0.1...` versions: 10-March-2024
 
 
 
 
-### 0.3.1b promote `0.3.0b0` deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`
-
-* `240306piu03` build all components, `downloads.md`, build site and republish on PyPi. Archived locally
-* `240306piu02` promote `0.3.0b0` deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`
-* `240306piu01` archived locally all `0.3.0b` deliverables: WHEEL, TRA.GZ, MSI, repository tag
 
 
+<!--#NOTE: to be archived ASAP -->
 
+### 0.3.1b1 fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] (230306 h19:30)
 
-<!--#NOTE: piu@240306 said: 0.3.0b kept for commodity reasons and should be dropped max after 15.mar.2024 or when next release available -->
-### 0.3.0b xl2roefact invoice taxes summary (240306 07:00)
+???+ info "Release versions"
+    * xl2roefact: "0.3.1b1"
+    * web2roefact: "n/a"
+    * invoice_template: "0.1.20"
+    * INVOICEtoROefact: "0.3.1b1"
 
-* `240302piu03` invoice taxes summary:
-    * ref doc `xl2roefact/invoice_files/_PLAN_model...xml`, lines 91-104)
-    * prepared place in rdinv() search "NOTE: ....place intended for `cac:TaxTotal`" line ~413
-    * [x] 1. prepared a work file `xl2roefact/tests/__wk_invoice_tax_total.md` with dev specs & TODOs
-    * [x] 2. defined calculation formulas in `xl2roefact/tests/__wk_invoice_tax_total.md`
-    * [x] 3. made a function skeleton `invoice_taxes_summary(invoice_lines: list[dict])` in `libutils` that calculates whole required structure. Receive as parameter the `Invoice dict` part related to items list, ie existing variable `tmp_InvoiceLine_list`
-    * [x] 4. calculated `cac_TaxTotal` calculation code of item 3. in function `libutils.invoice_taxes_summary(...)`. Code test PASS. Function closed
-    * [x] 5. updated XML-JSON map
-    * [x] 6. calculated cbc_TaxAmount
-    * [x] 7. update JSON example used in documentation
-    * [x] 8. updated version number of xl2roefact app (component & mkdocs.yml)
-    * [x] 9. run `pdm build_all` ==> version deliverables incl DLD doc
-    * [x] 10.a update `downloads.md` with `0.3.0b` deliverables
-    * [x] 10.b build site & publish
-    * [x] 10.c publish library on PyPi (use CI workflow by branch `pypi-publish`)
-    * [x] 11. clean code, drop `xl2roefact/tests/__wk_invoice_tax_total.md
-* `240301piu02` refactored `xl2roefact/invoice_files/` to `xl2roefact/refact_xml_models_and_specs/`
-* `240302piu01` updated `xl2rofact.rdinv` function, area commented "...build final structure..." created variable `_tmp_reusable_items: dict` to keep "partial variables" that are calculated and potentially will be reused in next code
-* `240301piu_01` set all workflows `run-name`
+* `230406piu07` release version:
+     * [x] 1. update xl2roefact version
+     * [x] 2. build new app
+     * [x] 3. update downloads.md doc
+     * [x] 3. build site
+     * [x] 4. publish on PyPi
+* `230406piu06` FIXED `240306piu05` ref JSON->["Invoice"]["cac_InvoiceLine"] list[list] bug by transforming in 1-dimensional list using strategy from `TO FIX -> item 3`. TEST PASS.
+* `240306piu05` TEST POINT: converted online the invoice JSON file to XML ==> `Fact_Petrom_11017969.xml`. **RESOLUTIONS:**
+    * ATTN: the usable part is strict those related to "Invoice" key, any other information is not relevant and will not be included in application generated XML
+    * TO FIX: JSON generated key "cac_InvoiceLine" is list[list] the first list being obsolete (just item 0 which is the effective list). Proposals:
+        * 1. at XML generation to preserve only `cac_InvoiceLine[0]` - *pro*: SIMPLE, REASONABLE, LATERAL EFFECTS FREE - *cons*: JSON file remain for this key as "non-intuitive" information
+        * 2. re-engineer `rdinv.py` to generate right info structure for this key - *pro*: right and intuitive JSON information presentation - *cons*: a lot of lateral effects, there is "a lot of code" that already extract only item 0 and this code could be in functions out of `rdinv.py` module, for example in `libutils.py`
+        * 3. update module `rdinv.py` to preserve only index 0 **when create key `cac_InvoiceLine`, line ~408 so:**
+            - ACTUAL value: `"cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),`
+            - DESIRED value:
+                ```python
+                "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list)[0],
+                ```
+* `240306piu04` archived 0.3.0b & 0.3.1b versions
 
 
 
@@ -122,6 +139,7 @@
 ## 0.3 version
 </summary>
 
+* [`0.3.1b`  promote v0.3.0b0 deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`](./changelog_history/CHANGELOG-0.3.1b.md)
 * [`0.3.0b` xl2roefact invoice taxes summary](./changelog_history/CHANGELOG-0.3.0b.md)
 </details>
 

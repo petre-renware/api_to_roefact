@@ -405,7 +405,7 @@ def rdinv(
                     },
                 },
             },
-            "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),
+            "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list)[0],  # keep only 1st entry because from creating process resulted list(list)) first one being redundant
             "cac_LegalMonetaryTotal": {
                 "cbc_LineExtensionAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
                 "cbc_TaxExclusiveAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
