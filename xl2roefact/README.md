@@ -11,10 +11,12 @@
 ## Facilitati
 
 ![Static Badge](https://img.shields.io/badge/MSI_installer-YES-blue)
+![Static Badge](https://img.shields.io/badge/standlone_EXE-YES-blue)
+
 ![Static Badge](https://img.shields.io/badge/format_JSON-YES-orange)
 ![Static Badge](https://img.shields.io/badge/format_XML-YES-orange)
 ![Static Badge](https://img.shields.io/badge/format_PDF-YES-orange)
-![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-blue)
+![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-red)
 
 
 
