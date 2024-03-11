@@ -61,10 +61,7 @@
     * invoice_template: "0.1.20"
     * INVOICEtoROefact: "0.3.2b0"
 
-* tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
-* tbd.Must... update site 
-
-* `240311piu02` run script build_doc to update ref `libutils.py` module
+* `240311piu02` run script build_doc to update ref `libutils.py` module. Update & publish site.
 * `240311piu01` update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
 * `240308piu00` update `app_cli`, option `--version` to get normalized version string
 * `240308piu01` make single EXE with `pyinstaller`
