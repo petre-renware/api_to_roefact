@@ -9,6 +9,7 @@ Identification:
 
 Components:
 
+* `complete_sexe_file() -> bool`: Rename and move resulted exe file (called from `build_sexe` script)
 * `dict_sum_by_key(dict, str) -> float`: Sum a dictionary for a given key at all depth levels
 * `find_str_in_list(list, list) -> int`: Search more strings (ie, a list) in list of strings
 * `invoice_taxes_summary(list[dict]) -> dict`: Calculates invoice taxes summary as required by ROefact requirements
@@ -20,6 +21,49 @@ import sys
 from rich import print
 from fractions import Fraction
 import copy
+from xl2roefact.__version__ import normalized_version
+from pathlib import Path
+import shutil
+
+
+
+
+# NOTE: rdy, unit test PASS @240309
+def complete_sexe_file(
+    drop_source: bool = True
+) -> bool:
+    """Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.
+
+    * Specs: file to process `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
+    * NOTE: all function code suppose that current directory is root of `xl2roefact`, ie where is located `pyproject.toml` of package
+
+    Args:
+        `drop_source`: indicate to delete source file after copying, ie make a "move" operation, otherwise make a copy keeping the source file. Default behaviour is to delete source.
+    Return:
+        `bool`: True if file was found, renamed and moved with no error
+    """
+    process_stat = False
+    # get canonical version string
+    canonical_version = str(normalized_version())
+    # construct a Path() type for source
+    source_file = Path("./dist_sexe/xl2roefact_to_update_name.exe")
+    # construct a Path() type for for destination
+    dest_file = Path(f"./dist/xl2roefact-{canonical_version}-win64.exe")
+    # mv source file to dest using new name. If destination exists is replaced
+    tstdst = bool(dest_file.is_file() and dest_file.exists())
+    tstsrc = bool(source_file.is_file() and source_file.exists())
+    if not tstsrc:  # we have no work object. exit with False
+        return False
+    if tstdst:  # drop destination file
+        dest_file.unlink()
+    # move or copy source to destination
+    if drop_source:
+        op_result = source_file.rename(dest_file)
+    else:
+        op_result = shutil.copyfile(source_file, dest_file)
+    process_stat = bool(op_result)
+    return process_stat
+
 
 
 

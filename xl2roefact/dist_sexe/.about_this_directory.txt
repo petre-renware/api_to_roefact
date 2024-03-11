@@ -1,0 +1,8 @@
+
+This directory (.../dist_sexe/) is intended as temporary location 
+to keep xl2roefact single executable built file up to its renaming 
+to follow standard practices (include version and opsys compatibility in name).
+
+It also may contain a hidden empty file used just to keep directory on all 
+git systems being the fact that some of them automatically drop empty directories.
+

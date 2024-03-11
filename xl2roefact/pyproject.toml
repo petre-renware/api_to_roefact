@@ -5,7 +5,7 @@ dynamic = ["version"]
 description = "Excel invoices data retrieve, export & upload to RO E-Fact system"
 authors = [
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" },
-    { name = "RENware Software Systems", email = "renware.systems@gmail.com" }
+    { name = "RENware Software Systems", email = "renware.systems@gmail.com" },
 ]
 dependencies = [
     "altgraph~=0.17",
@@ -41,10 +41,11 @@ dependencies = [
     "userpath~=1.9",
     "wheel~=0.42",
     "pyinstaller>=4.10",
-]  #FIXME @231217 `pendulum` package raise error when import (#NOTE_ERR MSG: `File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
+    "msgpack>=1.0.8",
+] #FIXME @231217 `pendulum` package raise error when import (#NOTE_ERR MSG: `File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
 readme = "README.md"
-license = {file = "LICENSE"}
-requires-python = ">=3.10,<3.11"  # <3.11,>=3.6
+license = { file = "LICENSE" }
+requires-python = ">=3.10,<3.11" # <3.11,>=3.6
 classifiers = [
     # "Product code :: 0000-0095",  # not accepted by PyPi
     "Programming Language :: Python :: 3.10",
@@ -57,7 +58,6 @@ classifiers = [
 ]
 
 
-
 [project.urls]
 Homepage = "https://invoicetoroefact.renware.eu"
 PDF-Documentation = "https://invoicetoroefact.renware.eu/pdfs/print_page.html/print_page.pdf"
@@ -65,38 +65,51 @@ PyPi-Package = "https://pypi.org/project/xl2roefact/"
 GitHub = "https://github.com/petre-renware/api_to_roefact"
 
 
-
-
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 
-
-
 [tool.pdm]
 version = { source = "file", path = "xl2roefact/__version__.py" }
-distribution = true  # required for PyPi package publishing
-
-
+distribution = true                                               # required for PyPi package publishing
 
 
 [tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
-build_wheel = {shell = "pdm build --no-clean"}  # build python packages (wheel & sdist) in `dist/` directory
-build_msi = {shell = "python setup.py bdist_msi"}  # build MSI pachkage in `dist/` directory
-#TODO: add `build_single_exe` to build a single EXE file with `PyInstaller`, file usable for pure remote purposes (no install, ready-2-run from a stick). When rdy, update `build_all` next command from this scripts section / table
-build_doc = {shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md"}  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
-build_all = {composite = ["build_wheel", "build_msi", "build_doc"]}  # build all packages (MSI, python package wheel, python package sdist, design doc)
-xl2roefact = {shell = "python -m xl2roefact"}  # run `xl2roefact` as python module
-#NOTE here intention for PyPi-publish shell:
-#        mkdir tmp_dist_files; mv ./dist/* ./tmp_dist_files
-#        pdm publish --no-build --username __token__ --password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw
-#        mv ./tmp_dist_files/* ./dist; rm -r ./tmp_dist_files
+build_wheel = { shell = "pdm build --no-clean" }  # build python packages (wheel & sdist) in `dist/` directory
+build_msi = { shell = "python setup.py bdist_msi" }  # build MSI pachkage in `dist/` directory
+build_sexe = { cmd = [
+    "pyinstaller",
+    "--distpath=dist_sexe/",             # folder where to write deliverables
+    "--name=xl2roefact_to_update_name",  # name of deliverable (bundled exe file)
+    "--log-level=WARN",
+    "--onefile",                         # Create a one-file bundled executable
+    "--noconfirm",                       # Replace output directory without asking confirmation
+    "xl2roefact_copy_for_sexe.py",  # use the copy to original xl2roefact.py just to have other name than directory containing used library (pyinstaller constraint)
+] } # build portable single EXE file
+post_build_sexe = { call = "xl2roefact.libutils:complete_sexe_file" }  # process resulted exe to normalise its name and move to `.../dist/`
+build_doc = { shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md" }  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
+build_all = { composite = [
+    "build_wheel",
+    "build_msi",
+    "build_sexe",
+    "build_doc",
+] } # build all packages (MSI, python package wheel, python package sdist, design doc)
+xl2roefact = { shell = "python -m xl2roefact" } # run `xl2roefact` as python module
+pypi_publish = { composite = [
+    #    {shell = "mkdir tmp_dist_files"},
+    #    {shell = "mv ./dist/* ./tmp_dist_files/"},
+    #    "build_wheel",
+    #    "pdm publish --no-build --username __token__ --password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw",
+    #    {shell = "mv ./tmp_dist_files/* ./dist/"},
+    #    {shell = "rm -r ./tmp_dist_files"}
+] } # publish xl2roefact package on PyPi
+#FIXME: @240308 07:35 `[TypeError]: expected string or bytes-like object` ...
+#FIXME ... most probably because in composite action expect str in list not dicts (with shell cmd) ...
+#FIXME ... PROPOSAL: a good option is to exec commands as python: `python -c os.mkdir ...as.idea...`
 
 
-
-
-[tool.pdm.dev-dependencies]  # dependencies used only in develeopment and not transfered in Pythn package building
+[tool.pdm.dev-dependencies] # dependencies used only in develeopment and not transfered in Pythn package building
 dev = [
     "build~=1.0",
     "click~=8.1",
@@ -109,17 +122,14 @@ dev = [
 ]
 
 
-[tool.hatch.metadata]  #FIXME piu: i think this is related to `Hatchling builder` so is useless with `PDM builder` - DROP this table after some tests
+[tool.hatch.metadata] #FIXME piu: i think this is related to `Hatchling builder` so is useless with `PDM builder` - DROP this table after some tests
 allow-direct-references = true
-
-
 
 
 #NOTE section add for `cxFreeze`, for details see here: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
 [tool.distutils.build_exe]
 excludes = ["tkinter", "unittest"]
 zip_include_packages = ["encodings", "PySide6"]
-
 
 
 # #NOTE: see `https://github.com/pypa/sampleproject/blob/main/pyproject.toml` for all keywords description

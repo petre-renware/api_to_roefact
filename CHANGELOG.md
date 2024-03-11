@@ -14,20 +14,14 @@
 - `<WEB_ROOT>/` is the HTTP server root directory, as default `docs/` and supposed if no other parent is specified
 
 
-
-## 0.3 (TODO: wip...)
-
+<!--#FIXME uncomment when finish 0.3...
+### 0.4.1? xxx (...date_here...)
 ```
-    - ---[ #TODO general planning board ]---------------------------
-    * ai un exemplu complet si complet agnostic (trimis Gigi) de factura format XML si PDF tiparit ca sa faci: (1) incarcare XML (2) geenrare PDF (3) compararea variantelor si identificarea schemei XSD + document specificatii ANAF ref sistemul E-Factura (PDF trimis Liviu)
+    - ---[ #TODO general planning board ]---:
     * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
     * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
-
-    - ---[ #TODO short planning board ]---------------------------
-    * left OPEN ISSUES on: `0.1.7` release (and drop them when fixed).
-      ...Aici descrierea pe scurt: in file `xl2roefact\invoice_files/_PLAN_model_test_factura_generat_anaf.xml`, line 114:_ `<cbc:ID>S</cbc:ID> #FIXME clarify.me_ pare a fi TIPUL PRODUSULUI: (S)erviciu sau ??? (P)rodus sau ???`
     -
-    * ... FUTURE NEW APP COMMANDS :
+    * ---[ FUTURE NEW APP COMMANDS ]---:
         * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
         * `xl2json` - crt_wip... (last upd @ 240219piu_a)
         * `json2xml` - see module WRXML,
@@ -40,29 +34,56 @@
     -------------------------------------------------------------------------------------------------
 ```
 
-
-
-
-### TODO:next... ???-(0.3.2b sau 0.4.0) single EXE version (#NOTE: date here...)
+### TODO:next... 0.4.0rc invoice supplier (#NOTE: ...date_here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
 * tbd.Must... `xl2roefact` need to make invoice supplier (`<cac:AccountingSupplierParty>`) - MANDATORY to plan for next version
-
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 * tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
+-->
 
-* tbd.Must... make single EXE with `pyinstaller`
 
 
-* wip... (last used `230406piu07`)
 
+
+
+
+
+
+## 0.3
+
+### 0.3.2b0 single EXE version (240311 h16:30)
+
+???+ info "Release versions"
+    * xl2roefact: "0.3.1b1"
+    * web2roefact: "n/a"
+    * invoice_template: "0.1.20"
+    * INVOICEtoROefact: "0.3.2b0"
+
+* `240311piu02` run script build_doc to update ref `libutils.py` module. Update & publish site.
+* `240311piu01` update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
+* `240308piu00` update `app_cli`, option `--version` to get normalized version string
+* `240308piu01` make single EXE with `pyinstaller`
+    * [x] 1. ck & install `pyinstaller` in local environment. Update it if necessary
+    * [x] 2. adhoc try to execute it. Make a command for (`build_sexe`)
+          RESULTS: `.../xl2roefact/dist/xl2roefact/.. ` with exe & various files
+    * [x] 3. created a PDM script for command `build_sexe`
+    * [x] 4. result produced in `...dist/xl2roefact/dist/` - a little bit unacceptable but ok for that step
+    * [x] 5. adjust command `build_sexe` to produce a single file EXE
+          RESOLUTION: up here resulted one file `xl2roefact.exe` in `.../dist/` directory
+    * [x] 6. adjust command `build_sexe` to produce exe in other-temp directory for name processing (req here in nxt item-step)
+    * [x] 7. installed `packaging` package and updated `xl2roefact.__version__` module with function `normalized_version(raw_version: str) -> str`
+    * [x] 8. adjust command `build_sexe` to produce right file name as `xl2roefact-0.3.1.b1-win64.exe` and move it in `.../dist/` dir. Specs:
+        - [x] in pyproject.toml make `post_build_sexe` entry of call type `{call = "xl2roefact.libutils:complete_sexe_file()"}`
+        - [x] update `__version__` modules to accommodate this function
+        - [x] skeleton rdy `libutils` module for function `complete_sexe_file()` that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe`
+        - [x] finalize & test code of `complete_sexe_file()` ==> PASS
+    * [x] 9. in `pyproject.toml` include `build_sexe` cmd in `build_all`
+    * [x] 10. build single exe for current stable version of xl2roefact = `0.3.1b1`. Updated tech doc DLD (xl2roefact API Reference)
+    * [x] 11. FIX: single exe not work. FIX: Must to HAVE DIFFERENT NAME THAN DIRECTORY `xl2roefact/`. Created copy `xl2roefact_copy_for_sexe.py` for xl2roefact.py to be used by pyinstaller in build_sexe script. **This file should be kept on as a perfect copy of original** (as sym-link doesn't work).
+* `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one
 * `230406piu08` updated `downloads.md` ref end-of-life date of all `0.1...` versions: 10-March-2024
-
-
-
-
-
 
 
 
@@ -72,6 +93,12 @@
 <!--#NOTE: to be archived ASAP -->
 
 ### 0.3.1b1 fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] (230306 h19:30)
+
+???+ info "Release versions"
+    * xl2roefact: "0.3.1b1"
+    * web2roefact: "n/a"
+    * invoice_template: "0.1.20"
+    * INVOICEtoROefact: "0.3.1b1"
 
 * `230406piu07` release version:
      * [x] 1. update xl2roefact version
