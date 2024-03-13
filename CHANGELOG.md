@@ -7,7 +7,7 @@
 
 # CHANGELOG
 
-- For version code structure meaning see [SDEVEN methodology document](http;//sdeven.renware.eu)
+- For version code structure meaning see [SDEVEN methodology document](http://sdeven.renware.eu)
 - `<PROJECT ROOT>/doc_src/` is the default starting location in a file path (if not clear from context) (**ATTN** - in production environment is `docs/`)
 - `<WEB_ROOT>/` is the HTTP server root directory, as default `docs/` and supposed if no other parent is specified
 
