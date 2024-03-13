@@ -37,7 +37,7 @@
 
 ## 0.4
 
-### 0.4.0?rc? wip...TODO: invoice supplier (...date_here...)
+### 0.4.0rc0 wip...TODO: invoice supplier (...date_here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -47,7 +47,7 @@
 
 * wip...
 
-* tbd...`240313piu01` application tech optimizations: `rdinv.__all__` spec, `__init__.__version__` import, ...
+* `240313piu01` application tech optimizations: `rdinv.__all__` spec, `__init__.__version__` import, ...
 
 
 
