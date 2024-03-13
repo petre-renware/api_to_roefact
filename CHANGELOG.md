@@ -35,7 +35,7 @@
 ```
 
 
-
+## 0.4
 
 ### TODO:...wip 0.4.0??? invoice supplier (#NOTE: ...date_here...)
 
@@ -58,6 +58,16 @@
 
 
 # Archived CHANGELOGs
+
+<details markdown="1"><summary markdown="1">
+## 0.4 version
+</summary>
+
+* ...
+</details>
+
+
+
 
 <details markdown="1"><summary markdown="1">
 ## 0.3 version
