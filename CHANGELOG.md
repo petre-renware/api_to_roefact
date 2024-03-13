@@ -12,30 +12,32 @@
 - `<WEB_ROOT>/` is the HTTP server root directory, as default `docs/` and supposed if no other parent is specified
 
 
-### General PLAN
+<!--#NOTE
+====[ General PLAN ]====
 
-```
-    - ---[ #TODO general planning board ]---:
+- ---[ #TODO general planning board ]---:
     * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
     * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
-    -
-    * ---[ FUTURE NEW APP COMMANDS ]---:
+
+* ---[ FUTURE NEW APP COMMANDS ]---:
         * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
         * `xl2json` - crt_wip... (last upd @ 240219piu_a)
         * `json2xml` - see module WRXML,
         * `json2pdf` - new module. tbd..,
         * `xml2roefact` - see module LDXML
         * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-    -
-    * -#NOTE Plan for `rdinv` module:
-        * [ ] invoice supplier (`<cac:AccountingSupplierParty>`)
-    -------------------------------------------------------------------------------------------------
-```
+
+* ---[ Plan for `rdinv` module ]---:
+        * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
+
+-->
+
+
 
 
 ## 0.4
 
-### TODO:...wip 0.4.0??? invoice supplier (#NOTE: ...date_here...)
+### TODO:...wip 0.4.0?rc? invoice supplier (#NOTE: ...date_here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -43,7 +45,9 @@
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 * tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
 
-* wip... (last used `240311piu02`)
+* wip...
+
+* tbd...`240313piu01` application tech optimizations: `rdinv.__all__` spec, `__init__.__version__` import, ...
 
 
 
