@@ -47,7 +47,7 @@
 
 * wip...
 
-* `240313piu01` application tech optimizations: `rdinv.__all__` spec, `__init__.__version__` import, ...
+* `240313piu01` application tech optimizations: `rdinv.__all__` spec, `__init__.__version__` import and made available as xl2roefact global
 
 
 
