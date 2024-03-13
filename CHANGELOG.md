@@ -7,37 +7,37 @@
 
 # CHANGELOG
 
-- For version code structure meaning see SDEVEN methodology document
-- with _(F)_ are marked those changes that are features in order to be copied in a RELNOTE file and with _(B)_ bug fixes from versions released
-- publishing is made under `publishing` branch
+- For version code structure meaning see [SDEVEN methodology document](http://sdeven.renware.eu)
 - `<PROJECT ROOT>/doc_src/` is the default starting location in a file path (if not clear from context) (**ATTN** - in production environment is `docs/`)
 - `<WEB_ROOT>/` is the HTTP server root directory, as default `docs/` and supposed if no other parent is specified
 
 
-### General PLAN
+<!--#NOTE
+====[ General PLAN ]====
 
-```
-    - ---[ #TODO general planning board ]---:
+- ---[ #TODO general planning board ]---:
     * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
     * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
-    -
-    * ---[ FUTURE NEW APP COMMANDS ]---:
+
+* ---[ FUTURE NEW APP COMMANDS ]---:
         * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
         * `xl2json` - crt_wip... (last upd @ 240219piu_a)
         * `json2xml` - see module WRXML,
         * `json2pdf` - new module. tbd..,
         * `xml2roefact` - see module LDXML
         * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-    -
-    * -#NOTE Plan for `rdinv` module:
-        * [ ] invoice supplier (`<cac:AccountingSupplierParty>`)
-    -------------------------------------------------------------------------------------------------
-```
+
+* ---[ Plan for `rdinv` module ]---:
+        * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
+
+-->
 
 
 
 
-### TODO:...wip 0.4.0??? invoice supplier (#NOTE: ...date_here...)
+## 0.4
+
+### 0.4.0?rc? wip...TODO: invoice supplier (...date_here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -45,58 +45,10 @@
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 * tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
 
-* wip... (last used `240311piu02`)
+* wip...
 
+* tbd...`240313piu01` application tech optimizations: `rdinv.__all__` spec, `__init__.__version__` import, ...
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--#NOTE: to be archived -->
-
-## 0.3
-
-### 0.3.2b0 single EXE version (240311 h16:30)
-
-???+ info "Release versions"
-    * xl2roefact: "0.3.1b1"
-    * web2roefact: "n/a"
-    * invoice_template: "0.1.20"
-    * INVOICEtoROefact: "0.3.2b0"
-
-* `240311piu02` run script build_doc to update ref `libutils.py` module. Update & publish site.
-* `240311piu01` update `downloads.md` to include single exe resource starting with last stable version = `0.3.1b1`
-* `240308piu00` update `app_cli`, option `--version` to get normalized version string
-* `240308piu01` make single EXE with `pyinstaller`
-    * [x] 1. ck & install `pyinstaller` in local environment. Update it if necessary
-    * [x] 2. adhoc try to execute it. Make a command for (`build_sexe`)
-          RESULTS: `.../xl2roefact/dist/xl2roefact/.. ` with exe & various files
-    * [x] 3. created a PDM script for command `build_sexe`
-    * [x] 4. result produced in `...dist/xl2roefact/dist/` - a little bit unacceptable but ok for that step
-    * [x] 5. adjust command `build_sexe` to produce a single file EXE
-          RESOLUTION: up here resulted one file `xl2roefact.exe` in `.../dist/` directory
-    * [x] 6. adjust command `build_sexe` to produce exe in other-temp directory for name processing (req here in nxt item-step)
-    * [x] 7. installed `packaging` package and updated `xl2roefact.__version__` module with function `normalized_version(raw_version: str) -> str`
-    * [x] 8. adjust command `build_sexe` to produce right file name as `xl2roefact-0.3.1.b1-win64.exe` and move it in `.../dist/` dir. Specs:
-        - [x] in pyproject.toml make `post_build_sexe` entry of call type `{call = "xl2roefact.libutils:complete_sexe_file()"}`
-        - [x] update `__version__` modules to accommodate this function
-        - [x] skeleton rdy `libutils` module for function `complete_sexe_file()` that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe`
-        - [x] finalize & test code of `complete_sexe_file()` ==> PASS
-    * [x] 9. in `pyproject.toml` include `build_sexe` cmd in `build_all`
-    * [x] 10. build single exe for current stable version of xl2roefact = `0.3.1b1`. Updated tech doc DLD (xl2roefact API Reference)
-    * [x] 11. FIX: single exe not work. FIX: Must to HAVE DIFFERENT NAME THAN DIRECTORY `xl2roefact/`. Created copy `xl2roefact_copy_for_sexe.py` for xl2roefact.py to be used by pyinstaller in build_sexe script. **This file should be kept on as a perfect copy of original** (as sym-link doesn't work).
-* `240307piu01` xl2roefact pdm environment created a script for **build PyPi** operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one
-* `230406piu08` updated `downloads.md` ref end-of-life date of all `0.1...` versions: 10-March-2024
 
 
 
@@ -110,9 +62,20 @@
 # Archived CHANGELOGs
 
 <details markdown="1"><summary markdown="1">
+## 0.4 version
+</summary>
+
+* ...
+</details>
+
+
+
+
+<details markdown="1"><summary markdown="1">
 ## 0.3 version
 </summary>
 
+* [`0.3.2b0` single EXE version](./changelog_history/CHANGELOG-0.3.2b0.md)
 * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](./changelog_history/CHANGELOG-0.3.1b1.md)
 * [`0.3.1b`  promote v0.3.0b0 deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`](./changelog_history/CHANGELOG-0.3.1b.md)
 * [`0.3.0b` xl2roefact invoice taxes summary](./changelog_history/CHANGELOG-0.3.0b.md)
