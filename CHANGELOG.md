@@ -102,7 +102,7 @@
 
 
 
-#FIXME ----
+#FIXME ---- drop this
 
 ### 0.3.1b1 fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] (230306 h19:30)
 
@@ -150,6 +150,11 @@
 <details markdown="1"><summary markdown="1">
 ## 0.3 version
 </summary>
+
+* [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](
+
+./changelog_history/CHANGELOG-0.3.1b1.md
+)
 
 * [`0.3.1b`  promote v0.3.0b0 deliverables: WHEEL, TRA.GZ, MSI to `0.3.1b`](./changelog_history/CHANGELOG-0.3.1b.md)
 * [`0.3.0b` xl2roefact invoice taxes summary](./changelog_history/CHANGELOG-0.3.0b.md)
