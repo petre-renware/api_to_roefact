@@ -37,7 +37,7 @@
 
 ## 0.4
 
-### TODO:...wip 0.4.0?rc? invoice supplier (#NOTE: ...date_here...)
+### 0.4.0?rc? wip...TODO: invoice supplier (...date_here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
