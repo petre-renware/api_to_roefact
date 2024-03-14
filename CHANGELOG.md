@@ -62,6 +62,7 @@
 
 * wip...
 
+* ... `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
 * `0.4.0.dev1` fixed `xl2roefact` CLI app version addressing
 * `0.4.0.dev0` updated `xl2roefact.__init__.py` to expose public symbols
 * `240313piu02` small administrative adjustments: update technical axl2roefact DLD, build site & republish (used version `0.4.0rc0` for whole system)
