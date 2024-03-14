@@ -14,21 +14,26 @@ rem     - stdout redirection: `./tests/_test_results.txt`
 rem *** Change directory to XL2ROEFACT project component
 cd xl2roefact
 
-rem Create needed environment
+rem *** CREATE NEEDED ENVIRONMENT 
 python -m pip install pdm
 python -m pdm install
 
-rem Effective script
+rem *** BUILD WHEEL SCRIPT
 pdm info
+pdm run build_wheel
+
+
+
+
 
 
 
 rem *** Change directory to INVOICETOROEFACT project component
-cd ..
+rem cd ..
 
 rem Create needed environment
-python -m pip install pdm
-python -m pdm install
+rem python -m pip install pdm
+rem python -m pdm install
 
 rem Effective script
 pdm info

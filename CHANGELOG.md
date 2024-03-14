@@ -65,7 +65,8 @@
 
 * wip... `0.4.0.dev2` xl2roefact include a data directory in package for various data files "built-in" package:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
-    * [ ] 2 update `pyproject.toml` to include in package non python data files
+    * [x] 2 update `pyproject.toml` to include in package non python data files
+    * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
     * [ ] 3. update `config_settings` module to upload data from TOML step 1 made file
     * [ ] ...
 

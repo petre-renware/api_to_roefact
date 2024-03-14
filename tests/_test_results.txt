@@ -17,7 +17,7 @@ D:\a\api_to_roefact\api_to_roefact>rem *** Change directory to XL2ROEFACT projec
 
 D:\a\api_to_roefact\api_to_roefact>cd xl2roefact 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem Create needed environment 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem *** CREATE NEEDED ENVIRONMENT  
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pip install pdm 
 Collecting pdm
@@ -81,12 +81,12 @@ Collecting idna<4,>=2.5 (from requests>=2.16.0->cachecontrol>=0.13.0->cachecontr
 Collecting urllib3<3,>=1.21.1 (from requests>=2.16.0->cachecontrol>=0.13.0->cachecontrol[filecache]>=0.13.0->pdm)
   Downloading urllib3-2.2.1-py3-none-any.whl.metadata (6.4 kB)
 Downloading pdm-2.12.4-py3-none-any.whl (249 kB)
-   ---------------------------------------- 249.9/249.9 kB 3.8 MB/s eta 0:00:00
+   ---------------------------------------- 249.9/249.9 kB 7.7 MB/s eta 0:00:00
 Downloading cachecontrol-0.14.0-py3-none-any.whl (22 kB)
 Downloading dep_logic-0.2.0-py3-none-any.whl (26 kB)
 Downloading findpython-0.4.1-py3-none-any.whl (20 kB)
 Downloading installer-0.7.0-py3-none-any.whl (453 kB)
-   --------------------------------------- 453.8/453.8 kB 27.7 MB/s eta 0:00:00
+   --------------------------------------- 453.8/453.8 kB 14.3 MB/s eta 0:00:00
 Downloading packaging-24.0-py3-none-any.whl (53 kB)
    ---------------------------------------- 53.5/53.5 kB 2.7 MB/s eta 0:00:00
 Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
@@ -97,35 +97,35 @@ Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
 Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
 Downloading tomlkit-0.12.4-py3-none-any.whl (37 kB)
 Downloading unearth-0.14.0-py3-none-any.whl (42 kB)
-   ---------------------------------------- 43.0/43.0 kB 519.7 kB/s eta 0:00:00
+   ---------------------------------------- 43.0/43.0 kB 2.2 MB/s eta 0:00:00
 Downloading virtualenv-20.25.1-py3-none-any.whl (3.8 MB)
-   ---------------------------------------- 3.8/3.8 MB 40.1 MB/s eta 0:00:00
+   ---------------------------------------- 3.8/3.8 MB 80.2 MB/s eta 0:00:00
 Downloading platformdirs-4.2.0-py3-none-any.whl (17 kB)
 Downloading blinker-1.7.0-py3-none-any.whl (13 kB)
 Downloading certifi-2024.2.2-py3-none-any.whl (163 kB)
-   ---------------------------------------- 163.8/163.8 kB ? eta 0:00:00
+   ---------------------------------------- 163.8/163.8 kB 9.6 MB/s eta 0:00:00
 Downloading pyproject_hooks-1.0.0-py3-none-any.whl (9.3 kB)
 Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
-   ---------------------------------------- 54.5/54.5 kB ? eta 0:00:00
+   ---------------------------------------- 54.5/54.5 kB 713.6 kB/s eta 0:00:00
 Downloading truststore-0.8.0-py3-none-any.whl (16 kB)
 Downloading distlib-0.3.8-py2.py3-none-any.whl (468 kB)
-   --------------------------------------- 468.9/468.9 kB 28.7 MB/s eta 0:00:00
+   ---------------------------------------- 468.9/468.9 kB 7.3 MB/s eta 0:00:00
 Downloading filelock-3.13.1-py3-none-any.whl (11 kB)
 Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
-   ---------------------------------------- 87.5/87.5 kB 4.8 MB/s eta 0:00:00
+   ---------------------------------------- 87.5/87.5 kB 702.6 kB/s eta 0:00:00
 Downloading msgpack-1.0.8-cp310-cp310-win_amd64.whl (75 kB)
-   ---------------------------------------- 75.1/75.1 kB 4.1 MB/s eta 0:00:00
+   ---------------------------------------- 75.1/75.1 kB 821.1 kB/s eta 0:00:00
 Downloading pygments-2.17.2-py3-none-any.whl (1.2 MB)
-   ---------------------------------------- 1.2/1.2 MB 73.1 MB/s eta 0:00:00
+   ---------------------------------------- 1.2/1.2 MB 24.9 MB/s eta 0:00:00
 Downloading requests-2.31.0-py3-none-any.whl (62 kB)
-   ---------------------------------------- 62.6/62.6 kB 3.5 MB/s eta 0:00:00
+   ---------------------------------------- 62.6/62.6 kB 830.7 kB/s eta 0:00:00
 Downloading charset_normalizer-3.3.2-cp310-cp310-win_amd64.whl (100 kB)
-   ---------------------------------------- 100.3/100.3 kB 5.6 MB/s eta 0:00:00
+   ---------------------------------------- 100.3/100.3 kB 1.4 MB/s eta 0:00:00
 Downloading idna-3.6-py3-none-any.whl (61 kB)
-   ---------------------------------------- 61.6/61.6 kB ? eta 0:00:00
+   ---------------------------------------- 61.6/61.6 kB 827.9 kB/s eta 0:00:00
 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
 Downloading urllib3-2.2.1-py3-none-any.whl (121 kB)
-   ---------------------------------------- 121.1/121.1 kB 6.9 MB/s eta 0:00:00
+   ---------------------------------------- 121.1/121.1 kB 3.6 MB/s eta 0:00:00
 Installing collected packages: resolvelib, distlib, urllib3, truststore, tomlkit, tomli, shellingham, python-dotenv, pygments, platformdirs, packaging, msgpack, mdurl, installer, idna, filelock, charset-normalizer, certifi, blinker, virtualenv, requests, pyproject-hooks, markdown-it-py, findpython, dep-logic, unearth, rich, requests-toolbelt, cachecontrol, pdm
 Successfully installed blinker-1.7.0 cachecontrol-0.14.0 certifi-2024.2.2 charset-normalizer-3.3.2 dep-logic-0.2.0 distlib-0.3.8 filelock-3.13.1 findpython-0.4.1 idna-3.6 installer-0.7.0 markdown-it-py-3.0.0 mdurl-0.1.2 msgpack-1.0.8 packaging-24.0 pdm-2.12.4 platformdirs-4.2.0 pygments-2.17.2 pyproject-hooks-1.0.0 python-dotenv-1.0.1 requests-2.31.0 requests-toolbelt-1.0.0 resolvelib-1.0.1 rich-13.7.1 shellingham-1.5.4 tomli-2.0.1 tomlkit-0.12.4 truststore-0.8.0 unearth-0.14.0 urllib3-2.2.1 virtualenv-20.25.1
 
@@ -136,88 +136,116 @@ Synchronizing working set with resolved packages: 81 to add, 0 to update, 0 to r
   v Install setuptools 69.2.0 successful
   v Install wheel 0.43.0 successful
   v Install blinker 1.7.0 successful
-  v Install altgraph 0.17.4 successful
   v Install argcomplete 3.2.3 successful
-  v Install build 1.1.1 successful
-  v Install black 23.12.1 successful
-  v Install certifi 2024.2.2 successful
+  v Install altgraph 0.17.4 successful
   v Install cachecontrol 0.14.0 successful
-  v Install click 8.1.7 successful
+  v Install build 1.1.1 successful
+  v Install certifi 2024.2.2 successful
+  v Install black 23.12.1 successful
   v Install colorama 0.4.6 successful
-  v Install charset-normalizer 3.3.2 successful
+  v Install click 8.1.7 successful
   v Install commonmark 0.9.1 successful
+  v Install charset-normalizer 3.3.2 successful
+  v Install cx-logging 3.1.0 successful
   v Install databind-core 4.4.0 successful
   v Install databind-json 4.4.0 successful
-  v Install cx-logging 3.1.0 successful
-  v Install cx-freeze 6.15.15 successful
   v Install dep-logic 0.2.0 successful
   v Install deprecated 1.2.14 successful
-  v Install docspec 2.2.1 successful
   v Install distlib 0.3.8 successful
+  v Install docspec 2.2.1 successful
   v Install docspec-python 2.2.1 successful
+  v Install cx-freeze 6.15.15 successful
   v Install et-xmlfile 1.1.0 successful
   v Install filelock 3.13.1 successful
   v Install findpython 0.4.1 successful
   v Install fraction 2.2.0 successful
   v Install idna 3.6 successful
   v Install importlib-metadata 7.0.2 successful
-  v Install installer 0.7.0 successful
   v Install jinja2 3.1.3 successful
-  v Install markdown-it-py 3.0.0 successful
+  v Install installer 0.7.0 successful
   v Install lief 0.14.0 successful
-  v Install mdurl 0.1.2 successful
+  v Install markdown-it-py 3.0.0 successful
   v Install markupsafe 2.1.5 successful
-  v Install msgpack 1.0.8 successful
+  v Install mdurl 0.1.2 successful
   v Install mypy-extensions 1.0.0 successful
   v Install nr-date 2.1.0 successful
+  v Install msgpack 1.0.8 successful
   v Install nr-stream 1.1.5 successful
   v Install nr-util 0.8.12 successful
-  v Install openpyxl 3.1.2 successful
   v Install packaging 23.2 successful
+  v Install openpyxl 3.1.2 successful
   v Install pathspec 0.12.1 successful
-  v Install pefile 2023.2.7 successful
   v Install pdm 2.12.4 successful
+  v Install pefile 2023.2.7 successful
   v Install platformdirs 4.2.0 successful
   v Install pydoc-markdown 4.8.2 successful
   v Install pygments 2.17.2 successful
-  v Install pyinstaller 4.10 successful
   v Install pyinstaller-hooks-contrib 2023.12 successful
+  v Install pyinstaller 4.10 successful
   v Install pyproject-hooks 1.0.0 successful
   v Install python-dateutil 2.9.0.post0 successful
   v Install python-dotenv 1.0.1 successful
   v Install pywin32-ctypes 0.2.2 successful
-  v Install pytzdata 2020.1 successful
-  v Install requests 2.31.0 successful
   v Install pyyaml 6.0.1 successful
+  v Install pytzdata 2020.1 successful
+  v Install docstring-parser 0.11 successful
+  v Install requests 2.31.0 successful
+  v Install pylightxl 1.61 successful
   v Install requests-toolbelt 1.0.0 successful
   v Install resolvelib 1.0.1 successful
-  v Install shellingham 1.5.4 successful
-  v Install rich 13.7.1 successful
   v Install six 1.16.0 successful
-  v Install time-machine 2.14.0 successful
-  v Install tomli 2.0.1 successful
+  v Install shellingham 1.5.4 successful
   v Install tomli-w 1.0.0 successful
+  v Install tomli 2.0.1 successful
+  v Install rich 13.7.1 successful
+  v Install time-machine 2.14.0 successful
   v Install tomlkit 0.12.4 successful
   v Install truststore 0.8.0 successful
   v Install typeapi 2.1.2 successful
   v Install typer 0.9.0 successful
-  v Install docstring-parser 0.11 successful
   v Install typing-extensions 4.10.0 successful
   v Install unearth 0.14.0 successful
-  v Install urllib3 2.2.1 successful
-  v Install tzdata 2023.4 successful
   v Install userpath 1.9.2 successful
+  v Install urllib3 2.2.1 successful
   v Install watchdog 4.0.0 successful
-  v Install virtualenv 20.25.1 successful
   v Install wrapt 1.16.0 successful
-  v Install yapf 0.40.2 successful
+  v Install virtualenv 20.25.1 successful
+  v Install tzdata 2023.4 successful
   v Install zipp 3.17.0 successful
-  v Install pylightxl 1.61 successful
+  v Install yapf 0.40.2 successful
 Installing the project as an editable package...
-  v Install xl2roefact 0.4.0.dev1+editable successful
+  v Install xl2roefact 0.4.0.dev2+editable successful
 
   All complete!
 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem *** BUILD WHEEL SCRIPT 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm info 
+PDM version:
+  2.12.4
+Python Interpreter:
+  D:\a\api_to_roefact\api_to_roefact\xl2roefact\.venv\Scripts\python.exe (3.10)
+Project Root:
+  D:/a/api_to_roefact/api_to_roefact/xl2roefact
+Local Packages:
+  
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_wheel 
+Building sdist...
+Built sdist at D:/a/api_to_roefact/api_to_roefact/xl2roefact/dist\xl2roefact-0.4.0.dev2.tar.gz
+Building wheel...
+Built wheel at D:/a/api_to_roefact/api_to_roefact/xl2roefact/dist\xl2roefact-0.4.0.dev2-py3-none-any.whl
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem *** Change directory to INVOICETOROEFACT project component 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem cd .. 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem Create needed environment 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem python -m pip install pdm 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem python -m pdm install 
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem Effective script 
 
@@ -231,204 +259,6 @@ Project Root:
 Local Packages:
   
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem *** Change directory to INVOICETOROEFACT project component 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem *** to build standalone EXE 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>cd .. 
-
-D:\a\api_to_roefact\api_to_roefact>rem Create needed environment 
-
-D:\a\api_to_roefact\api_to_roefact>python -m pip install pdm 
-Requirement already satisfied: pdm in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (2.12.4)
-Requirement already satisfied: blinker in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (1.7.0)
-Requirement already satisfied: certifi in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (2024.2.2)
-Requirement already satisfied: packaging!=22.0,>=20.9 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (24.0)
-Requirement already satisfied: platformdirs in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (4.2.0)
-Requirement already satisfied: rich>=12.3.0 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (13.7.1)
-Requirement already satisfied: virtualenv>=20 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (20.25.1)
-Requirement already satisfied: pyproject-hooks in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (1.0.0)
-Requirement already satisfied: requests-toolbelt in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (1.0.0)
-Requirement already satisfied: unearth>=0.12.1 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (0.14.0)
-Requirement already satisfied: dep-logic<1.0,>=0.2.0 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (0.2.0)
-Requirement already satisfied: findpython<1.0.0a0,>=0.4.0 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (0.4.1)
-Requirement already satisfied: tomlkit<1,>=0.11.1 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (0.12.4)
-Requirement already satisfied: shellingham>=1.3.2 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (1.5.4)
-Requirement already satisfied: python-dotenv>=0.15 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (1.0.1)
-Requirement already satisfied: resolvelib>=1.0.1 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (1.0.1)
-Requirement already satisfied: installer<0.8,>=0.7 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (0.7.0)
-Requirement already satisfied: cachecontrol>=0.13.0 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from cachecontrol[filecache]>=0.13.0->pdm) (0.14.0)
-Requirement already satisfied: truststore in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (0.8.0)
-Requirement already satisfied: tomli>=1.1.0 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from pdm) (2.0.1)
-Requirement already satisfied: requests>=2.16.0 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from cachecontrol>=0.13.0->cachecontrol[filecache]>=0.13.0->pdm) (2.31.0)
-Requirement already satisfied: msgpack<2.0.0,>=0.5.2 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from cachecontrol>=0.13.0->cachecontrol[filecache]>=0.13.0->pdm) (1.0.8)
-Requirement already satisfied: filelock>=3.8.0 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from cachecontrol[filecache]>=0.13.0->pdm) (3.13.1)
-Requirement already satisfied: markdown-it-py>=2.2.0 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from rich>=12.3.0->pdm) (3.0.0)
-Requirement already satisfied: pygments<3.0.0,>=2.13.0 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from rich>=12.3.0->pdm) (2.17.2)
-Requirement already satisfied: distlib<1,>=0.3.7 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from virtualenv>=20->pdm) (0.3.8)
-Requirement already satisfied: mdurl~=0.1 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from markdown-it-py>=2.2.0->rich>=12.3.0->pdm) (0.1.2)
-Requirement already satisfied: charset-normalizer<4,>=2 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from requests>=2.16.0->cachecontrol>=0.13.0->cachecontrol[filecache]>=0.13.0->pdm) (3.3.2)
-Requirement already satisfied: idna<4,>=2.5 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from requests>=2.16.0->cachecontrol>=0.13.0->cachecontrol[filecache]>=0.13.0->pdm) (3.6)
-Requirement already satisfied: urllib3<3,>=1.21.1 in c:\hostedtoolcache\windows\python\3.10.11\x64\lib\site-packages (from requests>=2.16.0->cachecontrol>=0.13.0->cachecontrol[filecache]>=0.13.0->pdm) (2.2.1)
-
-D:\a\api_to_roefact\api_to_roefact>python -m pdm install 
-Synchronizing working set with resolved packages: 141 to add, 0 to update, 0 to remove
-
-  v Install pip 24.0 successful
-  v Install setuptools 69.1.0 successful
-  v Install wheel 0.42.0 successful
-  v Install altgraph 0.17.4 successful
-  v Install argcomplete 3.2.3 successful
-  v Install async-generator 1.10 successful
-  v Install attrs 23.1.0 successful
-  v Install blinker 1.7.0 successful
-  v Install beautifulsoup4 4.12.3 successful
-  v Install beautifultable 1.1.0 successful
-  v Install bracex 2.4 successful
-  v Install build 1.0.3 successful
-  v Install brotli 1.0.9 successful
-  v Install cachecontrol 0.14.0 successful
-  v Install certifi 2023.7.22 successful
-  v Install chrome-headless-browser 0.12.0 successful
-  v Install charset-normalizer 3.2.0 successful
-  v Install chrome-master 1.4.0 successful
-  v Install click 8.1.7 successful
-  v Install cffi 1.15.1 successful
-  v Install click-man 0.4.1 successful
-  v Install colorama 0.4.6 successful
-  v Install commonmark 0.9.1 successful
-  v Install cx-logging 3.1.0 successful
-  v Install cssselect2 0.7.0 successful
-  v Install dep-logic 0.0.4 successful
-  v Install distlib 0.3.8 successful
-  v Install babel 2.12.1 successful
-  v Install et-xmlfile 1.1.0 successful
-  v Install exceptiongroup 1.1.3 successful
-  v Install findpython 0.4.1 successful
-  v Install filelock 3.12.4 successful
-  v Install cx-freeze 6.15.12 successful
-  v Install fraction 2.2.0 successful
-  v Install ghp-import 2.1.0 successful
-  v Install gitdb 4.0.11 successful
-  v Install h11 0.14.0 successful
-  v Install gitpython 3.1.42 successful
-  v Install idna 3.6 successful
-  v Install html5lib 1.1 successful
-  v Install importlib-metadata 6.8.0 successful
-  v Install fonttools 4.42.1 successful
-  v Install installer 0.7.0 successful
-  v Install jinja2 3.1.3 successful
-  v Install markdown 3.4.4 successful
-  v Install markdown-exec 1.6.0 successful
-  v Install markdown-it-py 3.0.0 successful
-  v Install lief 0.14.1 successful
-  v Install mdurl 0.1.2 successful
-  v Install markupsafe 2.1.5 successful
-  v Install mergedeep 1.3.4 successful
-  v Install mkdocs-autorefs 0.5.0 successful
-  v Install mkdocs 1.5.3 successful
-  v Install mkdocs-git-revision-date-localized-plugin 1.2.4 successful
-  v Install mkdocs-include-markdown-plugin 6.0.4 successful
-  v Install mkdocs-material-extensions 1.1.1 successful
-  v Install mkdocs-macros-plugin 1.0.5 successful
-  v Install mkdocs-pdf-export-plugin 0.5.10 successful
-  v Install mkdocs-pdf-with-js-plugin 0.1.3 successful
-  v Install mkdocs-print-site-plugin 2.3.6 successful
-  v Install mkdocs-same-dir 0.1.3 successful
-  v Install mkdocs-typer 0.0.3 successful
-  v Install mkdocs-table-reader-plugin 2.0.3 successful
-  v Install mkdocstrings 0.23.0 successful
-  v Install msgpack 1.0.8 successful
-  v Install openpyxl 3.1.2 successful
-  v Install outcome 1.2.0 successful
-  v Install packaging 23.2 successful
-  v Install numpy 1.25.2 successful
-  v Install future 0.18.3 successful
-  v Install pathspec 0.11.2 successful
-  v Install pdoc 14.2.0 successful
-  v Install pdm 2.12.3 successful
-  v Install pefile 2023.2.7 successful
-  v Install platformdirs 4.1.0 successful
-  v Install ply 3.11 successful
-  v Install pycparser 2.21 successful
-  v Install pydyf 0.7.0 successful
-  v Install pillow 10.0.1 successful
-  v Install pygments-ansi-color 0.3.0 successful
-  v Install pygments 2.17.2 successful
-  v Install pandas 2.1.0 successful
-  v Install pylightxl 1.61 successful
-  v Install pyinstaller-hooks-contrib 2023.12 successful
-  v Install pyinstaller 6.3.0 successful
-  v Install pymdown-extensions 10.4 successful
-  v Install pyproject-hooks 1.0.0 successful
-  v Install pysocks 1.7.1 successful
-  v Install pyphen 0.14.0 successful
-  v Install python-dotenv 1.0.1 successful
-  v Install pysondb 1.6.7 successful
-  v Install python-dateutil 2.8.2 successful
-  v Install pywin32-ctypes 0.2.2 successful
-  v Install pyyaml 6.0.1 successful
-  v Install pyyaml-env-tag 0.1 successful
-  v Install pytzdata 2020.1 successful
-  v Install pytz 2023.4 successful
-  v Install qtaf 5.6.8 successful
-  v Install requests 2.31.0 successful
-  v Install requests-toolbelt 1.0.0 successful
-  v Install qt4w 2.1.5 successful
-  v Install resolvelib 1.0.1 successful
-  v Install rich 13.7.1 successful
-  v Install shellingham 1.5.4 successful
-  v Install regex 2023.8.8 successful
-  v Install six 1.16.0 successful
-  v Install sniffio 1.3.1 successful
-  v Install smmap 5.0.1 successful
-  v Install sortedcontainers 2.4.0 successful
-  v Install soupsieve 2.4.1 successful
-  v Install selenium 4.11.2 successful
-  v Install mkdocs-material 9.1.21 successful
-  v Install termcolor 2.3.0 successful
-  v Install tabulate 0.9.0 successful
-  v Install style 1.1.0 successful
-  v Install tomli 2.0.1 successful
-  v Install tomlkit 0.12.4 successful
-  v Install tinycss2 1.2.1 successful
-  v Install time-machine 2.13.0 successful
-  v Install truststore 0.8.0 successful
-  v Install trio-websocket 0.10.4 successful
-  v Install trio 0.22.2 successful
-  v Install typer 0.9.0 successful
-  v Install typing-extensions 4.9.0 successful
-  v Install unearth 0.14.0 successful
-  v Install tzdata 2023.4 successful
-  v Install update 0.0.1 successful
-  v Install userpath 1.9.2 successful
-  v Install urllib3 2.0.7 successful
-  v Install virtualenv 20.25.1 successful
-  v Install wcmatch 8.4.1 successful
-  v Install watchdog 3.0.0 successful
-  v Install wcwidth 0.2.13 successful
-  v Install webencodings 0.5.1 successful
-  v Install weasyprint 59.0 successful
-  v Install websocket-client 1.6.4 successful
-  v Install wsproto 1.2.0 successful
-  v Install xl2roefact 0.4.0.dev1 successful
-  v Install zipp 3.16.2 successful
-  v Install zopfli 0.2.3 successful
-  v Install tornado 5.1.1 successful
-
-  All complete!
-
-
-D:\a\api_to_roefact\api_to_roefact>rem Effective script 
-
-D:\a\api_to_roefact\api_to_roefact>pdm info 
-PDM version:
-  2.12.4
-Python Interpreter:
-  D:\a\api_to_roefact\api_to_roefact\.venv\Scripts\python.exe (3.10)
-Project Root:
-  D:/a/api_to_roefact/api_to_roefact
-Local Packages:
-  
-
-D:\a\api_to_roefact\api_to_roefact>rem *** to build standalone EXE 
-
-D:\a\api_to_roefact\api_to_roefact>rem pdm run build_sexe 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem pdm run build_sexe 
