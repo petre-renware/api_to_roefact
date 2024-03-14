@@ -1,23 +1,15 @@
 
-D:\a\api_to_roefact\api_to_roefact>rem --------------- 
-
 D:\a\api_to_roefact\api_to_roefact>rem copyright (c) 2024 Petre Iordanescu, petre.iordanescu@yahoo.com, RENware Software Systems 
 
 D:\a\api_to_roefact\api_to_roefact>rem this command script will be run on CI automation workflow: 
 
 D:\a\api_to_roefact\api_to_roefact>rem     - op sys: Windows 
 
-D:\a\api_to_roefact\api_to_roefact>rem     - workflow; `adhoc-run.yml` 
-
 D:\a\api_to_roefact\api_to_roefact>rem     - trigger event: merge to branch `adhoc` 
 
 D:\a\api_to_roefact\api_to_roefact>rem     - stdout redirection: `./tests/_test_results.txt` 
 
-D:\a\api_to_roefact\api_to_roefact>rem *** Change directory to XL2ROEFACT project component 
-
 D:\a\api_to_roefact\api_to_roefact>cd xl2roefact 
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem *** CREATE NEEDED ENVIRONMENT  
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pip install pdm 
 Collecting pdm
@@ -81,51 +73,51 @@ Collecting idna<4,>=2.5 (from requests>=2.16.0->cachecontrol>=0.13.0->cachecontr
 Collecting urllib3<3,>=1.21.1 (from requests>=2.16.0->cachecontrol>=0.13.0->cachecontrol[filecache]>=0.13.0->pdm)
   Downloading urllib3-2.2.1-py3-none-any.whl.metadata (6.4 kB)
 Downloading pdm-2.12.4-py3-none-any.whl (249 kB)
-   ---------------------------------------- 249.9/249.9 kB 7.7 MB/s eta 0:00:00
+   --------------------------------------- 249.9/249.9 kB 16.0 MB/s eta 0:00:00
 Downloading cachecontrol-0.14.0-py3-none-any.whl (22 kB)
 Downloading dep_logic-0.2.0-py3-none-any.whl (26 kB)
 Downloading findpython-0.4.1-py3-none-any.whl (20 kB)
 Downloading installer-0.7.0-py3-none-any.whl (453 kB)
-   --------------------------------------- 453.8/453.8 kB 14.3 MB/s eta 0:00:00
+   --------------------------------------- 453.8/453.8 kB 29.6 MB/s eta 0:00:00
 Downloading packaging-24.0-py3-none-any.whl (53 kB)
-   ---------------------------------------- 53.5/53.5 kB 2.7 MB/s eta 0:00:00
+   ---------------------------------------- 53.5/53.5 kB 2.9 MB/s eta 0:00:00
 Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
 Downloading resolvelib-1.0.1-py2.py3-none-any.whl (17 kB)
 Downloading rich-13.7.1-py3-none-any.whl (240 kB)
-   --------------------------------------- 240.7/240.7 kB 14.4 MB/s eta 0:00:00
+   --------------------------------------- 240.7/240.7 kB 15.4 MB/s eta 0:00:00
 Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
 Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
 Downloading tomlkit-0.12.4-py3-none-any.whl (37 kB)
 Downloading unearth-0.14.0-py3-none-any.whl (42 kB)
-   ---------------------------------------- 43.0/43.0 kB 2.2 MB/s eta 0:00:00
+   ---------------------------------------- 43.0/43.0 kB 2.0 MB/s eta 0:00:00
 Downloading virtualenv-20.25.1-py3-none-any.whl (3.8 MB)
    ---------------------------------------- 3.8/3.8 MB 80.2 MB/s eta 0:00:00
 Downloading platformdirs-4.2.0-py3-none-any.whl (17 kB)
 Downloading blinker-1.7.0-py3-none-any.whl (13 kB)
 Downloading certifi-2024.2.2-py3-none-any.whl (163 kB)
-   ---------------------------------------- 163.8/163.8 kB 9.6 MB/s eta 0:00:00
+   --------------------------------------- 163.8/163.8 kB 10.2 MB/s eta 0:00:00
 Downloading pyproject_hooks-1.0.0-py3-none-any.whl (9.3 kB)
 Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
-   ---------------------------------------- 54.5/54.5 kB 713.6 kB/s eta 0:00:00
+   ---------------------------------------- 54.5/54.5 kB 2.9 MB/s eta 0:00:00
 Downloading truststore-0.8.0-py3-none-any.whl (16 kB)
 Downloading distlib-0.3.8-py2.py3-none-any.whl (468 kB)
-   ---------------------------------------- 468.9/468.9 kB 7.3 MB/s eta 0:00:00
+   --------------------------------------- 468.9/468.9 kB 30.6 MB/s eta 0:00:00
 Downloading filelock-3.13.1-py3-none-any.whl (11 kB)
 Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
-   ---------------------------------------- 87.5/87.5 kB 702.6 kB/s eta 0:00:00
+   ---------------------------------------- 87.5/87.5 kB ? eta 0:00:00
 Downloading msgpack-1.0.8-cp310-cp310-win_amd64.whl (75 kB)
-   ---------------------------------------- 75.1/75.1 kB 821.1 kB/s eta 0:00:00
+   ---------------------------------------- 75.1/75.1 kB 4.1 MB/s eta 0:00:00
 Downloading pygments-2.17.2-py3-none-any.whl (1.2 MB)
-   ---------------------------------------- 1.2/1.2 MB 24.9 MB/s eta 0:00:00
+   ---------------------------------------- 1.2/1.2 MB 78.0 MB/s eta 0:00:00
 Downloading requests-2.31.0-py3-none-any.whl (62 kB)
-   ---------------------------------------- 62.6/62.6 kB 830.7 kB/s eta 0:00:00
+   ---------------------------------------- 62.6/62.6 kB 3.3 MB/s eta 0:00:00
 Downloading charset_normalizer-3.3.2-cp310-cp310-win_amd64.whl (100 kB)
-   ---------------------------------------- 100.3/100.3 kB 1.4 MB/s eta 0:00:00
+   ---------------------------------------- 100.3/100.3 kB 6.0 MB/s eta 0:00:00
 Downloading idna-3.6-py3-none-any.whl (61 kB)
-   ---------------------------------------- 61.6/61.6 kB 827.9 kB/s eta 0:00:00
+   ---------------------------------------- 61.6/61.6 kB 3.4 MB/s eta 0:00:00
 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
 Downloading urllib3-2.2.1-py3-none-any.whl (121 kB)
-   ---------------------------------------- 121.1/121.1 kB 3.6 MB/s eta 0:00:00
+   ---------------------------------------- 121.1/121.1 kB 6.9 MB/s eta 0:00:00
 Installing collected packages: resolvelib, distlib, urllib3, truststore, tomlkit, tomli, shellingham, python-dotenv, pygments, platformdirs, packaging, msgpack, mdurl, installer, idna, filelock, charset-normalizer, certifi, blinker, virtualenv, requests, pyproject-hooks, markdown-it-py, findpython, dep-logic, unearth, rich, requests-toolbelt, cachecontrol, pdm
 Successfully installed blinker-1.7.0 cachecontrol-0.14.0 certifi-2024.2.2 charset-normalizer-3.3.2 dep-logic-0.2.0 distlib-0.3.8 filelock-3.13.1 findpython-0.4.1 idna-3.6 installer-0.7.0 markdown-it-py-3.0.0 mdurl-0.1.2 msgpack-1.0.8 packaging-24.0 pdm-2.12.4 platformdirs-4.2.0 pygments-2.17.2 pyproject-hooks-1.0.0 python-dotenv-1.0.1 requests-2.31.0 requests-toolbelt-1.0.0 resolvelib-1.0.1 rich-13.7.1 shellingham-1.5.4 tomli-2.0.1 tomlkit-0.12.4 truststore-0.8.0 unearth-0.14.0 urllib3-2.2.1 virtualenv-20.25.1
 
@@ -135,26 +127,26 @@ Synchronizing working set with resolved packages: 81 to add, 0 to update, 0 to r
   v Install pip 24.0 successful
   v Install setuptools 69.2.0 successful
   v Install wheel 0.43.0 successful
+  v Install altgraph 0.17.4 successful
   v Install blinker 1.7.0 successful
   v Install argcomplete 3.2.3 successful
-  v Install altgraph 0.17.4 successful
-  v Install cachecontrol 0.14.0 successful
   v Install build 1.1.1 successful
+  v Install cachecontrol 0.14.0 successful
   v Install certifi 2024.2.2 successful
-  v Install black 23.12.1 successful
-  v Install colorama 0.4.6 successful
   v Install click 8.1.7 successful
-  v Install commonmark 0.9.1 successful
+  v Install colorama 0.4.6 successful
+  v Install black 23.12.1 successful
   v Install charset-normalizer 3.3.2 successful
   v Install cx-logging 3.1.0 successful
+  v Install commonmark 0.9.1 successful
   v Install databind-core 4.4.0 successful
   v Install databind-json 4.4.0 successful
   v Install dep-logic 0.2.0 successful
-  v Install deprecated 1.2.14 successful
-  v Install distlib 0.3.8 successful
-  v Install docspec 2.2.1 successful
-  v Install docspec-python 2.2.1 successful
   v Install cx-freeze 6.15.15 successful
+  v Install deprecated 1.2.14 successful
+  v Install docspec 2.2.1 successful
+  v Install distlib 0.3.8 successful
+  v Install docspec-python 2.2.1 successful
   v Install et-xmlfile 1.1.0 successful
   v Install filelock 3.13.1 successful
   v Install findpython 0.4.1 successful
@@ -163,10 +155,10 @@ Synchronizing working set with resolved packages: 81 to add, 0 to update, 0 to r
   v Install importlib-metadata 7.0.2 successful
   v Install jinja2 3.1.3 successful
   v Install installer 0.7.0 successful
-  v Install lief 0.14.0 successful
   v Install markdown-it-py 3.0.0 successful
   v Install markupsafe 2.1.5 successful
   v Install mdurl 0.1.2 successful
+  v Install lief 0.14.0 successful
   v Install mypy-extensions 1.0.0 successful
   v Install nr-date 2.1.0 successful
   v Install msgpack 1.0.8 successful
@@ -181,22 +173,22 @@ Synchronizing working set with resolved packages: 81 to add, 0 to update, 0 to r
   v Install pydoc-markdown 4.8.2 successful
   v Install pygments 2.17.2 successful
   v Install pyinstaller-hooks-contrib 2023.12 successful
-  v Install pyinstaller 4.10 successful
+  v Install pyinstaller 6.3.0 successful
+  v Install docstring-parser 0.11 successful
   v Install pyproject-hooks 1.0.0 successful
   v Install python-dateutil 2.9.0.post0 successful
   v Install python-dotenv 1.0.1 successful
   v Install pywin32-ctypes 0.2.2 successful
   v Install pyyaml 6.0.1 successful
-  v Install pytzdata 2020.1 successful
-  v Install docstring-parser 0.11 successful
   v Install requests 2.31.0 successful
-  v Install pylightxl 1.61 successful
   v Install requests-toolbelt 1.0.0 successful
+  v Install pylightxl 1.61 successful
   v Install resolvelib 1.0.1 successful
+  v Install pytzdata 2020.1 successful
   v Install six 1.16.0 successful
   v Install shellingham 1.5.4 successful
-  v Install tomli-w 1.0.0 successful
   v Install tomli 2.0.1 successful
+  v Install tomli-w 1.0.0 successful
   v Install rich 13.7.1 successful
   v Install time-machine 2.14.0 successful
   v Install tomlkit 0.12.4 successful
@@ -210,54 +202,43 @@ Synchronizing working set with resolved packages: 81 to add, 0 to update, 0 to r
   v Install watchdog 4.0.0 successful
   v Install wrapt 1.16.0 successful
   v Install virtualenv 20.25.1 successful
-  v Install tzdata 2023.4 successful
   v Install zipp 3.17.0 successful
   v Install yapf 0.40.2 successful
+  v Install tzdata 2023.4 successful
 Installing the project as an editable package...
   v Install xl2roefact 0.4.0.dev2+editable successful
 
   All complete!
 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem *** BUILD WHEEL SCRIPT 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact about 
+xl2roefact version info.                                                       
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm info 
-PDM version:
-  2.12.4
-Python Interpreter:
-  D:\a\api_to_roefact\api_to_roefact\xl2roefact\.venv\Scripts\python.exe (3.10)
-Project Root:
-  D:/a/api_to_roefact/api_to_roefact/xl2roefact
-Local Packages:
-  
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_wheel 
-Building sdist...
-Built sdist at D:/a/api_to_roefact/api_to_roefact/xl2roefact/dist\xl2roefact-0.4.0.dev2.tar.gz
-Building wheel...
-Built wheel at D:/a/api_to_roefact/api_to_roefact/xl2roefact/dist\xl2roefact-0.4.0.dev2-py3-none-any.whl
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem *** Change directory to INVOICETOROEFACT project component 
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem cd .. 
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem Create needed environment 
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem python -m pip install pdm 
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem python -m pdm install 
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem Effective script 
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm info 
-PDM version:
-  2.12.4
-Python Interpreter:
-  D:\a\api_to_roefact\api_to_roefact\xl2roefact\.venv\Scripts\python.exe (3.10)
-Project Root:
-  D:/a/api_to_roefact/api_to_roefact/xl2roefact
-Local Packages:
-  
+                                                                               
+  ######## ####              ########  ######                                  
+  #  ##  # #  #              #      # ##    ##                                 
+  ##    ## #  #              ###  ### #  ##  #                                 
+   ##  ##  #  #                #  #   #  ##  #                                 
+  ##    ## #  #                #  #   #  ##  #                                 
+  #  ##  # #  #####            #  #   #  ##  #                                 
+  #  ##  # #      #            #  #   ##    ##                                 
+  ######## ########            ####    ######                                  
+                                                                               
+                             ######## ########  ######   ######  ########      
+  #######   ######           #      # #     #  ##    ## ##    ## #      #      
+  #     ## ##    ## #######  #  ##### #  ####  #  ##  # #  ##  # ###  ###      
+  #  ##  # #  ##  # #     #  #    #   #    #   #      # #  #####   #  #        
+  #  ##### #  ##  # #######  #  ###   #  ###   #  ##  # #  #####   #  #        
+  #  # #   #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  #        
+  #  #  #  ##    ##          #      # #  #     #  ##  # ##    ##   #  #        
+  ####   #  ######           ######## ####     ########  ######    ####        
+                                                                               
+xl2roefact 0.4.dev2 application by RENware Software Systems (c) 2023, 2024
+extract & convert Excel invoice files to JSON, XML and upload info to RO ANAF 
+e-Fact system
+Support: www.renware.eu, petre.iordanescu@gmail.com
+Product code: 0000-0095
+Usage: for detailed help use xl2roefact --help
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem *** to build standalone EXE 
 
