@@ -1,25 +1,29 @@
-{
-    "cac_AccountingCustomerParty": {
-        "cac:Party": {
-            "cac_PartyLegalEntity": {
-                "cbc_CompanyID": "42561459",
-                "cbc_RegistrationName": "REN-CONSULTING SOFT ACTIVITY"
-            },
-            "cac_PostalAddress": {
-                "cbc_StreetName": "",
-                "cbc_CityName": "Romania, Bucuresti, sector 1, sos Nicolae Titulescu 81-87",
-                "cbc_PostalZone": "",
-                "cac_Country": {
-                    "cbc_IdentificationCode": "RO"
-                }
-            },
-            "cac_Contact": {
-                "cbc_Telephone": null,
-                "cbc_ElectronicMail": null,
-                "RegCom": "J40/5662/2020",
-                "Bank": "Banca Transilvania",
-                "IBAN": "RO29 BTRL RONC RT05 5704 8601"
-            }
-        }
-    }
-}
+#TODO; right data structure needed. To convert to JSON.
+
+    <cac:AccountingSupplierParty>  #TODO tbd...
+        <cac:Party>
+            <cac:PostalAddress>
+                <cbc:StreetName>Nicolae Titulescu 81-87</cbc:StreetName>
+                <cbc:CityName>Sectorul 1</cbc:CityName>
+                <cbc:PostalZone>010011</cbc:PostalZone>
+                <cac:Country>
+                    <cbc:IdentificationCode>RO</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:PostalAddress>
+            <cac:PartyTaxScheme>
+                <cbc:CompanyID>42561459</cbc:CompanyID>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:PartyTaxScheme>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>REN-CONSULTING SOFT ACTIVITY </cbc:RegistrationName>
+                <cbc:CompanyID>42561459</cbc:CompanyID>
+            </cac:PartyLegalEntity>
+            <cac:Contact>
+                <cbc:Telephone>0744684867</cbc:Telephone>
+                <cbc:ElectronicMail>petre.iordanescu@gmail.com</cbc:ElectronicMail>
+            </cac:Contact>
+        </cac:Party>
+    </cac:AccountingSupplierParty>
+
