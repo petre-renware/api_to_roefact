@@ -23,7 +23,7 @@ Merge to branch **`pypi-publish`**. This workflow will initiate publishing to Py
 
 ## Run xl2roefact CLI app
 
-Commit to branch **`test-xl2roefact`**. The process will execute 
+Commit to branch **`test-xl2roefact`**. The process will execute
 ```bash
 pdm run xl2roefact xl2json -d ./tests >./tests/_test_on_git_results.txt
 ```

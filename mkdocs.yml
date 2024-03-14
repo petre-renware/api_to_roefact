@@ -6,10 +6,10 @@ copyright: 'Copyright (c) RENware Software Systems'
 
 
 extra:    #NOTE ...ATTN here are components version used as Jinja fields in markdown docs  #FIXME find a way to build them auto at different events like MSI build for example
-    xl2roefact_version: "0.3.1b1"
+    xl2roefact_version: "0.4.0.dev0"
     web2roefact_version: "n/a"
     invoice_template_version: "0.1.20"
-    INVOICEtoROefact_version: "0.3.2b0"
+    INVOICEtoROefact_version: "0.4.rc0"
 
 
 
@@ -102,6 +102,8 @@ plugins:
     - same-dir  #NOTE [piu] plug-in that allow to use markdown files from "root" folder level (where `mkdocs.yml` is located)
     - table-reader  #NOTE [piu] used for static tables rendering from various sources (CSV, JSON, etc as available in Pandas)
     - macros  #NOTE [piu] use external jinja variables and macros (see `https://mkdocs-macros-plugin.readthedocs.io/en/latest/`)
+    #- macros:  #TODO: test variant to get xl2roefact version directly from package
+    #    modules: [xl2roefact:__version__]  #TODO: test variant to get xl2roefact version directly from package
     - markdown-exec  #NOTE [piu] Python execution inside markdown files (execution at build time, "compilation like" NOT dynamically NOT JavaScript)
     - git-revision-date-localized
     # -------------------------- #FIXME [piu] item (`mkdocstrings`) temporary disabled because errs supposing of directory level/position (which is not under doc_src/)

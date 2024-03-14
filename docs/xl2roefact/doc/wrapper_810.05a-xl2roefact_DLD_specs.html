@@ -511,7 +511,7 @@ div.download-btn {
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><div class="download-btn"><a href="../../pdfs/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html/wrapper_810.05a-xl2roefact_DLD_specs.pdf">Download PDF</a></div>
+<article class="md-content__inner md-typeset"><div class="download-btn"><a href="..\..\pdfs\xl2roefact\doc\wrapper_810.05a-xl2roefact_DLD_specs.html\wrapper_810.05a-xl2roefact_DLD_specs.pdf">Download PDF</a></div>
 <!-- this doc is a wrapper intended just to create a better Table of Contents that one created by `pydoc` in built document -->
 <h1 id="xl2roefact-python-library-api-reference">xl2roefact python library API Reference</h1>
 <div class="toc">
@@ -726,12 +726,16 @@ div.download-btn {
 </ul>
 <p><a id="libutils.complete_sexe_file"></a></p>
 <h4 id="complete_sexe_file">complete_sexe_file</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">complete_sexe_file</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">complete_sexe_file</span><span class="p">(</span><span class="n">drop_source</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <p>Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.</p>
 <ul>
 <li>Specs: file to process <code>.../dist_sexe/xl2roefact_to_update_name.exe</code> --&gt; `.../dist/xl2roefact-version-win64.exe</li>
 <li>NOTE: all function code suppose that current directory is root of <code>xl2roefact</code>, ie where is located <code>pyproject.toml</code> of package</li>
+</ul>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>drop_source</code> - indicate to delete source file after copying, ie make a "move" operation, otherwise make a copy keeping the source file. Default behaviour is to delete source.</li>
 </ul>
 <p><strong>Returns</strong>:</p>
 <ul>
@@ -967,7 +971,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 11, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 6, 2024</span>
 </small>
 </div>
 </article>

@@ -35,6 +35,8 @@ from .libutils import dict_sum_by_key
 from .libutils import invoice_taxes_summary
 from . import config_settings  # application configuration parameters
 
+__all__ = ["rdinv"]  # limit what symbols to be available when import all/full module as `from xl2roefact.rdinv import *`
+
 # local constants. Change them with caution only for a functional objective
 SYS_FILLED_EMPTY_CELL = "_sys_keep_cell"
 

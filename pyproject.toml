@@ -10,7 +10,7 @@ authors = [
 ]
 # dependencies = []  # is expected to be created by `pdm init`
 license = {file = "LICENSE.md"}
-requires-python = ">=3.10,<3.13"
+requires-python = "<3.11,>=3.10"  # old version, updated for xl2roefact compatibility ">=3.10,<3.13"
 classifiers = [  #  [piu@231226] just informative key at this moment
     "Product code :: 0000-0095",  # [piu @ 231226] to test if accepted here
     "Development Status :: 4 - Beta",
@@ -157,7 +157,7 @@ dependencies = [
     "webencodings~=0.5.1",
     "websocket-client~=1.6.1",
     "wsproto~=1.2.0",
-    "xl2roefact~=0.2.1b1",
+    "xl2roefact>=0.2.1b1",
     "zipp~=3.16.2",
     "zopfli~=0.2.2"
 ]

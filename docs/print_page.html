@@ -1388,19 +1388,19 @@
 </div>
 <p>Acest sistem va asigura incarcarea facturilor emise in sistemul <a href="https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura">ANAF E-Factura</a>.</p>
 <h2 id="index-componentele-si-facilitatile-sistemului">Componentele si facilitatile sistemului</h2>
-<p>Sistemul <strong>INVOICEtoROefact 0.3.2b0</strong> ofera urmatoarele componente:</p>
+<p>Sistemul <strong>INVOICEtoROefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.4.rc0-blue" /> ofera urmatoarele componente:</p>
 <ul>
 <li>
-<p><strong><a href="#xl2roefact-index">xl2roefact</a></strong> 0.3.1b1 - procesarea facturilor in mod linie de comanda</p>
+<p><strong><a href="#xl2roefact-index">xl2roefact</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.3.1b1-blue" /> - procesarea facturilor in mod linie de comanda</p>
 </li>
 <li>
-<p><strong>web2roefact</strong> n/a - procesarea facturilor din interfara web  <!--#TODO link tbd --></p>
+<p><strong>web2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-n/a-blue" /> - procesarea facturilor din interfara web  <!--#TODO link tbd --></p>
 </li>
 <li>
-<p><strong><a href="#xl2roefact-doc-readme_xl2roefact_library">xl2roefact python library</a></strong> 0.3.1b1 - procesarea facturilor prin cod / program (development propriu)</p>
+<p><strong><a href="#xl2roefact-doc-readme_xl2roefact_library">xl2roefact python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.3.1b1-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
 </li>
 <li>
-<p><strong><a href="#excel_invoice_template-index">invoice template</a></strong> 0.1.20 - model / sablon factura in Excel</p>
+<p><strong><a href="#excel_invoice_template-index">invoice template</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.1.20-blue" /> - model / sablon factura in Excel</p>
 </li>
 </ul>
 <p><a href="#doc_src-810-dsgn-810.05a-system_components">Descrierea tuturor acestora poate fi accessata aici</a>.</p>
@@ -1438,16 +1438,16 @@
 <p>Sistemul ofera urmatoarele componente:</p>
 <ul>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></strong>  0.3.1b1 - procesarea facturilor in mod linie de comanda</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></strong>  <img alt="Static Badge" src="https://img.shields.io/badge/version-0.3.1b1-blue" /> - procesarea facturilor in mod linie de comanda</p>
 </li>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></strong> 0.3.1b1 - procesarea facturilor prin cod / program (development propriu)</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.3.1b1-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
 </li>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-web2roefact">web2roefact</a></strong> n/a - procesarea facturilor din interfara web</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-web2roefact">web2roefact</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-n/a-blue" /> - procesarea facturilor din interfara web</p>
 </li>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-invoice-template">invoice template</a></strong> 0.1.20- model / sablon factura in Excel</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-invoice-template">invoice template</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.1.20-blue" />- model / sablon factura in Excel</p>
 </li>
 </ul>
 <p>Facilitatile generale ale fiecareia din acestea sunt prezentate in continuare.</p>
@@ -2154,12 +2154,16 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 <p><a id="libutils.complete_sexe_file"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-complete_sexe_file">complete_sexe_file</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">complete_sexe_file</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">complete_sexe_file</span><span class="p">(</span><span class="n">drop_source</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <p>Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.</p>
 <ul>
 <li>Specs: file to process <code>.../dist_sexe/xl2roefact_to_update_name.exe</code> --&gt; `.../dist/xl2roefact-version-win64.exe</li>
 <li>NOTE: all function code suppose that current directory is root of <code>xl2roefact</code>, ie where is located <code>pyproject.toml</code> of package</li>
+</ul>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>drop_source</code> - indicate to delete source file after copying, ie make a "move" operation, otherwise make a copy keeping the source file. Default behaviour is to delete source.</li>
 </ul>
 <p><strong>Returns</strong>:</p>
 <ul>
@@ -3647,14 +3651,14 @@ Public License instead of this License.  But first, please read
 <div class="toc">
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
-<li><a href="#changelog-03">0.3</a><ul>
-<li><a href="#changelog-wip-032b0-single-exe-version-date_here">wip... 0.3.2b0 single EXE version (...date_here...)</a></li>
-<li><a href="#changelog-031b1-fixed-bug-json-invoicecac_invoiceline-listlist-230306-h1930">0.3.1b1 fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list] (230306 h19:30)</a></li>
+<li><a href="#changelog-04">0.4</a><ul>
+<li><a href="#changelog-040rc0-todowip-invoice-supplier-date_here">0.4.0rc0 TODO:wip... invoice supplier (...date_here...)</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#changelog-archived-changelogs">Archived CHANGELOGs</a><ul>
+<li><a href="#changelog-04-version">0.4 version</a></li>
 <li><a href="#changelog-03-version">0.3 version</a></li>
 <li><a href="#changelog-02-version">0.2 version</a></li>
 <li><a href="#changelog-01-version">0.1 version</a></li>
@@ -3664,136 +3668,72 @@ Public License instead of this License.  But first, please read
 </div>
 <h1 id="changelog-changelog">CHANGELOG</h1>
 <ul>
-<li>For version code structure meaning see SDEVEN methodology document</li>
-<li>with <em>(F)</em> are marked those changes that are features in order to be copied in a RELNOTE file and with <em>(B)</em> bug fixes from versions released</li>
-<li>publishing is made under <code>publishing</code> branch</li>
+<li>For version code structure meaning see <a href="http://sdeven.renware.eu">SDEVEN methodology document</a></li>
 <li><code>&lt;PROJECT ROOT&gt;/doc_src/</code> is the default starting location in a file path (if not clear from context) (<strong>ATTN</strong> - in production environment is <code>docs/</code>)</li>
 <li><code>&lt;WEB_ROOT&gt;/</code> is the HTTP server root directory, as default <code>docs/</code> and supposed if no other parent is specified</li>
 </ul>
-<!--#FIXME uncomment when finish 0.3...
-### 0.4.1? xxx (...date_here...)
-<div class="highlight"><pre><span></span><code>    - ---[ #TODO general planning board ]---:
+<!-- #TODO #NOTE ...
+====[ General PLAN ]====
+
+* ---[ #TODO general planning board ]---:
     * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
     * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
-    -
-    * ---[ FUTURE NEW APP COMMANDS ]---:
-        * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-        * `xl2json` - crt_wip... (last upd @ 240219piu_a)
-        * `json2xml` - see module WRXML,
-        * `json2pdf` - new module. tbd..,
-        * `xml2roefact` - see module LDXML
-        * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-    -
-    * -#NOTE Plan for `rdinv` module:
-        * [ ] invoice supplier (`&lt;cac:AccountingSupplierParty&gt;`)
-    -------------------------------------------------------------------------------------------------
-</code></pre></div>
 
-### TODO:next... 0.4.0rc invoice supplier (#NOTE: ...date_here...)
+* ---[ FUTURE NEW APP COMMANDS ]---:
+    * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
+    * `xl2json` - crt_wip... (last upd @ 240219piu_a)
+    * `json2xml` - see module WRXML,
+    * `json2pdf` - new module. tbd..,
+    * `xml2roefact` - see module LDXML
+    * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
 
-* tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
-
-* tbd.Must... `xl2roefact` need to make invoice supplier (`<cac:AccountingSupplierParty>`) - MANDATORY to plan for next version
-* tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
-* tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
+* ---[ Plan for `rdinv` module ]---:
+        * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
 -->
 
-<h2 id="changelog-03">0.3</h2>
-<h3 id="changelog-wip-032b0-single-exe-version-date_here">wip... 0.3.2b0 single EXE version (...date_here...)</h3>
-<details class="info" open="open">
-<summary>Release versions</summary>
+<h2 id="changelog-04">0.4</h2>
+<h3 id="changelog-040rc0-todowip-invoice-supplier-date_here">0.4.0rc0 TODO:wip... invoice supplier (...date_here...)</h3>
 <ul>
-<li>xl2roefact: "0.3.1b1"</li>
-<li>web2roefact: "n/a"</li>
-<li>invoice_template: "0.1.20"</li>
-<li>INVOICEtoROefact: "0.3.2b0"</li>
-</ul>
-</details>
-<ul>
-<li><code>240311piu02</code> run script build_doc to update ref <code>libutils.py</code> module. Update &amp; publish site.</li>
-<li><code>240311piu01</code> update <code>downloads.md</code> to include single exe resource starting with last stable version = <code>0.3.1b1</code></li>
-<li><code>240308piu00</code> update <code>app_cli</code>, option <code>--version</code> to get normalized version string</li>
-<li><code>240308piu01</code> make single EXE with <code>pyinstaller</code><ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. ck &amp; install <code>pyinstaller</code> in local environment. Update it if necessary</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. adhoc try to execute it. Make a command for (<code>build_sexe</code>)
-      RESULTS: <code>.../xl2roefact/dist/xl2roefact/..</code> with exe &amp; various files</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. created a PDM script for command <code>build_sexe</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. result produced in <code>...dist/xl2roefact/dist/</code> - a little bit unacceptable but ok for that step</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. adjust command <code>build_sexe</code> to produce a single file EXE
-      RESOLUTION: up here resulted one file <code>xl2roefact.exe</code> in <code>.../dist/</code> directory</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 6. adjust command <code>build_sexe</code> to produce exe in other-temp directory for name processing (req here in nxt item-step)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 7. installed <code>packaging</code> package and updated <code>xl2roefact.__version__</code> module with function <code>normalized_version(raw_version: str) -&gt; str</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 8. adjust command <code>build_sexe</code> to produce right file name as <code>xl2roefact-0.3.1.b1-win64.exe</code> and move it in <code>.../dist/</code> dir. Specs:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> in pyproject.toml make <code>post_build_sexe</code> entry of call type <code>{call = "xl2roefact.libutils:complete_sexe_file()"}</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> update <code>__version__</code> modules to accommodate this function</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> skeleton rdy <code>libutils</code> module for function <code>complete_sexe_file()</code> that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe<code>--&gt;</code>.../dist/xl2roefact-version-win64.exe`</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> finalize &amp; test code of <code>complete_sexe_file()</code> ==&gt; PASS</li>
-</ul>
-</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 9. in <code>pyproject.toml</code> include <code>build_sexe</code> cmd in <code>build_all</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 10. build single exe for current stable version of xl2roefact = <code>0.3.1b1</code>. Updated tech doc DLD (xl2roefact API Reference)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 11. FIX: single exe not work. FIX: Must to HAVE DIFFERENT NAME THAN DIRECTORY <code>xl2roefact/</code>. Created copy <code>xl2roefact_copy_for_sexe.py</code> for xl2roefact.py to be used by pyinstaller in build_sexe script. <strong>This file should be kept on as a perfect copy of original</strong> (as sym-link doesn't work).</li>
-</ul>
-</li>
-<li><code>240307piu01</code> xl2roefact pdm environment created a script for <strong>build PyPi</strong> operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one</li>
-<li><code>230406piu08</code> updated <code>downloads.md</code> ref end-of-life date of all <code>0.1...</code> versions: 10-March-2024</li>
-</ul>
-<!--#NOTE: to be archived ASAP -->
-
-<h3 id="changelog-031b1-fixed-bug-json-invoicecac_invoiceline-listlist-230306-h1930">0.3.1b1 fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list] (230306 h19:30)</h3>
-<details class="info" open="open">
-<summary>Release versions</summary>
-<ul>
-<li>xl2roefact: "0.3.1b1"</li>
-<li>web2roefact: "n/a"</li>
-<li>invoice_template: "0.1.20"</li>
-<li>INVOICEtoROefact: "0.3.1b1"</li>
-</ul>
-</details>
-<ul>
-<li><code>230406piu07</code> release version:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. update xl2roefact version</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. build new app</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. update downloads.md doc</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. build site</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. publish on PyPi</li>
-</ul>
-</li>
-<li><code>230406piu06</code> FIXED <code>240306piu05</code> ref JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list] bug by transforming in 1-dimensional list using strategy from <code>TO FIX -&gt; item 3</code>. TEST PASS.</li>
-<li><code>240306piu05</code> TEST POINT: converted online the invoice JSON file to XML ==&gt; <code>Fact_Petrom_11017969.xml</code>. <strong>RESOLUTIONS:</strong><ul>
-<li>ATTN: the usable part is strict those related to "Invoice" key, any other information is not relevant and will not be included in application generated XML</li>
-<li>TO FIX: JSON generated key "cac_InvoiceLine" is list[list] the first list being obsolete (just item 0 which is the effective list). Proposals:<ul>
 <li>
-<ol>
-<li>at XML generation to preserve only <code>cac_InvoiceLine[0]</code> - <em>pro</em>: SIMPLE, REASONABLE, LATERAL EFFECTS FREE - <em>cons</em>: JSON file remain for this key as "non-intuitive" information</li>
-</ol>
+<p>tbd.Must... @RELEASE update version files &amp; <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></p>
 </li>
 <li>
-<ol>
-<li>re-engineer <code>rdinv.py</code> to generate right info structure for this key - <em>pro</em>: right and intuitive JSON information presentation - <em>cons</em>: a lot of lateral effects, there is "a lot of code" that already extract only item 0 and this code could be in functions out of <code>rdinv.py</code> module, for example in <code>libutils.py</code></li>
-</ol>
+<p>tbd.Could... define <code>xl2roefact</code> entry points and/or scripts. comments in <code>xl2roefact/setup.py</code> ref exec scripts with installed package</p>
 </li>
 <li>
-<ol>
-<li>update module <code>rdinv.py</code> to preserve only index 0 <strong>when create key <code>cac_InvoiceLine</code>, line ~408 so:</strong></li>
-<li>ACTUAL value: <code>"cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),</code></li>
-<li>DESIRED value:
-    <div class="highlight"><pre><span></span><code><span class="s2">&quot;cac_InvoiceLine&quot;</span><span class="p">:</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">tmp_InvoiceLine_list</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
-</code></pre></div></li>
-</ol>
+<p>tbd.Should... [piu @<em>240126] left in <code>xl2roefact/setup.py</code> comments &amp; example ref how to </em><code>pre-set MSI build meta information</code>_ / parameters (obj: default target dir where install, path registration, icon, ...)</p>
 </li>
+<li>
+<p>tbd.Must... <code>xl2roefact</code> invoice supplier (<code>&lt;cac:AccountingSupplierParty&gt;</code>)</p>
+<ul>
+<li>start with search where produce <code>"supplier_area": "...future..."</code> (JSON extract)</li>
+<li>... idea is to reuse code for customer area as much as possible</li>
 </ul>
 </li>
-</ul>
+<li>
+<p>wip...</p>
 </li>
-<li><code>240306piu04</code> archived 0.3.0b &amp; 0.3.1b versions</li>
+<li>
+<p><code>240313piu02</code> small administrative adjustments: update technical axl2roefact DLD, build site &amp; republish (used version <code>0.4.0rc0</code> for whole system)</p>
+</li>
+<li><code>240313piu01</code> application tech optimizations: <code>rdinv.__all__</code> spec, <code>__init__.__version__</code> import and made available as xl2roefact global</li>
 </ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
+<details>
+<summary markdown="1">
+<h2 id="changelog-04-version">0.4 version</h2>
+</summary>
+<ul>
+<li>...</li>
+</ul>
+</details>
 <details>
 <summary markdown="1">
 <h2 id="changelog-03-version">0.3 version</h2>
 </summary>
 <ul>
+<li><a href="#changelog_history-changelog-0.3.2b0"><code>0.3.2b0</code> single EXE version</a></li>
+<li><a href="#changelog_history-changelog-0.3.1b1"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list]</a></li>
 <li><a href="#changelog_history-changelog-0.3.1b"><code>0.3.1b</code>  promote v0.3.0b0 deliverables: WHEEL, TRA.GZ, MSI to <code>0.3.1b</code></a></li>
 <li><a href="#changelog_history-changelog-0.3.0b"><code>0.3.0b</code> xl2roefact invoice taxes summary</a></li>
 </ul>
