@@ -1,10 +1,9 @@
 {
-
     "cac_AccountingSupplierParty": {
         "cac_Party": {
             "cac_PostalAddress": {
                 "cbc_StreetName": "Nicolae Titulescu 81-87",
-                "cbc_CityName": "Sectorul 1",
+                "cbc_CityName": "Bucuresti, Sectorul 1",
                 "cbc_PostalZone": "010011",
                 "cac_Country": {
                     "cbc_IdentificationCode": "RO",
@@ -26,5 +25,4 @@
             },
         },
     }
-
 }
