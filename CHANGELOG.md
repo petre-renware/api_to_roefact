@@ -48,6 +48,7 @@
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
+
 * tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to _`pre-set MSI build meta information`_ / parameters (obj: default target dir where install, path registration, icon, ...)
 * tbd Would... for site build, to get xl2roefact version from package (`xl2roefact.__version__`) use this in `mkdocs.yml` at plugins section ref `mkdocs-macros` plugin:
    ```
@@ -63,7 +64,8 @@
 * wip...
 
 * wip... `0.4.0.dev2` xl2roefact include a data directory in package for various data files "built-in" package:
-    * [ ] 1. build directory with a TOML file for setting parameters (used by `config_settings` module)
+    * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
+    * [x] 1.b update `pyproject.toml` to include in package non python data files
     * [ ] 2. update `config_settings` module to upload data from TOML step 1 made file
     * [ ] ...
 
