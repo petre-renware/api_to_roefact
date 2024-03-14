@@ -1,29 +1,30 @@
-#TODO; right data structure needed. To convert to JSON.
+{
 
-    <cac:AccountingSupplierParty>  #TODO tbd...
-        <cac:Party>
-            <cac:PostalAddress>
-                <cbc:StreetName>Nicolae Titulescu 81-87</cbc:StreetName>
-                <cbc:CityName>Sectorul 1</cbc:CityName>
-                <cbc:PostalZone>010011</cbc:PostalZone>
-                <cac:Country>
-                    <cbc:IdentificationCode>RO</cbc:IdentificationCode>
-                </cac:Country>
-            </cac:PostalAddress>
-            <cac:PartyTaxScheme>
-                <cbc:CompanyID>42561459</cbc:CompanyID>
-                <cac:TaxScheme>
-                    <cbc:ID>VAT</cbc:ID>
-                </cac:TaxScheme>
-            </cac:PartyTaxScheme>
-            <cac:PartyLegalEntity>
-                <cbc:RegistrationName>REN-CONSULTING SOFT ACTIVITY </cbc:RegistrationName>
-                <cbc:CompanyID>42561459</cbc:CompanyID>
-            </cac:PartyLegalEntity>
-            <cac:Contact>
-                <cbc:Telephone>0744684867</cbc:Telephone>
-                <cbc:ElectronicMail>petre.iordanescu@gmail.com</cbc:ElectronicMail>
-            </cac:Contact>
-        </cac:Party>
-    </cac:AccountingSupplierParty>
+    "cac_AccountingSupplierParty": {
+        "cac_Party": {
+            "cac_PostalAddress": {
+                "cbc_StreetName": "Nicolae Titulescu 81-87",
+                "cbc_CityName": "Sectorul 1",
+                "cbc_PostalZone": "010011",
+                "cac_Country": {
+                    "cbc_IdentificationCode": "RO",
+                },
+            },
+            "cac_PartyTaxScheme": {
+                "cbc_CompanyID": "42561459",
+                "cac_TaxScheme": {
+                    "cbc_ID": "VAT",
+                },
+            },
+            "cac_PartyLegalEntity": {
+                "cbc_RegistrationName": "REN-CONSULTING SOFT ACTIVITY",
+                "cbc_CompanyID": "42561459",
+            },
+            "cac_Contact": {
+                "cbc_Telephone"0744684867"/cbc_Telephone"
+                "cbc_ElectronicMail"petre.iordanescu@gmail.com"/cbc_ElectronicMail"
+            },
+        },
+    }
 
+}
