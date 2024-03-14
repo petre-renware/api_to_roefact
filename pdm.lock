@@ -2327,7 +2327,7 @@ files = [
 
 [[package]]
 name = "xl2roefact"
-version = "0.3.1b1"
+version = "0.4.0.dev1"
 requires_python = "<3.11,>=3.10"
 summary = "Excel invoices data retrieve, export & upload to RO E-Fact system"
 groups = ["default"]
@@ -2343,6 +2343,7 @@ dependencies = [
     "lief~=0.13",
     "markdown-it-py~=3.0",
     "mdurl~=0.1",
+    "msgpack>=1.0.8",
     "openpyxl~=3.1",
     "packaging~=23.2",
     "pdm~=2.12",
@@ -2367,8 +2368,8 @@ dependencies = [
     "wheel~=0.42",
 ]
 files = [
-    {file = "xl2roefact-0.3.1b1-py3-none-any.whl", hash = "sha256:7f4e2838cac231208d491fdeaa98b79e75bd81bdfbb2f333f15e477edd015259"},
-    {file = "xl2roefact-0.3.1b1.tar.gz", hash = "sha256:c08852b1496d19458a4f40732f622bc0b371baa3e2557994bc68b9b5c4a238cc"},
+    {file = "xl2roefact-0.4.0.dev1-py3-none-any.whl", hash = "sha256:54460ff3d35eb7f9a98c6095ceb221d8daa911efba9812927129410a949b6d07"},
+    {file = "xl2roefact-0.4.0.dev1.tar.gz", hash = "sha256:10d20c4b060ea88411cf6cc58ea18484ac99414802b770ee3cef6ffbd2143802"},
 ]
 
 [[package]]
