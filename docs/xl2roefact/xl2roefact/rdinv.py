@@ -184,6 +184,9 @@ def rdinv(
     """#NOTE: section to "solve" `invoice_header_area`.
             The kind of info expected in this area: invoice number,  currency, issued date, supplier data, customer data)
     """
+    #-----------------------------------------#FIXME delimiter to drop
+    #FIXME: INV.SUPP --- here start the zone ref in CHANGELOG ref invoice supplier issue
+    #------------------------------------------#FIXME delimiter to drop
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
         issued_date = None,
