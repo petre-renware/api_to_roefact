@@ -23,23 +23,16 @@ jobs:
 
       - name: Run adhoc Windows command
         run: |
-          cd xl2roefact
           python -m pip install --upgrade pip
           pip install setuptools --upgrade
           
-          #   install PDM and build environment
-          python -m pip install pdm
-          python -m pdm install
+          #  install PDM and build environment
+          #    - @240314 this step was let at command script option and so to install and activate nedded environment
+          # execute command script
           ./tests/adhoc.cmd >./tests/_test_results.txt
-          # #FIXME_drop.me.if.not.used     python -m pdm run ahhoc &>./tests/_test_results.txt
           
-          #    commit work done and push it back to server (attn!!!, here you are on client machine of GitHub organization)
+          #  commit work done and push it back to server (attn!!!, here you are on client machine of GitHub organization)
           git add *
           git commit -am "Automated adhoc command run (by RENware Software Systems)"
           git push
 
-
-
-
-
-      
