@@ -62,6 +62,11 @@
 
 * wip...
 
+* wip... `0.4.0.dev2` xl2roefact include a data directory in package for various data files "built-in" package:
+    * [ ] 1. build directory with a TOML file for setting parameters (used by `config_settings` module)
+    * [ ] 2. update `config_settings` module to upload data from TOML step 1 made file
+    * [ ] ...
+
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
 * `0.4.0.dev1` fixed `xl2roefact` CLI app version addressing
 * `0.4.0.dev0` updated `xl2roefact.__init__.py` to expose public symbols
