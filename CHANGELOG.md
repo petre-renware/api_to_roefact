@@ -37,12 +37,6 @@
 ## 0.4
 
 
-
-
-
-
-
-
 ### 0.4.0rc0 invoice supplier  <!--TODO:wip... (#NOTE: set_date_here...)-->
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
@@ -68,6 +62,7 @@
     * [x] 2 update `pyproject.toml` to include in package non python data files (and other minor comments cleans)
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
     * [x] 3. add in `.../xl2roefact/data/` file `owner_data.json` with owner data to be used as supplier info for future option `--load-from-owner-file`
+    * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
     * [ ] x. update `config_settings` module to upload data from TOML step 1 made file
     * [ ] x. ...
 
