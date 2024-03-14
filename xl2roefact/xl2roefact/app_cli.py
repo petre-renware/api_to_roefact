@@ -8,7 +8,6 @@ Identification:
 """
 
 # version objects
-#FIXME.drop.this.if.nxt.ok from xl2roefact import __version__ as appver
 from xl2roefact.__version__ import __doc__ as app_logo
 from xl2roefact.__version__ import normalized_version
 
@@ -44,15 +43,12 @@ def about():
     """provide a short application description.
     """
     version_string = normalized_version()
-    #FIXME.drop.this.if.nxt.ok app_logo = appver.__doc__
-    #FIXME.drop.this.if.nxt.ok app_logo = Markdown(app_logo)  # to drop because does not makes sense here because Markdown convert to HTML
-    print(app_logo)  #FIXME @230314 commented because raise err in ` 0.4.dev2` version ref encoding: `...    encoding defaults to sys.getdefaultencoding(). errors defaults to 'strict'.    ...`
+    print(Markdown(app_logo))
     print(f"xl2roefact {version_string} application by RENware Software Systems (c) 2023, 2024")
     # about details
     print("[yellow]extract & convert Excel invoice files to JSON, XML and upload info to [cyan]RO ANAF e-Fact[/] system")
     print("Support: [yellow]www.renware.eu, petre.iordanescu@gmail.com[/]")
     print("Product code: [yellow]0000-0095[/]")
-    #print("Copyright (c) 2023, 2024 RENware Software Systems.")
     print("Usage: for detailed help use [yellow]xl2roefact --help[/]")
 
 
