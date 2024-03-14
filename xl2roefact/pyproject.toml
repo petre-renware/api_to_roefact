@@ -1,6 +1,6 @@
 [project]
 name = "xl2roefact"
-# version = "...""  #NOTE this entry is maintained from `xl2roefact/__version__` file
+# version = "...""  #NOTE: this entry is automatically maintained from `xl2roefact/__version__` file
 dynamic = ["version"]
 description = "Excel invoices data retrieve, export & upload to RO E-Fact system"
 authors = [
@@ -40,9 +40,8 @@ dependencies = [
     "tzdata~=2023.4",
     "userpath~=1.9",
     "wheel~=0.42",
-    "pyinstaller>=4.10",
     "msgpack>=1.0.8",
-] #FIXME @231217 `pendulum` package raise error when import (#NOTE_ERR MSG: `File "...\pendulum\helpers.py", line 54, in <module> difference_formatter = DifferenceFormatter()`)
+]
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.10,<3.11" # <3.11,>=3.6
@@ -76,7 +75,7 @@ distribution = true                                               # required for
 
 
 [tool.pdm.build.wheel-data]
-data = [{path = "data/*", relative-to = "data/"}]  # installed under `data/...` directory 
+data = [{path = "data/*", relative-to = "data/"}]  # installed under `data/...` directory
 # NOTE: Below are some examples with different schemes.
 # NOTE: Scheme files will be packaged into the {name}-{version}.data/{scheme} directory in the wheel distribution.
 # scripts = ["scripts/*"]  # Install all files under scripts/ to the $prefix/bin directory
@@ -125,7 +124,7 @@ dev = [
     "pydoc-markdown~=4.8",
     "cx-Freeze~=6.15",
     "cx-Logging~=3.1",
-    "pyinstaller~=4.5",
+    "pyinstaller>=4.10",
     "pyinstaller-hooks-contrib~=2023.12",
 ]
 

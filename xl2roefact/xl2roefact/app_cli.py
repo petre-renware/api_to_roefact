@@ -44,7 +44,7 @@ def about():
     version_string = normalized_version()
     app_logo = appver.__doc__
     app_logo = Markdown(app_logo)
-    print(app_logo)
+    #print(app_logo)  #FIXME @230314 commented because raise err in ` 0.4.dev2` version ref encoding: `...    encoding defaults to sys.getdefaultencoding(). errors defaults to 'strict'.    ...`
     print(f"xl2roefact {version_string} application by RENware Software Systems (c) 2023, 2024")
     # about details
     print("[yellow]extract & convert Excel invoice files to JSON, XML and upload info to [cyan]RO ANAF e-Fact[/] system")

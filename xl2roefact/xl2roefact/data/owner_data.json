@@ -1,0 +1,25 @@
+{
+    "cac_AccountingCustomerParty": {
+        "cac:Party": {
+            "cac_PartyLegalEntity": {
+                "cbc_CompanyID": "42561459",
+                "cbc_RegistrationName": "REN-CONSULTING SOFT ACTIVITY"
+            },
+            "cac_PostalAddress": {
+                "cbc_StreetName": "",
+                "cbc_CityName": "Romania, Bucuresti, sector 1, sos Nicolae Titulescu 81-87",
+                "cbc_PostalZone": "",
+                "cac_Country": {
+                    "cbc_IdentificationCode": "RO"
+                }
+            },
+            "cac_Contact": {
+                "cbc_Telephone": null,
+                "cbc_ElectronicMail": null,
+                "RegCom": "J40/5662/2020",
+                "Bank": "Banca Transilvania",
+                "IBAN": "RO29 BTRL RONC RT05 5704 8601"
+            }
+        }
+    }
+}
