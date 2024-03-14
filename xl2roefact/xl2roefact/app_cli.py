@@ -7,6 +7,10 @@ Identification:
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 """
 
+# version objects
+#FIXME.drop.this.if.nxt.ok from xl2roefact import __version__ as appver
+from xl2roefact.__version__ import __doc__ as app_logo
+from xl2roefact.__version__ import normalized_version
 
 # general libraries
 import typer
@@ -21,8 +25,6 @@ from rich.pretty import pprint
 from rich.markdown import Markdown
 
 # xl2roefact specific libraries
-from xl2roefact import __version__ as appver
-from xl2roefact.__version__ import normalized_version
 import xl2roefact.config_settings as configs  # configuration elements to use with `settings` command
 from xl2roefact.rdinv import rdinv  # status #TODO: wip...
 from xl2roefact.wrxml import wrxml  # status #FIXME: not yet started
@@ -42,9 +44,9 @@ def about():
     """provide a short application description.
     """
     version_string = normalized_version()
-    app_logo = appver.__doc__
-    app_logo = Markdown(app_logo)
-    #print(app_logo)  #FIXME @230314 commented because raise err in ` 0.4.dev2` version ref encoding: `...    encoding defaults to sys.getdefaultencoding(). errors defaults to 'strict'.    ...`
+    #FIXME.drop.this.if.nxt.ok app_logo = appver.__doc__
+    #FIXME.drop.this.if.nxt.ok app_logo = Markdown(app_logo)  # to drop because does not makes sense here because Markdown convert to HTML
+    print(app_logo)  #FIXME @230314 commented because raise err in ` 0.4.dev2` version ref encoding: `...    encoding defaults to sys.getdefaultencoding(). errors defaults to 'strict'.    ...`
     print(f"xl2roefact {version_string} application by RENware Software Systems (c) 2023, 2024")
     # about details
     print("[yellow]extract & convert Excel invoice files to JSON, XML and upload info to [cyan]RO ANAF e-Fact[/] system")
