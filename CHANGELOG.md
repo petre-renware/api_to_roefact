@@ -65,8 +65,8 @@
 
 * wip... `0.4.0.dev2` xl2roefact include a data directory in package for various data files "built-in" package:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
-    * [x] 1.b update `pyproject.toml` to include in package non python data files
-    * [ ] 2. update `config_settings` module to upload data from TOML step 1 made file
+    * [ ] 2 update `pyproject.toml` to include in package non python data files
+    * [ ] 3. update `config_settings` module to upload data from TOML step 1 made file
     * [ ] ...
 
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
