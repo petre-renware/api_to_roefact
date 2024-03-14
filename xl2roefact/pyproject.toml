@@ -76,7 +76,7 @@ distribution = true                                               # required for
 
 
 [tool.pdm.build.wheel-data]
-data = ["data/*"]
+data = [{path = "data/*", relative-to = "data/"}]  # installed under `data/...` directory 
 # NOTE: Below are some examples with different schemes.
 # NOTE: Scheme files will be packaged into the {name}-{version}.data/{scheme} directory in the wheel distribution.
 # scripts = ["scripts/*"]  # Install all files under scripts/ to the $prefix/bin directory
