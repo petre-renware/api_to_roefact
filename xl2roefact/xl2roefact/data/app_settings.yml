@@ -112,7 +112,7 @@ PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: [
 
 # --- client (customer)
 # pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
-PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: [
+PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: &patt_cus_marker [
     "clien",
     "custo",
     "sc", "s.c", "diviz", "depart",
@@ -126,7 +126,7 @@ PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: [
 # pattern utilizat pentru regasirea numelui legal al clientului
 # NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
 #FIXME ... acesta ramine doar in config_settings.py
-PATTERN_FOR_CUSTOMER_LEGAL_NAME = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
+PATTERN_FOR_CUSTOMER_LEGAL_NAME: *patt_cus_marker
 
 # --- pattern pentru regasirea codului unic de inregistrare (sau Company ID in engleza) (pattern comun pentru client si furnizor)
 PATTERN_FOR_PARTNER_ID: [
