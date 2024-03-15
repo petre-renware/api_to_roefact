@@ -63,7 +63,7 @@
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
     * [x] 3. add in `.../xl2roefact/data/` file `owner_data.json` with owner data to be used as supplier info for future option `--load-from-owner-file`
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
-    * [ ] ...5. update `.../data/app_settings.yml` with actual existing config data
+    * [x] 5. 1-st draft of `.../data/app_settings.yml` with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)
     * [ ] x. update `config_settings`py module to upload data from TOML step 1 made file
     * [ ] x. ...
 
