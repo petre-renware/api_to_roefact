@@ -1,10 +1,7 @@
-{
-    "NOTE": "decide what keep, JSON or TOML or both",
-
-"""---------------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------------
 # NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de
 #   comanda `xl2json` reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)
----------------------------------------------------------------------------------------------------------------------------"""
+# ---------------------------------------------------------------------------------------------------------------------------
 
 # --- contine secventele de caractere care permit inceputul zonei (sub-tabelului) ce contine liniile facturii
 PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER: list[str] = [
@@ -110,7 +107,8 @@ PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [
     "cod pos", "zip cod", "postal",
 ]
 
-...  #TODO: alte patternuri comune partner: RegCom, IBAN, Banca
+
+# ...  #TODO: alte patternuri comune partner: RegCom, IBAN, Banca
 
 
 
@@ -135,5 +133,5 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
 
 
     
-}
+
 
