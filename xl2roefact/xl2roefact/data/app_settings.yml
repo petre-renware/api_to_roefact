@@ -21,6 +21,7 @@
 
 # --- coeficientul TVA implicit
 # este utilizat de catre aplicatie in toate conditiile in care nu este gasit unul in fiserul de intrare
+# --- TIPUL INFORMATIEI; numar zecimal
 DEFAULT_VAT_PERCENT: float = 0.19
 
 # --- denumirea unui produs ce nu poate fi identificat
@@ -36,12 +37,14 @@ DEFAULT_UNKNOWN_UOM: str|None = None
 # --- moneda implicita
 # este utilizat de catre aplicatie in toate conditiile in care pe factura nu este specifcata in clar o moneda
 # specifcarea monedei ca sau in titlurile coloanelor nu este luata in considerare (nu este garantat ca este moneda reala a facturii !)
+# --- TIPUL INFORMATIEI; ...
 DEFAULT_CURRENCY: str = "RON"
 
 # --- tara implicita
 # aceste constante sunt utilizate ca si tara implicita pentru "parterii" facturilor in condtiile in care tarile "parterilor" nu sunt gasite
 # in mod explicit pe factura (in zona de adresa). Prin sintagma "partener" pe factura sa intelege oricare din cele doua parti implicate in
 # procesul de facturare, si anume: FURNIZORUL si CLIENTUL
+# --- TIPUL INFORMATIEI; ...
 DEFAULT_CUSTOMER_COUNTRY: str = "RO"
 DEFAULT_SUPPLIER_COUNTRY: str = "RO"
 
@@ -100,6 +103,7 @@ PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
 # --- numele legal al companiei
 # pattern utilizat pentru regasirea numelui legal al clientului
 # NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
+#FIXME ... acesta ramine doar in config_settings.py
 PATTERN_FOR_CUSTOMER_LEGAL_NAME = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
 
 # --- pattern pentru regasirea codului unic de inregistrare (sau Company ID in engleza) (pattern comun pentru client si furnizor)
@@ -115,6 +119,7 @@ PATTERN_FOR_PARTNER_REGCOM = [
 ]
 
 # --- pattern-uri pentru regasirea bancii si a contului bancar
+# --- TIPUL INFORMATIEI; ...
 PATTERN_FOR_PARTNER_BANK = [
     "banc", "bank",
 ]
