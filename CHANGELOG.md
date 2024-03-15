@@ -15,7 +15,7 @@
 <!-- #TODO #NOTE ...
 ====[ General PLAN ]====
 
-* ---[ #TODO general planning board ]---:
+* ---[ general planning board ]---:
     * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
     * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
 
@@ -59,11 +59,12 @@
 
 * wip... `0.4.0.dev2` xl2roefact include a data directory in package for various data files "built-in" package:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
-    * [x] 2 update `pyproject.toml` to include in package non python data files (and other minor comments cleans)
+    * [x] 2 update `pyproject.toml` to include in package non python data files from `xl2roefact/data/` directory
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
     * [x] 3. add in `.../xl2roefact/data/` file `owner_data.json` with owner data to be used as supplier info for future option `--load-from-owner-file`
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
-    * [ ] x. update `config_settings` module to upload data from TOML step 1 made file
+    * [x] 5. 1-st draft of `.../data/app_settings.yml` with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)
+    * [ ] x. update `config_settings`py module to upload data from TOML step 1 made file
     * [ ] x. ...
 
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
