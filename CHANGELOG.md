@@ -59,11 +59,11 @@
 
 * wip... `0.4.0.dev2` xl2roefact include a data directory in package for various data files "built-in" package:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
-    * [x] 2 update `pyproject.toml` to include in package non python data files (and other minor comments cleans)
+    * [x] 2 update `pyproject.toml` to include in package non python data files from `xl2roefact/data/` directory
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
     * [x] 3. add in `.../xl2roefact/data/` file `owner_data.json` with owner data to be used as supplier info for future option `--load-from-owner-file`
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
-    * [ ] ...5. update `.../data/config_settings.json` with actual existing config data
+    * [ ] ...5. update `.../data/app_settings.yml` with actual existing config data
     * [ ] x. update `config_settings`py module to upload data from TOML step 1 made file
     * [ ] x. ...
 
