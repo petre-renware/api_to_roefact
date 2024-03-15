@@ -64,8 +64,10 @@
     * [x] 3. add in `.../xl2roefact/data/` file `owner_data.json` with owner data to be used as supplier info for future option `--load-from-owner-file`
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
     * [ ] ... 5. updated `.../data/app_settings.yml` with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)
-    * [ ] x. update `config_settings`py module to upload data from TOML step 1 made file
-    * [ ] x. ...
+    * [ ] n. update `config_settings`py module to upload data from TOML step 1 made file
+    * [ ] n. update xl2roefact README which indicate config_settings.py as place of app configuration (#NOTE: search for othercplaces...), updaye portal version & rebuild it
+    * [ ] n. build a new wheel package (#NOTE: ATTN TO VERSION)
+    * [ ] n. ...
 
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
 * `0.4.0.dev1` fixed `xl2roefact` CLI app version addressing
