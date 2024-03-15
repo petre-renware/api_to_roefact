@@ -1,3 +1,19 @@
+#
+#
+# IMPORTANT NOTE piy@230315:
+# ===============
+# 
+# This file is just a proposal to be used. The mai `config_settings.py` is not up dated to read data from here.
+# Be aware of any updates in this file because they will not be considered in application running.
+#
+#
+
+
+
+
+
+
+
 #--------------------------------------------------------------------------------------------------------------------------
 # NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
 #   Uzual ei sunt folositi de comanda `xl2json` reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)
