@@ -63,9 +63,14 @@
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
     * [x] 3. add in `.../xl2roefact/data/` file `owner_data.json` with owner data to be used as supplier info for future option `--load-from-owner-file`
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
-    * [x] 5. 1-st draft of `.../data/app_settings.yml` with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)
-    * [ ] x. update `config_settings`py module to upload data from TOML step 1 made file
-    * [ ] x. ...
+    * [x] 5. updated `.../data/app_settings.yml` with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)
+    * [ ] n. update `config_settings`py module to upload data from `.../data/app_settings.yml` file. Specs:
+        * after YAML import data will be dict with all actual code variables as keywords
+        * keyword `README_rules` is content copy of module docstring (ie, `config_settings.__doc__`)
+        * keep all existing variables and read YAML file if exists and replace their content (avoid defaulting errors when file is not defined)
+    * [ ] n. check if everything is ok when make EXE & MSI variants, meaning defaults the right data and process of Excel files is correct w/o errors
+    * [ ] n. build a new wheel package (#NOTE: ATTN TO VERSION)
+    * [ ] n. ...
 
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
 * `0.4.0.dev1` fixed `xl2roefact` CLI app version addressing
