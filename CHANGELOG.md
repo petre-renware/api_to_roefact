@@ -15,7 +15,7 @@
 <!-- #TODO #NOTE ...
 ====[ General PLAN ]====
 
-* ---[ #TODO general planning board ]---:
+* ---[ general planning board ]---:
     * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
     * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
 
@@ -63,7 +63,8 @@
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
     * [x] 3. add in `.../xl2roefact/data/` file `owner_data.json` with owner data to be used as supplier info for future option `--load-from-owner-file`
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
-    * [ ] x. update `config_settings` module to upload data from TOML step 1 made file
+    * [ ] ...5. update `.../data/config_settings.json` with actual existing config data
+    * [ ] x. update `config_settings`py module to upload data from TOML step 1 made file
     * [ ] x. ...
 
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
