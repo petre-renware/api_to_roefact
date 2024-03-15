@@ -10,6 +10,12 @@
 
 
 
+README_rules: |
+   TODO: here come content of
+   docstring variable (ie, `__doc__`)
+   of `config_settings.py` file
+   ...
+
 
 
 
@@ -21,13 +27,13 @@
 
 # --- coeficientul TVA implicit
 # este utilizat de catre aplicatie in toate conditiile in care nu este gasit unul in fiserul de intrare
-# --- TIPUL INFORMATIEI; numar zecimal
-DEFAULT_VAT_PERCENT: float = 0.19
+# TIP RECOMANDAT AL INFORMATIEI; numar zecimal
+DEFAULT_VAT_PERCENT: 0.19
 
 # --- denumirea unui produs ce nu poate fi identificat
 # este utilizat de catre aplicatie in toate conditiile in care denumirea unui produs sau serviciu (liniile facturii) nu este specifcata
 # denumirea este considerta necunoscuta atunci cind este lasata 'blank' sau pur si simplu celula respectiva este goala
-DEFAULT_UNKNOWN_ITEM_NAME: str = "--- n/a ---"
+DEFAULT_UNKNOWN_ITEM_NAME: "--- n/a ---"
 
 # --- unitatea de masura implicita
 # este utilizat de catre aplicatie in toate conditiile in care unitatea de masura unui produs sau serviciu (liniile facturii) nu este cunoscuta
