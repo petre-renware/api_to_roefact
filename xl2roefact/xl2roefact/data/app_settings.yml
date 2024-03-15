@@ -1,22 +1,47 @@
-# ---------------------------------------------------------------------------------------------------------------------------
+"""---------------------------------------------------------------------------------------------------------------------------
+# NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
+#   Uzual ei sunt folositi de comanda `xl2json` reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)
+---------------------------------------------------------------------------------------------------------------------------"""
+
+# --- coeficientul TVA implicit
+# este utilizat de catre aplicatie in toate conditiile in care nu este gasit unul in fiserul de intrare
+DEFAULT_VAT_PERCENT: float = 0.19
+
+# --- denumirea unui produs ce nu poate fi identificat
+# este utilizat de catre aplicatie in toate conditiile in care denumirea unui produs sau serviciu (liniile facturii) nu este specifcata
+# denumirea este considerta necunoscuta atunci cind este lasata 'blank' sau pur si simplu celula respectiva este goala
+DEFAULT_UNKNOWN_ITEM_NAME: str = "--- n/a ---"
+
+# --- unitatea de masura implicita
+# este utilizat de catre aplicatie in toate conditiile in care unitatea de masura unui produs sau serviciu (liniile facturii) nu este cunoscuta
+# unitatea de masura este considerta necunoscuta atunci cind este lasata 'blank' sau pur si simplu celula respectiva este goala
+DEFAULT_UNKNOWN_UOM: str|None = None
+
+# --- moneda implicita
+# este utilizat de catre aplicatie in toate conditiile in care pe factura nu este specifcata in clar o moneda
+# specifcarea monedei ca sau in titlurile coloanelor nu este luata in considerare (nu este garantat ca este moneda reala a facturii !)
+DEFAULT_CURRENCY: str = "RON"
+
+# --- tara implicita
+# aceste constante sunt utilizate ca si tara implicita pentru "parterii" facturilor in condtiile in care tarile "parterilor" nu sunt gasite
+# in mod explicit pe factura (in zona de adresa). Prin sintagma "partener" pe factura sa intelege oricare din cele doua parti implicate in
+# procesul de facturare, si anume: FURNIZORUL si CLIENTUL
+DEFAULT_CUSTOMER_COUNTRY: str = "RO"
+DEFAULT_SUPPLIER_COUNTRY: str = "RO"
+
+
+"""---------------------------------------------------------------------------------------------------------------------------
 # NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de
 #   comanda `xl2json` reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)
-# ---------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------"""
 
 # --- contine secventele de caractere care permit inceputul zonei (sub-tabelului) ce contine liniile facturii
-PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER:
-    -  crt
-    - crt.
-    - no. crt.
-    - no crt
-    - no. crt
-    - no crt.
-    - nr. crt.
-    - nr crt
-    - nr. crt
-    - nr crt.
-    - #
-
+PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER: list[str] = [
+    " crt", " crt.",
+    "no. crt.", "no crt", "no. crt", "no crt.",
+    "nr. crt.", "nr crt", "nr. crt", "nr crt.",
+    "#",
+]
 
 # --- numarul facturii
 # acest parametru permit identificarea numarului facturii, astfel sistemul va cauta dupa secventele din parametrul
@@ -114,8 +139,7 @@ PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [
     "cod pos", "zip cod", "postal",
 ]
 
-
-# ...  #TODO: alte patternuri comune partner: RegCom, IBAN, Banca
+...  #TODO: alte patternuri comune partner: RegCom, IBAN, Banca
 
 
 
@@ -134,11 +158,3 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
     "furniz", "proprie",  # TODO: list patterns here
     "suppl", "owne",
 ]
-
-
-
-
-
-    
-
-
