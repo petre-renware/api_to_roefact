@@ -35,7 +35,6 @@ README_rules: |
 
 
 
-
 #--------------------------------------------------------------------------------------------------------------------------
 # NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
 #   Uzual ei sunt folositi de comanda `xl2json` reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)
@@ -125,7 +124,6 @@ PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: &patt_cus_marker [
 # --- numele legal al companiei
 # pattern utilizat pentru regasirea numelui legal al clientului
 # NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
-#FIXME ... acesta ramine doar in config_settings.py
 PATTERN_FOR_CUSTOMER_LEGAL_NAME: *patt_cus_marker
 
 # --- pattern pentru regasirea codului unic de inregistrare (sau Company ID in engleza) (pattern comun pentru client si furnizor)
