@@ -4,12 +4,19 @@
 # ---------------------------------------------------------------------------------------------------------------------------
 
 # --- contine secventele de caractere care permit inceputul zonei (sub-tabelului) ce contine liniile facturii
-PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER: list[str] = [
-    " crt", " crt.",
-    "no. crt.", "no crt", "no. crt", "no crt.",
-    "nr. crt.", "nr crt", "nr. crt", "nr crt.",
-    "#",
-]
+PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER:
+    -  crt
+    - crt.
+    - no. crt.
+    - no crt
+    - no. crt
+    - no crt.
+    - nr. crt.
+    - nr crt
+    - nr. crt
+    - nr crt.
+    - #
+
 
 # --- numarul facturii
 # acest parametru permit identificarea numarului facturii, astfel sistemul va cauta dupa secventele din parametrul
