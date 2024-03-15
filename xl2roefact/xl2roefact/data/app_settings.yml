@@ -2,7 +2,7 @@
 #
 # IMPORTANT NOTE piy@230315:
 # ===============
-# 
+#
 # This file is just a proposal to be used. The mai `config_settings.py` is not up dated to read data from here.
 # Be aware of any updates in this file because they will not be considered in application running.
 #
@@ -12,7 +12,7 @@
 
 README_rules: |
     (en-us) README before making changes:
-    
+
     * each parameter has a short help (lines starting with `#` character) - read it before changing that parameter
     * do not change parametrs name as specified before equal (`=`) sign
     * lists are enclosed in sqaured brackets (`[...]`) and items are separated by comma character (`,`)
@@ -21,9 +21,8 @@ README_rules: |
     * do not add supplementary parameters, they will not be used without software changes (also risk to induce potential errors)
     * for calendaristic dates Excel cells use `date` format and change it as display option to show wanted format
 
-    
     (ro) README inainte de a face modificari:
-    
+
     * fiecare parametru are un hep scurt (liniile ce incep cu caracterul `#`) - citi-l inainte de a modifica uun parametru
     * nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (`=`)
     * listele sunt incluse intre paranteze drepte (`[...]`) si elementele lor sunt separate prin caracterul virgula (`,`)
