@@ -73,14 +73,14 @@ PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER: [
 # `PATTERN_FOR_INVOICE_NUMBER_LABEL`,... (cautarea fiind indiferenta de marimea caracterelor).
 # Aceasta reprezentind "eticheta" unde se presupune a fi numarul facturii.  Pentru a gasi numarul efectiv al facturii,
 # sistemul va cauta in directiile DREAPTA (UP) si apoi daca nu gaseste JOS (DOWN)
-PATTERN_FOR_INVOICE_NUMBER_LABEL: list[str] = [
+PATTERN_FOR_INVOICE_NUMBER_LABEL: [
     "nr. fact", "nr fact", "numar fact", "fact nr", "factura num",
     "invoice number", "invoice no", "invoice:",
 ]
 
 # --- moneda facturii
 # pattern utilizat pentru a gasi moneda facturii (daca a fost specificata iar daca nu gaseste se va utiliza DEFAULT_CURRENCY)
-PATTERN_FOR_INVOICE_CURRENCY_LABEL: list[str] = [
+PATTERN_FOR_INVOICE_CURRENCY_LABEL: [
     "mone",
     "curr", "ccy"
 ]
@@ -89,14 +89,14 @@ PATTERN_FOR_INVOICE_CURRENCY_LABEL: list[str] = [
 # pattern utilizat pentru a gasi data facturii
 # NOTE-1 in XML formatul utilizat este YYYY-MM-DD
 # NOTE-2 in celula Excel aferenta datei se asteapta ca formatul sa fie cel stadard de data calendaristica (ATENTIE: NU string)
-PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: list[str] = [
+PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: [
     "data", "data fact", "data emit",
     "date", "invoice date", "issue date",
 ]
 
 # --- client (customer)
 # pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
-PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
+PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: [
     "clien",
     "custo",
     "sc", "s.c", "diviz", "depart",
@@ -113,56 +113,56 @@ PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
 PATTERN_FOR_CUSTOMER_LEGAL_NAME = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
 
 # --- pattern pentru regasirea codului unic de inregistrare (sau Company ID in engleza) (pattern comun pentru client si furnizor)
-PATTERN_FOR_PARTNER_ID = [
+PATTERN_FOR_PARTNER_ID: [
     "cui", "c.u.i",
     "cif", "c.i.f",
     "id",
 ]
 
 # --- pattern pentru regasirea nr de inreg la Registrul Comertului
-PATTERN_FOR_PARTNER_REGCOM = [
+PATTERN_FOR_PARTNER_REGCOM: [
     "reg com", "reg. com", "comert",
 ]
 
 # --- pattern-uri pentru regasirea bancii si a contului bancar
 # --- TIPUL INFORMATIEI; ...
-PATTERN_FOR_PARTNER_BANK = [
+PATTERN_FOR_PARTNER_BANK: [
     "banc", "bank",
 ]
-PATTERN_FOR_PARTNER_IBAN = [
+PATTERN_FOR_PARTNER_IBAN: [
     "iban", "cont", "bank acc",
 ]
 
 # --- pattern pentru regasirea datelor de contact (tel, email)
-PATTERN_FOR_PARTNER_TEL = [
+PATTERN_FOR_PARTNER_TEL: [
     "tel", "phon",
 ]
-PATTERN_FOR_PARTNER_EMAIL = [
+PATTERN_FOR_PARTNER_EMAIL: [
     "mail", "email", "e-mail",
 ]
 
 # --- pattern pentru regasirea adresei (pattern comun pentru client si furnizor)
 # este important ca ordinea de cautare sa permita ca sansele sa fie maximizate pentru cautarea adresei complete sau macar a tarii
-PATTERN_FOR_PARTNER_ADDRESS = [
+PATTERN_FOR_PARTNER_ADDRESS: [
     "adr", "addr",
     "tara", "count",
     "locali", "oras",
     "city", "town",
     "str",
 ]
-PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = [
+PATTERN_FOR_PARTNER_ADDRESS_COUNTRY: [
     "tara", "countr",
 ]
-PATTERN_FOR_PARTNER_ADDRESS_CITY = [
+PATTERN_FOR_PARTNER_ADDRESS_CITY: [
     "judet", "county",
     "locali",
     "oras", "city", "town", "land"
 ]
-PATTERN_FOR_PARTNER_ADDRESS_STREET = [
+PATTERN_FOR_PARTNER_ADDRESS_STREET: [
     "str", "sos", "bd", "calea",
     "ave", "highwa",
 ]
-PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [
+PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE: [
     "cod pos", "zip cod", "postal",
 ]
 
@@ -181,7 +181,8 @@ PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [
 # TODO: decide something, most probably set this kind of issue in documentation section for: "RULES FOR INVOICE data in Excel"
 # --- furnizor (supplier)
 # pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
-PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
+PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: [
     "furniz", "proprie",  # TODO: list patterns here
     "suppl", "owne",
 ]
+
