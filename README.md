@@ -10,6 +10,9 @@
 
 [TOC]
 
+
+![Static Badge](https://img.shields.io/badge/version-{{ INVOICEtoROefact_version }}-blue)
+
 Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura](https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura).
 
 
