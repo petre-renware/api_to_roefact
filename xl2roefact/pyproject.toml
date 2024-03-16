@@ -71,7 +71,7 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 version = { source = "file", path = "xl2roefact/__version__.py" }
-distribution = true                                               # required for PyPi package publishing
+distribution = true  # required for PyPi package publishing
 
 
 [tool.pdm.build.wheel-data]
