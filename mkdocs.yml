@@ -9,7 +9,7 @@ extra:    #NOTE ...ATTN here are components version used as Jinja fields in mark
     xl2roefact_version: "0.4.0.dev2"
     web2roefact_version: "n/a"
     invoice_template_version: "0.1.20"
-    INVOICEtoROefact_version: "0.4.rc0"
+    INVOICEtoROefact_version: "0.4.0.dev2"
 
 
 

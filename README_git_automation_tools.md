@@ -8,7 +8,7 @@ The site will be built according to `mkdocs.yml` specs.
 
 
 
-## Build xl2roefact CLI app, library packages and DLD doc
+## Build xl2roefact CLI app, library packages, standalone EXE and DLD doc
 
 Merge to branch **`build-xl2roefact`**. The building process will execute `pdm run build_all` command in directory `xl2roefact/`.
 Get back results by merging `build-xl2roefact` branch back to your initial branch.
