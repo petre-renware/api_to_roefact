@@ -85,8 +85,8 @@
     * [x] 2. refer it in `config_settings.py` in its docstring section ==> exported `rules_content` that contain text
     * [x] 3. update `app_cli.py` module to load them accordingly on `settings --rules` command + option
     * [x] 4. build this package and publish on PyPi
-    * archived locally (RLSE) build package `0.4.0.dev2`
-    * [ ] 5. make a wrapper for invoice rules doc in `xl2roefact/doc/` & update `xl2roefact README` to reflect that change
+    * archived locally (RLSE) package wheel & dist
+    * [ ] ... 5. update `xl2roefact README` to reflect that change
     * [ ] 6. update `downloads.md` with section for "Other resource downloads" with doc from item 1
     * [ ] 7. update site
     * roll out to development this vrelease
