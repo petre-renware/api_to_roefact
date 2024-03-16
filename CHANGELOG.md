@@ -79,7 +79,7 @@
     * [ ] n. ...
 
 * `0.4.0.dev2` externalize ecommended rules for updating app setting rules
-    * [ ] 1. created `xl2roefact/doc/README_app_config_rules.md` containing the recommended rules for updating app setting rules
+    * [x] 1. created `xl2roefact/doc/README_app_config_rules.md` containing the recommended rules for updating app setting rules
     * [ ] 2. refer it in `config_settings.py` in its docstring section
     * [ ] 3. update `app_cli.py` module to load them accordingly on `settings --rules` command + option
     * [ ] 4. update `xl2roefact README` to reflect that change
