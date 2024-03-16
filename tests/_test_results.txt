@@ -73,51 +73,51 @@ Collecting idna<4,>=2.5 (from requests>=2.16.0->cachecontrol>=0.13.0->cachecontr
 Collecting urllib3<3,>=1.21.1 (from requests>=2.16.0->cachecontrol>=0.13.0->cachecontrol[filecache]>=0.13.0->pdm)
   Downloading urllib3-2.2.1-py3-none-any.whl.metadata (6.4 kB)
 Downloading pdm-2.12.4-py3-none-any.whl (249 kB)
-   ---------------------------------------- 249.9/249.9 kB 3.8 MB/s eta 0:00:00
+   ---------------------------------------- 249.9/249.9 kB 7.7 MB/s eta 0:00:00
 Downloading cachecontrol-0.14.0-py3-none-any.whl (22 kB)
 Downloading dep_logic-0.2.0-py3-none-any.whl (26 kB)
 Downloading findpython-0.4.1-py3-none-any.whl (20 kB)
 Downloading installer-0.7.0-py3-none-any.whl (453 kB)
    --------------------------------------- 453.8/453.8 kB 14.3 MB/s eta 0:00:00
 Downloading packaging-24.0-py3-none-any.whl (53 kB)
-   ---------------------------------------- 53.5/53.5 kB 2.7 MB/s eta 0:00:00
+   ---------------------------------------- 53.5/53.5 kB 1.4 MB/s eta 0:00:00
 Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
 Downloading resolvelib-1.0.1-py2.py3-none-any.whl (17 kB)
 Downloading rich-13.7.1-py3-none-any.whl (240 kB)
-   ---------------------------------------- 240.7/240.7 kB 7.4 MB/s eta 0:00:00
+   ---------------------------------------- 240.7/240.7 kB 7.2 MB/s eta 0:00:00
 Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
 Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
 Downloading tomlkit-0.12.4-py3-none-any.whl (37 kB)
 Downloading unearth-0.14.0-py3-none-any.whl (42 kB)
-   ---------------------------------------- 43.0/43.0 kB 2.0 MB/s eta 0:00:00
+   ---------------------------------------- 43.0/43.0 kB 1.0 MB/s eta 0:00:00
 Downloading virtualenv-20.25.1-py3-none-any.whl (3.8 MB)
-   ---------------------------------------- 3.8/3.8 MB 59.8 MB/s eta 0:00:00
+   ---------------------------------------- 3.8/3.8 MB 80.2 MB/s eta 0:00:00
 Downloading platformdirs-4.2.0-py3-none-any.whl (17 kB)
 Downloading blinker-1.7.0-py3-none-any.whl (13 kB)
 Downloading certifi-2024.2.2-py3-none-any.whl (163 kB)
    ---------------------------------------- 163.8/163.8 kB 9.6 MB/s eta 0:00:00
 Downloading pyproject_hooks-1.0.0-py3-none-any.whl (9.3 kB)
 Downloading requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
-   ---------------------------------------- 54.5/54.5 kB 2.8 MB/s eta 0:00:00
+   ---------------------------------------- 54.5/54.5 kB 2.9 MB/s eta 0:00:00
 Downloading truststore-0.8.0-py3-none-any.whl (16 kB)
 Downloading distlib-0.3.8-py2.py3-none-any.whl (468 kB)
-   --------------------------------------- 468.9/468.9 kB 14.8 MB/s eta 0:00:00
+   --------------------------------------- 468.9/468.9 kB 14.3 MB/s eta 0:00:00
 Downloading filelock-3.13.1-py3-none-any.whl (11 kB)
 Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
-   ---------------------------------------- 87.5/87.5 kB 5.2 MB/s eta 0:00:00
+   ---------------------------------------- 87.5/87.5 kB 4.8 MB/s eta 0:00:00
 Downloading msgpack-1.0.8-cp310-cp310-win_amd64.whl (75 kB)
    ---------------------------------------- 75.1/75.1 kB 2.1 MB/s eta 0:00:00
 Downloading pygments-2.17.2-py3-none-any.whl (1.2 MB)
-   ---------------------------------------- 1.2/1.2 MB 24.9 MB/s eta 0:00:00
+   ---------------------------------------- 1.2/1.2 MB 36.5 MB/s eta 0:00:00
 Downloading requests-2.31.0-py3-none-any.whl (62 kB)
-   ---------------------------------------- 62.6/62.6 kB 1.1 MB/s eta 0:00:00
+   ---------------------------------------- 62.6/62.6 kB 3.5 MB/s eta 0:00:00
 Downloading charset_normalizer-3.3.2-cp310-cp310-win_amd64.whl (100 kB)
-   ---------------------------------------- 100.3/100.3 kB 1.9 MB/s eta 0:00:00
+   ---------------------------------------- 100.3/100.3 kB 2.9 MB/s eta 0:00:00
 Downloading idna-3.6-py3-none-any.whl (61 kB)
-   ---------------------------------------- 61.6/61.6 kB 3.2 MB/s eta 0:00:00
+   ---------------------------------------- 61.6/61.6 kB 1.1 MB/s eta 0:00:00
 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
 Downloading urllib3-2.2.1-py3-none-any.whl (121 kB)
-   ---------------------------------------- 121.1/121.1 kB 3.6 MB/s eta 0:00:00
+   ---------------------------------------- 121.1/121.1 kB 6.9 MB/s eta 0:00:00
 Installing collected packages: resolvelib, distlib, urllib3, truststore, tomlkit, tomli, shellingham, python-dotenv, pygments, platformdirs, packaging, msgpack, mdurl, installer, idna, filelock, charset-normalizer, certifi, blinker, virtualenv, requests, pyproject-hooks, markdown-it-py, findpython, dep-logic, unearth, rich, requests-toolbelt, cachecontrol, pdm
 Successfully installed blinker-1.7.0 cachecontrol-0.14.0 certifi-2024.2.2 charset-normalizer-3.3.2 dep-logic-0.2.0 distlib-0.3.8 filelock-3.13.1 findpython-0.4.1 idna-3.6 installer-0.7.0 markdown-it-py-3.0.0 mdurl-0.1.2 msgpack-1.0.8 packaging-24.0 pdm-2.12.4 platformdirs-4.2.0 pygments-2.17.2 pyproject-hooks-1.0.0 python-dotenv-1.0.1 requests-2.31.0 requests-toolbelt-1.0.0 resolvelib-1.0.1 rich-13.7.1 shellingham-1.5.4 tomli-2.0.1 tomlkit-0.12.4 truststore-0.8.0 unearth-0.14.0 urllib3-2.2.1 virtualenv-20.25.1
 
@@ -128,18 +128,18 @@ Synchronizing working set with resolved packages: 81 to add, 0 to update, 0 to r
   v Install setuptools 69.2.0 successful
   v Install wheel 0.43.0 successful
   v Install blinker 1.7.0 successful
-  v Install argcomplete 3.2.3 successful
   v Install altgraph 0.17.4 successful
-  v Install black 23.12.1 successful
-  v Install cachecontrol 0.14.0 successful
-  v Install certifi 2024.2.2 successful
+  v Install argcomplete 3.2.3 successful
   v Install build 1.1.1 successful
+  v Install certifi 2024.2.2 successful
+  v Install cachecontrol 0.14.0 successful
+  v Install black 23.12.1 successful
+  v Install charset-normalizer 3.3.2 successful
   v Install colorama 0.4.6 successful
   v Install click 8.1.7 successful
   v Install commonmark 0.9.1 successful
-  v Install charset-normalizer 3.3.2 successful
-  v Install databind-json 4.4.0 successful
   v Install cx-logging 3.1.0 successful
+  v Install databind-json 4.4.0 successful
   v Install databind-core 4.4.0 successful
   v Install dep-logic 0.2.0 successful
   v Install deprecated 1.2.14 successful
@@ -149,8 +149,8 @@ Synchronizing working set with resolved packages: 81 to add, 0 to update, 0 to r
   v Install et-xmlfile 1.1.0 successful
   v Install docspec-python 2.2.1 successful
   v Install filelock 3.13.1 successful
-  v Install findpython 0.4.1 successful
   v Install fraction 2.2.0 successful
+  v Install findpython 0.4.1 successful
   v Install idna 3.6 successful
   v Install importlib-metadata 7.0.2 successful
   v Install installer 0.7.0 successful
@@ -160,16 +160,16 @@ Synchronizing working set with resolved packages: 81 to add, 0 to update, 0 to r
   v Install lief 0.14.0 successful
   v Install mdurl 0.1.2 successful
   v Install mypy-extensions 1.0.0 successful
-  v Install msgpack 1.0.8 successful
   v Install nr-date 2.1.0 successful
+  v Install msgpack 1.0.8 successful
   v Install nr-stream 1.1.5 successful
-  v Install packaging 23.2 successful
   v Install nr-util 0.8.12 successful
+  v Install packaging 23.2 successful
   v Install openpyxl 3.1.2 successful
   v Install pathspec 0.12.1 successful
   v Install pefile 2023.2.7 successful
-  v Install pdm 2.12.4 successful
   v Install platformdirs 4.2.0 successful
+  v Install pdm 2.12.4 successful
   v Install pydoc-markdown 4.8.2 successful
   v Install pygments 2.17.2 successful
   v Install pyinstaller-hooks-contrib 2023.12 successful
@@ -182,27 +182,27 @@ Synchronizing working set with resolved packages: 81 to add, 0 to update, 0 to r
   v Install pyyaml 6.0.1 successful
   v Install requests 2.31.0 successful
   v Install requests-toolbelt 1.0.0 successful
-  v Install resolvelib 1.0.1 successful
-  v Install rich 13.7.1 successful
-  v Install shellingham 1.5.4 successful
-  v Install six 1.16.0 successful
   v Install pylightxl 1.61 successful
   v Install docstring-parser 0.11 successful
-  v Install tomli-w 1.0.0 successful
+  v Install resolvelib 1.0.1 successful
+  v Install shellingham 1.5.4 successful
+  v Install six 1.16.0 successful
+  v Install rich 13.7.1 successful
   v Install tomli 2.0.1 successful
+  v Install tomli-w 1.0.0 successful
   v Install tomlkit 0.12.4 successful
-  v Install truststore 0.8.0 successful
   v Install time-machine 2.14.0 successful
+  v Install truststore 0.8.0 successful
   v Install typeapi 2.1.2 successful
-  v Install typer 0.9.0 successful
   v Install typing-extensions 4.10.0 successful
+  v Install typer 0.9.0 successful
   v Install unearth 0.14.0 successful
-  v Install urllib3 2.2.1 successful
   v Install userpath 1.9.2 successful
-  v Install tzdata 2023.4 successful
+  v Install urllib3 2.2.1 successful
   v Install watchdog 4.0.0 successful
   v Install virtualenv 20.25.1 successful
   v Install wrapt 1.16.0 successful
+  v Install tzdata 2023.4 successful
   v Install zipp 3.17.0 successful
   v Install yapf 0.40.2 successful
 Installing the project as an editable package...
@@ -212,103 +212,34 @@ Installing the project as an editable package...
 
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact settings 
-*********** after method (1) ok_to_use=False. The YAML read content & rendered as Python object
-None
-*********** after method (2) ok_to_use=True. The YAML read content & rendered as Python object
-{'DEFAULT_CURRENCY': 'RON',
- 'DEFAULT_CUSTOMER_COUNTRY': 'RO',
- 'DEFAULT_SUPPLIER_COUNTRY': 'RO',
- 'DEFAULT_UNKNOWN_ITEM_NAME': '--- n/a ---',
- 'DEFAULT_UNKNOWN_UOM': None,
- 'DEFAULT_VAT_PERCENT': 0.19,
- 'PATTERN_FOR_CUSTOMER_LEGAL_NAME': ['clien',
-                                     'custo',
-                                     'sc',
-                                     's.c',
-                                     'diviz',
-                                     'depart',
-                                     'sa',
-                                     's.a',
-                                     'srl',
-                                     's.r.l',
-                                     'pfa',
-                                     'p.f.a',
-                                     'ra',
-                                     'r.a'],
- 'PATTERN_FOR_INVOICE_CURRENCY_LABEL': ['mone', 'curr', 'ccy'],
- 'PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER': ['clien',
-                                                  'custo',
-                                                  'sc',
-                                                  's.c',
-                                                  'diviz',
-                                                  'depart',
-                                                  'sa',
-                                                  's.a',
-                                                  'srl',
-                                                  's.r.l',
-                                                  'pfa',
-                                                  'p.f.a',
-                                                  'ra',
-                                                  'r.a'],
- 'PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL': ['data',
-                                          'data fact',
-                                          'data emit',
-                                          'date',
-                                          'invoice date',
-                                          'issue date'],
- 'PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER': [' crt',
-                                               ' crt.',
-                                               'no. crt.',
-                                               'no crt',
-                                               'no. crt',
-                                               'no crt.',
-                                               'nr. crt.',
-                                               'nr crt',
-                                               'nr. crt',
-                                               'nr crt.',
-                                               '#'],
- 'PATTERN_FOR_INVOICE_NUMBER_LABEL': ['nr. fact',
-                                      'nr fact',
-                                      'numar fact',
-                                      'fact nr',
-                                      'factura num',
-                                      'invoice number',
-                                      'invoice no',
-                                      'invoice:'],
+*********** after method (1) ok_to_use=True. The YAML read content & rendered as Python object
+{'DEFAULT_CURRENCY': 'test',
+ 'DEFAULT_CUSTOMER_COUNTRY': 'test',
+ 'DEFAULT_SUPPLIER_COUNTRY': 'test',
+ 'DEFAULT_UNKNOWN_ITEM_NAME': 'test',
+ 'DEFAULT_UNKNOWN_UOM': 'test',
+ 'DEFAULT_VAT_PERCENT': 0,
+ 'PATTERN_FOR_CUSTOMER_LEGAL_NAME': ['test '],
+ 'PATTERN_FOR_INVOICE_CURRENCY_LABEL': ['test'],
+ 'PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER': ['test '],
+ 'PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL': ['test'],
+ 'PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER': ['test'],
+ 'PATTERN_FOR_INVOICE_NUMBER_LABEL': ['test'],
  'PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER': ['furniz',
                                                   'proprie',
                                                   'suppl',
                                                   'owne'],
- 'PATTERN_FOR_PARTNER_ADDRESS': ['adr',
-                                 'addr',
-                                 'tara',
-                                 'count',
-                                 'locali',
-                                 'oras',
-                                 'city',
-                                 'town',
-                                 'str'],
- 'PATTERN_FOR_PARTNER_ADDRESS_CITY': ['judet',
-                                      'county',
-                                      'locali',
-                                      'oras',
-                                      'city',
-                                      'town',
-                                      'land'],
- 'PATTERN_FOR_PARTNER_ADDRESS_COUNTRY': ['tara', 'countr'],
- 'PATTERN_FOR_PARTNER_ADDRESS_STREET': ['str',
-                                        'sos',
-                                        'bd',
-                                        'calea',
-                                        'ave',
-                                        'highwa'],
- 'PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE': ['cod pos', 'zip cod', 'postal'],
- 'PATTERN_FOR_PARTNER_BANK': ['banc', 'bank'],
- 'PATTERN_FOR_PARTNER_EMAIL': ['mail', 'email', 'e-mail'],
- 'PATTERN_FOR_PARTNER_IBAN': ['iban', 'cont', 'bank acc'],
- 'PATTERN_FOR_PARTNER_ID': ['cui', 'c.u.i', 'cif', 'c.i.f', 'id'],
- 'PATTERN_FOR_PARTNER_REGCOM': ['reg com', 'reg. com', 'comert'],
- 'PATTERN_FOR_PARTNER_TEL': ['tel', 'phon'],
+ 'PATTERN_FOR_PARTNER_ADDRESS': ['test'],
+ 'PATTERN_FOR_PARTNER_ADDRESS_CITY': ['test '],
+ 'PATTERN_FOR_PARTNER_ADDRESS_COUNTRY': ['test '],
+ 'PATTERN_FOR_PARTNER_ADDRESS_STREET': ['test'],
+ 'PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE': ['test'],
+ 'PATTERN_FOR_PARTNER_BANK': ['test '],
+ 'PATTERN_FOR_PARTNER_EMAIL': ['test '],
+ 'PATTERN_FOR_PARTNER_IBAN': ['test '],
+ 'PATTERN_FOR_PARTNER_ID': ['test '],
+ 'PATTERN_FOR_PARTNER_REGCOM': ['test'],
+ 'PATTERN_FOR_PARTNER_TEL': ['test '],
  'README_rules': 'README_app_config_rules.md'}
 
 Current settings:
