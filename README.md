@@ -10,13 +10,16 @@
 
 [TOC]
 
+
+![Static Badge](https://img.shields.io/badge/version-{{ INVOICEtoROefact_version }}-blue)
+
 Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura](https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura).
 
 
 
 ## Componentele si facilitatile sistemului
 
-Sistemul **INVOICEtoROefact** ![Static Badge](https://img.shields.io/badge/version-{{ INVOICEtoROefact_version }}-blue) ofera urmatoarele componente:
+Sistemul **INVOICEtoROefact** ofera urmatoarele componente:
 
 * __[xl2roefact](./xl2roefact/README.md)__ ![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue) - procesarea facturilor in mod linie de comanda
 
