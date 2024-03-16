@@ -87,7 +87,7 @@ Nici o resursa disponibila.
 
 
 ??? note "0.4"
-    * [`0.4.0.dev2` externalize recommended rules for updating app setting rules](../xl2roefact/dist/xl2roefact-0.4.0,dev2-win64.msi "download")
+    * [`0.4.0.dev2` externalize recommended rules for updating app setting rules](../xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.msi "download")
 
 
 ??? note "0.3"
