@@ -76,6 +76,7 @@
             * (2) using `exec(YAML_dict["key")` by looping YAML resulted dictionary
         * regardless of method check the propagation running `xl2roefact settings` which is a demo of using values external to config_settings module
     * [ ] ...4. apply reading order
+    * [ ] ... clean code & test YAML settings files from `xl2roefact/`
     * [ ] ... test if works for EXE & MSI deliverables
     * [ ] ... drop existing variables and read YAML file if exists and set as `local()` variables (not dictionary)
 
