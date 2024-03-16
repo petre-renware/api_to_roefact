@@ -75,9 +75,9 @@ Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtin
 xl2roefact settings --help
 ```
 
-Configurarile existente si regulile recomandate in configurarea aplicatiei se afisraza folosind comanda:
+Configurarile existente si regulile recomandate in configurarea aplicatiei se afiseaza folosind comanda:
 ```bash
-xl2roefact settings -r
+xl2roefact settings --rules
 ```
 
 
