@@ -60,7 +60,7 @@
 
 * wip...
 
-* temp...suspended... `0.4.0.dev3` xl2roefact include a data directory in package for various data files "built-in" package:
+* TODO:nxt... `0.4.0.dev3` xl2roefact include a data directory in package for various data files "built-in" package:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
     * [x] 2 update `pyproject.toml` to include in package non python data files from `xl2roefact/data/` directory
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
@@ -83,7 +83,13 @@
 
 
 
-* wip... `0.4.0.dev2` externalize recommended rules for updating app setting rules
+
+
+### ... `0.4.0.dev2` externalize recommended rules for updating app setting rules (...date.here...)
+
+* ... cls this release in CHANGELOG & roll out to development
+
+* `0.4.0.dev2` externalize recommended rules for updating app setting rules
     * [x] 1. created `xl2roefact/data/README_app_config_rules.md` containing the recommended rules for updating app setting rules
     * [x] 2. refer it in `config_settings.py` in its docstring section ==> exported `rules_content` that contain text
     * [x] 3. update `app_cli.py` module to load them accordingly on `settings --rules` command + option
@@ -91,10 +97,8 @@
     * archived locally (RLSE) package wheel & dist
     * [x] 5. update `xl2roefact README` to reflect that change
     * [x] 6. build all deliverables
-    * [ ] x. update `downloads.md` with section for "Other resource downloads" with doc from item 1
-    * [ ] x.. update site
-    * cls this release in CHANGELOG & roll out to development
-
+    * [x] 7. update `downloads.md` with section for "Other resource downloads" with doc from item 1
+    * [ ] x. update ...rls.title.&.date.here... site
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
 * `0.4.0.dev1` fixed `xl2roefact` CLI app version addressing
 * `0.4.0.dev0` updated `xl2roefact.__init__.py` to expose public symbols

@@ -1,11 +1,20 @@
 
 <small>**RENware Software Systems**</small>
 
+!!! warning "Versiunile development"
+    Versiunile ce au in codul / numarul lor acronimul `dev` sunt considerate versiuni elaborate in faza de dezvoltare software.
+    Aceste versiuni sunt functionale cu singura observatie ca testele facute sunt doar din punct de vedeare a codului si nu cu date de business, adica nu prezinta erori in functionare.
+    Se recomanda a folosi aceste versiuni in cazurile de dezvoltari proprii sau integrari cu alte sisteme.
+
+
 
 
 # Descarcare resurse (downloads)
 
 <!-- NOTE: intentionally no TOC in this doc -->
+
+
+
 
 ## Format biblioteca Python
 
@@ -23,6 +32,12 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 ### Pachetul xl2roefact python library format sursa
 
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
+
+??? note "0.4"
+    * [`0.4.0.dev2` externalize recommended rules for updating app setting rules WHEEL](../xl2roefact/dist/xl2roefact-0.4.0.dev2-py3-none-any.whl "download")
+    * [`0.4.0.dev2` externalize recommended rules for updating app setting rules DIST](../xl2roefact/dist/xl2roefact-0.4.0.dev2.tar.gz "download")
+    * [`0.4.0.dev1` fixed `xl2roefact` CLI app version addressing WHEEL](../xl2roefact/dist/xl2roefact-0.4.0.dev1-py3-none-any.whl "download")
+    * [`0.4.0.dev1` fixed `xl2roefact` CLI app version addressing DIST](../xl2roefact/dist/xl2roefact-0.4.0.dev1.tar.gz "download")
 
 
 ??? note "0.3"
@@ -71,6 +86,10 @@ Nici o resursa disponibila.
 ### Aplicatia xl2roefact linie comanda pachet instalare (win64-msi)
 
 
+??? note "0.4"
+    * [`0.4.0.dev2` externalize recommended rules for updating app setting rules](../xl2roefact/dist/xl2roefact-0.4.dev2-win64.msi "download")
+
+
 ??? note "0.3"
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.msi "download")
     * [`0.3.1b` xl2roefact documentation fixes](../xl2roefact/dist/xl2roefact-0.3.1b0-win64.msi "download")
@@ -90,7 +109,12 @@ Nici o resursa disponibila.
     * [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
 
 
+
 ### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)
+
+??? note "0.4"
+    * [`0.4.0.dev2` externalize recommended rules for updating app setting rules](../xl2roefact/dist/xl2roefact-0.4.dev2-win64.exe "download")
+
 
 ??? note "0.3"
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe "download")
