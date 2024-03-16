@@ -539,7 +539,7 @@ div.download-btn {
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><div class="download-btn"><a href="..\..\pdfs\xl2roefact\doc\810.05a-xl2roefact_DLD_specs.html\810.05a-xl2roefact_DLD_specs.pdf">Download PDF</a></div>
+<article class="md-content__inner md-typeset"><div class="download-btn"><a href="../../pdfs/xl2roefact/doc/810.05a-xl2roefact_DLD_specs.html/810.05a-xl2roefact_DLD_specs.pdf">Download PDF</a></div>
 <p><a id="app_cli"></a></p>
 <h1 id="app_cli">app_cli</h1>
 <p>app_cli: the command line application for all xl2roefact functionalities.</p>
@@ -649,26 +649,14 @@ div.download-btn {
 </ul>
 <p><a id="config_settings"></a></p>
 <h1 id="config_settings">config_settings</h1>
-<p>Configuration and setting parameters.  <!-- <code>TODO</code> all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel") --></p>
-<p>(en-us) README before making changes:</p>
+<p>Configuration and setting parameters.</p>
+<p>Regulile recomandate se gasessc in documentul <a href="../doc/README_app_config_rules.md"><code>doc/README_app_config_rules.md</code></a></p>
+<p>Public objects:</p>
+<pre><code>rules_content: contains the rules text (rendered)
+</code></pre>
 <ul>
-<li>each parameter has a short help (lines starting with <code>#</code> character) - read it before changing that parameter</li>
-<li>do not change parametrs name as specified before equal (<code>=</code>) sign</li>
-<li>lists are enclosed in sqaured brackets (<code>[...]</code>) and items are separated by comma character (<code>,</code>)</li>
-<li>strings are enclosed in <code>"</code> characters</li>
-<li>if you want to clear a list (for example you do not wants any options inside) just let it as <code>&lt;PARAMETR NAME&gt; = []</code> - do not drop that parameter</li>
-<li>do not add supplementary parameters, they will not be used without software changes (also risk to induce potential errors)</li>
-<li>for calendaristic dates Excel cells use <code>date</code> format and change it as display option to show wanted format</li>
-</ul>
-<p>(ro) README inainte de a face modificari:</p>
-<ul>
-<li>fiecare parametru are un hep scurt (liniile ce incep cu caracterul <code>#</code>) - citi-l inainte de a modifica uun parametru</li>
-<li>nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (<code>=</code>)</li>
-<li>listele sunt incluse intre paranteze drepte (<code>[...]</code>) si elementele lor sunt separate prin caracterul virgula (<code>,</code>)</li>
-<li>sirurile de caractere sunt incluse intre ghilimele (caracterul <code>"</code>)</li>
-<li>daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune pentru acea lista) doar lasati acel parametru cu valoarea <code>[]</code> - nu stergeti in nici un caz acel parametru</li>
-<li>nu adaugati parametrii suplimentari (altii decit cei specificati aici), acestia nu vor fi utilizati fara a modifica aplicatia (de asemenea riscati sa induceti erori in cod)</li>
-<li>pentru datele calendaristice in celulul Excel a se utiliza formatul standard de data (<code>date</code>) si modificati formatul de afisare in formatul dorit pe factura tiparibila</li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
 <p><a id="config_settings.DEFAULT_SUPPLIER_COUNTRY"></a></p>
 <h4 id="default_supplier_country">DEFAULT_SUPPLIER_COUNTRY</h4>
@@ -898,6 +886,9 @@ div.download-btn {
 </ul>
 <p><a id="__init__"></a></p>
 <h1 id="__init__">__init__</h1>
+<p><a id="__init__.__version__"></a></p>
+<h4 id="__version__">__version__</h4>
+<p>default conversion takes place over xl2roefact actual version</p>
 <p><a id="__main__"></a></p>
 <h1 id="__main__">__main__</h1>
 <p><strong>xl2roefact.<strong>main</strong></strong>: Python package standard file to assure run as <code>python -m xl2roefact</code>.</p>
@@ -918,7 +909,7 @@ div.download-btn {
 <li>help: <code>python -m xl2roefact --help</code>.</li>
 </ul>
 <p><a id="__version__"></a></p>
-<h1 id="__version__">__version__</h1>
+<h1 id="__version___1">__version__</h1>
 <p>xl2roefact version info.
 <div class="highlight"><pre><span></span><code> ######## ####              ########  ######
  #  ##  # #  #              #      # ##    ##
@@ -950,12 +941,14 @@ div.download-btn {
 <p><code>raw_version (str)</code>: a raw version string. Defaults to package current version string.</p>
 <p><strong>Returns</strong>:</p>
 <p><code>str:</code> canonical version string</p>
+<p><a id="data"></a></p>
+<h1 id="data">data</h1>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 14, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 16, 2024</span>
 </small>
 </div>
 </article>
