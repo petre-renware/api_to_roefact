@@ -90,8 +90,9 @@
     * [x] 4. build this package and publish on PyPi
     * archived locally (RLSE) package wheel & dist
     * [x] 5. update `xl2roefact README` to reflect that change
-    * [ ] ... 6. update `downloads.md` with section for "Other resource downloads" with doc from item 1
-    * [ ] 7. update site
+    * [ ] ... 6. build all deliverables
+    * [ ] x. update `downloads.md` with section for "Other resource downloads" with doc from item 1
+    * [ ] x.. update site
     * cls this release in CHANGELOG & roll out to development
 
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
