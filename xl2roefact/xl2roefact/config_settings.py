@@ -189,9 +189,9 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
 rules_file = Path(os.path.dirname(__file__), "data/README_app_config_rules.md")
 rules_content = Markdown(rules_file.read_text())
 
-# read app_settings.yml
+# read app_settings.yml. Use below order to apply
 '''NOTE: spcs
-INFO-NOTE: order to search and load for `app_config.yml`:
+INFO-NOTE: order to search and load for `app_config.yml`. Rule: First found win:
     * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
     * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
     * (3) settings from `config_settings.py`
@@ -200,7 +200,6 @@ INFO-NOTE: methods of updates variables:
     * (1) using `locals().update(YAML_dict)`
     * (2) using `exec(YAML_dict["key")` by looping YAML resulted dictionary
 '''
-
 # order method (1)
 config_file = Path(os.getcwd(), "app_settings.yml")
 ok_to_use = config_file.exists() and config_file.is_file()
@@ -223,9 +222,11 @@ if python_object is None:  # exec only if previous method did not read something
     pprint(python_object)  #FIXME dbg drop me
 
 #TODO assign `python_object` to locals() environment
-# locals().update(python_object)
-
-
+if python_object is not None:  # exec only if previous method has been read something
+    # locals().update(python_object)
+    pass  #FIXME drop me when activate upper code line
+else:  # if no one of previous methods applied then will remain the content hard-coded in this module
+    pass
 
 
 
