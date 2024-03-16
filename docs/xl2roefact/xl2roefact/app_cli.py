@@ -161,7 +161,7 @@ def called_when_no_command(
     if (ctx.invoked_subcommand is None) and not version:
         print("[red]No command. Please use --help to get help.[/]")
         sys.exit(0)
-    version_string = appver.__version__
+    version_string = normalized_version()
     if version:
             print(f"xl2roefact {version_string}")
 

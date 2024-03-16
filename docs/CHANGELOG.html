@@ -509,8 +509,8 @@ div.download-btn {
 <nav aria-label="0.4" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#040rc0-todowip-invoice-supplier-date_here">
-    0.4.0rc0 TODO:wip... invoice supplier (...date_here...)
+<a class="md-nav__link" href="#040rc0-invoice-supplier">
+    0.4.0rc0 invoice supplier  
   </a>
 </li>
 </ul>
@@ -543,8 +543,8 @@ div.download-btn {
 <nav aria-label="0.4" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#040rc0-todowip-invoice-supplier-date_here">
-    0.4.0rc0 TODO:wip... invoice supplier (...date_here...)
+<a class="md-nav__link" href="#040rc0-invoice-supplier">
+    0.4.0rc0 invoice supplier  
   </a>
 </li>
 </ul>
@@ -563,7 +563,7 @@ div.download-btn {
 <ul>
 <li><a href="#changelog">CHANGELOG</a><ul>
 <li><a href="#04">0.4</a><ul>
-<li><a href="#040rc0-todowip-invoice-supplier-date_here">0.4.0rc0 TODO:wip... invoice supplier (...date_here...)</a></li>
+<li><a href="#040rc0-invoice-supplier">0.4.0rc0 invoice supplier  </a></li>
 </ul>
 </li>
 </ul>
@@ -602,7 +602,7 @@ div.download-btn {
         * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
 -->
 <h2 id="04">0.4</h2>
-<h3 id="040rc0-todowip-invoice-supplier-date_here">0.4.0rc0 TODO:wip... invoice supplier (...date_here...)</h3>
+<h3 id="040rc0-invoice-supplier">0.4.0rc0 invoice supplier  <!--TODO:wip... (#NOTE: set_date_here...)--></h3>
 <ul>
 <li>
 <p>tbd.Must... @RELEASE update version files &amp; <a href="RELEASE-QA_checklist.html">follow <code>/RELEASE-QA_checklist.md</code></a></p>
@@ -610,13 +610,17 @@ div.download-btn {
 <li>
 <p>tbd.Could... define <code>xl2roefact</code> entry points and/or scripts. comments in <code>xl2roefact/setup.py</code> ref exec scripts with installed package</p>
 </li>
+<li>tbd.Should... [piu @<em>240126] left in <code>xl2roefact/setup.py</code> comments &amp; example ref how to </em><code>pre-set MSI build meta information</code>_ / parameters (obj: default target dir where install, path registration, icon, ...)</li>
 <li>
-<p>tbd.Should... [piu @<em>240126] left in <code>xl2roefact/setup.py</code> comments &amp; example ref how to </em><code>pre-set MSI build meta information</code>_ / parameters (obj: default target dir where install, path registration, icon, ...)</p>
+<p>tbd Would... for site build, to get xl2roefact version from package (<code>xl2roefact.__version__</code>) use this in <code>mkdocs.yml</code> at plugins section ref <code>mkdocs-macros</code> plugin:
+   <code>macros:
+       modules: [pack:module-or-object]</code>
+  which will become: <code>from pack import module-or-object</code></p>
 </li>
 <li>
-<p>tbd.Must... <code>xl2roefact</code> invoice supplier (<code>&lt;cac:AccountingSupplierParty&gt;</code>)</p>
+<p>tbd.Must...code: <code>INV.SUPP</code>... <code>xl2roefact</code> invoice supplier (<code>&lt;cac:AccountingSupplierParty&gt;</code>)</p>
 <ul>
-<li>start with search where produce <code>"supplier_area": "...future..."</code> (JSON extract)</li>
+<li>start with search where produce <code>"supplier_area": "...future..."</code> (JSON extract) or "FIXME: INV.SUPP"</li>
 <li>... idea is to reuse code for customer area as much as possible</li>
 </ul>
 </li>
@@ -624,8 +628,10 @@ div.download-btn {
 <p>wip...</p>
 </li>
 <li>
-<p><code>240313piu02</code> small administrative adjustments: update technical axl2roefact DLD, build site &amp; republish (used version <code>0.4.0rc0</code> for whole system)</p>
+<p><code>0.4.0.dev1</code> fixed <code>xl2roefact</code> CLI app version addressing</p>
 </li>
+<li><code>0.4.0.dev0</code> updated <code>xl2roefact.__init__.py</code> to expose public symbols</li>
+<li><code>240313piu02</code> small administrative adjustments: update technical axl2roefact DLD, build site &amp; republish (used version <code>0.4.0rc0</code> for whole system)</li>
 <li><code>240313piu01</code> application tech optimizations: <code>rdinv.__all__</code> spec, <code>__init__.__version__</code> import and made available as xl2roefact global</li>
 </ul>
 <h1 id="archived-changelogs">Archived CHANGELOGs</h1>
@@ -696,7 +702,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 13, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 14, 2024</span>
 </small>
 </div>
 </article>
