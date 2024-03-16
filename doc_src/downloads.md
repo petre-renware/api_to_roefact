@@ -35,6 +35,11 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 ??? note "0.4"
     * ...versiuni indisponibile...
+    * [`0.4.0.dev2` externalize recommended rules for updating app setting rules WHEEL](../xl2roefact/dist/xl2roefact-0.4.0.dev2-py3-none-any.whl "download")
+    * [... DIST](
+    ../xl2roefact/dist/xl2roefact-0.3.1b1-py3-none-any.whl "download"
+    )
+
 
 
 ??? note "0.3"
