@@ -33,11 +33,10 @@
 
 
 
+<!-- NOTE: set to 0.5... because invoice supplier is a functional change ...
+## 0.5 
 
-## 0.4
-
-
-### 0.4rc0 invoice supplier  <!--TODO: wip... / check version format --> <!-- (#NOTE: set_date_here...) -->
+### TODO:plan 0.5rc0 invoice supplier  (...date_here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
@@ -49,35 +48,35 @@
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
+-->
 
-* wip...
 
-* TODO:nxt... `0.4.1.dev0` xl2roefact include a data directory in package for various data files "built-in" package:
+
+
+
+## 0.4 ...wip
+
+### wip... `0.4.1.dev0` xl2roefact include a data directory in package for various data files "built-in" package
+
+* ...tbd... update downloads and include a template for `app_settings.yml` and specify in xl2roefact README
+* ...tbd... check if everything is ok when make EXE & MSI variants, meaning defaults the right data and process of Excel files is correct w/o errors
+* ...tbd.. build a new wheel package (#NOTE: ATTN TO VERSION)
+* ...wip... `2403piu-config-code` update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
+    * [ ] 1. update app version to `0.4.1.dev3`. Make a test what `normalized_version()` returns (run xl2roefact --version)
+    * [ ] 2. drop key `README_rules` from `app_settings.yml`, ref to rules
+    * INFO-NOTE: after YAML import data will be dict with all actual code variables as keywords
+    * [ ] 3. keep all existing variables and read YAML file if exists and replace their content (avoid defaulting errors when file is not defined)
+    * INFO-NOTE: order to search and load for `app_config.yml`:
+        * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
+        * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
+        * (3) settings from `config_settings.py`
+* `2403piu-app-data-dir` actions:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
     * [x] 2 update `pyproject.toml` to include in package non python data files from `xl2roefact/data/` directory
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
     * [x] 3. add in `.../xl2roefact/data/` file `owner_data.json` with owner data to be used as supplier info for future option `--load-from-owner-file`
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
     * [x] 5. updated `.../data/app_settings.yml` with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)
-    * [ ] ... 6. update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
-        * update app version to `0.4.1.dev3`. Make a test what `normalized_version()` returns (run xl2roefact --version)
-        * drop key `README_rules` from `app_settings.yml`, ref to rules
-        * INFO-NOTE: after YAML import data will be dict with all actual code variables as keywords
-        * keep all existing variables and read YAML file if exists and replace their content (avoid defaulting errors when file is not defined)
-        * order to search and load for `app_config.yml`:
-            * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
-            * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
-            * (3) settings from `config_settings.py`
-    * [ ] n. update downloads and include a template for `app_settings.yml` and specify in xl2roefact README
-    * [ ] n. check if everything is ok when make EXE & MSI variants, meaning defaults the right data and process of Excel files is correct w/o errors
-    * [ ] n. build a new wheel package (#NOTE: ATTN TO VERSION)
-    * [ ] n. ...
-
-
-
-
-
-
 
 
 
