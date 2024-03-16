@@ -85,9 +85,7 @@
 
 
 
-### ... `0.4.0.dev2` externalize recommended rules for updating app setting rules (...date.here...)
-
-* ... cls this release in CHANGELOG & roll out to development
+### `0.4.0.dev2` externalize recommended rules for updating app setting rules (240316 T12:00)
 
 * `0.4.0.dev2` externalize recommended rules for updating app setting rules
     * [x] 1. created `xl2roefact/data/README_app_config_rules.md` containing the recommended rules for updating app setting rules
@@ -98,7 +96,6 @@
     * [x] 5. update `xl2roefact README` to reflect that change
     * [x] 6. build all deliverables
     * [x] 7. update `downloads.md` with section for "Other resource downloads" with doc from item 1
-    * [ ] x. update ...rls.title.&.date.here... site
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
 * `0.4.0.dev1` fixed `xl2roefact` CLI app version addressing
 * `0.4.0.dev0` updated `xl2roefact.__init__.py` to expose public symbols
