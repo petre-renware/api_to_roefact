@@ -41,6 +41,7 @@ dependencies = [
     "userpath~=1.9",
     "wheel~=0.42",
     "msgpack>=1.0.8",
+    "pyyaml>=6.0.1",
 ]
 readme = "README.md"
 license = { file = "LICENSE" }

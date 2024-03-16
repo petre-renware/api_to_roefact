@@ -14,7 +14,8 @@ Public objects:
 from pathlib import Path
 import os
 from rich.markdown import Markdown
-
+import yaml
+from pprint import pprint
 
 """---------------------------------------------------------------------------------------------------------------------------
 # NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
@@ -187,6 +188,43 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
 # get & render rules text from markdown file
 rules_file = Path(os.path.dirname(__file__), "data/README_app_config_rules.md")
 rules_content = Markdown(rules_file.read_text())
+
+# read app_settings.yml
+
+'''NOTE: spcs
+INFO-NOTE: order to search and load for `app_config.yml`:
+    * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
+    * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
+    * (3) settings from `config_settings.py`
+
+INFO-NOTE: methods of updates variables:
+    * (1) using `locals().update(YAML_dict)`
+    * (2) using `exec(YAML_dict["key")` by looping YAML resulted dictionary
+
+TOOLS:
+    - use library `pyyaml` as original name == `yaml`
+    - to render from YAML use: `yaml.safe_load(yaml_in: file_stream) -> yaml_object: dict[] | list[]` - see exaple in code nxt to this long comment:
+
+CODE: below there are methods (1) and (2) already raw coded --- no decision when & which to apply
+'''
+# order method (2)
+'''
+config_file = Path(os.path.dirname(__file__), "data/app_settings.yml")
+yaml_in = config_file.read_text()
+python_object = yaml.safe_load(yaml_in)
+print("*********** HERE IS THE YAML read content & rendered as Python object")  #FIXME dbg drop me
+pprint(python_object)  #FIXME dbg drop me
+'''
+
+
+# order method (1)
+'''
+config_file = Path(os.getcwd(), "app_settings.yml")
+yaml_in = config_file.read_text()
+python_object = yaml.safe_load(yaml_in)
+print("*********** HERE IS THE YAML read content & rendered as Python object")  #FIXME dbg drop me
+pprint(python_object)  #FIXME dbg drop me
+'''
 
 
 
