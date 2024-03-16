@@ -1,11 +1,20 @@
 
 <small>**RENware Software Systems**</small>
 
+!!! warning "Versiunile development"
+    Versiunile ce au in codul / numarul lor acronimul `dev` sunt considerate versiuni elaborate in faza de dezvoltare software.
+    Aceste versiuni sunt functionale cu singura observatie ca testele facute sunt doar din punct de vedeare a codului si nu cu date de business, adica nu prezinta erori in functionare.
+    Se recomanda a folosi aceste versiuni in cazurile de dezvoltari proprii sau integrari cu alte sisteme.
+
+
 
 
 # Descarcare resurse (downloads)
 
 <!-- NOTE: intentionally no TOC in this doc -->
+
+
+
 
 ## Format biblioteca Python
 
@@ -23,6 +32,8 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 ### Pachetul xl2roefact python library format sursa
 
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
+
+
 
 
 ??? note "0.3"
