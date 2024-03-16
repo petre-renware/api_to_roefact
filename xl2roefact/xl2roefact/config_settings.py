@@ -212,18 +212,18 @@ print(f"*********** after method (1) {ok_to_use=}. The YAML read content & rende
 pprint(python_object)  #FIXME dbg drop me
 
 # order method (2)
-#TODO: to test if python_object from prev run is None and if so exec this code
-config_file = Path(os.path.dirname(__file__), "data/app_settings.yml")
-ok_to_use = config_file.exists() and config_file.is_file()
-python_object = None  # initialize as null
-if ok_to_use:
-    yaml_in = config_file.read_text()
-    python_object = yaml.safe_load(yaml_in)
-print(f"*********** after method (2) {ok_to_use=}. The YAML read content & rendered as Python object")  #FIXME dbg drop me
-pprint(python_object)  #FIXME dbg drop me
+if python_object is None:  # exec only if previous method did not read something
+    config_file = Path(os.path.dirname(__file__), "data/app_settings.yml")
+    ok_to_use = config_file.exists() and config_file.is_file()
+    python_object = None  # initialize as null
+    if ok_to_use:
+        yaml_in = config_file.read_text()
+        python_object = yaml.safe_load(yaml_in)
+    print(f"*********** after method (2) {ok_to_use=}. The YAML read content & rendered as Python object")  #FIXME dbg drop me
+    pprint(python_object)  #FIXME dbg drop me
 
-
-
+#TODO assign `python_object` to locals() environment
+# locals().update(python_object)
 
 
 
