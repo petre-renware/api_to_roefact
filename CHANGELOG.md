@@ -78,7 +78,7 @@
     * [ ] n. build a new wheel package (#NOTE: ATTN TO VERSION)
     * [ ] n. ...
 
-* `0.4.0.dev2` externalize ecommended rules for updating app setting rules
+* `0.4.0.dev2` externalize recommended rules for updating app setting rules
     * [x] 1. created `xl2roefact/data/README_app_config_rules.md` containing the recommended rules for updating app setting rules
     * [x] 2. refer it in `config_settings.py` in its docstring section ==> exported `rules_content` that contain text
     * [x] 3. update `app_cli.py` module to load them accordingly on `settings --rules` command + option
