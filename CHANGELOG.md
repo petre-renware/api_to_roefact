@@ -67,16 +67,16 @@
     * [x] 3. add in `.../xl2roefact/data/` file `owner_data.json` with owner data to be used as supplier info for future option `--load-from-owner-file`
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
     * [x] 5. updated `.../data/app_settings.yml` with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)
-    * [ ] ... 6. update `config_settings`py module to upload data from `.../data/app_settings.yml` file. Specs:
-        * update app version to `0.4.0.dev3`
+    * [ ] ... 6. update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
+        * update app version to `0.4.0.dev3`. Make a test what `normalized_version()` returns (run xl2roefact --version)
         * update `.../data/app_settings.yml`, drop key ref to rules as now is an externalized file
         * after YAML import data will be dict with all actual code variables as keywords
-        * keyword `README_rules` is content copy of module docstring (ie, `config_settings.__doc__`)
         * keep all existing variables and read YAML file if exists and replace their content (avoid defaulting errors when file is not defined)
         * order to search and load for `app_config.yml`:
             * (1) crt directory (with `cwd`)
             * (2) package directory (with `__file__`)
             * (3) settings from `config_settings.py`
+    * [ ] n. update downloads and include a template for `app_settings.yml` and specify in xl2roefact README
     * [ ] n. check if everything is ok when make EXE & MSI variants, meaning defaults the right data and process of Excel files is correct w/o errors
     * [ ] n. build a new wheel package (#NOTE: ATTN TO VERSION)
     * [ ] n. ...
