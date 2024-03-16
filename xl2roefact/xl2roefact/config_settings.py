@@ -223,7 +223,7 @@ if python_object is None:  # exec only if previous method did not read something
 
 #TODO assign `python_object` to locals() environment
 if python_object is not None:  # exec only if previous method has been read something
-    # locals().update(python_object)
+    locals().update(python_object)
     pass  #FIXME drop me when activate upper code line
 else:  # if no one of previous methods applied then will remain the content hard-coded in this module
     pass
