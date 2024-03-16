@@ -34,7 +34,7 @@
 
 
 <!-- NOTE: set to 0.5... because invoice supplier is a functional change ...
-## 0.5 
+## 0.5
 
 ### TODO:plan 0.5rc0 invoice supplier  (...date_here...)
 
@@ -63,7 +63,7 @@
 * ...tbd.. build a new wheel package (#NOTE: ATTN TO VERSION)
 * ...wip... `2403piu-config-code` update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
     * [x] 1. update app version to `0.4.1.dev0`. Make a test what `normalized_version()` returns (run xl2roefact --version)
-    * [ ] 2. drop key `README_rules` from `app_settings.yml`, ref to rules
+    * [x] 2. update key `README_rules` from `app_settings.yml`, set it to point to markdown file containing rules list (`xl2roefact/xl2roefact/data/README_app_config_rules.md`)
     * INFO-NOTE: after YAML import data will be dict with all actual code variables as keywords
     * [ ] 3. keep all existing variables and read YAML file if exists and replace their content (avoid defaulting errors when file is not defined)
     * INFO-NOTE: order to search and load for `app_config.yml`:
