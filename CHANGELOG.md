@@ -75,7 +75,9 @@
             * (1) using `locals().update(YAML_dict)`
             * (2) using `exec(YAML_dict["key")` by looping YAML resulted dictionary
         * regardless of method check the propagation running `xl2roefact settings` which is a demo of using values external to config_settings module
-    * [ ] 4. keep all existing variables and read YAML file if exists and replace their content (avoid defaulting errors when file is not defined)
+    * [ ] ...4. apply reading order
+    * [ ] ... test if works for EXE & MSI deliverables
+    * [ ] ... drop existing variables and read YAML file if exists and set as `local()` variables (not dictionary)
 
 * `2403piu-app-data-dir` actions:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
