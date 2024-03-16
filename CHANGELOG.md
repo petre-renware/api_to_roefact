@@ -58,9 +58,11 @@
 
 ### wip... `0.4.1.dev0` xl2roefact include a data directory in package for various data files "built-in" package
 
-* ...tbd... update downloads and include a template for `app_settings.yml` and specify in xl2roefact README
 * ...tbd... check if everything is ok when make EXE & MSI variants, meaning defaults the right data and process of Excel files is correct w/o errors
-* ...tbd.. build a new wheel package (#NOTE: ATTN TO VERSION)
+* ...tbd... build a new wheel package (#NOTE: ATTN TO VERSION)
+* ...tbd... update xl2roefact README ref how configure app. Refer a model of configuration in downloads.md 
+* ...tbd... update downloads and include a template for `app_settings.yml` and specify in xl2roefact README
+
 
 * ...wip... `2403piu-config-code` update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
     * [x] 1. update app version to `0.4.1.dev0`. Make a test what `normalized_version()` returns (run xl2roefact --version)
@@ -75,7 +77,10 @@
             * (1) using `locals().update(YAML_dict)`
             * (2) using `exec(YAML_dict["key")` by looping YAML resulted dictionary
         * regardless of method check the propagation running `xl2roefact settings` which is a demo of using values external to config_settings module
-    * [ ] 4. keep all existing variables and read YAML file if exists and replace their content (avoid defaulting errors when file is not defined)
+    * [x] 4. apply reading order
+    * [x] 5. clean code & test YAML settings files from `xl2roefact/`
+    * [x] 6. if read YAML was got some values then set as `local()` variables (not dictionary)
+    * [ ] ... just check if needs more settings in `xl2roefact/setup.py` for EXE & MSI deliverables
 
 * `2403piu-app-data-dir` actions:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)

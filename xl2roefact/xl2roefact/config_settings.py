@@ -189,43 +189,34 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
 rules_file = Path(os.path.dirname(__file__), "data/README_app_config_rules.md")
 rules_content = Markdown(rules_file.read_text())
 
-# read app_settings.yml
-
-'''NOTE: spcs
-INFO-NOTE: order to search and load for `app_config.yml`:
+# read app_settings.yml. Use below order to apply
+'''Specs: order to search and load for `app_config.yml`. Rule: First found win:
     * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
     * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
     * (3) settings from `config_settings.py`
-
-INFO-NOTE: methods of updates variables:
-    * (1) using `locals().update(YAML_dict)`
-    * (2) using `exec(YAML_dict["key")` by looping YAML resulted dictionary
-
-TOOLS:
-    - use library `pyyaml` as original name == `yaml`
-    - to render from YAML use: `yaml.safe_load(yaml_in: file_stream) -> yaml_object: dict[] | list[]` - see exaple in code nxt to this long comment:
-
-CODE: below there are methods (1) and (2) already raw coded --- no decision when & which to apply
 '''
-# order method (2)
-'''
-config_file = Path(os.path.dirname(__file__), "data/app_settings.yml")
-yaml_in = config_file.read_text()
-python_object = yaml.safe_load(yaml_in)
-print("*********** HERE IS THE YAML read content & rendered as Python object")  #FIXME dbg drop me
-pprint(python_object)  #FIXME dbg drop me
-'''
-
-
 # order method (1)
-'''
 config_file = Path(os.getcwd(), "app_settings.yml")
-yaml_in = config_file.read_text()
-python_object = yaml.safe_load(yaml_in)
-print("*********** HERE IS THE YAML read content & rendered as Python object")  #FIXME dbg drop me
-pprint(python_object)  #FIXME dbg drop me
-'''
+ok_to_use = config_file.exists() and config_file.is_file()
+python_object = None  # initialize as null
+if ok_to_use:
+    yaml_in = config_file.read_text()
+    python_object = yaml.safe_load(yaml_in)
 
+# order method (2)
+if python_object is None:  # exec only if previous method did not read something
+    config_file = Path(os.path.dirname(__file__), "data/app_settings.yml")
+    ok_to_use = config_file.exists() and config_file.is_file()
+    python_object = None  # initialize as null
+    if ok_to_use:
+        yaml_in = config_file.read_text()
+        python_object = yaml.safe_load(yaml_in)
+
+# assign `python_object` to locals() environment
+if python_object is not None:  # exec only if previous method has been read something
+    locals().update(python_object)
+else:  # if none of previous methods applied then will remain the content hard-coded in this module
+    pass
 
 
 

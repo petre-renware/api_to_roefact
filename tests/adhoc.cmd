@@ -13,7 +13,7 @@ cd xl2roefact
 python -m pip install pdm
 python -m pdm install
 
-pdm run xl2roefact about
+pdm run xl2roefact settings
 
 
 
