@@ -97,7 +97,7 @@
     * archived locally (RLSE) package wheel & dist
     * [x] 5. update `xl2roefact README` to reflect that change
     * [x] 6. build all deliverables
-    * [ ] ... 7. update `downloads.md` with section for "Other resource downloads" with doc from item 1
+    * [x] 7. update `downloads.md` with section for "Other resource downloads" with doc from item 1
     * [ ] x. update ...rls.title.&.date.here... site
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
 * `0.4.0.dev1` fixed `xl2roefact` CLI app version addressing
