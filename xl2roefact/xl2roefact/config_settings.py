@@ -190,15 +190,10 @@ rules_file = Path(os.path.dirname(__file__), "data/README_app_config_rules.md")
 rules_content = Markdown(rules_file.read_text())
 
 # read app_settings.yml. Use below order to apply
-'''NOTE: spcs
-INFO-NOTE: order to search and load for `app_config.yml`. Rule: First found win:
+'''Specs: order to search and load for `app_config.yml`. Rule: First found win:
     * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
     * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
     * (3) settings from `config_settings.py`
-
-INFO-NOTE: methods of updates variables:
-    * (1) using `locals().update(YAML_dict)`
-    * (2) using `exec(YAML_dict["key")` by looping YAML resulted dictionary
 '''
 # order method (1)
 config_file = Path(os.getcwd(), "app_settings.yml")
@@ -207,8 +202,6 @@ python_object = None  # initialize as null
 if ok_to_use:
     yaml_in = config_file.read_text()
     python_object = yaml.safe_load(yaml_in)
-print(f"*********** after method (1) {ok_to_use=}. The YAML read content & rendered as Python object")  #FIXME dbg drop me
-pprint(python_object)  #FIXME dbg drop me
 
 # order method (2)
 if python_object is None:  # exec only if previous method did not read something
@@ -218,14 +211,11 @@ if python_object is None:  # exec only if previous method did not read something
     if ok_to_use:
         yaml_in = config_file.read_text()
         python_object = yaml.safe_load(yaml_in)
-    print(f"*********** after method (2) {ok_to_use=}. The YAML read content & rendered as Python object")  #FIXME dbg drop me
-    pprint(python_object)  #FIXME dbg drop me
 
-#TODO assign `python_object` to locals() environment
+# assign `python_object` to locals() environment
 if python_object is not None:  # exec only if previous method has been read something
     locals().update(python_object)
-    pass  #FIXME drop me when activate upper code line
-else:  # if no one of previous methods applied then will remain the content hard-coded in this module
+else:  # if none of previous methods applied then will remain the content hard-coded in this module
     pass
 
 
