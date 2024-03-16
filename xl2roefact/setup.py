@@ -11,7 +11,6 @@ Specifications:
 * *helper*: see official doc here `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`
 """
 
-#FIXME.drop.me.after.`0.4.0.dev2` from xl2roefact import __version__ as ver
 from xl2roefact.__version__ import normalized_version
 import sys
 from cx_Freeze import setup, Executable
@@ -70,7 +69,6 @@ scripts_definition = ['scripts/xmlproc_parse', 'scripts/xmlproc_val']
 
 setup(
     options = {"build_exe": build_options},
-    #FIXME.drop.me.after.`0.4.0.dev2` version = ver.__version__,
     version = normalized_version(),
     executables = executables,
     # bdist_msi_options = bdist_msi_options_definition,  # NOTE: pct.1*) ref `bdist_msi_options`  
