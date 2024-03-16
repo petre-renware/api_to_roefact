@@ -68,9 +68,16 @@ Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si s
 
 Parametrii de configurare a plicatiei se gasesc in fisierul *`config_settings.py`*. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
 
+<!--#TODO: prev paragraph to replace new config method by using `app_settings.yml` in current directory -->
+
 Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtine help referitor la detaliile comenzi se va folosi
 ```bash
 xl2roefact settings --help
+```
+
+Configurarile existente si regulile recomandate in configurarea aplicatiei se afisraza folosind comanda:
+```bash
+xl2roefact settings -r
 ```
 
 
