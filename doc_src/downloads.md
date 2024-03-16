@@ -33,7 +33,8 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
-
+??? note "0.4"
+    * ...versiuni indisponibile...
 
 
 ??? note "0.3"
@@ -82,6 +83,10 @@ Nici o resursa disponibila.
 ### Aplicatia xl2roefact linie comanda pachet instalare (win64-msi)
 
 
+??? note "0.4"
+    * ...versiuni indisponibile...
+
+
 ??? note "0.3"
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.msi "download")
     * [`0.3.1b` xl2roefact documentation fixes](../xl2roefact/dist/xl2roefact-0.3.1b0-win64.msi "download")
@@ -101,7 +106,12 @@ Nici o resursa disponibila.
     * [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
 
 
+
 ### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)
+
+??? note "0.4"
+    * ...versiuni indisponibile...
+
 
 ??? note "0.3"
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe "download")
