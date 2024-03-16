@@ -127,6 +127,11 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 >* alta este valoarea afisata (cu 2 zecimale) - aceasta din urma trebuie obtinuta prin formatarea celulei respective de a afisa 2 zecimale prin rotunjire insa valoarea efectiva trebuie sa fie cea originala cu 3 zecimale, lucru (diferenta) care se poate vedea la editarea continutului celulei.
 
 
+### Reguli recomamdate in configurarea aplicatiei pe specificul Excel al facturilor dumneavoastra
+
+{% include './xl2roefact/data/README_app_config_rules.md' %}
+
+
 
 
 ## Tutorial utilizare aplicatie
