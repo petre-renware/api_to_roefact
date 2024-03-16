@@ -67,6 +67,8 @@
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
     * [x] 5. updated `.../data/app_settings.yml` with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)
     * [ ] ... 6. update `config_settings`py module to upload data from `.../data/app_settings.yml` file. Specs:
+        * update app version to `0.4.0.dev3`
+        * update `.../data/app_settings.yml`, drop key ref to rules as now is an externalized file
         * after YAML import data will be dict with all actual code variables as keywords
         * keyword `README_rules` is content copy of module docstring (ie, `config_settings.__doc__`)
         * keep all existing variables and read YAML file if exists and replace their content (avoid defaulting errors when file is not defined)
@@ -78,14 +80,16 @@
     * [ ] n. build a new wheel package (#NOTE: ATTN TO VERSION)
     * [ ] n. ...
 
-* `0.4.0.dev2` externalize ecommended rules for updating app setting rules
-    * [x] 1. created `xl2roefact/doc/README_app_config_rules.md` containing the recommended rules for updating app setting rules
-    * [ ] 2. refer it in `config_settings.py` in its docstring section
-    * [ ] 3. update `app_cli.py` module to load them accordingly on `settings --rules` command + option
-    * [ ] 4. update `xl2roefact README` to reflect that change
-    * [ ] 5. build this package and publish on PyPi
+* `0.4.0.dev2` externalize recommended rules for updating app setting rules
+    * [x] 1. created `xl2roefact/data/README_app_config_rules.md` containing the recommended rules for updating app setting rules
+    * [x] 2. refer it in `config_settings.py` in its docstring section ==> exported `rules_content` that contain text
+    * [x] 3. update `app_cli.py` module to load them accordingly on `settings --rules` command + option
+    * [x] 4. build this package and publish on PyPi
+    * archived locally (RLSE) build package `0.4.0.dev2`
+    * [ ] 5. make a wrapper for invoice rules doc in `xl2roefact/doc/` & update `xl2roefact README` to reflect that change
     * [ ] 6. update `downloads.md` with section for "Other resource downloads" with doc from item 1
     * [ ] 7. update site
+    * roll out to development this vrelease
 
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
 * `0.4.0.dev1` fixed `xl2roefact` CLI app version addressing

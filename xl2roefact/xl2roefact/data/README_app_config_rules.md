@@ -1,6 +1,4 @@
-
-## Reguli recomandate pentru adaptarea aplicatiei la modelul dvs de factura in Excel
-
+**Reguli recomandate pentru adaptarea aplicatiei la modelul dvs de factura in Excel:**
 
 * fiecare parametru are un hep scurt (liniile ce incep cu caracterul `#`) - citi-l inainte de a modifica uun parametru
 * nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (`=`)
@@ -12,7 +10,7 @@
 
 
 
-#### (en-us) Recommended rules to configure the application to your Excel invoice model:
+___(en-us) Recommended rules to configure the application to your Excel invoice model:___
 
 * each parameter has a short help (lines starting with `#` character) - read it before changing that parameter
 * do not change parametrs name as specified before equal (`=`) sign

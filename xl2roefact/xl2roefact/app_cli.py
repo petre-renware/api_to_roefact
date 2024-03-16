@@ -38,6 +38,8 @@ from xl2roefact.chkisld import chkisld  # status #FIXME: not yet started
 app_cli = typer.Typer(name="xl2roefact")
 
 
+
+
 @app_cli.command()
 def about():
     """provide a short application description.
@@ -50,6 +52,8 @@ def about():
     print("Support: [yellow]www.renware.eu, petre.iordanescu@gmail.com[/]")
     print("Product code: [yellow]0000-0095[/]")
     print("Usage: for detailed help use [yellow]xl2roefact --help[/]")
+
+
 
 
 @app_cli.command()
@@ -69,8 +73,8 @@ def settings(
     """
 
     if rules:  # show configuration rules from module docstring
-        rules_text = Markdown(configs.__doc__)
-        print(rules_text)
+        from xl2roefact.config_settings import rules_content
+        print(rules_content)  # content is already rendered
         print()  # print a blank line for readability
     print("\nCurrent settings:\n-------------------------------")
     list_of_settings = dir(configs)
@@ -78,6 +82,8 @@ def settings(
         if i == i.upper():  # preserve only items supposed to be defined like CONSTANTS
             val_of_i_item = eval("configs." + i)
             print(f"[yellow]{i}[/] = {val_of_i_item}")
+
+
 
 
 @app_cli.command()
