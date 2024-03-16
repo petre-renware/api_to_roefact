@@ -55,9 +55,11 @@
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
+* #TODO: tbd@IMP archive to RLSE all deliverables >= `0.4.0.dev2`
+
 * wip...
 
-* wip... `0.4.0.dev2` xl2roefact include a data directory in package for various data files "built-in" package:
+* wip... `0.4.0.dev3` xl2roefact include a data directory in package for various data files "built-in" package:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
     * [x] 2 update `pyproject.toml` to include in package non python data files from `xl2roefact/data/` directory
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
@@ -75,6 +77,15 @@
     * [ ] n. check if everything is ok when make EXE & MSI variants, meaning defaults the right data and process of Excel files is correct w/o errors
     * [ ] n. build a new wheel package (#NOTE: ATTN TO VERSION)
     * [ ] n. ...
+
+* `0.4.0.dev2` externalize ecommended rules for updating app setting rules
+    * [x] 1. created `xl2roefact/doc/README_app_config_rules.md` containing the recommended rules for updating app setting rules
+    * [ ] 2. refer it in `config_settings.py` in its docstring section
+    * [ ] 3. update `app_cli.py` module to load them accordingly on `settings --rules` command + option
+    * [ ] 4. update `xl2roefact README` to reflect that change
+    * [ ] 5. build this package and publish on PyPi
+    * [ ] 6. update `downloads.md` with section for "Other resource downloads" with doc from item 1
+    * [ ] 7. update site
 
 * `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
 * `0.4.0.dev1` fixed `xl2roefact` CLI app version addressing
