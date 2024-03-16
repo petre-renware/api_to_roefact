@@ -90,7 +90,7 @@
     * [x] 4. build this package and publish on PyPi
     * archived locally (RLSE) package wheel & dist
     * [x] 5. update `xl2roefact README` to reflect that change
-    * [ ] ... 6. build all deliverables
+    * [x] 6. build all deliverables
     * [ ] x. update `downloads.md` with section for "Other resource downloads" with doc from item 1
     * [ ] x.. update site
     * cls this release in CHANGELOG & roll out to development
