@@ -183,7 +183,12 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
 # ----------------------------------------------------------
 # here start the code section where external data is get
 
-# get rules text from markdown
+
+# get & render rules text from markdown file
 rules_file = Path(os.path.dirname(__file__), "data/README_app_config_rules.md")
 rules_content = Markdown(rules_file.read_text())
+
+
+
+
 

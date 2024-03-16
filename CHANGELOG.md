@@ -59,7 +59,7 @@
 
 * wip...
 
-* wip... `0.4.0.dev3` xl2roefact include a data directory in package for various data files "built-in" package:
+* temp...suspended... `0.4.0.dev3` xl2roefact include a data directory in package for various data files "built-in" package:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
     * [x] 2 update `pyproject.toml` to include in package non python data files from `xl2roefact/data/` directory
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
@@ -80,14 +80,16 @@
     * [ ] n. build a new wheel package (#NOTE: ATTN TO VERSION)
     * [ ] n. ...
 
-* `0.4.0.dev2` externalize recommended rules for updating app setting rules
+
+* wip... `0.4.0.dev2` externalize recommended rules for updating app setting rules
     * [x] 1. created `xl2roefact/data/README_app_config_rules.md` containing the recommended rules for updating app setting rules
     * [x] 2. refer it in `config_settings.py` in its docstring section ==> exported `rules_content` that contain text
-    * [x] 3. update `app_cli.py` module to load them accordingly on `settings --rules` command + option
+    * [x] 3. update `pp_cli.py` module to load them accordingly on `settings --rules` command + option
     * [x] 4. build this package and publish on PyPi
-    * archived locally (RLSE) build package `0.4.0.dev2`
-    * [ ] 5. make a wrapper for invoice rules doc in `xl2roefact/doc/` & update `xl2roefact README` to reflect that change
-    * [ ] 6. update `downloads.md` with section for "Other resource downloads" with doc from item 1
+
+    * archived locally (RLSE) package wheel & dist
+    * [x] 5. update `xl2roefact README` to reflect that change
+    * [ ] ... 6. update `downloads.md` with section for "Other resource downloads" with doc from item 1
     * [ ] 7. update site
     * roll out to development this vrelease
 
