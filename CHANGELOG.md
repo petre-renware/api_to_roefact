@@ -82,10 +82,9 @@
 
 
 
-<!--TODO: to archive releases -->
 
-
-### `0.4.0.dev2` externalize recommended rules for updating app setting rules (240316 T12:00)
+-FIXME drop.this
+### 0.4.0.dev2 externalize recommended rules for updating app setting rules (240316 T12:00)
 
 * `0.4.0.dev2` externalize recommended rules for updating app setting rules
     * [x] 1. created `xl2roefact/data/README_app_config_rules.md` containing the recommended rules for updating app setting rules
