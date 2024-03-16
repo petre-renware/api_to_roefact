@@ -37,30 +37,22 @@
 ## 0.4
 
 
-### 0.4.0rc0 invoice supplier  <!--TODO:wip... (#NOTE: set_date_here...)-->
+### 0.4rc0 invoice supplier  <!--TODO: wip... / check version format --> <!-- (#NOTE: set_date_here...) -->
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 
 * tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to _`pre-set MSI build meta information`_ / parameters (obj: default target dir where install, path registration, icon, ...)
-* tbd Would... for site build, to get xl2roefact version from package (`xl2roefact.__version__`) use this in `mkdocs.yml` at plugins section ref `mkdocs-macros` plugin:
-   ```
-   macros:
-       modules: [pack:module-or-object]
-  ```
-  which will become: `from pack import module-or-object`
 
 * tbd.Must...code: `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
-* #TODO: tbd@IMP archive to RLSE all deliverables >= `0.4.0.dev2`
-* #TODO: before build all close all ...wip... in CHANGELOG 
 
 * wip...
 
-* TODO:nxt... `0.4.0.dev3` xl2roefact include a data directory in package for various data files "built-in" package:
+* TODO:nxt... `0.4.1.dev0` xl2roefact include a data directory in package for various data files "built-in" package:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
     * [x] 2 update `pyproject.toml` to include in package non python data files from `xl2roefact/data/` directory
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
@@ -68,13 +60,13 @@
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
     * [x] 5. updated `.../data/app_settings.yml` with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)
     * [ ] ... 6. update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
-        * update app version to `0.4.0.dev3`. Make a test what `normalized_version()` returns (run xl2roefact --version)
-        * update `.../data/app_settings.yml`, drop key ref to rules as now is an externalized file
-        * after YAML import data will be dict with all actual code variables as keywords
+        * update app version to `0.4.1.dev3`. Make a test what `normalized_version()` returns (run xl2roefact --version)
+        * drop key `README_rules` from `app_settings.yml`, ref to rules
+        * INFO-NOTE: after YAML import data will be dict with all actual code variables as keywords
         * keep all existing variables and read YAML file if exists and replace their content (avoid defaulting errors when file is not defined)
         * order to search and load for `app_config.yml`:
-            * (1) crt directory (with `cwd`)
-            * (2) package directory (with `__file__`)
+            * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
+            * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
             * (3) settings from `config_settings.py`
     * [ ] n. update downloads and include a template for `app_settings.yml` and specify in xl2roefact README
     * [ ] n. check if everything is ok when make EXE & MSI variants, meaning defaults the right data and process of Excel files is correct w/o errors
@@ -83,6 +75,15 @@
 
 
 
+
+
+
+
+
+
+
+
+<!--TODO: to archive releases -->
 
 
 ### `0.4.0.dev2` externalize recommended rules for updating app setting rules (240316 T12:00)
