@@ -79,11 +79,11 @@
     * [ ] n. ...
 
 * `0.4.0.dev2` externalize ecommended rules for updating app setting rules
-    * [x] 1. created `xl2roefact/doc/README_app_config_rules.md` containing the recommended rules for updating app setting rules
-    * [ ] 2. refer it in `config_settings.py` in its docstring section
-    * [ ] 3. update `app_cli.py` module to load them accordingly on `settings --rules` command + option
-    * [ ] 4. update `xl2roefact README` to reflect that change
-    * [ ] 5. build this package and publish on PyPi
+    * [x] 1. created `xl2roefact/data/README_app_config_rules.md` containing the recommended rules for updating app setting rules
+    * [x] 2. refer it in `config_settings.py` in its docstring section ==> exported `rules_content` that contain text
+    * [x] 3. update `app_cli.py` module to load them accordingly on `settings --rules` command + option
+    * [x] 4. build this package and publish on PyPi
+    * [ ] 5. update `xl2roefact README` to reflect that change
     * [ ] 6. update `downloads.md` with section for "Other resource downloads" with doc from item 1
     * [ ] 7. update site
 
