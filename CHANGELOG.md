@@ -70,6 +70,10 @@
         * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
         * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
         * (3) settings from `config_settings.py`
+    * INFO-NOTE: methods of updates variables:
+        * (1) using `locals().update(YAML_dict)`
+        * (2) using `exec(YAML_dict["key")` by looping YAML resulted dictionary
+        * regardless of method check the propagation running `xl2roefact settings` which is a demo of using values external to config_settings module
 * `2403piu-app-data-dir` actions:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
     * [x] 2 update `pyproject.toml` to include in package non python data files from `xl2roefact/data/` directory
