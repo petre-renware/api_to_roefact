@@ -117,10 +117,7 @@
 ## 0.4 version
 </summary>
 
-* [0.4.0.dev2 externalize recommended rules for updating app setting rules (240316 T12:00)](
-./changelog_history/CHANGELOG-0.4.0.dev2.m
-)
-
+* [0.4.0.dev2 externalize recommended rules for updating app setting rules (240316 T12:00)](./changelog_history/CHANGELOG-0.4.0.dev2.md)
 </details>
 
 
