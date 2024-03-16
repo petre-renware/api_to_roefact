@@ -62,7 +62,7 @@
 * ...tbd... check if everything is ok when make EXE & MSI variants, meaning defaults the right data and process of Excel files is correct w/o errors
 * ...tbd.. build a new wheel package (#NOTE: ATTN TO VERSION)
 * ...wip... `2403piu-config-code` update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
-    * [ ] 1. update app version to `0.4.1.dev0`. Make a test what `normalized_version()` returns (run xl2roefact --version)
+    * [x] 1. update app version to `0.4.1.dev0`. Make a test what `normalized_version()` returns (run xl2roefact --version)
     * [ ] 2. drop key `README_rules` from `app_settings.yml`, ref to rules
     * INFO-NOTE: after YAML import data will be dict with all actual code variables as keywords
     * [ ] 3. keep all existing variables and read YAML file if exists and replace their content (avoid defaulting errors when file is not defined)
