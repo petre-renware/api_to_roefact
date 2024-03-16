@@ -202,7 +202,6 @@ INFO-NOTE: methods of updates variables:
 '''
 
 # order method (1)
-'''
 config_file = Path(os.getcwd(), "app_settings.yml")
 ok_to_use = config_file.exists() and config_file.is_file()
 if ok_to_use:
@@ -210,12 +209,8 @@ if ok_to_use:
     python_object = yaml.safe_load(yaml_in)
 print(f"*********** after method (1) {ok_to_use=}. The YAML read content & rendered as Python object")  #FIXME dbg drop me
 pprint(python_object)  #FIXME dbg drop me
-'''
-
-
 
 # order method (2)
-'''
 config_file = Path(os.path.dirname(__file__), "data/app_settings.yml")
 ok_to_use = config_file.exists() and config_file.is_file()
 if ok_to_use:
@@ -223,7 +218,7 @@ if ok_to_use:
     python_object = yaml.safe_load(yaml_in)
 print(f"*********** after method (2) {ok_to_use=}. The YAML read content & rendered as Python object")  #FIXME dbg drop me
 pprint(python_object)  #FIXME dbg drop me
-'''
+
 
 
 
