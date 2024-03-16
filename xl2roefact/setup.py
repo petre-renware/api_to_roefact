@@ -71,7 +71,7 @@ scripts_definition = ['scripts/xmlproc_parse', 'scripts/xmlproc_val']
 setup(
     options = {"build_exe": build_options},
     #FIXME.drop.me.after.`0.4.0.dev2` version = ver.__version__,
-    version = normalized_version()
+    version = normalized_version(),
     executables = executables,
     # bdist_msi_options = bdist_msi_options_definition,  # NOTE: pct.1*) ref `bdist_msi_options`  
     # entry_points = entry_points_definition,  # NOTE: pct.2*)
