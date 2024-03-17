@@ -17,7 +17,13 @@ from cx_Freeze import setup, Executable
 
 
 # Dependencies are automatically detected, but it might need fine tuning
-build_options = {"packages": [], "excludes": []}
+build_options = {
+    "packages": [],
+    "include_files": [
+        ("xl2roefact/data/app_settings.yml", "xl2roefact/data/app_settings.yml")
+    ],
+    "excludes": [],
+}
 
 base = "console"
 
