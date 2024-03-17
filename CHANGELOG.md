@@ -64,7 +64,7 @@
 * ... update xl2roefact README ref how configure app. Refer a model of configuration in downloads.md 
 * ... update downloads.md and include a template for `app_settings.yml` and refer it in xl2roefact README
 
-* ...wip... `2403piu-config-code` update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
+* `2403piu-config-code` update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
     * [x] 1. update app version to `0.4.1.dev0`. Make a test what `normalized_version()` returns (run xl2roefact --version)
     * [x] 2. update key `README_rules` from `app_settings.yml`, set it to point to markdown file containing rules list (`xl2roefact/xl2roefact/data/README_app_config_rules.md`)
     * INFO-NOTE: after YAML import data will be dict with all actual code variables as keywords
@@ -81,8 +81,7 @@
     * [x] 5. clean code & test YAML settings files from `xl2roefact/`
     * [x] 6. if read YAML was got some values then set as `local()` variables (not dictionary)
     * [x] 7. updated `xl2roefact/setup.py` to include `data/app_settings.yml` file
-    * [ ] ... build all: upd version (2 version files + mkdocs.yml) & pdm run build_all
-
+    * [x] build all: upd version (2 version files + mkdocs.yml) & pdm run build_all
 * `2403piu-app-data-dir` actions:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
     * [x] 2 update `pyproject.toml` to include in package non python data files from `xl2roefact/data/` directory
