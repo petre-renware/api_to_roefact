@@ -171,7 +171,7 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 **Numele fisierelui este obligatoriu a fi respectat.**
 
 !!! info "Fisiere de configurare multiple"
-    De retinut ca acest fisier este considerat ()daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.
+    De retinut ca acest fisier este considerat (daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.
 
 !!! tip "Sablon de fisier"
     Urmarind [acest link puteti descarca un sablon de fisier de configurare](./../xl2roefact/xl2roefact/data/app_settings.yml "download").
