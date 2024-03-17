@@ -85,7 +85,9 @@ data = [{path = "data/*", relative-to = "data/"}]  # installed under `data/...` 
 
 [tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
 build_wheel = { shell = "pdm build --no-clean" }  # build python packages (wheel & sdist) in `dist/` directory
+
 build_msi = { shell = "python setup.py bdist_msi" }  # build MSI pachkage in `dist/` directory
+
 build_sexe = { cmd = [
     "pyinstaller",
     "--distpath=dist_sexe/",             # folder where to write deliverables
@@ -96,7 +98,9 @@ build_sexe = { cmd = [
     "xl2roefact_copy_for_sexe.py",  # use the copy to original xl2roefact.py just to have other name than directory containing used library (pyinstaller constraint)
 ] } # build portable single EXE file
 post_build_sexe = { call = "xl2roefact.libutils:complete_sexe_file" }  # process resulted exe to normalise its name and move to `.../dist/`
+
 build_doc = { shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md" }  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
+
 build_all = { composite = [
     "build_wheel",
     "build_msi",
@@ -104,14 +108,17 @@ build_all = { composite = [
     "build_doc",
 ] } # build all packages (MSI, python package wheel, python package sdist, design doc)
 xl2roefact = { shell = "python -m xl2roefact" } # run `xl2roefact` as python module
+
+pre_pypi_publish = { shell = "mkdir tmp_dist_files; mv ./dist/* ./tmp_dist_files/" }  # prepare dist/ directory letting it empty but saving files
 pypi_publish = { composite = [
-    #    {shell = "mkdir tmp_dist_files"},
-    #    {shell = "mv ./dist/* ./tmp_dist_files/"},
+    #*    {shell = "mkdir tmp_dist_files"},
+    #*    {shell = "mv ./dist/* ./tmp_dist_files/"},
     #    "build_wheel",
     #    "pdm publish --no-build --username __token__ --password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw",
     #    {shell = "mv ./tmp_dist_files/* ./dist/"},
     #    {shell = "rm -r ./tmp_dist_files"}
 ] } # publish xl2roefact package on PyPi
+post_pypi_publish = { shell = ... }
 #FIXME: @240308 07:35 `[TypeError]: expected string or bytes-like object` ...
 #FIXME ... most probably because in composite action expect str in list not dicts (with shell cmd) ...
 #FIXME ... PROPOSAL: a good option is to exec commands as python: `python -c os.mkdir ...as.idea...`
