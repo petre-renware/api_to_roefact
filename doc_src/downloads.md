@@ -89,7 +89,7 @@ Nici o resursa disponibila.
 
 
 ??? note "0.4"
-    * [`0.4.1.dev0` xl2roefact include a data directory in package](xl2roefact-0.4.1.dev0-win64.msi "download")
+    * [`0.4.1.dev0` xl2roefact include a data directory in package](../xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.msi "download")
     * [`0.4.0.dev2` externalize recommended rules for updating app setting rules](../xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.msi "download")
 
 
@@ -116,7 +116,7 @@ Nici o resursa disponibila.
 ### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)
 
 ??? note "0.4"
-    * [`0.4.1.dev0` xl2roefact include a data directory in package](xl2roefact-0.4.1.dev0-win64.exe "download")
+    * [`0.4.1.dev0` xl2roefact include a data directory in package](../xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.exe "download")
     * [`0.4.0.dev2` externalize recommended rules for updating app setting rules](../xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.exe "download")
 
 
