@@ -62,8 +62,13 @@
 * ... publish on PyPi
 * ... cls CHANGELOG, build site & publish
 * ... update xl2roefact README ref how configure app. Refer a model of configuration in downloads.md 
-* ... update downloads.md and include a template for `app_settings.yml` and refer it in xl2roefact README
 
+* wip... `240317piu01` update downloads.md:
+    * |x] 1. include a template for `app_settings.yml` => Created dedicated section which can be referred as `.../downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact`
+    * | ] 2. refer it in xl2roefact README
+    * [ ] 3. include `0.4.1.dev` WHEEL & DIST references
+    * [ ] 4. include `0.4.1.dev` sEXE reference
+    * [ ] 5.  include `0.4.1.dev` MSI reference
 * `2403piu-config-code` update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
     * [x] 1. update app version to `0.4.1.dev0`. Make a test what `normalized_version()` returns (run xl2roefact --version)
     * [x] 2. update key `README_rules` from `app_settings.yml`, set it to point to markdown file containing rules list (`xl2roefact/xl2roefact/data/README_app_config_rules.md`)
