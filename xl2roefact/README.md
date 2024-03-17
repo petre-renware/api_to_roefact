@@ -10,13 +10,9 @@
 
 ## Facilitati
 
-![Static Badge](https://img.shields.io/badge/MSI_installer-YES-blue)
-![Static Badge](https://img.shields.io/badge/standlone_EXE-YES-blue)
+![Static Badge](https://img.shields.io/badge/MSI_installer-YES-blue) ![Static Badge](https://img.shields.io/badge/standlone_EXE-YES-blue)
 
-![Static Badge](https://img.shields.io/badge/format_JSON-YES-orange)
-![Static Badge](https://img.shields.io/badge/format_XML-YES-orange)
-![Static Badge](https://img.shields.io/badge/format_PDF-YES-orange)
-![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-red)
+![Static Badge](https://img.shields.io/badge/format_JSON-YES-orange) ![Static Badge](https://img.shields.io/badge/format_XML-YES-orange) ![Static Badge](https://img.shields.io/badge/format_PDF-YES-orange) ![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-red)
 
 
 
@@ -66,7 +62,7 @@ Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si s
 
 ## Configurarea aplicatiei xl2roefact
 
-Parametrii de configurare a plicatiei se gasesc in fisierul *`config_settings.py`*. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
+Parametrii de configurare aplicatiei se gasesc in fisierul *`config_settings.py`*. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
 
 <!--#TODO: prev paragraph to replace new config method by using `app_settings.yml` in current directory -->
 
@@ -79,6 +75,23 @@ Configurarile existente si regulile recomandate in configurarea aplicatiei se af
 ```bash
 xl2roefact settings --rules
 ```
+
+
+### Configurarea din fisier extern
+<!--  --Sablon fisier configurare a aplicatiei xl2roefact -->
+
+Configurarea aplicatuiei se poate face si prin intermediul unui fisier extern numit "*sablon de configurare*" (*en: configuration template*). Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.
+
+Sablonul este in format [YAML](https://yaml.org/) iar informatiile ce trebuiesc descrise sunt explicate individual in comentarii insotitoare.
+De asemenea este util a fi citite si recomandarile date in pagina de descriere a aplicatiei.
+
+Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un fisier **`app_settings.yml`** in directorul curent din care lansati aplicatia, fisier ce contine noile configurari dorite.
+**Numele fisierelui este obligatoriu a fi respectat.**
+
+!!! info "Fisiere de configurare multiple"
+    De retinut ca acest fisier este considerat (daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.
+
+>[Aici puteti gasiti pentru descarcare un model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact).
 
 
 
@@ -227,8 +240,9 @@ Cheile de la primul nivel contin:
 
 ## Descarcare (download) aplicatie xl2roefact CLI
 
-* [Pachet instalare aplicatie Windows](../doc_src/downloads.md#format-msi-instalare-windows-x64)
+* [Pachet instalare aplicatie Windows](../doc_src/downloads.md#format-executabil-windows-x64)
 * [Pachet instalare script Python](../doc_src/downloads.md#format-biblioteca-python)
+* [Model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact)
 
 
 
