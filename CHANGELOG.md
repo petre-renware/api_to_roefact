@@ -59,6 +59,7 @@
 ### wip... `0.4.1.dev0` xl2roefact include a data directory in package for various data files "built-in" package
 
 * ... merge to development branch
+* ... publish on PyPi
 * ... cls CHANGELOG, build site & publish
 * ... update xl2roefact README ref how configure app. Refer a model of configuration in downloads.md 
 * ... update downloads.md and include a template for `app_settings.yml` and refer it in xl2roefact README
