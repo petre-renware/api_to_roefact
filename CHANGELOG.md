@@ -64,7 +64,7 @@
 * ... update xl2roefact README ref how configure app. Refer a model of configuration in downloads.md 
 
 * wip... `240317piu01` update downloads.md:
-    * | ] 1. include a template for `app_settings.yml`
+    * |x] 1. include a template for `app_settings.yml` => Created dedicated section which can be referred as `.../downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact`
     * | ] 2. refer it in xl2roefact README
     * [ ] 3. include `0.4.1.dev` WHEEL & DIST references
     * [ ] 4. include `0.4.1.dev` sEXE reference
