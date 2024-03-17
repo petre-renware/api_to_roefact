@@ -1,18 +1,13 @@
 #
-#
-# IMPORTANT NOTE piy@230315:
-# ===============
-#
-# This file is just a proposal to be used. The mai `config_settings.py` is not up dated to read data from here.
-# Be aware of any updates in this file because they will not be considered in application running.
-#
+# Fisier de configurare a aplicatiei xl2roefact.
+# 
+# Copyright (c) 2024 RENware Software Systems
+# Author: Petre Iordanescu, petre.iordanescu@gmail.com
 #
 
 
 
 README_rules: "README_app_config_rules.md"
-
-
 
 #--------------------------------------------------------------------------------------------------------------------------
 # NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
