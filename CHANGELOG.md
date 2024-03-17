@@ -60,8 +60,7 @@
 
 * ... merge to development branch
 * ... publish on PyPi
-* ... cls CHANGELOG, build site & publish
-* ... update xl2roefact README ref how configure app. Refer a model of configuration in downloads.md
+* ... cls CHANGELOG, build site + publish
 
 * `240317piu01` update downloads.md:
     * [x] 1. include a template for `app_settings.yml` => Created dedicated section which can be referred as `.../downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact`
