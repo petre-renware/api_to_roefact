@@ -111,18 +111,8 @@ build_all = { composite = [
 xl2roefact = { shell = "python -m xl2roefact" } # run `xl2roefact` as python module
 
 pre_pypi_publish = { shell = "mkdir tmp_dist_files; mv ./dist/* ./tmp_dist_files/" }  # prepare dist/ directory letting it empty but saving files
-pypi_publish = { composite = [
-    #*    {shell = "mkdir tmp_dist_files"},
-    #*    {shell = "mv ./dist/* ./tmp_dist_files/"},
-    #    "build_wheel",
-    #    "pdm publish --no-build --username __token__ --password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw",
-    #    {shell = "mv ./tmp_dist_files/* ./dist/"},
-    #    {shell = "rm -r ./tmp_dist_files"}
-] } # publish xl2roefact package on PyPi
-post_pypi_publish = { shell = ... }
-#FIXME: @240308 07:35 `[TypeError]: expected string or bytes-like object` ...
-#FIXME ... most probably because in composite action expect str in list not dicts (with shell cmd) ...
-#FIXME ... PROPOSAL: a good option is to exec commands as python: `python -c os.mkdir ...as.idea...`
+pypi_publish = { shell = "pdm publish --username __token__ --password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw" } # publish xl2roefact package on PyPi
+post_pypi_publish = { shell = mv ./tmp_dist_files/* ./dist/; rm -r ./tmp_dist_files }
 
 
 [tool.pdm.dev-dependencies] # dependencies used only in develeopment and not transfered in Pythn package building
