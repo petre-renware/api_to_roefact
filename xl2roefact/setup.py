@@ -34,14 +34,14 @@ executables = [
 #    -3) optional to have icon, copyright , license ...
 '''
 bdist_msi_options_definition = {
-    "data": {
-        "ProgId": [
-            ("Prog.Id", None, None, "This is a description", "IconId", None),
-        ],
-        "Icon": [
-            ("IconId", "icon.ico"),
-        ],
-    },
+#    "data": {
+#        "ProgId": [
+#            ("Prog.Id", None, None, "This is a description", "IconId", None),
+#        ],
+#        "Icon": [
+#            ("IconId", "icon.ico"),
+#        ],
+#    },
 }
 '''
 
