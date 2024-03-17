@@ -107,6 +107,7 @@ build_all = { composite = [
     "build_sexe",
     "build_doc",
 ] } # build all packages (MSI, python package wheel, python package sdist, design doc)
+
 xl2roefact = { shell = "python -m xl2roefact" } # run `xl2roefact` as python module
 
 pre_pypi_publish = { shell = "mkdir tmp_dist_files; mv ./dist/* ./tmp_dist_files/" }  # prepare dist/ directory letting it empty but saving files
