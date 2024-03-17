@@ -71,7 +71,7 @@ setup(
     options = {"build_exe": build_options},
     version = str(normalized_version()),
     executables = executables,
-    bdist_msi_options = bdist_msi_options_definition,  # NOTE: pct.1*) ref `bdist_msi_options`  
+    # bdist_msi_options = bdist_msi_options_definition,  # NOTE: pct.1*) ref `bdist_msi_options`  
     # entry_points = entry_points_definition,  # NOTE: pct.2*)
     # scripts = scripts_definition  # NOTE pct.3*)
 )
