@@ -95,7 +95,7 @@ build_sexe = { cmd = [
     "--log-level=WARN",
     "--onefile",                         # Create a one-file bundled executable
     "--noconfirm",                       # Replace output directory without asking confirmation
-    "xl2roefact_copy_for_sexe.py",  # use the copy to original xl2roefact.py just to have other name than directory containing used library (pyinstaller constraint)
+    "xl2roefact_copy_for_sexe.py",       # use the copy of original xl2roefact.py just to have other name than directory containing used library (pyinstaller constraint)
 ] } # build portable single EXE file
 post_build_sexe = { call = "xl2roefact.libutils:complete_sexe_file" }  # process resulted exe to normalise its name and move to `.../dist/`
 
@@ -111,7 +111,12 @@ build_all = { composite = [
 xl2roefact = { shell = "python -m xl2roefact" } # run `xl2roefact` as python module
 
 pre_pypi_publish = { shell = "mkdir tmp_dist_files; mv ./dist/* ./tmp_dist_files/" }  # prepare dist/ directory letting it empty but saving files
-pypi_publish = { shell = "pdm publish --username __token__ --password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw" } # publish xl2roefact package on PyPi
+pypi_publish = { cmd = [
+    "pdm",
+    "publish",
+    "--username __token__",
+    "--password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw",
+] } # publish xl2roefact package on PyPi
 post_pypi_publish = { shell = mv ./tmp_dist_files/* ./dist/; rm -r ./tmp_dist_files }
 
 
