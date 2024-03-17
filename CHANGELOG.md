@@ -80,7 +80,7 @@
     * [x] 4. apply reading order
     * [x] 5. clean code & test YAML settings files from `xl2roefact/`
     * [x] 6. if read YAML was got some values then set as `local()` variables (not dictionary)
-    * [ ] ... check if needs more settings in `xl2roefact/setup.py` for EXE & MSI
+    * [x] 7. updated `xl2roefact/setup.py` to include `data/app_settings.yml` file
     * [ ] ... build all: upd version (2 version files + mkdocs.yml) & pdm run build_all
 
 * `2403piu-app-data-dir` actions:
