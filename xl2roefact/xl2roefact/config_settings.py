@@ -160,18 +160,6 @@ PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [
 ]
 
 ...  #TODO: alte patternuri comune partner: RegCom, IBAN, Banca
-
-
-
-
-
-
-
-
-
-# FIXME: in factura Petrom nu ai nici ref furnizor nici client, ci ai numele firmelor lor, dar ai C.U.I.  #FIXME tried something @line 110...
-# FIXME: ci alte texte COMPLET "OUT-OF-UDERSTANDING" chiar si pentru humans !
-# TODO: decide something, most probably set this kind of issue in documentation section for: "RULES FOR INVOICE data in Excel"
 # --- furnizor (supplier)
 # pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
@@ -207,8 +195,6 @@ else:
     * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
     * (3) settings from `config_settings.py`
 '''
-python_object = None  # suppose no info found
-
 # order method (1) - method apply for all application types
 config_file = Path(
     crt_dir, "app_settings.yml"
