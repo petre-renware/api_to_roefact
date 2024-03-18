@@ -33,7 +33,7 @@
 
 
 
-<!-- NOTE: set to 0.5... because invoice supplier is a functional change ...
+
 ## 0.5
 
 ### TODO:plan 0.5rc0 invoice supplier  (...date_here...)
@@ -48,14 +48,19 @@
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
+* ... `240318.piu.01` site readability improvements:
+    * [ ] 1. main project README drop `TOC` statement
+    * [ ] x. ...
+
+
+
+
+
+
+<!--#TODO: subject to archive.
+    When do it see if add to archived CHANGELOG the "antet"
+    section ref components version
 -->
-
-
-
-
-
-
-
 
 ## 0.4
 
