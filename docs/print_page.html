@@ -1386,21 +1386,24 @@
 </li>
 </ul>
 </div>
-<p>Acest sistem va asigura incarcarea facturilor emise in sistemul <a href="https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura">ANAF E-Factura</a>.</p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.4.1.dev0-blue" /></p>
+<p><strong>Facturi emise in Excel</strong>, problema rezolvata cu <strong>INVOICEtoROefact</strong> !</p>
+<p>Emiteti si folositi in continuare facturi in Excel. Acest sistem va produce fisierul XML de care aveti nevoie pentru sistemul <a href="https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura">ANAF E-Factura</a>.</p>
+<p>Si mai mult, daca aveti nevoie, puteti Integra aceste facturi si alte sisteme externe prin metode moderne, uzuale, curente, incetatenite de ani de zile si binecunoscute de specialistii din IT.</p>
 <h2 id="index-componentele-si-facilitatile-sistemului">Componentele si facilitatile sistemului</h2>
-<p>Sistemul <strong>INVOICEtoROefact 0.3.2b0</strong> ofera urmatoarele componente:</p>
+<p>Sistemul <strong>INVOICEtoROefact</strong> ofera urmatoarele componente:</p>
 <ul>
 <li>
-<p><strong><a href="#xl2roefact-index">xl2roefact</a></strong> 0.3.1b1 - procesarea facturilor in mod linie de comanda</p>
+<p><strong><a href="#xl2roefact-index">xl2roefact</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.4.1.dev0-blue" /> - procesarea facturilor in mod linie de comanda</p>
 </li>
 <li>
-<p><strong>web2roefact</strong> n/a - procesarea facturilor din interfara web  <!--#TODO link tbd --></p>
+<p><strong>web2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-n/a-blue" /> - procesarea facturilor din interfara web  <!--#TODO link tbd --></p>
 </li>
 <li>
-<p><strong><a href="#xl2roefact-doc-readme_xl2roefact_library">xl2roefact python library</a></strong> 0.3.1b1 - procesarea facturilor prin cod / program (development propriu)</p>
+<p><strong><a href="#xl2roefact-doc-readme_xl2roefact_library">xl2roefact python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.4.1.dev0-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
 </li>
 <li>
-<p><strong><a href="#excel_invoice_template-index">invoice template</a></strong> 0.1.20 - model / sablon factura in Excel</p>
+<p><strong><a href="#excel_invoice_template-index">invoice template</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.1.20-blue" /> - model / sablon factura in Excel</p>
 </li>
 </ul>
 <p><a href="#doc_src-810-dsgn-810.05a-system_components">Descrierea tuturor acestora poate fi accessata aici</a>.</p>
@@ -1438,16 +1441,16 @@
 <p>Sistemul ofera urmatoarele componente:</p>
 <ul>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></strong>  0.3.1b1 - procesarea facturilor in mod linie de comanda</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></strong>  <img alt="Static Badge" src="https://img.shields.io/badge/version-0.4.1.dev0-blue" /> - procesarea facturilor in mod linie de comanda</p>
 </li>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></strong> 0.3.1b1 - procesarea facturilor prin cod / program (development propriu)</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.4.1.dev0-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
 </li>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-web2roefact">web2roefact</a></strong> n/a - procesarea facturilor din interfara web</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-web2roefact">web2roefact</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-n/a-blue" /> - procesarea facturilor din interfara web</p>
 </li>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-invoice-template">invoice template</a></strong> 0.1.20- model / sablon factura in Excel</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-invoice-template">invoice template</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.1.20-blue" />- model / sablon factura in Excel</p>
 </li>
 </ul>
 <p>Facilitatile generale ale fiecareia din acestea sunt prezentate in continuare.</p>
@@ -1594,17 +1597,13 @@
                         <section class="print-page" id="xl2roefact-index"><p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact-index-xl2roefact">xl2roefact</h1>
 <ul>
-<li>Pentru accesul la toate link-urile din acest document vizitati <a href="https://invoicetoroefact.renware.eu/"><strong>site-ul dedicat</strong></a> acestui sistem.</li>
-<li><a href="https://pypi.org/project/xl2roefact/">Pachetul pe <em>PyPi</em></a></li>
-<li><a href="https://github.com/petre-renware/api_to_roefact/xl2roefact/">Pachetul pe <em>GitHub</em></a></li>
+<li><a href="https://invoicetoroefact.renware.eu/"><strong>Site dedicat INVOICEtoROefact</strong></a>. Pentru accesul la toate link-urile din acest document vizitati site-ul dedicat acestui sistem.</li>
+<li><a href="https://pypi.org/project/xl2roefact/">Pachet pe <em>PyPi</em></a></li>
+<li><a href="https://github.com/petre-renware/api_to_roefact/">Pachet pe <em>GitHub</em></a></li>
 </ul>
 <h2 id="xl2roefact-index-facilitati">Facilitati</h2>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/MSI_installer-YES-blue" />
-<img alt="Static Badge" src="https://img.shields.io/badge/standlone_EXE-YES-blue" /></p>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/format_JSON-YES-orange" />
-<img alt="Static Badge" src="https://img.shields.io/badge/format_XML-YES-orange" />
-<img alt="Static Badge" src="https://img.shields.io/badge/format_PDF-YES-orange" />
-<img alt="Static Badge" src="https://img.shields.io/badge/format_RO_eFact-YES-red" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/MSI_installer-YES-blue" /> <img alt="Static Badge" src="https://img.shields.io/badge/standlone_EXE-YES-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/format_JSON-YES-orange" /> <img alt="Static Badge" src="https://img.shields.io/badge/format_XML-YES-orange" /> <img alt="Static Badge" src="https://img.shields.io/badge/format_PDF-YES-orange" /> <img alt="Static Badge" src="https://img.shields.io/badge/format_RO_eFact-YES-red" /></p>
 <p>Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si o poate incarca in sistemul <em>RO E-Fact</em><sup id="fnref:ld_roefact"><a class="footnote-ref" href="#xl2roefact-index-fn:ld_roefact">1</a></sup>.</p>
 <p>Aceasta componenta ofera urmatoarele facilitati (acestea fiind obiectivele fundamentale ale componentei):</p>
 <ul>
@@ -1644,10 +1643,39 @@ Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si s
 <p><em>NOTA 2:</em> pachetul <code>MSI</code> pentru <em>Windows</em> este disponibil in orice variante / versiuni al sistemului. Optiunile pentru <em>Linux</em> sunt mult mai flexibile si astfel celelalte pot lipsi insa pot fi disponibile graruit, la cerere.</p>
 </blockquote>
 <h2 id="xl2roefact-index-configurarea-aplicatiei-xl2roefact">Configurarea aplicatiei xl2roefact</h2>
-<p>Parametrii de configurare a plicatiei se gasesc in fisierul <em><code>config_settings.py</code></em>. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.</p>
+<p>Parametrii de configurare aplicatiei se gasesc in fisierul <em><code>config_settings.py</code></em>. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.</p>
+<!--#TODO: prev paragraph to replace new config method by using `app_settings.yml` in current directory -->
+
 <p>Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtine help referitor la detaliile comenzi se va folosi
 <div class="highlight"><pre><span></span><code>xl2roefact<span class="w"> </span>settings<span class="w"> </span>--help
 </code></pre></div></p>
+<p>Configurarile existente si regulile recomandate in configurarea aplicatiei se afiseaza folosind comanda:
+<div class="highlight"><pre><span></span><code>xl2roefact<span class="w"> </span>settings<span class="w"> </span>--rules
+</code></pre></div></p>
+<h3 id="xl2roefact-index-configurarea-din-fisier-extern">Configurarea din fisier extern</h3>
+<!--  --Sablon fisier configurare a aplicatiei xl2roefact -->
+
+<p>Configurarea aplicatuiei se poate face si prin intermediul unui fisier extern numit "<em>sablon de configurare</em>" (<em>en: configuration template</em>). Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.</p>
+<p>Sablonul este in format <a href="https://yaml.org/">YAML</a> iar informatiile ce trebuiesc descrise sunt explicate individual in comentarii insotitoare.
+De asemenea este util a fi citite si recomandarile date in pagina de descriere a aplicatiei.</p>
+<p>Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un fisier <strong><code>app_settings.yml</code></strong> in directorul curent din care lansati aplicatia, fisier ce contine noile configurari dorite.
+<strong>Numele fisierelui este obligatoriu a fi respectat.</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Fisiere de configurare multiple</p>
+<p>De retinut ca acest fisier este considerat (daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.</p>
+</div>
+<p><strong>Fisier de configurare global</strong></p>
+<div class="admonition info">
+<p>In conditiile folosirii kitului MSI pentru o instalare locala a aplicatiei (cu utilizari multiple si repetate) si in situatia in care se doreste schimbarea configurarii implicite a aplicatiei se vor urma acesti pasi:</p>
+<ul>
+<li>in directorul de instalare a aplicatiei se va crea daca nu exita directorul <code>data/</code></li>
+<li>in acest director se va crea un fisier <code>app_settings.yml</code> cu configurarea globala dorita</li>
+</ul>
+<p>Aceasta configurare inlocuieste configurarea implicita si se va aplica global in utilizarea aplicatiei. In continuare configurarile existente in directorul curent <em>suprascriu configurarea globala</em> (se aplica cu precedenta).</p>
+</div>
+<blockquote>
+<p><a href="#doc_src-downloads-sablon-fisier-configurare-a-aplicatiei-xl2roefact">Aici puteti gasiti pentru descarcare un model de sablon de configuare</a>.</p>
+</blockquote>
 <h2 id="xl2roefact-index-comenzile-aplicatiei">Comenzile aplicatiei</h2>
 <p>Interfata aplicatie este realizata utilizind conventiile si practicile uzuale pentru aplicatii tip linie de comanda consola. Pentru informatii privind comenzile se poate folosi optiunea de <strong>help</strong>, dispobilia atit la nivelul general:
 <div class="highlight"><pre><span></span><code>xl2roefact<span class="w"> </span>--help
@@ -1726,6 +1754,27 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>alta este valoarea afisata (cu 2 zecimale) - aceasta din urma trebuie obtinuta prin formatarea celulei respective de a afisa 2 zecimale prin rotunjire insa valoarea efectiva trebuie sa fie cea originala cu 3 zecimale, lucru (diferenta) care se poate vedea la editarea continutului celulei.</li>
 </ul>
 </blockquote>
+<h3 id="xl2roefact-index-reguli-recomamdate-in-configurarea-aplicatiei-pe-specificul-excel-al-facturilor-dumneavoastra">Reguli recomamdate in configurarea aplicatiei pe specificul Excel al facturilor dumneavoastra</h3>
+<p><strong>Reguli recomandate pentru adaptarea aplicatiei la modelul dvs de factura in Excel:</strong></p>
+<ul>
+<li>fiecare parametru are un hep scurt (liniile ce incep cu caracterul <code>#</code>) - citi-l inainte de a modifica uun parametru</li>
+<li>nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (<code>=</code>)</li>
+<li>listele sunt incluse intre paranteze drepte (<code>[...]</code>) si elementele lor sunt separate prin caracterul virgula (<code>,</code>)</li>
+<li>sirurile de caractere sunt incluse intre ghilimele (caracterul <code>"</code>)</li>
+<li>daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune pentru acea lista) doar lasati acel parametru cu valoarea <code>[]</code> - nu stergeti in nici un caz acel parametru</li>
+<li>nu adaugati parametrii suplimentari (altii decit cei specificati aici), acestia nu vor fi utilizati fara a modifica aplicatia (de asemenea riscati sa induceti erori in cod)</li>
+<li>pentru datele calendaristice in celulul Excel a se utiliza formatul standard de data (<code>date</code>) si modificati formatul de afisare in formatul dorit pe factura tiparibila</li>
+</ul>
+<p><strong><em>(en-us) Recommended rules to configure the application to your Excel invoice model:</em></strong></p>
+<ul>
+<li>each parameter has a short help (lines starting with <code>#</code> character) - read it before changing that parameter</li>
+<li>do not change parametrs name as specified before equal (<code>=</code>) sign</li>
+<li>lists are enclosed in sqaured brackets (<code>[...]</code>) and items are separated by comma character (<code>,</code>)</li>
+<li>strings are enclosed in <code>"</code> characters</li>
+<li>if you want to clear a list (for example you do not wants any options inside) just let it as <code>&lt;PARAMETR NAME&gt; = []</code> - do not drop that parameter</li>
+<li>do not add supplementary parameters, they will not be used without software changes (also risk to induce potential errors)</li>
+<li>for calendaristic dates Excel cells use <code>date</code> format and change it as display option to show wanted format</li>
+</ul>
 <h2 id="xl2roefact-index-tutorial-utilizare-aplicatie">Tutorial utilizare aplicatie</h2>
 <h3 id="xl2roefact-index-organizarea-informatiei">Organizarea informatiei</h3>
 <p>Aplicatia <em>xl2roefact</em> "promoveaza" structurarea informatiei procesate astfel incit sa fie evitata situatia <em>"de aglomerare" a directorului curent cu fisiere</em> ce trebuiesc identificate si izolate in situatia in care se fac <em>procesari in masa</em> (pe mai multe fisiere / facturi sursa).</p>
@@ -1796,8 +1845,9 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><small markdown="1">Pentru detalii suplimentare despre formatul JSON trebyie consultata componenta referitoare la <strong><em><a href="#xl2roefact-doc-readme_xl2roefact_library">biblioteca <code>xl2roefact</code> destinata dezvoltarii software</a></em></strong>.</small></p>
 <h2 id="xl2roefact-index-descarcare-download-aplicatie-xl2roefact-cli">Descarcare (download) aplicatie xl2roefact CLI</h2>
 <ul>
-<li><a href="#doc_src-downloads-format-msi-instalare-windows-x64">Pachet instalare aplicatie Windows</a></li>
+<li><a href="#doc_src-downloads-format-executabil-windows-x64">Pachet instalare aplicatie Windows</a></li>
 <li><a href="#doc_src-downloads-format-biblioteca-python">Pachet instalare script Python</a></li>
+<li><a href="#doc_src-downloads-sablon-fisier-configurare-a-aplicatiei-xl2roefact">Model de sablon de configuare</a></li>
 </ul>
 <h2 id="xl2roefact-index-date-identificare">Date identificare</h2>
 <ul>
@@ -1976,12 +2026,16 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 </li>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-wrxml">wrxml</a></li>
-<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__init__">__init__</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__init__">__init__</a><ul>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version__">__version__</a></li>
+</ul>
+</li>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__main__">__main__</a></li>
-<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version__">__version__</a><ul>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version___1">__version__</a><ul>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-normalized_version">normalized_version</a></li>
 </ul>
 </li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-data">data</a></li>
 </ul>
 </div>
 <p><a id="app_cli"></a></p>
@@ -2093,26 +2147,14 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 <p><a id="config_settings"></a></p>
 <h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-config_settings">config_settings</h1>
-<p>Configuration and setting parameters.  <!-- <code>TODO</code> all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel") --></p>
-<p>(en-us) README before making changes:</p>
+<p>Configuration and setting parameters.</p>
+<p>Regulile recomandate se gasessc in documentul <a href="#xl2roefact-doc-readme_app_config_rules.md"><code>doc/README_app_config_rules.md</code></a></p>
+<p>Public objects:</p>
+<pre><code>rules_content: contains the rules text (rendered)
+</code></pre>
 <ul>
-<li>each parameter has a short help (lines starting with <code>#</code> character) - read it before changing that parameter</li>
-<li>do not change parametrs name as specified before equal (<code>=</code>) sign</li>
-<li>lists are enclosed in sqaured brackets (<code>[...]</code>) and items are separated by comma character (<code>,</code>)</li>
-<li>strings are enclosed in <code>"</code> characters</li>
-<li>if you want to clear a list (for example you do not wants any options inside) just let it as <code>&lt;PARAMETR NAME&gt; = []</code> - do not drop that parameter</li>
-<li>do not add supplementary parameters, they will not be used without software changes (also risk to induce potential errors)</li>
-<li>for calendaristic dates Excel cells use <code>date</code> format and change it as display option to show wanted format</li>
-</ul>
-<p>(ro) README inainte de a face modificari:</p>
-<ul>
-<li>fiecare parametru are un hep scurt (liniile ce incep cu caracterul <code>#</code>) - citi-l inainte de a modifica uun parametru</li>
-<li>nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (<code>=</code>)</li>
-<li>listele sunt incluse intre paranteze drepte (<code>[...]</code>) si elementele lor sunt separate prin caracterul virgula (<code>,</code>)</li>
-<li>sirurile de caractere sunt incluse intre ghilimele (caracterul <code>"</code>)</li>
-<li>daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune pentru acea lista) doar lasati acel parametru cu valoarea <code>[]</code> - nu stergeti in nici un caz acel parametru</li>
-<li>nu adaugati parametrii suplimentari (altii decit cei specificati aici), acestia nu vor fi utilizati fara a modifica aplicatia (de asemenea riscati sa induceti erori in cod)</li>
-<li>pentru datele calendaristice in celulul Excel a se utiliza formatul standard de data (<code>date</code>) si modificati formatul de afisare in formatul dorit pe factura tiparibila</li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
 <p><a id="config_settings.DEFAULT_SUPPLIER_COUNTRY"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-default_supplier_country">DEFAULT_SUPPLIER_COUNTRY</h4>
@@ -2154,12 +2196,16 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 <p><a id="libutils.complete_sexe_file"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-complete_sexe_file">complete_sexe_file</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">complete_sexe_file</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">complete_sexe_file</span><span class="p">(</span><span class="n">drop_source</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <p>Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.</p>
 <ul>
 <li>Specs: file to process <code>.../dist_sexe/xl2roefact_to_update_name.exe</code> --&gt; `.../dist/xl2roefact-version-win64.exe</li>
 <li>NOTE: all function code suppose that current directory is root of <code>xl2roefact</code>, ie where is located <code>pyproject.toml</code> of package</li>
+</ul>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>drop_source</code> - indicate to delete source file after copying, ie make a "move" operation, otherwise make a copy keeping the source file. Default behaviour is to delete source.</li>
 </ul>
 <p><strong>Returns</strong>:</p>
 <ul>
@@ -2338,6 +2384,9 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 <p><a id="__init__"></a></p>
 <h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__init__">__init__</h1>
+<p><a id="__init__.__version__"></a></p>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version__">__version__</h4>
+<p>default conversion takes place over xl2roefact actual version</p>
 <p><a id="__main__"></a></p>
 <h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__main__">__main__</h1>
 <p><strong>xl2roefact.<strong>main</strong></strong>: Python package standard file to assure run as <code>python -m xl2roefact</code>.</p>
@@ -2358,7 +2407,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>help: <code>python -m xl2roefact --help</code>.</li>
 </ul>
 <p><a id="__version__"></a></p>
-<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version__">__version__</h1>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version___1">__version__</h1>
 <p>xl2roefact version info.
 <div class="highlight"><pre><span></span><code> ######## ####              ########  ######
  #  ##  # #  #              #      # ##    ##
@@ -2389,7 +2438,9 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><strong>Arguments</strong>:</p>
 <p><code>raw_version (str)</code>: a raw version string. Defaults to package current version string.</p>
 <p><strong>Returns</strong>:</p>
-<p><code>str:</code> canonical version string</p></section><h1 class='nav-section-title-end'>Ended: xl2roefact python library</h1>
+<p><code>str:</code> canonical version string</p>
+<p><a id="data"></a></p>
+<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-data">data</h1></section><h1 class='nav-section-title-end'>Ended: xl2roefact python library</h1>
                         <h1 class='nav-section-title' id='section-invoice-template'>
                             invoice template <a class='headerlink' href='#section-invoice-template' title='Permanent link'>↵</a>
                         </h1>
@@ -2933,6 +2984,12 @@ varianta in care structura si formatul fisierului <code>Excel</code> contin "cuv
     - &#x2610; checkbox as NOT CHECKED
     - &#x2611; checkbox as CHECKED
 --></section><h1 class='nav-section-title-end'>Ended: Cerintele sistemului</h1><section class="print-page" id="doc_src-downloads"><p><small><strong>RENware Software Systems</strong></small></p>
+<div class="admonition warning">
+<p class="admonition-title">Versiunile development</p>
+<p>Versiunile ce au in codul / numarul lor acronimul <code>dev</code> sunt considerate versiuni elaborate in faza de dezvoltare software.
+Aceste versiuni sunt functionale cu singura observatie ca testele facute sunt doar din punct de vedeare a codului si nu cu date de business, adica nu prezinta erori in functionare.
+Se recomanda a folosi aceste versiuni in cazurile de dezvoltari proprii sau integrari cu alte sisteme.</p>
+</div>
 <h1 id="doc_src-downloads-descarcare-resurse-downloads">Descarcare resurse (downloads)</h1>
 <!-- NOTE: intentionally no TOC in this doc -->
 
@@ -2945,6 +3002,17 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <h3 id="doc_src-downloads-pachetul-xl2roefact-python-library-format-sursa">Pachetul xl2roefact python library format sursa</h3>
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
+<details class="note">
+<summary>0.4</summary>
+<ul>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.1.dev0-py3-none-any.whl" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.1.dev0.tar.gz" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev2-py3-none-any.whl" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev2.tar.gz" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev1-py3-none-any.whl" title="download"><code>0.4.0.dev1</code> fixed <code>xl2roefact</code> CLI app version addressing WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev1.tar.gz" title="download"><code>0.4.0.dev1</code> fixed <code>xl2roefact</code> CLI app version addressing DIST</a></li>
+</ul>
+</details>
 <details class="note">
 <summary>0.3</summary>
 <ul>
@@ -2980,6 +3048,13 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <h2 id="doc_src-downloads-format-executabil-windows-x64">Format executabil Windows x64</h2>
 <h3 id="doc_src-downloads-aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi">Aplicatia xl2roefact linie comanda pachet instalare (win64-msi)</h3>
 <details class="note">
+<summary>0.4</summary>
+<ul>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.msi" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.msi" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules</a></li>
+</ul>
+</details>
+<details class="note">
 <summary>0.3</summary>
 <ul>
 <li><a href="xl2roefact/dist/xl2roefact-0.3.1b1-win64.msi" title="download"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list]</a></li>
@@ -3004,6 +3079,13 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 </details>
 <h3 id="doc_src-downloads-aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe">Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)</h3>
 <details class="note">
+<summary>0.4</summary>
+<ul>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.exe" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.exe" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules</a></li>
+</ul>
+</details>
+<details class="note">
 <summary>0.3</summary>
 <ul>
 <li><a href="xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe" title="download"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list]</a></li>
@@ -3021,7 +3103,22 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <li><a href="excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip" title="download"><code>0.1.20</code> arhiva ZIP</a></li>
 <li><a href="excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip" title="download"><code>0.1.11</code> arhiva ZIP</a></li>
 </ul>
-</details></section><h1 class='nav-section-title-end'>Ended: Help</h1>
+</details>
+<h2 id="doc_src-downloads-sablon-fisier-configurare-a-aplicatiei-xl2roefact">Sablon fisier configurare a aplicatiei xl2roefact</h2>
+<p>Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.</p>
+<p>Sablonul este in format <a href="https://yaml.org/">YAML</a> iar informatiile ce trebuiesc descrise sunt explicate individual in comentarii insotitoare.
+De asemenea este util a fi citite si recomandarile date in pagina de descriere a aplicatiei.</p>
+<p>Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un fisier <strong><code>app_settings.yml</code></strong> in directorul curent din care lansati aplicatia, fisier ce contine noile configurari dorite.
+<strong>Numele fisierelui este obligatoriu a fi respectat.</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Fisiere de configurare multiple</p>
+<p>De retinut ca acest fisier este considerat (daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Sablon de fisier</p>
+<p>Urmarind <a href="xl2roefact/xl2roefact/data/app_settings.yml" title="download">acest link puteti descarca un sablon de fisier de configurare</a>.
+De mentionat ca acest sablon este pre-completat cu situatii deja intilnite in practica, el fiind chiar sablonul implicit folosit de aplicatie.</p>
+</div></section><h1 class='nav-section-title-end'>Ended: Help</h1>
                         <h1 class='nav-section-title' id='section-about'>
                             About <a class='headerlink' href='#section-about' title='Permanent link'>↵</a>
                         </h1>
@@ -3647,14 +3744,14 @@ Public License instead of this License.  But first, please read
 <div class="toc">
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
-<li><a href="#changelog-03">0.3</a><ul>
-<li><a href="#changelog-wip-032b0-single-exe-version-date_here">wip... 0.3.2b0 single EXE version (...date_here...)</a></li>
-<li><a href="#changelog-031b1-fixed-bug-json-invoicecac_invoiceline-listlist-230306-h1930">0.3.1b1 fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list] (230306 h19:30)</a></li>
+<li><a href="#changelog-04">0.4</a><ul>
+<li><a href="#changelog-041dev0-xl2roefact-include-a-data-directory-in-package-for-various-data-files-built-in-package-240318-h0900">0.4.1.dev0 xl2roefact include a data directory in package for various data files "built-in" package (240318 h09:00)</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#changelog-archived-changelogs">Archived CHANGELOGs</a><ul>
+<li><a href="#changelog-04-version">0.4 version</a></li>
 <li><a href="#changelog-03-version">0.3 version</a></li>
 <li><a href="#changelog-02-version">0.2 version</a></li>
 <li><a href="#changelog-01-version">0.1 version</a></li>
@@ -3664,136 +3761,125 @@ Public License instead of this License.  But first, please read
 </div>
 <h1 id="changelog-changelog">CHANGELOG</h1>
 <ul>
-<li>For version code structure meaning see SDEVEN methodology document</li>
-<li>with <em>(F)</em> are marked those changes that are features in order to be copied in a RELNOTE file and with <em>(B)</em> bug fixes from versions released</li>
-<li>publishing is made under <code>publishing</code> branch</li>
+<li>For version code structure meaning see <a href="http://sdeven.renware.eu">SDEVEN methodology document</a></li>
 <li><code>&lt;PROJECT ROOT&gt;/doc_src/</code> is the default starting location in a file path (if not clear from context) (<strong>ATTN</strong> - in production environment is <code>docs/</code>)</li>
 <li><code>&lt;WEB_ROOT&gt;/</code> is the HTTP server root directory, as default <code>docs/</code> and supposed if no other parent is specified</li>
 </ul>
-<!--#FIXME uncomment when finish 0.3...
-### 0.4.1? xxx (...date_here...)
-<div class="highlight"><pre><span></span><code>    - ---[ #TODO general planning board ]---:
+<!-- #TODO #NOTE ...
+====[ General PLAN ]====
+
+* ---[ general planning board ]---:
     * -#NOTE link Swagger servicii web: `https://mfinante.gov.ro/web/efactura/informatii-tehnice`
     * -#NOTE link specif API incarcare fact: `https://mfinante.gov.ro/static/10/eFactura/upload.html#/EFacturaUpload/handleRequest`
-    -
-    * ---[ FUTURE NEW APP COMMANDS ]---:
-        * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-        * `xl2json` - crt_wip... (last upd @ 240219piu_a)
-        * `json2xml` - see module WRXML,
-        * `json2pdf` - new module. tbd..,
-        * `xml2roefact` - see module LDXML
-        * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-    -
-    * -#NOTE Plan for `rdinv` module:
-        * [ ] invoice supplier (`&lt;cac:AccountingSupplierParty&gt;`)
-    -------------------------------------------------------------------------------------------------
-</code></pre></div>
 
-### TODO:next... 0.4.0rc invoice supplier (#NOTE: ...date_here...)
+* ---[ FUTURE NEW APP COMMANDS ]---:
+    * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
+    * `xl2json` - crt_wip... (last upd @ 240219piu_a)
+    * `json2xml` - see module WRXML,
+    * `json2pdf` - new module. tbd..,
+    * `xml2roefact` - see module LDXML
+    * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
+
+* ---[ Plan for `rdinv` module ]---:
+        * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
+-->
+
+<!-- NOTE: set to 0.5... because invoice supplier is a functional change ...
+## 0.5
+
+### TODO:plan 0.5rc0 invoice supplier  (...date_here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
-* tbd.Must... `xl2roefact` need to make invoice supplier (`<cac:AccountingSupplierParty>`) - MANDATORY to plan for next version
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
-* tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to ___pre-set MSI build meta information___ / parameters (obj: default target dir where install, path registration, icon, ...)
+
+* tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to _`pre-set MSI build meta information`_ / parameters (obj: default target dir where install, path registration, icon, ...)
+
+* tbd.Must...code: `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
+    * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
+    * ... idea is to reuse code for customer area as much as possible
+
 -->
 
-<h2 id="changelog-03">0.3</h2>
-<h3 id="changelog-wip-032b0-single-exe-version-date_here">wip... 0.3.2b0 single EXE version (...date_here...)</h3>
-<details class="info" open="open">
-<summary>Release versions</summary>
-<ul>
-<li>xl2roefact: "0.3.1b1"</li>
-<li>web2roefact: "n/a"</li>
-<li>invoice_template: "0.1.20"</li>
-<li>INVOICEtoROefact: "0.3.2b0"</li>
-</ul>
-</details>
-<ul>
-<li><code>240311piu02</code> run script build_doc to update ref <code>libutils.py</code> module. Update &amp; publish site.</li>
-<li><code>240311piu01</code> update <code>downloads.md</code> to include single exe resource starting with last stable version = <code>0.3.1b1</code></li>
-<li><code>240308piu00</code> update <code>app_cli</code>, option <code>--version</code> to get normalized version string</li>
-<li><code>240308piu01</code> make single EXE with <code>pyinstaller</code><ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. ck &amp; install <code>pyinstaller</code> in local environment. Update it if necessary</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. adhoc try to execute it. Make a command for (<code>build_sexe</code>)
-      RESULTS: <code>.../xl2roefact/dist/xl2roefact/..</code> with exe &amp; various files</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. created a PDM script for command <code>build_sexe</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. result produced in <code>...dist/xl2roefact/dist/</code> - a little bit unacceptable but ok for that step</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. adjust command <code>build_sexe</code> to produce a single file EXE
-      RESOLUTION: up here resulted one file <code>xl2roefact.exe</code> in <code>.../dist/</code> directory</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 6. adjust command <code>build_sexe</code> to produce exe in other-temp directory for name processing (req here in nxt item-step)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 7. installed <code>packaging</code> package and updated <code>xl2roefact.__version__</code> module with function <code>normalized_version(raw_version: str) -&gt; str</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 8. adjust command <code>build_sexe</code> to produce right file name as <code>xl2roefact-0.3.1.b1-win64.exe</code> and move it in <code>.../dist/</code> dir. Specs:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> in pyproject.toml make <code>post_build_sexe</code> entry of call type <code>{call = "xl2roefact.libutils:complete_sexe_file()"}</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> update <code>__version__</code> modules to accommodate this function</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> skeleton rdy <code>libutils</code> module for function <code>complete_sexe_file()</code> that rename and move resulted exe file: .../dist_sexe/xl2roefact_to_update_name.exe<code>--&gt;</code>.../dist/xl2roefact-version-win64.exe`</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> finalize &amp; test code of <code>complete_sexe_file()</code> ==&gt; PASS</li>
-</ul>
-</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 9. in <code>pyproject.toml</code> include <code>build_sexe</code> cmd in <code>build_all</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 10. build single exe for current stable version of xl2roefact = <code>0.3.1b1</code>. Updated tech doc DLD (xl2roefact API Reference)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 11. FIX: single exe not work. FIX: Must to HAVE DIFFERENT NAME THAN DIRECTORY <code>xl2roefact/</code>. Created copy <code>xl2roefact_copy_for_sexe.py</code> for xl2roefact.py to be used by pyinstaller in build_sexe script. <strong>This file should be kept on as a perfect copy of original</strong> (as sym-link doesn't work).</li>
-</ul>
-</li>
-<li><code>240307piu01</code> xl2roefact pdm environment created a script for <strong>build PyPi</strong> operation. PDM run script CAN be used from local development environment but CANNOT be used in build_pypi automation, at execution raise error that cannot execute mkdir on branch - NOT ANALYZED, just reverted workflow to previous one</li>
-<li><code>230406piu08</code> updated <code>downloads.md</code> ref end-of-life date of all <code>0.1...</code> versions: 10-March-2024</li>
-</ul>
-<!--#NOTE: to be archived ASAP -->
+<h2 id="changelog-04">0.4</h2>
+<!--#FIXME this version is still open...wip but was temp cleaned for site building
+REDO after site building -->
 
-<h3 id="changelog-031b1-fixed-bug-json-invoicecac_invoiceline-listlist-230306-h1930">0.3.1b1 fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list] (230306 h19:30)</h3>
-<details class="info" open="open">
-<summary>Release versions</summary>
+<h3 id="changelog-041dev0-xl2roefact-include-a-data-directory-in-package-for-various-data-files-built-in-package-240318-h0900"><code>0.4.1.dev0</code> xl2roefact include a data directory in package for various data files "built-in" package (240318 h09:00)</h3>
+<!-- ...REDO.this. See up FIXME comment
+
+* ... merge to development branch
+* ... publish on PyPi
+* ... cls CHANGELOG, build site + publish
+* -->
+
 <ul>
-<li>xl2roefact: "0.3.1b1"</li>
-<li>web2roefact: "n/a"</li>
-<li>invoice_template: "0.1.20"</li>
-<li>INVOICEtoROefact: "0.3.1b1"</li>
-</ul>
-</details>
-<ul>
-<li><code>230406piu07</code> release version:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. update xl2roefact version</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. build new app</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. update downloads.md doc</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. build site</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. publish on PyPi</li>
-</ul>
-</li>
-<li><code>230406piu06</code> FIXED <code>240306piu05</code> ref JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list] bug by transforming in 1-dimensional list using strategy from <code>TO FIX -&gt; item 3</code>. TEST PASS.</li>
-<li><code>240306piu05</code> TEST POINT: converted online the invoice JSON file to XML ==&gt; <code>Fact_Petrom_11017969.xml</code>. <strong>RESOLUTIONS:</strong><ul>
-<li>ATTN: the usable part is strict those related to "Invoice" key, any other information is not relevant and will not be included in application generated XML</li>
-<li>TO FIX: JSON generated key "cac_InvoiceLine" is list[list] the first list being obsolete (just item 0 which is the effective list). Proposals:<ul>
-<li>
-<ol>
-<li>at XML generation to preserve only <code>cac_InvoiceLine[0]</code> - <em>pro</em>: SIMPLE, REASONABLE, LATERAL EFFECTS FREE - <em>cons</em>: JSON file remain for this key as "non-intuitive" information</li>
-</ol>
-</li>
-<li>
-<ol>
-<li>re-engineer <code>rdinv.py</code> to generate right info structure for this key - <em>pro</em>: right and intuitive JSON information presentation - <em>cons</em>: a lot of lateral effects, there is "a lot of code" that already extract only item 0 and this code could be in functions out of <code>rdinv.py</code> module, for example in <code>libutils.py</code></li>
-</ol>
-</li>
-<li>
-<ol>
-<li>update module <code>rdinv.py</code> to preserve only index 0 <strong>when create key <code>cac_InvoiceLine</code>, line ~408 so:</strong></li>
-<li>ACTUAL value: <code>"cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list),</code></li>
-<li>DESIRED value:
-    <div class="highlight"><pre><span></span><code><span class="s2">&quot;cac_InvoiceLine&quot;</span><span class="p">:</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">tmp_InvoiceLine_list</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
-</code></pre></div></li>
-</ol>
-</li>
+<li><code>240318piu-yaml4sys-all-vers</code> update <code>mkdocs.yml</code> use <code>INHERIT: ./versions.yml</code> option to inherit versions exactly to have <code>extra</code> section like actual one but in this external file.</li>
+<li><code>240318piu-app-glob-cfg</code> update xl2roefact README, app configuration section ref how make a "global config file" different than default app configuration</li>
+<li><code>240317piu01</code> update downloads.md:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. include a template for <code>app_settings.yml</code> =&gt; Created dedicated section which can be referred as <code>.../downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1.a fixed <code>0.4.0.dev2</code> MSI &amp; EXE deliverables file names (missing path number)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. refer it in xl2roefact README</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. include <code>0.4.1.dev</code> download;<ul>
+<li>WHEEL &amp; DIST references</li>
+<li>standalone EXE reference</li>
+<li>MSI reference</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><code>240306piu04</code> archived 0.3.0b &amp; 0.3.1b versions</li>
+<li><code>2403piu-config-code</code> update <code>config_settings.py</code> module to upload data from <code>.../data/app_settings.yml</code> file. Specs:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. update app version to <code>0.4.1.dev0</code>. Make a test what <code>normalized_version()</code> returns (run xl2roefact --version)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. update key <code>README_rules</code> from <code>app_settings.yml</code>, set it to point to markdown file containing rules list (<code>xl2roefact/xl2roefact/data/README_app_config_rules.md</code>)</li>
+<li>INFO-NOTE: after YAML import data will be dict with all actual code variables as keywords</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. gross-raw code in <code>config.settings.py</code> for both below NOTES<ul>
+<li>INFO-NOTE: order to search and load for <code>app_config.yml</code>:<ul>
+<li>(1) crt directory (with <code>cwd</code>) with <code>Path(Path.cwd(), "data/app_settings.yml")</code></li>
+<li>(2) package directory and file with <code>Path(os.path.dirname(__file__), "data/app_settings.yml")</code></li>
+<li>(3) settings from <code>config_settings.py</code></li>
+</ul>
+</li>
+<li>INFO-NOTE: methods of updates variables:<ul>
+<li>(1) using <code>locals().update(YAML_dict)</code></li>
+<li>(2) using <code>exec(YAML_dict["key")</code> by looping YAML resulted dictionary</li>
+</ul>
+</li>
+<li>regardless of method check the propagation running <code>xl2roefact settings</code> which is a demo of using values external to config_settings module</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. apply reading order</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. clean code &amp; test YAML settings files from <code>xl2roefact/</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 6. if read YAML was got some values then set as <code>local()</code> variables (not dictionary)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 7. updated <code>xl2roefact/setup.py</code> to include <code>data/app_settings.yml</code> file</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> build all: upd version (2 version files + mkdocs.yml) &amp; pdm run build_all</li>
+</ul>
+</li>
+<li><code>2403piu-app-data-dir</code> actions:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1.a build directory with a TOML file for setting parameters (used by <code>config_settings</code> module)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2 update <code>pyproject.toml</code> to include in package non python data files from <code>xl2roefact/data/</code> directory</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2.a test pdm building wheel ref brute errors = <strong>PASS</strong> =: package created ok and contains <code>data/*</code> with exact flies that exists in this directory at package development phase</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. add in <code>.../xl2roefact/data/</code> file <code>owner_data.json</code> with owner data to be used as supplier info for future option <code>--load-from-owner-file</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. fixed bug xl2roefact CLI app ref command <code>about</code> printing <code>__version__.__doc__</code> addressing</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. updated <code>.../data/app_settings.yml</code> with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)</li>
+</ul>
+</li>
 </ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
+<details>
+<summary markdown="1">
+<h2 id="changelog-04-version">0.4 version</h2>
+</summary>
+<ul>
+<li><a href="#changelog_history-changelog-0.4.0.dev2"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules (240316 T12:00)</a></li>
+</ul>
+</details>
 <details>
 <summary markdown="1">
 <h2 id="changelog-03-version">0.3 version</h2>
 </summary>
 <ul>
+<li><a href="#changelog_history-changelog-0.3.2b0"><code>0.3.2b0</code> single EXE version</a></li>
+<li><a href="#changelog_history-changelog-0.3.1b1"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list]</a></li>
 <li><a href="#changelog_history-changelog-0.3.1b"><code>0.3.1b</code>  promote v0.3.0b0 deliverables: WHEEL, TRA.GZ, MSI to <code>0.3.1b</code></a></li>
 <li><a href="#changelog_history-changelog-0.3.0b"><code>0.3.0b</code> xl2roefact invoice taxes summary</a></li>
 </ul>

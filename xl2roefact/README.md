@@ -2,21 +2,17 @@
 
 # xl2roefact
 
-* Pentru accesul la toate link-urile din acest document vizitati [**site-ul dedicat**](https://invoicetoroefact.renware.eu/) acestui sistem.
-* [Pachetul pe *PyPi*](https://pypi.org/project/xl2roefact/)
-* [Pachetul pe *GitHub*](https://github.com/petre-renware/api_to_roefact/xl2roefact/)
+* [**Site dedicat INVOICEtoROefact**](https://invoicetoroefact.renware.eu/). Pentru accesul la toate link-urile din acest document vizitati site-ul dedicat acestui sistem.
+* [Pachet pe *PyPi*](https://pypi.org/project/xl2roefact/)
+* [Pachet pe *GitHub*](https://github.com/petre-renware/api_to_roefact/)
 
 
 
 ## Facilitati
 
-![Static Badge](https://img.shields.io/badge/MSI_installer-YES-blue)
-![Static Badge](https://img.shields.io/badge/standlone_EXE-YES-blue)
+![Static Badge](https://img.shields.io/badge/MSI_installer-YES-blue) ![Static Badge](https://img.shields.io/badge/standlone_EXE-YES-blue)
 
-![Static Badge](https://img.shields.io/badge/format_JSON-YES-orange)
-![Static Badge](https://img.shields.io/badge/format_XML-YES-orange)
-![Static Badge](https://img.shields.io/badge/format_PDF-YES-orange)
-![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-red)
+![Static Badge](https://img.shields.io/badge/format_JSON-YES-orange) ![Static Badge](https://img.shields.io/badge/format_XML-YES-orange) ![Static Badge](https://img.shields.io/badge/format_PDF-YES-orange) ![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-red)
 
 
 
@@ -66,12 +62,49 @@ Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si s
 
 ## Configurarea aplicatiei xl2roefact
 
-Parametrii de configurare a plicatiei se gasesc in fisierul *`config_settings.py`*. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
+Parametrii de configurare aplicatiei se gasesc in fisierul *`config_settings.py`*. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
+
+<!--#TODO: prev paragraph to replace new config method by using `app_settings.yml` in current directory -->
 
 Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtine help referitor la detaliile comenzi se va folosi
 ```bash
 xl2roefact settings --help
 ```
+
+Configurarile existente si regulile recomandate in configurarea aplicatiei se afiseaza folosind comanda:
+```bash
+xl2roefact settings --rules
+```
+
+
+### Configurarea din fisier extern
+<!--  --Sablon fisier configurare a aplicatiei xl2roefact -->
+
+Configurarea aplicatuiei se poate face si prin intermediul unui fisier extern numit "*sablon de configurare*" (*en: configuration template*). Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.
+
+Sablonul este in format [YAML](https://yaml.org/) iar informatiile ce trebuiesc descrise sunt explicate individual in comentarii insotitoare.
+De asemenea este util a fi citite si recomandarile date in pagina de descriere a aplicatiei.
+
+Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un fisier **`app_settings.yml`** in directorul curent din care lansati aplicatia, fisier ce contine noile configurari dorite.
+**Numele fisierelui este obligatoriu a fi respectat.**
+
+!!! info "Fisiere de configurare multiple"
+    De retinut ca acest fisier este considerat (daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.
+
+
+**Fisier de configurare global**
+
+!!! info ""
+    In conditiile folosirii kitului MSI pentru o instalare locala a aplicatiei (cu utilizari multiple si repetate) si in situatia in care se doreste schimbarea configurarii implicite a aplicatiei se vor urma acesti pasi:
+    
+    * in directorul de instalare a aplicatiei se va crea daca nu exita directorul `data/`
+    * in acest director se va crea un fisier `app_settings.yml` cu configurarea globala dorita
+    
+    Aceasta configurare inlocuieste configurarea implicita si se va aplica global in utilizarea aplicatiei. In continuare configurarile existente in directorul curent *suprascriu configurarea globala* (se aplica cu precedenta).
+
+
+
+>[Aici puteti gasiti pentru descarcare un model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact).
 
 
 
@@ -125,6 +158,11 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 >
 >* una este valoarea introdusa intr-o celula (de ex cu 3 zecimale) si
 >* alta este valoarea afisata (cu 2 zecimale) - aceasta din urma trebuie obtinuta prin formatarea celulei respective de a afisa 2 zecimale prin rotunjire insa valoarea efectiva trebuie sa fie cea originala cu 3 zecimale, lucru (diferenta) care se poate vedea la editarea continutului celulei.
+
+
+### Reguli recomamdate in configurarea aplicatiei pe specificul Excel al facturilor dumneavoastra
+
+{% include './xl2roefact/data/README_app_config_rules.md' %}
 
 
 
@@ -215,8 +253,9 @@ Cheile de la primul nivel contin:
 
 ## Descarcare (download) aplicatie xl2roefact CLI
 
-* [Pachet instalare aplicatie Windows](../doc_src/downloads.md#format-msi-instalare-windows-x64)
+* [Pachet instalare aplicatie Windows](../doc_src/downloads.md#format-executabil-windows-x64)
 * [Pachet instalare script Python](../doc_src/downloads.md#format-biblioteca-python)
+* [Model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact)
 
 
 

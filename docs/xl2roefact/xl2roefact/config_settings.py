@@ -1,35 +1,21 @@
 #!../.venv/bin/python3
-"""Configuration and setting parameters.  <!-- #TODO all of these are subject to documentation update (sectiune "RULES FOR INVOICE data in Excel") -->
+"""Configuration and setting parameters.
 
-(en-us) README before making changes:
+Regulile recomandate se gasessc in documentul [`doc/README_app_config_rules.md`](../doc/README_app_config_rules.md)
 
-* each parameter has a short help (lines starting with `#` character) - read it before changing that parameter
-* do not change parametrs name as specified before equal (`=`) sign
-* lists are enclosed in sqaured brackets (`[...]`) and items are separated by comma character (`,`)
-* strings are enclosed in `"` characters
-* if you want to clear a list (for example you do not wants any options inside) just let it as `<PARAMETR NAME> = []` - do not drop that parameter
-* do not add supplementary parameters, they will not be used without software changes (also risk to induce potential errors)
-* for calendaristic dates Excel cells use `date` format and change it as display option to show wanted format
+Public objects:
 
+    rules_content: contains the rules text (rendered)
 
-(ro) README inainte de a face modificari:
-
-* fiecare parametru are un hep scurt (liniile ce incep cu caracterul `#`) - citi-l inainte de a modifica uun parametru
-* nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (`=`)
-* listele sunt incluse intre paranteze drepte (`[...]`) si elementele lor sunt separate prin caracterul virgula (`,`)
-* sirurile de caractere sunt incluse intre ghilimele (caracterul `"`)
-* daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune pentru acea lista) doar lasati acel parametru cu valoarea `[]` - nu stergeti in nici un caz acel parametru
-* nu adaugati parametrii suplimentari (altii decit cei specificati aici), acestia nu vor fi utilizati fara a modifica aplicatia (de asemenea riscati sa induceti erori in cod)
-* pentru datele calendaristice in celulul Excel a se utiliza formatul standard de data (`date`) si modificati formatul de afisare in formatul dorit pe factura tiparibila
-"""
-
-'''
 * copyright: (c) 2023 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
-'''
+"""
 
-
-
+from pathlib import Path
+import os
+from rich.markdown import Markdown
+import yaml
+from pprint import pprint
 
 """---------------------------------------------------------------------------------------------------------------------------
 # NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
@@ -191,5 +177,47 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
     "furniz", "proprie",  # TODO: list patterns here
     "suppl", "owne",
 ]
+
+
+
+
+# ----------------------------------------------------------
+# here start the code section where external data is get
+
+
+# get & render rules text from markdown file
+rules_file = Path(os.path.dirname(__file__), "data/README_app_config_rules.md")
+rules_content = Markdown(rules_file.read_text())
+
+# read app_settings.yml. Use below order to apply
+'''Specs: order to search and load for `app_config.yml`. Rule: First found win:
+    * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
+    * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
+    * (3) settings from `config_settings.py`
+'''
+# order method (1)
+config_file = Path(os.getcwd(), "app_settings.yml")
+ok_to_use = config_file.exists() and config_file.is_file()
+python_object = None  # initialize as null
+if ok_to_use:
+    yaml_in = config_file.read_text()
+    python_object = yaml.safe_load(yaml_in)
+
+# order method (2)
+if python_object is None:  # exec only if previous method did not read something
+    config_file = Path(os.path.dirname(__file__), "data/app_settings.yml")
+    ok_to_use = config_file.exists() and config_file.is_file()
+    python_object = None  # initialize as null
+    if ok_to_use:
+        yaml_in = config_file.read_text()
+        python_object = yaml.safe_load(yaml_in)
+
+# assign `python_object` to locals() environment
+if python_object is not None:  # exec only if previous method has been read something
+    locals().update(python_object)
+else:  # if none of previous methods applied then will remain the content hard-coded in this module
+    pass
+
+
 
 

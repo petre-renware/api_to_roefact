@@ -8,7 +8,7 @@ The site will be built according to `mkdocs.yml` specs.
 
 
 
-## Build xl2roefact CLI app, library packages and DLD doc
+## Build xl2roefact CLI app, library packages, standalone EXE and DLD doc
 
 Merge to branch **`build-xl2roefact`**. The building process will execute `pdm run build_all` command in directory `xl2roefact/`.
 Get back results by merging `build-xl2roefact` branch back to your initial branch.
@@ -23,7 +23,7 @@ Merge to branch **`pypi-publish`**. This workflow will initiate publishing to Py
 
 ## Run xl2roefact CLI app
 
-Commit to branch **`test-xl2roefact`**. The process will execute 
+Commit to branch **`test-xl2roefact`**. The process will execute
 ```bash
 pdm run xl2roefact xl2json -d ./tests >./tests/_test_on_git_results.txt
 ```

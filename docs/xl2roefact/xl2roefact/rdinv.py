@@ -35,6 +35,8 @@ from .libutils import dict_sum_by_key
 from .libutils import invoice_taxes_summary
 from . import config_settings  # application configuration parameters
 
+__all__ = ["rdinv"]  # limit what symbols to be available when import all/full module as `from xl2roefact.rdinv import *`
+
 # local constants. Change them with caution only for a functional objective
 SYS_FILLED_EMPTY_CELL = "_sys_keep_cell"
 
@@ -182,6 +184,9 @@ def rdinv(
     """#NOTE: section to "solve" `invoice_header_area`.
             The kind of info expected in this area: invoice number,  currency, issued date, supplier data, customer data)
     """
+    #-----------------------------------------#FIXME delimiter to drop
+    #FIXME: INV.SUPP --- here start the zone ref in CHANGELOG ref invoice supplier issue
+    #------------------------------------------#FIXME delimiter to drop
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
         issued_date = None,

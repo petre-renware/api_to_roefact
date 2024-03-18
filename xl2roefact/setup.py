@@ -10,13 +10,20 @@ Specifications:
 * @RELEASE create MSI package in `dist/`: `python setup.py bdist_msi`
 * *helper*: see official doc here `https://cx-freeze.readthedocs.io/en/latest/setup_script.html`
 """
-from xl2roefact import __version__ as ver
+
+from xl2roefact.__version__ import normalized_version
 import sys
 from cx_Freeze import setup, Executable
 
 
 # Dependencies are automatically detected, but it might need fine tuning
-build_options = {"packages": [], "excludes": []}
+build_options = {
+    "packages": [],
+    "include_files": [
+        ("xl2roefact/data/app_settings.yml", "xl2roefact/data/app_settings.yml")
+    ],
+    "excludes": [],
+}
 
 base = "console"
 
@@ -68,7 +75,7 @@ scripts_definition = ['scripts/xmlproc_parse', 'scripts/xmlproc_val']
 
 setup(
     options = {"build_exe": build_options},
-    version = ver.__version__,
+    version = str(normalized_version()),
     executables = executables,
     # bdist_msi_options = bdist_msi_options_definition,  # NOTE: pct.1*) ref `bdist_msi_options`  
     # entry_points = entry_points_definition,  # NOTE: pct.2*)
