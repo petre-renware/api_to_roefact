@@ -52,11 +52,11 @@
     * [x] 3. test python code. Result: **PASS**
     * [x] 4. generate sEXE
     * [x] 5. test `pdm run xl2roefact settings`. Result: **PASS**
-    * [ ] 6. clean and make code "production like"
-    * [ ] ... update downloads.md
-    * [ ] ... update INVOICEtoROefact project `versions.yml`:
+    * [x] 6. clean and make code "production like"
+    * [x] 7. update INVOICEtoROefact project `versions.yml`:
         * xl2roefact = 0.4.1.dev1
         * INVOICEtoROefact = 0.5.2.dev2
+    * [ ] ... update downloads.md
     * [ ] ... chk any other site fixes before generating
     * [ ] ... build site & publish
     * [ ] ... rollout to development
