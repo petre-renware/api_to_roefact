@@ -14,7 +14,7 @@ rem python -m pdm install >NUL
 rem pdm run build_sexe
 
 
-rem cd tests
-rem .\xl2roefact-0.4.1.dev1-win64.exe settings -r
+cd tests
+.\xl2roefact-0.4.1.dev1-win64.exe settings -r
 
 
