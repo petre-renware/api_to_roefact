@@ -96,9 +96,12 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 
 !!! info ""
     In conditiile folosirii kitului MSI pentru o instalare locala a aplicatiei (cu utilizari multiple si repetate) si in situatia in care se doreste schimbarea configurarii implicite a aplicatiei se vor urma acesti pasi:
+    
     * in directorul de instalare a aplicatiei se va crea daca nu exita directorul `data/`
     * in acest director se va crea un fisier `app_settings.yml` cu configurarea globala dorita
-    <br>Aceasta configurare inlocuieste configurarea implicita si se va aplica global in utilizarea aplicatiei. In continuare configurarile existente in directorul curent *suprascriu configurarea globala* (se aplica cu precedenta).
+    
+    Aceasta configurare inlocuieste configurarea implicita si se va aplica global in utilizarea aplicatiei. In continuare configurarile existente in directorul curent *suprascriu configurarea globala* (se aplica cu precedenta).
+
 
 
 >[Aici puteti gasiti pentru descarcare un model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact).
