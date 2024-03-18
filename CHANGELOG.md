@@ -42,9 +42,20 @@
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
-* #NOTE: ref err loading `app_settings.yml` from sEXE, the `try` DOES NOT WORK. Recommend meth is:
-    * According to the documentation of PyInstaller, the suggested method of recovering application path is as follows:
-    ```python
+* ___tbd.Must-Urgent___... drop PyPi token from publishing workflow. Normally this git being trusted source should work without it.
+
+
+
+* ... `0.5.2.dev2` xl2roefact fix sEXE bug from `0.4.1.dev0` version;
+    * [ ] 1. update `config_settings.py` module to load app cfg from external file only when not sEXE frozen app (`getattr(sys, 'frozen', False) == True`)
+    * [ ] 2. update xl2roefact version to `0.4.1.dev1` to genrate only sEXE deliverable
+    * [ ] 3. generate sEXE and test `pdm run xl2roefact settings`. Result: ...[ PASS / FAIL ]...
+    * [ ] 4. update downloads.md
+    * [ ] 5. update INVOICEtoROefact project `versions.yml`
+    * [ ] ... chk any other site fixes before generating
+    * [ ] ... build site & publish
+    * [ ] ... rollout to development
+<!--
     #!/usr/bin/python3
     import sys, os
     if getattr(sys, 'frozen', False):
@@ -54,12 +65,7 @@
         application_path = sys._MEIPASS
     else:
         application_path = os.path.dirname(os.path.abspath(__file__))
-
-    ```
-    * NOTE: `frozen` attribute is set by `pyinstaller` at app building, otherwise it not exists `getattr` returns `None` (example code will return `False`)
-
-
-* ___tbd.Must-Urgent___... drop PyPi token from publishing workflow. Normally this git being trusted source should work without it.
+-->
 
 * `0.5.1.dev1` site readability improvements:
     * [x] 1. main project README drop `TOC` statement
