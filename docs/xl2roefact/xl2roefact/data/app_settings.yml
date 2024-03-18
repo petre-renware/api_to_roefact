@@ -1,38 +1,13 @@
 #
-#
-# IMPORTANT NOTE piy@230315:
-# ===============
-#
-# This file is just a proposal to be used. The mai `config_settings.py` is not up dated to read data from here.
-# Be aware of any updates in this file because they will not be considered in application running.
-#
+# Fisier de configurare a aplicatiei xl2roefact.
+# 
+# Copyright (c) 2024 RENware Software Systems
+# Author: Petre Iordanescu, petre.iordanescu@gmail.com
 #
 
 
 
-README_rules: |
-    (en-us) README before making changes:
-
-    * each parameter has a short help (lines starting with `#` character) - read it before changing that parameter
-    * do not change parametrs name as specified before equal (`=`) sign
-    * lists are enclosed in sqaured brackets (`[...]`) and items are separated by comma character (`,`)
-    * strings are enclosed in `"` characters
-    * if you want to clear a list (for example you do not wants any options inside) just let it as `<PARAMETR NAME> = []` - do not drop that parameter
-    * do not add supplementary parameters, they will not be used without software changes (also risk to induce potential errors)
-    * for calendaristic dates Excel cells use `date` format and change it as display option to show wanted format
-
-    (ro) README inainte de a face modificari:
-
-    * fiecare parametru are un hep scurt (liniile ce incep cu caracterul `#`) - citi-l inainte de a modifica uun parametru
-    * nu schimbati numele parametrilor asa cum este el specificat inainte de semnul egal (`=`)
-    * listele sunt incluse intre paranteze drepte (`[...]`) si elementele lor sunt separate prin caracterul virgula (`,`)
-    * sirurile de caractere sunt incluse intre ghilimele (caracterul `"`)
-    * daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune pentru acea lista) doar lasati acel parametru cu valoarea `[]` - nu stergeti in nici un caz acel parametru
-    * nu adaugati parametrii suplimentari (altii decit cei specificati aici), acestia nu vor fi utilizati fara a modifica aplicatia (de asemenea riscati sa induceti erori in cod)
-    * pentru datele calendaristice in celulul Excel a se utiliza formatul standard de data (`date`) si modificati formatul de afisare in formatul dorit pe factura tiparibila
-
-
-
+README_rules: "README_app_config_rules.md"
 
 #--------------------------------------------------------------------------------------------------------------------------
 # NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
