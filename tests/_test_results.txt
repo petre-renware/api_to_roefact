@@ -9,54 +9,16 @@ D:\a\api_to_roefact\api_to_roefact>rem     - trigger event: merge to branch `adh
 
 D:\a\api_to_roefact\api_to_roefact>rem     - stdout redirection: `./tests/_test_results.txt` >NUL 
 
-D:\a\api_to_roefact\api_to_roefact>rem cd xl2roefact 
+D:\a\api_to_roefact\api_to_roefact>cd xl2roefact 
 
-D:\a\api_to_roefact\api_to_roefact>rem python -m pip install pdm >NUL 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pip install pdm  1>NUL 
 
-D:\a\api_to_roefact\api_to_roefact>rem python -m pdm install >NUL 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pdm install  1>NUL 
 
-D:\a\api_to_roefact\api_to_roefact>rem pdm run build_sexe 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_sexe 
+***INFO: Application settings loaded from installation directory (global settings).
+***INFO: Application settings loaded from installation directory (global settings).
 
-D:\a\api_to_roefact\api_to_roefact>cd tests 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem cd tests 
 
-D:\a\api_to_roefact\api_to_roefact\tests>.\xl2roefact-0.4.1.dev1-win64.exe settings -r 
-***INFO: Application settings loaded from application code (default settings).
-***WARNING NOTE: Rules cannot be displayed for standalone exe application.     
-Please visit the application site: http://invoicetoroefact.renware.eu.         
-
-
-Current settings:
--------------------------------
-DEFAULT_CURRENCY = RON
-DEFAULT_CUSTOMER_COUNTRY = RO
-DEFAULT_SUPPLIER_COUNTRY = RO
-DEFAULT_UNKNOWN_ITEM_NAME = --- n/a ---
-DEFAULT_UNKNOWN_UOM = None
-DEFAULT_VAT_PERCENT = 0.19
-PATTERN_FOR_CUSTOMER_LEGAL_NAME = ['clien', 'custo', 'sc', 's.c', 'diviz', 
-'depart', 'sa', 's.a', 'srl', 's.r.l', 'pfa', 'p.f.a', 'ra', 'r.a']
-PATTERN_FOR_INVOICE_CURRENCY_LABEL = ['mone', 'curr', 'ccy']
-PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = ['clien', 'custo', 'sc', 's.c', 
-'diviz', 'depart', 'sa', 's.a', 'srl', 's.r.l', 'pfa', 'p.f.a', 'ra', 'r.a']
-PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL = ['data', 'data fact', 'data emit', 
-'date', 'invoice date', 'issue date']
-PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER = [' crt', ' crt.', 'no. crt.', 'no 
-crt', 'no. crt', 'no crt.', 'nr. crt.', 'nr crt', 'nr. crt', 'nr crt.', '#']
-PATTERN_FOR_INVOICE_NUMBER_LABEL = ['nr. fact', 'nr fact', 'numar fact', 'fact 
-nr', 'factura num', 'invoice number', 'invoice no', 'invoice:']
-PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = ['furniz', 'proprie', 'suppl', 
-'owne']
-PATTERN_FOR_PARTNER_ADDRESS = ['adr', 'addr', 'tara', 'count', 'locali', 
-'oras', 'city', 'town', 'str']
-PATTERN_FOR_PARTNER_ADDRESS_CITY = ['judet', 'county', 'locali', 'oras', 
-'city', 'town', 'land']
-PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = ['tara', 'countr']
-PATTERN_FOR_PARTNER_ADDRESS_STREET = ['str', 'sos', 'bd', 'calea', 'ave', 
-'highwa']
-PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = ['cod pos', 'zip cod', 'postal']
-PATTERN_FOR_PARTNER_BANK = ['banc', 'bank']
-PATTERN_FOR_PARTNER_EMAIL = ['mail', 'email', 'e-mail']
-PATTERN_FOR_PARTNER_IBAN = ['iban', 'cont', 'bank acc']
-PATTERN_FOR_PARTNER_ID = ['cui', 'c.u.i', 'cif', 'c.i.f', 'id']
-PATTERN_FOR_PARTNER_REGCOM = ['reg com', 'reg. com', 'comert']
-PATTERN_FOR_PARTNER_TEL = ['tel', 'phon']
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem .\xl2roefact-0.4.1.dev1-win64.exe settings -r 
