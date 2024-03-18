@@ -42,6 +42,7 @@
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
+* -#NOTE: ref err loading `app_settings.yml` from sEXE, there DOES NOT WORK to avoid it using `python try` option
 * `0.5.1.dev1` site readability improvements:
     * [x] 1. main project README drop `TOC` statement
     * [x] 2. update `nav -> Help -> CHANGELOG sistem`, change to "Istoric log sistem"
