@@ -176,13 +176,17 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
 # settings to differently treat single EXE vs other application types
 frozen_sexe = getattr(sys, 'frozen', False)
 if frozen_sexe:
-    crt_dir = sys._MEIPASS
+    app_dir = sys._MEIPASS
 else:
-    crt_dir = os.path.dirname(os.path.abspath(__file__))
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+crt_dir = Path.cwd()
 
 # get & render rules text from markdown file. Available ONLY for applications non standalone-EXE
 if not frozen_sexe:
-    rules_file = Path(os.path.dirname(__file__), "data/README_app_config_rules.md")
+    rules_file = Path(
+        app_dir,
+        "data/README_app_config_rules.md"
+    )
     rules_content = Markdown(rules_file.read_text())
 else:
     rules_content = Markdown(
@@ -192,12 +196,13 @@ else:
 # read app_settings.yml. Use below order to apply
 '''Specs: order to search and load for `app_config.yml`. Rule: First found win:
     * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
-    * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
+    * (2) package / application directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
     * (3) settings from `config_settings.py`
 '''
 # order method (1) - method apply for all application types
 config_file = Path(
-    crt_dir, "app_settings.yml"
+    crt_dir,
+    "app_settings.yml"
 )
 ok_to_use = config_file.exists() and config_file.is_file()
 python_object = None  # suppose no info found
@@ -210,7 +215,8 @@ if ok_to_use:
 if not frozen_sexe:
     if python_object is None:  # exec only if previous method did not read something
         config_file = Path(
-            crt_dir, "data/app_settings.yml"
+            app_dir,
+            "data/app_settings.yml"
         )
         ok_to_use = config_file.exists() and config_file.is_file()
         python_object = None  # suppose no info found

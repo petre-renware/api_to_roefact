@@ -9,7 +9,7 @@ rem     - stdout redirection: `./tests/_test_results.txt` >NUL
 
 
 rem cd xl2roefact
-rem python -m pip install pdm >NUL
+rembpython -m pip install pdm >NUL
 rem python -m pdm install >NUL
 rem pdm run build_sexe
 

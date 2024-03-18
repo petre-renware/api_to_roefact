@@ -4,10 +4,10 @@
 # - Author: Petre Iordanescu (petre.iordanescu@gmail.com)
 
 extra:  # NOTE: components version used as Jinja fields in markdown docs
-    xl2roefact_version: "0.4.1.dev0"
+    xl2roefact_version: "0.4.1.dev1"
     web2roefact_version: "n/a"
     invoice_template_version: "0.1.20"
-    INVOICEtoROefact_version: "0.5.1.dev1"
+    INVOICEtoROefact_version: "0.5.2.dev2"
 
 
 
