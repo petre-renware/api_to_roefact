@@ -91,6 +91,19 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 !!! info "Fisiere de configurare multiple"
     De retinut ca acest fisier este considerat (daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.
 
+
+**Fisier de configurare global**
+
+!!! info ""
+    In conditiile folosirii kitului MSI pentru o instalare locala a aplicatiei (cu utilizari multiple si repetate) si in situatia in care se doreste schimbarea configurarii implicite a aplicatiei se vor urma acesti pasi:
+    
+    * in directorul de instalare a aplicatiei se va crea daca nu exita directorul `data/`
+    * in acest director se va crea un fisier `app_settings.yml` cu configurarea globala dorita
+    
+    Aceasta configurare inlocuieste configurarea implicita si se va aplica global in utilizarea aplicatiei. In continuare configurarile existente in directorul curent *suprascriu configurarea globala* (se aplica cu precedenta).
+
+
+
 >[Aici puteti gasiti pentru descarcare un model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact).
 
 
