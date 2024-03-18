@@ -17,7 +17,7 @@ README_rules: "README_app_config_rules.md"
 # --- coeficientul TVA implicit
 # este utilizat de catre aplicatie in toate conditiile in care nu este gasit unul in fiserul de intrare
 # TIP RECOMANDAT AL INFORMATIEI; numar zecimal
-DEFAULT_VAT_PERCENT: 0.19
+DEFAULT_VAT_PERCENT: 99.99
 
 # --- denumirea unui produs ce nu poate fi identificat
 # este utilizat de catre aplicatie in toate conditiile in care denumirea unui produs sau serviciu (liniile facturii) nu este specifcata
@@ -33,15 +33,15 @@ DEFAULT_UNKNOWN_UOM: null
 # este utilizat de catre aplicatie in toate conditiile in care pe factura nu este specifcata in clar o moneda
 # specifcarea monedei ca sau in titlurile coloanelor nu este luata in considerare (nu este garantat ca este moneda reala a facturii !)
 # --- TIPUL INFORMATIEI; ...
-DEFAULT_CURRENCY: "RON"
+DEFAULT_CURRENCY: "...tst"
 
 # --- tara implicita
 # aceste constante sunt utilizate ca si tara implicita pentru "parterii" facturilor in condtiile in care tarile "parterilor" nu sunt gasite
 # in mod explicit pe factura (in zona de adresa). Prin sintagma "partener" pe factura sa intelege oricare din cele doua parti implicate in
 # procesul de facturare, si anume: FURNIZORUL si CLIENTUL
 # --- TIPUL INFORMATIEI; ...
-DEFAULT_CUSTOMER_COUNTRY: "RO"
-DEFAULT_SUPPLIER_COUNTRY: "RO"
+DEFAULT_CUSTOMER_COUNTRY: "...tst"
+DEFAULT_SUPPLIER_COUNTRY: "...tst"
 
 
 #---------------------------------------------------------------------------------------------------------------------------
