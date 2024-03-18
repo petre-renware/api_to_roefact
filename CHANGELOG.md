@@ -36,17 +36,13 @@
 
 ## 0.5
 
-### TODO:plan 0.5rc0 invoice supplier  (...date_here...)
+### 0.5rc0 invoice supplier (TODO: ... in progress...)
 
-* tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
-
-* ??? tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
-
-* tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to _`pre-set MSI build meta information`_ / parameters (obj: default target dir where install, path registration, icon, ...)
-
+<!--
 * tbd.Must...code: `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
+-->
 
 * `0.5.1.dev1` site readability improvements:
     * [x] 1. main project README drop `TOC` statement
