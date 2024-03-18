@@ -33,74 +33,70 @@
 
 
 
+<!-- NOTE: set to 0.5... because invoice supplier is a functional change ...
+## 0.5
 
-## 0.4
-
-
-### 0.4.0rc0 invoice supplier  <!--TODO:wip... (#NOTE: set_date_here...)-->
+### TODO:plan 0.5rc0 invoice supplier  (...date_here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
 * tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 
 * tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to _`pre-set MSI build meta information`_ / parameters (obj: default target dir where install, path registration, icon, ...)
-* tbd Would... for site build, to get xl2roefact version from package (`xl2roefact.__version__`) use this in `mkdocs.yml` at plugins section ref `mkdocs-macros` plugin:
-   ```
-   macros:
-       modules: [pack:module-or-object]
-  ```
-  which will become: `from pack import module-or-object`
 
 * tbd.Must...code: `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
-* #TODO: tbd@IMP archive to RLSE all deliverables >= `0.4.0.dev2`
-* #TODO: before build all close all ...wip... in CHANGELOG 
+-->
 
-* wip...
 
-* TODO:nxt... `0.4.0.dev3` xl2roefact include a data directory in package for various data files "built-in" package:
+
+
+
+
+
+
+## 0.4
+
+
+### `0.4.1.dev0` xl2roefact include a data directory in package for various data files "built-in" package (240318 h09:00)
+
+* `240318piu-yaml4sys-all-vers` update `mkdocs.yml` use `INHERIT: ./versions.yml` option to inherit versions exactly to have `extra` section like actual one but in this external file.
+* `240318piu-app-glob-cfg` update xl2roefact README, app configuration section ref how make a "global config file" different than default app configuration
+* `240317piu01` update downloads.md:
+    * [x] 1. include a template for `app_settings.yml` => Created dedicated section which can be referred as `.../downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact`
+    * [x] 1.a fixed `0.4.0.dev2` MSI & EXE deliverables file names (missing path number)
+    * [x] 2. refer it in xl2roefact README
+    * [x] 3. include `0.4.1.dev` download;
+        * WHEEL & DIST references
+        * standalone EXE reference
+        * MSI reference
+* `2403piu-config-code` update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
+    * [x] 1. update app version to `0.4.1.dev0`. Make a test what `normalized_version()` returns (run xl2roefact --version)
+    * [x] 2. update key `README_rules` from `app_settings.yml`, set it to point to markdown file containing rules list (`xl2roefact/xl2roefact/data/README_app_config_rules.md`)
+    * INFO-NOTE: after YAML import data will be dict with all actual code variables as keywords
+    * [x] 3. gross-raw code in `config.settings.py` for both below NOTES
+        * INFO-NOTE: order to search and load for `app_config.yml`:
+            * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
+            * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
+            * (3) settings from `config_settings.py`
+        * INFO-NOTE: methods of updates variables:
+            * (1) using `locals().update(YAML_dict)`
+            * (2) using `exec(YAML_dict["key")` by looping YAML resulted dictionary
+        * regardless of method check the propagation running `xl2roefact settings` which is a demo of using values external to config_settings module
+    * [x] 4. apply reading order
+    * [x] 5. clean code & test YAML settings files from `xl2roefact/`
+    * [x] 6. if read YAML was got some values then set as `local()` variables (not dictionary)
+    * [x] 7. updated `xl2roefact/setup.py` to include `data/app_settings.yml` file
+    * [x] build all: upd version (2 version files + mkdocs.yml) & pdm run build_all
+* `2403piu-app-data-dir` actions:
     * [x] 1.a build directory with a TOML file for setting parameters (used by `config_settings` module)
     * [x] 2 update `pyproject.toml` to include in package non python data files from `xl2roefact/data/` directory
     * [x] 2.a test pdm building wheel ref brute errors = __PASS__ =: package created ok and contains `data/*` with exact flies that exists in this directory at package development phase
     * [x] 3. add in `.../xl2roefact/data/` file `owner_data.json` with owner data to be used as supplier info for future option `--load-from-owner-file`
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
     * [x] 5. updated `.../data/app_settings.yml` with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)
-    * [ ] ... 6. update `config_settings.py` module to upload data from `.../data/app_settings.yml` file. Specs:
-        * update app version to `0.4.0.dev3`. Make a test what `normalized_version()` returns (run xl2roefact --version)
-        * update `.../data/app_settings.yml`, drop key ref to rules as now is an externalized file
-        * after YAML import data will be dict with all actual code variables as keywords
-        * keep all existing variables and read YAML file if exists and replace their content (avoid defaulting errors when file is not defined)
-        * order to search and load for `app_config.yml`:
-            * (1) crt directory (with `cwd`)
-            * (2) package directory (with `__file__`)
-            * (3) settings from `config_settings.py`
-    * [ ] n. update downloads and include a template for `app_settings.yml` and specify in xl2roefact README
-    * [ ] n. check if everything is ok when make EXE & MSI variants, meaning defaults the right data and process of Excel files is correct w/o errors
-    * [ ] n. build a new wheel package (#NOTE: ATTN TO VERSION)
-    * [ ] n. ...
-
-
-
-
-
-### `0.4.0.dev2` externalize recommended rules for updating app setting rules (240316 T12:00)
-
-* `0.4.0.dev2` externalize recommended rules for updating app setting rules
-    * [x] 1. created `xl2roefact/data/README_app_config_rules.md` containing the recommended rules for updating app setting rules
-    * [x] 2. refer it in `config_settings.py` in its docstring section ==> exported `rules_content` that contain text
-    * [x] 3. update `app_cli.py` module to load them accordingly on `settings --rules` command + option
-    * [x] 4. build this package and publish on PyPi
-    * archived locally (RLSE) package wheel & dist
-    * [x] 5. update `xl2roefact README` to reflect that change
-    * [x] 6. build all deliverables
-    * [x] 7. update `downloads.md` with section for "Other resource downloads" with doc from item 1
-* `240314piu01` update GitHub `ad hoc` workflow, made usable for any project component by moving structures to project root and letting environment management at command script glance
-* `0.4.0.dev1` fixed `xl2roefact` CLI app version addressing
-* `0.4.0.dev0` updated `xl2roefact.__init__.py` to expose public symbols
-* `240313piu02` small administrative adjustments: update technical axl2roefact DLD, build site & republish (used version `0.4.0rc0` for whole system)
-* `240313piu01` application tech optimizations: `rdinv.__all__` spec, `__init__.__version__` import and made available as xl2roefact global
 
 
 
@@ -118,7 +114,7 @@
 ## 0.4 version
 </summary>
 
-* ...
+* [`0.4.0.dev2` externalize recommended rules for updating app setting rules (240316 T12:00)](./changelog_history/CHANGELOG-0.4.0.dev2.md)
 </details>
 
 

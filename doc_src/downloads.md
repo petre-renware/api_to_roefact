@@ -34,6 +34,8 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
 ??? note "0.4"
+    * [`0.4.1.dev0` xl2roefact include a data directory in package WHEEL](../xl2roefact/dist/xl2roefact-0.4.1.dev0-py3-none-any.whl "download")
+    * [`0.4.1.dev0` xl2roefact include a data directory in package DIST](../xl2roefact/dist/xl2roefact-0.4.1.dev0.tar.gz "download")
     * [`0.4.0.dev2` externalize recommended rules for updating app setting rules WHEEL](../xl2roefact/dist/xl2roefact-0.4.0.dev2-py3-none-any.whl "download")
     * [`0.4.0.dev2` externalize recommended rules for updating app setting rules DIST](../xl2roefact/dist/xl2roefact-0.4.0.dev2.tar.gz "download")
     * [`0.4.0.dev1` fixed `xl2roefact` CLI app version addressing WHEEL](../xl2roefact/dist/xl2roefact-0.4.0.dev1-py3-none-any.whl "download")
@@ -87,7 +89,8 @@ Nici o resursa disponibila.
 
 
 ??? note "0.4"
-    * [`0.4.0.dev2` externalize recommended rules for updating app setting rules](../xl2roefact/dist/xl2roefact-0.4.dev2-win64.msi "download")
+    * [`0.4.1.dev0` xl2roefact include a data directory in package](../xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.msi "download")
+    * [`0.4.0.dev2` externalize recommended rules for updating app setting rules](../xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.msi "download")
 
 
 ??? note "0.3"
@@ -113,7 +116,8 @@ Nici o resursa disponibila.
 ### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)
 
 ??? note "0.4"
-    * [`0.4.0.dev2` externalize recommended rules for updating app setting rules](../xl2roefact/dist/xl2roefact-0.4.dev2-win64.exe "download")
+    * [`0.4.1.dev0` xl2roefact include a data directory in package](../xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.exe "download")
+    * [`0.4.0.dev2` externalize recommended rules for updating app setting rules](../xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.exe "download")
 
 
 ??? note "0.3"
@@ -144,8 +148,6 @@ Nici o resursa disponibila.
 
 
 
-
-
 ## Sablon template factura
 
 ??? note "Format XLSX Office Excel"
@@ -157,6 +159,27 @@ Nici o resursa disponibila.
 
 
 
+
+
+
+
+
+## Sablon fisier configurare a aplicatiei xl2roefact
+
+Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.
+
+Sablonul este in format [YAML](https://yaml.org/) iar informatiile ce trebuiesc descrise sunt explicate individual in comentarii insotitoare.
+De asemenea este util a fi citite si recomandarile date in pagina de descriere a aplicatiei.
+
+Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un fisier **`app_settings.yml`** in directorul curent din care lansati aplicatia, fisier ce contine noile configurari dorite.
+**Numele fisierelui este obligatoriu a fi respectat.**
+
+!!! info "Fisiere de configurare multiple"
+    De retinut ca acest fisier este considerat (daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.
+
+!!! tip "Sablon de fisier"
+    Urmarind [acest link puteti descarca un sablon de fisier de configurare](./../xl2roefact/xl2roefact/data/app_settings.yml "download").
+    De mentionat ca acest sablon este pre-completat cu situatii deja intilnite in practica, el fiind chiar sablonul implicit folosit de aplicatie.
 
 
 
