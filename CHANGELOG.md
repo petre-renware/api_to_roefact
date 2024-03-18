@@ -33,14 +33,14 @@
 
 
 
-<!-- NOTE: set to 0.5... because invoice supplier is a functional change ...
+
 ## 0.5
 
 ### TODO:plan 0.5rc0 invoice supplier  (...date_here...)
 
 * tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
 
-* tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
+* ??? tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
 
 * tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to _`pre-set MSI build meta information`_ / parameters (obj: default target dir where install, path registration, icon, ...)
 
@@ -48,14 +48,30 @@
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
+* ... `240318.piu.01` site readability improvements:
+    * [ ] 1. main project README drop `TOC` statement
+    * [ ] 2. update `nav -> Help -> CHANGELOG sistem`, change to "Istoric log sistem"
+    * [ ] 3. update downloads.md doc, mark as "known bug DO NOT USE" entry:
+        - section: "Format executabil Windows x64"
+        - entry: "0.4.1.dev0 xl2roefact include a data directory in package"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--#TODO: subject to archive.
+    When do it see if add to archived CHANGELOG the "antet"
+    section ref components version
 -->
-
-
-
-
-
-
-
 
 ## 0.4
 
