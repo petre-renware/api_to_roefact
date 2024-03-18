@@ -59,6 +59,8 @@
     * NOTE: `frozen` attribute is set by `pyinstaller` at app building, otherwise it not exists `getattr` returns `None` (example code will return `False`)
 
 
+* ___tbd.Must-Urgent___... drop PyPi token from publishing workflow. Normally this git being trusted source should work without it.
+
 * `0.5.1.dev1` site readability improvements:
     * [x] 1. main project README drop `TOC` statement
     * [x] 2. update `nav -> Help -> CHANGELOG sistem`, change to "Istoric log sistem"
