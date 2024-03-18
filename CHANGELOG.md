@@ -42,7 +42,7 @@
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
-* -#NOTE: ref err loading `app_settings.yml` from sEXE, the `try` DOES NOT WORK. Recommend meth is:
+* #NOTE: ref err loading `app_settings.yml` from sEXE, the `try` DOES NOT WORK. Recommend meth is:
     * According to the documentation of PyInstaller, the suggested method of recovering application path is as follows:
     ```python
     #!/usr/bin/python3
@@ -56,9 +56,7 @@
         application_path = os.path.dirname(os.path.abspath(__file__))
 
     ```
-
-
-
+    * NOTE: `frozen` attribute is set by `pyinstaller` at app building, otherwise it not exists `getattr` returns `None` (example code will return `False`)
 
 
 * `0.5.1.dev1` site readability improvements:
