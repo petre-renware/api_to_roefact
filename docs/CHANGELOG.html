@@ -509,8 +509,8 @@ div.download-btn {
 <nav aria-label="0.5" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#todoplan-05rc0-invoice-supplier-date_here">
-    TODO:plan 0.5rc0 invoice supplier  (...date_here...)
+<a class="md-nav__link" href="#05rc0-invoice-supplier-todo-in-progress">
+    0.5rc0 invoice supplier (TODO: ... in progress...)
   </a>
 </li>
 </ul>
@@ -557,8 +557,8 @@ div.download-btn {
 <nav aria-label="0.5" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#todoplan-05rc0-invoice-supplier-date_here">
-    TODO:plan 0.5rc0 invoice supplier  (...date_here...)
+<a class="md-nav__link" href="#05rc0-invoice-supplier-todo-in-progress">
+    0.5rc0 invoice supplier (TODO: ... in progress...)
   </a>
 </li>
 </ul>
@@ -591,7 +591,7 @@ div.download-btn {
 <ul>
 <li><a href="#changelog">CHANGELOG</a><ul>
 <li><a href="#05">0.5</a><ul>
-<li><a href="#todoplan-05rc0-invoice-supplier-date_here">TODO:plan 0.5rc0 invoice supplier  (...date_here...)</a></li>
+<li><a href="#05rc0-invoice-supplier-todo-in-progress">0.5rc0 invoice supplier (TODO: ... in progress...)</a></li>
 </ul>
 </li>
 <li><a href="#04">0.4</a><ul>
@@ -634,27 +634,14 @@ div.download-btn {
         * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
 -->
 <h2 id="05">0.5</h2>
-<h3 id="todoplan-05rc0-invoice-supplier-date_here">TODO:plan 0.5rc0 invoice supplier  (...date_here...)</h3>
+<h3 id="05rc0-invoice-supplier-todo-in-progress">0.5rc0 invoice supplier (TODO: ... in progress...)</h3>
+<!--
+* tbd.Must...code: `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
+    * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
+    * ... idea is to reuse code for customer area as much as possible
+-->
 <ul>
-<li>
-<p>tbd.Must... @RELEASE update version files &amp; <a href="RELEASE-QA_checklist.html">follow <code>/RELEASE-QA_checklist.md</code></a></p>
-</li>
-<li>
-<p>??? tbd.Could... define <code>xl2roefact</code> entry points and/or scripts. comments in <code>xl2roefact/setup.py</code> ref exec scripts with installed package</p>
-</li>
-<li>
-<p>tbd.Should... [piu @<em>240126] left in <code>xl2roefact/setup.py</code> comments &amp; example ref how to </em><code>pre-set MSI build meta information</code>_ / parameters (obj: default target dir where install, path registration, icon, ...)</p>
-</li>
-<li>
-<p>tbd.Must...code: <code>INV.SUPP</code>... <code>xl2roefact</code> invoice supplier (<code>&lt;cac:AccountingSupplierParty&gt;</code>)</p>
-<ul>
-<li>start with search where produce <code>"supplier_area": "...future..."</code> (JSON extract) or "FIXME: INV.SUPP"</li>
-<li>... idea is to reuse code for customer area as much as possible</li>
-</ul>
-</li>
-<li>
-<p><code>240318.fix-site.01</code> site readability improvements:</p>
-<ul class="task-list">
+<li><code>0.5.1.dev1</code> site readability improvements:<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. main project README drop <code>TOC</code> statement</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. update <code>nav -&gt; Help -&gt; CHANGELOG sistem</code>, change to "Istoric log sistem"</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. update downloads.md doc, mark as "known bug DO NOT USE" entry:<ul>
@@ -662,7 +649,7 @@ div.download-btn {
 <li>entry: "0.4.1.dev0 xl2roefact include a data directory in package"</li>
 </ul>
 </li>
-<li>update <em>INVOICEtoROefact</em> system ver to <code>0.4.1.dev0+240318.fix-site.01</code></li>
+<li>update <em>INVOICEtoROefact</em> system ver to <code>0.5.1.dev1</code></li>
 <li>build site &amp; publish</li>
 </ul>
 </li>
