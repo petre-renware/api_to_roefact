@@ -13,6 +13,7 @@ Public objects:
 
 from pathlib import Path
 import os
+import sys
 from rich.markdown import Markdown
 import yaml
 from pprint import pprint
@@ -202,6 +203,7 @@ python_object = None  # initialize as null
 if ok_to_use:
     yaml_in = config_file.read_text()
     python_object = yaml.safe_load(yaml_in)
+    print("***INFO: Application settings loaded from current directory (local settings).")
 
 # order method (2)
 if python_object is None:  # exec only if previous method did not read something
@@ -211,10 +213,12 @@ if python_object is None:  # exec only if previous method did not read something
     if ok_to_use:
         yaml_in = config_file.read_text()
         python_object = yaml.safe_load(yaml_in)
+        print("***INFO: Application settings loaded from installation directory (global settings).")
 
 # assign `python_object` to locals() environment
 if python_object is not None:  # exec only if previous method has been read something
     locals().update(python_object)
+    print("***INFO: Application settings loaded from application code (default settings).")
 else:  # if none of previous methods applied then will remain the content hard-coded in this module
     pass
 
