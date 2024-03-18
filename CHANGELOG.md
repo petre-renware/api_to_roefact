@@ -36,13 +36,11 @@
 
 ## 0.5
 
-### 0.5rc0 invoice supplier (TODO: ... in progress...)
+### 0.5rc0 invoice supplier (#TODO: ... in progress...)
 
-<!--
 * tbd.Must...code: `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
--->
 
 * `0.5.1.dev1` site readability improvements:
     * [x] 1. main project README drop `TOC` statement
