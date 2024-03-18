@@ -42,7 +42,25 @@
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
-* -#NOTE: ref err loading `app_settings.yml` from sEXE, there DOES NOT WORK to avoid it using `python try` option
+* -#NOTE: ref err loading `app_settings.yml` from sEXE, the `try` DOES NOT WORK. Recommend meth is:
+    * According to the documentation of PyInstaller, the suggested method of recovering application path is as follows:
+    ```python
+    #!/usr/bin/python3
+    import sys, os
+    if getattr(sys, 'frozen', False):
+        # If the application is run as a bundle, the PyInstaller bootloader
+        # extends the sys module by a flag frozen=True and sets the app 
+        # path into variable _MEIPASS'.
+        application_path = sys._MEIPASS
+    else:
+        application_path = os.path.dirname(os.path.abspath(__file__))
+
+    ```
+
+
+
+
+
 * `0.5.1.dev1` site readability improvements:
     * [x] 1. main project README drop `TOC` statement
     * [x] 2. update `nav -> Help -> CHANGELOG sistem`, change to "Istoric log sistem"
