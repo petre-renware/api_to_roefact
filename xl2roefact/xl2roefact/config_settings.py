@@ -183,7 +183,10 @@ crt_dir = Path.cwd()
 
 # get & render rules text from markdown file. Available ONLY for applications non standalone-EXE
 if not frozen_sexe:
-    rules_file = Path(os.path.dirname(__file__), "data/README_app_config_rules.md")
+    rules_file = Path(
+        app_dir,
+        "data/README_app_config_rules.md"
+    )
     rules_content = Markdown(rules_file.read_text())
 else:
     rules_content = Markdown(
