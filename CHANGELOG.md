@@ -52,6 +52,7 @@
     * [x] 3. test python code. Result: **PASS**
     * [x] 4. generate sEXE
     * [x] 5. test `pdm run xl2roefact settings`. Result: **PASS**
+    * [ ] 6. clean and make code "production like"
     * [ ] ... update downloads.md
     * [ ] ... update INVOICEtoROefact project `versions.yml`:
         * xl2roefact = 0.4.1.dev1
@@ -59,17 +60,6 @@
     * [ ] ... chk any other site fixes before generating
     * [ ] ... build site & publish
     * [ ] ... rollout to development
-<!--
-    #!/usr/bin/python3
-    import sys, os
-    if getattr(sys, 'frozen', False):
-        # If the application is run as a bundle, the PyInstaller bootloader
-        # extends the sys module by a flag frozen=True and sets the app 
-        # path into variable _MEIPASS'.
-        application_path = sys._MEIPASS
-    else:
-        application_path = os.path.dirname(os.path.abspath(__file__))
--->
 
 * `0.5.1.dev1` site readability improvements:
     * [x] 1. main project README drop `TOC` statement
