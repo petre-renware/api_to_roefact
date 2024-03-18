@@ -50,9 +50,12 @@
     * [x] 1. update `config_settings.py` module to load app cfg from external file only when not sEXE frozen app (`getattr(sys, 'frozen', False) == True`)
     * [x] 2. update xl2roefact version to `0.4.1.dev1` to genrate only sEXE deliverable
     * [x] 3. test python code. Result: **PASS**
-    * [ ] 4. generate sEXE and test `pdm run xl2roefact settings`. Result: ?...?
-    * [ ] 5. update downloads.md
-    * [ ] 6. update INVOICEtoROefact project `versions.yml`
+    * [x] 4. generate sEXE
+    * [x] 5. test `pdm run xl2roefact settings`. Result: **PASS**
+    * [ ] ... update downloads.md
+    * [ ] ... update INVOICEtoROefact project `versions.yml`:
+        * xl2roefact = 0.4.1.dev1
+        * INVOICEtoROefact = 0.5.2.dev2
     * [ ] ... chk any other site fixes before generating
     * [ ] ... build site & publish
     * [ ] ... rollout to development

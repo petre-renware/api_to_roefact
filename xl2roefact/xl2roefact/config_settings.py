@@ -160,18 +160,6 @@ PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [
 ]
 
 ...  #TODO: alte patternuri comune partner: RegCom, IBAN, Banca
-
-
-
-
-
-
-
-
-
-# FIXME: in factura Petrom nu ai nici ref furnizor nici client, ci ai numele firmelor lor, dar ai C.U.I.  #FIXME tried something @line 110...
-# FIXME: ci alte texte COMPLET "OUT-OF-UDERSTANDING" chiar si pentru humans !
-# TODO: decide something, most probably set this kind of issue in documentation section for: "RULES FOR INVOICE data in Excel"
 # --- furnizor (supplier)
 # pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
@@ -185,10 +173,21 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
 # ----------------------------------------------------------
 # here start the code section where external data is get
 
+# settings to differently treat single EXE vs other application types
+frozen_sexe = getattr(sys, 'frozen', False)
+if frozen_sexe:
+    crt_dir = sys._MEIPASS
+else:
+    crt_dir = os.path.dirname(os.path.abspath(__file__))
 
-# get & render rules text from markdown file
-rules_file = Path(os.path.dirname(__file__), "data/README_app_config_rules.md")
-rules_content = Markdown(rules_file.read_text())
+# get & render rules text from markdown file. Available ONLY for applications non standalone-EXE
+if not frozen_sexe:
+    rules_file = Path(os.path.dirname(__file__), "data/README_app_config_rules.md")
+    rules_content = Markdown(rules_file.read_text())
+else:
+    rules_content = Markdown(
+        "***WARNING NOTE: **Rules cannot be displayed for standalone exe application**. Please visit the application site: *`http://invoicetoroefact.renware.eu`*."
+    )
 
 # read app_settings.yml. Use below order to apply
 '''Specs: order to search and load for `app_config.yml`. Rule: First found win:
@@ -196,19 +195,12 @@ rules_content = Markdown(rules_file.read_text())
     * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
     * (3) settings from `config_settings.py`
 '''
-python_object = None
-frozen_sexe = getattr(sys, 'frozen', False)
-if frozen_sexe:
-    crt_dir = sys._MEIPASS
-else:
-    crt_dir = os.path.dirname(os.path.abspath(__file__))
-
 # order method (1) - method apply for all application types
 config_file = Path(
     crt_dir, "app_settings.yml"
 )
 ok_to_use = config_file.exists() and config_file.is_file()
-python_object = None  # initialize as null
+python_object = None  # suppose no info found
 if ok_to_use:
     yaml_in = config_file.read_text()
     python_object = yaml.safe_load(yaml_in)
@@ -221,7 +213,7 @@ if not frozen_sexe:
             crt_dir, "data/app_settings.yml"
         )
         ok_to_use = config_file.exists() and config_file.is_file()
-        python_object = None  # initialize as null
+        python_object = None  # suppose no info found
         if ok_to_use:
             yaml_in = config_file.read_text()
             python_object = yaml.safe_load(yaml_in)
