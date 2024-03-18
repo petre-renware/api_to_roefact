@@ -50,7 +50,7 @@
 
 * ... `240318.piu.01` site readability improvements:
     * [x] 1. main project README drop `TOC` statement
-    * [ ] 2. update `nav -> Help -> CHANGELOG sistem`, change to "Istoric log sistem"
+    * [x] 2. update `nav -> Help -> CHANGELOG sistem`, change to "Istoric log sistem"
     * [ ] 3. update downloads.md doc, mark as "known bug DO NOT USE" entry:
         - section: "Format executabil Windows x64"
         - entry: "0.4.1.dev0 xl2roefact include a data directory in package"
