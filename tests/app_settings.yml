@@ -7,7 +7,7 @@
 
 
 
-README_rules: "README_app_config_rules.md"
+2 README_rules: "README_app_config_rules.md"
 
 #--------------------------------------------------------------------------------------------------------------------------
 # NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
