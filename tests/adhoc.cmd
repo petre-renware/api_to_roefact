@@ -13,6 +13,6 @@ cd xl2roefact
 python -m pip install pdm >NUL
 python -m pdm install >NUL
 
-pdm run xl2roefact settings
+pdm run build_sexe
 
 
