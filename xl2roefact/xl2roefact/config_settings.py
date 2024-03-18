@@ -205,8 +205,7 @@ else:
 
 # order method (1) - method apply for all application types
 config_file = Path(
-    crt_dir,
-    "app_settings.yml"
+    crt_dir, "app_settings.yml"
 )
 ok_to_use = config_file.exists() and config_file.is_file()
 python_object = None  # initialize as null
@@ -219,8 +218,7 @@ if ok_to_use:
 if not frozen_sexe:
     if python_object is None:  # exec only if previous method did not read something
         config_file = Path(
-            crt_dir,
-            "data/app_settings.yml"
+            crt_dir, "data/app_settings.yml"
         )
         ok_to_use = config_file.exists() and config_file.is_file()
         python_object = None  # initialize as null
