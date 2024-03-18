@@ -54,16 +54,24 @@
 
 
 
-## 0.4 ...wip
 
-### wip... `0.4.1.dev0` xl2roefact include a data directory in package for various data files "built-in" package
+
+
+## 0.4
+
+<!--#FIXME this version is still open...wip but was temp cleaned for site building
+REDO after site building -->
+
+### `0.4.1.dev0` xl2roefact include a data directory in package for various data files "built-in" package (240318 h09:00)
+
+<!-- ...REDO.this. See up FIXME comment
 
 * ... merge to development branch
 * ... publish on PyPi
 * ... cls CHANGELOG, build site + publish
-* ... update `mkdocs.yml` use `INHERIT: ./versions.yml` option to inherit versions exactly to have `extra` section like actual one but in this external file.
-  Ext ref: `https://www.mkdocs.org/user-guide/configuration/#configuration-inheritance`
+* -->
 
+* `240318piu-yaml4sys-all-vers` update `mkdocs.yml` use `INHERIT: ./versions.yml` option to inherit versions exactly to have `extra` section like actual one but in this external file.
 * `240318piu-app-glob-cfg` update xl2roefact README, app configuration section ref how make a "global config file" different than default app configuration
 * `240317piu01` update downloads.md:
     * [x] 1. include a template for `app_settings.yml` => Created dedicated section which can be referred as `.../downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact`
