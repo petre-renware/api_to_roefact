@@ -61,6 +61,8 @@
 * ... merge to development branch
 * ... publish on PyPi
 * ... cls CHANGELOG, build site + publish
+* ... update `mkdocs.yml` use `INHERIT: ./versions.yml` option to inherit versions exactly to have `extra` section like actual one but in this external file
+* ... update xl2roefact README, spp configuration section ref how make a "general config file" different than default app configuration
 
 * `240317piu01` update downloads.md:
     * [x] 1. include a template for `app_settings.yml` => Created dedicated section which can be referred as `.../downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact`
