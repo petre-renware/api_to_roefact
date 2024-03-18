@@ -13,7 +13,12 @@
 
 ![Static Badge](https://img.shields.io/badge/version-{{ INVOICEtoROefact_version }}-blue)
 
-Acest sistem va asigura incarcarea facturilor emise in sistemul [ANAF E-Factura](https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura).
+**Facturi emise in Excel**, problema rezolvata cu **INVOICEtoROefact** !
+
+Emiteti si folositi in continuare facturi in Excel. Acest sistem va produce fisierul XML de care aveti nevoie pentru sistemul [ANAF E-Factura](https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura).
+
+Si mai mult, daca aveti nevoie, puteti Integra aceste facturi si alte sisteme externe prin metode moderne, uzuale, curente, incetatenite de ani de zile si binecunoscute de specialistii din IT.
+
 
 
 
