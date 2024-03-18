@@ -49,7 +49,7 @@
     * ... idea is to reuse code for customer area as much as possible
 
 * ... `240318.piu.01` site readability improvements:
-    * [ ] 1. main project README drop `TOC` statement
+    * [x] 1. main project README drop `TOC` statement
     * [ ] 2. update `nav -> Help -> CHANGELOG sistem`, change to "Istoric log sistem"
     * [ ] 3. update downloads.md doc, mark as "known bug DO NOT USE" entry:
         - section: "Format executabil Windows x64"
