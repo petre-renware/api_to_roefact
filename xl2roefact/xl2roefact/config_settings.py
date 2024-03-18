@@ -196,8 +196,18 @@ rules_content = Markdown(rules_file.read_text())
     * (2) package directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
     * (3) settings from `config_settings.py`
 '''
-# order method (1)
-config_file = Path(os.getcwd(), "app_settings.yml")
+python_object = None
+frozen_sexe = getattr(sys, 'frozen', False)
+if frozen_sexe:
+    crt_dir = sys._MEIPASS
+else:
+    crt_dir = os.path.dirname(os.path.abspath(__file__))
+
+# order method (1) - method apply for all application types
+config_file = Path(
+    crt_dir,
+    "app_settings.yml"
+)
 ok_to_use = config_file.exists() and config_file.is_file()
 python_object = None  # initialize as null
 if ok_to_use:
@@ -205,22 +215,25 @@ if ok_to_use:
     python_object = yaml.safe_load(yaml_in)
     print("***INFO: Application settings loaded from current directory (local settings).")
 
-# order method (2)
-if python_object is None:  # exec only if previous method did not read something
-    config_file = Path(os.path.dirname(__file__), "data/app_settings.yml")
-    ok_to_use = config_file.exists() and config_file.is_file()
-    python_object = None  # initialize as null
-    if ok_to_use:
-        yaml_in = config_file.read_text()
-        python_object = yaml.safe_load(yaml_in)
-        print("***INFO: Application settings loaded from installation directory (global settings).")
+# order method (2) - method apply ONLY for applications non standalone-EXE
+if not frozen_sexe:
+    if python_object is None:  # exec only if previous method did not read something
+        config_file = Path(
+            crt_dir,
+            "data/app_settings.yml"
+        )
+        ok_to_use = config_file.exists() and config_file.is_file()
+        python_object = None  # initialize as null
+        if ok_to_use:
+            yaml_in = config_file.read_text()
+            python_object = yaml.safe_load(yaml_in)
+            print("***INFO: Application settings loaded from installation directory (global settings).")
 
 # assign `python_object` to locals() environment
 if python_object is not None:  # exec only if previous method has been read something
     locals().update(python_object)
-    print("***INFO: Application settings loaded from application code (default settings).")
 else:  # if none of previous methods applied then will remain the content hard-coded in this module
-    pass
+    print("***INFO: Application settings loaded from application code (default settings).")
 
 
 
