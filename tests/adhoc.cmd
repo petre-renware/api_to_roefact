@@ -13,6 +13,6 @@ rem python -m pip install pdm >NUL
 rem python -m pdm install >NUL
 
 cd tests
-./xl2roefact-0.4.1.dev1-win64.exe settings
+.\xl2roefact-0.4.1.dev1-win64.exe settings
 
 
