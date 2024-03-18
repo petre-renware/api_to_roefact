@@ -1376,7 +1376,7 @@
                         <section class="print-page" id="index"><p><img alt="api_to_roefact_logo" src="doc_src/pictures/api_to_roefact_logo.png" width="300" /></p>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="index-invoicetoroefact">INVOICEtoROefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.4.1.dev0+240318.fix-site.01-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.1.dev1-blue" /></p>
 <p><strong>Facturi emise in Excel</strong>, problema rezolvata cu <strong>INVOICEtoROefact</strong> !</p>
 <p>Emiteti si folositi in continuare facturi in Excel. Acest sistem va produce fisierul XML de care aveti nevoie pentru sistemul <a href="https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura">ANAF E-Factura</a>.</p>
 <p>Si mai mult, daca aveti nevoie, puteti Integra aceste facturi si alte sisteme externe prin metode moderne, uzuale, curente, incetatenite de ani de zile si binecunoscute de specialistii din IT.</p>
@@ -3735,7 +3735,7 @@ Public License instead of this License.  But first, please read
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-05">0.5</a><ul>
-<li><a href="#changelog-todoplan-05rc0-invoice-supplier-date_here">TODO:plan 0.5rc0 invoice supplier  (...date_here...)</a></li>
+<li><a href="#changelog-05rc0-invoice-supplier-todo-in-progress">0.5rc0 invoice supplier (TODO: ... in progress...)</a></li>
 </ul>
 </li>
 <li><a href="#changelog-04">0.4</a><ul>
@@ -3779,27 +3779,15 @@ Public License instead of this License.  But first, please read
 -->
 
 <h2 id="changelog-05">0.5</h2>
-<h3 id="changelog-todoplan-05rc0-invoice-supplier-date_here">TODO:plan 0.5rc0 invoice supplier  (...date_here...)</h3>
+<h3 id="changelog-05rc0-invoice-supplier-todo-in-progress">0.5rc0 invoice supplier (TODO: ... in progress...)</h3>
+<!--
+* tbd.Must...code: `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
+    * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
+    * ... idea is to reuse code for customer area as much as possible
+-->
+
 <ul>
-<li>
-<p>tbd.Must... @RELEASE update version files &amp; <a href="#release-qa_checklist">follow <code>/RELEASE-QA_checklist.md</code></a></p>
-</li>
-<li>
-<p>??? tbd.Could... define <code>xl2roefact</code> entry points and/or scripts. comments in <code>xl2roefact/setup.py</code> ref exec scripts with installed package</p>
-</li>
-<li>
-<p>tbd.Should... [piu @<em>240126] left in <code>xl2roefact/setup.py</code> comments &amp; example ref how to </em><code>pre-set MSI build meta information</code>_ / parameters (obj: default target dir where install, path registration, icon, ...)</p>
-</li>
-<li>
-<p>tbd.Must...code: <code>INV.SUPP</code>... <code>xl2roefact</code> invoice supplier (<code>&lt;cac:AccountingSupplierParty&gt;</code>)</p>
-<ul>
-<li>start with search where produce <code>"supplier_area": "...future..."</code> (JSON extract) or "FIXME: INV.SUPP"</li>
-<li>... idea is to reuse code for customer area as much as possible</li>
-</ul>
-</li>
-<li>
-<p><code>240318.fix-site.01</code> site readability improvements:</p>
-<ul class="task-list">
+<li><code>0.5.1.dev1</code> site readability improvements:<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. main project README drop <code>TOC</code> statement</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. update <code>nav -&gt; Help -&gt; CHANGELOG sistem</code>, change to "Istoric log sistem"</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. update downloads.md doc, mark as "known bug DO NOT USE" entry:<ul>
@@ -3807,7 +3795,7 @@ Public License instead of this License.  But first, please read
 <li>entry: "0.4.1.dev0 xl2roefact include a data directory in package"</li>
 </ul>
 </li>
-<li>update <em>INVOICEtoROefact</em> system ver to <code>0.4.1.dev0+240318.fix-site.01</code></li>
+<li>update <em>INVOICEtoROefact</em> system ver to <code>0.5.1.dev1</code></li>
 <li>build site &amp; publish</li>
 </ul>
 </li>
