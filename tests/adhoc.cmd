@@ -14,5 +14,3 @@ python -m pip install pdm >NUL
 python -m pdm install >NUL
 
 pdm run build_sexe
-
-
