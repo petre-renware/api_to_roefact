@@ -506,6 +506,11 @@ div.download-btn {
     Sablon template factura
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sablon-fisier-configurare-a-aplicatiei-xl2roefact">
+    Sablon fisier configurare a aplicatiei xl2roefact
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -639,6 +644,11 @@ div.download-btn {
     Sablon template factura
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sablon-fisier-configurare-a-aplicatiei-xl2roefact">
+    Sablon fisier configurare a aplicatiei xl2roefact
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -666,6 +676,8 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.4</summary>
 <ul>
+<li><a href="../xl2roefact/dist/xl2roefact-0.4.1.dev0-py3-none-any.whl" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package WHEEL</a></li>
+<li><a href="../xl2roefact/dist/xl2roefact-0.4.1.dev0.tar.gz" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package DIST</a></li>
 <li><a href="../xl2roefact/dist/xl2roefact-0.4.0.dev2-py3-none-any.whl" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules WHEEL</a></li>
 <li><a href="../xl2roefact/dist/xl2roefact-0.4.0.dev2.tar.gz" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules DIST</a></li>
 <li><a href="../xl2roefact/dist/xl2roefact-0.4.0.dev1-py3-none-any.whl" title="download"><code>0.4.0.dev1</code> fixed <code>xl2roefact</code> CLI app version addressing WHEEL</a></li>
@@ -709,7 +721,8 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.4</summary>
 <ul>
-<li><a href="../xl2roefact/dist/xl2roefact-0.4.dev2-win64.msi" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules</a></li>
+<li><a href="../xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.msi" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package</a></li>
+<li><a href="../xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.msi" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules</a></li>
 </ul>
 </details>
 <details class="note">
@@ -739,7 +752,8 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.4</summary>
 <ul>
-<li><a href="../xl2roefact/dist/xl2roefact-0.4.dev2-win64.exe" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules</a></li>
+<li><a href="../xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.exe" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package</a></li>
+<li><a href="../xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.exe" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules</a></li>
 </ul>
 </details>
 <details class="note">
@@ -761,12 +775,27 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <li><a href="../excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip" title="download"><code>0.1.11</code> arhiva ZIP</a></li>
 </ul>
 </details>
+<h2 id="sablon-fisier-configurare-a-aplicatiei-xl2roefact">Sablon fisier configurare a aplicatiei xl2roefact</h2>
+<p>Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.</p>
+<p>Sablonul este in format <a href="https://yaml.org/">YAML</a> iar informatiile ce trebuiesc descrise sunt explicate individual in comentarii insotitoare.
+De asemenea este util a fi citite si recomandarile date in pagina de descriere a aplicatiei.</p>
+<p>Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un fisier <strong><code>app_settings.yml</code></strong> in directorul curent din care lansati aplicatia, fisier ce contine noile configurari dorite.
+<strong>Numele fisierelui este obligatoriu a fi respectat.</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Fisiere de configurare multiple</p>
+<p>De retinut ca acest fisier este considerat (daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Sablon de fisier</p>
+<p>Urmarind <a href="../xl2roefact/xl2roefact/data/app_settings.yml" title="download">acest link puteti descarca un sablon de fisier de configurare</a>.
+De mentionat ca acest sablon este pre-completat cu situatii deja intilnite in practica, el fiind chiar sablonul implicit folosit de aplicatie.</p>
+</div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 16, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2024</span>
 </small>
 </div>
 </article>
