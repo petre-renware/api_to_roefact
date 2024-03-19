@@ -8,9 +8,9 @@ rem     - stdout redirection: `./tests/_test_results.txt` >NUL
 
 
 
-rem cd xl2roefact
-rembpython -m pip install pdm >NUL
-rem python -m pdm install >NUL
+cd xl2roefact
+python -m pip install pdm >NUL
+python -m pdm install >NUL
 pdm run build_doc
 
 
