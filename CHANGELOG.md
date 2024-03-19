@@ -42,11 +42,8 @@
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
-* ___tbd.Must-Urgent___... drop PyPi token from publishing workflow. Normally this git being trusted source should work without it.
 
-
-
-* ... `0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version;
+* `0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version;
     * [x] 1. update `config_settings.py` module to load app cfg from external file only when not sEXE frozen app (`getattr(sys, 'frozen', False) == True`)
     * [x] 2. update xl2roefact version to `0.4.1.dev1` to genrate only sEXE deliverable
     * [x] 3. test python code. Result: **PASS**
@@ -59,10 +56,8 @@
     * [x] 8. build xl2roefact wheel and DLD doc
     * [x] 9. publish `0.4.1.dev1` on PyPi
     * [x] 10. build all deliverables
-    * [ ] 11. update downloads.md ref all deliverables
-    * [ ] ... chk any other site fixes before generating
-    * [ ] ... build site & publish
-    * [ ] ... rollout to development
+    * [x] 11. update downloads.md ref all deliverables
+    * build site & publish
 
 * `0.5.1.dev1` site readability improvements:
     * [x] 1. main project README drop `TOC` statement
