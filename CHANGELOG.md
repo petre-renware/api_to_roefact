@@ -56,6 +56,7 @@
     * [x] 7. update INVOICEtoROefact project `versions.yml`:
         * xl2roefact = 0.4.1.dev1
         * INVOICEtoROefact = 0.5.2.dev2
+    * [ ] 8. build xl2roefact DLD doc
     * [ ] ... update downloads.md
     * [ ] ... chk any other site fixes before generating
     * [ ] ... build site & publish
