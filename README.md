@@ -6,11 +6,6 @@
 
 # INVOICEtoROefact
 
-***Cuprins:***
-
-[TOC]
-
-
 ![Static Badge](https://img.shields.io/badge/version-{{ INVOICEtoROefact_version }}-blue)
 
 **Facturi emise in Excel**, problema rezolvata cu **INVOICEtoROefact** !

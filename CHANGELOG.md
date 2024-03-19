@@ -33,29 +33,58 @@
 
 
 
-<!-- NOTE: set to 0.5... because invoice supplier is a functional change ...
+
 ## 0.5
 
-### TODO:plan 0.5rc0 invoice supplier  (...date_here...)
-
-* tbd.Must... @RELEASE update version files & [follow `/RELEASE-QA_checklist.md`](./RELEASE-QA_checklist.md)
-
-* tbd.Could... define `xl2roefact` entry points and/or scripts. comments in `xl2roefact/setup.py` ref exec scripts with installed package
-
-* tbd.Should... [piu @_240126] left in `xl2roefact/setup.py` comments & example ref how to _`pre-set MSI build meta information`_ / parameters (obj: default target dir where install, path registration, icon, ...)
+### 0.5rc0 invoice supplier (#TODO: ... in progress...)
 
 * tbd.Must...code: `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
+* wip...
+
+* `0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version;
+    * [x] 1. update `config_settings.py` module to load app cfg from external file only when not sEXE frozen app (`getattr(sys, 'frozen', False) == True`)
+    * [x] 2. update xl2roefact version to `0.4.1.dev1` to genrate only sEXE deliverable
+    * [x] 3. test python code. Result: **PASS**
+    * [x] 4. generate sEXE
+    * [x] 5. test `pdm run xl2roefact settings`. Result: **PASS**
+    * [x] 6. clean and make code "production like"
+    * [x] 7. update INVOICEtoROefact project `versions.yml`:
+        * xl2roefact = 0.4.1.dev1
+        * INVOICEtoROefact = 0.5.2.dev2
+    * [x] 8. build xl2roefact wheel and DLD doc
+    * [x] 9. publish `0.4.1.dev1` on PyPi
+    * [x] 10. build all deliverables
+    * [x] 11. update downloads.md ref all deliverables
+    * build site & publish
+* `0.5.1.dev1` site readability improvements:
+    * [x] 1. main project README drop `TOC` statement
+    * [x] 2. update `nav -> Help -> CHANGELOG sistem`, change to "Istoric log sistem"
+    * [x] 3. update downloads.md doc, mark as "known bug DO NOT USE" entry:
+        - section: "Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)"
+        - entry: "0.4.1.dev0 xl2roefact include a data directory in package"
+    * update *INVOICEtoROefact* system ver to `0.5.1.dev1`
+    * build site & publish
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--#TODO: subject to archive.
+    When do it see if add to archived CHANGELOG the "antet"
+    section ref components version
 -->
-
-
-
-
-
-
-
 
 ## 0.4
 
