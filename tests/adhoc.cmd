@@ -11,7 +11,7 @@ rem     - stdout redirection: `./tests/_test_results.txt` >NUL
 cd xl2roefact
 python -m pip install pdm >NUL
 python -m pdm install >NUL
-pdm run build_doc
+pdm run build_all
 
 
 rem cd tests
