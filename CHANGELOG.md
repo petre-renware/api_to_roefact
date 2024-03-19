@@ -46,7 +46,7 @@
 
 
 
-* ... `0.5.2.dev2` xl2roefact fix sEXE bug from `0.4.1.dev0` version;
+* ... `0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version;
     * [x] 1. update `config_settings.py` module to load app cfg from external file only when not sEXE frozen app (`getattr(sys, 'frozen', False) == True`)
     * [x] 2. update xl2roefact version to `0.4.1.dev1` to genrate only sEXE deliverable
     * [x] 3. test python code. Result: **PASS**
@@ -56,7 +56,8 @@
     * [x] 7. update INVOICEtoROefact project `versions.yml`:
         * xl2roefact = 0.4.1.dev1
         * INVOICEtoROefact = 0.5.2.dev2
-    * [ ] 8. build xl2roefact DLD doc
+    * [x] 8. build xl2roefact wheel and DLD doc
+    * [ ] 9. publish `0.4.1.dev1` on PyPi
     * [ ] ... update downloads.md
     * [ ] ... chk any other site fixes before generating
     * [ ] ... build site & publish
