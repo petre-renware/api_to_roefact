@@ -9,14 +9,14 @@ D:\a\api_to_roefact\api_to_roefact>rem     - trigger event: merge to branch `adh
 
 D:\a\api_to_roefact\api_to_roefact>rem     - stdout redirection: `./tests/_test_results.txt` >NUL 
 
-D:\a\api_to_roefact\api_to_roefact>rem cd xl2roefact 
+D:\a\api_to_roefact\api_to_roefact>cd xl2roefact 
 
-D:\a\api_to_roefact\api_to_roefact>rembpython -m pip install pdm  1>NUL 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pip install pdm  1>NUL 
 
-D:\a\api_to_roefact\api_to_roefact>rem python -m pdm install >NUL 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pdm install  1>NUL 
 
-D:\a\api_to_roefact\api_to_roefact>pdm run build_doc 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_doc 
 
-D:\a\api_to_roefact\api_to_roefact>rem cd tests 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem cd tests 
 
-D:\a\api_to_roefact\api_to_roefact>rem .\xl2roefact-0.4.1.dev1-win64.exe settings -r 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem .\xl2roefact-0.4.1.dev1-win64.exe settings -r 
