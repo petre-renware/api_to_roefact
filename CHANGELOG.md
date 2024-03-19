@@ -57,8 +57,9 @@
         * xl2roefact = 0.4.1.dev1
         * INVOICEtoROefact = 0.5.2.dev2
     * [x] 8. build xl2roefact wheel and DLD doc
-    * [ ] 9. publish `0.4.1.dev1` on PyPi
-    * [ ] ... update downloads.md
+    * [x] 9. publish `0.4.1.dev1` on PyPi
+    * [x] 10. build all deliverables
+    * [ ] 11. update downloads.md ref all deliverables
     * [ ] ... chk any other site fixes before generating
     * [ ] ... build site & publish
     * [ ] ... rollout to development
