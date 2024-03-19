@@ -104,16 +104,8 @@ build_all = { composite = [
     "build_doc",
 ] } # build all packages (MSI, python package wheel, python package sdist, design doc)
 xl2roefact = { shell = "python -m xl2roefact" } # run `xl2roefact` as python module
-pypi_publish = { cmd = [
-    "pdm",
-    "publish",
-    "--skip-existing",
-    "--username __token__",
-    "--password pypi-AgEIcHlwaS5vcmcCJDc4YzVkNTY1LWVhODAtNDFmMy1hOTIwLTQ5ZTU0Y2RkMTU0ZAACKlszLCIxZjFhZThlMS1mNzQ0LTQ5ZWEtOWU5Yy0zYmE1NGQ3YmYzZGIiXQAABiCuLajsSU8q0SO1n3DGWh3aU2qzfx-xh5oUlJ2Q57Wnpw",
-] } # publish xl2roefact package on PyPi
-pre_pypi_publish = { shell = "mkdir tmp_dist_files; mv ./dist/* ./tmp_dist_files/" }  # prepare dist/ directory letting it empty but saving files
-post_pypi_publish = { shell = "mv ./tmp_dist_files/* ./dist/; rm -r ./tmp_dist_files" }  # copy back the dist/ directory content from saved location and clean post work
-
+#NOTE use `pypi_publish` with caution and after a clean commit in current branch, as PyPi publishing is be made only from GittHub as single trusted source @240319
+pypi_publish = { shell = "git checkout -b pypi-publish; git push --force" }
 
 [tool.pdm.dev-dependencies] # dependencies used only in develeopment and not transfered in Pythn package building
 dev = [
