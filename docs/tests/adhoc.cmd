@@ -9,10 +9,12 @@ rem     - stdout redirection: `./tests/_test_results.txt` >NUL
 
 
 cd xl2roefact
-
 python -m pip install pdm >NUL
 python -m pdm install >NUL
+pdm run build_all
 
-pdm run xl2roefact settings
+
+rem cd tests
+rem .\xl2roefact-0.4.1.dev1-win64.exe settings -r
 
 

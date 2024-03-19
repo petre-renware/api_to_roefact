@@ -510,7 +510,7 @@ div.download-btn {
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#05rc0-invoice-supplier-todo-in-progress">
-    0.5rc0 invoice supplier (TODO: ... in progress...)
+    0.5rc0 invoice supplier (#TODO: ... in progress...)
   </a>
 </li>
 </ul>
@@ -558,7 +558,7 @@ div.download-btn {
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#05rc0-invoice-supplier-todo-in-progress">
-    0.5rc0 invoice supplier (TODO: ... in progress...)
+    0.5rc0 invoice supplier (#TODO: ... in progress...)
   </a>
 </li>
 </ul>
@@ -591,7 +591,7 @@ div.download-btn {
 <ul>
 <li><a href="#changelog">CHANGELOG</a><ul>
 <li><a href="#05">0.5</a><ul>
-<li><a href="#05rc0-invoice-supplier-todo-in-progress">0.5rc0 invoice supplier (TODO: ... in progress...)</a></li>
+<li><a href="#05rc0-invoice-supplier-todo-in-progress">0.5rc0 invoice supplier (#TODO: ... in progress...)</a></li>
 </ul>
 </li>
 <li><a href="#04">0.4</a><ul>
@@ -634,14 +634,39 @@ div.download-btn {
         * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
 -->
 <h2 id="05">0.5</h2>
-<h3 id="05rc0-invoice-supplier-todo-in-progress">0.5rc0 invoice supplier (TODO: ... in progress...)</h3>
-<!--
-* tbd.Must...code: `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
-    * start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
-    * ... idea is to reuse code for customer area as much as possible
--->
+<h3 id="05rc0-invoice-supplier-todo-in-progress">0.5rc0 invoice supplier (#TODO: ... in progress...)</h3>
 <ul>
-<li><code>0.5.1.dev1</code> site readability improvements:<ul class="task-list">
+<li>
+<p>tbd.Must...code: <code>INV.SUPP</code>... <code>xl2roefact</code> invoice supplier (<code>&lt;cac:AccountingSupplierParty&gt;</code>)</p>
+<ul>
+<li>start with search where produce <code>"supplier_area": "...future..."</code> (JSON extract) or "FIXME: INV.SUPP"</li>
+<li>... idea is to reuse code for customer area as much as possible</li>
+</ul>
+</li>
+<li>
+<p><code>0.5.2.dev2</code> release xl2roefact.<code>0.4.1.dev1</code> fix sEXE bug from <code>0.4.1.dev0</code> version;</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. update <code>config_settings.py</code> module to load app cfg from external file only when not sEXE frozen app (<code>getattr(sys, 'frozen', False) == True</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. update xl2roefact version to <code>0.4.1.dev1</code> to genrate only sEXE deliverable</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. test python code. Result: <strong>PASS</strong></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. generate sEXE</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. test <code>pdm run xl2roefact settings</code>. Result: <strong>PASS</strong></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 6. clean and make code "production like"</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 7. update INVOICEtoROefact project <code>versions.yml</code>:<ul>
+<li>xl2roefact = 0.4.1.dev1</li>
+<li>INVOICEtoROefact = 0.5.2.dev2</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 8. build xl2roefact wheel and DLD doc</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 9. publish <code>0.4.1.dev1</code> on PyPi</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 10. build all deliverables</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 11. update downloads.md ref all deliverables</li>
+<li>build site &amp; publish</li>
+</ul>
+</li>
+<li>
+<p><code>0.5.1.dev1</code> site readability improvements:</p>
+<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. main project README drop <code>TOC</code> statement</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. update <code>nav -&gt; Help -&gt; CHANGELOG sistem</code>, change to "Istoric log sistem"</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. update downloads.md doc, mark as "known bug DO NOT USE" entry:<ul>
@@ -664,10 +689,10 @@ div.download-btn {
 <li><code>240318piu-yaml4sys-all-vers</code> update <code>mkdocs.yml</code> use <code>INHERIT: ./versions.yml</code> option to inherit versions exactly to have <code>extra</code> section like actual one but in this external file.</li>
 <li><code>240318piu-app-glob-cfg</code> update xl2roefact README, app configuration section ref how make a "global config file" different than default app configuration</li>
 <li><code>240317piu01</code> update downloads.md:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. include a template for <code>app_settings.yml</code> =&gt; Created dedicated section which can be referred as <code>.../downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact</code></li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1.a fixed <code>0.4.0.dev2</code> MSI &amp; EXE deliverables file names (missing path number)</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. refer it in xl2roefact README</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. include <code>0.4.1.dev</code> download;<ul>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 1. include a template for <code>app_settings.yml</code> =&gt; Created dedicated section which can be referred as <code>.../downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 1.a fixed <code>0.4.0.dev2</code> MSI &amp; EXE deliverables file names (missing path number)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 2. refer it in xl2roefact README</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3. include <code>0.4.1.dev</code> download;<ul>
 <li>WHEEL &amp; DIST references</li>
 <li>standalone EXE reference</li>
 <li>MSI reference</li>
@@ -676,10 +701,10 @@ div.download-btn {
 </ul>
 </li>
 <li><code>2403piu-config-code</code> update <code>config_settings.py</code> module to upload data from <code>.../data/app_settings.yml</code> file. Specs:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. update app version to <code>0.4.1.dev0</code>. Make a test what <code>normalized_version()</code> returns (run xl2roefact --version)</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. update key <code>README_rules</code> from <code>app_settings.yml</code>, set it to point to markdown file containing rules list (<code>xl2roefact/xl2roefact/data/README_app_config_rules.md</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 1. update app version to <code>0.4.1.dev0</code>. Make a test what <code>normalized_version()</code> returns (run xl2roefact --version)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 2. update key <code>README_rules</code> from <code>app_settings.yml</code>, set it to point to markdown file containing rules list (<code>xl2roefact/xl2roefact/data/README_app_config_rules.md</code>)</li>
 <li>INFO-NOTE: after YAML import data will be dict with all actual code variables as keywords</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. gross-raw code in <code>config.settings.py</code> for both below NOTES<ul>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3. gross-raw code in <code>config.settings.py</code> for both below NOTES<ul>
 <li>INFO-NOTE: order to search and load for <code>app_config.yml</code>:<ul>
 <li>(1) crt directory (with <code>cwd</code>) with <code>Path(Path.cwd(), "data/app_settings.yml")</code></li>
 <li>(2) package directory and file with <code>Path(os.path.dirname(__file__), "data/app_settings.yml")</code></li>
@@ -694,10 +719,10 @@ div.download-btn {
 <li>regardless of method check the propagation running <code>xl2roefact settings</code> which is a demo of using values external to config_settings module</li>
 </ul>
 </li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. apply reading order</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. clean code &amp; test YAML settings files from <code>xl2roefact/</code></li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 6. if read YAML was got some values then set as <code>local()</code> variables (not dictionary)</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 7. updated <code>xl2roefact/setup.py</code> to include <code>data/app_settings.yml</code> file</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 4. apply reading order</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 5. clean code &amp; test YAML settings files from <code>xl2roefact/</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 6. if read YAML was got some values then set as <code>local()</code> variables (not dictionary)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 7. updated <code>xl2roefact/setup.py</code> to include <code>data/app_settings.yml</code> file</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> build all: upd version (2 version files + mkdocs.yml) &amp; pdm run build_all</li>
 </ul>
 </li>
@@ -779,7 +804,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 18, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2024</span>
 </small>
 </div>
 </article>
