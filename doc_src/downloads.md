@@ -34,15 +34,8 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
 ??? note "0.4"
-
-* [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version WHEEL](
-../xl2roefact/dist/xl2roefact-0.4.1.dev1-py3-none-any.whl "download"
-)
-
-* [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version DIST](
-../xl2roefact/dist/xl2roefact-0.4.1.dev1.tar.gz "download"
-)
-
+    * [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version WHEEL](../xl2roefact/dist/xl2roefact-0.4.1.dev1-py3-none-any.whl "download")
+    * [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version DIST](../xl2roefact/dist/xl2roefact-0.4.1.dev1.tar.gz "download")
     * [`0.4.1.dev0` xl2roefact include a data directory in package WHEEL](../xl2roefact/dist/xl2roefact-0.4.1.dev0-py3-none-any.whl "download")
     * [`0.4.1.dev0` xl2roefact include a data directory in package DIST](../xl2roefact/dist/xl2roefact-0.4.1.dev0.tar.gz "download")
     * [`0.4.0.dev2` externalize recommended rules for updating app setting rules WHEEL](../xl2roefact/dist/xl2roefact-0.4.0.dev2-py3-none-any.whl "download")
