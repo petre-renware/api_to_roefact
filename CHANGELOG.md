@@ -42,7 +42,8 @@
 
 * wip... `230420piy-invsuppl` code for `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * [x] 1. extracted code to generalize in `.../xl2roefact/___wk_cust_area_function.py` to "engineer it"
-    * [ ] 2. ... 1st raw refactoring: eliminate unknown variables and make them parameters
+    * [x] 2. wrap code ia function, set its first param `partner_type` for desired function operation and protect function against unknown values
+    * [ ] 3. ... 1st raw refactoring: eliminate unknown variables and make them parameters
     * [ ] ...
     * ... idea is to reuse code for customer area as much as possible
 
