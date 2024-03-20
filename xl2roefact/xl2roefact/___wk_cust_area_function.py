@@ -6,7 +6,9 @@
 # -4. to be placed in `rdinv.py` module and to do work in new environment without disturbing it for existing functionalities
 #     ... ie, to not induce lateral effects
 #
-# ...original code @lines-range [ 196 : 366 ] in rdinv.py:
+# ... original code @lines-range [ 196 : 366 ] in rdinv.py:
+# ... pay attn, code start with `)` because this line is a comment an the end of a function !!!
+
 
 
     )  #FIXME_TODO: `supplier_area` key ............hereuare............
