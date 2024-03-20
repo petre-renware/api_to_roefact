@@ -9,7 +9,13 @@
 # ... original code @lines-range [ 196 : 366 ] in rdinv.py:
 #
 
+# TODO: things that:
+#    - must stay in `rdinv.py` in constants definition area
+#    - checked & define in `config_settings.py` & `data/app_settings.yml`
+PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings. PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 
+
+# TODO: new function to be moved in `rdinv.py`
 def get_partner_data(
     partner_type: str,  # IN
     param_invoice_header_area: dict,  # INOUT
@@ -40,11 +46,8 @@ def get_partner_data(
         # accept only know operations
         raise Exception("partner_type parameter not recognized value")
 
-    
-    ... #TODO: code refactoring start here
-
-    """ #FIXME.01 ...START HERE... 
-    #FIXME..01 consider this portion of code to drop from here, being only subject of rdinv().
+    """ #FIXME.01.START HERE... 
+    #FIXME.01 consider this portion of code to drop from here, being only subject of rdinv().
     #FIXME.01 ...maybe preserve `_area_to_search` as IN parameter, but couldn't be needed as in line >97 create a new one for CUSTOMER
     #FIXME.01 ... and do not forget to update rdinv() with place where replacement with this function should be
     _area_to_search = (param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
@@ -78,7 +81,7 @@ def get_partner_data(
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     param_invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
-    """#FIXME.01 ...END HERE...
+    """#FIXME.01.END HERE...
 
 
 
