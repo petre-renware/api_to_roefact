@@ -28,6 +28,7 @@ def get_partner_data(
     partner_type = partner_type.upper().strip()
     # unify search patterns and other constants function of partner_type
     if partner_type == "CUSTOMER":
+        UNIF_PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
         ...
     elif partner_type =="SUPPLIER":
         ...
