@@ -24,7 +24,9 @@ def get_partner_data(
     Return:
         `dict`: with parner data. Dictionary is in form needed in `rdinv()` function.
     """
-    partner_type = partner_type.upper().strip()  # normalize partner_type for easier usage and more flexibility to developers misusing
+    # normalize partner_type for easier usage and more flexibility to developers misusing
+    partner_type = partner_type.upper().strip()
+    # unify search patterns and other constants function of partner_type
     if partner_type == "CUSTOMER":
         ...
     elif partner_type =="SUPPLIER":
