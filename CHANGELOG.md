@@ -36,8 +36,9 @@
 
 ## 0.5
 
-### 0.5rc0 invoice supplier (#TODO: ... in progress...)
+### 0.5.3rc0 invoice supplier (#TODO: ... in progress...)
 
+* tbd... update all `/versions.yml`
 
 * wip... `230420piy-invsuppl` code for `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * [x] 1. extracted code to generalize in `.../xl2roefact/___wk_cust_area_function.py` to "engineer it"
@@ -45,32 +46,30 @@
     * ...wip.SEE 1. start with search where produce `"supplier_area": "...future..."` (JSON extract) or "FIXME: INV.SUPP"
     * ... idea is to reuse code for customer area as much as possible
 
+### `0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version:
+* [x] 1. update `config_settings.py` module to load app cfg from external file only when not sEXE frozen app (`getattr(sys, 'frozen', False) == True`)
+* [x] 2. update xl2roefact version to `0.4.1.dev1` to genrate only sEXE deliverable
+* [x] 3. test python code. Result: **PASS**
+* [x] 4. generate sEXE
+* [x] 5. test `pdm run xl2roefact settings`. Result: **PASS**
+* [x] 6. clean and make code "production like"
+* [x] 7. update INVOICEtoROefact project `versions.yml`:
+    * xl2roefact = 0.4.1.dev1
+    * INVOICEtoROefact = 0.5.2.dev2
+* [x] 8. build xl2roefact wheel and DLD doc
+* [x] 9. publish `0.4.1.dev1` on PyPi
+* [x] 10. build all deliverables
+* [x] 11. update downloads.md ref all deliverables
+* build site & publish
 
-* `0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version;
-    * [x] 1. update `config_settings.py` module to load app cfg from external file only when not sEXE frozen app (`getattr(sys, 'frozen', False) == True`)
-    * [x] 2. update xl2roefact version to `0.4.1.dev1` to genrate only sEXE deliverable
-    * [x] 3. test python code. Result: **PASS**
-    * [x] 4. generate sEXE
-    * [x] 5. test `pdm run xl2roefact settings`. Result: **PASS**
-    * [x] 6. clean and make code "production like"
-    * [x] 7. update INVOICEtoROefact project `versions.yml`:
-        * xl2roefact = 0.4.1.dev1
-        * INVOICEtoROefact = 0.5.2.dev2
-    * [x] 8. build xl2roefact wheel and DLD doc
-    * [x] 9. publish `0.4.1.dev1` on PyPi
-    * [x] 10. build all deliverables
-    * [x] 11. update downloads.md ref all deliverables
-    * build site & publish
-* `0.5.1.dev1` site readability improvements:
-    * [x] 1. main project README drop `TOC` statement
-    * [x] 2. update `nav -> Help -> CHANGELOG sistem`, change to "Istoric log sistem"
-    * [x] 3. update downloads.md doc, mark as "known bug DO NOT USE" entry:
-        - section: "Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)"
-        - entry: "0.4.1.dev0 xl2roefact include a data directory in package"
-    * update *INVOICEtoROefact* system ver to `0.5.1.dev1`
-    * build site & publish
-
-
+### `0.5.1.dev1` site readability improvements:
+* [x] 1. main project README drop `TOC` statement
+* [x] 2. update `nav -> Help -> CHANGELOG sistem`, change to "Istoric log sistem"
+* [x] 3. update downloads.md doc, mark as "known bug DO NOT USE" entry:
+    - section: "Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)"
+    - entry: "0.4.1.dev0 xl2roefact include a data directory in package"
+* update *INVOICEtoROefact* system ver to `0.5.1.dev1`
+* build site & publish
 
 
 
@@ -83,10 +82,9 @@
 
 
 
-<!--#TODO: subject to archive.
-    When do it see if add to archived CHANGELOG the "antet"
-    section ref components version
--->
+
+
+<!--#TODO: subject to archive. When do it see if add to archived CHANGELOG the "antet" section ref components version -->
 
 ## 0.4
 
