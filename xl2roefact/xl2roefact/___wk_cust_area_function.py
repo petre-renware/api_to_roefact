@@ -86,7 +86,7 @@ def get_partner_data(
     #
     # find invoice customer ==> "cac:AccountingCustomerParty
     invoice_customer_info = get_excel_data_at_label(
-        pattern_to_search_for=UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER,
+        pattern_to_search_for=UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER,  #FIXME constant adjusted in refactoring process
         worksheet=ws,
         area_to_scan=(param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"]),
         targeted_type=str
