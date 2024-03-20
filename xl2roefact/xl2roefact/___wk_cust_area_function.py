@@ -11,14 +11,15 @@
 
 
 def get_partner_data(
-    partner_type: str,
+    partner_type: str,  # IN
+    param_invoice_header_area: dict,  # INOUT
     ...
-) -> dict[]:
+) -> dict:
     """Get invoice partener data from Excel.
 
     Args:
         `partner_type`: one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data).
-        `...`: ...more....
+        `param_invoice_header_area`: outside `invoice_header_area` as used and needed in `rdinv()`. This function will write back in this variable.
 
     Return:
         `dict`: with parner data. Dictionary is in form needed in `rdinv()` function.
@@ -30,8 +31,7 @@ def get_partner_data(
 
     ... #TODO: code refactoring start here
 
-    #FIXME_TODO: `supplier_area` key ............hereuare............
-    _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
+    _area_to_search = (param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
     invoice_number_info = get_excel_data_at_label(
@@ -40,7 +40,7 @@ def get_partner_data(
         area_to_scan=_area_to_search,
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
+    param_invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
     #
     # find invoice currency ==> `cbc:DocumentCurrencyCode`
     invoice_currency_info = get_excel_data_at_label(
@@ -51,7 +51,7 @@ def get_partner_data(
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     if (invoice_currency_info["value"] is not None) and (invoice_currency_info["value"] != ""):  # if found a currency MUST CHANGE `DEFAULT_CURRENCY` to be properly used for `invoice_items_area`
         DEFAULT_CURRENCY = invoice_currency_info["value"]
-    invoice_header_area["currency"] = copy.deepcopy(invoice_currency_info)
+    param_invoice_header_area["currency"] = copy.deepcopy(invoice_currency_info)
     #
     # find invoice issued date ==> `cbc:IssueDate`
     issued_date_info = get_excel_data_at_label(
@@ -61,13 +61,13 @@ def get_partner_data(
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
-    invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
+    param_invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
     # find invoice customer ==> "cac:AccountingCustomerParty
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
         worksheet=ws,
-        area_to_scan=(invoice_header_area["start_cell"], invoice_header_area["end_cell"]),
+        area_to_scan=(param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"]),
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     # set a dedicated area to search for customer
