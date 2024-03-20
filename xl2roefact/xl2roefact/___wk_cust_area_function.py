@@ -7,11 +7,30 @@
 #     ... ie, to not induce lateral effects
 #
 # ... original code @lines-range [ 196 : 366 ] in rdinv.py:
-# ... pay attn, code start with `)` because this line is a comment an the end of a function !!!
+#
 
 
+def get_partner_data(
+    partner_type: str,
+    ...
+) -> dict[]:
+    """Get invoice partener data from Excel.
 
-    )  #FIXME_TODO: `supplier_area` key ............hereuare............
+    Args:
+        `partner_type`: one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data).
+        `...`: ...more....
+
+    Return:
+        `dict`: with parner data. Dictionary is in form needed in `rdinv()` function.
+    """
+    partner_type = partner_type.upper().strip()
+    if partner_type not in ["CUSTOMER", "SUPPLIER", "OWNER"]:
+        # accept only know operations
+        raise Exception("partner_type parameter not recognized value")
+
+    ... #TODO: code refactoring start here
+
+    #FIXME_TODO: `supplier_area` key ............hereuare............
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
@@ -183,4 +202,9 @@
 
     # TODO: see how replicate code for Customer --to--> Supplier
 
+
+
+
+
+    pass  # exit that normally should be unreachable
 
