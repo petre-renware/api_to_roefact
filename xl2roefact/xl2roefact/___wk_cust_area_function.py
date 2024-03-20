@@ -31,6 +31,8 @@ def get_partner_data(
 
     ... #TODO: code refactoring start here
 
+
+    
     #FIXME.01 ...START HERE... consider this portion of code to drop from here, being only subject of rdinv().
     #FIXME.01 ...maybe preserve `_area_to_search` as IN parameter, but couldn't be needed as in line >97 create a new one for CUSTOMER
     #FIXME.01 ... and do not forget to update rdinv() with place where replacement with this function should be
@@ -215,4 +217,12 @@ def get_partner_data(
 
 
     pass  # exit that normally should be unreachable
+
+
+
+
+
+# TEST AREA
+if __name__ == "__main__":
+    get_partner_data()
 
