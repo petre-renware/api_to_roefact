@@ -32,7 +32,8 @@ def get_partner_data(
     ... #TODO: code refactoring start here
 
     #FIXME.01 ...START HERE... consider this portion of code to drop from here, being only subject of rdinv().
-    #FIXME.01 ...just preserve `_area_to_search` as IN parameter
+    #FIXME.01 ...maybe preserve `_area_to_search` as IN parameter, but couldn't be needed as in line >97 create a new one for CUSTOMER
+    #FIXME.01 ... and do not forget to update rdinv() with place where replacement with this function should be
     _area_to_search = (param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
@@ -65,6 +66,9 @@ def get_partner_data(
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     param_invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #FIXME.01 ...UP HERE... consider this portion of code to drop from here, being only subject of rdinv()
+
+
+
     
     #
     # find invoice customer ==> "cac:AccountingCustomerParty
