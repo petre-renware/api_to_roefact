@@ -15,6 +15,7 @@
 #    - most cases they should be like their ...CUSTOMER... equivalent
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAME
+DEFAULT_SUPPLIER_COUNTRY = config_settings.DEFAULT_SUPPLIER_COUNTRY  #FIXME thia should be set as` global` & could exists. Check it...
 
 
 # TODO: new function to be moved in `rdinv.py`
@@ -38,11 +39,13 @@ def get_partner_data(
     if partner_type == "CUSTOMER":
         UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
         UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_CUSTOMER_LEGAL_NAME
+        DEFAULT_PARTNER_COUNTRY = DEFAULT_CUSTOMER_COUNTRY
         ...
     elif partner_type =="SUPPLIER":
         #FIXME pls be patient. Here will raise errs because used EXPECTED constant names. Check `config_settings.py` and adjust accordingly
         UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
         UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_SUPPLIER_LEGAL_NAME
+        DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
         ...
     elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
         ...
@@ -197,11 +200,13 @@ def get_partner_data(
     _tmp_street = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
     _tmp_zipcode = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
     if (_tmp_country is None) or (_tmp_country == ""):
-#... ... ... hereuare to continue with constants
-#... ... ... !!!-pls be careful with constant changing in else clause because will not be DIRECT const, but the LOCAL const
-        _tmp_country = DEFAULT_CUSTOMER_COUNTRY
-    else:
-        DEFAULT_CUSTOMER_COUNTRY = _tmp_country  # update default value to be re-used in other parts if neccesary
+        _tmp_country = DEFAULT_PARTNER_COUNTRY
+    else:  # update default value to be re-used in other parts if neccesary. Update is made on original variables "global" defined
+        if partner_type == "CUSTOMER":
+            DEFAULT_CUSTOMER_COUNTRY = _tmp_country
+        else:
+            DEFAULT_SUPPLIER_COUNTRY = _tmp_country
+...
     invoice_header_area["customer_area"]["PostalAddress"] = {
         "cbc_StreetName": _tmp_street,
         "cbc_CityName": _tmp_city,
