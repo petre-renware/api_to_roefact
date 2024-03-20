@@ -198,10 +198,10 @@ def get_partner_data(
     _tmp_zipcode = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
     if (_tmp_country is None) or (_tmp_country == ""):
 #... ... ... hereuare to continue with constants
-#... ... ...
+#... ... ... !!!-pls be careful with constant changing in else clause because will not be DIRECT const, but the LOCAL const
         _tmp_country = DEFAULT_CUSTOMER_COUNTRY
     else:
-        DEFAULT_CUSTOMER_COUNTRY = _tmp_country  # update deflaute value to be re-used in other parts if neccesary
+        DEFAULT_CUSTOMER_COUNTRY = _tmp_country  # update default value to be re-used in other parts if neccesary
     invoice_header_area["customer_area"]["PostalAddress"] = {
         "cbc_StreetName": _tmp_street,
         "cbc_CityName": _tmp_city,
