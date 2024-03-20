@@ -200,13 +200,15 @@ def get_partner_data(
     _tmp_street = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
     _tmp_zipcode = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
     if (_tmp_country is None) or (_tmp_country == ""):
-        _tmp_country = DEFAULT_PARTNER_COUNTRY
+        _tmp_country = DEFAULT_PARTNER_COUNTRY  #FIXME constant adjusted in refactoring process
     else:  # update default value to be re-used in other parts if neccesary. Update is made on original variables "global" defined
         if partner_type == "CUSTOMER":
-            DEFAULT_CUSTOMER_COUNTRY = _tmp_country
+            DEFAULT_CUSTOMER_COUNTRY = _tmp_country  #FIXME constant adjusted in refactoring process
         else:
-            DEFAULT_SUPPLIER_COUNTRY = _tmp_country
-...
+            DEFAULT_SUPPLIER_COUNTRY = _tmp_country  #FIXME constant adjusted in refactoring process
+#
+# ...hereuare...
+#
     invoice_header_area["customer_area"]["PostalAddress"] = {
         "cbc_StreetName": _tmp_street,
         "cbc_CityName": _tmp_city,
