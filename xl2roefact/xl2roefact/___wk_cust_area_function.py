@@ -28,9 +28,11 @@ def get_partner_data(
     partner_type = partner_type.upper().strip()
     # unify search patterns and other constants function of partner_type
     if partner_type == "CUSTOMER":
-        UNIF_PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
+        UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
         ...
     elif partner_type =="SUPPLIER":
+        #FIXME pls be patient. Here will raise errs because used EXPECTED constant names. Check `config_settings.py` and adjust accordingly
+        UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
         ...
     elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
         ...
@@ -84,7 +86,7 @@ def get_partner_data(
     #
     # find invoice customer ==> "cac:AccountingCustomerParty
     invoice_customer_info = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
+        pattern_to_search_for=UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER,
         worksheet=ws,
         area_to_scan=(param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"]),
         targeted_type=str
