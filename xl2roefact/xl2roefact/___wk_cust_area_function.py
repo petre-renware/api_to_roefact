@@ -12,7 +12,7 @@
 # TODO: things that:
 #    - must stay in `rdinv.py` in constants definition area
 #    - checked & define in `config_settings.py` & `data/app_settings.yml`
-PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings. PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
+PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 
 
 # TODO: new function to be moved in `rdinv.py`
@@ -35,6 +35,7 @@ def get_partner_data(
     # unify search patterns and other constants function of partner_type
     if partner_type == "CUSTOMER":
         UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
+        PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_CUSTOMER_LEGAL_NAME
         ...
     elif partner_type =="SUPPLIER":
         #FIXME pls be patient. Here will raise errs because used EXPECTED constant names. Check `config_settings.py` and adjust accordingly
@@ -139,7 +140,7 @@ def get_partner_data(
     #
     # find customer key "RegistrationName" ==> `cbc_RegistrationName`
     '''#NOTE: `ReNaSt`-RegNameStrategy (remark: step codes will referred as defined here)
-          ReNaSt.STEP-1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
+...          ReNaSt.STEP-1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
           ReNaSt.STEP-2. if `label_location` of FOUND VALUE has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`:
                              keep VALUE of FOUND info
           ReNaSt.STEP-3. else:
