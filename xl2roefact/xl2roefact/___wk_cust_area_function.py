@@ -5,12 +5,13 @@
 # -3. to be able to work for op/cmd "SUPPLIER"
 # -4. to be placed in `rdinv.py` module and to do work in new environment without disturbing it for existing functionalities
 #     ... ie, to not induce lateral effects
-#
-# ... original code @lines-range [ 196 : 366 ] in rdinv.py:
-#
+# 5. location in rdinv.py where to call this function marked `#FIXME.UNIF.PARTNER.DATA`
 
-# TODO: things that:
-#    - must stay in `rdinv.py` in constants definition area
+
+
+
+# TODO: constants area code:
+#    - must stay in `rdinv.py` in constants area
 #    - checked & define in `config_settings.py` & `data/app_settings.yml`
 #    - most cases they should be like their ...CUSTOMER... equivalent
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
@@ -18,7 +19,11 @@ PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAM
 DEFAULT_SUPPLIER_COUNTRY = config_settings.DEFAULT_SUPPLIER_COUNTRY  #FIXME thia should be set as` global` & could exists. Check it...
 
 
+
+
+
 # TODO: new function to be moved in `rdinv.py`
+# TODO: to call in rdinv.py @ marker `FIXME.UNIF.PARTNER.DATA` (in CHANGELOG there are more details)
 def get_partner_data(
     partner_type: str,  # IN
     param_invoice_header_area: dict,  # INOUT
@@ -35,6 +40,7 @@ def get_partner_data(
     Return:
         `dict`: with parner data. Dictionary is in form needed in `rdinv()` function.
     """
+    
     # normalize partner_type for easier usage and more flexibility to developers misusing
     partner_type = partner_type.upper().strip()
     # unify search patterns and other constants function of partner_type
@@ -56,48 +62,7 @@ def get_partner_data(
     else:
         # accept only known operations
         raise Exception("partner_type parameter not recognized value")
-
-    """ #FIXME.01.START HERE... 
-    #FIXME.01 consider this portion of code to drop from here, being only subject of rdinv().
-    #FIXME.01 ...maybe preserve `_area_to_search` as IN parameter, but couldn't be needed as in line >97 create a new one for CUSTOMER
-    #FIXME.01 ... and do not forget to update rdinv() with place where replacement with this function should be
-    _area_to_search = (param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
-    #
-    # find invoice number ==> `cbc:ID`
-    invoice_number_info = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_INVOICE_NUMBER_LABEL,
-        worksheet=ws,
-        area_to_scan=_area_to_search,
-        targeted_type=str
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    param_invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
-    #
-    # find invoice currency ==> `cbc:DocumentCurrencyCode`
-    invoice_currency_info = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_INVOICE_CURRENCY_LABEL,
-        worksheet=ws,
-        area_to_scan=_area_to_search,
-        targeted_type=str
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    if (invoice_currency_info["value"] is not None) and (invoice_currency_info["value"] != ""):  # if found a currency MUST CHANGE `DEFAULT_CURRENCY` to be properly used for `invoice_items_area`
-        DEFAULT_CURRENCY = invoice_currency_info["value"]
-    param_invoice_header_area["currency"] = copy.deepcopy(invoice_currency_info)
-    #
-    # find invoice issued date ==> `cbc:IssueDate`
-    issued_date_info = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL,
-        worksheet=ws,
-        area_to_scan=_area_to_search,
-        targeted_type=str
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
-    param_invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
-    """#FIXME.01.END HERE...
-
-
-
-    
-    #
+    # 
     # find invoice customer ==> "cac:AccountingCustomerParty
     invoice_customer_info = get_excel_data_at_label(
         pattern_to_search_for=UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER,  #FIXME constant adjusted in refactoring process

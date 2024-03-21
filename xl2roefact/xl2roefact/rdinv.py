@@ -225,6 +225,9 @@ def rdinv(
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
+    # 
+    # #FIXME.UNIF.PARTNER.DATA start ... ... ...
+    # #FIXME.UNIF.PARTNER.DATA ...HERE SHOULD CALL `get_partner_data("CUSTOMER", ...)`
     #
     # find invoice customer ==> "cac:AccountingCustomerParty
     invoice_customer_info = get_excel_data_at_label(
@@ -361,9 +364,9 @@ def rdinv(
     invoice_header_area["customer_area"]["IBAN"] = _tmp_IBAN
     invoice_header_area["customer_area"]["phone"] = _tmp_phone
     invoice_header_area["customer_area"]["email"] = _tmp_email
+    # #FIXME.UNIF.PARTNER.DATA ... ... ... end here
+    #
 
-
-    # TODO: see how replicate code for Customer --to--> Supplier
     # TODO: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 
