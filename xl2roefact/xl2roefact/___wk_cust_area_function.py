@@ -39,13 +39,13 @@ def get_partner_data(
     if partner_type == "CUSTOMER":
         UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
         UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_CUSTOMER_LEGAL_NAME
-        DEFAULT_PARTNER_COUNTRY = DEFAULT_CUSTOMER_COUNTRY
+        UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_CUSTOMER_COUNTRY
         ...
     elif partner_type =="SUPPLIER":
         #FIXME pls be patient. Here will raise errs because used EXPECTED constant names. Check `config_settings.py` and adjust accordingly
         UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
         UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_SUPPLIER_LEGAL_NAME
-        DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
+        UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
         ...
     elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
         ...
@@ -200,11 +200,11 @@ def get_partner_data(
     _tmp_street = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
     _tmp_zipcode = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
     if (_tmp_country is None) or (_tmp_country == ""):
-        _tmp_country = DEFAULT_PARTNER_COUNTRY  #FIXME constant adjusted in refactoring process
+        _tmp_country = UNIF_DEFAULT_PARTNER_COUNTRY  #FIXME constant adjusted in refactoring process
     else:  # update default value to be re-used in other parts if neccesary. Update is made on original variables "global" defined
         if partner_type == "CUSTOMER":
             DEFAULT_CUSTOMER_COUNTRY = _tmp_country  #FIXME constant adjusted in refactoring process
-        else:
+        else:  # case of "SUPPLIER" and "OWNER"
             DEFAULT_SUPPLIER_COUNTRY = _tmp_country  #FIXME constant adjusted in refactoring process
 #
 # ...hereuare...
