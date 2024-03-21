@@ -22,9 +22,11 @@ DEFAULT_SUPPLIER_COUNTRY = config_settings.DEFAULT_SUPPLIER_COUNTRY  #FIXME thia
 def get_partner_data(
     partner_type: str,  # IN
     param_invoice_header_area: dict,  # INOUT
-    ...
+    # ...more params here
 ) -> dict:
     """Get invoice partener data from Excel.
+
+    NOTE: function induce necessary side effects and works only if located in `rdinv.py`
 
     Args:
         `partner_type`: one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data).
@@ -40,17 +42,17 @@ def get_partner_data(
         UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
         UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_CUSTOMER_LEGAL_NAME
         UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_CUSTOMER_COUNTRY
-        ...
+        ...  #FIXME more refactoring code here?
     elif partner_type =="SUPPLIER":
         #FIXME pls be patient. Here will raise errs because used EXPECTED constant names. Check `config_settings.py` and adjust accordingly
         UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
         UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_SUPPLIER_LEGAL_NAME
         UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
-        ...
+        ...  #FIXME more refactoring code here?
     elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
-        ...
+        ...  #FIXME more refactoring code here?
     else:
-        # accept only know operations
+        # accept only known operations
         raise Exception("partner_type parameter not recognized value")
 
     """ #FIXME.01.START HERE... 
@@ -206,9 +208,6 @@ def get_partner_data(
             DEFAULT_CUSTOMER_COUNTRY = _tmp_country  #FIXME constant adjusted in refactoring process
         else:  # case of "SUPPLIER" and "OWNER"
             DEFAULT_SUPPLIER_COUNTRY = _tmp_country  #FIXME constant adjusted in refactoring process
-#
-# ...hereuare...
-#
     invoice_header_area["customer_area"]["PostalAddress"] = {
         "cbc_StreetName": _tmp_street,
         "cbc_CityName": _tmp_city,
@@ -238,9 +237,6 @@ def get_partner_data(
 
 
     # TODO: see how replicate code for Customer --to--> Supplier
-
-
-
 
 
     pass  # exit that normally should be unreachable
