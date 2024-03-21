@@ -44,8 +44,10 @@
     * [x] 1. extracted code to generalize in `.../xl2roefact/___wk_cust_area_function.py` to "engineer it"
     * [x] 2. wrap code in new function `get_partner_data()`, set its first param `partner_type` for desired function operation and protect function against unknown values
     * [x] 3. 1st raw refactoring: constants dedicated to CUSTOMER adjusted as UNIFyed...PARTNER... and set for customer or supplier depending on partner_type
-    * [ ] x. 2nd raw refactoring: eliminate unknown variables and make them parameters
-    * [ ] ...
+    * 2nd raw refactoring: eliminate unknown variables and make them parameters:
+        * [ ] 4. `customer_area` string. This is a keyword, so it is subject to unification based on partner_type resulting `partner_area` variable used as keyword instead of hard code "customer_area"
+        * [ ] n. ...
+    * [ ] n. ...
     * ... idea is to reuse code for customer area as much as possible
 
 ### `0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version:
