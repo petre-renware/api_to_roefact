@@ -9,29 +9,57 @@
 # ... original code @lines-range [ 196 : 366 ] in rdinv.py:
 #
 
+# TODO: things that:
+#    - must stay in `rdinv.py` in constants definition area
+#    - checked & define in `config_settings.py` & `data/app_settings.yml`
+#    - most cases they should be like their ...CUSTOMER... equivalent
+PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
+PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAME
+DEFAULT_SUPPLIER_COUNTRY = config_settings.DEFAULT_SUPPLIER_COUNTRY  #FIXME thia should be set as` global` & could exists. Check it...
 
+
+# TODO: new function to be moved in `rdinv.py`
 def get_partner_data(
-    partner_type: str,
-    ...
-) -> dict[]:
+    partner_type: str,  # IN
+    param_invoice_header_area: dict,  # INOUT
+    # ...more params here
+) -> dict:
     """Get invoice partener data from Excel.
+
+    NOTE: function induce necessary side effects and works only if located in `rdinv.py`
 
     Args:
         `partner_type`: one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data).
-        `...`: ...more....
+        `param_invoice_header_area`: outside `invoice_header_area` as used and needed in `rdinv()`. This function will write back in this variable.
 
     Return:
         `dict`: with parner data. Dictionary is in form needed in `rdinv()` function.
     """
+    # normalize partner_type for easier usage and more flexibility to developers misusing
     partner_type = partner_type.upper().strip()
-    if partner_type not in ["CUSTOMER", "SUPPLIER", "OWNER"]:
-        # accept only know operations
+    # unify search patterns and other constants function of partner_type
+    if partner_type == "CUSTOMER":
+        UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
+        UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_CUSTOMER_LEGAL_NAME
+        UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_CUSTOMER_COUNTRY
+        ...  #FIXME more refactoring code here?
+    elif partner_type =="SUPPLIER":
+        #FIXME pls be patient. Here will raise errs because used EXPECTED constant names. Check `config_settings.py` and adjust accordingly
+        UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
+        UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_SUPPLIER_LEGAL_NAME
+        UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
+        ...  #FIXME more refactoring code here?
+    elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
+        ...  #FIXME more refactoring code here?
+    else:
+        # accept only known operations
         raise Exception("partner_type parameter not recognized value")
 
-    ... #TODO: code refactoring start here
-
-    #FIXME_TODO: `supplier_area` key ............hereuare............
-    _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
+    """ #FIXME.01.START HERE... 
+    #FIXME.01 consider this portion of code to drop from here, being only subject of rdinv().
+    #FIXME.01 ...maybe preserve `_area_to_search` as IN parameter, but couldn't be needed as in line >97 create a new one for CUSTOMER
+    #FIXME.01 ... and do not forget to update rdinv() with place where replacement with this function should be
+    _area_to_search = (param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
     invoice_number_info = get_excel_data_at_label(
@@ -40,7 +68,7 @@ def get_partner_data(
         area_to_scan=_area_to_search,
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
+    param_invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
     #
     # find invoice currency ==> `cbc:DocumentCurrencyCode`
     invoice_currency_info = get_excel_data_at_label(
@@ -51,7 +79,7 @@ def get_partner_data(
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     if (invoice_currency_info["value"] is not None) and (invoice_currency_info["value"] != ""):  # if found a currency MUST CHANGE `DEFAULT_CURRENCY` to be properly used for `invoice_items_area`
         DEFAULT_CURRENCY = invoice_currency_info["value"]
-    invoice_header_area["currency"] = copy.deepcopy(invoice_currency_info)
+    param_invoice_header_area["currency"] = copy.deepcopy(invoice_currency_info)
     #
     # find invoice issued date ==> `cbc:IssueDate`
     issued_date_info = get_excel_data_at_label(
@@ -61,13 +89,18 @@ def get_partner_data(
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
-    invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
+    param_invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
+    """#FIXME.01.END HERE...
+
+
+
+    
     #
     # find invoice customer ==> "cac:AccountingCustomerParty
     invoice_customer_info = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
+        pattern_to_search_for=UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER,  #FIXME constant adjusted in refactoring process
         worksheet=ws,
-        area_to_scan=(invoice_header_area["start_cell"], invoice_header_area["end_cell"]),
+        area_to_scan=(param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"]),
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     # set a dedicated area to search for customer
@@ -115,14 +148,14 @@ def get_partner_data(
     #
     # find customer key "RegistrationName" ==> `cbc_RegistrationName`
     '''#NOTE: `ReNaSt`-RegNameStrategy (remark: step codes will referred as defined here)
-          ReNaSt.STEP-1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
+          ReNaSt.STEP-1. search for UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME  #FIXME constant adjusted in refactoring process
           ReNaSt.STEP-2. if `label_location` of FOUND VALUE has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`:
                              keep VALUE of FOUND info
           ReNaSt.STEP-3. else:
                              keep `invoice_header_area["customer_area"]["area_info"]["value"]`
     '''
     _temp_found_data = get_excel_data_at_label(  # NOTE: ReNaSt.STEP-1
-        pattern_to_search_for=PATTERN_FOR_CUSTOMER_LEGAL_NAME,
+        pattern_to_search_for=UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME,  #FIXME constant adjusted in refactoring process 
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
@@ -169,9 +202,12 @@ def get_partner_data(
     _tmp_street = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
     _tmp_zipcode = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
     if (_tmp_country is None) or (_tmp_country == ""):
-        _tmp_country = DEFAULT_CUSTOMER_COUNTRY
-    else:
-        DEFAULT_CUSTOMER_COUNTRY = _tmp_country  # update deflaute value to be re-used in other parts if neccesary
+        _tmp_country = UNIF_DEFAULT_PARTNER_COUNTRY  #FIXME constant adjusted in refactoring process
+    else:  # update default value to be re-used in other parts if neccesary. Update is made on original variables "global" defined
+        if partner_type == "CUSTOMER":
+            DEFAULT_CUSTOMER_COUNTRY = _tmp_country  #FIXME constant adjusted in refactoring process
+        else:  # case of "SUPPLIER" and "OWNER"
+            DEFAULT_SUPPLIER_COUNTRY = _tmp_country  #FIXME constant adjusted in refactoring process
     invoice_header_area["customer_area"]["PostalAddress"] = {
         "cbc_StreetName": _tmp_street,
         "cbc_CityName": _tmp_city,
@@ -203,8 +239,13 @@ def get_partner_data(
     # TODO: see how replicate code for Customer --to--> Supplier
 
 
-
-
-
     pass  # exit that normally should be unreachable
+
+
+
+
+
+# TEST AREA
+if __name__ == "__main__":
+    get_partner_data()
 
