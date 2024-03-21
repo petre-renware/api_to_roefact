@@ -45,7 +45,7 @@
     * [x] 2. wrap code in new function `get_partner_data()`, set its first param `partner_type` for desired function operation and protect function against unknown values
     * [x] 3. 1st raw refactoring: constants dedicated to CUSTOMER adjusted as UNIFyed...PARTNER... and set for customer or supplier depending on partner_type
     * [x] 4. 2nd raw refactoring: `customer_area` string. This is a keyword, so it is subject to unification based on partner_type resulting `partner_area` variable used as keyword instead of hard code "customer_area"
-    * [ ] 5. ... mark & comment in `rdinv.py` place where call this function, start / end of code that should be dropped by using this function (rdinv.py start line 229, end line 367, marker #FIXME.UNIF.PARTNER.DATA)
+    * [x] 5. mark & comment in `rdinv.py` place where call this function, start / end of code that should be dropped by using this function (rdinv.py start line 229, end line 367, marker #FIXME.UNIF.PARTNER.DATA)
     * [ ] n. ...
     * ... idea is to reuse code for customer area as much as possible
 
