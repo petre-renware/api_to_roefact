@@ -48,7 +48,8 @@
     * [x] 5. mark & comment in `rdinv.py` place where call this function, start / end of code that should be dropped by using this function (rdinv.py start line 229, end line 367, marker #FIXME.UNIF.PARTNER.DATA)
     * [x] 6. updated `invoice_header_area` with `param_invoice_header_area` and set las as function parameter
     * [x] 7. updated `invoice_customer_info` with `invoice_partner_info`
-    * [ ] n. ...
+    * [ ] ... replace word "customer" with "partner" keeping original case
+    * [ ] ...
     * ... idea is to reuse code for customer area as much as possible
 
 ### `0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version:
