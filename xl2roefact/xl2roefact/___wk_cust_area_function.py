@@ -72,14 +72,14 @@ def get_partner_data(
         # accept only known operations
         raise Exception("partner_type parameter not recognized value")
     #
-    # find invoice customer ==> "cac:AccountingCustomerParty
+    # find invoice partner ==> one of (cac:AccountingCustomerParty , cac:AccountingSupplierParty)
     invoice_partner_info = get_excel_data_at_label(
         pattern_to_search_for=UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER,  #FIXME constant adjusted in refactoring process
         worksheet=ws,
         area_to_scan=(param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"]),
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    # set a dedicated area to search for customer
+    # set a dedicated area to search for partner
     _area_to_search_start_cell = [  # use `label_location` as being supposed "most far away" from effective-good info, so more chances to find info
         0 if invoice_partner_info["label_location"][0] <= 0 else invoice_partner_info["label_location"][0] - 1,  # set one line up if this line exists
         invoice_partner_info["label_location"][1],
@@ -107,13 +107,13 @@ def get_partner_data(
         }
     }
     #
-    # find customer key "CUI / Registration ID" ==> `param_invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
+    # find partner key "CUI / Registration ID" ==> `param_invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
     _temp_found_data = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
-        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+        down_search_try=False  # partner area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     param_invoice_header_area[unif_partner_area_key]["CUI"] = {
         "value": _temp_found_data["value"],
@@ -122,7 +122,7 @@ def get_partner_data(
         "label_location": _temp_found_data["label_location"]
     }
     #
-    # find customer key "RegistrationName" ==> `cbc_RegistrationName`
+    # find partner key "RegistrationName" ==> `cbc_RegistrationName`
     '''#NOTE: `ReNaSt`-RegNameStrategy (remark: step codes will referred as defined here)
           ReNaSt.STEP-1. search for UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME  #FIXME constant adjusted in refactoring process
           ReNaSt.STEP-2. if `label_location` of FOUND VALUE has the same location as `param_invoice_header_area[unif_partner_area_key]["area_info"]["location"][0]`:
@@ -135,7 +135,7 @@ def get_partner_data(
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
-        down_search_try=True  # NOTE: set on True to obtain identical results as original search of `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
+        down_search_try=True  # NOTE: set on True to obtain identical results as original search of `UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     _location_of_header_partner_area = param_invoice_header_area[unif_partner_area_key]["area_info"]["location"][0]
     _location_of_value_found = _temp_found_data["label_location"]
@@ -152,13 +152,13 @@ def get_partner_data(
         "label_location": "n/a"
     }
     #
-    # find customer key `cac:PostalAddress` -> `param_invoice_header_area["cac_PostalAddress"]` && Invoice...["cac_PostalAddress"]
+    # find partner key `cac:PostalAddress` -> `param_invoice_header_area["cac_PostalAddress"]` && Invoice...["cac_PostalAddress"]
     _temp_found_data = get_excel_data_at_label(
         pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
-        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+        down_search_try=False  # partner area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     _tmpstr = _temp_found_data["label_value"].lower()
     _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
@@ -171,7 +171,7 @@ def get_partner_data(
         worksheet=ws,
         area_to_scan=area_to_scan_address_items,
         targeted_type=str,
-        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+        down_search_try=False  # partner area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     _tmp_country = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]).replace("None", "").strip()
     _tmp_city = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]).replace("None", "").strip()
@@ -195,16 +195,16 @@ def get_partner_data(
     search_extended_parts = partial(  # define a partial function to be used for all "search_extended_parts"
         get_excel_data_at_label,  # function to call
         worksheet=ws,
-        area_to_scan=_area_to_search,  # supposed to still contain customer info found area
+        area_to_scan=_area_to_search,  # supposed to still contain partner info found area
         targeted_type=str,
-        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+        down_search_try=False  # partner area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     _tmp_reg_com = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)
     _tmp_bank = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)
     _tmp_IBAN = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)
     _tmp_phone = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)
     _tmp_email = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)
-    # store "full" variables in `customer_area...` for excel original values
+    # store "full" variables in `partner_area...` for excel original values
     param_invoice_header_area[unif_partner_area_key]["reg_com"] = _tmp_reg_com
     param_invoice_header_area[unif_partner_area_key]["bank"] = _tmp_bank
     param_invoice_header_area[unif_partner_area_key]["IBAN"] = _tmp_IBAN
