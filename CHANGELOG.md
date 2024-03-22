@@ -48,7 +48,7 @@
     * [x] 5. mark & comment in `rdinv.py` place where call this function, start / end of code that should be dropped by using this function (rdinv.py start line 229, end line 367, marker #FIXME.UNIF.PARTNER.DATA)
     * [x] 6. updated `invoice_header_area` with `param_invoice_header_area` and set las as function parameter
     * [x] 7. updated `invoice_customer_info` with `invoice_partner_info`
-    * [ ] ... set new parameter for `ws` this being used in search functions as sent param
+    * [ ] ... set new parameter `worksheet` for `ws` ans replace accordingly all its occurrences
     * [ ] ... replace word "customer" with "partner" keeping original case
     * [ ] ...
     * ... idea is to reuse code for customer area as much as possible
