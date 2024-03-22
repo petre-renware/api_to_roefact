@@ -73,7 +73,7 @@ def get_partner_data(
         raise Exception("partner_type parameter not recognized value")
     #
     # find invoice customer ==> "cac:AccountingCustomerParty
-    invoice_customer_info = get_excel_data_at_label(
+    invoice_partner_info = get_excel_data_at_label(
         pattern_to_search_for=UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER,  #FIXME constant adjusted in refactoring process
         worksheet=ws,
         area_to_scan=(param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"]),
@@ -81,8 +81,8 @@ def get_partner_data(
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     # set a dedicated area to search for customer
     _area_to_search_start_cell = [  # use `label_location` as being supposed "most far away" from effective-good info, so more chances to find info
-        0 if invoice_customer_info["label_location"][0] <= 0 else invoice_customer_info["label_location"][0] - 1,  # set one line up if this line exists
-        invoice_customer_info["label_location"][1],
+        0 if invoice_partner_info["label_location"][0] <= 0 else invoice_partner_info["label_location"][0] - 1,  # set one line up if this line exists
+        invoice_partner_info["label_location"][1],
     ]
     if ws.index(*_area_to_search_start_cell).strip() == "":  # prev set was for one line up but if that cell is blank remake it (ie, do a +1)
         _area_to_search_start_cell[0] += 1
