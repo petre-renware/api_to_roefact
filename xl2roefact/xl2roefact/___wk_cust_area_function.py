@@ -135,7 +135,7 @@ def get_partner_data(
         worksheet=ws,
         area_to_scan=_area_to_search,
         targeted_type=str,
-        down_search_try=True  # NOTE: set on True to obtain identical results as original search of `PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
+        down_search_try=True  # NOTE: set on True to obtain identical results as original search of `UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     _location_of_header_partner_area = param_invoice_header_area[unif_partner_area_key]["area_info"]["location"][0]
     _location_of_value_found = _temp_found_data["label_location"]
