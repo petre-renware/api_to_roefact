@@ -49,7 +49,7 @@
     * [x] 6. updated `invoice_header_area` with `param_invoice_header_area` and set las as function parameter
     * [x] 7. updated `invoice_customer_info` with `invoice_partner_info`
     * [x] 8. replace word "customer" with "partner" keeping original case
-    * [ ] ... set new parameter `worksheet` for `ws` ans replace accordingly all its occurrences
+    * [x] 9. set new parameter `wks` as replacement of `ws` variable (supposed by original code as already existing). Type of this parameter is `pylightxl.Worksheet`.
     * [ ] ... solve XML keys which are customer specific, for ex `cac:AccountingCustomerParty`
     * [ ] ...
     * ... idea is to reuse code for customer area as much as possible
