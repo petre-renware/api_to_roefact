@@ -24,7 +24,6 @@ from rdinv import PATTERN_FOR_CUSTOMER_LEGAL_NAME
 #    - ... check & define in `data/app_settings.yml`
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAME
-#...exists... DEFAULT_SUPPLIER_COUNTRY = config_settings.DEFAULT_SUPPLIER_COUNTRY  #FIXME already exists. Drop it.
 
 
 
