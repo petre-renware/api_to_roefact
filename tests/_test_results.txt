@@ -74,7 +74,8 @@ crt', 'no. crt', 'no crt.', 'nr. crt.', 'nr crt', 'nr. crt', 'nr crt.', '#']
 PATTERN_FOR_INVOICE_NUMBER_LABEL = ['nr. fact', 'nr fact', 'numar fact', 'fact 
 nr', 'factura num', 'invoice number', 'invoice no', 'invoice:']
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = ['furniz', 'proprie', 'suppl', 
-'owne']
+'owne', 'sc', 's.c', 'diviz', 'depart', 'sa', 's.a', 'srl', 's.r.l', 'pfa', 
+'p.f.a', 'ra', 'r.a']
 PATTERN_FOR_PARTNER_ADDRESS = ['adr', 'addr', 'tara', 'count', 'locali', 
 'oras', 'city', 'town', 'str']
 PATTERN_FOR_PARTNER_ADDRESS_CITY = ['judet', 'county', 'locali', 'oras', 
