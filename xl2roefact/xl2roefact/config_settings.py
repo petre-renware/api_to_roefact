@@ -1,11 +1,11 @@
 #!../.venv/bin/python3
 """Configuration and setting parameters.
 
-Regulile recomandate se gasessc in documentul [`doc/README_app_config_rules.md`](../doc/README_app_config_rules.md)
+Regulile recomandate se gasessc in documentul (recommended rules are in document) [`doc/README_app_config_rules.md`](../doc/README_app_config_rules.md)
 
-Public objects:
+    Public objects:
 
-    rules_content: contains the rules text (rendered)
+        `rules_content`: contains the rules text (rendered)
 
 * copyright: (c) 2023 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
@@ -103,7 +103,7 @@ PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: list[str] = [
 
 # --- numele legal al companiei
 # pattern utilizat pentru regasirea numelui legal al clientului
-# NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
+# NOTE se presupune a fi la inceputul zonei cu datele clientului, deci se ca cauta dupa acelasi pattern
 PATTERN_FOR_CUSTOMER_LEGAL_NAME = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
 
 # --- pattern pentru regasirea codului unic de inregistrare (sau Company ID in engleza) (pattern comun pentru client si furnizor)
@@ -159,13 +159,28 @@ PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [
     "cod pos", "zip cod", "postal",
 ]
 
-...  #TODO: alte patternuri comune partner: RegCom, IBAN, Banca
 # --- furnizor (supplier)
 # pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
-    "furniz", "proprie",  # TODO: list patterns here
+    "furniz", "proprie",
     "suppl", "owne",
+    "sc", "s.c", "diviz", "depart",
+    "sa", "s.a",
+    "srl", "s.r.l",
+    "pfa", "p.f.a",
+    "ra", "r.a",
 ]
+
+# --- numele legal al companiei furnizoare
+# pattern utilizat pentru regasirea numelui legal al furnizorului
+# NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
+PATTERN_FOR_SUPPLIER_LEGAL_NAME = PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
+
+
+
+
+
+
 
 
 
