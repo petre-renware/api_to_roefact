@@ -159,9 +159,6 @@ PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = [
     "cod pos", "zip cod", "postal",
 ]
 
-
-#TODO next 2 item must be add in `data/app_settings.yml` + update comment la ...CUSTOMER_LEGAL_NAME (este cuvintul furnizor !)
-
 # --- furnizor (supplier)
 # pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
