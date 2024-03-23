@@ -41,8 +41,10 @@
 * tbd... update all `/versions.yml`
 
 * tbd... rollout `.../xl2roefact/___wk_cust_area_function.py` in `rdinv.py`:
-    * [ ] ...detail actions here...
+    * [ ] ...
     * [ ] test `xl2roefact`: automation on `test-xl2roefact` branch
+
+* tbd... get OWNER EXTERNAL DATA feature code here
 
 
 * wip... `240323piu-suppl-configs` rollout supplier configuration parameters from `.../xl2roefact/___wk_cust_area_function.py`:
