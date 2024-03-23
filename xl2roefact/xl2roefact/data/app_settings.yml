@@ -84,7 +84,7 @@ PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL: [
 ]
 
 # --- client (customer)
-# pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
+# pattern utilizat pentru a gasi aria (zona) cu datele clientului
 PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER: &patt_cust_marker [
     "clien",
     "custo",
@@ -153,23 +153,21 @@ PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE: [
     "cod pos", "zip cod", "postal",
 ]
 
-#...  #TODO: alte patternuri comune partner: RegCom, IBAN, Banca
-
-
-
-
-
-
-
-
-
-# FIXME: in factura Petrom nu ai nici ref furnizor nici client, ci ai numele firmelor lor, dar ai C.U.I.  #FIXME tried something @line 110...
-# FIXME: ci alte texte COMPLET "OUT-OF-UDERSTANDING" chiar si pentru humans !
-# TODO: decide something, most probably set this kind of issue in documentation section for: "RULES FOR INVOICE data in Excel"
 # --- furnizor (supplier)
 # pattern utilizat pentru a gasi aria (zona) cu datele furnizorului
-PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: [
-    "furniz", "proprie",  # TODO: list patterns here
+PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: &patt_suppl_marker [
+    "furniz", "proprie",
     "suppl", "owne",
+    "sc", "s.c", "diviz", "depart",
+    "sa", "s.a",
+    "srl", "s.r.l",
+    "pfa", "p.f.a",
+    "ra", "r.a",
 ]
+
+# --- numele legal al companiei furnizoare
+# pattern utilizat pentru regasirea numelui legal al furnizorului
+# NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
+PATTERN_FOR_SUPPLIER_LEGAL_NAME: *patt_suppl_marker
+
 

@@ -1,30 +1,13 @@
-#
 # work area to clean and generalize a function to solve CUSTOMER INFO:
-# -1. to replace as separated function the existing code for customer info
-# -2. to generalize it to work for customer info, but a "CUSTOMER" op/cmd to be sent as parameter
-# -3. to be able to work for op/cmd "SUPPLIER"
-# -4. to be placed in `rdinv.py` module and to do work in new environment without disturbing it for existing functionalities
-#     ... ie, to not induce lateral effects
+# ...all prev steps are done and was dropped
 # 5. location in rdinv.py where to call this function marked `#FIXME.UNIF.PARTNER.DATA`
 
-#... ... ... #NOTE imports section NOT NEEDED. It is for testing to avoid error due to its missing
-from . import config_settings
-from rdinv import get_excel_data_at_label
-from rdinv import PATTERN_FOR_PARTNER_ID
-from rdinv import PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
-from rdinv import PATTERN_FOR_CUSTOMER_LEGAL_NAME
-#... ... ... #NOTE imports section NOT NEEDED. It is for testing to avoid error due to its mi
 
 
 
-
-# TODO: constants area code:
-#    - ... must stay in `rdinv.py` in constants area
-#    - DONE. check & define in `config_settings.py`
-#    - ... check & define in `data/app_settings.yml`
+# TODO: ... move in `rdinv.py` in constants area
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAME
-
 
 
 
@@ -35,12 +18,11 @@ def get_partner_data(
     partner_type: str,  # IN
     *,
     wks,  # INOUT
-    param_invoice_header_area: dict,  # INOUT
-    # ...more params here
-) -> dict:
+    param_invoice_header_area: dict  # INOUT
+) -> None:
     """Get invoice partener data from Excel.
 
-    NOTE: function induce necessary side effects and works only if located in `rdinv.py`
+    For developers note: function works by generating side effects and must be located in `rdinv.py`
 
     Args:
         `partner_type`: one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data)
@@ -48,9 +30,8 @@ def get_partner_data(
         `param_invoice_header_area`: outside `param_invoice_header_area` as used and needed in `rdinv()`. This function will write back in this variable
 
     Return:
-        `dict`: with parner data. Dictionary is in form needed in `rdinv()` function.
+        `None`: all data is produced directly in parameters as side effect
     """
-
     # normalize partner_type for easier usage and more flexibility to developers misusing
     partner_type = partner_type.upper().strip()
     # unify search patterns and other constants function of partner_type
@@ -59,16 +40,14 @@ def get_partner_data(
         UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_CUSTOMER_LEGAL_NAME
         UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_CUSTOMER_COUNTRY
         unif_partner_area_key = "customer_area"
-        ...  #FIXME: more refactoring code here?
     elif partner_type =="SUPPLIER":
         # NOTE: pls be patient. Here will raise errs because used EXPECTED constant names. Check `config_settings.py` and adjust accordingly
         UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
         UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_SUPPLIER_LEGAL_NAME
         UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
         unif_partner_area_key = "supplier_area"
-        ...  #FIXME: more refactoring code here?
     elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
-        ...  #FIXME: more refactoring code here?
+        ...  #FIXME: get OWNER EXTERNAL DATA feature code here
     else:
         # accept only known operations
         raise Exception("partner_type parameter not recognized value")
@@ -212,17 +191,6 @@ def get_partner_data(
     param_invoice_header_area[unif_partner_area_key]["phone"] = _tmp_phone
     param_invoice_header_area[unif_partner_area_key]["email"] = _tmp_email
 
+    return
 
-    # TODO: see how replicate code for Customer --to--> Supplier
-
-
-    pass  # exit that normally should be unreachable
-
-
-
-
-
-# TEST AREA
-if __name__ == "__main__":
-    get_partner_data()
 
