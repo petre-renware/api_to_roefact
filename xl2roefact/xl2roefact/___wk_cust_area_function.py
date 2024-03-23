@@ -19,12 +19,12 @@ from rdinv import PATTERN_FOR_CUSTOMER_LEGAL_NAME
 
 
 # TODO: constants area code:
-#    - must stay in `rdinv.py` in constants area
-#    - checked & define in `config_settings.py` & `data/app_settings.yml`
-#    - most cases they should be like their ...CUSTOMER... equivalent
-#...DONE PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
+#    - ... must stay in `rdinv.py` in constants area
+#    - DONE. check & define in `config_settings.py`
+#    - ... check & define in `data/app_settings.yml`
+PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAME
-#...EXISTS DEFAULT_SUPPLIER_COUNTRY = config_settings.DEFAULT_SUPPLIER_COUNTRY  #FIXME thia should be set as` global` & could exists. Check it...
+#...exists... DEFAULT_SUPPLIER_COUNTRY = config_settings.DEFAULT_SUPPLIER_COUNTRY  #FIXME already exists. Drop it.
 
 
 
