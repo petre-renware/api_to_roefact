@@ -1,30 +1,13 @@
-#
 # work area to clean and generalize a function to solve CUSTOMER INFO:
-# -1. to replace as separated function the existing code for customer info
-# -2. to generalize it to work for customer info, but a "CUSTOMER" op/cmd to be sent as parameter
-# -3. to be able to work for op/cmd "SUPPLIER"
-# -4. to be placed in `rdinv.py` module and to do work in new environment without disturbing it for existing functionalities
-#     ... ie, to not induce lateral effects
+# ...all prev steps are done and was dropped
 # 5. location in rdinv.py where to call this function marked `#FIXME.UNIF.PARTNER.DATA`
 
-#... ... ... #NOTE imports section NOT NEEDED. It is for testing to avoid error due to its missing
-from . import config_settings
-from rdinv import get_excel_data_at_label
-from rdinv import PATTERN_FOR_PARTNER_ID
-from rdinv import PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
-from rdinv import PATTERN_FOR_CUSTOMER_LEGAL_NAME
-#... ... ... #NOTE imports section NOT NEEDED. It is for testing to avoid error due to its mi
 
 
 
-
-# TODO: constants area code:
-#    - ... must stay in `rdinv.py` in constants area
-#    - DONE. check & define in `config_settings.py`
-#    - ... check & define in `data/app_settings.yml`
+# TODO: ... move in `rdinv.py` in constants area
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAME
-
 
 
 
