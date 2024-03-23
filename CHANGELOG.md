@@ -40,7 +40,19 @@
 
 * tbd... update all `/versions.yml`
 
-* wip... `230420piu-invsuppl` code for `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
+* tbd... rollout `.../xl2roefact/___wk_cust_area_function.py` in `rdinv.py`:
+    * [ ] ...detail actions here...
+    * [ ] test `xl2roefact`: automation on `test-xl2roefact` branch
+
+
+* wip... `240323piu-suppl-configs` rollout supplier configuration parameters from `.../xl2roefact/___wk_cust_area_function.py`:
+    * [ ] update `config_settings.py` with their definition
+    * [ ] update `data/app_settings.yml` with their definition
+    * [ ] update `rdinv.py` with their import
+    * [ ] test `xl2roefact`: automation on `test-xl2roefact` branch
+    * [ ] build DLD (`pdm run build_doc`)
+
+* `240320piu-invsuppl` code for `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * [x] 1. extracted code to generalize in `.../xl2roefact/___wk_cust_area_function.py` to "engineer it"
     * [x] 2. wrap code in new function `get_partner_data()`, set its first param `partner_type` for desired function operation and protect function against unknown values
     * [x] 3. 1st raw refactoring: constants dedicated to CUSTOMER adjusted as UNIFyed...PARTNER... and set for customer or supplier depending on partner_type
@@ -50,9 +62,6 @@
     * [x] 7. updated `invoice_customer_info` with `invoice_partner_info`
     * [x] 8. replace word "customer" with "partner" keeping original case
     * [x] 9. set new parameter `wks` as replacement of `ws` variable (supposed by original code as already existing). Type of this parameter is `pylightxl.Worksheet`.
-    * [ ] ... solve XML keys which are customer specific, for ex `cac:AccountingCustomerParty`
-    * [ ] ...
-    * ... idea is to reuse code for customer area as much as possible
 
 ### `0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version:
 * [x] 1. update `config_settings.py` module to load app cfg from external file only when not sEXE frozen app (`getattr(sys, 'frozen', False) == True`)
