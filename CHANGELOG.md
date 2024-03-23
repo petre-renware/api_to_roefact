@@ -46,8 +46,8 @@
 
 
 * wip... `240323piu-suppl-configs` rollout supplier configuration parameters from `.../xl2roefact/___wk_cust_area_function.py`:
-    * [x] 1. update `config_settings.py` with their definition. Tested PAAA
-    * [ ] update `data/app_settings.yml` with their definition
+    * [x] 1. update `config_settings.py` with their definition. Tested PASS
+    * [x] 2. update `data/app_settings.yml` with their definition. Tested PASS. Cleaned file `.../xl2roefact/___wk_cust_area_function.py` to make easier its transport to `rdinv.py`
     * [ ] update `rdinv.py` with their import
     * [ ] test `xl2roefact`: automation on `test-xl2roefact` branch
     * [ ] build DLD (`pdm run build_doc`)
