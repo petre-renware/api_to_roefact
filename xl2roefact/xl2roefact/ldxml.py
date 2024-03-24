@@ -1,4 +1,4 @@
-""" ldxml: modul de incarcare a facturii in sistemul ANAF E-Factura
+"""ldxml: modul de incarcare a facturii in sistemul ANAF E-Factura
 
 Identification:
 
