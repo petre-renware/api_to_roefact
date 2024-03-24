@@ -1,4 +1,4 @@
-#!../.venv/bin/python3
+
 """rdinv: modul de procesare a fisierului Excel ce contine factura si colectare a datelor aferente.
 
 Formatul acceptat fisier Excel este `XLSX`.
