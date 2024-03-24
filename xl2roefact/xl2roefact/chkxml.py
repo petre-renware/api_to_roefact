@@ -1,4 +1,3 @@
-
 """ chkxml: modul de validare a facturii in sistemul ANAF E-Factura
 
 Identification:
