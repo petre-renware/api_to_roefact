@@ -1,4 +1,4 @@
-#!../.venv/bin/python3
+
 """general utilities library for all `xl2roefact` components and modules.
 
 Identification:
