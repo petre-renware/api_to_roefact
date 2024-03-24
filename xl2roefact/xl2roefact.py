@@ -1,4 +1,5 @@
-"""xl2roefact: module to unify all xl2roefact and to be used as executable CLI by any users.
+
+"""xl2roefact: module to unify all xl2roefact and to be used as executable CLI by any users.
 
 Identification:
 * code-name: `xl2roefact`
