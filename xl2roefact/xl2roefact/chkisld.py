@@ -1,5 +1,4 @@
-
-""" chkisld: modul de verificare a starii de incarcare a unei facturi emise
+"""chkisld: modul de verificare a starii de incarcare a unei facturi emise
 
 Identification:
 
