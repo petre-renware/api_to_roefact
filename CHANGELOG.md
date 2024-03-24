@@ -55,7 +55,7 @@
     * [ ] build DLD (`pdm run build_doc`)
 
 
-* ... `upd-shebang` update all xl2roefact modules, drop shebang statement
+* `upd-shebang` update all xl2roefact modules, drop shebang statement
 * `240320piu-invsuppl` code for `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * [x] 1. extracted code to generalize in `.../xl2roefact/___wk_cust_area_function.py` to "engineer it"
     * [x] 2. wrap code in new function `get_partner_data()`, set its first param `partner_type` for desired function operation and protect function against unknown values
