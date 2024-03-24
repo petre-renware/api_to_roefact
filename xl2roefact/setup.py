@@ -1,4 +1,4 @@
-""" setup for `xl2roefact` package configuration in order to build Windows MSI & EXE and PyPy package.
+"""setup for `xl2roefact` package configuration in order to build Windows MSI & EXE and PyPy package.
 
 Identification:
 * code-name: `setup.py`

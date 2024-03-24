@@ -1,4 +1,3 @@
-#!../.venv/bin/python3
 """xl2roefact version info.
 ```
  ######## ####              ########  ######

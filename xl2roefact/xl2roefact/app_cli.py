@@ -1,4 +1,3 @@
-#!../.venv/bin/python3
 """app_cli: the command line application for all xl2roefact functionalities.
 
 Identification:

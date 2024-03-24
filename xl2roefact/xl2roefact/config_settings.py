@@ -1,4 +1,3 @@
-#!../.venv/bin/python3
 """Configuration and setting parameters.
 
 Regulile recomandate se gasessc in documentul (recommended rules are in document) [`doc/README_app_config_rules.md`](../doc/README_app_config_rules.md)
