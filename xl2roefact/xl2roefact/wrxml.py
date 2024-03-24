@@ -1,4 +1,3 @@
-
 """ wrxml: modul de generare a fisierului format XML
 
 Identification:
