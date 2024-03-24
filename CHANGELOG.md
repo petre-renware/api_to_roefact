@@ -54,7 +54,6 @@
     * [ ] test `xl2roefact`: automation on `test-xl2roefact` branch
     * [ ] build DLD (`pdm run build_doc`)
 
-
 * `upd-shebang` update all xl2roefact modules, drop shebang statement
 * `240320piu-invsuppl` code for `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * [x] 1. extracted code to generalize in `.../xl2roefact/___wk_cust_area_function.py` to "engineer it"
