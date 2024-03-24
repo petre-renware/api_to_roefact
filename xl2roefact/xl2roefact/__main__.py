@@ -1,4 +1,4 @@
-#!../.venv/bin/python3
+
 """**xl2roefact.__main__**: Python package standard file to assure run as `python -m xl2roefact`.
 
 Identification:
