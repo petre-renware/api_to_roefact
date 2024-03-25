@@ -1,13 +1,7 @@
-# work area to clean and generalize a function to solve CUSTOMER INFO:
-# ...all prev steps are done and was dropped
+# work area to clean and generalize a function to solve CUSTOMER INFO. Active TODO:
 # 5. location in rdinv.py where to call this function marked `#FIXME.UNIF.PARTNER.DATA`
 
 
-
-
-# TODO: ... move in `rdinv.py` in constants area
-PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
-PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAME
 
 
 

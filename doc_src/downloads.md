@@ -1,10 +1,13 @@
 
 <small>**RENware Software Systems**</small>
 
+<!--NOTE: DISCLAIMER -->
+
 !!! warning "Versiunile development"
-    Versiunile ce au in codul / numarul lor acronimul `dev` sunt considerate versiuni elaborate in faza de dezvoltare software.
+    Versiunile ce contin in codul / numarul lor acronimul `dev` sunt considerate versiuni elaborate in faza de dezvoltare software.
     Aceste versiuni sunt functionale cu singura observatie ca testele facute sunt doar din punct de vedeare a codului si nu cu date de business, adica nu prezinta erori in functionare.
     Se recomanda a folosi aceste versiuni in cazurile de dezvoltari proprii sau integrari cu alte sisteme.
+
 
 
 
@@ -12,8 +15,6 @@
 # Descarcare resurse (downloads)
 
 <!-- NOTE: intentionally no TOC in this doc -->
-
-
 
 
 ## Format biblioteca Python
