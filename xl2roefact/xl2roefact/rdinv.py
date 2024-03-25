@@ -229,6 +229,13 @@ def rdinv(
     #
     # #FIXME.UNIF.PARTNER.DATA start ... ... ...
     # #FIXME.UNIF.PARTNER.DATA ...HERE SHOULD CALL `get_partner_data("CUSTOMER", ...)`
+    # get and solve `invoice_header_area` for all CUSTOMERS dataa
+    _ = _get_partner_data(
+            partner_type="CUSTOMER",
+            wks=ws,
+            param_invoice_header_area=invoice_header_area
+    )
+    """ #FIXME.UNIF.PARTNER.DATA
     #
     # find invoice customer ==> "cac:AccountingCustomerParty
     invoice_customer_info = get_excel_data_at_label(
@@ -365,7 +372,7 @@ def rdinv(
     invoice_header_area["customer_area"]["IBAN"] = _tmp_IBAN
     invoice_header_area["customer_area"]["phone"] = _tmp_phone
     invoice_header_area["customer_area"]["email"] = _tmp_email
-    # #FIXME.UNIF.PARTNER.DATA ... ... ... end here
+    """ # #FIXME.UNIF.PARTNER.DATA ... ... ... end here
     #
 
     # TODO: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
@@ -939,7 +946,7 @@ def _build_meta_info_key(
 
 # #NOTE - ...wip..., test <NOTE:result> @ <NOTE:date> by [piu]
 
-def get_partner_data(
+def _get_partner_data(
     partner_type: str,  # IN
     *,
     wks,  # INOUT
@@ -957,6 +964,9 @@ def get_partner_data(
     Return:
         `None`: all data is produced directly in parameters as side effect
     """
+    # set variables constant-like suspected to be changed as global
+    global DEFAULT_CUSTOMER_COUNTRY
+    global DEFAULT_SUPPLIER_COUNTRY
     # normalize partner_type for easier usage and more flexibility to developers misusing
     partner_type = partner_type.upper().strip()
     # unify search patterns and other constants function of partner_type
