@@ -939,7 +939,7 @@ def _build_meta_info_key(
 
 # #NOTE - ...wip..., test <NOTE:result> @ <NOTE:date> by [piu]
 
-def get_partner_data(
+def _get_partner_data(
     partner_type: str,  # IN
     *,
     wks,  # INOUT
