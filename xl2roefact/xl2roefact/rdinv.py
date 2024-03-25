@@ -190,8 +190,8 @@ def rdinv(
         issued_date = None,
         currency = None,
         customer_area = None,
-        supplier_area = "...future..."  # TODO: ... future tbd  ...
-    )  #FIXME_TODO: `supplier_area` key ............hereuare............
+        supplier_area = None,
+    )
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
@@ -226,15 +226,18 @@ def rdinv(
     #
     # get and solve `invoice_header_area` for all CUSTOMER data
     _ = _get_partner_data(
-            partner_type="CUSTOMER",
-            wks=ws,
-            param_invoice_header_area=invoice_header_area
+        partner_type="CUSTOMER",
+        wks=ws,
+        param_invoice_header_area=invoice_header_area
     )
     #
-    # #TODO: get and solve `invoice_header_area` for all SUPPLIER data
-    ...
-
-    
+    # get and solve `invoice_header_area` for all SUPPLIER data
+    _ = _get_partner_data(
+        partner_type="SUPPLIER",
+        wks=ws,
+        param_invoice_header_area=invoice_header_area
+    )
+    #
     # TODO: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
     ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
 
@@ -281,6 +284,7 @@ def rdinv(
                     },
                 },
             },
+            # TODO: ...upd for SUPPLIER KEYS...
             "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list)[0],  # keep only 1st entry because from creating process resulted list(list)) first one being redundant
             "cac_LegalMonetaryTotal": {
                 "cbc_LineExtensionAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
