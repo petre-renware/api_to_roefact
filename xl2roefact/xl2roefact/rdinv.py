@@ -284,7 +284,29 @@ def rdinv(
                     },
                 },
             },
-            # TODO: ...upd for SUPPLIER KEYS...
+            # TODO: ...wip... upd for SUPPLIER KEYS...
+            "cac_AccountingSupplierParty": {
+                "cac:Party": {
+                    "cac_PartyLegalEntity": {
+                        "cbc_CompanyID": copy.deepcopy(invoice_header_area["supplier_area"]["CUI"]["value"]),
+                        "cbc_RegistrationName": copy.deepcopy(invoice_header_area["supplier_area"]["RegistrationName"]["value"]),
+                    },
+                    "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
+                    "cac_Contact": {
+                        "cbc_Telephone": copy.deepcopy(invoice_header_area["supplier_area"]["phone"]["value"]),
+                        "cbc_ElectronicMail": copy.deepcopy(invoice_header_area["supplier_area"]["email"]["value"]),
+                        "RegCom": copy.deepcopy(invoice_header_area["supplier_area"]["reg_com"]["value"]),
+                        "Bank": copy.deepcopy(invoice_header_area["supplier_area"]["bank"]["value"]),
+                        "IBAN": copy.deepcopy(invoice_header_area["supplier_area"]["IBAN"]["value"]),
+                    },
+                    "cac_PartyTaxScheme": {
+                        "cbc_CompanyID": copy.deepcopy(invoice_header_area["supplier_area"]["CUI"]["value"]),
+                        "cac_TaxScheme": {
+                            "cbc_ID": "VAT"
+                        },
+                    },
+                },
+            },  # TODO: ...wip... upd for SUPPLIER KEYS...
             "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list)[0],  # keep only 1st entry because from creating process resulted list(list)) first one being redundant
             "cac_LegalMonetaryTotal": {
                 "cbc_LineExtensionAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
