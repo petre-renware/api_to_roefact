@@ -69,11 +69,11 @@ PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAM
 
 
 def rdinv(
-        file_to_process: str,
-        invoice_worksheet_name: str = None,
-        *,
-        debug_info: bool = False
-    ) -> dict:
+    file_to_process: str,
+    invoice_worksheet_name: str = None,
+    *,
+    debug_info: bool = False
+) -> dict:
     """read Excel file for invoice data.
 
     Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data.
