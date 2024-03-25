@@ -49,6 +49,7 @@
 
 * tbd... `240325piu-use-new-function` import new function `get_partner_data()` and use it in `rdinv.py` module
     * [x] 1. include function `get_partner_data()` in `rdinv.py` and test for simple compilation errors => result: PASS
+    * [x] 2. rebuild DLD documentation
     * [ ] ... use in code to replace actual existing CUSTOMER data retrieve. Test for no change vs previous functionality => result: ...
     * [ ] ...
     * [ ] ... make a new call for SUPPLIER data
