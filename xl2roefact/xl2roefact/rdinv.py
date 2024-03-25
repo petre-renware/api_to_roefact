@@ -964,6 +964,9 @@ def _get_partner_data(
     Return:
         `None`: all data is produced directly in parameters as side effect
     """
+    # set variables constant-like suspected to be changed as global
+    global DEFAULT_CUSTOMER_COUNTRY
+    global DEFAULT_SUPPLIER_COUNTRY
     # normalize partner_type for easier usage and more flexibility to developers misusing
     partner_type = partner_type.upper().strip()
     # unify search patterns and other constants function of partner_type
