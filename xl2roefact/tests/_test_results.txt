@@ -1,15 +1,15 @@
 ***INFO: Application settings loaded from installation directory (global settings).
-*** Application xl2roefact launched at 2024-03-25 06:36:16.906409
+*** Application xl2roefact launched at 2024-03-25 06:57:35.972296
 INFO note: files to process: 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\*.xlsx
-*** Module rdinv started at 2024-03-25 06:36:16.906409 to process file 
+*** Module rdinv started at 2024-03-25 06:57:35.972296 to process file 
 Fact_Petrom_11017969.xlsx (full path: 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.xlsx)
 INFO note: `rdinv` module, no worksheet specified, will open first one: 
 'Factura(Invoice)'
 INFO note: `rdinv` module, written invoice JSON data to: 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.json
-*** Module rdinv started at 2024-03-25 06:36:16.953275 to process file 
+*** Module rdinv started at 2024-03-25 06:57:36.019148 to process file 
 fact_RENF1004.xlsx (full path: 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\fact_RENF1004.xlsx)
 INFO note: `rdinv` module, no worksheet specified, will open first one: 
