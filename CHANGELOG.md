@@ -54,7 +54,7 @@
     * [x] 4. make a new call for SUPPLIER data. Test for raw getting data in "...excel...original...data" key => PASS
     * [x] 5. chk new get data and make needed adjustments
     * [ ] ... 6. update `rdinv.py` to create all supplier final constructs (like those for customer after getting data) ... wip @ 287-303
-    * [ ] ... update map using code refactored in step 6.
+    * [ ] ... update XML-JSON map using code refactored in step 6.
     * [ ] ...
     * [ ] ... clean code of FIXME and other work comments
 
