@@ -53,7 +53,7 @@
     * [x] 3. use in code to replace actual existing CUSTOMER data retrieve. Test for no change vs previous functionality => result: PASS
     * [x] 4. make a new call for SUPPLIER data. Test for raw getting data in "...excel...original...data" key => PASS
     * [x] 5. chk new get data and make needed adjustments
-    * [ ] ... 6. update `rdinv.py` to create all supplier final constructs (like those for customer after getting data) ... wip @ 287-303
+    * [ ] ... 6. update `rdinv.py` to create all supplier final constructs (like those for customer after getting data) ... wip @ 287-307 & new lines to add
     * [ ] ... update XML-JSON map using code refactored in step 6.
     * [ ] ...
     * [ ] ... clean code of FIXME and other work comments
