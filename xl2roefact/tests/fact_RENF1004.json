@@ -26,6 +26,35 @@
                 }
             }
         },
+        "cac_AccountingSupplierParty": {
+            "cac:Party": {
+                "cac_PartyLegalEntity": {
+                    "cbc_CompanyID": "42561459",
+                    "cbc_RegistrationName": "REN-CONSULTING SOFT ACTIVITY SRL"
+                },
+                "cac_PostalAddress": {
+                    "cbc_StreetName": "",
+                    "cbc_CityName": "Bucureşti Sectorul 1, Strada: BUZEŞTI, Nr. 71, Etaj 7 si 8, tara: Romania",
+                    "cbc_PostalZone": "",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
+                },
+                "cac_Contact": {
+                    "cbc_Telephone": "0744-68.48.76",
+                    "cbc_ElectronicMail": "renware.systems@gmail.com",
+                    "RegCom": "J40/5662/2020",
+                    "Bank": "Banca Transilvania",
+                    "IBAN": "RO29 BTRL RONC RT05 5704 8601"
+                },
+                "cac_PartyTaxScheme": {
+                    "cbc_CompanyID": "42561459",
+                    "cac_TaxScheme": {
+                        "cbc_ID": "VAT"
+                    }
+                }
+            }
+        },
         "cac_InvoiceLine": [
             {
                 "cbc_ID": "1",
@@ -169,7 +198,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-03-25T07:23:09.745614+00:00",
+        "last_processing_time": "2024-03-25T15:50:19.803993+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
