@@ -50,7 +50,9 @@
 * tbd... `240325piu-use-new-function` import new function `get_partner_data()` and use it in `rdinv.py` module
     * [x] 1. include function `get_partner_data()` in `rdinv.py` and test for simple compilation errors => result: PASS
     * [x] 2. rebuild DLD documentation
-    * [ ] ... use in code to replace actual existing CUSTOMER data retrieve. Test for no change vs previous functionality => result: ...
+    * [ ] ... use in code to replace actual existing CUSTOMER data retrieve. Test for no change vs previous functionality => result: ERR
+      rdinv.py lin 973 `UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_CUSTOMER_COUNTRY`
+      `UnboundLocalError: local variable 'DEFAULT_CUSTOMER_COUNTRY' referenced before assignment`
     * [ ] ...
     * [ ] ... make a new call for SUPPLIER data
     * [ ] ...
