@@ -26,6 +26,35 @@
                 }
             }
         },
+        "cac_AccountingSupplierParty": {
+            "cac:Party": {
+                "cac_PartyLegalEntity": {
+                    "cbc_CompanyID": "RO1590082",
+                    "cbc_RegistrationName": "OMV Petrom S.A."
+                },
+                "cac_PostalAddress": {
+                    "cbc_StreetName": "Coralilor Nr. 22",
+                    "cbc_CityName": "",
+                    "cbc_PostalZone": "Postal 013329",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
+                },
+                "cac_Contact": {
+                    "cbc_Telephone": null,
+                    "cbc_ElectronicMail": null,
+                    "RegCom": null,
+                    "Bank": "Comerciala Romana",
+                    "IBAN": null
+                },
+                "cac_PartyTaxScheme": {
+                    "cbc_CompanyID": "RO1590082",
+                    "cac_TaxScheme": {
+                        "cbc_ID": "VAT"
+                    }
+                }
+            }
+        },
         "cac_InvoiceLine": [
             {
                 "cbc_ID": "1",
@@ -142,7 +171,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-03-25T07:23:09.683118+00:00",
+        "last_processing_time": "2024-03-25T15:50:19.725885+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
