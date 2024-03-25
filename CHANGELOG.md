@@ -47,13 +47,15 @@
 * tbd... get OWNER EXTERNAL DATA feature code here
 
 
-* wip... `240323piu-suppl-configs` rollout supplier configuration parameters from `.../xl2roefact/___wk_cust_area_function.py`:
+* tbd... `240325piu-use-new-function` import new function `get_partner_data` and use it in `rdinv.py` module
+    * [ ] ...
+
+* `240323piu-suppl-configs` rollout supplier configuration parameters from `.../xl2roefact/___wk_cust_area_function.py`:
     * [x] 1. update `config_settings.py` with their definition. Tested PASS
     * [x] 2. update `data/app_settings.yml` with their definition. Tested PASS. Cleaned file `.../xl2roefact/___wk_cust_area_function.py` to make easier its transport to `rdinv.py`
-    * [ ] update `rdinv.py` with their import
-    * [ ] test `xl2roefact`: automation on `test-xl2roefact` branch
-    * [ ] build DLD (`pdm run build_doc`)
-
+    * [x] update `rdinv.py` with their import
+    * [x] test `xl2roefact`: automation on `test-xl2roefact` branch
+    * [x] build DLD (`pdm run build_doc`)
 * `upd-shebang` update all xl2roefact modules, drop shebang statement
 * `240320piu-invsuppl` code for `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * [x] 1. extracted code to generalize in `.../xl2roefact/___wk_cust_area_function.py` to "engineer it"
