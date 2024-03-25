@@ -51,7 +51,7 @@
     * [x] 1. include function `get_partner_data()` in `rdinv.py` and test for simple compilation errors => result: PASS
     * [x] 2. rebuild DLD documentation
     * [x] 3. use in code to replace actual existing CUSTOMER data retrieve. Test for no change vs previous functionality => result: PASS
-    * [ ] ... make a new call for SUPPLIER data
+    * [ ] ...wip@lin#234... make a new call for SUPPLIER data
     * [ ] ... update `rdinv.py` to create all supplier final constructs (like those for customer after getting data)
     * [ ] ...
     * [ ] ... clean code of FIXME and other work comments
