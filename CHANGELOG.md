@@ -47,8 +47,13 @@
 * tbd... get OWNER EXTERNAL DATA feature code here
 
 
-* tbd... `240325piu-use-new-function` import new function `get_partner_data` and use it in `rdinv.py` module
+* tbd... `240325piu-use-new-function` import new function `get_partner_data()` and use it in `rdinv.py` module
+    * [x] 1. include function `get_partner_data()` in `rdinv.py` and test for simple compilation errors => result: PASS
+    * [ ] ... use in code to replace actual existing CUSTOMER data retrieve. Test for no change vs previous functionality => result: ...
     * [ ] ...
+    * [ ] ... make a new call for SUPPLIER data
+    * [ ] ...
+    * [ ] ... clean code of FIXME and other work comments
 
 * `240323piu-suppl-configs` rollout supplier configuration parameters from `.../xl2roefact/___wk_cust_area_function.py`:
     * [x] 1. update `config_settings.py` with their definition. Tested PASS
