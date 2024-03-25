@@ -52,7 +52,7 @@
     * [x] 2. rebuild DLD documentation
     * [x] 3. use in code to replace actual existing CUSTOMER data retrieve. Test for no change vs previous functionality => result: PASS
     * [x] 4. make a new call for SUPPLIER data. Test for raw getting data in "...excel...original...data" key => PASS
-    * [ ] ... chk new get data and make needed adjustments
+    * [x] 5. chk new get data and make needed adjustments
     * [ ] ... update `rdinv.py` to create all supplier final constructs (like those for customer after getting data)
     * [ ] ...
     * [ ] ... clean code of FIXME and other work comments
