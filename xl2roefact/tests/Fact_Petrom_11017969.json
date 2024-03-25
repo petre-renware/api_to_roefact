@@ -142,7 +142,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-03-25T06:57:36.019148+00:00",
+        "last_processing_time": "2024-03-25T07:23:09.683118+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -513,7 +513,98 @@
                     "label_location": null
                 }
             },
-            "supplier_area": "...future..."
+            "supplier_area": {
+                "area_info": {
+                    "value": "OMV Petrom S.A.",
+                    "location": [
+                        [
+                            8,
+                            2
+                        ],
+                        [
+                            18,
+                            3
+                        ]
+                    ]
+                },
+                "CUI": {
+                    "value": "RO1590082",
+                    "location": [
+                        10,
+                        2
+                    ],
+                    "label_value": "C.U.I. RO1590082",
+                    "label_location": [
+                        10,
+                        2
+                    ]
+                },
+                "RegistrationName": {
+                    "value": "OMV Petrom S.A.",
+                    "location": [
+                        8,
+                        2
+                    ],
+                    "label_value": "n/a",
+                    "label_location": "n/a"
+                },
+                "PostalAddress": {
+                    "cbc_StreetName": "Coralilor Nr. 22",
+                    "cbc_CityName": "",
+                    "cbc_PostalZone": "Postal 013329",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
+                },
+                "reg_com": {
+                    "value": null,
+                    "location": [
+                        null,
+                        null
+                    ],
+                    "label_value": null,
+                    "label_location": null
+                },
+                "bank": {
+                    "value": "Comerciala Romana",
+                    "location": [
+                        16,
+                        2
+                    ],
+                    "label_value": "Banca Comerciala Romana",
+                    "label_location": [
+                        16,
+                        2
+                    ]
+                },
+                "IBAN": {
+                    "value": null,
+                    "location": [
+                        null,
+                        null
+                    ],
+                    "label_value": null,
+                    "label_location": null
+                },
+                "phone": {
+                    "value": null,
+                    "location": [
+                        null,
+                        null
+                    ],
+                    "label_value": null,
+                    "label_location": null
+                },
+                "email": {
+                    "value": null,
+                    "location": [
+                        null,
+                        null
+                    ],
+                    "label_value": null,
+                    "label_location": null
+                }
+            }
         },
         "invoice_footer_area": {
             "start_cell": [
