@@ -84,7 +84,7 @@ def rdinv(
         `debug_info`: key only, show debugging information, default `False`.
 
     Return:
-        `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update.
+        `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`
 
     NOTE ref important variables:
         * `db: pylightxl object`: EXCEL object with invoice (as a whole)
@@ -225,21 +225,20 @@ def rdinv(
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
     # get and solve `invoice_header_area` for all CUSTOMER data
-    _ = _get_partner_data(
+    _ = get_partner_data(
         partner_type="CUSTOMER",
         wks=ws,
         param_invoice_header_area=invoice_header_area
     )
     #
     # get and solve `invoice_header_area` for all SUPPLIER data
-    _ = _get_partner_data(
+    _ = get_partner_data(
         partner_type="SUPPLIER",
         wks=ws,
         param_invoice_header_area=invoice_header_area
     )
     #
-    # TODO: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
-    ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
+    # TODO: ... mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
 
     """#NOTE: section to ( Excel data )--->( JSON ) format preparation and finishing
@@ -317,12 +316,12 @@ def rdinv(
                 "cbc_TaxAmount": round(sum([i["cbc_TaxAmount"] if i["cbc_TaxAmount"] is not None else 0 for i in tmp_cac_TaxSummary]), 2),
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
-            # TODO: ............................ hereuare code: remained structure values and check XLM-JSON map
+            # TODO: ... chk for remained structure values and check XLM-JSON map
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
             invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE ready, test PASS @ 231205 by [piu]
-            invoice_header_area = copy.deepcopy(invoice_header_area),  #TODO wip... lrft supplier info
+            invoice_header_area = copy.deepcopy(invoice_header_area),  # NOTE ready, test PASS @ 2440326 by [piu]
             invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO wip... TBD-(cac_TaxTotal) / RDY-(cac_LegalMonetaryTotal
         ),
     }
@@ -352,7 +351,7 @@ def rdinv(
 
 
 
-# #NOTE - ready, test PASS @ 231212 by [piu]
+# NOTE: ready, test PASS @ 231212 by [piu]
 def get_excel_data_at_label(
     pattern_to_search_for: list[str],
     worksheet: xl.Database.ws,
@@ -458,7 +457,7 @@ def get_excel_data_at_label(
 
 
 
-# #NOTE - ready, test PASS @ 231126 by [piu]
+# NOTE: ready, test PASS @ 231126 by [piu]
 def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
     """transform `invoice_items_area` in "canonical JSON format" (as kv pairs).
 
@@ -565,7 +564,7 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
 
 
 
-# #NOTE - ready, test PASS @ 231121 by [piu]
+# NOTE: ready, test PASS @ 231121 by [piu]
 def get_invoice_items_area(
     worksheet,
     invoice_items_area_marker,
@@ -662,7 +661,7 @@ def get_invoice_items_area(
 
 
 
-# #NOTE - ready, test PASS @ 231111 by [piu]
+# NOTE: ready, test PASS @ 231111 by [piu]
 def _get_merged_cells_tobe_changed(
     file_to_scan,
     invoice_worksheet_name,
@@ -735,7 +734,7 @@ def _get_merged_cells_tobe_changed(
 
 
 
-# #NOTE - ready, test PASS @ 231127 by [piu]
+# NOTE: ready, test PASS @ 231127 by [piu]
 def _build_meta_info_key(
     excel_file_to_process: str,
     invoice_worksheet_name: str,
@@ -823,17 +822,16 @@ def _build_meta_info_key(
         ("cac_TaxCategory", "cac:TaxCategory"),  # specific for Tax Summary section
         ("cac_AccountingSupplierParty", "cac:AccountingSupplierParty"),  # specific to supplier
         ("cac_PartyTaxScheme", "cac:PartyTaxScheme"),  # specific to supplier
-        #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
-
     return copy.deepcopy(_tmp_meta_info)
 
 
 
 
-# #NOTE - ...wip..., test <NOTE:result> @ <NOTE:date> by [piu]
 
-def _get_partner_data(
+
+# NOTE: ready, test PASS @ 240325 by [piu]
+def get_partner_data(
     partner_type: str,  # IN
     *,
     wks,  # INOUT
@@ -869,14 +867,14 @@ def _get_partner_data(
         UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
         unif_partner_area_key = "supplier_area"
     elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
-        ...  #FIXME: get OWNER EXTERNAL DATA feature code here
+        ...  # TODO: get OWNER EXTERNAL DATA feature code here
     else:
         # accept only known operations
         raise Exception("partner_type parameter not recognized value")
     #
     # find invoice partner ==> one of (cac:AccountingCustomerParty , cac:AccountingSupplierParty)
     invoice_partner_info = get_excel_data_at_label(
-        pattern_to_search_for=UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER,  #FIXME constant adjusted in refactoring process
+        pattern_to_search_for=UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER,  # NOTE: constant adjusted in refactoring process
         worksheet=wks,
         area_to_scan=(param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"]),
         targeted_type=str
@@ -926,14 +924,14 @@ def _get_partner_data(
     #
     # find partner key "RegistrationName" ==> `cbc_RegistrationName`
     '''#NOTE: `ReNaSt`-RegNameStrategy (remark: step codes will referred as defined here)
-          ReNaSt.STEP-1. search for UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME  #FIXME constant adjusted in refactoring process
+          ReNaSt.STEP-1. search for UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME  # NOTE: constant adjusted in refactoring process
           ReNaSt.STEP-2. if `label_location` of FOUND VALUE has the same location as `param_invoice_header_area[unif_partner_area_key]["area_info"]["location"][0]`:
                              keep VALUE of FOUND info
           ReNaSt.STEP-3. else:
                              keep `param_invoice_header_area[unif_partner_area_key]["area_info"]["value"]`
     '''
     _temp_found_data = get_excel_data_at_label(  # NOTE: ReNaSt.STEP-1
-        pattern_to_search_for=UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME,  #FIXME constant adjusted in refactoring process
+        pattern_to_search_for=UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME,  # NOTE: constant adjusted in refactoring process
         worksheet=wks,
         area_to_scan=_area_to_search,
         targeted_type=str,
@@ -980,12 +978,12 @@ def _get_partner_data(
     _tmp_street = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
     _tmp_zipcode = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
     if (_tmp_country is None) or (_tmp_country == ""):
-        _tmp_country = UNIF_DEFAULT_PARTNER_COUNTRY  #FIXME constant adjusted in refactoring process
+        _tmp_country = UNIF_DEFAULT_PARTNER_COUNTRY  # NOTE: constant adjusted in refactoring process
     else:  # update default value to be re-used in other parts if neccesary. Update is made on original variables "global" defined
         if partner_type == "CUSTOMER":
-            DEFAULT_CUSTOMER_COUNTRY = _tmp_country  #FIXME constant adjusted in refactoring process
+            DEFAULT_CUSTOMER_COUNTRY = _tmp_country  # NOTE: constant adjusted in refactoring process
         else:  # case of "SUPPLIER" and "OWNER"
-            DEFAULT_SUPPLIER_COUNTRY = _tmp_country  #FIXME constant adjusted in refactoring process
+            DEFAULT_SUPPLIER_COUNTRY = _tmp_country  # NOTE: constant adjusted in refactoring process
     param_invoice_header_area[unif_partner_area_key]["PostalAddress"] = {
         "cbc_StreetName": _tmp_street,
         "cbc_CityName": _tmp_city,

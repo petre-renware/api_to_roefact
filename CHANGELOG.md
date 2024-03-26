@@ -60,8 +60,8 @@
     * [x] 5. chk new get data and make needed adjustments
     * [x] 6. update `rdinv.py` to create all supplier final constructs (like those for customer after getting data). Test result: PASS
     * [x] 7. update XML-JSON map using code refactored @ `rdinv.py lines 287-309`
-    * [ ] ... ???
-    * [ ] ... clean code of FIXME and other work comments
+    * [x] 8. clean code of FIXME and other work comments and built DLD doc
+    * [ ] ... chk if need to update xl2roefact README - if so mk a plan ref with what
 
 * `240323piu-suppl-configs` rollout supplier configuration parameters from `.../xl2roefact/___wk_cust_area_function.py`:
     * [x] 1. update `config_settings.py` with their definition. Tested PASS
