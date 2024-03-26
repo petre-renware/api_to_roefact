@@ -40,11 +40,7 @@
 
 * tbd... update all `/versions.yml`
 
-* tbd... rollout `.../xl2roefact/___wk_cust_area_function.py` in `rdinv.py`:
-    * [ ] ...
-    * [ ] test `xl2roefact`: automation on `test-xl2roefact` branch
-
-* tbd... get OWNER EXTERNAL DATA feature code here
+* tbd... get OWNER EXTERNAL DATA feature code here, but can RELEASE A `0.5.3rc0` VERSION BEFORE and `0.5.3rc1` AFTER DO THAT
 
 * tbd... build & publish wheel on PyPi
     * [ ] ... chk if need to update xl2roefact README - if so mk a plan ref with what
