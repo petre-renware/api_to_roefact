@@ -59,7 +59,7 @@
     * [x] 4. make a new call for SUPPLIER data. Test for raw getting data in "...excel...original...data" key => PASS
     * [x] 5. chk new get data and make needed adjustments
     * [x] 6. update `rdinv.py` to create all supplier final constructs (like those for customer after getting data). Test result: PASS
-    * [ ] ... update XML-JSON map using code refactored @ `rdinv.py lines 287-309`
+    * [x] 7. update XML-JSON map using code refactored @ `rdinv.py lines 287-309`
     * [ ] ... ???
     * [ ] ... clean code of FIXME and other work comments
 
