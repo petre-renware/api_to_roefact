@@ -47,12 +47,12 @@
 * tbd... get OWNER EXTERNAL DATA feature code here
 
 * tbd... build & publish wheel on PyPi
-    * [ ] build DLD
+    * [ ] ... chk if need to update xl2roefact README - if so mk a plan ref with what
     * [ ] update xl2roefact README
     * [ ] update `xl2roefact/__version__.py`
     * [ ] ...
 
-* tbd... `240325piu-use-new-function` import new function `get_partner_data()` and use it in `rdinv.py` module
+* `240325piu-use-new-function` import new function `get_partner_data()` and use it in `rdinv.py` module
     * [x] 1. include function `get_partner_data()` in `rdinv.py` and test for simple compilation errors => result: PASS
     * [x] 2. rebuild DLD documentation
     * [x] 3. use in code to replace actual existing CUSTOMER data retrieve. Test for no change vs previous functionality => result: PASS
@@ -61,8 +61,6 @@
     * [x] 6. update `rdinv.py` to create all supplier final constructs (like those for customer after getting data). Test result: PASS
     * [x] 7. update XML-JSON map using code refactored @ `rdinv.py lines 287-309`
     * [x] 8. clean code of FIXME and other work comments and built DLD doc
-    * [ ] ... chk if need to update xl2roefact README - if so mk a plan ref with what
-
 * `240323piu-suppl-configs` rollout supplier configuration parameters from `.../xl2roefact/___wk_cust_area_function.py`:
     * [x] 1. update `config_settings.py` with their definition. Tested PASS
     * [x] 2. update `data/app_settings.yml` with their definition. Tested PASS. Cleaned file `.../xl2roefact/___wk_cust_area_function.py` to make easier its transport to `rdinv.py`
