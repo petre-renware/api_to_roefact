@@ -284,7 +284,6 @@ def rdinv(
                     },
                 },
             },
-            # TODO: ...wip... upd for SUPPLIER KEYS...
             "cac_AccountingSupplierParty": {
                 "cac:Party": {
                     "cac_PartyLegalEntity": {
@@ -306,7 +305,7 @@ def rdinv(
                         },
                     },
                 },
-            },  # TODO: ...wip... upd for SUPPLIER KEYS...
+            },
             "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list)[0],  # keep only 1st entry because from creating process resulted list(list)) first one being redundant
             "cac_LegalMonetaryTotal": {
                 "cbc_LineExtensionAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
@@ -822,6 +821,8 @@ def _build_meta_info_key(
         ("cac_TaxSubtotal", "cac:TaxSubtotal"),  # specific for Tax Summary section
         ("cbc_TaxableAmount", "cbc:TaxableAmount"),  # specific for Tax Summary section
         ("cac_TaxCategory", "cac:TaxCategory"),  # specific for Tax Summary section
+        ("cac_AccountingSupplierParty", "cac:AccountingSupplierParty"),  # specific to supplier
+        ("cac_PartyTaxScheme", "cac:PartyTaxScheme"),  # specific to supplier
         #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
     ]
 
