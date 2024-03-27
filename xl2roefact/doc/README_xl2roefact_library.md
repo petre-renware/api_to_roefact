@@ -53,25 +53,6 @@ To install from distribution packages first download the package version intende
 
 
 
-## Working directories
-
-Below is a short description of most important directories that will (can !) be found on local development environment.
-
-* _`invoice_files/`_ default directory for Excel files which is intended to be processed
-
-* _`build/`_ this directory which will contain intermediary files resulted from building CLI application, library distribution parts, etc. Directory is subject of `.gitignore`
-
-* _`dist/`_ package files (wheels, dist), Windows executables, etc, generally all files subject of "public" distribution and download
-
-* _`test_*/`_ contains test invoice samples (from client, a RENware one, a 3rd party one) and some useful specs in dev & test process
-
-
-
-
-
-
-
-
 ## Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii
 
 Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Structura de baza a acestui fisier este:
