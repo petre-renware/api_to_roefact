@@ -173,7 +173,11 @@
 ## 0.4 version
 </summary>
 
-* [`0.4.0.dev2` externalize recommended rules for updating app setting rules (240316 T12:00)](./changelog_history/CHANGELOG-0.4.0.dev2.md)
+* [`0.4.1.dev0` xl2roefact include a data directory in package for various data files "built-in" package](
+./changelog_history/CHANGELOG-0.4.1.dev0.md
+)
+
+* [`0.4.0.dev2` externalize recommended rules for updating app setting rules](./changelog_history/CHANGELOG-0.4.0.dev2.md)
 </details>
 
 
