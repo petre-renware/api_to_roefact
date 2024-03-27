@@ -10,9 +10,9 @@
 
 
 
-## System modules
+## Library modules
 
-`xl2roefact` main and basic modules are:
+`xl2roefact` library (package) modules are:
 
 * `rdinv` read an Excel file and extract invoice data to a JSON file format
 * `wrxml`  write, convert the JSON invoice file to a XML file format, respecting schemes required by *RO EFact* standard
