@@ -10,9 +10,9 @@
 
 
 
-## System modules
+## Library modules
 
-`xl2roefact` main and basic modules are:
+`xl2roefact` library (package) modules are:
 
 * `rdinv` read an Excel file and extract invoice data to a JSON file format
 * `wrxml`  write, convert the JSON invoice file to a XML file format, respecting schemes required by *RO EFact* standard
@@ -24,26 +24,6 @@
 
 
 Below is presented the ***skeleton logic*** of those modules which and where is relevant <small markdown="1">ie meaning where is not enough obvious from code or code complexity exceed usual limits (*for example nore than 100 lines of code per function*)</small>. For more technical details and specification regarding modules [see API Reference](./wrapper_810.05a-xl2roefact_DLD_specs.md)
-
-
-### rdinv module logic
-
-Main function of `rdinv` module is `rdinv(...)` which has the following logic sections which are in ***strict sequence in presented order***:
-
-* *search of `invoice_items_area` sub-table*. This area is expected to contain invoice lines and is "processed" first because it is more structured and easier to identify; after its identification the header area is considered upper of it and footer area below it
-
-* *solve `invoice_items_area` in 2 step...*. In this step the code-data-variables of items area will be initialized in order to hold information that will be found
-
-* *localize and mark areas for...* section that follows natural the previous one by initializing code-data-variables forcheader and footer areas to hold their corresponding information
-
-* *solve `invoice_header_area`* detailed initialize of header area code-data-variables
-
-* *`ReNaSt`-RegNameStrategy* section that identify and extract the legal registered name of invoice customer
-
-* *section to ( Excel data )--->( JSON ) format preparation and finishing* section which prepare Excel original data found to be be saved as JSON as a more "electronic interchangeable" structure
-
-* for more details about code logic description and presentation, please contact [RENware Software Systems](http://www.renware.eu)
-
 
 
 
@@ -68,25 +48,6 @@ pip install xl2roefact
 ### Install from distribution packages
 
 To install from distribution packages first download the package version intended to install ([see download section](#download-xl2roefact-library)), choose the package type (if you have no special option, then choose *`WHEEL`* format) and install it using `pip` as any other Python library installation (*detailed in Python official documentation*).
-
-
-
-
-
-## Working directories
-
-Below is a short description of most important directories that will (can !) be found on local development environment.
-
-* _`invoice_files/`_ default directory for Excel files which is intended to be processed
-
-* _`build/`_ this directory which will contain intermediary files resulted from building CLI application, library distribution parts, etc. Directory is subject of `.gitignore`
-
-* _`dist/`_ package files (wheels, dist), Windows executables, etc, generally all files subject of "public" distribution and download
-
-* _`test_*/`_ contains test invoice samples (from client, a RENware one, a 3rd party one) and some useful specs in dev & test process
-
-
-
 
 
 
