@@ -45,6 +45,7 @@
 
 * ... `240327piu01` build & publish wheel on PyPi
     * [ ] 1. update xl2roefact README add link "API Reference" to DLD doc (to be accesible from PyPi)
+    * [ ] 2. update xl2roefact `setup.py` and include documentation directory (`doc/`) in WHEEL & DIST packages
     * [ ] ... review xl2roefact README, installation section
     * [ ] ... review xl2roefact README, tutorial
     * [ ] ... update JSON model ref new supplier section

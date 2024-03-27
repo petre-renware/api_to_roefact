@@ -20,7 +20,8 @@ from cx_Freeze import setup, Executable
 build_options = {
     "packages": [],
     "include_files": [
-        ("xl2roefact/data/app_settings.yml", "xl2roefact/data/app_settings.yml")
+        ("xl2roefact/data/app_settings.yml", "xl2roefact/data/app_settings.yml"),
+        ("xl2roefact/doc/*", "xl2roefact/doc/*")
     ],
     "excludes": [],
 }
