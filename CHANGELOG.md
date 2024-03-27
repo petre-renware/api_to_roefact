@@ -44,7 +44,7 @@
 
 
 * ... `240327piu01` build & publish wheel on PyPi
-    * [x] 1. update xl2roefact README add link "API Reference" to DLD doc (to be accesible from PyPi)
+    * [x] 1. update xl2roefact README add link "API Reference" to DLD doc (to be accessible from PyPi)
     * [x] 2. update xl2roefact `setup.py` and include documentation directory (`doc/`) in WHEEL & DIST packages
     * [x] 3. `README_xl2roefact_library.md` review & clean of useless content ("rdinv module logic", "Working directories") and refer it in main xl2roefact README before "Referinta API" bullet link
     * [ ] ... review xl2roefact README, installation section
@@ -72,7 +72,7 @@
 * `240320piu-invsuppl` code for `INV.SUPP`... `xl2roefact` invoice supplier (`<cac:AccountingSupplierParty>`)
     * [x] 1. extracted code to generalize in `.../xl2roefact/___wk_cust_area_function.py` to "engineer it"
     * [x] 2. wrap code in new function `get_partner_data()`, set its first param `partner_type` for desired function operation and protect function against unknown values
-    * [x] 3. 1st raw refactoring: constants dedicated to CUSTOMER adjusted as UNIFyed...PARTNER... and set for customer or supplier depending on partner_type
+    * [x] 3. 1st raw refactoring: constants dedicated to CUSTOMER adjusted as UNIFied...PARTNER... and set for customer or supplier depending on partner_type
     * [x] 4. 2nd raw refactoring: `customer_area` string. This is a keyword, so it is subject to unification based on partner_type resulting `partner_area` variable used as keyword instead of hard code "customer_area"
     * [x] 5. mark & comment in `rdinv.py` place where call this function, start / end of code that should be dropped by using this function (rdinv.py start line 229, end line 367, marker #FIXME.UNIF.PARTNER.DATA)
     * [x] 6. updated `invoice_header_area` with `param_invoice_header_area` and set las as function parameter
@@ -84,7 +84,7 @@
 ### `0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version:
 
 * [x] 1. update `config_settings.py` module to load app cfg from external file only when not sEXE frozen app (`getattr(sys, 'frozen', False) == True`)
-* [x] 2. update xl2roefact version to `0.4.1.dev1` to genrate only sEXE deliverable
+* [x] 2. update xl2roefact version to `0.4.1.dev1` to generate only sEXE deliverable
 * [x] 3. test python code. Result: **PASS**
 * [x] 4. generate sEXE
 * [x] 5. test `pdm run xl2roefact settings`. Result: **PASS**
@@ -99,16 +99,6 @@
 * build site & publish
 
 
-### `0.5.1.dev1` site readability improvements:
-
-* [x] 1. main project README drop `TOC` statement
-* [x] 2. update `nav -> Help -> CHANGELOG sistem`, change to "Istoric log sistem"
-* [x] 3. update downloads.md doc, mark as "known bug DO NOT USE" entry:
-    - section: "Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)"
-    - entry: "0.4.1.dev0 xl2roefact include a data directory in package"
-* update *INVOICEtoROefact* system ver to `0.5.1.dev1`
-* build site & publish
-
 
 
 
@@ -122,8 +112,7 @@
 ## 0.5 version
 </summary>
 
-<!--TODO;
-* ...add here 0.5 releases-->
+* [`0.5.1.dev1` site readability improvements](./changelog_history/CHANGELOG-0.5.1.dev1.md)
 </details>
 
 
