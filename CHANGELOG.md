@@ -44,9 +44,10 @@
 
 
 * ... `240327piu01` build & publish wheel on PyPi
-    * ... chk if need to update xl2roefact README - if so mk a plan ref with what
     * [ ] 1. update xl2roefact README add link "API Reference" to DLD doc (to be accesible from PyPi)
-    * [ ] ... update xl2roefact README
+    * [ ] ... review xl2roefact README, installation section
+    * [ ] ... review xl2roefact README, tutorial
+    * [ ] ... update JSON model ref new supplier section
     * [ ] ... update `xl2roefact/__version__.py`
     * [ ] ...
 
