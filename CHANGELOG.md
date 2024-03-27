@@ -118,7 +118,13 @@
 # Archived CHANGELOGs
 
 
-<!-- ...0.5 incoming... -->
+<details markdown="1"><summary markdown="1">
+## 0.5 version
+</summary>
+
+<!--TODO;
+* ...add here 0.5 releases-->
+</details>
 
 
 
