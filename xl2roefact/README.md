@@ -4,6 +4,8 @@
 
 ![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue)
 
+Legaturi externe utile:
+
 * [**Site dedicat**](https://invoicetoroefact.renware.eu/). (*Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.*)
 * [Pachet pe *PyPi*](https://pypi.org/project/xl2roefact/)
 * [Surse pe *GitHub*](https://github.com/petre-renware/api_to_roefact/)
