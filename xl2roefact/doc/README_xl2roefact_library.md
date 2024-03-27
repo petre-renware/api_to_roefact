@@ -26,26 +26,6 @@
 Below is presented the ***skeleton logic*** of those modules which and where is relevant <small markdown="1">ie meaning where is not enough obvious from code or code complexity exceed usual limits (*for example nore than 100 lines of code per function*)</small>. For more technical details and specification regarding modules [see API Reference](./wrapper_810.05a-xl2roefact_DLD_specs.md)
 
 
-### rdinv module logic
-
-Main function of `rdinv` module is `rdinv(...)` which has the following logic sections which are in ***strict sequence in presented order***:
-
-* *search of `invoice_items_area` sub-table*. This area is expected to contain invoice lines and is "processed" first because it is more structured and easier to identify; after its identification the header area is considered upper of it and footer area below it
-
-* *solve `invoice_items_area` in 2 step...*. In this step the code-data-variables of items area will be initialized in order to hold information that will be found
-
-* *localize and mark areas for...* section that follows natural the previous one by initializing code-data-variables forcheader and footer areas to hold their corresponding information
-
-* *solve `invoice_header_area`* detailed initialize of header area code-data-variables
-
-* *`ReNaSt`-RegNameStrategy* section that identify and extract the legal registered name of invoice customer
-
-* *section to ( Excel data )--->( JSON ) format preparation and finishing* section which prepare Excel original data found to be be saved as JSON as a more "electronic interchangeable" structure
-
-* for more details about code logic description and presentation, please contact [RENware Software Systems](http://www.renware.eu)
-
-
-
 
 
 ## Install library
