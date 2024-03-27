@@ -42,10 +42,13 @@
 
 * tbd... get OWNER EXTERNAL DATA feature code here, but can RELEASE A `0.5.3rc0` VERSION BEFORE and `0.5.3rc1` AFTER DO THAT
 
-* tbd... build & publish wheel on PyPi
-    * [ ] ... chk if need to update xl2roefact README - if so mk a plan ref with what
-    * [ ] update xl2roefact README
-    * [ ] update `xl2roefact/__version__.py`
+
+* ... `240327piu01` build & publish wheel on PyPi
+    * [ ] 1. update xl2roefact README add link "API Reference" to DLD doc (to be accesible from PyPi)
+    * [ ] ... review xl2roefact README, installation section
+    * [ ] ... review xl2roefact README, tutorial
+    * [ ] ... update JSON model ref new supplier section
+    * [ ] ... update `xl2roefact/__version__.py`
     * [ ] ...
 
 * `240325piu-use-new-function` import new function `get_partner_data()` and use it in `rdinv.py` module

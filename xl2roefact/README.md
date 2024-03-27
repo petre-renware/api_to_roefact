@@ -2,17 +2,26 @@
 
 # xl2roefact
 
-* [**Site dedicat INVOICEtoROefact**](https://invoicetoroefact.renware.eu/). Pentru accesul la toate link-urile din acest document vizitati site-ul dedicat acestui sistem.
+![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue)
+
+* [**Site dedicat**](https://invoicetoroefact.renware.eu/). (*Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.*)
 * [Pachet pe *PyPi*](https://pypi.org/project/xl2roefact/)
-* [Pachet pe *GitHub*](https://github.com/petre-renware/api_to_roefact/)
+* [Surse pe *GitHub*](https://github.com/petre-renware/api_to_roefact/)
+* [Referinta *API*](./doc/810.05a-xl2roefact_DLD_specs.md)
 
 
 
 ## Facilitati
 
-![Static Badge](https://img.shields.io/badge/MSI_installer-YES-blue) ![Static Badge](https://img.shields.io/badge/standlone_EXE-YES-blue)
+![Static Badge](https://img.shields.io/badge/MSI_installer-YES-darkgreen)
+![Static Badge](https://img.shields.io/badge/standlone_EXE-YES-darkgreen)
+![Static Badge](https://img.shields.io/badge/script_Python3-YES-darkgreen)
+![Static Badge](https://img.shields.io/badge/pachet_DEB-in_curind-lightgrey)
 
-![Static Badge](https://img.shields.io/badge/format_JSON-YES-orange) ![Static Badge](https://img.shields.io/badge/format_XML-YES-orange) ![Static Badge](https://img.shields.io/badge/format_PDF-YES-orange) ![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-red)
+![Static Badge](https://img.shields.io/badge/format_JSON-YES-orange)
+![Static Badge](https://img.shields.io/badge/format_XML-YES-orange)
+![Static Badge](https://img.shields.io/badge/format_PDF-YES-orange)
+![Static Badge](https://img.shields.io/badge/format_RO_eFact-YES-red)
 
 
 
