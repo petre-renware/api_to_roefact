@@ -2,9 +2,10 @@
 
 # xl2roefact
 
-* [**Site dedicat INVOICEtoROefact**](https://invoicetoroefact.renware.eu/). Pentru accesul la toate link-urile din acest document vizitati site-ul dedicat acestui sistem.
+* [**Site dedicat**](https://invoicetoroefact.renware.eu/). (*Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.*)
 * [Pachet pe *PyPi*](https://pypi.org/project/xl2roefact/)
-* [Pachet pe *GitHub*](https://github.com/petre-renware/api_to_roefact/)
+* [Surse pe *GitHub*](https://github.com/petre-renware/api_to_roefact/)
+* [Referinta *API*](./doc/810.05a-xl2roefact_DLD_specs.md)
 
 
 
