@@ -123,10 +123,7 @@
 
 
 <!--#TODO: subject to archive. When do it see if add to archived CHANGELOG the "antet" section ref components version -->
-
-## 0.4
-
-
+#FIXME --- drop me after finish 
 ### `0.4.1.dev0` xl2roefact include a data directory in package for various data files "built-in" package (240318 h09:00)
 
 * `240318piu-yaml4sys-all-vers` update `mkdocs.yml` use `INHERIT: ./versions.yml` option to inherit versions exactly to have `extra` section like actual one but in this external file.
@@ -164,12 +161,7 @@
     * [x] 3. add in `.../xl2roefact/data/` file `owner_data.json` with owner data to be used as supplier info for future option `--load-from-owner-file`
     * [x] 4. fixed bug xl2roefact CLI app ref command `about` printing `__version__.__doc__` addressing
     * [x] 5. updated `.../data/app_settings.yml` with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)
-
-
-
-
-
-
+#FIXME --- drop me after finish 
 
 
 
