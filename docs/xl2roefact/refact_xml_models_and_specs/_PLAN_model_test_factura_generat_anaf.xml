@@ -30,7 +30,7 @@
         <cbc:ID>referinta_contract</cbc:ID>
     </cac:ContractDocumentReference>
 
-    <cac:AccountingSupplierParty>  #TODO tbd...
+    <cac:AccountingSupplierParty>  #NOTE DONE / RDY all items
         <cac:Party>
             <cac:PostalAddress>
                 <cbc:StreetName>Nicolae Titulescu 81-87</cbc:StreetName>

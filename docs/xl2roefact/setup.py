@@ -1,4 +1,4 @@
-""" setup for `xl2roefact` package configuration in order to build Windows MSI & EXE and PyPy package.
+"""setup for `xl2roefact` package configuration in order to build Windows MSI & EXE and PyPy package.
 
 Identification:
 * code-name: `setup.py`
@@ -20,7 +20,8 @@ from cx_Freeze import setup, Executable
 build_options = {
     "packages": [],
     "include_files": [
-        ("xl2roefact/data/app_settings.yml", "xl2roefact/data/app_settings.yml")
+        ("xl2roefact/data/app_settings.yml", "xl2roefact/data/app_settings.yml"),
+        ("doc/", "doc/")
     ],
     "excludes": [],
 }
@@ -57,8 +58,8 @@ bdist_msi_options_definition = {
 '''
 entry_points_definition = {
     'console_scripts': [
-        'command-name = package.module:main_func_name',                  
-    ],              
+        'command-name = package.module:main_func_name',
+    ],
 },
 '''
 
@@ -77,7 +78,7 @@ setup(
     options = {"build_exe": build_options},
     version = str(normalized_version()),
     executables = executables,
-    # bdist_msi_options = bdist_msi_options_definition,  # NOTE: pct.1*) ref `bdist_msi_options`  
+    # bdist_msi_options = bdist_msi_options_definition,  # NOTE: pct.1*) ref `bdist_msi_options`
     # entry_points = entry_points_definition,  # NOTE: pct.2*)
     # scripts = scripts_definition  # NOTE pct.3*)
 )

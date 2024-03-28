@@ -36,21 +36,27 @@
 
 ## 0.5
 
-### 0.5.3rc0 invoice supplier (#TODO: ... in progress...)
+### 0.5.3rc1 invoice supplier from owner master data (#TODO: ... in progress...)
 
 * tbd... update all `/versions.yml`
 
 * tbd... get OWNER EXTERNAL DATA feature code here, but can RELEASE A `0.5.3rc0` VERSION BEFORE and `0.5.3rc1` AFTER DO THAT
 
+* tbd... update JSON model ref new supplier section
+
+
+
+
+### 0.5.3rc0 invoice supplier from Excel (#TODO: ... in progress...)
 
 * ... `240327piu01` build & publish wheel on PyPi
     * [x] 1. update xl2roefact README add link "API Reference" to DLD doc (to be accessible from PyPi)
     * [x] 2. update xl2roefact `setup.py` and include documentation directory (`doc/`) in WHEEL & DIST packages
     * [x] 3. `README_xl2roefact_library.md` review & clean of useless content ("rdinv module logic", "Working directories") and refer it in main xl2roefact README before "Referinta API" bullet link
     * [x] 4. review xl2roefact README, installation section
-    * [ ] ... review xl2roefact README, tutorial
-    * [ ] ... update JSON model ref new supplier section
-    * [ ] ... update `xl2roefact/__version__.py`
+    * [x] 5. build doc & all deliverables & temp make a portal buil
+    * [ ] ... update `downloads.md` ref all `0.5.3rc0` deliverables
+    * [ ] ... last.op!!!... publish on PyPi
     * [ ] ...
 
 * `240325piu-use-new-function` import new function `get_partner_data()` and use it in `rdinv.py` module

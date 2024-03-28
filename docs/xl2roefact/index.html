@@ -759,17 +759,27 @@ div.download-btn {
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><div class="download-btn"><a href="../pdfs/xl2roefact/index.html/index.pdf">Download PDF</a></div>
+<article class="md-content__inner md-typeset"><div class="download-btn"><a href="..\pdfs\xl2roefact\index.html\index.pdf">Download PDF</a></div>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact">xl2roefact</h1>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.3rc0-blue"/></p>
+<p>Legaturi externe utile:</p>
 <ul>
-<li><a href="https://invoicetoroefact.renware.eu/"><strong>Site dedicat INVOICEtoROefact</strong></a>. Pentru accesul la toate link-urile din acest document vizitati site-ul dedicat acestui sistem.</li>
+<li><a href="https://invoicetoroefact.renware.eu/"><strong>Site dedicat</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
 <li><a href="https://pypi.org/project/xl2roefact/">Pachet pe <em>PyPi</em></a></li>
-<li><a href="https://github.com/petre-renware/api_to_roefact/">Pachet pe <em>GitHub</em></a></li>
+<li><a href="https://github.com/petre-renware/api_to_roefact/">Surse pe <em>GitHub</em></a></li>
+<li><a href="doc/README_xl2roefact_library.html">Vedere de ansamblu pachet biblioteca Python</a></li>
+<li><a href="doc/810.05a-xl2roefact_DLD_specs.html">Referinta <em>API</em></a></li>
 </ul>
 <h2 id="facilitati">Facilitati</h2>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/MSI_installer-YES-blue"> <img alt="Static Badge" src="https://img.shields.io/badge/standlone_EXE-YES-blue"/></img></p>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/format_JSON-YES-orange"/> <img alt="Static Badge" src="https://img.shields.io/badge/format_XML-YES-orange"/> <img alt="Static Badge" src="https://img.shields.io/badge/format_PDF-YES-orange"/> <img alt="Static Badge" src="https://img.shields.io/badge/format_RO_eFact-YES-red"/></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/MSI_installer-YES-darkgreen">
+<img alt="Static Badge" src="https://img.shields.io/badge/standlone_EXE-YES-darkgreen"/>
+<img alt="Static Badge" src="https://img.shields.io/badge/script_Python3-YES-darkgreen"/>
+<img alt="Static Badge" src="https://img.shields.io/badge/pachet_DEB-in_curind-lightgrey"/></img></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/format_JSON-YES-orange"/>
+<img alt="Static Badge" src="https://img.shields.io/badge/format_XML-YES-orange"/>
+<img alt="Static Badge" src="https://img.shields.io/badge/format_PDF-YES-orange"/>
+<img alt="Static Badge" src="https://img.shields.io/badge/format_RO_eFact-YES-red"/></p>
 <p>Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si o poate incarca in sistemul <em>RO E-Fact</em><sup id="fnref:ld_roefact"><a class="footnote-ref" href="#fn:ld_roefact">1</a></sup>.</p>
 <p>Aceasta componenta ofera urmatoarele facilitati (acestea fiind obiectivele fundamentale ale componentei):</p>
 <ul>
@@ -796,18 +806,43 @@ div.download-btn {
 </li>
 </ul>
 <h2 id="instalarea-aplicatiei-xl2roefact">Instalarea aplicatiei xl2roefact</h2>
-<p>Pachetele de instalare sunt <a href="../doc_src/downloads.html#format-msi-instalare-windows-x64">disponibile aici</a>.
-Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:</p>
+<p>Instalarea aplicatiei <em>xl2roefact</em> este disponibila in urmatoarele variante:</p>
+<ul>
+<li>
+<p>pentru <strong>Windows</strong>:</p>
 <ul>
 <li><strong><code>MSI</code></strong> pachet instalare pentru <em>Windows</em></li>
-<li><code>DEB</code> pachet instalare pentru <em>Linux Debian</em> (verificati disponibilitatea pentru varianta sistemului de operare folosit de dvs)</li>
-<li><code>EXE</code> executabil <em>Windows in format "portabil" (un singur fisier)</em></li>
-<li><a href="https://pypi.org/project/xl2roefact/">Pachet Python pe PyPi</a> este de fapt biblioteca xl2roefact care poate fi folosita ca si script independent de sistemul de operare daca aveti Python 3 instalat</li>
+<li><strong><code>EXE</code></strong> executabil <em>Windows in format "portabil" (un singur fisier)</em></li>
+</ul>
+</li>
+<li>
+<p>pentru <strong>Linux</strong>:</p>
+<ul>
+<li><em>...in curind...</em> <strong><code>DEB</code></strong> pachet instalare pentru <em>Linux Debian</em> <!--#TODO: to.use <code>cxfreeze bdist_deb</code> --></li>
+<li><em>...in curind...</em> <strong><code>RPM</code></strong> pachet instalare pentru <em>Linux</em> <!--#TODO: to.use <code>cxfreeze bdist_rpm</code> --></li>
+<li><em>...in curind...</em> <strong><code>APPIMG</code></strong> executabil <em>Linux in format "portabil" (un singur fisier)</em> <!--#TODO: to.use <code>cxfreeze bdist_appimage</code> --></li>
+</ul>
+</li>
+<li>
+<p>pentru <strong>Mac OS X</strong></p>
+<ul>
+<li><em>...in curind...</em> <strong><code>DMG</code></strong> pachet instalare pentru <em>MacOS</em>  &lt;!--<!--#TODO: to.use <code>cxfreeze bdist_dmg</code> --></li>
+</ul>
+</li>
+<li>
+<p>ca <strong>script Python</strong> indiferent de sistemul de operare;</p>
+<ul>
+<li><strong><a href="https://pypi.org/project/xl2roefact/">Pachet Python</a></strong> biblioteca / libraria completa pe PyPi (inclusiv sursele)</li>
+</ul>
+</li>
 </ul>
 <blockquote>
-<p><em>NOTA 1:</em> pentru echivalent utilizare  <em>portabila pentru Linux</em> se va instala biblioteca Python (<a href="doc/README_xl2roefact_library.html">vezi sectiunea <code>xl2roefact PyPi library</code></a>) dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"</p>
-<p><em>NOTA 2:</em> pachetul <code>MSI</code> pentru <em>Windows</em> este disponibil in orice variante / versiuni al sistemului. Optiunile pentru <em>Linux</em> sunt mult mai flexibile si astfel celelalte pot lipsi insa pot fi disponibile graruit, la cerere.</p>
+<p><em>Pentru acces la pachetele de instalare vezi <a href="#descarcare-download-aplicatie-xl2roefact-cli">sectiunea de descarcare resurse</a>.</em></p>
 </blockquote>
+<p><strong>Note:</strong>
+* <em>utilizarea ca script Python necesita existenta ca mediul </em>Python3 min 3.10<em> sa fie instalat local</em>
+* numele pachetelor includ versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile
+* pentru echivalent utilizare  <em>portabila pentru Linux</em> se poate instala biblioteca Python dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"</p>
 <h2 id="configurarea-aplicatiei-xl2roefact">Configurarea aplicatiei xl2roefact</h2>
 <p>Parametrii de configurare aplicatiei se gasesc in fisierul <em><code>config_settings.py</code></em>. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.</p>
 <!--#TODO: prev paragraph to replace new config method by using `app_settings.yml` in current directory -->
@@ -1034,7 +1069,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 28, 2024</span>
 </small>
 </div>
 </article>

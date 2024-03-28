@@ -22,7 +22,7 @@
 
 import packaging.utils
 
-__version__ = "0.4.1.dev1"
+__version__ = "0.5.3rc0"
 
 
 

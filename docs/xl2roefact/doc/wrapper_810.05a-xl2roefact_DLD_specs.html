@@ -511,7 +511,7 @@ div.download-btn {
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><div class="download-btn"><a href="../../pdfs/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html/wrapper_810.05a-xl2roefact_DLD_specs.pdf">Download PDF</a></div>
+<article class="md-content__inner md-typeset"><div class="download-btn"><a href="..\..\pdfs\xl2roefact\doc\wrapper_810.05a-xl2roefact_DLD_specs.html\wrapper_810.05a-xl2roefact_DLD_specs.pdf">Download PDF</a></div>
 <!-- this doc is a wrapper intended just to create a better Table of Contents that one created by `pydoc` in built document -->
 <h1 id="xl2roefact-python-library-api-reference">xl2roefact python library API Reference</h1>
 <div class="toc">
@@ -546,6 +546,7 @@ div.download-btn {
 <li><a href="#get_excel_data_at_label">get_excel_data_at_label</a></li>
 <li><a href="#mk_kv_invoice_items_area">mk_kv_invoice_items_area</a></li>
 <li><a href="#get_invoice_items_area">get_invoice_items_area</a></li>
+<li><a href="#get_partner_data">get_partner_data</a></li>
 </ul>
 </li>
 <li><a href="#wrxml">wrxml</a></li>
@@ -671,9 +672,10 @@ div.download-btn {
 <p><a id="config_settings"></a></p>
 <h1 id="config_settings">config_settings</h1>
 <p>Configuration and setting parameters.</p>
-<p>Regulile recomandate se gasessc in documentul <a href="../doc/README_app_config_rules.md"><code>doc/README_app_config_rules.md</code></a></p>
-<p>Public objects:</p>
-<pre><code>rules_content: contains the rules text (rendered)
+<p>Regulile recomandate se gasessc in documentul (recommended rules are in document) <a href="../doc/README_app_config_rules.md"><code>doc/README_app_config_rules.md</code></a></p>
+<pre><code>Public objects:
+
+    `rules_content`: contains the rules text (rendered)
 </code></pre>
 <ul>
 <li>copyright: (c) 2023 RENWare Software Systems</li>
@@ -824,7 +826,7 @@ div.download-btn {
 </ul>
 <p><strong>Returns</strong>:</p>
 <ul>
-<li><code>dict</code> - the invoice extracted information from Excel file as <code>dict(Invoice: dict, meta_info: dict, excel_original_data: dict)</code> <code>TODO</code> subject of documentation update.</li>
+<li><code>dict</code> - the invoice extracted information from Excel file as <code>dict(Invoice: dict, meta_info: dict, excel_original_data: dict)</code></li>
 </ul>
 <p>NOTE ref important variables:
   * <code>db: pylightxl object</code>: EXCEL object with invoice (as a whole)
@@ -892,6 +894,23 @@ div.download-btn {
 <p><strong>Returns</strong>:</p>
 <ul>
 <li><code>invoice_items_area</code> - dictionary with invoice items in Excel format (ie, rows, columns).</li>
+</ul>
+<p><a id="rdinv.get_partner_data"></a></p>
+<h4 id="get_partner_data">get_partner_data</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_partner_data</span><span class="p">(</span><span class="n">partner_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">wks</span><span class="p">,</span>
+                     <span class="n">param_invoice_header_area</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<p>Get invoice partener data from Excel.</p>
+<p>For developers note: function works by generating side effects and must be located in <code>rdinv.py</code></p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>partner_type</code> - one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data)</li>
+<li><code>wks</code> - current work-on <code>pylightxl Worksheet</code> object</li>
+<li><code>param_invoice_header_area</code> - outside <code>param_invoice_header_area</code> as used and needed in <code>rdinv()</code>. This function will write back in this variable</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>None</code> - all data is produced directly in parameters as side effect</li>
 </ul>
 <p><a id="wrxml"></a></p>
 <h1 id="wrxml">wrxml</h1>
@@ -972,7 +991,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 6, 2024</span>
 </small>
 </div>
 </article>
