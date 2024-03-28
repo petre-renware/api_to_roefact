@@ -47,7 +47,7 @@
     * [x] 1. update xl2roefact README add link "API Reference" to DLD doc (to be accessible from PyPi)
     * [x] 2. update xl2roefact `setup.py` and include documentation directory (`doc/`) in WHEEL & DIST packages
     * [x] 3. `README_xl2roefact_library.md` review & clean of useless content ("rdinv module logic", "Working directories") and refer it in main xl2roefact README before "Referinta API" bullet link
-    * [...] 4. review xl2roefact README, installation section
+    * [x] 4. review xl2roefact README, installation section
     * [ ] ... review xl2roefact README, tutorial
     * [ ] ... update JSON model ref new supplier section
     * [ ] ... update `xl2roefact/__version__.py`
