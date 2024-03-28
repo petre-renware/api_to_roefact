@@ -61,15 +61,19 @@ Instalarea aplicatiei *xl2roefact* este disponibila in urmatoarele variante:
 * pentru **Windows**:
     * **`MSI`** pachet instalare pentru *Windows*
     * **`EXE`** executabil *Windows in format "portabil" (un singur fisier)*
-* pentru **Linux** sau **MacOs**:
-    * **`DEB`** pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemului de operare folosit de dvs)
+* pentru **Linux**:
+    * ...in curind... **`DEB`** pachet instalare pentru *Linux Debian*  <!--#TODO: to.use `cxfreeze bdist_deb` -->
+    * ...in curind... **`RPM`** pachet instalare pentru *Linux*  <!--#TODO: to.use `cxfreeze bdist_rpm` -->
+    * ...in curind... **`APPIMG`** executabil *Linux in format "portabil" (un singur fisier)*  <!--#TODO: to.use `cxfreeze bdist_appimage` -->
+* pentru **Mac OS X**
+    * ...in curind... **`DMG`**  <!--<!--#TODO: to.use `cxfreeze bdist_dmg` -->
 * ca script **Python** indiferent de sistemul de operare;
-    * [Pachet PyPi](https://pypi.org/project/xl2roefact/) este de fapt biblioteca xl2roefact care poate fi folosita ca si script independent de sistemul de operare daca aveti Python 3 instalat
+    * **[Pachet Python](https://pypi.org/project/xl2roefact/)** biblioteca / libraria completa pe PyPi
 
 >*Pentru acces la pachetele de instalare vezi [sectiunea de descarcare resurse](#descarcare-download-aplicatie-xl2roefact-cli).*
 
 **Note:**
-* utilizarea ca script Python necesita existenta ca mediul *Python3 min 3.10* sa fie instalat local
+* *utilizarea ca script Python necesita existenta ca mediul *Python3 min 3.10* sa fie instalat local*
 * numele pachetelor includ versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile
 * pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python ([vezi sectiunea `xl2roefact PyPi library`](.doc/../doc/README_xl2roefact_library.md)) dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
 
