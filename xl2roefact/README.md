@@ -57,17 +57,17 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 ## Instalarea aplicatiei xl2roefact
 
-Pachetele de instalare sunt [disponibile aici](../doc_src/downloads.md#format-msi-instalare-windows-x64).
 
 * **`MSI`** pachet instalare pentru *Windows*
 * **`EXE`** executabil *Windows in format "portabil" (un singur fisier)*
 * **`DEB`** pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemului de operare folosit de dvs)
 * * [Pachet Python pe PyPi](https://pypi.org/project/xl2roefact/) este de fapt biblioteca xl2roefact care poate fi folosita ca si script independent de sistemul de operare daca aveti Python 3 instalat
 
+Pachetele de instalare sunt [disponibile aici](../doc_src/downloads.md#format-msi-instalare-windows-x64).
+
 **Note:**
-* Numele pachetelor includ versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile
+* numele pachetelor includ versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile
 * pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python ([vezi sectiunea `xl2roefact PyPi library`](.doc/../doc/README_xl2roefact_library.md)) dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
-* pachetul `MSI` pentru *Windows* este disponibil in orice variante / versiuni al sistemului. Optiunile pentru *Linux* sunt mult mai flexibile si astfel celelalte pot lipsi insa pot fi disponibile graruit, la cerere.
 
 
 
