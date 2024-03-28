@@ -80,7 +80,7 @@ Instalarea aplicatiei *xl2roefact* este disponibila in urmatoarele variante:
 **Note:**
 * *utilizarea ca script Python necesita existenta ca mediul *Python3 min 3.10* sa fie instalat local*
 * numele pachetelor includ versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile
-* pentru echivalent utilizare  *portabila pentru Linux* se poate nstala biblioteca Python dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
+* pentru echivalent utilizare  *portabila pentru Linux* se poate instala biblioteca Python dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
 
 
 
