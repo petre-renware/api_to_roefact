@@ -57,7 +57,9 @@
     * [x] 3. `README_xl2roefact_library.md` review & clean of useless content ("rdinv module logic", "Working directories") and refer it in main xl2roefact README before "Referinta API" bullet link
     * [x] 4. review xl2roefact README, installation section
     * [x] 5. build doc & all deliverables & temp make a portal buil
+    * [x] 7. clean `xl2roefact/setup.py` drop imclude dirs that are not under `xl2roefact/xl2roefact/` as not being considered. Also clean `xl2roefact/data/...` line and keep only dir as beong in whole included in python wheel
     * [ ] ... update `downloads.md` ref all `0.5.3rc0` deliverables
+      ...helper: comment with draft list parts @ first dwnld section...
     * [ ] ... last.op!!!... publish on PyPi
     * [ ] ...
 

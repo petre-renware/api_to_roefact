@@ -22,7 +22,7 @@
 ### Pachetul xl2roefact pe PyPi
 
 Versiunea de pe pe repository-ul public `PyPi` permite instalarea directa in mediul Python local astfel:
-```bash
+```shell
 pip install xl2roefact
 ```
 In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https://pypi.org/project/xl2roefact/)*. Accesati linkul anterior pentru a putea accesa alte versiuni publicate pe *PyPi* si modul de instalare a acestora.
@@ -33,6 +33,18 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 ### Pachetul xl2roefact python library format sursa
 
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
+
+<!-- _______________#TODO:...
+??? note "0.5"
+-- downloads to add under the title:
+    * [`0.5.3rc0` invoice supplier from Excel](...xxx...)
+-- files:
+    * xl2roefact-0.5.3rc0-py3-none-any.whl
+    * xl2roefact-0.5.3rc0.tar.gz
+    * xl2roefact-0.5.3rc0-win64.msi
+    * xl2roefact-0.5.3rc0-win64.exe
+-->
+
 
 ??? note "0.4"
     * [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version WHEEL](../xl2roefact/dist/xl2roefact-0.4.1.dev1-py3-none-any.whl "download")
