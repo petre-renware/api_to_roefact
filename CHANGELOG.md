@@ -49,6 +49,8 @@
 
 ### 0.5.3rc0 invoice supplier from Excel (#TODO: ... in progress...)
 
+* ___merge to development after close this release___
+
 * ... `240327piu01` build & publish wheel on PyPi
     * [x] 1. update xl2roefact README add link "API Reference" to DLD doc (to be accessible from PyPi)
     * [x] 2. update xl2roefact `setup.py` and include documentation directory (`doc/`) in WHEEL & DIST packages
