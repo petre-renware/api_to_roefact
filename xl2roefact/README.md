@@ -65,6 +65,9 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 *Pachetele de instalare sunt [disponibile aici](../doc_src/downloads.md#format-msi-instalare-windows-x64).*
 
+[sectiunea de descarcare resurse](#descarcare-(download)-aplicatie-xl2roefact-cli)
+
+
 **Note:**
 * numele pachetelor includ versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile
 * pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python ([vezi sectiunea `xl2roefact PyPi library`](.doc/../doc/README_xl2roefact_library.md)) dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
