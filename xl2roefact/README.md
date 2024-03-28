@@ -62,11 +62,11 @@ Instalarea aplicatiei *xl2roefact* este disponibila in urmatoarele variante:
     * **`MSI`** pachet instalare pentru *Windows*
     * **`EXE`** executabil *Windows in format "portabil" (un singur fisier)*
 * pentru **Linux**:
-    * ...in curind... **`DEB`** pachet instalare pentru *Linux Debian*  <!--#TODO: to.use `cxfreeze bdist_deb` -->
-    * ...in curind... **`RPM`** pachet instalare pentru *Linux*  <!--#TODO: to.use `cxfreeze bdist_rpm` -->
-    * ...in curind... **`APPIMG`** executabil *Linux in format "portabil" (un singur fisier)*  <!--#TODO: to.use `cxfreeze bdist_appimage` -->
+    * _...in curind..._ **`DEB`** pachet instalare pentru *Linux Debian*  <!--#TODO: to.use `cxfreeze bdist_deb` -->
+    * _...in curind..._ **`RPM`** pachet instalare pentru *Linux*  <!--#TODO: to.use `cxfreeze bdist_rpm` -->
+    * _...in curind..._ **`APPIMG`** executabil *Linux in format "portabil" (un singur fisier)*  <!--#TODO: to.use `cxfreeze bdist_appimage` -->
 * pentru **Mac OS X**
-    * ...in curind... **`DMG`**  <!--<!--#TODO: to.use `cxfreeze bdist_dmg` -->
+    * _...in curind..._ **`DMG`** pachet instalare pentru *MacOS*  <!--<!--#TODO: to.use `cxfreeze bdist_dmg` -->
 * ca script **Python** indiferent de sistemul de operare;
     * **[Pachet Python](https://pypi.org/project/xl2roefact/)** biblioteca / libraria completa pe PyPi
 
