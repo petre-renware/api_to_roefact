@@ -63,10 +63,7 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 * **`DEB`** pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemului de operare folosit de dvs)
 * [Pachet Python pe PyPi](https://pypi.org/project/xl2roefact/) este de fapt biblioteca xl2roefact care poate fi folosita ca si script independent de sistemul de operare daca aveti Python 3 instalat
 
-*Pachetele de instalare sunt [disponibile aici](../doc_src/downloads.md#format-msi-instalare-windows-x64).*
-
-[sectiunea de descarcare resurse](#descarcare-download-aplicatie-xl2roefact-cli)
-
+>*Pentru acces la pachetele de instalare vezi [sectiunea de descarcare resurse](#descarcare-download-aplicatie-xl2roefact-cli).*
 
 **Note:**
 * numele pachetelor includ versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile
