@@ -65,7 +65,7 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 *Pachetele de instalare sunt [disponibile aici](../doc_src/downloads.md#format-msi-instalare-windows-x64).*
 
-[sectiunea de descarcare resurse](#descarcare-(download)-aplicatie-xl2roefact-cli)
+[sectiunea de descarcare resurse](#descarcare-download-aplicatie-xl2roefact-cli)
 
 
 **Note:**
