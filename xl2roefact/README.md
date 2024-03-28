@@ -57,17 +57,31 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 ## Instalarea aplicatiei xl2roefact
 
-Pachetele de instalare sunt [disponibile aici](../doc_src/downloads.md#format-msi-instalare-windows-x64).
-Pachetele disponibile contin in numele lor versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile:
+Instalarea aplicatiei *xl2roefact* este disponibila in urmatoarele variante:
 
-* **`MSI`** pachet instalare pentru *Windows*
-* `DEB` pachet instalare pentru *Linux Debian* (verificati disponibilitatea pentru varianta sistemului de operare folosit de dvs)
-* `EXE` executabil *Windows in format "portabil" (un singur fisier)*
-* [Pachet Python pe PyPi](https://pypi.org/project/xl2roefact/) este de fapt biblioteca xl2roefact care poate fi folosita ca si script independent de sistemul de operare daca aveti Python 3 instalat
+* pentru **Windows**:
+    * **`MSI`** pachet instalare pentru *Windows*
+    * **`EXE`** executabil *Windows in format "portabil" (un singur fisier)*
 
->*NOTA 1:* pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python ([vezi sectiunea `xl2roefact PyPi library`](.doc/../doc/README_xl2roefact_library.md)) dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
->
->*NOTA 2:* pachetul `MSI` pentru *Windows* este disponibil in orice variante / versiuni al sistemului. Optiunile pentru *Linux* sunt mult mai flexibile si astfel celelalte pot lipsi insa pot fi disponibile graruit, la cerere.
+* pentru **Linux**:
+    * _...in curind..._ **`DEB`** pachet instalare pentru *Linux Debian*  <!--#TODO: to.use `cxfreeze bdist_deb` -->
+    * _...in curind..._ **`RPM`** pachet instalare pentru *Linux*  <!--#TODO: to.use `cxfreeze bdist_rpm` -->
+    * _...in curind..._ **`APPIMG`** executabil *Linux in format "portabil" (un singur fisier)*  <!--#TODO: to.use `cxfreeze bdist_appimage` -->
+
+* pentru **Mac OS X**
+    * _...in curind..._ **`DMG`** pachet instalare pentru *MacOS*  <!--<!--#TODO: to.use `cxfreeze bdist_dmg` -->
+
+* ca **script Python** indiferent de sistemul de operare;
+    * **[Pachet Python](https://pypi.org/project/xl2roefact/)** biblioteca / libraria completa pe PyPi (inclusiv sursele)
+
+
+>*Pentru acces la pachetele de instalare vezi [sectiunea de descarcare resurse](#descarcare-download-aplicatie-xl2roefact-cli).*
+
+**Note:**
+* *utilizarea ca script Python necesita existenta ca mediul *Python3 min 3.10* sa fie instalat local*
+* numele pachetelor includ versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile
+* pentru echivalent utilizare  *portabila pentru Linux* se poate instala biblioteca Python dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
+
 
 
 
