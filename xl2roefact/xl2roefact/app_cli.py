@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 """app_cli: the command line application for all xl2roefact functionalities.
 
 Identification:
