@@ -72,7 +72,7 @@ Instalarea aplicatiei *xl2roefact* este disponibila in urmatoarele variante:
     * _...in curind..._ **`DMG`** pachet instalare pentru *MacOS*  <!--<!--#TODO: to.use `cxfreeze bdist_dmg` -->
 
 * ca **script Python** indiferent de sistemul de operare;
-    * **[Pachet Python](https://pypi.org/project/xl2roefact/)** biblioteca / libraria completa pe PyPi
+    * **[Pachet Python](https://pypi.org/project/xl2roefact/)** biblioteca / libraria completa pe PyPi (inclusiv sursele)
 
 
 >*Pentru acces la pachetele de instalare vezi [sectiunea de descarcare resurse](#descarcare-download-aplicatie-xl2roefact-cli).*
@@ -80,7 +80,7 @@ Instalarea aplicatiei *xl2roefact* este disponibila in urmatoarele variante:
 **Note:**
 * *utilizarea ca script Python necesita existenta ca mediul *Python3 min 3.10* sa fie instalat local*
 * numele pachetelor includ versiunea de aplicatie utilizata si sistemul de operare pentru care sunt disponibile
-* pentru echivalent utilizare  *portabila pentru Linux* se va instala biblioteca Python ([vezi sectiunea `xl2roefact PyPi library`](.doc/../doc/README_xl2roefact_library.md)) dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
+* pentru echivalent utilizare  *portabila pentru Linux* se poate nstala biblioteca Python dupa care devine utilizabil scriptul Python "ca orice alta comanda Linux"
 
 
 
