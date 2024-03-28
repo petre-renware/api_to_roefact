@@ -34,6 +34,17 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
+??? note "0.5"
+    - #TODO: these to add in downloads under the title:
+    - []
+    * xl2roefact-0.5.3rc0-py3-none-any.whl
+    * xl2roefact-0.5.3rc0.tar.gz
+    * xl2roefact-0.5.3rc0-win64.msi
+    * xl2roefact-0.5.3rc0-win64.exe
+
+
+
+
 ??? note "0.4"
     * [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version WHEEL](../xl2roefact/dist/xl2roefact-0.4.1.dev1-py3-none-any.whl "download")
     * [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version DIST](../xl2roefact/dist/xl2roefact-0.4.1.dev1.tar.gz "download")
