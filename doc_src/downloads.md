@@ -37,16 +37,16 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 ??? note "0.5"
     * WHEEL. [`0.5.3rc0` invoice supplier from Excel WHEEL](
-    xl2roefact-0.5.3rc0-py3-none-any.whl
+    ../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl
     )
     * DIST. [`0.5.3rc0` invoice supplier from Excel DIST](
-    xl2roefact-0.5.3rc0.tar.gz
+    ../xl2roefact/dist/xl2roefact-0.5.3rc0.tar.gz
     )
     * MSI. [`0.5.3rc0` invoice supplier from Excel](
-    xl2roefact-0.5.3rc0-win64.msi
+    ../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi
     )
     * EXE. [`0.5.3rc0` invoice supplier from Excel](
-    xl2roefact-0.5.3rc0-win64.exe
+    ../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe
     )
 
 
