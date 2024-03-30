@@ -9,7 +9,7 @@
     Se recomanda a folosi aceste versiuni in cazurile de dezvoltari proprii sau integrari cu alte sisteme.
 
 
-
+[xxx](#xxx)
 
 
 # Descarcare resurse (downloads)
@@ -17,7 +17,8 @@
 <!-- NOTE: intentionally no TOC in this doc -->
 
 
-## Format biblioteca Python
+## Format biblioteca Python <a id="xxx"></a>
+
 
 ### Pachetul xl2roefact pe PyPi
 
