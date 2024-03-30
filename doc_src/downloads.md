@@ -17,10 +17,10 @@
 <!-- NOTE: intentionally no TOC in this doc -->
 
 
-## Format biblioteca Python  <a id="format-biblioteca-python"></a>
+## Format sursa biblioteca Python  <a id="format-biblioteca-python"></a>
 
 
-### Pachetul xl2roefact pe PyPi  <a id="pachetul-xl2roefact-pe-pypi"></a>
+### xl2roefact pe PyPi  <a id="pachetul-xl2roefact-pe-pypi"></a>
 
 Versiunea de pe pe repository-ul public `PyPi` permite instalarea directa in mediul Python local astfel:
 ```shell
@@ -31,7 +31,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 
-### Pachetul xl2roefact python library format sursa   <a id="pachetul-xl2roefact-python-library-format-sursa"></a>
+### xl2roefact pachete redistribuibile   <a id="pachetul-xl2roefact-python-library-format-sursa"></a>
 
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
@@ -80,7 +80,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 
-### Pachetul web2roefact pe PyPi   <a id="pachetul-web2roefact-pe-pypi"></a>
+### web2roefact pe PyPi   <a id="pachetul-web2roefact-pe-pypi"></a>
 
 Nici o resursa disponibila.
 
