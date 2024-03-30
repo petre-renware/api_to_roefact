@@ -36,7 +36,7 @@
 
 ## 0.5
 
-### 0.5.3rc1 invoice supplier from owner master data (#TODO: ... in progress...)
+### `0.5.4rc0` invoice supplier from owner master data (#TODO: ... in progress...)
 
 * tbd... update all `/versions.yml`
 
@@ -47,9 +47,11 @@
 
 
 
-### 0.5.3rc0 invoice supplier from Excel (#TODO: ... in progress...)
 
-* ___merge to development after close this release___
+
+
+
+### `0.5.3rc0` invoice supplier from Excel (240330 h12:00)
 
 * `240327piu01` build & publish wheel on PyPi
     * [x] 1. update xl2roefact README add link "API Reference" to DLD doc (to be accessible from PyPi)
@@ -104,7 +106,8 @@
 ## 0.5 version
 </summary>
 
-<!-- * [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
+<!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
+* [`0.5.3rc0` invoice supplier from Excel](./changelog_history/CHANGELOG-0.5.3rc0.md)
 * [`0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version](./changelog_history/CHANGELOG-0.5.2.dev2.md)
 * [`0.5.1.dev1` site readability improvements](./changelog_history/CHANGELOG-0.5.1.dev1.md)
 </details>
