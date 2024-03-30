@@ -566,7 +566,7 @@ div.download-btn {
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><div class="download-btn"><a href="pdfs\CHANGELOG.html\CHANGELOG.pdf">Download PDF</a></div>
+<article class="md-content__inner md-typeset"><div class="download-btn"><a href="pdfs/CHANGELOG.html/CHANGELOG.pdf">Download PDF</a></div>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <p><strong>INVOICEtoROeFact</strong> Project</p>
 <div class="toc">
@@ -622,34 +622,36 @@ div.download-btn {
 <li>
 <p>tbd... get OWNER EXTERNAL DATA feature code here, but can RELEASE A <code>0.5.3rc0</code> VERSION BEFORE and <code>0.5.3rc1</code> AFTER DO THAT</p>
 </li>
+<li>
+<p>tbd... update JSON model ref new supplier section</p>
+</li>
 </ul>
 <h3 id="053rc0-invoice-supplier-from-excel-todo-in-progress">0.5.3rc0 invoice supplier from Excel (#TODO: ... in progress...)</h3>
 <ul>
 <li>
-<p>... <code>240327piu01</code> build &amp; publish wheel on PyPi</p>
+<p><strong><em>merge to development after close this release</em></strong></p>
+</li>
+<li>
+<p><code>240327piu01</code> build &amp; publish wheel on PyPi</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. update xl2roefact README add link "API Reference" to DLD doc (to be accessible from PyPi)</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. update xl2roefact <code>setup.py</code> and include documentation directory (<code>doc/</code>) in WHEEL &amp; DIST packages</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. <code>README_xl2roefact_library.md</code> review &amp; clean of useless content ("rdinv module logic", "Working directories") and refer it in main xl2roefact README before "Referinta API" bullet link</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. review xl2roefact README, installation section</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. build doc &amp; all deliverables &amp; temp make a portal build</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... update JSON model ref new supplier section</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... update <code>downloads.md</code> ref all <code>0.5.3rc0</code> deliverables</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... check all version files</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... last.op!!!... publish on PyPi</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ...</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. build doc &amp; all deliverables &amp; temp make a portal buil</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 7. clean <code>xl2roefact/setup.py</code> drop imclude dirs that are not under <code>xl2roefact/xl2roefact/</code> as not being considered. Also clean <code>xl2roefact/data/...</code> line and keep only dir as beong in whole included in python wheel</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 8. update <code>downloads.md</code> ref all <code>0.5.3rc0</code> deliverables, sections title and mark end of life support for 0.2 versions</li>
+<li>publish on PyPi, build site &amp; publish</li>
 </ul>
 </li>
-<li>
-<p><code>240325piu-use-new-function</code> import new function <code>get_partner_data()</code> and use it in <code>rdinv.py</code> module</p>
-<ul class="task-list">
+<li><code>240325piu-use-new-function</code> import new function <code>get_partner_data()</code> and use it in <code>rdinv.py</code> module<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. include function <code>get_partner_data()</code> in <code>rdinv.py</code> and test for simple compilation errors =&gt; result: PASS</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. rebuild DLD documentation</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. use in code to replace actual existing CUSTOMER data retrieve. Test for no change vs previous functionality =&gt; result: PASS</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. make a new call for SUPPLIER data. Test for raw getting data in "...excel...original...data" key =&gt; PASS</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 5. chk new get data and make needed adjustments</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 6. update <code>rdinv.py</code> to create all supplier final constructs (like those for customer after getting data). Test result: PASS</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 7. update XML-JSON map using code refactored @ <code>rdinv.py lines 287-309</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. chk new get data and make needed adjustments</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 6. update <code>rdinv.py</code> to create all supplier final constructs (like those for customer after getting data). Test result: PASS</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 7. update XML-JSON map using code refactored @ <code>rdinv.py lines 287-309</code></li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 8. clean code of FIXME and other work comments and built DLD doc</li>
 </ul>
 </li>
@@ -754,7 +756,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 28, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 30, 2024</span>
 </small>
 </div>
 </article>
