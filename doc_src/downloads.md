@@ -17,10 +17,10 @@
 <!-- NOTE: intentionally no TOC in this doc -->
 
 
-## Format biblioteca Python <a id="xxx"></a>
+## Format biblioteca Python  <a id="..."></a>
 
 
-### Pachetul xl2roefact pe PyPi
+### Pachetul xl2roefact pe PyPi  <a id="..."></a>
 
 Versiunea de pe pe repository-ul public `PyPi` permite instalarea directa in mediul Python local astfel:
 ```shell
@@ -31,7 +31,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 
-### Pachetul xl2roefact python library format sursa
+### Pachetul xl2roefact python library format sursa   <a id="..."></a>
 
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
@@ -82,7 +82,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 
-### Pachetul web2roefact pe PyPi
+### Pachetul web2roefact pe PyPi   <a id="..."></a>
 
 Nici o resursa disponibila.
 
@@ -95,9 +95,9 @@ Nici o resursa disponibila.
 
 
 
-## Format executabil Windows x64
+## Format executabil Windows x64   <a id="..."></a>
 
-### Aplicatia xl2roefact linie comanda pachet instalare (win64-msi)
+### Aplicatia xl2roefact linie comanda pachet instalare (win64-msi)   <a id="..."></a>
 
 ??? note "0.5"  <!--TODO: keep only what is needed -->
     * WHEEL. [`0.5.3rc0` invoice supplier from Excel WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl)
@@ -132,7 +132,7 @@ Nici o resursa disponibila.
 
 
 
-### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)
+### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)   <a id="..."></a>
 
 ??? note "0.5"  <!--TODO: keep only what is needed -->
     * WHEEL. [`0.5.3rc0` invoice supplier from Excel WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl)
@@ -151,7 +151,7 @@ Nici o resursa disponibila.
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe "download")
 
 
-### Aplicatia web2roefact pachet instalare (win64-msi)
+### Aplicatia web2roefact pachet instalare (win64-msi)   <a id="..."></a>
 
 Nici o resursa disponibila.
 
@@ -164,7 +164,7 @@ Nici o resursa disponibila.
 
 
 
-## Format DEB instalare Linux
+## Format DEB instalare Linux   <a id="..."></a>
 
 Nici o resursa disponibila.
 
@@ -175,7 +175,7 @@ Nici o resursa disponibila.
 
 
 
-## Sablon template factura
+## Sablon template factura   <a id="..."></a>
 
 ??? note "Format XLSX Office Excel"
     * [`0.1.20` office Excel XLSX](../excel_invoice_template/invoice_template_CU_tva.xlsx "download")
@@ -191,7 +191,7 @@ Nici o resursa disponibila.
 
 
 
-## Sablon fisier configurare a aplicatiei xl2roefact
+## Sablon fisier configurare a aplicatiei xl2roefact   <a id="xxx"></a>
 
 Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.
 
