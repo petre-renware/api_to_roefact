@@ -95,7 +95,7 @@ Nici o resursa disponibila.
 
 ## Format executabil Windows x64   <a id="format-executabil-windows-x64"></a>
 
-### Aplicatia xl2roefact linie comanda pachet instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
+### xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
 ??? note "0.5"
     * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi)
@@ -126,7 +126,7 @@ Nici o resursa disponibila.
 
 
 
-### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
+### xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
 
 ??? note "0.5"
     * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe)
@@ -142,7 +142,7 @@ Nici o resursa disponibila.
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe "download")
 
 
-### Aplicatia web2roefact pachet instalare (win64-msi)   <a id="aplicatia-web2roefact-pachet-instalare-win64-msi"></a>
+### web2roefact kit instalare (win64-msi)   <a id="aplicatia-web2roefact-pachet-instalare-win64-msi"></a>
 
 Nici o resursa disponibila.
 
