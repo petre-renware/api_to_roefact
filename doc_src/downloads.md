@@ -62,6 +62,9 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 ??? note "0.2"
+
+    <small markdown="1">NOTA: versiunile `0.2` nu mai sunt intretinute de la 10-Aprilie-2024 (end of life support).</small>
+
     * [`0.2.1b` invoice values summary WHEEL](../xl2roefact/dist/xl2roefact-0.2.1b0-py3-none-any.whl "download")
     * [`0.2.1b` invoice values summary DIST](../xl2roefact/dist/xl2roefact-0.2.1b0.tar.gz "download")
     * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone) WHEEL](../xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl "download")
@@ -113,6 +116,9 @@ Nici o resursa disponibila.
 
 
 ??? note "0.2"
+
+    <small markdown="1">NOTA: versiunile `0.2` nu mai sunt intretinute de la 10-Aprilie-2024 (end of life support).</small>
+
     * [`0.2.1b` xl2roefact invoice values summary](../xl2roefact/dist/xl2roefact-0.2.1b0-win64.msi "download")
     * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone)](../xl2roefact/dist/xl2roefact-0.2.0b0-win64.msi "download")
 
