@@ -32,6 +32,35 @@
                 }
             }
         },
+        "cac_AccountingSupplierParty": {
+            "cac:Party": {
+                "cac_PartyLegalEntity": {
+                    "cbc_CompanyID": "425...459",
+                    "cbc_RegistrationName": "REN-CONSULTING SOFT ACTIVITY SRL"
+                },
+                "cac_PostalAddress": {
+                    "cbc_StreetName": "",
+                    "cbc_CityName": "Bucureşti Sectorul 1 ...",
+                    "cbc_PostalZone": "",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
+                },
+                "cac_Contact": {
+                    "cbc_Telephone": "...",
+                    "cbc_ElectronicMail": "renware.systems@gmail.com",
+                    "RegCom": "J40/.../2020",
+                    "Bank": "Banca Transilvania",
+                    "IBAN": "RO29 BTRL .... .... .... 8601"
+                },
+                "cac_PartyTaxScheme": {
+                    "cbc_CompanyID": "425...459",
+                    "cac_TaxScheme": {
+                        "cbc_ID": "VAT"
+                    }
+                }
+            }
+        },
         "cac_InvoiceLine": [
             {
                 "cbc_ID": "1",

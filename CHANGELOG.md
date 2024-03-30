@@ -36,8 +36,9 @@
 
 ## 0.5
 
-### `0.5.4rc0` invoice supplier from owner master data (#TODO: ... in progress...)
+### `0.5.4` invoice supplier from owner master data (#TODO: ... in progress...)
 
+* tbd... this release should go to `master` branch being pure release
 * tbd... update all `/versions.yml`
 
 * tbd... get OWNER EXTERNAL DATA feature:
@@ -48,7 +49,8 @@
     * [ ] set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
     * [ ] prep release `0.5.4rc1`
 
-* tbd... update JSON model ref new supplier section
+* tbd... publish a new site with invoice JSON updated ? IF YES then set site version to `0.5.3rc1`
+* `240330piu01` update JSON model ref new supplier section
 
 
 
