@@ -1376,7 +1376,7 @@
                         <section class="print-page" id="index"><p><img alt="api_to_roefact_logo" src="doc_src/pictures/api_to_roefact_logo.png" width="300" /></p>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="index-invoicetoroefact">INVOICEtoROefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.3rc0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.3rc1-blue" /></p>
 <p><strong>Facturi emise in Excel</strong>, problema rezolvata cu <strong>INVOICEtoROefact</strong> !</p>
 <p>Emiteti si folositi in continuare facturi in Excel. Acest sistem va produce fisierul XML de care aveti nevoie pentru sistemul <a href="https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura">ANAF E-Factura</a>.</p>
 <p>Si mai mult, daca aveti nevoie, puteti Integra aceste facturi si alte sisteme externe prin metode moderne, uzuale, curente, incetatenite de ani de zile si binecunoscute de specialistii din IT.</p>
@@ -3777,7 +3777,7 @@ Public License instead of this License.  But first, please read
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-05">0.5</a><ul>
-<li><a href="#changelog-054rc0-invoice-supplier-from-owner-master-data-todo-in-progress">0.5.4rc0 invoice supplier from owner master data (#TODO: ... in progress...)</a></li>
+<li><a href="#changelog-054-invoice-supplier-from-owner-master-data-todo-in-progress">0.5.4 invoice supplier from owner master data (#TODO: ... in progress...)</a></li>
 </ul>
 </li>
 </ul>
@@ -3818,17 +3818,27 @@ Public License instead of this License.  But first, please read
 -->
 
 <h2 id="changelog-05">0.5</h2>
-<h3 id="changelog-054rc0-invoice-supplier-from-owner-master-data-todo-in-progress"><code>0.5.4rc0</code> invoice supplier from owner master data (#TODO: ... in progress...)</h3>
+<h3 id="changelog-054-invoice-supplier-from-owner-master-data-todo-in-progress"><code>0.5.4</code> invoice supplier from owner master data (#TODO: ... in progress...)</h3>
 <ul>
+<li>tbd... this release should go to <code>master</code> branch being pure release</li>
 <li>
 <p>tbd... update all <code>/versions.yml</code></p>
 </li>
 <li>
-<p>tbd... get OWNER EXTERNAL DATA feature code here, but can RELEASE A <code>0.5.3rc0</code> VERSION BEFORE and <code>0.5.3rc1</code> AFTER DO THAT</p>
+<p>tbd... get OWNER EXTERNAL DATA feature:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> code to get owner data</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> code to select hierarchical a file from <code>./</code> or <code>data/</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> set <code>owner.yml</code> structure to exactly what is needed for actual JSON "Invoice..." key</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> make a template from <code>owner.yml</code> (like for <code>app_settings.yml</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> set a new flag for <code>xl2json</code> command for getting owner from ext data-file: <code>--owner -o [FILE]</code> where <code>FILE</code> being defaulted to <code>./owner.yml</code> or hierarchy to <code>data/owner.yml</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> prep release <code>0.5.4rc1</code></li>
+</ul>
 </li>
 <li>
-<p>tbd... update JSON model ref new supplier section</p>
+<p><code>0.5.3rc1</code> publish a new site with invoice JSON updated ==&gt; set ONLY site version to <code>0.5.3rc1</code>. <strong>UNRELEASED &amp; UNTAGGED version</strong></p>
 </li>
+<li><code>240330piu01</code> update JSON model ref new supplier section</li>
 </ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
 <details>
