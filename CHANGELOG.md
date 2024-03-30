@@ -49,6 +49,8 @@
     * [ ] set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
     * [ ] prep release `0.5.4rc1`
 
+* #FIXME.BUG... invoice JSON wrong key name `"cac:Party"`. Correct key name `"cac_Party"`
+
 * `0.5.3rc1` publish a new site with invoice JSON updated ==> set ONLY site version to `0.5.3rc1`. **UNRELEASED & UNTAGGED version**
 * `240330piu01` update JSON model ref new supplier section
 
