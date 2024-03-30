@@ -36,11 +36,9 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
 
-??? note "0.5"  <!--TODO: keep only what is needed -->
-    * WHEEL. [`0.5.3rc0` invoice supplier from Excel WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl)
-    * DIST. [`0.5.3rc0` invoice supplier from Excel DIST](../xl2roefact/dist/xl2roefact-0.5.3rc0.tar.gz)
-    * MSI. [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi)
-    * EXE. [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe)
+??? note "0.5"
+    * [`0.5.3rc0` invoice supplier from Excel WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl)
+    * [`0.5.3rc0` invoice supplier from Excel DIST](../xl2roefact/dist/xl2roefact-0.5.3rc0.tar.gz)
 
 
 ??? note "0.4"
@@ -99,12 +97,8 @@ Nici o resursa disponibila.
 
 ### Aplicatia xl2roefact linie comanda pachet instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
-??? note "0.5"  <!--TODO: keep only what is needed -->
-    * WHEEL. [`0.5.3rc0` invoice supplier from Excel WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl)
-    * DIST. [`0.5.3rc0` invoice supplier from Excel DIST](../xl2roefact/dist/xl2roefact-0.5.3rc0.tar.gz)
-    * MSI. [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi)
-    * EXE. [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe)
-
+??? note "0.5"
+    * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi)
 
 ??? note "0.4"
     * [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version](../xl2roefact/dist/xl2roefact-0.4.1.dev1-win64.msi "download")
@@ -134,11 +128,8 @@ Nici o resursa disponibila.
 
 ### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
 
-??? note "0.5"  <!--TODO: keep only what is needed -->
-    * WHEEL. [`0.5.3rc0` invoice supplier from Excel WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl)
-    * DIST. [`0.5.3rc0` invoice supplier from Excel DIST](../xl2roefact/dist/xl2roefact-0.5.3rc0.tar.gz)
-    * MSI. [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi)
-    * EXE. [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe)
+??? note "0.5"
+    * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe)
 
 
 ??? note "0.4"
