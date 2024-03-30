@@ -1,4 +1,3 @@
-#!../.venv/bin/python3
 """rdinv: modul de procesare a fisierului Excel ce contine factura si colectare a datelor aferente.
 
 Formatul acceptat fisier Excel este `XLSX`.
@@ -65,14 +64,16 @@ PATTERN_FOR_PARTNER_TEL = config_settings.PATTERN_FOR_PARTNER_TEL
 PATTERN_FOR_PARTNER_IBAN = config_settings.PATTERN_FOR_PARTNER_IBAN
 PATTERN_FOR_PARTNER_BANK = config_settings.PATTERN_FOR_PARTNER_BANK
 PATTERN_FOR_PARTNER_REGCOM = config_settings.PATTERN_FOR_PARTNER_REGCOM
+PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
+PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAME
 
 
 def rdinv(
-        file_to_process: str,
-        invoice_worksheet_name: str = None,
-        *,
-        debug_info: bool = False
-    ) -> dict:
+    file_to_process: str,
+    invoice_worksheet_name: str = None,
+    *,
+    debug_info: bool = False
+) -> dict:
     """read Excel file for invoice data.
 
     Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data.
@@ -83,7 +84,7 @@ def rdinv(
         `debug_info`: key only, show debugging information, default `False`.
 
     Return:
-        `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`  #TODO subject of documentation update.
+        `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`
 
     NOTE ref important variables:
         * `db: pylightxl object`: EXCEL object with invoice (as a whole)
@@ -184,16 +185,13 @@ def rdinv(
     """#NOTE: section to "solve" `invoice_header_area`.
             The kind of info expected in this area: invoice number,  currency, issued date, supplier data, customer data)
     """
-    #-----------------------------------------#FIXME delimiter to drop
-    #FIXME: INV.SUPP --- here start the zone ref in CHANGELOG ref invoice supplier issue
-    #------------------------------------------#FIXME delimiter to drop
     invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
         invoice_number = None,
         issued_date = None,
         currency = None,
         customer_area = None,
-        supplier_area = "...future..."  # TODO: ... future tbd  ...
-    )  #FIXME_TODO: `supplier_area` key ............hereuare............
+        supplier_area = None,
+    )
     _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
     #
     # find invoice number ==> `cbc:ID`
@@ -226,146 +224,21 @@ def rdinv(
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
-    # find invoice customer ==> "cac:AccountingCustomerParty
-    invoice_customer_info = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER,
-        worksheet=ws,
-        area_to_scan=(invoice_header_area["start_cell"], invoice_header_area["end_cell"]),
-        targeted_type=str
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    # set a dedicated area to search for customer
-    _area_to_search_start_cell = [  # use `label_location` as being supposed "most far away" from effective-good info, so more chances to find info
-        0 if invoice_customer_info["label_location"][0] <= 0 else invoice_customer_info["label_location"][0] - 1,  # set one line up if this line exists
-        invoice_customer_info["label_location"][1],
-    ]
-    if ws.index(*_area_to_search_start_cell).strip() == "":  # prev set was for one line up but if that cell is blank remake it (ie, do a +1)
-        _area_to_search_start_cell[0] += 1
-    # from `_area_to_search_start_cell` go down up a blank (empty cell)
-    _last_ok_position = list([0, 0])
-    for __i in range(_area_to_search_start_cell[0], ws.size[0] + 1):  # scan rest of lines for a blank one
-        _crt_scanned_cell_idx = (__i, _area_to_search_start_cell[1])
-        _crt_scanned_cell_val = ws.index(*_crt_scanned_cell_idx)
-        if _crt_scanned_cell_val.strip() == "":
-            break  # case where stop
-        _last_ok_position = copy.deepcopy(_crt_scanned_cell_idx)  # save current position to be used after a break in other iteration
-    _area_to_search_end_cell = [
-        _last_ok_position[0],
-        ws.size[1] if _last_ok_position[1] > ws.size[1] else _last_ok_position[1] + 1,  # set one row right if this row exists
-    ]
-    # persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
-    _area_to_search = (tuple(_area_to_search_start_cell), tuple(_area_to_search_end_cell))
-    invoice_header_area["customer_area"] = {
-        "area_info": {
-            "value": ws.index(*_area_to_search[0]),  # ie, the value at area start position
-            "location": copy.deepcopy(_area_to_search),
-        }
-    }
+    # get and solve `invoice_header_area` for all CUSTOMER data
+    _ = get_partner_data(
+        partner_type="CUSTOMER",
+        wks=ws,
+        param_invoice_header_area=invoice_header_area
+    )
     #
-    # find customer key "CUI / Registration ID" ==> `invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
-    _temp_found_data = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
-        worksheet=ws,
-        area_to_scan=_area_to_search,
-        targeted_type=str,
-        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    invoice_header_area["customer_area"]["CUI"] = {
-        "value": _temp_found_data["value"],
-        "location": _temp_found_data["location"],
-        "label_value": _temp_found_data["label_value"],
-        "label_location": _temp_found_data["label_location"]
-    }
+    # get and solve `invoice_header_area` for all SUPPLIER data
+    _ = get_partner_data(
+        partner_type="SUPPLIER",
+        wks=ws,
+        param_invoice_header_area=invoice_header_area
+    )
     #
-    # find customer key "RegistrationName" ==> `cbc_RegistrationName`
-    '''#NOTE: `ReNaSt`-RegNameStrategy (remark: step codes will referred as defined here)
-          ReNaSt.STEP-1. search for PATTERN_FOR_CUSTOMER_LEGAL_NAME
-          ReNaSt.STEP-2. if `label_location` of FOUND VALUE has the same location as `invoice_header_area["customer_area"]["area_info"]["location"][0]`:
-                             keep VALUE of FOUND info
-          ReNaSt.STEP-3. else:
-                             keep `invoice_header_area["customer_area"]["area_info"]["value"]`
-    '''
-    _temp_found_data = get_excel_data_at_label(  # NOTE: ReNaSt.STEP-1
-        pattern_to_search_for=PATTERN_FOR_CUSTOMER_LEGAL_NAME,
-        worksheet=ws,
-        area_to_scan=_area_to_search,
-        targeted_type=str,
-        down_search_try=True  # NOTE: set on True to obtain identical results as original search of `PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    _location_of_header_partner_area = invoice_header_area["customer_area"]["area_info"]["location"][0]
-    _location_of_value_found = _temp_found_data["label_location"]
-    if _location_of_value_found == _location_of_header_partner_area:  # NOTE: ReNaSt.STEP-2
-        kept_RegistrationName = _temp_found_data["value"]
-        kept_RegistrationName_location = _temp_found_data["location"]
-    else:  # NOTE: ReNaSt.STEP-3
-        kept_RegistrationName = invoice_header_area["customer_area"]["area_info"]["value"]
-        kept_RegistrationName_location = invoice_header_area["customer_area"]["area_info"]["location"][0]
-    invoice_header_area["customer_area"]["RegistrationName"] = {
-        "value": kept_RegistrationName,
-        "location": kept_RegistrationName_location,
-        "label_value": "n/a",
-        "label_location": "n/a"
-    }
-    #
-    # find customer key `cac:PostalAddress` -> `invoice_header_area["cac_PostalAddress"]` && Invoice...["cac_PostalAddress"]
-    _temp_found_data = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
-        worksheet=ws,
-        area_to_scan=_area_to_search,
-        targeted_type=str,
-        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    _tmpstr = _temp_found_data["label_value"].lower()
-    _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
-    if _val_is_full_addr:
-        area_to_scan_address_items = (_temp_found_data["location"], _temp_found_data["location"])
-    else:
-        area_to_scan_address_items = _area_to_search
-    search_address_parts = partial(  # define a partial function to be used for all address items search
-        get_excel_data_at_label,  # function to call
-        worksheet=ws,
-        area_to_scan=area_to_scan_address_items,
-        targeted_type=str,
-        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    _tmp_country = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]).replace("None", "").strip()
-    _tmp_city = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]).replace("None", "").strip()
-    _tmp_street = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
-    _tmp_zipcode = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
-    if (_tmp_country is None) or (_tmp_country == ""):
-        _tmp_country = DEFAULT_CUSTOMER_COUNTRY
-    else:
-        DEFAULT_CUSTOMER_COUNTRY = _tmp_country  # update deflaute value to be re-used in other parts if neccesary
-    invoice_header_area["customer_area"]["PostalAddress"] = {
-        "cbc_StreetName": _tmp_street,
-        "cbc_CityName": _tmp_city,
-        "cbc_PostalZone": _tmp_zipcode,
-        "cac_Country": {"cbc_IdentificationCode": _tmp_country},
-    }
-    #
-    # find / search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")*
-    search_extended_parts = partial(  # define a partial function to be used for all "search_extended_parts"
-        get_excel_data_at_label,  # function to call
-        worksheet=ws,
-        area_to_scan=_area_to_search,  # supposed to still contain customer info found area
-        targeted_type=str,
-        down_search_try=False  # customer area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    _tmp_reg_com = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)
-    _tmp_bank = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)
-    _tmp_IBAN = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)
-    _tmp_phone = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)
-    _tmp_email = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)
-    # store "full" variables in `customer_area...` for excel original values
-    invoice_header_area["customer_area"]["reg_com"] = _tmp_reg_com
-    invoice_header_area["customer_area"]["bank"] = _tmp_bank
-    invoice_header_area["customer_area"]["IBAN"] = _tmp_IBAN
-    invoice_header_area["customer_area"]["phone"] = _tmp_phone
-    invoice_header_area["customer_area"]["email"] = _tmp_email
-
-
-    # TODO: see how replicate code for Customer --to--> Supplier
-    # TODO: mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
-    ''' #FIXME ----------------- END OF section for solve `invoice_header_area` (started on line 158) '''
+    # TODO: ... mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
 
     """#NOTE: section to ( Excel data )--->( JSON ) format preparation and finishing
@@ -410,6 +283,28 @@ def rdinv(
                     },
                 },
             },
+            "cac_AccountingSupplierParty": {
+                "cac:Party": {
+                    "cac_PartyLegalEntity": {
+                        "cbc_CompanyID": copy.deepcopy(invoice_header_area["supplier_area"]["CUI"]["value"]),
+                        "cbc_RegistrationName": copy.deepcopy(invoice_header_area["supplier_area"]["RegistrationName"]["value"]),
+                    },
+                    "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
+                    "cac_Contact": {
+                        "cbc_Telephone": copy.deepcopy(invoice_header_area["supplier_area"]["phone"]["value"]),
+                        "cbc_ElectronicMail": copy.deepcopy(invoice_header_area["supplier_area"]["email"]["value"]),
+                        "RegCom": copy.deepcopy(invoice_header_area["supplier_area"]["reg_com"]["value"]),
+                        "Bank": copy.deepcopy(invoice_header_area["supplier_area"]["bank"]["value"]),
+                        "IBAN": copy.deepcopy(invoice_header_area["supplier_area"]["IBAN"]["value"]),
+                    },
+                    "cac_PartyTaxScheme": {
+                        "cbc_CompanyID": copy.deepcopy(invoice_header_area["supplier_area"]["CUI"]["value"]),
+                        "cac_TaxScheme": {
+                            "cbc_ID": "VAT"
+                        },
+                    },
+                },
+            },
             "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list)[0],  # keep only 1st entry because from creating process resulted list(list)) first one being redundant
             "cac_LegalMonetaryTotal": {
                 "cbc_LineExtensionAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
@@ -421,12 +316,12 @@ def rdinv(
                 "cbc_TaxAmount": round(sum([i["cbc_TaxAmount"] if i["cbc_TaxAmount"] is not None else 0 for i in tmp_cac_TaxSummary]), 2),
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
-            # TODO: ............................ hereuare code: remained structure values and check XLM-JSON map
+            # TODO: ... chk for remained structure values and check XLM-JSON map
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
             invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE ready, test PASS @ 231205 by [piu]
-            invoice_header_area = copy.deepcopy(invoice_header_area),  #TODO wip... lrft supplier info
+            invoice_header_area = copy.deepcopy(invoice_header_area),  # NOTE ready, test PASS @ 2440326 by [piu]
             invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO wip... TBD-(cac_TaxTotal) / RDY-(cac_LegalMonetaryTotal
         ),
     }
@@ -456,7 +351,7 @@ def rdinv(
 
 
 
-# #NOTE - ready, test PASS @ 231212 by [piu]
+# NOTE: ready, test PASS @ 231212 by [piu]
 def get_excel_data_at_label(
     pattern_to_search_for: list[str],
     worksheet: xl.Database.ws,
@@ -562,7 +457,7 @@ def get_excel_data_at_label(
 
 
 
-# #NOTE - ready, test PASS @ 231126 by [piu]
+# NOTE: ready, test PASS @ 231126 by [piu]
 def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
     """transform `invoice_items_area` in "canonical JSON format" (as kv pairs).
 
@@ -669,7 +564,7 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
 
 
 
-# #NOTE - ready, test PASS @ 231121 by [piu]
+# NOTE: ready, test PASS @ 231121 by [piu]
 def get_invoice_items_area(
     worksheet,
     invoice_items_area_marker,
@@ -766,7 +661,7 @@ def get_invoice_items_area(
 
 
 
-# #NOTE - ready, test PASS @ 231111 by [piu]
+# NOTE: ready, test PASS @ 231111 by [piu]
 def _get_merged_cells_tobe_changed(
     file_to_scan,
     invoice_worksheet_name,
@@ -839,7 +734,7 @@ def _get_merged_cells_tobe_changed(
 
 
 
-# #NOTE - ready, test PASS @ 231127 by [piu]
+# NOTE: ready, test PASS @ 231127 by [piu]
 def _build_meta_info_key(
     excel_file_to_process: str,
     invoice_worksheet_name: str,
@@ -925,10 +820,200 @@ def _build_meta_info_key(
         ("cac_TaxSubtotal", "cac:TaxSubtotal"),  # specific for Tax Summary section
         ("cbc_TaxableAmount", "cbc:TaxableAmount"),  # specific for Tax Summary section
         ("cac_TaxCategory", "cac:TaxCategory"),  # specific for Tax Summary section
-        #TODO ...here to add items ref `cac_PostalAddress` - DETAIL L3 RECORDS
+        ("cac_AccountingSupplierParty", "cac:AccountingSupplierParty"),  # specific to supplier
+        ("cac_PartyTaxScheme", "cac:PartyTaxScheme"),  # specific to supplier
     ]
-
     return copy.deepcopy(_tmp_meta_info)
+
+
+
+
+
+
+# NOTE: ready, test PASS @ 240325 by [piu]
+def get_partner_data(
+    partner_type: str,  # IN
+    *,
+    wks,  # INOUT
+    param_invoice_header_area: dict  # INOUT
+) -> None:
+    """Get invoice partener data from Excel.
+
+    For developers note: function works by generating side effects and must be located in `rdinv.py`
+
+    Args:
+        `partner_type`: one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data)
+        `wks`: current work-on `pylightxl Worksheet` object
+        `param_invoice_header_area`: outside `param_invoice_header_area` as used and needed in `rdinv()`. This function will write back in this variable
+
+    Return:
+        `None`: all data is produced directly in parameters as side effect
+    """
+    # set variables constant-like suspected to be changed as global
+    global DEFAULT_CUSTOMER_COUNTRY
+    global DEFAULT_SUPPLIER_COUNTRY
+    # normalize partner_type for easier usage and more flexibility to developers misusing
+    partner_type = partner_type.upper().strip()
+    # unify search patterns and other constants function of partner_type
+    if partner_type == "CUSTOMER":
+        UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER
+        UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_CUSTOMER_LEGAL_NAME
+        UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_CUSTOMER_COUNTRY
+        unif_partner_area_key = "customer_area"
+    elif partner_type =="SUPPLIER":
+        # NOTE: pls be patient. Here will raise errs because used EXPECTED constant names. Check `config_settings.py` and adjust accordingly
+        UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER = PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
+        UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME = PATTERN_FOR_SUPPLIER_LEGAL_NAME
+        UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
+        unif_partner_area_key = "supplier_area"
+    elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
+        ...  # TODO: get OWNER EXTERNAL DATA feature code here
+    else:
+        # accept only known operations
+        raise Exception("partner_type parameter not recognized value")
+    #
+    # find invoice partner ==> one of (cac:AccountingCustomerParty , cac:AccountingSupplierParty)
+    invoice_partner_info = get_excel_data_at_label(
+        pattern_to_search_for=UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER,  # NOTE: constant adjusted in refactoring process
+        worksheet=wks,
+        area_to_scan=(param_invoice_header_area["start_cell"], param_invoice_header_area["end_cell"]),
+        targeted_type=str
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    # set a dedicated area to search for partner
+    _area_to_search_start_cell = [  # use `label_location` as being supposed "most far away" from effective-good info, so more chances to find info
+        0 if invoice_partner_info["label_location"][0] <= 0 else invoice_partner_info["label_location"][0] - 1,  # set one line up if this line exists
+        invoice_partner_info["label_location"][1],
+    ]
+    if wks.index(*_area_to_search_start_cell).strip() == "":  # prev set was for one line up but if that cell is blank remake it (ie, do a +1)
+        _area_to_search_start_cell[0] += 1
+    # from `_area_to_search_start_cell` go down up a blank (empty cell)
+    _last_ok_position = list([0, 0])
+    for __i in range(_area_to_search_start_cell[0], wks.size[0] + 1):  # scan rest of lines for a blank one
+        _crt_scanned_cell_idx = (__i, _area_to_search_start_cell[1])
+        _crt_scanned_cell_val = wks.index(*_crt_scanned_cell_idx)
+        if _crt_scanned_cell_val.strip() == "":
+            break  # case where stop
+        _last_ok_position = copy.deepcopy(_crt_scanned_cell_idx)  # save current position to be used after a break in other iteration
+    _area_to_search_end_cell = [
+        _last_ok_position[0],
+        wks.size[1] if _last_ok_position[1] > wks.size[1] else _last_ok_position[1] + 1,  # set one row right if this row exists
+    ]
+    # persist `_area_to_search` for next steps & save its key-info in associated invoice JSON (for further references)
+    _area_to_search = (tuple(_area_to_search_start_cell), tuple(_area_to_search_end_cell))
+    param_invoice_header_area[unif_partner_area_key] = {
+        "area_info": {
+            "value": wks.index(*_area_to_search[0]),  # ie, the value at area start position
+            "location": copy.deepcopy(_area_to_search),
+        }
+    }
+    #
+    # find partner key "CUI / Registration ID" ==> `param_invoice_header_area...[CUI]` && `Invoice...[cbc_CompanyID]`
+    _temp_found_data = get_excel_data_at_label(
+        pattern_to_search_for=PATTERN_FOR_PARTNER_ID,
+        worksheet=wks,
+        area_to_scan=_area_to_search,
+        targeted_type=str,
+        down_search_try=False  # partner area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    param_invoice_header_area[unif_partner_area_key]["CUI"] = {
+        "value": _temp_found_data["value"],
+        "location": _temp_found_data["location"],
+        "label_value": _temp_found_data["label_value"],
+        "label_location": _temp_found_data["label_location"]
+    }
+    #
+    # find partner key "RegistrationName" ==> `cbc_RegistrationName`
+    '''#NOTE: `ReNaSt`-RegNameStrategy (remark: step codes will referred as defined here)
+          ReNaSt.STEP-1. search for UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME  # NOTE: constant adjusted in refactoring process
+          ReNaSt.STEP-2. if `label_location` of FOUND VALUE has the same location as `param_invoice_header_area[unif_partner_area_key]["area_info"]["location"][0]`:
+                             keep VALUE of FOUND info
+          ReNaSt.STEP-3. else:
+                             keep `param_invoice_header_area[unif_partner_area_key]["area_info"]["value"]`
+    '''
+    _temp_found_data = get_excel_data_at_label(  # NOTE: ReNaSt.STEP-1
+        pattern_to_search_for=UNIF_PATTERN_FOR_PARTNER_LEGAL_NAME,  # NOTE: constant adjusted in refactoring process
+        worksheet=wks,
+        area_to_scan=_area_to_search,
+        targeted_type=str,
+        down_search_try=True  # NOTE: set on True to obtain identical results as original search of `UNIF_PATTERN_FOR_INVOICE_PARTNER_SUBTABLE_MARKER` because name is supposed to be in a very "unstructured mode"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    _location_of_header_partner_area = param_invoice_header_area[unif_partner_area_key]["area_info"]["location"][0]
+    _location_of_value_found = _temp_found_data["label_location"]
+    if _location_of_value_found == _location_of_header_partner_area:  # NOTE: ReNaSt.STEP-2
+        kept_RegistrationName = _temp_found_data["value"]
+        kept_RegistrationName_location = _temp_found_data["location"]
+    else:  # NOTE: ReNaSt.STEP-3
+        kept_RegistrationName = param_invoice_header_area[unif_partner_area_key]["area_info"]["value"]
+        kept_RegistrationName_location = param_invoice_header_area[unif_partner_area_key]["area_info"]["location"][0]
+    param_invoice_header_area[unif_partner_area_key]["RegistrationName"] = {
+        "value": kept_RegistrationName,
+        "location": kept_RegistrationName_location,
+        "label_value": "n/a",
+        "label_location": "n/a"
+    }
+    #
+    # find partner key `cac:PostalAddress` -> `param_invoice_header_area["cac_PostalAddress"]` && Invoice...["cac_PostalAddress"]
+    _temp_found_data = get_excel_data_at_label(
+        pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS,
+        worksheet=wks,
+        area_to_scan=_area_to_search,
+        targeted_type=str,
+        down_search_try=False  # partner area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    _tmpstr = _temp_found_data["label_value"].lower()
+    _val_is_full_addr = ("adr" in _tmpstr) or ("addr" in _tmpstr)
+    if _val_is_full_addr:
+        area_to_scan_address_items = (_temp_found_data["location"], _temp_found_data["location"])
+    else:
+        area_to_scan_address_items = _area_to_search
+    search_address_parts = partial(  # define a partial function to be used for all address items search
+        get_excel_data_at_label,  # function to call
+        worksheet=wks,
+        area_to_scan=area_to_scan_address_items,
+        targeted_type=str,
+        down_search_try=False  # partner area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    _tmp_country = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_COUNTRY)["value"]).replace("None", "").strip()
+    _tmp_city = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_CITY)["value"]).replace("None", "").strip()
+    _tmp_street = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_STREET)["value"]).replace("None", "").strip()
+    _tmp_zipcode = str(search_address_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE)["value"]).replace("None", "").strip()
+    if (_tmp_country is None) or (_tmp_country == ""):
+        _tmp_country = UNIF_DEFAULT_PARTNER_COUNTRY  # NOTE: constant adjusted in refactoring process
+    else:  # update default value to be re-used in other parts if neccesary. Update is made on original variables "global" defined
+        if partner_type == "CUSTOMER":
+            DEFAULT_CUSTOMER_COUNTRY = _tmp_country  # NOTE: constant adjusted in refactoring process
+        else:  # case of "SUPPLIER" and "OWNER"
+            DEFAULT_SUPPLIER_COUNTRY = _tmp_country  # NOTE: constant adjusted in refactoring process
+    param_invoice_header_area[unif_partner_area_key]["PostalAddress"] = {
+        "cbc_StreetName": _tmp_street,
+        "cbc_CityName": _tmp_city,
+        "cbc_PostalZone": _tmp_zipcode,
+        "cac_Country": {"cbc_IdentificationCode": _tmp_country},
+    }
+    #
+    # find / search_extended_parts: rest of keys, like: "reg com", "bank / IBAN / cont", "tel", "email" (in code will use names like this: "search_extended_parts")*
+    search_extended_parts = partial(  # define a partial function to be used for all "search_extended_parts"
+        get_excel_data_at_label,  # function to call
+        worksheet=wks,
+        area_to_scan=_area_to_search,  # supposed to still contain partner info found area
+        targeted_type=str,
+        down_search_try=False  # partner area is supposed to be organized as "label & value @ RIGHT" or "label: value @ IN-LABEL" but never @ DOWN as being a "not-a-practiced-natural-way"
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    _tmp_reg_com = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_REGCOM)
+    _tmp_bank = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_BANK)
+    _tmp_IBAN = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_IBAN)
+    _tmp_phone = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_TEL)
+    _tmp_email = search_extended_parts(pattern_to_search_for=PATTERN_FOR_PARTNER_EMAIL)
+    # store "full" variables in `partner_area...` for excel original values
+    param_invoice_header_area[unif_partner_area_key]["reg_com"] = _tmp_reg_com
+    param_invoice_header_area[unif_partner_area_key]["bank"] = _tmp_bank
+    param_invoice_header_area[unif_partner_area_key]["IBAN"] = _tmp_IBAN
+    param_invoice_header_area[unif_partner_area_key]["phone"] = _tmp_phone
+    param_invoice_header_area[unif_partner_area_key]["email"] = _tmp_email
+
+    return
+
+
 
 
 

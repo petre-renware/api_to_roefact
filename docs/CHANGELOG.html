@@ -509,22 +509,8 @@ div.download-btn {
 <nav aria-label="0.5" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#05rc0-invoice-supplier-todo-in-progress">
-    0.5rc0 invoice supplier (#TODO: ... in progress...)
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#04">
-    0.4
-  </a>
-<nav aria-label="0.4" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#041dev0-xl2roefact-include-a-data-directory-in-package-for-various-data-files-built-in-package-240318-h0900">
-    0.4.1.dev0 xl2roefact include a data directory in package for various data files "built-in" package (240318 h09:00)
+<a class="md-nav__link" href="#054rc0-invoice-supplier-from-owner-master-data-todo-in-progress">
+    0.5.4rc0 invoice supplier from owner master data (#TODO: ... in progress...)
   </a>
 </li>
 </ul>
@@ -557,22 +543,8 @@ div.download-btn {
 <nav aria-label="0.5" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#05rc0-invoice-supplier-todo-in-progress">
-    0.5rc0 invoice supplier (#TODO: ... in progress...)
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#04">
-    0.4
-  </a>
-<nav aria-label="0.4" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#041dev0-xl2roefact-include-a-data-directory-in-package-for-various-data-files-built-in-package-240318-h0900">
-    0.4.1.dev0 xl2roefact include a data directory in package for various data files "built-in" package (240318 h09:00)
+<a class="md-nav__link" href="#054rc0-invoice-supplier-from-owner-master-data-todo-in-progress">
+    0.5.4rc0 invoice supplier from owner master data (#TODO: ... in progress...)
   </a>
 </li>
 </ul>
@@ -591,16 +563,13 @@ div.download-btn {
 <ul>
 <li><a href="#changelog">CHANGELOG</a><ul>
 <li><a href="#05">0.5</a><ul>
-<li><a href="#05rc0-invoice-supplier-todo-in-progress">0.5rc0 invoice supplier (#TODO: ... in progress...)</a></li>
-</ul>
-</li>
-<li><a href="#04">0.4</a><ul>
-<li><a href="#041dev0-xl2roefact-include-a-data-directory-in-package-for-various-data-files-built-in-package-240318-h0900">0.4.1.dev0 xl2roefact include a data directory in package for various data files "built-in" package (240318 h09:00)</a></li>
+<li><a href="#054rc0-invoice-supplier-from-owner-master-data-todo-in-progress">0.5.4rc0 invoice supplier from owner master data (#TODO: ... in progress...)</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#archived-changelogs">Archived CHANGELOGs</a><ul>
+<li><a href="#05-version">0.5 version</a></li>
 <li><a href="#04-version">0.4 version</a></li>
 <li><a href="#03-version">0.3 version</a></li>
 <li><a href="#02-version">0.2 version</a></li>
@@ -634,115 +603,37 @@ div.download-btn {
         * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
 -->
 <h2 id="05">0.5</h2>
-<h3 id="05rc0-invoice-supplier-todo-in-progress">0.5rc0 invoice supplier (#TODO: ... in progress...)</h3>
+<h3 id="054rc0-invoice-supplier-from-owner-master-data-todo-in-progress"><code>0.5.4rc0</code> invoice supplier from owner master data (#TODO: ... in progress...)</h3>
 <ul>
 <li>
-<p>tbd.Must...code: <code>INV.SUPP</code>... <code>xl2roefact</code> invoice supplier (<code>&lt;cac:AccountingSupplierParty&gt;</code>)</p>
-<ul>
-<li>start with search where produce <code>"supplier_area": "...future..."</code> (JSON extract) or "FIXME: INV.SUPP"</li>
-<li>... idea is to reuse code for customer area as much as possible</li>
-</ul>
+<p>tbd... update all <code>/versions.yml</code></p>
 </li>
 <li>
-<p><code>0.5.2.dev2</code> release xl2roefact.<code>0.4.1.dev1</code> fix sEXE bug from <code>0.4.1.dev0</code> version;</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. update <code>config_settings.py</code> module to load app cfg from external file only when not sEXE frozen app (<code>getattr(sys, 'frozen', False) == True</code>)</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. update xl2roefact version to <code>0.4.1.dev1</code> to genrate only sEXE deliverable</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. test python code. Result: <strong>PASS</strong></li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. generate sEXE</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. test <code>pdm run xl2roefact settings</code>. Result: <strong>PASS</strong></li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 6. clean and make code "production like"</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 7. update INVOICEtoROefact project <code>versions.yml</code>:<ul>
-<li>xl2roefact = 0.4.1.dev1</li>
-<li>INVOICEtoROefact = 0.5.2.dev2</li>
-</ul>
-</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 8. build xl2roefact wheel and DLD doc</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 9. publish <code>0.4.1.dev1</code> on PyPi</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 10. build all deliverables</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 11. update downloads.md ref all deliverables</li>
-<li>build site &amp; publish</li>
-</ul>
+<p>tbd... get OWNER EXTERNAL DATA feature code here, but can RELEASE A <code>0.5.3rc0</code> VERSION BEFORE and <code>0.5.3rc1</code> AFTER DO THAT</p>
 </li>
 <li>
-<p><code>0.5.1.dev1</code> site readability improvements:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. main project README drop <code>TOC</code> statement</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. update <code>nav -&gt; Help -&gt; CHANGELOG sistem</code>, change to "Istoric log sistem"</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. update downloads.md doc, mark as "known bug DO NOT USE" entry:<ul>
-<li>section: "Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)"</li>
-<li>entry: "0.4.1.dev0 xl2roefact include a data directory in package"</li>
-</ul>
-</li>
-<li>update <em>INVOICEtoROefact</em> system ver to <code>0.5.1.dev1</code></li>
-<li>build site &amp; publish</li>
-</ul>
-</li>
-</ul>
-<!--#TODO: subject to archive.
-    When do it see if add to archived CHANGELOG the "antet"
-    section ref components version
--->
-<h2 id="04">0.4</h2>
-<h3 id="041dev0-xl2roefact-include-a-data-directory-in-package-for-various-data-files-built-in-package-240318-h0900"><code>0.4.1.dev0</code> xl2roefact include a data directory in package for various data files "built-in" package (240318 h09:00)</h3>
-<ul>
-<li><code>240318piu-yaml4sys-all-vers</code> update <code>mkdocs.yml</code> use <code>INHERIT: ./versions.yml</code> option to inherit versions exactly to have <code>extra</code> section like actual one but in this external file.</li>
-<li><code>240318piu-app-glob-cfg</code> update xl2roefact README, app configuration section ref how make a "global config file" different than default app configuration</li>
-<li><code>240317piu01</code> update downloads.md:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 1. include a template for <code>app_settings.yml</code> =&gt; Created dedicated section which can be referred as <code>.../downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact</code></li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 1.a fixed <code>0.4.0.dev2</code> MSI &amp; EXE deliverables file names (missing path number)</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 2. refer it in xl2roefact README</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3. include <code>0.4.1.dev</code> download;<ul>
-<li>WHEEL &amp; DIST references</li>
-<li>standalone EXE reference</li>
-<li>MSI reference</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>2403piu-config-code</code> update <code>config_settings.py</code> module to upload data from <code>.../data/app_settings.yml</code> file. Specs:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 1. update app version to <code>0.4.1.dev0</code>. Make a test what <code>normalized_version()</code> returns (run xl2roefact --version)</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 2. update key <code>README_rules</code> from <code>app_settings.yml</code>, set it to point to markdown file containing rules list (<code>xl2roefact/xl2roefact/data/README_app_config_rules.md</code>)</li>
-<li>INFO-NOTE: after YAML import data will be dict with all actual code variables as keywords</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3. gross-raw code in <code>config.settings.py</code> for both below NOTES<ul>
-<li>INFO-NOTE: order to search and load for <code>app_config.yml</code>:<ul>
-<li>(1) crt directory (with <code>cwd</code>) with <code>Path(Path.cwd(), "data/app_settings.yml")</code></li>
-<li>(2) package directory and file with <code>Path(os.path.dirname(__file__), "data/app_settings.yml")</code></li>
-<li>(3) settings from <code>config_settings.py</code></li>
-</ul>
-</li>
-<li>INFO-NOTE: methods of updates variables:<ul>
-<li>(1) using <code>locals().update(YAML_dict)</code></li>
-<li>(2) using <code>exec(YAML_dict["key")</code> by looping YAML resulted dictionary</li>
-</ul>
-</li>
-<li>regardless of method check the propagation running <code>xl2roefact settings</code> which is a demo of using values external to config_settings module</li>
-</ul>
-</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 4. apply reading order</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 5. clean code &amp; test YAML settings files from <code>xl2roefact/</code></li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 6. if read YAML was got some values then set as <code>local()</code> variables (not dictionary)</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 7. updated <code>xl2roefact/setup.py</code> to include <code>data/app_settings.yml</code> file</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> build all: upd version (2 version files + mkdocs.yml) &amp; pdm run build_all</li>
-</ul>
-</li>
-<li><code>2403piu-app-data-dir</code> actions:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 1.a build directory with a TOML file for setting parameters (used by <code>config_settings</code> module)</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 2 update <code>pyproject.toml</code> to include in package non python data files from <code>xl2roefact/data/</code> directory</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 2.a test pdm building wheel ref brute errors = <strong>PASS</strong> =: package created ok and contains <code>data/*</code> with exact flies that exists in this directory at package development phase</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3. add in <code>.../xl2roefact/data/</code> file <code>owner_data.json</code> with owner data to be used as supplier info for future option <code>--load-from-owner-file</code></li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 4. fixed bug xl2roefact CLI app ref command <code>about</code> printing <code>__version__.__doc__</code> addressing</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 5. updated <code>.../data/app_settings.yml</code> with actual existing config data. Not usable as is, need refining and clarify how to indicate data types to app users (actually indicated as Python type hints)</li>
-</ul>
+<p>tbd... update JSON model ref new supplier section</p>
 </li>
 </ul>
 <h1 id="archived-changelogs">Archived CHANGELOGs</h1>
 <details>
 <summary markdown="1">
+<h2 id="05-version">0.5 version</h2>
+</summary>
+<!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
+<ul>
+<li><a href="changelog_history/CHANGELOG-0.5.3rc0.html"><code>0.5.3rc0</code> invoice supplier from Excel</a></li>
+<li><a href="changelog_history/CHANGELOG-0.5.2.dev2.html"><code>0.5.2.dev2</code> release xl2roefact.<code>0.4.1.dev1</code> fix sEXE bug from <code>0.4.1.dev0</code> version</a></li>
+<li><a href="changelog_history/CHANGELOG-0.5.1.dev1.html"><code>0.5.1.dev1</code> site readability improvements</a></li>
+</ul>
+</details>
+<details>
+<summary markdown="1">
 <h2 id="04-version">0.4 version</h2>
 </summary>
 <ul>
-<li><a href="changelog_history/CHANGELOG-0.4.0.dev2.html"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules (240316 T12:00)</a></li>
+<li><a href="changelog_history/CHANGELOG-0.4.1.dev0.html"><code>0.4.1.dev0</code> xl2roefact include a data directory in package for various data files "built-in" package</a></li>
+<li><a href="changelog_history/CHANGELOG-0.4.0.dev2.html"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules</a></li>
 </ul>
 </details>
 <details>
@@ -804,7 +695,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 30, 2024</span>
 </small>
 </div>
 </article>

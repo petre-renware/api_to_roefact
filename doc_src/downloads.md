@@ -1,10 +1,13 @@
 
 <small>**RENware Software Systems**</small>
 
+<!--NOTE: DISCLAIMER -->
+
 !!! warning "Versiunile development"
-    Versiunile ce au in codul / numarul lor acronimul `dev` sunt considerate versiuni elaborate in faza de dezvoltare software.
+    Versiunile ce contin in codul / numarul lor acronimul `dev` sunt considerate versiuni elaborate in faza de dezvoltare software.
     Aceste versiuni sunt functionale cu singura observatie ca testele facute sunt doar din punct de vedeare a codului si nu cu date de business, adica nu prezinta erori in functionare.
     Se recomanda a folosi aceste versiuni in cazurile de dezvoltari proprii sau integrari cu alte sisteme.
+
 
 
 
@@ -14,14 +17,13 @@
 <!-- NOTE: intentionally no TOC in this doc -->
 
 
+## Format sursa biblioteca Python  <a id="format-biblioteca-python"></a>
 
 
-## Format biblioteca Python
-
-### Pachetul xl2roefact pe PyPi
+### xl2roefact pe PyPi  <a id="pachetul-xl2roefact-pe-pypi"></a>
 
 Versiunea de pe pe repository-ul public `PyPi` permite instalarea directa in mediul Python local astfel:
-```bash
+```shell
 pip install xl2roefact
 ```
 In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https://pypi.org/project/xl2roefact/)*. Accesati linkul anterior pentru a putea accesa alte versiuni publicate pe *PyPi* si modul de instalare a acestora.
@@ -29,9 +31,15 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 
-### Pachetul xl2roefact python library format sursa
+### xl2roefact pachete redistribuibile   <a id="pachetul-xl2roefact-python-library-format-sursa"></a>
 
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
+
+
+??? note "0.5"
+    * [`0.5.3rc0` invoice supplier from Excel WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl)
+    * [`0.5.3rc0` invoice supplier from Excel DIST](../xl2roefact/dist/xl2roefact-0.5.3rc0.tar.gz)
+
 
 ??? note "0.4"
     * [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version WHEEL](../xl2roefact/dist/xl2roefact-0.4.1.dev1-py3-none-any.whl "download")
@@ -54,6 +62,9 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 ??? note "0.2"
+
+    <small markdown="1">NOTA: versiunile `0.2` nu mai sunt intretinute de la 10-Aprilie-2024 (end of life support).</small>
+
     * [`0.2.1b` invoice values summary WHEEL](../xl2roefact/dist/xl2roefact-0.2.1b0-py3-none-any.whl "download")
     * [`0.2.1b` invoice values summary DIST](../xl2roefact/dist/xl2roefact-0.2.1b0.tar.gz "download")
     * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone) WHEEL](../xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl "download")
@@ -72,7 +83,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 
-### Pachetul web2roefact pe PyPi
+### web2roefact pe PyPi   <a id="pachetul-web2roefact-pe-pypi"></a>
 
 Nici o resursa disponibila.
 
@@ -85,10 +96,12 @@ Nici o resursa disponibila.
 
 
 
-## Format executabil Windows x64
+## Windows x64   <a id="format-executabil-windows-x64"></a>
 
-### Aplicatia xl2roefact linie comanda pachet instalare (win64-msi)
+### xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
+??? note "0.5"
+    * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi)
 
 ??? note "0.4"
     * [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version](../xl2roefact/dist/xl2roefact-0.4.1.dev1-win64.msi "download")
@@ -103,6 +116,9 @@ Nici o resursa disponibila.
 
 
 ??? note "0.2"
+
+    <small markdown="1">NOTA: versiunile `0.2` nu mai sunt intretinute de la 10-Aprilie-2024 (end of life support).</small>
+
     * [`0.2.1b` xl2roefact invoice values summary](../xl2roefact/dist/xl2roefact-0.2.1b0-win64.msi "download")
     * [`0.2.0b` invoice customer info-optional items (bank, email, reg-com, phone)](../xl2roefact/dist/xl2roefact-0.2.0b0-win64.msi "download")
 
@@ -116,7 +132,11 @@ Nici o resursa disponibila.
 
 
 
-### Aplicatia xl2roefact linie comanda executabil portabil (win64-exe)
+### xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
+
+??? note "0.5"
+    * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe)
+
 
 ??? note "0.4"
     * [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version](../xl2roefact/dist/xl2roefact-0.4.1.dev1-win64.exe "download")
@@ -128,7 +148,22 @@ Nici o resursa disponibila.
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe "download")
 
 
-### Aplicatia web2roefact pachet instalare (win64-msi)
+### web2roefact kit instalare (win64-msi)   <a id="aplicatia-web2roefact-pachet-instalare-win64-msi"></a>
+
+Nici o resursa disponibila.
+
+
+
+
+
+
+
+## Linux   <a id="format-deb-instalare-linux"></a>
+
+Nici o resursa disponibila.
+
+
+## MacOS X  <a id="format-instalare-macosx"></a>
 
 Nici o resursa disponibila.
 
@@ -139,20 +174,7 @@ Nici o resursa disponibila.
 
 
 
-
-
-## Format DEB instalare Linux
-
-Nici o resursa disponibila.
-
-
-
-
-
-
-
-
-## Sablon template factura
+## Sablon template factura   <a id="sablon-template-factura"></a>
 
 ??? note "Format XLSX Office Excel"
     * [`0.1.20` office Excel XLSX](../excel_invoice_template/invoice_template_CU_tva.xlsx "download")
@@ -168,7 +190,7 @@ Nici o resursa disponibila.
 
 
 
-## Sablon fisier configurare a aplicatiei xl2roefact
+## Sablon fisier configurare a aplicatiei xl2roefact   <a id="sablon-fisier-configurare-a-aplicatiei-xl2roefact"></a>
 
 Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.
 

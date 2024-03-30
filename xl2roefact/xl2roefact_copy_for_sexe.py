@@ -1,4 +1,4 @@
-#!./.venv/bin/python3 #FIXME attn to this path if intend to move in modules/
+#! /usr/bin/env python
 """xl2roefact: module to unify all xl2roefact and to be used as executable CLI by any users.
 
 Identification:

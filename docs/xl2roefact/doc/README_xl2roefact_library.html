@@ -329,18 +329,9 @@ div.download-btn {
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#system-modules">
-    System modules
+<a class="md-nav__link" href="#library-modules">
+    Library modules
   </a>
-<nav aria-label="System modules" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#rdinv-module-logic">
-    rdinv module logic
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#install-library">
@@ -360,11 +351,6 @@ div.download-btn {
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#working-directories">
-    Working directories
-  </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">
@@ -577,18 +563,9 @@ div.download-btn {
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#system-modules">
-    System modules
+<a class="md-nav__link" href="#library-modules">
+    Library modules
   </a>
-<nav aria-label="System modules" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#rdinv-module-logic">
-    rdinv module logic
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#install-library">
@@ -608,11 +585,6 @@ div.download-btn {
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#working-directories">
-    Working directories
-  </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">
@@ -644,16 +616,12 @@ div.download-btn {
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-python-library">xl2roefact python library</a><ul>
-<li><a href="#system-modules">System modules</a><ul>
-<li><a href="#rdinv-module-logic">rdinv module logic</a></li>
-</ul>
-</li>
+<li><a href="#library-modules">Library modules</a></li>
 <li><a href="#install-library">Install library</a><ul>
 <li><a href="#install-from-pypi">Install from PyPi</a></li>
 <li><a href="#install-from-distribution-packages">Install from distribution packages</a></li>
 </ul>
 </li>
-<li><a href="#working-directories">Working directories</a></li>
 <li><a href="#aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii</a></li>
 <li><a href="#api-reference">API Reference</a></li>
 <li><a href="#download-xl2roefact-library">Download xl2roefact library</a></li>
@@ -661,8 +629,8 @@ div.download-btn {
 </li>
 </ul>
 </div>
-<h2 id="system-modules">System modules</h2>
-<p><code>xl2roefact</code> main and basic modules are:</p>
+<h2 id="library-modules">Library modules</h2>
+<p><code>xl2roefact</code> library (package) modules are:</p>
 <ul>
 <li><code>rdinv</code> read an Excel file and extract invoice data to a JSON file format</li>
 <li><code>wrxml</code>  write, convert the JSON invoice file to a XML file format, respecting schemes required by <em>RO EFact</em> standard</li>
@@ -673,31 +641,6 @@ div.download-btn {
 <li><code>app_cli</code> contains the code for <code>xl2roefact</code> application command line (CLI) format</li>
 </ul>
 <p>Below is presented the <strong><em>skeleton logic</em></strong> of those modules which and where is relevant <small markdown="1">ie meaning where is not enough obvious from code or code complexity exceed usual limits (<em>for example nore than 100 lines of code per function</em>)</small>. For more technical details and specification regarding modules <a href="wrapper_810.05a-xl2roefact_DLD_specs.html">see API Reference</a></p>
-<h3 id="rdinv-module-logic">rdinv module logic</h3>
-<p>Main function of <code>rdinv</code> module is <code>rdinv(...)</code> which has the following logic sections which are in <strong><em>strict sequence in presented order</em></strong>:</p>
-<ul>
-<li>
-<p><em>search of <code>invoice_items_area</code> sub-table</em>. This area is expected to contain invoice lines and is "processed" first because it is more structured and easier to identify; after its identification the header area is considered upper of it and footer area below it</p>
-</li>
-<li>
-<p><em>solve <code>invoice_items_area</code> in 2 step...</em>. In this step the code-data-variables of items area will be initialized in order to hold information that will be found</p>
-</li>
-<li>
-<p><em>localize and mark areas for...</em> section that follows natural the previous one by initializing code-data-variables forcheader and footer areas to hold their corresponding information</p>
-</li>
-<li>
-<p><em>solve <code>invoice_header_area</code></em> detailed initialize of header area code-data-variables</p>
-</li>
-<li>
-<p><em><code>ReNaSt</code>-RegNameStrategy</em> section that identify and extract the legal registered name of invoice customer</p>
-</li>
-<li>
-<p><em>section to ( Excel data )---&gt;( JSON ) format preparation and finishing</em> section which prepare Excel original data found to be be saved as JSON as a more "electronic interchangeable" structure</p>
-</li>
-<li>
-<p>for more details about code logic description and presentation, please contact <a href="http://www.renware.eu">RENware Software Systems</a></p>
-</li>
-</ul>
 <h2 id="install-library">Install library</h2>
 <p>Library can be installed using 2 methods:</p>
 <ul>
@@ -710,22 +653,6 @@ div.download-btn {
 </code></pre></div>
 <h3 id="install-from-distribution-packages">Install from distribution packages</h3>
 <p>To install from distribution packages first download the package version intended to install (<a href="#download-xl2roefact-library">see download section</a>), choose the package type (if you have no special option, then choose <em><code>WHEEL</code></em> format) and install it using <code>pip</code> as any other Python library installation (<em>detailed in Python official documentation</em>).</p>
-<h2 id="working-directories">Working directories</h2>
-<p>Below is a short description of most important directories that will (can !) be found on local development environment.</p>
-<ul>
-<li>
-<p><em><code>invoice_files/</code></em> default directory for Excel files which is intended to be processed</p>
-</li>
-<li>
-<p><em><code>build/</code></em> this directory which will contain intermediary files resulted from building CLI application, library distribution parts, etc. Directory is subject of <code>.gitignore</code></p>
-</li>
-<li>
-<p><em><code>dist/</code></em> package files (wheels, dist), Windows executables, etc, generally all files subject of "public" distribution and download</p>
-</li>
-<li>
-<p><em><code>test_*/</code></em> contains test invoice samples (from client, a RENware one, a 3rd party one) and some useful specs in dev &amp; test process</p>
-</li>
-</ul>
 <h2 id="aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii</h2>
 <p>Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda <code>xl2json</code>. Structura de baza a acestui fisier este:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -756,7 +683,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 19, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 30, 2024</span>
 </small>
 </div>
 </article>

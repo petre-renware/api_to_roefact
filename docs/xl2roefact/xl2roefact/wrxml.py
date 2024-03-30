@@ -1,5 +1,4 @@
-#!../.venv/bin/python3
-""" wrxml: modul de generare a fisierului format XML
+"""wrxml: modul de generare a fisierului format XML
 
 Identification:
 

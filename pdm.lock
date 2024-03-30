@@ -386,13 +386,13 @@ files = [
 
 [[package]]
 name = "cx-freeze"
-version = "6.15.12"
+version = "6.15.16"
 requires_python = ">=3.7.4"
 summary = "Create standalone executables from Python scripts"
 groups = ["default"]
 dependencies = [
     "cx-Logging>=3.1; sys_platform == \"win32\"",
-    "lief>=0.12.0; sys_platform == \"win32\"",
+    "lief<0.15.0,>=0.12.0; sys_platform == \"win32\"",
     "patchelf>=0.14; sys_platform == \"linux\" and platform_machine == \"aarch64\"",
     "patchelf>=0.14; sys_platform == \"linux\" and platform_machine == \"armv7l\"",
     "patchelf>=0.14; sys_platform == \"linux\" and platform_machine == \"i686\"",
@@ -400,20 +400,20 @@ dependencies = [
     "patchelf>=0.14; sys_platform == \"linux\" and platform_machine == \"s390x\"",
     "patchelf>=0.14; sys_platform == \"linux\" and platform_machine == \"x86_64\"",
     "setuptools<70,>=62.6",
-    "wheel>=0.38.4",
+    "wheel<=0.43.0,>=0.38.4",
 ]
 files = [
-    {file = "cx_Freeze-6.15.12-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:e8e056e00abdc5ae8bfe50e93d7d7791f6fcc19d0247682fe564045c57402ac4"},
-    {file = "cx_Freeze-6.15.12-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:da0a0d51bab8c3f0510cbffd4bd445f567ad68b5bf7174966385532847cb405a"},
-    {file = "cx_Freeze-6.15.12-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:56f7092082adeeb5d0c6cb9da28a3c71cc84dfa887d8432b67854446e484a6ff"},
-    {file = "cx_Freeze-6.15.12-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:236920d64dd0484a1a1f56d3dcce8845d2ecf272fa3fcf98914a9adf214d783d"},
-    {file = "cx_Freeze-6.15.12-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:cadcbbdaf31f15b31a48fa35403caa53306c94c28a396c78a32ee0d02389193c"},
-    {file = "cx_Freeze-6.15.12-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:29438c26ac0180f72805e51e7fafc69f539fce64e7bbe485496e7fd03de9f9c8"},
-    {file = "cx_Freeze-6.15.12-cp310-cp310-musllinux_1_1_ppc64le.whl", hash = "sha256:8dbe4716aec0292fb48f879e10d984b56620e78087b1650f0ab80f491128c8d2"},
-    {file = "cx_Freeze-6.15.12-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:d4915e91ab3a264303308976395b6d29d1c30ea24b666ae7ef1e160ae9894f35"},
-    {file = "cx_Freeze-6.15.12-cp310-cp310-win32.whl", hash = "sha256:ca35dc63a41954f6a542fce1466256d97786ac694aad185afde3ad23b6bcdec3"},
-    {file = "cx_Freeze-6.15.12-cp310-cp310-win_amd64.whl", hash = "sha256:f3f3e9d369c3acfa577a56e7bebe4ffab3be409e494d30d99e781b1d94b1f59f"},
-    {file = "cx_Freeze-6.15.12.tar.gz", hash = "sha256:024e0e0bde310f6d5d69576c6d84af1713b560a25c71c27cc68081939d1c5b0c"},
+    {file = "cx_Freeze-6.15.16-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:cc0707ac48697e60c9448784b1a90f1801ac8ab169949530fbb2c4d15197afb5"},
+    {file = "cx_Freeze-6.15.16-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:5a7871c387ee717d7b9952adc02137106e1c6c62cb8502fde9af6e8de9df2487"},
+    {file = "cx_Freeze-6.15.16-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:bc6fc221e693b43c1273ac8d09ec881996f04b379539b571fb5fb2215ac23959"},
+    {file = "cx_Freeze-6.15.16-cp310-cp310-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:244f1a16892ec5bd0c22264a1c877a50a465037c10efdb6618ad092264c40888"},
+    {file = "cx_Freeze-6.15.16-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:db930db1bb3784b3ea47d2066271ca308b3aa1507a78c5ae42d9be40f21e10a8"},
+    {file = "cx_Freeze-6.15.16-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:378f092872c00b7990b2f13f0490c0b6323d05025e08537287d98848724a38c8"},
+    {file = "cx_Freeze-6.15.16-cp310-cp310-musllinux_1_1_ppc64le.whl", hash = "sha256:20b3e07c7b60d2ab0fd1b7342ab7a7880d69dd5f9aa455d182ec8f770e7c1389"},
+    {file = "cx_Freeze-6.15.16-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:d06784d7ec187a9cd2094762c946334d24fe0b005f6162bd5518e9394a021e66"},
+    {file = "cx_Freeze-6.15.16-cp310-cp310-win32.whl", hash = "sha256:d4400540a2f086d49d6143de3edb5212dd6f15f776a4967b863862b529ae2379"},
+    {file = "cx_Freeze-6.15.16-cp310-cp310-win_amd64.whl", hash = "sha256:ebb0f7d16095aeec63e2972627d2641b559f0367ed481c5a4c7db2b485c497af"},
+    {file = "cx_Freeze-6.15.16.tar.gz", hash = "sha256:c63991886ff2a5319f8f0d07c0349a6bbe1a65b5f320f8b9243888e63c9a4a22"},
 ]
 
 [[package]]
@@ -699,20 +699,6 @@ files = [
 ]
 
 [[package]]
-name = "macholib"
-version = "1.16.3"
-summary = "Mach-O header analysis and editing"
-groups = ["default"]
-marker = "sys_platform == \"darwin\""
-dependencies = [
-    "altgraph>=0.17",
-]
-files = [
-    {file = "macholib-1.16.3-py2.py3-none-any.whl", hash = "sha256:0e315d7583d38b8c77e815b1ecbdbf504a8258d8b3e17b61165c6feb60d18f2c"},
-    {file = "macholib-1.16.3.tar.gz", hash = "sha256:07ae9e15e8e4cd9a788013d81f5908b3609aa76f9b1421bae9c4d7606ec86a30"},
-]
-
-[[package]]
 name = "markdown"
 version = "3.4.4"
 requires_python = ">=3.7"
@@ -853,7 +839,7 @@ files = [
 
 [[package]]
 name = "mkdocs-include-markdown-plugin"
-version = "6.0.4"
+version = "6.0.5"
 requires_python = ">=3.8"
 summary = "Mkdocs Markdown includer plugin."
 groups = ["default"]
@@ -862,8 +848,8 @@ dependencies = [
     "wcmatch<9,>=8",
 ]
 files = [
-    {file = "mkdocs_include_markdown_plugin-6.0.4-py3-none-any.whl", hash = "sha256:e7b8b5ecc41d6a3e16969cff3725ec3a391b68e9dfe1a4b4e36a8508becda835"},
-    {file = "mkdocs_include_markdown_plugin-6.0.4.tar.gz", hash = "sha256:523c9c3a1d6a517386dc11bf60b0c0c564af1071bb6de8d213106d54f752dcc1"},
+    {file = "mkdocs_include_markdown_plugin-6.0.5-py3-none-any.whl", hash = "sha256:db41aa1937a618afa3497616f457d4e51d9123b13b2034bb15505ff9ce061f86"},
+    {file = "mkdocs_include_markdown_plugin-6.0.5.tar.gz", hash = "sha256:ad10779cf0dc4ff180aaa0079163271877b3c2fd31e36d5579854fe1d4b0d1ae"},
 ]
 
 [[package]]
@@ -1320,36 +1306,6 @@ dependencies = [
 files = [
     {file = "pygments-ansi-color-0.3.0.tar.gz", hash = "sha256:7018954cf5b11d1e734383a1bafab5af613213f246109417fee3f76da26d5431"},
     {file = "pygments_ansi_color-0.3.0-py3-none-any.whl", hash = "sha256:7eb063feaecadad9d4d1fd3474cbfeadf3486b64f760a8f2a00fc25392180aba"},
-]
-
-[[package]]
-name = "pyinstaller"
-version = "6.3.0"
-requires_python = "<3.13,>=3.8"
-summary = "PyInstaller bundles a Python application and all its dependencies into a single package."
-groups = ["default"]
-dependencies = [
-    "altgraph",
-    "macholib>=1.8; sys_platform == \"darwin\"",
-    "packaging>=22.0",
-    "pefile>=2022.5.30; sys_platform == \"win32\"",
-    "pyinstaller-hooks-contrib>=2021.4",
-    "pywin32-ctypes>=0.2.1; sys_platform == \"win32\"",
-    "setuptools>=42.0.0",
-]
-files = [
-    {file = "pyinstaller-6.3.0-py3-none-macosx_10_13_universal2.whl", hash = "sha256:75a6f2a6f835a2e6e0899d10e60c10caf5defd25aced38b1dd48fbbabc89de07"},
-    {file = "pyinstaller-6.3.0-py3-none-manylinux2014_aarch64.whl", hash = "sha256:de25beb176f73a944758553caacec46cc665bf3910ad8a174706d79cf6e95340"},
-    {file = "pyinstaller-6.3.0-py3-none-manylinux2014_i686.whl", hash = "sha256:e436fcc0ea87c3f132baac916d508c24c84a8f6d8a06c3154fbc753f169b76c7"},
-    {file = "pyinstaller-6.3.0-py3-none-manylinux2014_ppc64le.whl", hash = "sha256:b721d793a33b6d9946c7dd95d3ea7589c0424b51cf1b9fe580f03c544f1336b2"},
-    {file = "pyinstaller-6.3.0-py3-none-manylinux2014_s390x.whl", hash = "sha256:96c37a1ee5b2fd5bb25c098ef510661d6d17b6515d0b86d8fc93727dd2475ba3"},
-    {file = "pyinstaller-6.3.0-py3-none-manylinux2014_x86_64.whl", hash = "sha256:abe91106a3bbccc3f3a27af4325676ecdb6f46cb842ac663625002a870fc503b"},
-    {file = "pyinstaller-6.3.0-py3-none-musllinux_1_1_aarch64.whl", hash = "sha256:41c937fe8f07ae02009b3b5a96ac3eb0800a4f8a97af142d4100060fe2135bb9"},
-    {file = "pyinstaller-6.3.0-py3-none-musllinux_1_1_x86_64.whl", hash = "sha256:886b3b995b674905a20ad5b720b47cc395897d7b391117831027a4c8c5d67a58"},
-    {file = "pyinstaller-6.3.0-py3-none-win32.whl", hash = "sha256:0597fb04337695e5cc5250253e0655530bf14f264b7a5b7d219cc65f6889c4bd"},
-    {file = "pyinstaller-6.3.0-py3-none-win_amd64.whl", hash = "sha256:156b32ba943e0090bcc68e40ae1cb68fd92b7f1ab6fe0bdf8faf3d3cfc4e12dd"},
-    {file = "pyinstaller-6.3.0-py3-none-win_arm64.whl", hash = "sha256:1eadbd1fae84e2e6c678d8b4ed6a232ec5c8fe3a839aea5a3071c4c0282f98cc"},
-    {file = "pyinstaller-6.3.0.tar.gz", hash = "sha256:914d4c96cc99472e37ac552fdd82fbbe09e67bb592d0717fcffaa99ea74273df"},
 ]
 
 [[package]]
@@ -1884,7 +1840,7 @@ files = [
 
 [[package]]
 name = "typer"
-version = "0.9.0"
+version = "0.9.4"
 requires_python = ">=3.6"
 summary = "Typer, build great CLIs. Easy to code. Based on Python type hints."
 groups = ["default"]
@@ -1893,8 +1849,8 @@ dependencies = [
     "typing-extensions>=3.7.4.3",
 ]
 files = [
-    {file = "typer-0.9.0-py3-none-any.whl", hash = "sha256:5d96d986a21493606a358cae4461bd8cdf83cbf33a5aa950ae629ca3b51467ee"},
-    {file = "typer-0.9.0.tar.gz", hash = "sha256:50922fd79aea2f4751a8e0408ff10d2662bd0c8bbfa84755a699f3bada2978b2"},
+    {file = "typer-0.9.4-py3-none-any.whl", hash = "sha256:aa6c4a4e2329d868b80ecbaf16f807f2b54e192209d7ac9dd42691d63f7a54eb"},
+    {file = "typer-0.9.4.tar.gz", hash = "sha256:f714c2d90afae3a7929fcd72a3abb08df305e1ff61719381384211c4070af57f"},
 ]
 
 [[package]]
@@ -2122,7 +2078,7 @@ files = [
 
 [[package]]
 name = "xl2roefact"
-version = "0.4.0.dev1"
+version = "0.5.3rc0"
 requires_python = "<3.11,>=3.10"
 summary = "Excel invoices data retrieve, export & upload to RO E-Fact system"
 groups = ["default"]
@@ -2145,12 +2101,12 @@ dependencies = [
     "pefile~=2023.2",
     "pip~=24.0",
     "platformdirs~=4.1",
-    "pyinstaller>=4.10",
     "pylightxl~=1.61",
     "pyproject-hooks~=1.0",
     "python-dateutil~=2.8",
     "pytzdata~=2020.1",
     "pywin32-ctypes~=0.2",
+    "pyyaml>=6.0.1",
     "rich~=13.7",
     "setuptools~=69.0",
     "shellingham~=1.5",
@@ -2163,8 +2119,8 @@ dependencies = [
     "wheel~=0.42",
 ]
 files = [
-    {file = "xl2roefact-0.4.0.dev1-py3-none-any.whl", hash = "sha256:54460ff3d35eb7f9a98c6095ceb221d8daa911efba9812927129410a949b6d07"},
-    {file = "xl2roefact-0.4.0.dev1.tar.gz", hash = "sha256:10d20c4b060ea88411cf6cc58ea18484ac99414802b770ee3cef6ffbd2143802"},
+    {file = "xl2roefact-0.5.3rc0-py3-none-any.whl", hash = "sha256:a38ad3e49708bac8f8114266fe895c35627c4c380b05e1a47b4d9c68b1e31366"},
+    {file = "xl2roefact-0.5.3rc0.tar.gz", hash = "sha256:9676b431d9c97d06280032f0a8b305aa5c15d5ddd5db35804cd45ceb856940a6"},
 ]
 
 [[package]]
