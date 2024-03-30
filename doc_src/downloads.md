@@ -152,10 +152,12 @@ Nici o resursa disponibila.
 
 
 
-
-
-
 ## Linux   <a id="format-deb-instalare-linux"></a>
+
+Nici o resursa disponibila.
+
+
+## MacOS X  <a id="format-instalare-macosx"></a>
 
 Nici o resursa disponibila.
 
