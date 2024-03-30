@@ -3777,8 +3777,7 @@ Public License instead of this License.  But first, please read
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-05">0.5</a><ul>
-<li><a href="#changelog-053rc1-invoice-supplier-from-owner-master-data-todo-in-progress">0.5.3rc1 invoice supplier from owner master data (#TODO: ... in progress...)</a></li>
-<li><a href="#changelog-053rc0-invoice-supplier-from-excel-todo-in-progress">0.5.3rc0 invoice supplier from Excel (#TODO: ... in progress...)</a></li>
+<li><a href="#changelog-054rc0-invoice-supplier-from-owner-master-data-todo-in-progress">0.5.4rc0 invoice supplier from owner master data (#TODO: ... in progress...)</a></li>
 </ul>
 </li>
 </ul>
@@ -3819,7 +3818,7 @@ Public License instead of this License.  But first, please read
 -->
 
 <h2 id="changelog-05">0.5</h2>
-<h3 id="changelog-053rc1-invoice-supplier-from-owner-master-data-todo-in-progress">0.5.3rc1 invoice supplier from owner master data (#TODO: ... in progress...)</h3>
+<h3 id="changelog-054rc0-invoice-supplier-from-owner-master-data-todo-in-progress"><code>0.5.4rc0</code> invoice supplier from owner master data (#TODO: ... in progress...)</h3>
 <ul>
 <li>
 <p>tbd... update all <code>/versions.yml</code></p>
@@ -3831,64 +3830,14 @@ Public License instead of this License.  But first, please read
 <p>tbd... update JSON model ref new supplier section</p>
 </li>
 </ul>
-<h3 id="changelog-053rc0-invoice-supplier-from-excel-todo-in-progress">0.5.3rc0 invoice supplier from Excel (#TODO: ... in progress...)</h3>
-<ul>
-<li>
-<p><strong><em>merge to development after close this release</em></strong></p>
-</li>
-<li>
-<p><code>240327piu01</code> build &amp; publish wheel on PyPi</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. update xl2roefact README add link "API Reference" to DLD doc (to be accessible from PyPi)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. update xl2roefact <code>setup.py</code> and include documentation directory (<code>doc/</code>) in WHEEL &amp; DIST packages</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. <code>README_xl2roefact_library.md</code> review &amp; clean of useless content ("rdinv module logic", "Working directories") and refer it in main xl2roefact README before "Referinta API" bullet link</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. review xl2roefact README, installation section</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. build doc &amp; all deliverables &amp; temp make a portal buil</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 7. clean <code>xl2roefact/setup.py</code> drop imclude dirs that are not under <code>xl2roefact/xl2roefact/</code> as not being considered. Also clean <code>xl2roefact/data/...</code> line and keep only dir as beong in whole included in python wheel</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 8. update <code>downloads.md</code> ref all <code>0.5.3rc0</code> deliverables, sections title and mark end of life support for 0.2 versions</li>
-<li>publish on PyPi, build site &amp; publish</li>
-</ul>
-</li>
-<li><code>240325piu-use-new-function</code> import new function <code>get_partner_data()</code> and use it in <code>rdinv.py</code> module<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. include function <code>get_partner_data()</code> in <code>rdinv.py</code> and test for simple compilation errors =&gt; result: PASS</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. rebuild DLD documentation</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. use in code to replace actual existing CUSTOMER data retrieve. Test for no change vs previous functionality =&gt; result: PASS</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. make a new call for SUPPLIER data. Test for raw getting data in "...excel...original...data" key =&gt; PASS</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. chk new get data and make needed adjustments</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 6. update <code>rdinv.py</code> to create all supplier final constructs (like those for customer after getting data). Test result: PASS</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 7. update XML-JSON map using code refactored @ <code>rdinv.py lines 287-309</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 8. clean code of FIXME and other work comments and built DLD doc</li>
-</ul>
-</li>
-<li><code>240323piu-suppl-configs</code> rollout supplier configuration parameters from <code>.../xl2roefact/___wk_cust_area_function.py</code>:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. update <code>config_settings.py</code> with their definition. Tested PASS</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. update <code>data/app_settings.yml</code> with their definition. Tested PASS. Cleaned file <code>.../xl2roefact/___wk_cust_area_function.py</code> to make easier its transport to <code>rdinv.py</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> update <code>rdinv.py</code> with their import</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> test <code>xl2roefact</code>: automation on <code>test-xl2roefact</code> branch</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> build DLD (<code>pdm run build_doc</code>)</li>
-</ul>
-</li>
-<li><code>upd-shebang</code> update all xl2roefact modules, drop shebang statement</li>
-<li><code>240320piu-invsuppl</code> code for <code>INV.SUPP</code>... <code>xl2roefact</code> invoice supplier (<code>&lt;cac:AccountingSupplierParty&gt;</code>)<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. extracted code to generalize in <code>.../xl2roefact/___wk_cust_area_function.py</code> to "engineer it"</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. wrap code in new function <code>get_partner_data()</code>, set its first param <code>partner_type</code> for desired function operation and protect function against unknown values</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. 1st raw refactoring: constants dedicated to CUSTOMER adjusted as UNIFied...PARTNER... and set for customer or supplier depending on partner_type</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. 2nd raw refactoring: <code>customer_area</code> string. This is a keyword, so it is subject to unification based on partner_type resulting <code>partner_area</code> variable used as keyword instead of hard code "customer_area"</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. mark &amp; comment in <code>rdinv.py</code> place where call this function, start / end of code that should be dropped by using this function (rdinv.py start line 229, end line 367, marker #FIXME.UNIF.PARTNER.DATA)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 6. updated <code>invoice_header_area</code> with <code>param_invoice_header_area</code> and set las as function parameter</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 7. updated <code>invoice_customer_info</code> with <code>invoice_partner_info</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 8. replace word "customer" with "partner" keeping original case</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 9. set new parameter <code>wks</code> as replacement of <code>ws</code> variable (supposed by original code as already existing). Type of this parameter is <code>pylightxl.Worksheet</code>.</li>
-</ul>
-</li>
-</ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
 <details>
 <summary markdown="1">
 <h2 id="changelog-05-version">0.5 version</h2>
 </summary>
-<!-- * [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
+<!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
 <ul>
+<li><a href="#changelog_history-changelog-0.5.3rc0"><code>0.5.3rc0</code> invoice supplier from Excel</a></li>
 <li><a href="#changelog_history-changelog-0.5.2.dev2"><code>0.5.2.dev2</code> release xl2roefact.<code>0.4.1.dev1</code> fix sEXE bug from <code>0.4.1.dev0</code> version</a></li>
 <li><a href="#changelog_history-changelog-0.5.1.dev1"><code>0.5.1.dev1</code> site readability improvements</a></li>
 </ul>
