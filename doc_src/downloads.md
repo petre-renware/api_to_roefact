@@ -93,7 +93,7 @@ Nici o resursa disponibila.
 
 
 
-## Format executabil Windows x64   <a id="format-executabil-windows-x64"></a>
+## Windows x64   <a id="format-executabil-windows-x64"></a>
 
 ### xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
@@ -155,7 +155,7 @@ Nici o resursa disponibila.
 
 
 
-## Format DEB instalare Linux   <a id="format-deb-instalare-linux"></a>
+## Linux   <a id="format-deb-instalare-linux"></a>
 
 Nici o resursa disponibila.
 
