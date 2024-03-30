@@ -9,7 +9,7 @@
     Se recomanda a folosi aceste versiuni in cazurile de dezvoltari proprii sau integrari cu alte sisteme.
 
 
-[xxx](#xxx)
+
 
 
 # Descarcare resurse (downloads)
@@ -17,10 +17,10 @@
 <!-- NOTE: intentionally no TOC in this doc -->
 
 
-## Format biblioteca Python  <a id="..."></a>
+## Format biblioteca Python  <a id="format-biblioteca-python"></a>
 
 
-### Pachetul xl2roefact pe PyPi  <a id="..."></a>
+### Pachetul xl2roefact pe PyPi  <a id="pachetul-xl2roefact-pe-pypi"></a>
 
 Versiunea de pe pe repository-ul public `PyPi` permite instalarea directa in mediul Python local astfel:
 ```shell
