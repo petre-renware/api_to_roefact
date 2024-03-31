@@ -53,7 +53,7 @@
 
 
 
-### `0.5.3rc1` fix invoice JSON key "cac:Party" naming
+### `0.5.3rc1` fix invoice JSON key "cac:Party" naming (240331 h0600)
 
 * tbd... cls this release CHANGELOG, build and publish site
 
