@@ -62,7 +62,7 @@
     * [x] 2. updated `xl2roefact/doc/...JSON example` document
     * [x] 3. update all versions
     * [x] 4. build all deliverables
-    * [ ] ... publish on PyPi
+    * [x] 5. publish on PyPi
     * [ ] ... update `downloads.md` for this deliverables
     * [ ] 
 
