@@ -10,7 +10,7 @@
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-08-28",
         "cac_AccountingCustomerParty": {
-            "cac:Party": {
+            "cac_Party": {
                 "cac_PartyLegalEntity": {
                     "cbc_CompanyID": "17753763",
                     "cbc_RegistrationName": "SOME COMPANY SRL"
@@ -33,7 +33,7 @@
             }
         },
         "cac_AccountingSupplierParty": {
-            "cac:Party": {
+            "cac_Party": {
                 "cac_PartyLegalEntity": {
                     "cbc_CompanyID": "425...459",
                     "cbc_RegistrationName": "REN-CONSULTING SOFT ACTIVITY SRL"
