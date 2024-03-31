@@ -42,10 +42,9 @@
 * tbd... update all `/versions.yml`
 
 * tbd... `owner-dbs-file` get OWNER EXTERNAL DATA feature:
-    * [ ] create `data/owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
-    * [ ]
+    * [ ] review & update `data/owner_data.json` structure to exactly what is needed for actual JSON "Invoice..." key
     * [ ] code to get owner data
-    * [ ] make a template from `owner.yml` (like for `app_settings.yml`)
+    * [ ] make a template from `owner_data.json` (like for `app_settings.yml`)
     * [ ] set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
     * [ ] prep release `0.5.4rc1`
 
