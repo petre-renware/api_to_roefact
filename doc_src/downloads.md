@@ -103,9 +103,7 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
 ??? note "0.5"
-    * MSI. [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.msi)
-    * EXE. [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.exe)
-    * #FIXME -------
+    * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.msi)
     * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi)
 
 ??? note "0.4"
@@ -140,6 +138,7 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
 
 ??? note "0.5"
+    * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.exe)
     * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe)
 
 
