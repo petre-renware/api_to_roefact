@@ -57,10 +57,10 @@
 
 * tbd... cls this release CHANGELOG, build and publish site
 
-* ... `240331fix-cacParty.` FIX.BUG... invoice JSON wrong key name `"cac:Party"`. Correct key name `"cac_Party"`:
+* ... `240331fix-cacParty` FIX.BUG... invoice JSON wrong key name `"cac:Party"`. Correct key name `"cac_Party"`:
     * [x] 1. updated `xl2roefact/xl2roefact/...rdinv` module
     * [x] 2. updated `xl2roefact/doc/...JSON example` document
-    * [ ] ... update all versions
+    * [x] 3. update all versions
     * [ ] ... build all deliverables and publish on PyPi
     * [ ] ... update `downloads.md` for this deliverables
     * [ ] 
