@@ -38,7 +38,7 @@
 
 ### `0.5.4` invoice supplier from owner master data (#TODO: ... in progress...)
 
-* tbd... this release should go to `master` branch being pure release
+* tbd.Must... this release should go to `master` branch being pure release
 * tbd... update all `/versions.yml`
 
 * tbd... get OWNER EXTERNAL DATA feature:
@@ -49,9 +49,21 @@
     * [ ] set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
     * [ ] prep release `0.5.4rc1`
 
-* #FIXME.BUG... invoice JSON wrong key name `"cac:Party"`. Correct key name `"cac_Party"`
 
-* `0.5.3rc1` publish a new site with invoice JSON updated ==> set ONLY site version to `0.5.3rc1`. **UNRELEASED & UNTAGGED version**
+
+
+
+### `0.5.3rc1` fix invoice JSON key "cac:Party" naming
+
+* tbd... cls this release CHANGELOG, build and publish site
+* tbd... update `downloads.md` for this deliverables
+* tbd... build all deliverables and publish on PyPi
+* tbd... update all versions
+* tbd... update JSON example
+
+* ...wip... `240331fix-cacParty` #FIXME.BUG... invoice JSON wrong key name `"cac:Party"`. Correct key name `"cac_Party"`
+
+* `240330piu02` publish a new site with invoice JSON updated ==> set ONLY site version to `0.5.3rc1`. **UNRELEASED & UNTAGGED version**
 * `240330piu01` update JSON model ref new supplier section
 
 
