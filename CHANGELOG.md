@@ -63,7 +63,8 @@
     * [x] 3. update all versions
     * [x] 4. build all deliverables
     * [x] 5. publish on PyPi
-    * [ ] ... update `downloads.md` for this deliverables
+    * [ ] ... 6. update `downloads.md` for this deliverables
+    * [ ] ... built site & publish
     * [ ] 
 
 * `240330piu02` publish a new site with invoice JSON updated ==> set ONLY site version to `0.5.3rc1`. **UNRELEASED & UNTAGGED version**
