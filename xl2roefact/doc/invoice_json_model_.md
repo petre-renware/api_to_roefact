@@ -10,7 +10,7 @@
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-08-28",
         "cac_AccountingCustomerParty": {
-            "cac:Party": {
+            "cac_Party": {
                 "cac_PartyLegalEntity": {
                     "cbc_CompanyID": "17753763",
                     "cbc_RegistrationName": "SOME COMPANY SRL"
@@ -29,6 +29,35 @@
                     "RegCom": "J40/.../...",
                     "Bank": "BCR Ag Sala Palatului",
                     "IBAN": "ROxx RNCB ... ... ... ..."
+                }
+            }
+        },
+        "cac_AccountingSupplierParty": {
+            "cac_Party": {
+                "cac_PartyLegalEntity": {
+                    "cbc_CompanyID": "425...459",
+                    "cbc_RegistrationName": "REN-CONSULTING SOFT ACTIVITY SRL"
+                },
+                "cac_PostalAddress": {
+                    "cbc_StreetName": "",
+                    "cbc_CityName": "Bucureşti Sectorul 1 ...",
+                    "cbc_PostalZone": "",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
+                },
+                "cac_Contact": {
+                    "cbc_Telephone": "...",
+                    "cbc_ElectronicMail": "renware.systems@gmail.com",
+                    "RegCom": "J40/.../2020",
+                    "Bank": "Banca Transilvania",
+                    "IBAN": "RO29 BTRL .... .... .... 8601"
+                },
+                "cac_PartyTaxScheme": {
+                    "cbc_CompanyID": "425...459",
+                    "cac_TaxScheme": {
+                        "cbc_ID": "VAT"
+                    }
                 }
             }
         },

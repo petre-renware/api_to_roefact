@@ -36,13 +36,35 @@
 
 ## 0.5
 
-### `0.5.4rc0` invoice supplier from owner master data (#TODO: ... in progress...)
+### `0.5.4` invoice supplier from owner master data (#TODO: ... in progress...)
 
+* tbd.Must... this release should go to `master` branch being pure release
 * tbd... update all `/versions.yml`
 
-* tbd... get OWNER EXTERNAL DATA feature code here, but can RELEASE A `0.5.3rc0` VERSION BEFORE and `0.5.3rc1` AFTER DO THAT
+* tbd... get OWNER EXTERNAL DATA feature:
+    * [ ] code to get owner data
+    * [ ] code to select hierarchical a file from `./` or `data/`
+    * [ ] set `owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
+    * [ ] make a template from `owner.yml` (like for `app_settings.yml`)
+    * [ ] set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
+    * [ ] prep release `0.5.4rc1`
 
-* tbd... update JSON model ref new supplier section
+
+
+
+
+### `0.5.3rc1` fix invoice JSON key "cac:Party" naming (240331 h0600)
+
+* `240331fix-cacParty` FIX.BUG... invoice JSON wrong key name `"cac:Party"`. Correct key name `"cac_Party"`:
+    * [x] 1. updated `xl2roefact/xl2roefact/...rdinv` module
+    * [x] 2. updated `xl2roefact/doc/...JSON example` document
+    * [x] 3. update all versions
+    * [x] 4. build all deliverables
+    * [x] 5. publish on PyPi
+    * [x] 6. update `downloads.md` for this deliverables
+    * built site & publish
+* `240330piu02` publish a new site with invoice JSON updated ==> set ONLY site version to `0.5.3rc1`. **UNRELEASED & UNTAGGED version**
+* `240330piu01` update JSON model ref new supplier section
 
 
 

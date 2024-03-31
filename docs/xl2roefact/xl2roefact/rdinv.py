@@ -268,7 +268,7 @@ def rdinv(
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
             "cac_AccountingCustomerParty": {
-                "cac:Party": {
+                "cac_Party": {
                     "cac_PartyLegalEntity": {
                         "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
                         "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
@@ -284,7 +284,7 @@ def rdinv(
                 },
             },
             "cac_AccountingSupplierParty": {
-                "cac:Party": {
+                "cac_Party": {
                     "cac_PartyLegalEntity": {
                         "cbc_CompanyID": copy.deepcopy(invoice_header_area["supplier_area"]["CUI"]["value"]),
                         "cbc_RegistrationName": copy.deepcopy(invoice_header_area["supplier_area"]["RegistrationName"]["value"]),
