@@ -45,7 +45,7 @@ Sistemul **INVOICEtoROefact** ofera urmatoarele componente:
 * commercial name: **INVOICEtoROefact**
 * [site web](https://invoicetoroefact.renware.eu/)
 * [Git Hub repository](https://github.com/petre-renware/api_to_roefact)
-* [Git Hub release](https://github.com/petre-renware/api_to_roefact/releases)
+* [Git Hub releases](https://github.com/petre-renware/api_to_roefact/releases)
 * copyright: RENware Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 * [general system license](./LICENSE.md "download")
