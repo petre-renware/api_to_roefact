@@ -56,12 +56,14 @@
 ### `0.5.3rc1` fix invoice JSON key "cac:Party" naming
 
 * tbd... cls this release CHANGELOG, build and publish site
-* tbd... update `downloads.md` for this deliverables
-* tbd... build all deliverables and publish on PyPi
-* tbd... update all versions
-* tbd... update JSON example
 
-* ...wip... `240331fix-cacParty` #FIXME.BUG... invoice JSON wrong key name `"cac:Party"`. Correct key name `"cac_Party"`
+* ... `240331fix-cacParty.` FIX.BUG... invoice JSON wrong key name `"cac:Party"`. Correct key name `"cac_Party"`:
+    * [x] 1. updated `xl2roefact/xl2roefact/...rdinv` module
+    * [x] 2. updated `xl2roefact/doc/...JSON example` document
+    * [ ] ... update all versions
+    * [ ] ... build all deliverables and publish on PyPi
+    * [ ] ... update `downloads.md` for this deliverables
+    * [ ] 
 
 * `240330piu02` publish a new site with invoice JSON updated ==> set ONLY site version to `0.5.3rc1`. **UNRELEASED & UNTAGGED version**
 * `240330piu01` update JSON model ref new supplier section
