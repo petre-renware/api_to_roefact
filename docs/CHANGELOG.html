@@ -513,6 +513,11 @@ div.download-btn {
     0.5.4 invoice supplier from owner master data (#TODO: ... in progress...)
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#053rc1-fix-invoice-json-key-cacparty-naming-240331-h0600">
+    0.5.3rc1 fix invoice JSON key "cac:Party" naming (240331 h0600)
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -547,6 +552,11 @@ div.download-btn {
     0.5.4 invoice supplier from owner master data (#TODO: ... in progress...)
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#053rc1-fix-invoice-json-key-cacparty-naming-240331-h0600">
+    0.5.3rc1 fix invoice JSON key "cac:Party" naming (240331 h0600)
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -556,7 +566,7 @@ div.download-btn {
 </div>
 </div>
 <div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset"><div class="download-btn"><a href="pdfs\CHANGELOG.html\CHANGELOG.pdf">Download PDF</a></div>
+<article class="md-content__inner md-typeset"><div class="download-btn"><a href="pdfs/CHANGELOG.html/CHANGELOG.pdf">Download PDF</a></div>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <p><strong>INVOICEtoROeFact</strong> Project</p>
 <div class="toc">
@@ -564,6 +574,7 @@ div.download-btn {
 <li><a href="#changelog">CHANGELOG</a><ul>
 <li><a href="#05">0.5</a><ul>
 <li><a href="#054-invoice-supplier-from-owner-master-data-todo-in-progress">0.5.4 invoice supplier from owner master data (#TODO: ... in progress...)</a></li>
+<li><a href="#053rc1-fix-invoice-json-key-cacparty-naming-240331-h0600">0.5.3rc1 fix invoice JSON key "cac:Party" naming (240331 h0600)</a></li>
 </ul>
 </li>
 </ul>
@@ -605,7 +616,7 @@ div.download-btn {
 <h2 id="05">0.5</h2>
 <h3 id="054-invoice-supplier-from-owner-master-data-todo-in-progress"><code>0.5.4</code> invoice supplier from owner master data (#TODO: ... in progress...)</h3>
 <ul>
-<li>tbd... this release should go to <code>master</code> branch being pure release</li>
+<li>tbd.Must... this release should go to <code>master</code> branch being pure release</li>
 <li>
 <p>tbd... update all <code>/versions.yml</code></p>
 </li>
@@ -620,9 +631,20 @@ div.download-btn {
 <li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> prep release <code>0.5.4rc1</code></li>
 </ul>
 </li>
-<li>
-<p><code>0.5.3rc1</code> publish a new site with invoice JSON updated ==&gt; set ONLY site version to <code>0.5.3rc1</code>. <strong>UNRELEASED &amp; UNTAGGED version</strong></p>
+</ul>
+<h3 id="053rc1-fix-invoice-json-key-cacparty-naming-240331-h0600"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming (240331 h0600)</h3>
+<ul>
+<li><code>240331fix-cacParty</code> FIX.BUG... invoice JSON wrong key name <code>"cac:Party"</code>. Correct key name <code>"cac_Party"</code>:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. updated <code>xl2roefact/xl2roefact/...rdinv</code> module</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. updated <code>xl2roefact/doc/...JSON example</code> document</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. update all versions</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. build all deliverables</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. publish on PyPi</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 6. update <code>downloads.md</code> for this deliverables</li>
+<li>built site &amp; publish</li>
+</ul>
 </li>
+<li><code>240330piu02</code> publish a new site with invoice JSON updated ==&gt; set ONLY site version to <code>0.5.3rc1</code>. <strong>UNRELEASED &amp; UNTAGGED version</strong></li>
 <li><code>240330piu01</code> update JSON model ref new supplier section</li>
 </ul>
 <h1 id="archived-changelogs">Archived CHANGELOGs</h1>
@@ -705,7 +727,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 30, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 31, 2024</span>
 </small>
 </div>
 </article>
