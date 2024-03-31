@@ -41,17 +41,25 @@
 * tbd.Must... this release should go to `master` branch being pure release
 * tbd... update all `/versions.yml`
 
-* tbd... get OWNER EXTERNAL DATA feature:
+* tbd... `owner-dbs-file` get OWNER EXTERNAL DATA feature:
+    * [ ] create `data/owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
+    * [ ]
     * [ ] code to get owner data
-    * [ ] code to select hierarchical a file from `./` or `data/`
-    * [ ] set `owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
     * [ ] make a template from `owner.yml` (like for `app_settings.yml`)
     * [ ] set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
     * [ ] prep release `0.5.4rc1`
 
+* tbd... func to select hierarchical a file from `./` or `data/` (in libutils module)
+* wip...
 
 
 
+
+
+
+
+
+<!-- TODO: archive.me -->
 
 ### `0.5.3rc1` fix invoice JSON key "cac:Party" naming (240331 h0600)
 
