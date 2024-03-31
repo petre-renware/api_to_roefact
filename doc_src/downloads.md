@@ -39,9 +39,6 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 ??? note "0.5"
     * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc1-py3-none-any.whl)
     * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming DIST](../xl2roefact/dist/xl2roefact-0.5.3rc1.tar.gz)
-    * MSI. [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.msi)
-    * EXE. [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.exe)
-    * #FIXME -------_
     * [`0.5.3rc0` invoice supplier from Excel WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl)
     * [`0.5.3rc0` invoice supplier from Excel DIST](../xl2roefact/dist/xl2roefact-0.5.3rc0.tar.gz)
 
@@ -106,6 +103,9 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
 ??? note "0.5"
+    * MSI. [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.msi)
+    * EXE. [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.exe)
+    * #FIXME -------
     * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi)
 
 ??? note "0.4"
