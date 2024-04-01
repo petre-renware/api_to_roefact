@@ -37,7 +37,7 @@ PartyLegalEntity:
 
 # Owner. Contact information
 #    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
-Contac:
+Contact:
     Telephone: null  # Recommended
     ElectronicMail: null  # Recommended
 
