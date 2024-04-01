@@ -44,15 +44,15 @@
 * nxt... `owner-dbs-file` get OWNER EXTERNAL DATA feature:
     * [x] 1. create `data/owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
     * [x] 2. created a skeleton for `hier_get_data_file()` module, update its docstring and generate DLD documentation
-    * [ ] ... 3. code to get owner data (using function `hier_get_data_file()`)
+    * [ ] ... 3. code to get owner data by using function `hier_get_data_file()`
     * [ ] make a template from `owner.yml` (like for `app_settings.yml`)
     * [ ] set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
-    * [ ] prep release `0.5.4rc1`
+    * [ ] prep release `0.5.4`
 
-* ...wip... `hier-get-data-file` func to select hierarchical a file from `./` or `data/` (in libutils module):
+* `hier-get-data-file` func to select hierarchical a file from `./` or `data/` (in libutils module):
     * [x] 1. create skeleton `hier_get_data_file(file_name: str) -> Path` in `xl2roefact.libutils` module
     * [x] 2. code function to solve actual functional case from `xl2roefact.config_settings` module
-    * [ ] ... update `xl2roefact.config_settings` module to use the new function
+    * [z] 3. update `xl2roefact.config_settings` module to use the new function
 
 
 
