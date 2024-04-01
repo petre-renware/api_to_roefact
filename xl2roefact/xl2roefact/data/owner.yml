@@ -1,6 +1,9 @@
 #
 # Owner data entity. 
-# entity that contains owner master data
+#    - entity that contains owner master data
+#    - fields definition is presented as comments
+#    - a file contains data for only one owner
+#    - in `multi owner` implementations the name of file will be considered owner alternate key
 #
 # Copyright (c) 2024 RENware Software Systems
 # Author: Petre Iordanescu (piu), petre.iordanescu@gmail.com
