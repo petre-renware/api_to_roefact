@@ -50,13 +50,13 @@ def hier_get_data_file(
     crt_dir = Path.cwd()
     print(f"**** {app_dir=} & {crt_dir=}")  #FIXME dbg can drop
     # first search in current directory
-    file_to_find = Path(crt_dir, "file_name")
+    file_to_find = Path(crt_dir, "/", file_name)
     ok_to_use = file_to_find.exists() and file_to_find.is_file()
     if ok_to_use:
         print(f"in CRT dir {file_to_find=}")  #FIXME dbg can drop
         return file_to_find
     # second search in application directory
-    file_to_find = Path(app_dir, "file_name")
+    file_to_find = Path(app_dir, "/data/", file_name)
     ok_to_use = file_to_find.exists() and file_to_find.is_file()
     if ok_to_use:
         print(f"in APP dir {file_to_find=}")  #FIXME dbg can drop
