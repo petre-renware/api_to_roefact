@@ -13,9 +13,9 @@
 # Owner officially registered address (ie, where mail notifications can be sent)
 #    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
 PostalAddress:
-    StreetName: ...
+    StreetName: ...  # Mandatory
     CityName: ...  # Mandatory
-    PostalZone: ...
+    PostalZone: ...  # Recommended if known
     CountryCode: RO  # Mandatory  #TODO.NOTE: field "cbc_Country.cbc_IdentificationCode"
   
 
@@ -26,6 +26,20 @@ PostalAddress:
 PartyTaxScheme:
     CompanyID": ...  # Mandatory if VAT registered. legal VAT registration number
     TaxScheme: VAT  # Informative attribute. Unrecognized values will be defaulted to VAT.  #TODO.NOTE: field "cbc_ID": "VAT",
+
+
+# ...
+PartyLegalEntity:
+    RegistrationName: ...  # Mandatory. Company registered name
+    CompanyID: ...  # Mandatory. Company registration code (ie, in RO usual is that "J40/... code")
+
+
+# ...
+Contact":
+    Telephone: null  # Recommended
+    ElectronicMail: null  # Recommended
+
+
 
 
 
