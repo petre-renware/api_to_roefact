@@ -49,6 +49,13 @@ def hier_get_data_file(
         app_dir = os.path.dirname(os.path.abspath(__file__))
     crt_dir = Path.cwd()
     print(f"**** {app_dir=} & {crt_dir=}")  #FIXME dbg can drop
+    # first search in current directory
+    file_to_find = Path(crt_dir, "file_name")
+    ...
+    # second search in application directory
+    file_to_find = Path(app_dir, "file_name")
+    ...
+    # if both searches failed will return None
     return None
 
 
