@@ -29,7 +29,7 @@ import shutil
 
 
 
-# NOTE: ...wip..., unit test ... @2404...
+# NOTE: rdy, unit test PASS @240401
 def hier_get_data_file(
     file_name: str
 ) -> Path | None:
