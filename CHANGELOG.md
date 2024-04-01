@@ -42,9 +42,9 @@
 * tbd... update all `/versions.yml`
 
 * tbd... `owner-dbs-file` get OWNER EXTERNAL DATA feature:
-    * [ ] review & update `data/owner_data.json` structure to exactly what is needed for actual JSON "Invoice..." key
+    * [ ] 1. create `data/owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
     * [ ] code to get owner data
-    * [ ] make a template from `owner_data.json` (like for `app_settings.yml`)
+    * [ ] make a template from `owner.yml` (like for `app_settings.yml`)
     * [ ] set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
     * [ ] prep release `0.5.4rc1`
 
@@ -89,6 +89,10 @@
 </summary>
 
 <!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
+
+* [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](
+./changelog_history/CHANGELOG-0.5.3rc1.md)
+
 * [`0.5.3rc0` invoice supplier from Excel](./changelog_history/CHANGELOG-0.5.3rc0.md)
 * [`0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version](./changelog_history/CHANGELOG-0.5.2.dev2.md)
 * [`0.5.1.dev1` site readability improvements](./changelog_history/CHANGELOG-0.5.1.dev1.md)
