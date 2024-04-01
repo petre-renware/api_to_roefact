@@ -41,8 +41,8 @@
 * tbd.Must... this release should go to `master` branch being pure release
 * tbd... update all `/versions.yml`
 
-* tbd... `owner-dbs-file` get OWNER EXTERNAL DATA feature:
-    * [ ] ... 1. create `data/owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
+* wip... `owner-dbs-file` get OWNER EXTERNAL DATA feature:
+    * [x] 1. create `data/owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
     * [ ] code to get owner data
     * [ ] make a template from `owner.yml` (like for `app_settings.yml`)
     * [ ] set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
