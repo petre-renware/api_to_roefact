@@ -1,0 +1,47 @@
+#
+# Owner data entity. 
+#    - entity that contains owner master data
+#    - fields definition is presented as comments
+#    - a file contains data for only one owner
+#    - in `multi owner` implementations the name of file will be considered owner alternate key
+#
+# Copyright (c) 2024 RENware Software Systems
+# Author: Petre Iordanescu (piu), petre.iordanescu@gmail.com
+#
+
+
+# Owner officially registered address (ie, where mail notifications can be sent)
+#    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
+PostalAddress:
+    StreetName: ...  # Mandatory
+    CityName: ...  # Mandatory
+    PostalZone: ...  # Recommended if known
+    CountryCode: RO  # Mandatory  #TODO.NOTE: field "cbc_Country.cbc_IdentificationCode"
+  
+
+# Owner Tax registered information
+#    - this section will be completed only by VAT registered companies
+#    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
+#    - Version 1 allow only VAT tax scheme. Do not change field as other values will nor be recognized and will default to VAT
+PartyTaxScheme:
+    CompanyID": ...  # Mandatory if VAT registered. legal VAT registration number
+    TaxScheme: VAT  # Informative attribute. Unrecognized values will be defaulted to VAT.  #TODO.NOTE: field "cbc_ID": "VAT",
+
+
+# Owner. Legal registration information
+#    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
+PartyLegalEntity:
+    RegistrationName: ...  # Mandatory. Company registered name
+    CompanyID: ...  # Mandatory. Company registration code (ie, in RO usual is that "J40/... code")
+
+
+# Owner. Contact information
+#    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
+Contact":
+    Telephone: null  # Recommended
+    ElectronicMail: null  # Recommended
+
+
+
+
+
