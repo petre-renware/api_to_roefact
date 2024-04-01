@@ -10,6 +10,15 @@
 #
 
 
+# Owner officially registered address (ie, where mail notifications can be sent)
+#    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
+PostalAddress:
+    StreetName: ...
+    CityName: ...  # mandatory
+    PostalZone: ...
+    CountryCode: RO  # mandatory
+  
+
 
 
 
