@@ -11,7 +11,7 @@ Components:
 * `complete_sexe_file() -> bool`: Rename and move resulted exe file (called from `build_sexe` script)
 * `dict_sum_by_key(dict, str) -> float`: Sum a dictionary for a given key at all depth levels
 * `find_str_in_list(list, list) -> int`: Search more strings (ie, a list) in list of strings
-* `hier_get_data_file(file_name: str) -> Path`: ... ...#TODO...description...
+* `hier_get_data_file(file_name: str) -> Path`: Get `Path(file_name)` from hierarchy of locations
 * `invoice_taxes_summary(list[dict]) -> dict`: Calculates invoice taxes summary as required by ROefact requirements
 * `isnumber(str) -> bool`: Test a string if it could be used as number (int or float)
 
@@ -32,14 +32,14 @@ import shutil
 # NOTE: ...wip..., unit test ... @2404...
 def hier_get_data_file(
     file_name: str
-) -> Path:
-    """...work.in.progress...
+) -> Path | None:
+    """Get `Path(file_name)` from hierarchy of locations: (1) current directory, (2) package `data/` directory, (3) `None` is file does not exists in 1 or 2 locations.
     
     Args:
-        `file_name`: ...
+        `file_name`: the name of the file to be returned as full path
     
     Return:
-        `Path`: ...
+        `Path`: path of file if was found in (1) or (2) locations or `None` if not found
     """
     # settings to differently treat single EXE vs other application types
     frozen_sexe = getattr(sys, 'frozen', False)
