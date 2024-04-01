@@ -62,6 +62,7 @@ def hier_get_data_file(
         print(f"in APP dir {file_to_find=}")  #FIXME dbg can drop
         return file_to_find
     # if both searches failed will return None
+    print(f"Nowhere found {file_to_find=}")  #FIXME dbg can drop
     return None
 
 
