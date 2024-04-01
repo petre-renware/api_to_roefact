@@ -39,7 +39,7 @@ def hier_get_data_file(
         `file_name`: the name of the file to be returned as full path
     
     Return:
-        `Path | None`: path of file if was found in (1) or (2) locations or `None` if not found
+        `Path`: path of file if was found in (1) or (2) locations or `None` if not found
     """
     # settings to differently treat single EXE vs other application types
     frozen_sexe = getattr(sys, 'frozen', False)
