@@ -18,6 +18,7 @@ Components:
 """
 
 import sys
+import os
 from rich import print
 from fractions import Fraction
 import copy
@@ -40,7 +41,14 @@ def hier_get_data_file(
     Return:
         `Path`: ...
     """
-    ....
+    # settings to differently treat single EXE vs other application types
+    frozen_sexe = getattr(sys, 'frozen', False)
+    if frozen_sexe:
+        app_dir = sys._MEIPASS
+    else:
+        app_dir = os.path.dirname(os.path.abspath(__file__))
+    crt_dir = Path.cwd()
+    print(f"**** {app_dir=} & {crt_dir=}")  #FIXME dbg can drop
     return None
 
 
