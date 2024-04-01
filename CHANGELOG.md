@@ -71,10 +71,7 @@
 </summary>
 
 <!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
-
-* [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](
-./changelog_history/CHANGELOG-0.5.3rc1.md)
-
+* [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](./changelog_history/CHANGELOG-0.5.3rc1.md)
 * [`0.5.3rc0` invoice supplier from Excel](./changelog_history/CHANGELOG-0.5.3rc0.md)
 * [`0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version](./changelog_history/CHANGELOG-0.5.2.dev2.md)
 * [`0.5.1.dev1` site readability improvements](./changelog_history/CHANGELOG-0.5.1.dev1.md)
