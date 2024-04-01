@@ -14,12 +14,18 @@
 #    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
 PostalAddress:
     StreetName: ...
-    CityName: ...  # mandatory
+    CityName: ...  # Mandatory
     PostalZone: ...
-    CountryCode: RO  # mandatory
+    CountryCode: RO  # Mandatory  #TODO.NOTE: field "cbc_Country.cbc_IdentificationCode"
   
 
-
+# Owner Tax Registered information
+#    - this section will be completed only by VAT registered companies
+#    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
+#    - Version 1 allow only VAT tax scheme. Do not change field as other values will nor be recognized and will default to VAT
+PartyTaxScheme:
+    CompanyID": ...  # Mandatory if VAT registered. legal VAT registration number
+    TaxScheme: VAT  # Informative attribute. Unrecognized values will be defaulted to VAT.  #TODO.NOTE: field "cbc_ID": "VAT",
 
 
 
