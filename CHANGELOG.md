@@ -49,10 +49,10 @@
     * [ ] set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
     * [ ] prep release `0.5.4rc1`
 
-* ...wip... `hier-get-data-file` func to select hierarchical a file from `./` or `data/` (in libutils module):
+* ...wip `hier-get-data-file` func to select hierarchical a file from `./` or `data/` (in libutils module):
     * [x] 1. create skeleton `hier_get_data_file(file_name: str) -> Path` in `xl2roefact.libutils` module
     * [x] 2. code function to solve actual functional case from `xl2roefact.config_settings` module
-    * [ ] ... update `xl2roefact.config_settings` module to use the new function
+    * [ ] ... 3. update `xl2roefact.config_settings` module to use the new function
 
 
 
