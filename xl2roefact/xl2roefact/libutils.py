@@ -54,7 +54,6 @@ def hier_get_data_file(
     )
     ok_to_use = file_to_find.exists() and file_to_find.is_file()
     if ok_to_use:
-        print(f"in CRT dir {file_to_find=}")  #FIXME dbg can drop
         return file_to_find
     # second search in application directory
     file_to_find = Path(
@@ -62,7 +61,6 @@ def hier_get_data_file(
     )
     ok_to_use = file_to_find.exists() and file_to_find.is_file()
     if ok_to_use:
-        print(f"in APP dir {file_to_find=}")  #FIXME dbg can drop
         return file_to_find
     # if both searches failed will return None
     return None
