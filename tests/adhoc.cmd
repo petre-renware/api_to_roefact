@@ -16,10 +16,10 @@ echo Request help
 pdm run xl2roefact xl2json --help
 
 echo Run NORMAL
-pdm run xl2roefact xl2json
+pdm run xl2roefact xl2json -d ./tests
 
 echo Run WITH OWNER dataFILE
-pdm run xl2roefact xl2json --owner-datafile file-owner.crt.dir
+pdm run xl2roefact xl2json -d ./tests -o file-owner.crt.dir 
 
 
 rem cd tests
