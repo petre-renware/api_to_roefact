@@ -11,9 +11,15 @@ rem     - stdout redirection: `./tests/_test_results.txt` >NUL
 cd xl2roefact
 python -m pip install pdm >NUL
 python -m pdm install >NUL
-pdm run build_doc
 
+echo Request help
+pdm run xl2roefact xl2json --help
 
+echo Run NORMAL
+pdm run xl2roefact xl2json -d ./tests
+
+echo Run WITH OWNER dataFILE
+pdm run xl2roefact xl2json -d ./tests -o file-owner.crt.dir 
 
 
 rem cd tests

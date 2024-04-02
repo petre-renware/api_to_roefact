@@ -24,6 +24,7 @@ from string import ascii_lowercase
 import json
 from typing import Callable, Any
 from functools import partial
+from pathlib import Path
 import pylightxl as xl
 import openpyxl as opnxl
 
@@ -72,7 +73,8 @@ def rdinv(
     file_to_process: str,
     invoice_worksheet_name: str = None,
     *,
-    debug_info: bool = False
+    debug_info: bool = False,
+    owner_datafile: Path = None
 ) -> dict:
     """read Excel file for invoice data.
 
@@ -82,6 +84,7 @@ def rdinv(
         `file_to_process`: the invoice file (exact file with path).
         `invoice_worksheet_name`: the worksheet containing invoice, optional, defaults to first found worksheet.
         `debug_info`: key only, show debugging information, default `False`.
+        `owner_datafile`: specify a file to read supplier data from, default `None` meaning to read supplier data from Excel file
 
     Return:
         `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`
@@ -232,11 +235,15 @@ def rdinv(
     )
     #
     # get and solve `invoice_header_area` for all SUPPLIER data
-    _ = get_partner_data(
-        partner_type="SUPPLIER",
-        wks=ws,
-        param_invoice_header_area=invoice_header_area
-    )
+    if owner_datafile is not None:
+        _ = get_partner_data(
+            partner_type="SUPPLIER",
+            wks=ws,
+            param_invoice_header_area=invoice_header_area
+        )
+    else:
+        ... #TODO read supplier with param "OWNER" from file sent in `owner_datafile`
+        ... #TODO ...code me here...
     #
     # TODO: ... mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
