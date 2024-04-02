@@ -155,7 +155,7 @@ def called_when_no_command(
     version: Annotated[
         bool,
         typer.Option(
-            "--version",
+            "--version", "-V",
             help="show application version"
         ),
     ] = False
