@@ -19,16 +19,56 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo Request help
 Request help
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact xl2json --help 
+***INFO: Application settings loaded from file.
+                                                                               
+ Usage: python -m xl2roefact xl2json [OPTIONS] [FILE_NAME]                     
+                                                                               
+ Extract data from an Excel file (save data to JSON format file with the same  
+ name as original file but `.json` extension).                                 
+ Args:     `file_name`: files to process (wildcards allowed).                  
+ `files_directory`: directory to be used to look for Excel files. Defaults to  
+ `invoice_files/`. NOTE: if default directory does not exists will consider    
+ current directory instead     `verbose`: show detailed processing messages".  
+ Defaults to `False`.                                                          
+                                                                               
++- Arguments -----------------------------------------------------------------+
+|   file_name      [FILE_NAME]  files to process (wildcards allowed)          |
+|                               [default: *.xlsx]                             |
++-----------------------------------------------------------------------------+
++- Options -------------------------------------------------------------------+
+| --files-directory  -d      DIRECTORY  directory to be used to look for      |
+|                                       Excel files (if default directory     |
+|                                       does not exists will consider current |
+|                                       directory instead).                   |
+|                                       [default: invoice_files/]             |
+| --owner-datafile   -o      PATH       File to read invoice supplier (owner) |
+|                                       data instead Excel.                   |
+| --verbose          -v                 show detailed processing messages     |
+| --help                                Show this message and exit.           |
++-----------------------------------------------------------------------------+
+
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo Run NORMAL 
 Run NORMAL
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact xl2json 
+***INFO: Application settings loaded from file.
+*** Application xl2roefact launched at 2024-04-02 07:13:25.267792
+WARNING note: Default directory not found. Will consider current directory 
+instead: D:\a\api_to_roefact\api_to_roefact\xl2roefact.
+INFO note: files to process: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\*.xlsx
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo Run WITH OWNER dataFILE 
 Run WITH OWNER dataFILE
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact xl2json --owner-datafile file-owner.crt.dir 
+***INFO: Application settings loaded from file.
+*** Application xl2roefact launched at 2024-04-02 07:13:26.362763
+WARNING note: Default directory not found. Will consider current directory 
+instead: D:\a\api_to_roefact\api_to_roefact\xl2roefact.
+INFO note: files to process: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\*.xlsx
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem cd tests 
 
