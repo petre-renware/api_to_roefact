@@ -22,8 +22,8 @@ from datetime import datetime
 from rich import print
 from rich.pretty import pprint
 from rich.markdown import Markdown
-
 # xl2roefact specific libraries
+from xl2roefact.libutils import hier_get_data_file
 import xl2roefact.config_settings as configs  # configuration elements to use with `settings` command
 from xl2roefact.rdinv import rdinv  # status #TODO: wip...
 from xl2roefact.wrxml import wrxml  # status #FIXME: not yet started
@@ -140,7 +140,7 @@ def xl2json(
     tmp_files_to_process = Path(files_directory)
     if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
         tmp_files_to_process = Path(".").absolute()
-        print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory instead: [cyan]{tmp_files_to_process}[/].")
+        print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
     print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
     list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
     if verbose:
@@ -150,8 +150,13 @@ def xl2json(
             print(f"[yellow]DEBUG note:[/] to process now: [green]{a_file}[/]")
         #
         invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `files_directory` is already contained in)
-        if owner_datafile != "":  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
-            invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose, owner_datafile=owner_datafile)
+        if owner_datafile != "":  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
+            full_path_owner_datafile = hier_get_data_file(owner_datafile)
+            if full_path_owner_datafile:
+                invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose, owner_datafile=full_path_owner_datafile)
+            else:
+                print(f"[red]ERROR note: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
+                return  # just exit...
         else:
             invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose)
         if not invoice_datadict:
