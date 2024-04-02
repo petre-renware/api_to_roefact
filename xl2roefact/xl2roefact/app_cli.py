@@ -150,8 +150,7 @@ def xl2json(
             print(f"[yellow]DEBUG note:[/] to process now: [green]{a_file}[/]")
         #
         invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `files_directory` is already contained in)
-        if owner_datafile != "":  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
-            print(f"app called to process owner info from file {owner_datafile}") #FIXME dbg can drop
+        if owner_datafile != "":  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
             invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose, owner_datafile=owner_datafile)
         else:
             invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose)
