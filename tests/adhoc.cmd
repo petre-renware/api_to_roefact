@@ -13,7 +13,7 @@ python -m pip install pdm >NUL
 python -m pdm install >NUL
 
 echo Run OWNER dataFILE
-pdm run xl2roefact xl2json -d ./tests -o owner.yml
+pdm run xl2roefact xl2json -d ./tests -o owner.yml.XXX
 
 
 rem cd tests
