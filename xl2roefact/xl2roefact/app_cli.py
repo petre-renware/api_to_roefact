@@ -183,7 +183,7 @@ def called_when_no_command(
         sys.exit(0)
     version_string = normalized_version()
     if version:
-            print(f"xl2roefact {version_string}")
+        print(f"xl2roefact {version_string}")
 
 
 
