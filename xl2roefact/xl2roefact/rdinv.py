@@ -73,7 +73,7 @@ def rdinv(
     file_to_process: str,
     invoice_worksheet_name: str = None,
     *,
-    debug_info: bool = False
+    debug_info: bool = False,
     owner_datafile: Path = None
 ) -> dict:
     """read Excel file for invoice data.
