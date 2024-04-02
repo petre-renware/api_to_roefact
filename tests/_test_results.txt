@@ -51,24 +51,52 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact xl2json --help
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo Run NORMAL 
 Run NORMAL
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact xl2json 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact xl2json -d ./tests 
 ***INFO: Application settings loaded from file.
-*** Application xl2roefact launched at 2024-04-02 07:13:25.267792
-WARNING note: Default directory not found. Will consider current directory 
-instead: D:\a\api_to_roefact\api_to_roefact\xl2roefact.
+*** Application xl2roefact launched at 2024-04-02 07:32:58.434379
 INFO note: files to process: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\*.xlsx
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\*.xlsx
+app called to process owner info from file .
+*** Module rdinv started at 2024-04-02 07:32:58.434379 to process file 
+Fact_Petrom_11017969.xlsx (full path: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.xlsx)
+INFO note: `rdinv` module, no worksheet specified, will open first one: 
+'Factura(Invoice)'
+INFO note: `rdinv` module, written invoice JSON data to: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.json
+app called to process owner info from file .
+*** Module rdinv started at 2024-04-02 07:32:58.496878 to process file 
+fact_RENF1004.xlsx (full path: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\fact_RENF1004.xlsx)
+INFO note: `rdinv` module, no worksheet specified, will open first one: 
+'FACTURA FINALA'
+INFO note: `rdinv` module, written invoice JSON data to: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\fact_RENF1004.json
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo Run WITH OWNER dataFILE 
 Run WITH OWNER dataFILE
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact xl2json --owner-datafile file-owner.crt.dir 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact xl2json -d ./tests -o file-owner.crt.dir  
 ***INFO: Application settings loaded from file.
-*** Application xl2roefact launched at 2024-04-02 07:13:26.362763
-WARNING note: Default directory not found. Will consider current directory 
-instead: D:\a\api_to_roefact\api_to_roefact\xl2roefact.
+*** Application xl2roefact launched at 2024-04-02 07:32:59.653320
 INFO note: files to process: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\*.xlsx
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\*.xlsx
+app called to process owner info from file file-owner.crt.dir
+*** Module rdinv started at 2024-04-02 07:32:59.653320 to process file 
+Fact_Petrom_11017969.xlsx (full path: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.xlsx)
+INFO note: `rdinv` module, no worksheet specified, will open first one: 
+'Factura(Invoice)'
+INFO note: `rdinv` module, written invoice JSON data to: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.json
+app called to process owner info from file file-owner.crt.dir
+*** Module rdinv started at 2024-04-02 07:32:59.700201 to process file 
+fact_RENF1004.xlsx (full path: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\fact_RENF1004.xlsx)
+INFO note: `rdinv` module, no worksheet specified, will open first one: 
+'FACTURA FINALA'
+INFO note: `rdinv` module, written invoice JSON data to: 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\fact_RENF1004.json
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem cd tests 
 
