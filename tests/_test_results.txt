@@ -15,35 +15,20 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pip install pdm  1>NUL
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pdm install  1>NUL 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem pdm run build_doc 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo Request help 
+Request help
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact --help 
-***INFO: Application settings loaded from file.
-                                                                               
- Usage: python -m xl2roefact [OPTIONS] COMMAND [ARGS]...                       
-                                                                               
- function called when no command is invoked and to provide only application    
- version (for external users to test it!).                                     
-                                                                               
-+- Options -------------------------------------------------------------------+
-| --version             -V        show application version                    |
-| --install-completion            Install completion for the current shell.   |
-| --show-completion               Show completion for the current shell, to   |
-|                                 copy it or customize the installation.      |
-| --help                          Show this message and exit.                 |
-+-----------------------------------------------------------------------------+
-+- Commands ------------------------------------------------------------------+
-| about     provide a short application description.                          |
-| settings  display application configuration parameters and settings that    |
-|           are subject to be changed by user.                                |
-| xl2json   extract data from an Excel file (save data to JSON format file    |
-|           with the same name as original file but `.json` extension).       |
-+-----------------------------------------------------------------------------+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact xl2json --help 
 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo Run NORMAL 
+Run NORMAL
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact -V 
-***INFO: Application settings loaded from file.
-xl2roefact 0.5.3rc1
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact xl2json 
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo Run WITH OWNER dataFILE 
+Run WITH OWNER dataFILE
+
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact xl2json --owner-datafile file-owner.crt.dir 
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem cd tests 
 
