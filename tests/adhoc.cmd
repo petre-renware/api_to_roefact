@@ -12,6 +12,7 @@ cd xl2roefact
 python -m pip install pdm >NUL
 python -m pdm install >NUL
 rem pdm run build_doc
+pdm run xl2roefact --help
 pdm run xl2roefact -V
 
 
