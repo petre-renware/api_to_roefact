@@ -44,10 +44,10 @@
 * nxt... `owner-dbs-file` get OWNER EXTERNAL DATA feature:
     * [x] 1. create `data/owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
     * [x] 2. created a skeleton for `hier_get_data_file()` module, update its docstring and generate DLD documentation
-    * [ ] ... 3. set a new flag for `xl2json` command for getting owner from ext data-file:
-        * `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
-        * check file and get it as Path if exists and is file
-    * [ ] ... code to get owner data by using function `hier_get_data_file()` start @ rdinv line #246
+    * [x] 3. set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
+    * [ ] ... app_cli.py chk if file is ok and sent it as correct Path if, else raise an err msg and continue from Excel
+    * [ ] ... code to get owner data by using function `hier_get_data_file()`
+          ! start @ rdinv line #246
     * [ ] ... make a template from `owner.yml` (like for `app_settings.yml`)
     * [ ] ... prep release `0.5.4`
 
