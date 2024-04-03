@@ -896,6 +896,7 @@ def get_partner_data(
         else:
             print(f"[red]ERROR: Owner / Supplier data file ([cyan]{supplier_datafile}[/]) cannot be read. Process terminated.[/].")
             sys.exit()
+        print(f"\nRead data as {suppl_data_read=}\n") #FIXME dbg can drop
         ...
         ... # TODO: get OWNER EXTERNAL DATA feature code here
         ...
