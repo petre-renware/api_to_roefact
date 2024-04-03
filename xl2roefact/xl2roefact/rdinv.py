@@ -898,7 +898,29 @@ def get_partner_data(
             sys.exit()
         print(f"\nRead data as {suppl_data_read=}\n") #FIXME dbg can drop
         ...
-        ... # TODO: get OWNER EXTERNAL DATA feature code here
+        ... # TODO: write data in corresponding keys
+        '''NOTE: data read is;
+{
+    'PostalAddress': {
+        'StreetName': '...', 
+        'CityName': '...', 
+        'PostalZone': '...',
+        'CountryCode': 'RO'
+    },
+    'PartyTaxScheme': {
+        'CompanyID"': '...', 
+        'TaxScheme': 'VAT'
+    }, 
+    'PartyLegalEntity': {
+        'RegistrationName': '...', 
+        'CompanyID': '...'
+    },
+    'Contact': {
+        'Telephone': None,
+        'ElectronicMail': None
+    }
+}
+        '''
         ...
         sys.exit() #FIXME dbg can drop
         ... #TODO: then ret to line 255 and complete there
