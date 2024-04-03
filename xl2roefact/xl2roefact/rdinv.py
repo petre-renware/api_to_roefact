@@ -243,6 +243,8 @@ def rdinv(
             param_invoice_header_area=invoice_header_area
         )
     else:
+        print(f"***intrat pe procesare owner cu {owner_datafile=}")  #FIXME dbg drop me
+        sys.exit()
         ... #TODO read supplier with param "OWNER" from file sent in `owner_datafile`
         ... #TODO ...code me here...
     #
