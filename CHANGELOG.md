@@ -48,7 +48,7 @@
     * [x] 4. app_cli.py chk if file is ok and sent it as correct Path if, else raise an err msg and continue from Excel
     * [ ] ... 5. code to get owner data by using function `hier_get_data_file()`
           #NOTE: raise FATAL ERR if file does not exists
-          #NOTE: ...wip @ rdinv line #892
+          #NOTE: ...wip @ rdinv line #900
     * [ ] ... make a template from `owner.yml` (like for `app_settings.yml`)
     * [ ] ... prep release `0.5.4`
 
