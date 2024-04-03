@@ -47,8 +47,9 @@
     * [x] 3. set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
     * [x] 4. app_cli.py chk if file is ok and sent it as correct Path if, else raise an err msg and continue from Excel
     * [ ] ... 5. code to get owner data by using function `hier_get_data_file()`
-          #NOTE: raise FATAL ERR if file does not exists
-          #NOTE: ...wip @ rdinv line #892
+          #NOTE: read owner data. to write in corresponding keys
+          #NOTE: documented read structure as comments in code
+          #NOTE: ...wip @ rdinv line # 901, 902
     * [ ] ... make a template from `owner.yml` (like for `app_settings.yml`)
     * [ ] ... prep release `0.5.4`
 
