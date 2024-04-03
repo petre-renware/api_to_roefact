@@ -1,11 +1,11 @@
 ***INFO: Application settings loaded from file.
 *** Application xl2roefact launched at 2024-04-03
-10:38:22.071684
+10:43:08.543485
 INFO note: files to process: 
 /home/petre/api_to_roefact/xl2roefact/tests/*.xls
 x
 *** Module rdinv started at 2024-04-03 
-10:38:22.075607 to process file 
+10:43:08.547622 to process file 
 Fact_Petrom_11017969.xlsx (full path: 
 /home/petre/api_to_roefact/xl2roefact/tests/Fact_
 Petrom_11017969.xlsx)
@@ -21,4 +21,14 @@ in processing with
 supplier_datafile=PosixPath('/home/petre/api_to_r
 oefact/xl2roefact/xl2roefact/data/owner.yml'). 
 Will exit forced as dbg point here...
+
+
+Read data as suppl_data_read={'PostalAddress': 
+{'StreetName': '...', 'CityName': '...', 
+'PostalZone': '...', 'CountryCode': 'RO'}, 
+'PartyTaxScheme': {'CompanyID"': '...', 
+'TaxScheme': 'VAT'}, 'PartyLegalEntity': 
+{'RegistrationName': '...', 'CompanyID': '...'}, 
+'Contact': {'Telephone': None, 'ElectronicMail': 
+None}}
 
