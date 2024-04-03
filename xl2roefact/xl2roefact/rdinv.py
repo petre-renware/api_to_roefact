@@ -244,9 +244,6 @@ def rdinv(
             param_invoice_header_area=invoice_header_area
         )
     else:  # get supplier data from owner data-file
-        print(f"...tbd code... in code for processing supplier from data-file {owner_datafile=}") #FIXME dbg drop me
-        #sys.exit() #FIXME dbg can drop
-        ... #TODO read supplier with param "OWNER" from file sent in `owner_datafile`
         ret_val = get_partner_data(
             partner_type="OWNER",
             wks=ws,
@@ -254,7 +251,7 @@ def rdinv(
             supplier_datafile=owner_datafile
         )
         ... # check if `ret_val` is with err processing suppl file
-        ... #TODO ...code me here...
+        ... # TODO: ...code me here...
     #
     # TODO: ... mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
 
@@ -902,17 +899,17 @@ def get_partner_data(
         '''NOTE: data read is;
 {
     'PostalAddress': {
-        'StreetName': '...', 
-        'CityName': '...', 
+        'StreetName': '...',
+        'CityName': '...',
         'PostalZone': '...',
         'CountryCode': 'RO'
     },
     'PartyTaxScheme': {
-        'CompanyID"': '...', 
+        'CompanyID"': '...',
         'TaxScheme': 'VAT'
-    }, 
+    },
     'PartyLegalEntity': {
-        'RegistrationName': '...', 
+        'RegistrationName': '...',
         'CompanyID': '...'
     },
     'Contact': {
