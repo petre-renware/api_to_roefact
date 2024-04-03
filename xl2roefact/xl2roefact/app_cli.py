@@ -119,7 +119,7 @@ def xl2json(
             resolve_path=False,
             help="File to read invoice supplier (owner) data instead Excel."
         ),
-    ] = "",
+    ] = None,
     verbose: Annotated[
         bool,
         typer.Option(
@@ -133,6 +133,7 @@ def xl2json(
     Args:
         `file_name`: files to process (wildcards allowed).
         `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
+        `owner_datafile`: File to read invoice supplier (owner) data instead Excel.
         `verbose`: show detailed processing messages". Defaults to `False`.
     """
     print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
@@ -150,12 +151,12 @@ def xl2json(
             print(f"[yellow]DEBUG note:[/] to process now: [green]{a_file}[/]")
         #
         invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `files_directory` is already contained in)
-        if owner_datafile != "":  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
+        if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
             full_path_owner_datafile = hier_get_data_file(owner_datafile)
             if full_path_owner_datafile:
                 invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose, owner_datafile=full_path_owner_datafile)
             else:
-                print(f"[red]ERROR note: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
+                print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
                 return  # just exit...
         else:
             invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose)

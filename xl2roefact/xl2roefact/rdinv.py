@@ -33,6 +33,7 @@ from .libutils import isnumber
 from .libutils import find_str_in_list
 from .libutils import dict_sum_by_key
 from .libutils import invoice_taxes_summary
+from .libutils import hier_get_data_file
 from . import config_settings  # application configuration parameters
 
 __all__ = ["rdinv"]  # limit what symbols to be available when import all/full module as `from xl2roefact.rdinv import *`
@@ -235,13 +236,15 @@ def rdinv(
     )
     #
     # get and solve `invoice_header_area` for all SUPPLIER data
-    if owner_datafile is not None:
+    if owner_datafile is None:  # get supplier data from Excel file
         _ = get_partner_data(
             partner_type="SUPPLIER",
             wks=ws,
             param_invoice_header_area=invoice_header_area
         )
-    else:
+    else:  # get supplier data from owner data-file
+        print(f"...tbd code... in code for processing supplier from data-file {owner_datafile=}")  #FIXME dbg drop me
+        sys.exit()
         ... #TODO read supplier with param "OWNER" from file sent in `owner_datafile`
         ... #TODO ...code me here...
     #
