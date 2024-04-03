@@ -236,14 +236,14 @@ def rdinv(
     )
     #
     # get and solve `invoice_header_area` for all SUPPLIER data
-    if owner_datafile is None:
+    if owner_datafile is None:  # get supplier data from Excel file
         _ = get_partner_data(
             partner_type="SUPPLIER",
             wks=ws,
             param_invoice_header_area=invoice_header_area
         )
-    else:
-        print(f"***intrat pe procesare owner cu {owner_datafile=}")  #FIXME dbg drop me
+    else:  # get supplier data from owner data-file
+        print(f"...tbd code... in code for processing supplier from data-file {owner_datafile=}")  #FIXME dbg drop me
         sys.exit()
         ... #TODO read supplier with param "OWNER" from file sent in `owner_datafile`
         ... #TODO ...code me here...
