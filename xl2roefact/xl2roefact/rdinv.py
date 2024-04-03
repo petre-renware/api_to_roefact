@@ -891,7 +891,7 @@ def get_partner_data(
         print(f"\nin processing with {supplier_datafile=}. Will exit forced as dbg point here...\n") #FIXME dbg can drop
         file_ok = supplier_datafile.exists() and supplier_datafile.is_file()
         if file_ok:
-            yaml_in = file_to_use.read_text()
+            yaml_in = supplier_datafile.read_text()
             suppl_data_read = yaml.safe_load(yaml_in)
         else:
             print(f"[red]ERROR: Owner / Supplier data file ([cyan]{supplier_datafile}[/]) cannot be read. Process terminated.[/].")
