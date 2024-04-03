@@ -889,6 +889,7 @@ def get_partner_data(
         ... # get data from `supplier_datafile` file which is already Path type
         ...  # TODO: get OWNER EXTERNAL DATA feature code here
         print(f"\nin processing with {supplier_datafile=}. Will exit forced as dbg point here...\n") #FIXME dbg can drop
+        sys.exit() #FIXME dbg can drop
         ...
         ... # then ret to line 255 and complete there
     else:
