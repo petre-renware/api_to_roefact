@@ -236,7 +236,7 @@ def rdinv(
     )
     #
     # get and solve `invoice_header_area` for all SUPPLIER data
-    if owner_datafile is not None:
+    if owner_datafile is None:
         _ = get_partner_data(
             partner_type="SUPPLIER",
             wks=ws,
