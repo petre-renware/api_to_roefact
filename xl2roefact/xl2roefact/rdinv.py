@@ -22,6 +22,7 @@ import copy
 from rich.pretty import pprint
 from string import ascii_lowercase
 import json
+import yaml
 from typing import Callable, Any
 from functools import partial
 from pathlib import Path
@@ -886,12 +887,20 @@ def get_partner_data(
         UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
         unif_partner_area_key = "supplier_area"
     elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
-        ... # get data from `supplier_datafile` file which is already Path type
-        ...  # TODO: get OWNER EXTERNAL DATA feature code here
+        # get data from `supplier_datafile` file which is already Path type
         print(f"\nin processing with {supplier_datafile=}. Will exit forced as dbg point here...\n") #FIXME dbg can drop
-        sys.exit() #FIXME dbg can drop
+        file_ok = supplier_datafile.exists() and supplier_datafile.is_file()
+        if file_ok:
+            yaml_in = file_to_use.read_text()
+            suppl_data_read = yaml.safe_load(yaml_in)
+        else:
+            print(f"[red]ERROR: Owner / Supplier data file ([cyan]{supplier_datafile}[/]) cannot be read. Process terminated.[/].")
+            sys.exit()
         ...
-        ... # then ret to line 255 and complete there
+        ... # TODO: get OWNER EXTERNAL DATA feature code here
+        ...
+        sys.exit() #FIXME dbg can drop
+        ... #TODO: then ret to line 255 and complete there
     else:
         # accept only known operations
         raise Exception("partner_type parameter not recognized value")
