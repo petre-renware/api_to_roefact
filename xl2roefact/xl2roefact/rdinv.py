@@ -247,7 +247,7 @@ def rdinv(
         #sys.exit() #FIXME dbg can drop
         ... #TODO read supplier with param "OWNER" from file sent in `owner_datafile`
         ret_val = get_partner_data(
-            partner_type="SUPPLIER",
+            partner_type="OWNER",
             wks=ws,
             param_invoice_header_area=invoice_header_area,
             supplier_datafile=owner_datafile
