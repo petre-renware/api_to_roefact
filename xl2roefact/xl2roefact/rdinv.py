@@ -243,9 +243,16 @@ def rdinv(
             param_invoice_header_area=invoice_header_area
         )
     else:  # get supplier data from owner data-file
-        print(f"...tbd code... in code for processing supplier from data-file {owner_datafile=}")  #FIXME dbg drop me
-        sys.exit()
+        print(f"...tbd code... in code for processing supplier from data-file {owner_datafile=}") #FIXME dbg drop me
+        #sys.exit() #FIXME dbg can drop
         ... #TODO read supplier with param "OWNER" from file sent in `owner_datafile`
+        ret_val = get_partner_data(
+            partner_type="OWNER",
+            wks=ws,
+            param_invoice_header_area=invoice_header_area,
+            supplier_datafile=owner_datafile
+        )
+        ... # check if `ret_val` is with err processing suppl file
         ... #TODO ...code me here...
     #
     # TODO: ... mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
@@ -842,10 +849,11 @@ def _build_meta_info_key(
 
 # NOTE: ready, test PASS @ 240325 by [piu]
 def get_partner_data(
-    partner_type: str,  # IN
+    partner_type: str,
     *,
     wks,  # INOUT
-    param_invoice_header_area: dict  # INOUT
+    param_invoice_header_area: dict,
+    supplier_datafile: Path = None
 ) -> None:
     """Get invoice partener data from Excel.
 
@@ -853,8 +861,9 @@ def get_partner_data(
 
     Args:
         `partner_type`: one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data)
-        `wks`: current work-on `pylightxl Worksheet` object
+        `wks`: _mode IN-OUT_, current work-on `pylightxl Worksheet` object
         `param_invoice_header_area`: outside `param_invoice_header_area` as used and needed in `rdinv()`. This function will write back in this variable
+        `supplier_datafile`: for `partner_type = "CUSTOMER"` here is expected the file where to get supplier data
 
     Return:
         `None`: all data is produced directly in parameters as side effect
@@ -877,7 +886,12 @@ def get_partner_data(
         UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
         unif_partner_area_key = "supplier_area"
     elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
+        ... # get data from `supplier_datafile` file which is already Path type
         ...  # TODO: get OWNER EXTERNAL DATA feature code here
+        print(f"\nin processing with {supplier_datafile=}. Will exit forced as dbg point here...\n") #FIXME dbg can drop
+        sys.exit() #FIXME dbg can drop
+        ...
+        ... # then ret to line 255 and complete there
     else:
         # accept only known operations
         raise Exception("partner_type parameter not recognized value")
