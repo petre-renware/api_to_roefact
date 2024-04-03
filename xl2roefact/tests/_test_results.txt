@@ -1,8 +1,34 @@
 ***INFO: Application settings loaded from file.
 *** Application xl2roefact launched at 2024-04-03
-10:44:28.642612
+10:45:24.557684
 INFO note: files to process: 
 /home/petre/api_to_roefact/xl2roefact/tests/*.xls
 x
-ERROR: Owner data file (owner.ymlXXX) is not 
-valid or does not exists. Process terminated..
+*** Module rdinv started at 2024-04-03 
+10:45:24.561635 to process file 
+Fact_Petrom_11017969.xlsx (full path: 
+/home/petre/api_to_roefact/xl2roefact/tests/Fact_
+Petrom_11017969.xlsx)
+INFO note: `rdinv` module, no worksheet 
+specified, will open first one: 
+'Factura(Invoice)'
+...tbd code... in code for processing supplier 
+from data-file 
+owner_datafile=PosixPath('/home/petre/api_to_roef
+act/xl2roefact/xl2roefact/data/owner.yml')
+
+in processing with 
+supplier_datafile=PosixPath('/home/petre/api_to_r
+oefact/xl2roefact/xl2roefact/data/owner.yml'). 
+Will exit forced as dbg point here...
+
+
+Read data as suppl_data_read={'PostalAddress': 
+{'StreetName': '...', 'CityName': '...', 
+'PostalZone': '...', 'CountryCode': 'RO'}, 
+'PartyTaxScheme': {'CompanyID"': '...', 
+'TaxScheme': 'VAT'}, 'PartyLegalEntity': 
+{'RegistrationName': '...', 'CompanyID': '...'}, 
+'Contact': {'Telephone': None, 'ElectronicMail': 
+None}}
+
