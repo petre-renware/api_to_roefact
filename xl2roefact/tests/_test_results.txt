@@ -1,18 +1,37 @@
-***INFO: Application settings loaded from installation directory (global settings).
-*** Application xl2roefact launched at 2024-03-28 01:45:40.067190
+***INFO: Application settings loaded from file.
+*** Application xl2roefact launched at 2024-04-03
+06:50:55.687868
 INFO note: files to process: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\*.xlsx
-*** Module rdinv started at 2024-03-28 01:45:40.082815 to process file 
+/home/petre/api_to_roefact/xl2roefact/tests/*.xls
+x
+*** Module rdinv started at 2024-04-03 
+06:50:55.691829 to process file 
 Fact_Petrom_11017969.xlsx (full path: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.xlsx)
-INFO note: `rdinv` module, no worksheet specified, will open first one: 
+/home/petre/api_to_roefact/xl2roefact/tests/Fact_
+Petrom_11017969.xlsx)
+INFO note: `rdinv` module, no worksheet 
+specified, will open first one: 
 'Factura(Invoice)'
-INFO note: `rdinv` module, written invoice JSON data to: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\Fact_Petrom_11017969.json
-*** Module rdinv started at 2024-03-28 01:45:40.130197 to process file 
+...tbd code... in code for processing supplier 
+from data-file 
+owner_datafile=PosixPath('/home/petre/api_to_roef
+act/xl2roefact/xl2roefact/data/owner.yml')
+INFO note: `rdinv` module, written invoice JSON 
+data to: 
+/home/petre/api_to_roefact/xl2roefact/tests/Fact_
+Petrom_11017969.json
+*** Module rdinv started at 2024-04-03 
+06:50:55.745989 to process file 
 fact_RENF1004.xlsx (full path: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\fact_RENF1004.xlsx)
-INFO note: `rdinv` module, no worksheet specified, will open first one: 
-'FACTURA FINALA'
-INFO note: `rdinv` module, written invoice JSON data to: 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact\tests\fact_RENF1004.json
+/home/petre/api_to_roefact/xl2roefact/tests/fact_
+RENF1004.xlsx)
+INFO note: `rdinv` module, no worksheet 
+specified, will open first one: 'FACTURA FINALA'
+...tbd code... in code for processing supplier 
+from data-file 
+owner_datafile=PosixPath('/home/petre/api_to_roef
+act/xl2roefact/xl2roefact/data/owner.yml')
+INFO note: `rdinv` module, written invoice JSON 
+data to: 
+/home/petre/api_to_roefact/xl2roefact/tests/fact_
+RENF1004.json
