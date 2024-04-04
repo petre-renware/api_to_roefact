@@ -145,7 +145,7 @@ def rdinv(
     keyword_for_items_table_marker = _found_cell_for_invoice_items_area_marker[2]
 
     # detect all cells that should be filled with SYS_FILLED_EMPTY_CELL (these are cells id merged groups where first cell in merged group is relevant (diff from empty))
-    detected_cells_which_will_be_fake_filled = _get_merged_cells_tobe_changed(
+    detected_cells_which_will_be_fake_filled = get_merged_cells_tobe_changed(
         file_to_scan=file_to_process,
         invoice_worksheet_name=invoice_worksheet_name,
         keep_cells_of_items_ssd_marker=_found_cell_for_invoice_items_area_marker)  # this call specify to keep unchanged that cells with some description
