@@ -904,28 +904,35 @@ def get_partner_data(
         }
         print(f"\nRead data as {suppl_data_read=}\n") #FIXME dbg can drop
         # TODO: write data in corresponding keys
-        ... # nxt 971-CUI, 986-RegName, 10.16-PostalAddress, 1055-multiple.rest.all.in.one.search
-        '''NOTE: data read is;
-{
-    'PostalAddress': {
-        'StreetName': '...',
-        'CityName': '...',
-        'PostalZone': '...',
-        'CountryCode': 'RO'
-    },
-    'PartyTaxScheme': {
-        'CompanyID"': '...',
-        'TaxScheme': 'VAT'
-    },
-    'PartyLegalEntity': {
-        'RegistrationName': '...',
-        'CompanyID': '...'
-    },
-    'Contact': {
-        'Telephone': None,
-        'ElectronicMail': None
-    }
-}
+        ... # line 971-CUI
+        param_invoice_header_area[unif_partner_area_key]["CUI"] = {
+            "value": suppl_data_read["cbc_TaxAmount"]["CompanyID"],
+            "location": "external file (PartyLegalEntity -> CompanyID)",
+            "label_value": None,
+            "label_location": None
+        }
+        ... # line 986-RegName
+        ... # line 1016-PostalAddress
+        ... # line 1055-multiple.rest.all.in.one.search
+        '''data read data;
+'PostalAddress': 
+    'StreetName': '...',
+    'CityName': '...',
+    'PostalZone': '...',
+    'CountryCode': 'RO'
+
+'PartyTaxScheme': 
+    'CompanyID"': '...',
+    'TaxScheme': 'VAT'
+
+'PartyLegalEntity': 
+    'RegistrationName': '...',
+    ---used- 'CompanyID': '...'
+
+'Contact': 
+    'Telephone': None,
+    'ElectronicMail': None
+
         '''
         return  #TODO... then ret to line 255 and complete there
     else:
