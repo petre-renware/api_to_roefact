@@ -842,11 +842,11 @@ def _build_meta_info_key(
 
 
 
-# NOTE: ready, test PASS @ 240325 by [piu]
+# NOTE: ready, test PASS @ 240404 by [piu]
 def get_partner_data(
     partner_type: str,
     *,
-    wks,  # INOUT
+    wks,
     param_invoice_header_area: dict,
     supplier_datafile: Path = None
 ) -> None:
