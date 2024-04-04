@@ -853,9 +853,10 @@ def get_partner_data(
     """Get invoice partener data from Excel.
 
     Notes:
-        `for developers`: function works by generating side effects and must be located in `rdinv.py`
-        `side effects`: this function works by directly modifying `param_invoice_header_area` sent parameter
-        `supplier_datafile exception`: if file is not found or cannot be read, this function will force complete application termination (`sys.exit`)
+    
+    * *for developers*: function works by generating side effects and must be located in `rdinv.py`
+    * *side effects*: this function works by directly modifying `param_invoice_header_area` sent parameter
+    * *supplier_datafile exception*: if file is not found or cannot be read, this function will force complete application termination (`sys.exit`)
 
     Args:
         `partner_type`: one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data)
