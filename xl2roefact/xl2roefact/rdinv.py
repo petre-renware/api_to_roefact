@@ -901,29 +901,28 @@ def get_partner_data(
                 "location": "external file",
             }
         }
-        # write data in corresponding keys
-        ... # CUI
+        # CUI
         param_invoice_header_area[unif_partner_area_key]["CUI"] = {
             "value": suppl_data_read["PartyLegalEntity"]["CompanyID"],
             "location": "external file (PartyLegalEntity -> CompanyID)",
             "label_value": None,
             "label_location": None
         }
-        ... # RegName
+        # RegName
         param_invoice_header_area[unif_partner_area_key]["RegistrationName"] = {
             "value": suppl_data_read["PartyLegalEntity"]["RegistrationName"],
             "location": "external file (PartyLegalEntity -> CompanyID)",
             "label_value": None,
             "label_location": None
         }
-        ... # PostalAddress
+        # PostalAddress
         param_invoice_header_area[unif_partner_area_key]["PostalAddress"] = {
             "cbc_StreetName": suppl_data_read["PostalAddress"]["StreetName"],
             "cbc_CityName": suppl_data_read["PostalAddress"]["CityName"],
             "cbc_PostalZone": suppl_data_read["PostalAddress"]["PostalZone"],
             "cac_Country": { "cbc_IdentificationCode": suppl_data_read["PostalAddress"]["CountryCode"] },
         }
-        ... # Bank, Tax & Contact
+        # Bank, Tax & Contact
         param_invoice_header_area[unif_partner_area_key]["reg_com"] = {
             "value": suppl_data_read["PartyTaxScheme"]["CompanyID"],
             "location": "external file (PartyLegalEntity -> CompanyID)"
@@ -945,9 +944,7 @@ def get_partner_data(
             "location": "external file (Contact -> IBAN)"
         }
         return
-        ... #... ... #TODO: then ret to line 255 and complete there
-    else:
-        # accept only known operations
+    else:  # accept only known operations
         raise Exception("partner_type parameter not recognized value")
     #
     # find invoice partner ==> one of (cac:AccountingCustomerParty , cac:AccountingSupplierParty)
