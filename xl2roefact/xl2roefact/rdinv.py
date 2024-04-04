@@ -243,18 +243,15 @@ def rdinv(
             wks=ws,
             param_invoice_header_area=invoice_header_area
         )
-    else:  # get supplier data from owner data-file
-        ret_val = get_partner_data(
+    else:  # get supplier data from `owner-data-file`
+        _ = get_partner_data(
             partner_type="OWNER",
             wks=ws,
             param_invoice_header_area=invoice_header_area,
             supplier_datafile=owner_datafile
         )
-        ... # check if `ret_val` is with err processing suppl file
-        ... # TODO: ...code me here...
     #
     # TODO: ... mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
-
 
     """#NOTE: section to ( Excel data )--->( JSON ) format preparation and finishing
         this is required to be after header determination (because CURRENCY could be known here and will impact config param `DEFAULT_CURRENCY`)
