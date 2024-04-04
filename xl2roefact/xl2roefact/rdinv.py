@@ -921,7 +921,7 @@ def get_partner_data(
         ... # PostalAddress
         param_invoice_header_area[unif_partner_area_key]["PostalAddress"] = {
             "cbc_StreetName": suppl_data_read["PostalAddress"]["StreetName"],
-            "cbc_CityName": suppl_data_read["PostalAddress"]|"CityName"],
+            "cbc_CityName": suppl_data_read["PostalAddress"]["CityName"],
             "cbc_PostalZone": suppl_data_read["PostalAddress"]["PostalZone"],
             "cac_Country": {"cbc_IdentificationCode": suppl_data_read["PostalAddress"]["CountryCode"]},
         }
