@@ -927,8 +927,7 @@ def get_partner_data(
     }
 }
         '''
-        #sys.exit() #FIXME dbg can drop
-        ... #TODO: then ret to line 255 and complete there
+        return  #TODO... then ret to line 255 and complete there
     else:
         # accept only known operations
         raise Exception("partner_type parameter not recognized value")
