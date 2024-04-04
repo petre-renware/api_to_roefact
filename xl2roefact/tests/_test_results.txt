@@ -1,11 +1,11 @@
 ***INFO: Application settings loaded from file.
 *** Application xl2roefact launched at 2024-04-04
-05:34:17.328390
+08:23:19.765543
 INFO note: files to process: 
 /home/petre/api_to_roefact/xl2roefact/tests/*.xls
 x
 *** Module rdinv started at 2024-04-04 
-05:34:17.332399 to process file 
+08:23:19.769773 to process file 
 Fact_Petrom_11017969.xlsx (full path: 
 /home/petre/api_to_roefact/xl2roefact/tests/Fact_
 Petrom_11017969.xlsx)
@@ -17,7 +17,7 @@ data to:
 /home/petre/api_to_roefact/xl2roefact/tests/Fact_
 Petrom_11017969.json
 *** Module rdinv started at 2024-04-04 
-05:34:17.385171 to process file 
+08:23:19.823726 to process file 
 fact_RENF1004.xlsx (full path: 
 /home/petre/api_to_roefact/xl2roefact/tests/fact_
 RENF1004.xlsx)

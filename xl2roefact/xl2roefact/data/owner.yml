@@ -37,10 +37,12 @@ PartyLegalEntity:
 
 # Owner. Contact information
 #    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
+#    - ref bank / account information, the invoice is able to accommodate just one. For more items, use another media to send tgis information (invoice appendix, company portal, etc)
 Contact:
     Telephone: null  # Recommended
     ElectronicMail: null  # Recommended
-
+    Bank: ...  # Recommended
+    IBAN: ...  # Recommended
 
 
 
