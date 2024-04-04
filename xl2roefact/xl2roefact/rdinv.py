@@ -904,7 +904,7 @@ def get_partner_data(
         }
         print(f"\nRead data as {suppl_data_read=}\n") #FIXME dbg can drop
         # TODO: write data in corresponding keys
-        ... nxt #; 971-CUI, 986-RegName, 10.16-PostalAddress, 1055-multiple.rest.all.in.one.search
+        ... # nxt 971-CUI, 986-RegName, 10.16-PostalAddress, 1055-multiple.rest.all.in.one.search
         '''NOTE: data read is;
 {
     'PostalAddress': {
