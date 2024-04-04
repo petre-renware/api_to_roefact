@@ -926,12 +926,27 @@ def get_partner_data(
             "cac_Country": { "cbc_IdentificationCode": suppl_data_read["PostalAddress"]["CountryCode"] },
         }
         ... # Tax & Contact
-        param_invoice_header_area[unif_partner_area_key]["reg_com"] = { "value": suppl_data_read["PartyTaxScheme"]["CompanyID"] }
-        param_invoice_header_area[unif_partner_area_key]["phone"] = { "value": suppl_data_read["Contact"]["Telephone"] }
-        param_invoice_header_area[unif_partner_area_key]["email"] = { "value": suppl_data_read["Contact"]["ElectronicMail"] }
+        param_invoice_header_area[unif_partner_area_key]["reg_com"] = {
+            "value": suppl_data_read["PartyTaxScheme"]["CompanyID"],
+            "location": "external file (PartyLegalEntity -> CompanyID)"
+        }
+        param_invoice_header_area[unif_partner_area_key]["phone"] = {
+            "value": suppl_data_read["Contact"]["Telephone"],
+            "location": "external file (Contact -> Telephone)"
+        }
+        param_invoice_header_area[unif_partner_area_key]["email"] = {
+            "value": suppl_data_read["Contact"]["ElectronicMail"],
+            "location": "external file (Contact -> ElectronicMail)"
+        }
         ... #TODO: ...wip first add them in YAML owner file
-        param_invoice_header_area[unif_partner_area_key]["bank"] = { "value": "...new field tbd... bank" }
-        param_invoice_header_area[unif_partner_area_key]["IBAN"] = { "value": "...new field tbd... IBAN" }
+        param_invoice_header_area[unif_partner_area_key]["bank"] = {
+            "value": "...new field tbd... bank",
+            "location": "external file (...NOT YET DEFINED...)"
+        }
+        param_invoice_header_area[unif_partner_area_key]["IBAN"] = {
+            "value": "...new field tbd... IBAN",
+            "location": "external file (...NOT YET DEFINED...)"
+        }
         '''data read data;
 'PostalAddress': 
     -used- 'StreetName': '...',
