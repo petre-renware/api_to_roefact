@@ -585,10 +585,11 @@ def get_invoice_items_area(
     """get invoice for `invoice_items_area`, process it and return its Excel format.
 
     Process steps & notes:
-        * find invoice items subtable.
-        * clean invoice items subtable.
-        * extract relevenat data.
-        * NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
+    
+    * find invoice items subtable.
+    * clean invoice items subtable.
+    * extract relevenat data.
+    * NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
 
     Args:
         `worksheet`: the worksheet containing invoice (as object of `pyxllight` library).
@@ -674,7 +675,7 @@ def get_invoice_items_area(
 
 
 # NOTE: ready, test PASS @ 231111 by [piu]
-def _get_merged_cells_tobe_changed(
+def get_merged_cells_tobe_changed(
     file_to_scan,
     invoice_worksheet_name,
     keep_cells_of_items_ssd_marker = None
