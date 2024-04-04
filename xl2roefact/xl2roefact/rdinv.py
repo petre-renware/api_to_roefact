@@ -906,7 +906,7 @@ def get_partner_data(
         # TODO: write data in corresponding keys
         ... # line 971-CUI
         param_invoice_header_area[unif_partner_area_key]["CUI"] = {
-            "value": suppl_data_read["cbc_TaxAmount"]["CompanyID"],
+            "value": suppl_data_read["PartyLegalEntity"]["CompanyID"],
             "location": "external file (PartyLegalEntity -> CompanyID)",
             "label_value": None,
             "label_location": None
