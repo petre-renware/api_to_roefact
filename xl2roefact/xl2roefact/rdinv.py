@@ -918,22 +918,28 @@ def get_partner_data(
             "label_value": None,
             "label_location": None
         }
-        ... # line 1028-PostalAddress
-        ... # line 1075-multiple.rest.all.in.one.search
+        ... # PostalAddress
+        param_invoice_header_area[unif_partner_area_key]["PostalAddress"] = {
+            "cbc_StreetName": suppl_data_read|"PostalAddress"]["StreetName"],
+            "cbc_CityName": suppl_data_read|"PostalAddress"]|"CityName"],
+            "cbc_PostalZone": suppl_data_read|"PostalAddress"]["PostalZone"],
+            "cac_Country": {"cbc_IdentificationCode": suppl_data_read|"PostalAddress"]["CountryCode"]},
+        }
+        ... # there are unused fields that goes in final scheme
         '''data read data;
 'PostalAddress': 
-    'StreetName': '...',
-    'CityName': '...',
-    'PostalZone': '...',
-    'CountryCode': 'RO'
+    -used- 'StreetName': '...',
+    -used- 'CityName': '...',
+    -used- 'PostalZone': '...',
+    -uses- 'CountryCode': 'RO'
 
 'PartyTaxScheme': 
     'CompanyID"': '...',
     'TaxScheme': 'VAT'
 
 'PartyLegalEntity': 
-    ---used- 'RegistrationName': '...',
-    ---used- 'CompanyID': '...'
+    -used- 'RegistrationName': '...',
+    -used- 'CompanyID': '...'
 
 'Contact': 
     'Telephone': None,
