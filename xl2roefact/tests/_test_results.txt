@@ -1,21 +1,17 @@
 ***INFO: Application settings loaded from file.
 *** Application xl2roefact launched at 2024-04-04
-02:01:48.429208
+02:29:48.883492
 INFO note: files to process: 
 /home/petre/api_to_roefact/xl2roefact/tests/*.xls
 x
 *** Module rdinv started at 2024-04-04 
-02:01:48.433231 to process file 
+02:29:48.887393 to process file 
 Fact_Petrom_11017969.xlsx (full path: 
 /home/petre/api_to_roefact/xl2roefact/tests/Fact_
 Petrom_11017969.xlsx)
 INFO note: `rdinv` module, no worksheet 
 specified, will open first one: 
 'Factura(Invoice)'
-
-... ... ... In processing with file string name 
-`/home/petre/api_to_roefact/xl2roefact/xl2roefact
-/data/owner.yml`.
 
 Read data as suppl_data_read={'PostalAddress': 
 {'StreetName': '...', 'CityName': '...', 
