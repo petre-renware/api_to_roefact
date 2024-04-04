@@ -884,8 +884,8 @@ def get_partner_data(
         UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
         unif_partner_area_key = "supplier_area"
     elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
-        # get data from `supplier_datafile` file which is already Path type
-        print(f"\nin processing with {supplier_datafile=}. Will exit forced as dbg point here...\n") #FIXME dbg can drop
+        unif_partner_area_key = "supplier_area"
+        # safe read data from `supplier_datafile` file only if it exists
         file_ok = supplier_datafile.exists() and supplier_datafile.is_file()
         if file_ok:
             yaml_in = supplier_datafile.read_text()
@@ -893,34 +893,59 @@ def get_partner_data(
         else:
             print(f"[red]ERROR: Owner / Supplier data file ([cyan]{supplier_datafile}[/]) cannot be read. Process terminated.[/].")
             sys.exit()
-        print(f"\nRead data as {suppl_data_read=}\n") #FIXME dbg can drop
-        ...
-        ... # TODO: write data in corresponding keys
-        '''NOTE: data read is;
-{
-    'PostalAddress': {
-        'StreetName': '...',
-        'CityName': '...',
-        'PostalZone': '...',
-        'CountryCode': 'RO'
-    },
-    'PartyTaxScheme': {
-        'CompanyID"': '...',
-        'TaxScheme': 'VAT'
-    },
-    'PartyLegalEntity': {
-        'RegistrationName': '...',
-        'CompanyID': '...'
-    },
-    'Contact': {
-        'Telephone': None,
-        'ElectronicMail': None
-    }
-}
-        '''
-        ...
-        sys.exit() #FIXME dbg can drop
-        ... #TODO: then ret to line 255 and complete there
+        supplier_datafile_name = str(supplier_datafile)
+        # save info about area to search as external file and its name
+        param_invoice_header_area[unif_partner_area_key] = {
+            "area_info": {
+               "value": supplier_datafile_name,
+                "location": "external file",
+            }
+        }
+        # write data in corresponding keys
+        ... # CUI
+        param_invoice_header_area[unif_partner_area_key]["CUI"] = {
+            "value": suppl_data_read["PartyLegalEntity"]["CompanyID"],
+            "location": "external file (PartyLegalEntity -> CompanyID)",
+            "label_value": None,
+            "label_location": None
+        }
+        ... # RegName
+        param_invoice_header_area[unif_partner_area_key]["RegistrationName"] = {
+            "value": suppl_data_read["PartyLegalEntity"]["RegistrationName"],
+            "location": "external file (PartyLegalEntity -> CompanyID)",
+            "label_value": None,
+            "label_location": None
+        }
+        ... # PostalAddress
+        param_invoice_header_area[unif_partner_area_key]["PostalAddress"] = {
+            "cbc_StreetName": suppl_data_read["PostalAddress"]["StreetName"],
+            "cbc_CityName": suppl_data_read["PostalAddress"]["CityName"],
+            "cbc_PostalZone": suppl_data_read["PostalAddress"]["PostalZone"],
+            "cac_Country": { "cbc_IdentificationCode": suppl_data_read["PostalAddress"]["CountryCode"] },
+        }
+        ... # Tax & Contact
+        param_invoice_header_area[unif_partner_area_key]["reg_com"] = {
+            "value": suppl_data_read["PartyTaxScheme"]["CompanyID"],
+            "location": "external file (PartyLegalEntity -> CompanyID)"
+        }
+        param_invoice_header_area[unif_partner_area_key]["phone"] = {
+            "value": suppl_data_read["Contact"]["Telephone"],
+            "location": "external file (Contact -> Telephone)"
+        }
+        param_invoice_header_area[unif_partner_area_key]["email"] = {
+            "value": suppl_data_read["Contact"]["ElectronicMail"],
+            "location": "external file (Contact -> ElectronicMail)"
+        }
+        ... #TODO: ...wip first add them in YAML owner file
+        param_invoice_header_area[unif_partner_area_key]["bank"] = {
+            "value": "...new field tbd... bank",
+            "location": "external file (...NOT YET DEFINED...)"
+        }
+        param_invoice_header_area[unif_partner_area_key]["IBAN"] = {
+            "value": "...new field tbd... IBAN",
+            "location": "external file (...NOT YET DEFINED...)"
+        }
+        return  #TODO... then ret to line 255 and complete there
     else:
         # accept only known operations
         raise Exception("partner_type parameter not recognized value")

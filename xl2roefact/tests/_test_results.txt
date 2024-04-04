@@ -1,34 +1,29 @@
 ***INFO: Application settings loaded from file.
-*** Application xl2roefact launched at 2024-04-03
-10:55:18.085423
+*** Application xl2roefact launched at 2024-04-04
+05:34:17.328390
 INFO note: files to process: 
 /home/petre/api_to_roefact/xl2roefact/tests/*.xls
 x
-*** Module rdinv started at 2024-04-03 
-10:55:18.089427 to process file 
+*** Module rdinv started at 2024-04-04 
+05:34:17.332399 to process file 
 Fact_Petrom_11017969.xlsx (full path: 
 /home/petre/api_to_roefact/xl2roefact/tests/Fact_
 Petrom_11017969.xlsx)
 INFO note: `rdinv` module, no worksheet 
 specified, will open first one: 
 'Factura(Invoice)'
-...tbd code... in code for processing supplier 
-from data-file 
-owner_datafile=PosixPath('/home/petre/api_to_roef
-act/xl2roefact/xl2roefact/data/owner.yml')
-
-in processing with 
-supplier_datafile=PosixPath('/home/petre/api_to_r
-oefact/xl2roefact/xl2roefact/data/owner.yml'). 
-Will exit forced as dbg point here...
-
-
-Read data as suppl_data_read={'PostalAddress': 
-{'StreetName': '...', 'CityName': '...', 
-'PostalZone': '...', 'CountryCode': 'RO'}, 
-'PartyTaxScheme': {'CompanyID"': '...', 
-'TaxScheme': 'VAT'}, 'PartyLegalEntity': 
-{'RegistrationName': '...', 'CompanyID': '...'}, 
-'Contact': {'Telephone': None, 'ElectronicMail': 
-None}}
-
+INFO note: `rdinv` module, written invoice JSON 
+data to: 
+/home/petre/api_to_roefact/xl2roefact/tests/Fact_
+Petrom_11017969.json
+*** Module rdinv started at 2024-04-04 
+05:34:17.385171 to process file 
+fact_RENF1004.xlsx (full path: 
+/home/petre/api_to_roefact/xl2roefact/tests/fact_
+RENF1004.xlsx)
+INFO note: `rdinv` module, no worksheet 
+specified, will open first one: 'FACTURA FINALA'
+INFO note: `rdinv` module, written invoice JSON 
+data to: 
+/home/petre/api_to_roefact/xl2roefact/tests/fact_
+RENF1004.json
