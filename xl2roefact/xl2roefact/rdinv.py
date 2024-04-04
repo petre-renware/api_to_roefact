@@ -894,10 +894,17 @@ def get_partner_data(
             print(f"[red]ERROR: Owner / Supplier data file ([cyan]{supplier_datafile}[/]) cannot be read. Process terminated.[/].")
             sys.exit()
         supplier_datafile_name = str(supplier_datafile)
-        print(f"\n... ... ... In processing with file string name `{supplier_datafile_name}`.") #FIXME dbg can drop                   
+        #print(f"\n... ... ... In processing with file string name `{supplier_datafile_name}`.") #FIXME dbg can drop
+        # save info about area to search as external file and its name
+        param_invoice_header_area[unif_partner_area_key] = {
+            "area_info": {
+               "value": supplier_datafile_name,
+                "location": "external file",
+            }
+        }
         print(f"\nRead data as {suppl_data_read=}\n") #FIXME dbg can drop
+        # TODO: write data in corresponding keys
         ...
-        ... # TODO: write data in corresponding keys
         '''NOTE: data read is;
 {
     'PostalAddress': {
