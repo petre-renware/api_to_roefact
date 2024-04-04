@@ -894,7 +894,6 @@ def get_partner_data(
             print(f"[red]ERROR: Owner / Supplier data file ([cyan]{supplier_datafile}[/]) cannot be read. Process terminated.[/].")
             sys.exit()
         supplier_datafile_name = str(supplier_datafile)
-        #print(f"\n... ... ... In processing with file string name `{supplier_datafile_name}`.") #FIXME dbg can drop
         # save info about area to search as external file and its name
         param_invoice_header_area[unif_partner_area_key] = {
             "area_info": {
@@ -902,8 +901,7 @@ def get_partner_data(
                 "location": "external file",
             }
         }
-        print(f"\nRead data as {suppl_data_read=}\n") #FIXME dbg can drop
-        # TODO: write data in corresponding keys
+        # write data in corresponding keys
         ... # CUI
         param_invoice_header_area[unif_partner_area_key]["CUI"] = {
             "value": suppl_data_read["PartyLegalEntity"]["CompanyID"],
@@ -931,7 +929,7 @@ def get_partner_data(
             "location": "external file (PartyLegalEntity -> CompanyID)"
         }
         param_invoice_header_area[unif_partner_area_key]["phone"] = {
-            "value": suppl_data_read["Contact"]["Telephone"],
+            "value": sup7pl_data_read["Contact"]["Telephone"],
             "location": "external file (Contact -> Telephone)"
         }
         param_invoice_header_area[unif_partner_area_key]["email"] = {
@@ -947,26 +945,6 @@ def get_partner_data(
             "value": "...new field tbd... IBAN",
             "location": "external file (...NOT YET DEFINED...)"
         }
-        '''data read data;
-'PostalAddress': 
-    -used- 'StreetName': '...',
-    -used- 'CityName': '...',
-    -used- 'PostalZone': '...',
-    -uses- 'CountryCode': 'RO'
-
-'PartyTaxScheme': 
-    -used- 'CompanyID"': '...',
-    ----not.need TO DROP IT- 'TaxScheme': 'VAT'
-
-'PartyLegalEntity': 
-    -used- 'RegistrationName': '...',
-    -used- 'CompanyID': '...'
-
-'Contact': 
-    -used- 'Telephone': None,
-    -used- 'ElectronicMail': None
-
-        '''
         return  #TODO... then ret to line 255 and complete there
     else:
         # accept only known operations
