@@ -1,11 +1,11 @@
 ***INFO: Application settings loaded from file.
 *** Application xl2roefact launched at 2024-04-04
-03:35:32.518148
+03:42:46.080980
 INFO note: files to process: 
 /home/petre/api_to_roefact/xl2roefact/tests/*.xls
 x
 *** Module rdinv started at 2024-04-04 
-03:35:32.522057 to process file 
+03:42:46.084818 to process file 
 Fact_Petrom_11017969.xlsx (full path: 
 /home/petre/api_to_roefact/xl2roefact/tests/Fact_
 Petrom_11017969.xlsx)
@@ -54,15 +54,15 @@ None}}
 │ ╰───────────────────────────────────────────╯ │
 │                                               │
 │ /home/petre/api_to_roefact/xl2roefact/xl2roef │
-│ act/rdinv.py:305 in rdinv                     │
+│ act/rdinv.py:309 in rdinv                     │
 │                                               │
-│    302 │   │   │   │   "cac_Party": {         │
-│    303 │   │   │   │   │   "cac_PartyLegalEnt │
-│    304 │   │   │   │   │   │   "cbc_CompanyID │
-│ ❱  305 │   │   │   │   │   │   "cbc_Registrat │
 │    306 │   │   │   │   │   },                 │
 │    307 │   │   │   │   │   "cac_PostalAddress │
 │    308 │   │   │   │   │   "cac_Contact": {   │
+│ ❱  309 │   │   │   │   │   │   "cbc_Telephone │
+│    310 │   │   │   │   │   │   "cbc_Electroni │
+│    311 │   │   │   │   │   │   "RegCom": copy │
+│    312 │   │   │   │   │   │   "Bank": copy.d │
 │                                               │
 │ ╭───────────────── locals ──────────────────╮ │
 │ │                  _ = None                 │ │
@@ -367,6 +367,22 @@ None}}
 │ │                      │   │   │            │ │
 │ │                      'label_location':    │ │
 │ │                      None                 │ │
+│ │                      │   │   },           │ │
+│ │                      │   │                │ │
+│ │                      'RegistrationName':  │ │
+│ │                      {                    │ │
+│ │                      │   │   │   'value': │ │
+│ │                      '...',               │ │
+│ │                      │   │   │            │ │
+│ │                      'location':          │ │
+│ │                      'external file       │ │
+│ │                      (PartyLegalEntity -> │ │
+│ │                      CompanyID)',         │ │
+│ │                      │   │   │            │ │
+│ │                      'label_value': None, │ │
+│ │                      │   │   │            │ │
+│ │                      'label_location':    │ │
+│ │                      None                 │ │
 │ │                      │   │   }            │ │
 │ │                      │   }                │ │
 │ │                      }                    │ │
@@ -607,7 +623,7 @@ None}}
 │ │                      used)',              │ │
 │ │                      │                    │ │
 │ │                      'last_processing_ti… │ │
-│ │                      '2024-04-04T03:35:3… │ │
+│ │                      '2024-04-04T03:42:4… │ │
 │ │                      │                    │ │
 │ │                      'invoice_worksheet': │ │
 │ │                      'Factura(Invoice)',  │ │
@@ -932,4 +948,4 @@ None}}
 │ │                 ws = pylightxl.Database.… │ │
 │ ╰───────────────────────────────────────────╯ │
 ╰───────────────────────────────────────────────╯
-KeyError: 'RegistrationName'
+KeyError: 'phone'
