@@ -49,9 +49,8 @@
     * [x] 5. code. Get owner data by using function `hier_get_data_file()`
     * [x] 6. update `owner.yml` file and add bank information
     * [x] 7. code. Get owner bank information from external data file
-    * [ ] 8. build xl2roefact DLD documentation
-    * [ ] ...code. Review "place where called for OWNER info", clean, update and close
-          #NOTE... @rdinv line 255
+    * [x] 8. build xl2roefact DLD documentation
+    * [x] 9.. code. Review "place where called for OWNER info", clean, update and close code
     * [ ] ... make a template from `owner.yml` (like for `app_settings.yml`)
     * [ ] ... add xl2roefact README doc with section "Utilizare nomenclator de furnizori (sau proprietari)"
     * [ ] ... prep release `0.5.4`
