@@ -1,49 +1,841 @@
 ***INFO: Application settings loaded from file.
 *** Application xl2roefact launched at 2024-04-04
-05:25:20.694663
+05:30:42.486562
 INFO note: files to process: 
 /home/petre/api_to_roefact/xl2roefact/tests/*.xls
 x
 *** Module rdinv started at 2024-04-04 
-05:25:20.698574 to process file 
+05:30:42.490592 to process file 
 Fact_Petrom_11017969.xlsx (full path: 
 /home/petre/api_to_roefact/xl2roefact/tests/Fact_
 Petrom_11017969.xlsx)
 INFO note: `rdinv` module, no worksheet 
 specified, will open first one: 
 'Factura(Invoice)'
-
-Read data as suppl_data_read={'PostalAddress': 
-{'StreetName': '...', 'CityName': '...', 
-'PostalZone': '...', 'CountryCode': 'RO'}, 
-'PartyTaxScheme': {'CompanyID': '...', 
-'TaxScheme': 'VAT'}, 'PartyLegalEntity': 
-{'RegistrationName': '...', 'CompanyID': '...'}, 
-'Contact': {'Telephone': None, 'ElectronicMail': 
-None}}
-
-INFO note: `rdinv` module, written invoice JSON 
-data to: 
-/home/petre/api_to_roefact/xl2roefact/tests/Fact_
-Petrom_11017969.json
-*** Module rdinv started at 2024-04-04 
-05:25:20.752062 to process file 
-fact_RENF1004.xlsx (full path: 
-/home/petre/api_to_roefact/xl2roefact/tests/fact_
-RENF1004.xlsx)
-INFO note: `rdinv` module, no worksheet 
-specified, will open first one: 'FACTURA FINALA'
-
-Read data as suppl_data_read={'PostalAddress': 
-{'StreetName': '...', 'CityName': '...', 
-'PostalZone': '...', 'CountryCode': 'RO'}, 
-'PartyTaxScheme': {'CompanyID': '...', 
-'TaxScheme': 'VAT'}, 'PartyLegalEntity': 
-{'RegistrationName': '...', 'CompanyID': '...'}, 
-'Contact': {'Telephone': None, 'ElectronicMail': 
-None}}
-
-INFO note: `rdinv` module, written invoice JSON 
-data to: 
-/home/petre/api_to_roefact/xl2roefact/tests/fact_
-RENF1004.json
+╭────── Traceback (most recent call last) ──────╮
+│ /home/petre/api_to_roefact/xl2roefact/xl2roef │
+│ act/app_cli.py:157 in xl2json                 │
+│                                               │
+│   154 │   │   if owner_datafile is not None:  │
+│   155 │   │   │   full_path_owner_datafile =  │
+│   156 │   │   │   if full_path_owner_datafile │
+│ ❱ 157 │   │   │   │   invoice_datadict = rdin │
+│   158 │   │   │   else:                       │
+│   159 │   │   │   │   print(f"[red]ERROR: Own │
+│   160 │   │   │   │   return  # just exit...  │
+│                                               │
+│ ╭───────────────── locals ──────────────────╮ │
+│ │             a_file = PosixPath('/home/pe… │ │
+│ │          file_name = '*.xlsx'             │ │
+│ │    files_directory = PosixPath('/home/pe… │ │
+│ │ full_path_owner_dat… PosixPath('/home/pe… │ │
+│ │                    =                      │ │
+│ │ invoice_to_process = PosixPath('/home/pe… │ │
+│ │ list_of_files_to_pr… [                    │ │
+│ │                    = │                    │ │
+│ │                      PosixPath('/home/pe… │ │
+│ │                      │                    │ │
+│ │                      PosixPath('/home/pe… │ │
+│ │                      ]                    │ │
+│ │     owner_datafile = PosixPath('owner.ym… │ │
+│ │ tmp_files_to_process PosixPath('/home/pe… │ │
+│ │                    =                      │ │
+│ │            verbose = False                │ │
+│ ╰───────────────────────────────────────────╯ │
+│                                               │
+│ /home/petre/api_to_roefact/xl2roefact/xl2roef │
+│ act/rdinv.py:247 in rdinv                     │
+│                                               │
+│    244 │   │   │   param_invoice_header_area= │
+│    245 │   │   )                              │
+│    246 │   else:  # get supplier data from ow │
+│ ❱  247 │   │   ret_val = get_partner_data(    │
+│    248 │   │   │   partner_type="OWNER",      │
+│    249 │   │   │   wks=ws,                    │
+│    250 │   │   │   param_invoice_header_area= │
+│                                               │
+│ ╭───────────────── locals ──────────────────╮ │
+│ │                  _ = None                 │ │
+│ │    _area_to_search = ((1, 1), (28, 8))    │ │
+│ │          _cell_col = 3                    │ │
+│ │        _cell_index = (32, 3)              │ │
+│ │          _cell_row = 32                   │ │
+│ │ _found_cell_for_inv… (29, 1, 'No. crt.')  │ │
+│ │                    =                      │ │
+│ │    _start_cell_val = ''                   │ │
+│ │    _tmp_label_info = {                    │ │
+│ │                      │   'value':         │ │
+│ │                      'Denumirea lucrarii  │ │
+│ │                      (Request             │ │
+│ │                      description)',       │ │
+│ │                      │   'location': (    │ │
+│ │                      │   │   29,          │ │
+│ │                      │   │   2            │ │
+│ │                      │   ),               │ │
+│ │                      │   'label_value':   │ │
+│ │                      'No. crt.',          │ │
+│ │                      │                    │ │
+│ │                      'label_location': (  │ │
+│ │                      │   │   29,          │ │
+│ │                      │   │   1            │ │
+│ │                      │   )                │ │
+│ │                      }                    │ │
+│ │    _ulc_footer_row = 34                   │ │
+│ │                 db = pylightxl.Database   │ │
+│ │         debug_info = False                │ │
+│ │ detected_cells_whic… (                    │ │
+│ │                    = │   (30, 8),         │ │
+│ │                      │   (30, 5),         │ │
+│ │                      │   (36, 2),         │ │
+│ │                      │   (36, 3),         │ │
+│ │                      │   (36, 4),         │ │
+│ │                      │   (36, 5),         │ │
+│ │                      │   (36, 6),         │ │
+│ │                      │   (36, 7),         │ │
+│ │                      │   (36, 8),         │ │
+│ │                      │   (31, 3),         │ │
+│ │                      │   ... +33          │ │
+│ │                      )                    │ │
+│ │    file_to_process = PosixPath('/home/pe… │ │
+│ │ invoice_currency_in… {                    │ │
+│ │                    = │   'value': 'RON',  │ │
+│ │                      │   'location': (    │ │
+│ │                      │   │   28,          │ │
+│ │                      │   │   8            │ │
+│ │                      │   ),               │ │
+│ │                      │   'label_value':   │ │
+│ │                      'Currency: RON',     │ │
+│ │                      │                    │ │
+│ │                      'label_location': (  │ │
+│ │                      │   │   28,          │ │
+│ │                      │   │   8            │ │
+│ │                      │   )                │ │
+│ │                      }                    │ │
+│ │  invoice_footer_area {                    │ │
+│ │                    = │   'start_cell': (  │ │
+│ │                      │   │   34,          │ │
+│ │                      │   │   1            │ │
+│ │                      │   ),               │ │
+│ │                      │   'end_cell': (    │ │
+│ │                      │   │   49,          │ │
+│ │                      │   │   8            │ │
+│ │                      │   )                │ │
+│ │                      }                    │ │
+│ │  invoice_header_area {                    │ │
+│ │                    = │   'start_cell': (  │ │
+│ │                      │   │   1,           │ │
+│ │                      │   │   1            │ │
+│ │                      │   ),               │ │
+│ │                      │   'end_cell': (    │ │
+│ │                      │   │   28,          │ │
+│ │                      │   │   8            │ │
+│ │                      │   ),               │ │
+│ │                      │                    │ │
+│ │                      'invoice_number': {  │ │
+│ │                      │   │   'value':     │ │
+│ │                      '11017969',          │ │
+│ │                      │   │   'location':  │ │
+│ │                      (                    │ │
+│ │                      │   │   │   10,      │ │
+│ │                      │   │   │   6        │ │
+│ │                      │   │   ),           │ │
+│ │                      │   │                │ │
+│ │                      'label_value': 'Nr.  │ │
+│ │                      Facturii',           │ │
+│ │                      │   │                │ │
+│ │                      'label_location': (  │ │
+│ │                      │   │   │   10,      │ │
+│ │                      │   │   │   5        │ │
+│ │                      │   │   )            │ │
+│ │                      │   },               │ │
+│ │                      │   'issued_date': { │ │
+│ │                      │   │   'value':     │ │
+│ │                      '2023-10-17',        │ │
+│ │                      │   │   'location':  │ │
+│ │                      (                    │ │
+│ │                      │   │   │   11,      │ │
+│ │                      │   │   │   6        │ │
+│ │                      │   │   ),           │ │
+│ │                      │   │                │ │
+│ │                      'label_value': 'Data │ │
+│ │                      Factura',            │ │
+│ │                      │   │                │ │
+│ │                      'label_location': (  │ │
+│ │                      │   │   │   11,      │ │
+│ │                      │   │   │   5        │ │
+│ │                      │   │   )            │ │
+│ │                      │   },               │ │
+│ │                      │   'currency': {    │ │
+│ │                      │   │   'value':     │ │
+│ │                      'RON',               │ │
+│ │                      │   │   'location':  │ │
+│ │                      (                    │ │
+│ │                      │   │   │   28,      │ │
+│ │                      │   │   │   8        │ │
+│ │                      │   │   ),           │ │
+│ │                      │   │                │ │
+│ │                      'label_value':       │ │
+│ │                      'Currency: RON',     │ │
+│ │                      │   │                │ │
+│ │                      'label_location': (  │ │
+│ │                      │   │   │   28,      │ │
+│ │                      │   │   │   8        │ │
+│ │                      │   │   )            │ │
+│ │                      │   },               │ │
+│ │                      │   'customer_area': │ │
+│ │                      {                    │ │
+│ │                      │   │   'area_info': │ │
+│ │                      {                    │ │
+│ │                      │   │   │   'value': │ │
+│ │                      'OMV Petrom S.A.',   │ │
+│ │                      │   │   │            │ │
+│ │                      'location': (        │ │
+│ │                      │   │   │   │   (    │ │
+│ │                      │   │   │   │   │    │ │
+│ │                      8,                   │ │
+│ │                      │   │   │   │   │    │ │
+│ │                      2                    │ │
+│ │                      │   │   │   │   ),   │ │
+│ │                      │   │   │   │   (    │ │
+│ │                      │   │   │   │   │    │ │
+│ │                      18,                  │ │
+│ │                      │   │   │   │   │    │ │
+│ │                      3                    │ │
+│ │                      │   │   │   │   )    │ │
+│ │                      │   │   │   )        │ │
+│ │                      │   │   },           │ │
+│ │                      │   │   'CUI': {     │ │
+│ │                      │   │   │   'value': │ │
+│ │                      'RO1590082',         │ │
+│ │                      │   │   │            │ │
+│ │                      'location': (        │ │
+│ │                      │   │   │   │   10,  │ │
+│ │                      │   │   │   │   2    │ │
+│ │                      │   │   │   ),       │ │
+│ │                      │   │   │            │ │
+│ │                      'label_value':       │ │
+│ │                      'C.U.I. RO1590082',  │ │
+│ │                      │   │   │            │ │
+│ │                      'label_location': (  │ │
+│ │                      │   │   │   │   10,  │ │
+│ │                      │   │   │   │   2    │ │
+│ │                      │   │   │   )        │ │
+│ │                      │   │   },           │ │
+│ │                      │   │                │ │
+│ │                      'RegistrationName':  │ │
+│ │                      {                    │ │
+│ │                      │   │   │   'value': │ │
+│ │                      'OMV Petrom S.A.',   │ │
+│ │                      │   │   │            │ │
+│ │                      'location': (        │ │
+│ │                      │   │   │   │   8,   │ │
+│ │                      │   │   │   │   2    │ │
+│ │                      │   │   │   ),       │ │
+│ │                      │   │   │            │ │
+│ │                      'label_value':       │ │
+│ │                      'n/a',               │ │
+│ │                      │   │   │            │ │
+│ │                      'label_location':    │ │
+│ │                      'n/a'                │ │
+│ │                      │   │   },           │ │
+│ │                      │   │                │ │
+│ │                      'PostalAddress': {   │ │
+│ │                      │   │   │            │ │
+│ │                      'cbc_StreetName':    │ │
+│ │                      'Coralilor Nr. 22',  │ │
+│ │                      │   │   │            │ │
+│ │                      'cbc_CityName': '',  │ │
+│ │                      │   │   │            │ │
+│ │                      'cbc_PostalZone':    │ │
+│ │                      'Postal 013329',     │ │
+│ │                      │   │   │            │ │
+│ │                      'cac_Country': {     │ │
+│ │                      │   │   │   │        │ │
+│ │                      'cbc_Identification… │ │
+│ │                      'RO'                 │ │
+│ │                      │   │   │   }        │ │
+│ │                      │   │   },           │ │
+│ │                      │   │   'reg_com': { │ │
+│ │                      │   │   │   'value': │ │
+│ │                      None,                │ │
+│ │                      │   │   │            │ │
+│ │                      'location': (        │ │
+│ │                      │   │   │   │        │ │
+│ │                      None,                │ │
+│ │                      │   │   │   │   None │ │
+│ │                      │   │   │   ),       │ │
+│ │                      │   │   │            │ │
+│ │                      'label_value': None, │ │
+│ │                      │   │   │            │ │
+│ │                      'label_location':    │ │
+│ │                      None                 │ │
+│ │                      │   │   },           │ │
+│ │                      │   │   'bank': {    │ │
+│ │                      │   │   │   'value': │ │
+│ │                      'Comerciala Romana', │ │
+│ │                      │   │   │            │ │
+│ │                      'location': (        │ │
+│ │                      │   │   │   │   16,  │ │
+│ │                      │   │   │   │   2    │ │
+│ │                      │   │   │   ),       │ │
+│ │                      │   │   │            │ │
+│ │                      'label_value':       │ │
+│ │                      'Banca Comerciala    │ │
+│ │                      Romana',             │ │
+│ │                      │   │   │            │ │
+│ │                      'label_location': (  │ │
+│ │                      │   │   │   │   16,  │ │
+│ │                      │   │   │   │   2    │ │
+│ │                      │   │   │   )        │ │
+│ │                      │   │   },           │ │
+│ │                      │   │   'IBAN': {    │ │
+│ │                      │   │   │   'value': │ │
+│ │                      None,                │ │
+│ │                      │   │   │            │ │
+│ │                      'location': (        │ │
+│ │                      │   │   │   │        │ │
+│ │                      None,                │ │
+│ │                      │   │   │   │   None │ │
+│ │                      │   │   │   ),       │ │
+│ │                      │   │   │            │ │
+│ │                      'label_value': None, │ │
+│ │                      │   │   │            │ │
+│ │                      'label_location':    │ │
+│ │                      None                 │ │
+│ │                      │   │   },           │ │
+│ │                      │   │   'phone': {   │ │
+│ │                      │   │   │   'value': │ │
+│ │                      None,                │ │
+│ │                      │   │   │            │ │
+│ │                      'location': (        │ │
+│ │                      │   │   │   │        │ │
+│ │                      None,                │ │
+│ │                      │   │   │   │   None │ │
+│ │                      │   │   │   ),       │ │
+│ │                      │   │   │            │ │
+│ │                      'label_value': None, │ │
+│ │                      │   │   │            │ │
+│ │                      'label_location':    │ │
+│ │                      None                 │ │
+│ │                      │   │   },           │ │
+│ │                      │   │   'email': {   │ │
+│ │                      │   │   │   'value': │ │
+│ │                      None,                │ │
+│ │                      │   │   │            │ │
+│ │                      'location': (        │ │
+│ │                      │   │   │   │        │ │
+│ │                      None,                │ │
+│ │                      │   │   │   │   None │ │
+│ │                      │   │   │   ),       │ │
+│ │                      │   │   │            │ │
+│ │                      'label_value': None, │ │
+│ │                      │   │   │            │ │
+│ │                      'label_location':    │ │
+│ │                      None                 │ │
+│ │                      │   │   }            │ │
+│ │                      │   },               │ │
+│ │                      │   'supplier_area': │ │
+│ │                      {                    │ │
+│ │                      │   │   'area_info': │ │
+│ │                      {                    │ │
+│ │                      │   │   │   'value': │ │
+│ │                      '/home/petre/api_to… │ │
+│ │                      │   │   │            │ │
+│ │                      'location':          │ │
+│ │                      'external file'      │ │
+│ │                      │   │   },           │ │
+│ │                      │   │   'CUI': {     │ │
+│ │                      │   │   │   'value': │ │
+│ │                      '...',               │ │
+│ │                      │   │   │            │ │
+│ │                      'location':          │ │
+│ │                      'external file       │ │
+│ │                      (PartyLegalEntity -> │ │
+│ │                      CompanyID)',         │ │
+│ │                      │   │   │            │ │
+│ │                      'label_value': None, │ │
+│ │                      │   │   │            │ │
+│ │                      'label_location':    │ │
+│ │                      None                 │ │
+│ │                      │   │   },           │ │
+│ │                      │   │                │ │
+│ │                      'RegistrationName':  │ │
+│ │                      {                    │ │
+│ │                      │   │   │   'value': │ │
+│ │                      '...',               │ │
+│ │                      │   │   │            │ │
+│ │                      'location':          │ │
+│ │                      'external file       │ │
+│ │                      (PartyLegalEntity -> │ │
+│ │                      CompanyID)',         │ │
+│ │                      │   │   │            │ │
+│ │                      'label_value': None, │ │
+│ │                      │   │   │            │ │
+│ │                      'label_location':    │ │
+│ │                      None                 │ │
+│ │                      │   │   },           │ │
+│ │                      │   │                │ │
+│ │                      'PostalAddress': {   │ │
+│ │                      │   │   │            │ │
+│ │                      'cbc_StreetName':    │ │
+│ │                      '...',               │ │
+│ │                      │   │   │            │ │
+│ │                      'cbc_CityName':      │ │
+│ │                      '...',               │ │
+│ │                      │   │   │            │ │
+│ │                      'cbc_PostalZone':    │ │
+│ │                      '...',               │ │
+│ │                      │   │   │            │ │
+│ │                      'cac_Country': {     │ │
+│ │                      │   │   │   │        │ │
+│ │                      'cbc_Identification… │ │
+│ │                      'RO'                 │ │
+│ │                      │   │   │   }        │ │
+│ │                      │   │   },           │ │
+│ │                      │   │   'reg_com': { │ │
+│ │                      │   │   │   'value': │ │
+│ │                      '...',               │ │
+│ │                      │   │   │            │ │
+│ │                      'location':          │ │
+│ │                      'external file       │ │
+│ │                      (PartyLegalEntity -> │ │
+│ │                      CompanyID)'          │ │
+│ │                      │   │   }            │ │
+│ │                      │   }                │ │
+│ │                      }                    │ │
+│ │ invoice_items_area = {                    │ │
+│ │                      │   'keyrows': [     │ │
+│ │                      │   │   1,           │ │
+│ │                      │   │   '1.NOTE-a',  │ │
+│ │                      │   │   2            │ │
+│ │                      │   ],               │ │
+│ │                      │   'keycols': [     │ │
+│ │                      │   │   'Denumirea   │ │
+│ │                      lucrarii             │ │
+│ │                      (Request             │ │
+│ │                      description)',       │ │
+│ │                      │   │   'Cantitatea  │ │
+│ │                      (Quantity)',         │ │
+│ │                      │   │   'Pret unitar │ │
+│ │                      (Unit price)',       │ │
+│ │                      │   │   'Cota TVA    │ │
+│ │                      (VAT %)',            │ │
+│ │                      │   │   'Valoare     │ │
+│ │                      fara TVA (Value      │ │
+│ │                      without VAT)',       │ │
+│ │                      │   │   'Valoare TVA │ │
+│ │                      (Value VAT)'         │ │
+│ │                      │   ],               │ │
+│ │                      │   'data': [        │ │
+│ │                      │   │   [            │ │
+│ │                      │   │   │            │ │
+│ │                      'Inlocuit conducta   │ │
+│ │                      PSI coloana C2       │ │
+│ │                      DAV.',               │ │
+│ │                      │   │   │   1,       │ │
+│ │                      │   │   │            │ │
+│ │                      42756.08,            │ │
+│ │                      │   │   │   0.19,    │ │
+│ │                      │   │   │            │ │
+│ │                      42756.08,            │ │
+│ │                      │   │   │            │ │
+│ │                      8123.6552            │ │
+│ │                      │   │   ],           │ │
+│ │                      │   │   [            │ │
+│ │                      │   │   │   'SES     │ │
+│ │                      8105685514',         │ │
+│ │                      │   │   │   '',      │ │
+│ │                      │   │   │   '',      │ │
+│ │                      │   │   │   '',      │ │
+│ │                      │   │   │   '',      │ │
+│ │                      │   │   │   ''       │ │
+│ │                      │   │   ],           │ │
+│ │                      │   │   [            │ │
+│ │                      │   │   │   'Acciza  │ │
+│ │                      de test (2%)',       │ │
+│ │                      │   │   │   1,       │ │
+│ │                      │   │   │            │ │
+│ │                      855.1216000000001,   │ │
+│ │                      │   │   │   0,       │ │
+│ │                      │   │   │            │ │
+│ │                      855.1216000000001,   │ │
+│ │                      │   │   │   0        │ │
+│ │                      │   │   ]            │ │
+│ │                      │   ]                │ │
+│ │                      }                    │ │
+│ │  invoice_number_info {                    │ │
+│ │                    = │   'value':         │ │
+│ │                      '11017969',          │ │
+│ │                      │   'location': (    │ │
+│ │                      │   │   10,          │ │
+│ │                      │   │   6            │ │
+│ │                      │   ),               │ │
+│ │                      │   'label_value':   │ │
+│ │                      'Nr. Facturii',      │ │
+│ │                      │                    │ │
+│ │                      'label_location': (  │ │
+│ │                      │   │   10,          │ │
+│ │                      │   │   5            │ │
+│ │                      │   )                │ │
+│ │                      }                    │ │
+│ │ invoice_worksheet_n… 'Factura(Invoice)'   │ │
+│ │                    =                      │ │
+│ │   issued_date_info = {                    │ │
+│ │                      │   'value':         │ │
+│ │                      '2023-10-17',        │ │
+│ │                      │   'location': (    │ │
+│ │                      │   │   11,          │ │
+│ │                      │   │   6            │ │
+│ │                      │   ),               │ │
+│ │                      │   'label_value':   │ │
+│ │                      'Data Factura',      │ │
+│ │                      │                    │ │
+│ │                      'label_location': (  │ │
+│ │                      │   │   11,          │ │
+│ │                      │   │   5            │ │
+│ │                      │   )                │ │
+│ │                      }                    │ │
+│ │ keyword_for_items_t… 'No. crt.'           │ │
+│ │                    =                      │ │
+│ │ list_of_excel_works… ['Factura(Invoice)'] │ │
+│ │                    =                      │ │
+│ │         lrc_footer = (49, 8)              │ │
+│ │         lrc_header = (28, 8)              │ │
+│ │     owner_datafile = PosixPath('/home/pe… │ │
+│ │         ulc_footer = (34, 1)              │ │
+│ │         ulc_header = (1, 1)               │ │
+│ │                 ws = pylightxl.Database.… │ │
+│ ╰───────────────────────────────────────────╯ │
+│                                               │
+│ /home/petre/api_to_roefact/xl2roefact/xl2roef │
+│ act/rdinv.py:932 in get_partner_data          │
+│                                               │
+│    929 │   │   │   "location": "external file │
+│    930 │   │   }                              │
+│    931 │   │   param_invoice_header_area[unif │
+│ ❱  932 │   │   │   "value": sup7pl_data_read[ │
+│    933 │   │   │   "location": "external file │
+│    934 │   │   }                              │
+│    935 │   │   param_invoice_header_area[unif │
+│                                               │
+│ ╭───────────────── locals ──────────────────╮ │
+│ │           file_ok = True                  │ │
+│ │ param_invoice_head… {                     │ │
+│ │                   = │   'start_cell': (   │ │
+│ │                     │   │   1,            │ │
+│ │                     │   │   1             │ │
+│ │                     │   ),                │ │
+│ │                     │   'end_cell': (     │ │
+│ │                     │   │   28,           │ │
+│ │                     │   │   8             │ │
+│ │                     │   ),                │ │
+│ │                     │   'invoice_number': │ │
+│ │                     {                     │ │
+│ │                     │   │   'value':      │ │
+│ │                     '11017969',           │ │
+│ │                     │   │   'location': ( │ │
+│ │                     │   │   │   10,       │ │
+│ │                     │   │   │   6         │ │
+│ │                     │   │   ),            │ │
+│ │                     │   │                 │ │
+│ │                     'label_value': 'Nr.   │ │
+│ │                     Facturii',            │ │
+│ │                     │   │                 │ │
+│ │                     'label_location': (   │ │
+│ │                     │   │   │   10,       │ │
+│ │                     │   │   │   5         │ │
+│ │                     │   │   )             │ │
+│ │                     │   },                │ │
+│ │                     │   'issued_date': {  │ │
+│ │                     │   │   'value':      │ │
+│ │                     '2023-10-17',         │ │
+│ │                     │   │   'location': ( │ │
+│ │                     │   │   │   11,       │ │
+│ │                     │   │   │   6         │ │
+│ │                     │   │   ),            │ │
+│ │                     │   │                 │ │
+│ │                     'label_value': 'Data  │ │
+│ │                     Factura',             │ │
+│ │                     │   │                 │ │
+│ │                     'label_location': (   │ │
+│ │                     │   │   │   11,       │ │
+│ │                     │   │   │   5         │ │
+│ │                     │   │   )             │ │
+│ │                     │   },                │ │
+│ │                     │   'currency': {     │ │
+│ │                     │   │   'value':      │ │
+│ │                     'RON',                │ │
+│ │                     │   │   'location': ( │ │
+│ │                     │   │   │   28,       │ │
+│ │                     │   │   │   8         │ │
+│ │                     │   │   ),            │ │
+│ │                     │   │                 │ │
+│ │                     'label_value':        │ │
+│ │                     'Currency: RON',      │ │
+│ │                     │   │                 │ │
+│ │                     'label_location': (   │ │
+│ │                     │   │   │   28,       │ │
+│ │                     │   │   │   8         │ │
+│ │                     │   │   )             │ │
+│ │                     │   },                │ │
+│ │                     │   'customer_area':  │ │
+│ │                     {                     │ │
+│ │                     │   │   'area_info':  │ │
+│ │                     {                     │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     'OMV Petrom S.A.',    │ │
+│ │                     │   │   │             │ │
+│ │                     'location': (         │ │
+│ │                     │   │   │   │   (     │ │
+│ │                     │   │   │   │   │     │ │
+│ │                     8,                    │ │
+│ │                     │   │   │   │   │   2 │ │
+│ │                     │   │   │   │   ),    │ │
+│ │                     │   │   │   │   (     │ │
+│ │                     │   │   │   │   │     │ │
+│ │                     18,                   │ │
+│ │                     │   │   │   │   │   3 │ │
+│ │                     │   │   │   │   )     │ │
+│ │                     │   │   │   )         │ │
+│ │                     │   │   },            │ │
+│ │                     │   │   'CUI': {      │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     'RO1590082',          │ │
+│ │                     │   │   │             │ │
+│ │                     'location': (         │ │
+│ │                     │   │   │   │   10,   │ │
+│ │                     │   │   │   │   2     │ │
+│ │                     │   │   │   ),        │ │
+│ │                     │   │   │             │ │
+│ │                     'label_value':        │ │
+│ │                     'C.U.I. RO1590082',   │ │
+│ │                     │   │   │             │ │
+│ │                     'label_location': (   │ │
+│ │                     │   │   │   │   10,   │ │
+│ │                     │   │   │   │   2     │ │
+│ │                     │   │   │   )         │ │
+│ │                     │   │   },            │ │
+│ │                     │   │                 │ │
+│ │                     'RegistrationName': { │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     'OMV Petrom S.A.',    │ │
+│ │                     │   │   │             │ │
+│ │                     'location': (         │ │
+│ │                     │   │   │   │   8,    │ │
+│ │                     │   │   │   │   2     │ │
+│ │                     │   │   │   ),        │ │
+│ │                     │   │   │             │ │
+│ │                     'label_value': 'n/a', │ │
+│ │                     │   │   │             │ │
+│ │                     'label_location':     │ │
+│ │                     'n/a'                 │ │
+│ │                     │   │   },            │ │
+│ │                     │   │                 │ │
+│ │                     'PostalAddress': {    │ │
+│ │                     │   │   │             │ │
+│ │                     'cbc_StreetName':     │ │
+│ │                     'Coralilor Nr. 22',   │ │
+│ │                     │   │   │             │ │
+│ │                     'cbc_CityName': '',   │ │
+│ │                     │   │   │             │ │
+│ │                     'cbc_PostalZone':     │ │
+│ │                     'Postal 013329',      │ │
+│ │                     │   │   │             │ │
+│ │                     'cac_Country': {      │ │
+│ │                     │   │   │   │         │ │
+│ │                     'cbc_IdentificationC… │ │
+│ │                     'RO'                  │ │
+│ │                     │   │   │   }         │ │
+│ │                     │   │   },            │ │
+│ │                     │   │   'reg_com': {  │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     None,                 │ │
+│ │                     │   │   │             │ │
+│ │                     'location': (         │ │
+│ │                     │   │   │   │   None, │ │
+│ │                     │   │   │   │   None  │ │
+│ │                     │   │   │   ),        │ │
+│ │                     │   │   │             │ │
+│ │                     'label_value': None,  │ │
+│ │                     │   │   │             │ │
+│ │                     'label_location':     │ │
+│ │                     None                  │ │
+│ │                     │   │   },            │ │
+│ │                     │   │   'bank': {     │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     'Comerciala Romana',  │ │
+│ │                     │   │   │             │ │
+│ │                     'location': (         │ │
+│ │                     │   │   │   │   16,   │ │
+│ │                     │   │   │   │   2     │ │
+│ │                     │   │   │   ),        │ │
+│ │                     │   │   │             │ │
+│ │                     'label_value': 'Banca │ │
+│ │                     Comerciala Romana',   │ │
+│ │                     │   │   │             │ │
+│ │                     'label_location': (   │ │
+│ │                     │   │   │   │   16,   │ │
+│ │                     │   │   │   │   2     │ │
+│ │                     │   │   │   )         │ │
+│ │                     │   │   },            │ │
+│ │                     │   │   'IBAN': {     │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     None,                 │ │
+│ │                     │   │   │             │ │
+│ │                     'location': (         │ │
+│ │                     │   │   │   │   None, │ │
+│ │                     │   │   │   │   None  │ │
+│ │                     │   │   │   ),        │ │
+│ │                     │   │   │             │ │
+│ │                     'label_value': None,  │ │
+│ │                     │   │   │             │ │
+│ │                     'label_location':     │ │
+│ │                     None                  │ │
+│ │                     │   │   },            │ │
+│ │                     │   │   'phone': {    │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     None,                 │ │
+│ │                     │   │   │             │ │
+│ │                     'location': (         │ │
+│ │                     │   │   │   │   None, │ │
+│ │                     │   │   │   │   None  │ │
+│ │                     │   │   │   ),        │ │
+│ │                     │   │   │             │ │
+│ │                     'label_value': None,  │ │
+│ │                     │   │   │             │ │
+│ │                     'label_location':     │ │
+│ │                     None                  │ │
+│ │                     │   │   },            │ │
+│ │                     │   │   'email': {    │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     None,                 │ │
+│ │                     │   │   │             │ │
+│ │                     'location': (         │ │
+│ │                     │   │   │   │   None, │ │
+│ │                     │   │   │   │   None  │ │
+│ │                     │   │   │   ),        │ │
+│ │                     │   │   │             │ │
+│ │                     'label_value': None,  │ │
+│ │                     │   │   │             │ │
+│ │                     'label_location':     │ │
+│ │                     None                  │ │
+│ │                     │   │   }             │ │
+│ │                     │   },                │ │
+│ │                     │   'supplier_area':  │ │
+│ │                     {                     │ │
+│ │                     │   │   'area_info':  │ │
+│ │                     {                     │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     '/home/petre/api_to_… │ │
+│ │                     │   │   │             │ │
+│ │                     'location': 'external │ │
+│ │                     file'                 │ │
+│ │                     │   │   },            │ │
+│ │                     │   │   'CUI': {      │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     '...',                │ │
+│ │                     │   │   │             │ │
+│ │                     'location': 'external │ │
+│ │                     file                  │ │
+│ │                     (PartyLegalEntity ->  │ │
+│ │                     CompanyID)',          │ │
+│ │                     │   │   │             │ │
+│ │                     'label_value': None,  │ │
+│ │                     │   │   │             │ │
+│ │                     'label_location':     │ │
+│ │                     None                  │ │
+│ │                     │   │   },            │ │
+│ │                     │   │                 │ │
+│ │                     'RegistrationName': { │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     '...',                │ │
+│ │                     │   │   │             │ │
+│ │                     'location': 'external │ │
+│ │                     file                  │ │
+│ │                     (PartyLegalEntity ->  │ │
+│ │                     CompanyID)',          │ │
+│ │                     │   │   │             │ │
+│ │                     'label_value': None,  │ │
+│ │                     │   │   │             │ │
+│ │                     'label_location':     │ │
+│ │                     None                  │ │
+│ │                     │   │   },            │ │
+│ │                     │   │                 │ │
+│ │                     'PostalAddress': {    │ │
+│ │                     │   │   │             │ │
+│ │                     'cbc_StreetName':     │ │
+│ │                     '...',                │ │
+│ │                     │   │   │             │ │
+│ │                     'cbc_CityName':       │ │
+│ │                     '...',                │ │
+│ │                     │   │   │             │ │
+│ │                     'cbc_PostalZone':     │ │
+│ │                     '...',                │ │
+│ │                     │   │   │             │ │
+│ │                     'cac_Country': {      │ │
+│ │                     │   │   │   │         │ │
+│ │                     'cbc_IdentificationC… │ │
+│ │                     'RO'                  │ │
+│ │                     │   │   │   }         │ │
+│ │                     │   │   },            │ │
+│ │                     │   │   'reg_com': {  │ │
+│ │                     │   │   │   'value':  │ │
+│ │                     '...',                │ │
+│ │                     │   │   │             │ │
+│ │                     'location': 'external │ │
+│ │                     file                  │ │
+│ │                     (PartyLegalEntity ->  │ │
+│ │                     CompanyID)'           │ │
+│ │                     │   │   }             │ │
+│ │                     │   }                 │ │
+│ │                     }                     │ │
+│ │      partner_type = 'OWNER'               │ │
+│ │   suppl_data_read = {                     │ │
+│ │                     │   'PostalAddress':  │ │
+│ │                     {                     │ │
+│ │                     │   │   'StreetName': │ │
+│ │                     '...',                │ │
+│ │                     │   │   'CityName':   │ │
+│ │                     '...',                │ │
+│ │                     │   │   'PostalZone': │ │
+│ │                     '...',                │ │
+│ │                     │   │                 │ │
+│ │                     'CountryCode': 'RO'   │ │
+│ │                     │   },                │ │
+│ │                     │   'PartyTaxScheme': │ │
+│ │                     {                     │ │
+│ │                     │   │   'CompanyID':  │ │
+│ │                     '...',                │ │
+│ │                     │   │   'TaxScheme':  │ │
+│ │                     'VAT'                 │ │
+│ │                     │   },                │ │
+│ │                     │                     │ │
+│ │                     'PartyLegalEntity': { │ │
+│ │                     │   │                 │ │
+│ │                     'RegistrationName':   │ │
+│ │                     '...',                │ │
+│ │                     │   │   'CompanyID':  │ │
+│ │                     '...'                 │ │
+│ │                     │   },                │ │
+│ │                     │   'Contact': {      │ │
+│ │                     │   │   'Telephone':  │ │
+│ │                     None,                 │ │
+│ │                     │   │                 │ │
+│ │                     'ElectronicMail':     │ │
+│ │                     None                  │ │
+│ │                     │   }                 │ │
+│ │                     }                     │ │
+│ │ supplier_datafile = PosixPath('/home/pet… │ │
+│ │ supplier_datafile_… '/home/petre/api_to_… │ │
+│ │                   =                       │ │
+│ │ unif_partner_area_… 'supplier_area'       │ │
+│ │                   =                       │ │
+│ │               wks = pylightxl.Database.W… │ │
+│ │           yaml_in = '#\n# Owner data      │ │
+│ │                     entity. \n#    -      │ │
+│ │                     entity that contains  │ │
+│ │                     owner master data\n#  │ │
+│ │                     - fie'+1934           │ │
+│ ╰───────────────────────────────────────────╯ │
+╰───────────────────────────────────────────────╯
+NameError: name 'sup7pl_data_read' is not defined
