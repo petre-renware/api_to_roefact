@@ -693,8 +693,9 @@ def _get_merged_cells_tobe_changed(
         `cells_to_be_changed`: list with cells that need to be chaged in format `(row,col)`.
 
     Notes:
-        * function is intended to be used ONLY internal in this module.
-        * use `openpyxl` library to do its job.
+    
+    * function is intended to be used ONLY internal in this module.
+    * use `openpyxl` library to do its job.
     """
     all_detected_ranges = []
     # open Excel file & worksheet
@@ -747,7 +748,7 @@ def _get_merged_cells_tobe_changed(
 
 
 # NOTE: ready, test PASS @ 231127 by [piu]
-def _build_meta_info_key(
+def build_meta_info_key(
     excel_file_to_process: str,
     invoice_worksheet_name: str,
     ws_size: list,
@@ -757,8 +758,9 @@ def _build_meta_info_key(
     """build meta_info key to preserve processed Excel file meta information: start address, size.
 
     Notes:
-        1: all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update.
-        2: this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality').
+    
+    * (1.) all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update.
+    * (2.) this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality').
 
     Args:
         `excel_file_to_process`: name of file to process as would appear in `meta_info` key.
