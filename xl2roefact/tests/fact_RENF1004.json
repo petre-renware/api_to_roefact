@@ -198,7 +198,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-04T05:16:26.456031+00:00",
+        "last_processing_time": "2024-04-04T05:25:20.815494+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
@@ -639,19 +639,24 @@
                     }
                 },
                 "reg_com": {
-                    "value": "..."
+                    "value": "...",
+                    "location": "external file (PartyLegalEntity -> CompanyID)"
                 },
                 "phone": {
-                    "value": null
+                    "value": null,
+                    "location": "external file (Contact -> Telephone)"
                 },
                 "email": {
-                    "value": null
+                    "value": null,
+                    "location": "external file (Contact -> ElectronicMail)"
                 },
                 "bank": {
-                    "value": "...new field tbd... bank"
+                    "value": "...new field tbd... bank",
+                    "location": "external file (...NOT YET DEFINED...)"
                 },
                 "IBAN": {
-                    "value": "...new field tbd... IBAN"
+                    "value": "...new field tbd... IBAN",
+                    "location": "external file (...NOT YET DEFINED...)"
                 }
             }
         },

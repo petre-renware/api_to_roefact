@@ -171,7 +171,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-04T05:16:26.389837+00:00",
+        "last_processing_time": "2024-04-04T05:25:20.749550+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -576,19 +576,24 @@
                     }
                 },
                 "reg_com": {
-                    "value": "..."
+                    "value": "...",
+                    "location": "external file (PartyLegalEntity -> CompanyID)"
                 },
                 "phone": {
-                    "value": null
+                    "value": null,
+                    "location": "external file (Contact -> Telephone)"
                 },
                 "email": {
-                    "value": null
+                    "value": null,
+                    "location": "external file (Contact -> ElectronicMail)"
                 },
                 "bank": {
-                    "value": "...new field tbd... bank"
+                    "value": "...new field tbd... bank",
+                    "location": "external file (...NOT YET DEFINED...)"
                 },
                 "IBAN": {
-                    "value": "...new field tbd... IBAN"
+                    "value": "...new field tbd... IBAN",
+                    "location": "external file (...NOT YET DEFINED...)"
                 }
             }
         },
