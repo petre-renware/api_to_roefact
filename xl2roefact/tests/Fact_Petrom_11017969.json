@@ -29,8 +29,8 @@
         "cac_AccountingSupplierParty": {
             "cac_Party": {
                 "cac_PartyLegalEntity": {
-                    "cbc_CompanyID": "RO1590082",
-                    "cbc_RegistrationName": "OMV Petrom S.A."
+                    "cbc_CompanyID": "...",
+                    "cbc_RegistrationName": "..."
                 },
                 "cac_PostalAddress": {
                     "cbc_StreetName": "Coralilor Nr. 22",
@@ -43,12 +43,12 @@
                 "cac_Contact": {
                     "cbc_Telephone": null,
                     "cbc_ElectronicMail": null,
-                    "RegCom": null,
-                    "Bank": "Comerciala Romana",
-                    "IBAN": null
+                    "RegCom": "...",
+                    "Bank": "...new field tbd... bank",
+                    "IBAN": "...new field tbd... IBAN"
                 },
                 "cac_PartyTaxScheme": {
-                    "cbc_CompanyID": "RO1590082",
+                    "cbc_CompanyID": "...",
                     "cac_TaxScheme": {
                         "cbc_ID": "VAT"
                     }
@@ -171,7 +171,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-03T06:50:55.743220+00:00",
+        "last_processing_time": "2024-04-04T05:16:26.389837+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -552,94 +552,43 @@
             },
             "supplier_area": {
                 "area_info": {
-                    "value": "OMV Petrom S.A.",
-                    "location": [
-                        [
-                            8,
-                            2
-                        ],
-                        [
-                            18,
-                            3
-                        ]
-                    ]
+                    "value": "/home/petre/api_to_roefact/xl2roefact/xl2roefact/data/owner.yml",
+                    "location": "external file"
                 },
                 "CUI": {
-                    "value": "RO1590082",
-                    "location": [
-                        10,
-                        2
-                    ],
-                    "label_value": "C.U.I. RO1590082",
-                    "label_location": [
-                        10,
-                        2
-                    ]
+                    "value": "...",
+                    "location": "external file (PartyLegalEntity -> CompanyID)",
+                    "label_value": null,
+                    "label_location": null
                 },
                 "RegistrationName": {
-                    "value": "OMV Petrom S.A.",
-                    "location": [
-                        8,
-                        2
-                    ],
-                    "label_value": "n/a",
-                    "label_location": "n/a"
+                    "value": "...",
+                    "location": "external file (PartyLegalEntity -> CompanyID)",
+                    "label_value": null,
+                    "label_location": null
                 },
                 "PostalAddress": {
-                    "cbc_StreetName": "Coralilor Nr. 22",
-                    "cbc_CityName": "",
-                    "cbc_PostalZone": "Postal 013329",
+                    "cbc_StreetName": "...",
+                    "cbc_CityName": "...",
+                    "cbc_PostalZone": "...",
                     "cac_Country": {
                         "cbc_IdentificationCode": "RO"
                     }
                 },
                 "reg_com": {
-                    "value": null,
-                    "location": [
-                        null,
-                        null
-                    ],
-                    "label_value": null,
-                    "label_location": null
-                },
-                "bank": {
-                    "value": "Comerciala Romana",
-                    "location": [
-                        16,
-                        2
-                    ],
-                    "label_value": "Banca Comerciala Romana",
-                    "label_location": [
-                        16,
-                        2
-                    ]
-                },
-                "IBAN": {
-                    "value": null,
-                    "location": [
-                        null,
-                        null
-                    ],
-                    "label_value": null,
-                    "label_location": null
+                    "value": "..."
                 },
                 "phone": {
-                    "value": null,
-                    "location": [
-                        null,
-                        null
-                    ],
-                    "label_value": null,
-                    "label_location": null
+                    "value": null
                 },
                 "email": {
-                    "value": null,
-                    "location": [
-                        null,
-                        null
-                    ],
-                    "label_value": null,
-                    "label_location": null
+                    "value": null
+                },
+                "bank": {
+                    "value": "...new field tbd... bank"
+                },
+                "IBAN": {
+                    "value": "...new field tbd... IBAN"
                 }
             }
         },
