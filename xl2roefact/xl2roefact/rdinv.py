@@ -925,7 +925,14 @@ def get_partner_data(
             "cbc_PostalZone": suppl_data_read["PostalAddress"]["PostalZone"],
             "cac_Country": {"cbc_IdentificationCode": suppl_data_read["PostalAddress"]["CountryCode"]},
         }
-        ... # there are unused fields that goes in final scheme
+        ... # Tax & Contact
+        param_invoice_header_area[unif_partner_area_key]["reg_com"] = suppl_data_read["PartyTaxScheme"]["CompanyID"]
+        param_invoice_header_area[unif_partner_area_key]["reg_com"] = suppl_data_read["PartyTaxScheme"]["TaxScheme"]
+        param_invoice_header_area[unif_partner_area_key]["phone"] = suppl_data_read["Contact"]["Telephone"]
+        param_invoice_header_area[unif_partner_area_key]["email"] = suppl_data_read["Contact"]["ElectronicMail"]
+        ... #TODO: ...wip first add them in YAML owner file
+        param_invoice_header_area[unif_partner_area_key]["bank"] = "...new field tbd... bank"
+        param_invoice_header_area[unif_partner_area_key]["IBAN"] = "...new field tbd... IBAN"
         '''data read data;
 'PostalAddress': 
     -used- 'StreetName': '...',
@@ -934,16 +941,16 @@ def get_partner_data(
     -uses- 'CountryCode': 'RO'
 
 'PartyTaxScheme': 
-    'CompanyID"': '...',
-    'TaxScheme': 'VAT'
+    -used- 'CompanyID"': '...',
+    -used- 'TaxScheme': 'VAT'
 
 'PartyLegalEntity': 
     -used- 'RegistrationName': '...',
     -used- 'CompanyID': '...'
 
 'Contact': 
-    'Telephone': None,
-    'ElectronicMail': None
+    -used- 'Telephone': None,
+    -used- 'ElectronicMail': None
 
         '''
         return  #TODO... then ret to line 255 and complete there
