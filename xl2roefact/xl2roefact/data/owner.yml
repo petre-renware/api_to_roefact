@@ -24,7 +24,7 @@ PostalAddress:
 #    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
 #    - Version 1 allow only VAT tax scheme. Do not change field as other values will nor be recognized and will default to VAT
 PartyTaxScheme:
-    CompanyID": ...  # Mandatory if VAT registered. legal VAT registration number
+    CompanyID: ...  # Mandatory if VAT registered. legal VAT registration number
     TaxScheme: VAT  # Informative attribute. Unrecognized values will be defaulted to VAT.  #TODO.NOTE: field "cbc_ID": "VAT",
 
 
