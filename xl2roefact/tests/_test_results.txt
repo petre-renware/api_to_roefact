@@ -1,24 +1,13 @@
-***INFO: Application settings loaded from file.
-*** Application xl2roefact launched at 2024-04-04
-02:29:48.883492
-INFO note: files to process: 
-/home/petre/api_to_roefact/xl2roefact/tests/*.xls
-x
-*** Module rdinv started at 2024-04-04 
-02:29:48.887393 to process file 
-Fact_Petrom_11017969.xlsx (full path: 
-/home/petre/api_to_roefact/xl2roefact/tests/Fact_
-Petrom_11017969.xlsx)
-INFO note: `rdinv` module, no worksheet 
-specified, will open first one: 
-'Factura(Invoice)'
-
-Read data as suppl_data_read={'PostalAddress': 
-{'StreetName': '...', 'CityName': '...', 
-'PostalZone': '...', 'CountryCode': 'RO'}, 
-'PartyTaxScheme': {'CompanyID"': '...', 
-'TaxScheme': 'VAT'}, 'PartyLegalEntity': 
-{'RegistrationName': '...', 'CompanyID': '...'}, 
-'Contact': {'Telephone': None, 'ElectronicMail': 
-None}}
-
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/usr/lib/python3.10/runpy.py", line 146, in _get_module_details
+    return _get_module_details(pkg_main_name, error)
+  File "/usr/lib/python3.10/runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "/home/petre/api_to_roefact/xl2roefact/xl2roefact/__init__.py", line 5, in <module>
+    from xl2roefact.rdinv import rdinv  # status #TODO: wip...
+  File "/home/petre/api_to_roefact/xl2roefact/xl2roefact/rdinv.py", line 907
+    ... nxt #; 971-CUI, 986-RegName, 10.16-PostalAddress, 1055-multiple.rest.all.in.one.search
+        ^^^
+SyntaxError: invalid syntax
