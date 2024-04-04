@@ -44,8 +44,8 @@
                     "cbc_Telephone": null,
                     "cbc_ElectronicMail": null,
                     "RegCom": "...",
-                    "Bank": "...new field tbd... bank",
-                    "IBAN": "...new field tbd... IBAN"
+                    "Bank": "...",
+                    "IBAN": "..."
                 },
                 "cac_PartyTaxScheme": {
                     "cbc_CompanyID": "...",
@@ -198,7 +198,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-04T05:34:17.448025+00:00",
+        "last_processing_time": "2024-04-04T08:23:19.886397+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
@@ -651,12 +651,12 @@
                     "location": "external file (Contact -> ElectronicMail)"
                 },
                 "bank": {
-                    "value": "...new field tbd... bank",
-                    "location": "external file (...NOT YET DEFINED...)"
+                    "value": "...",
+                    "location": "external file (Contact -> Bank)"
                 },
                 "IBAN": {
-                    "value": "...new field tbd... IBAN",
-                    "location": "external file (...NOT YET DEFINED...)"
+                    "value": "...",
+                    "location": "external file (Contact -> IBAN)"
                 }
             }
         },
