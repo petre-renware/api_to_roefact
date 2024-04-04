@@ -927,7 +927,6 @@ def get_partner_data(
         }
         ... # Tax & Contact
         param_invoice_header_area[unif_partner_area_key]["reg_com"] = suppl_data_read["PartyTaxScheme"]["CompanyID"]
-        param_invoice_header_area[unif_partner_area_key]["reg_com"] = suppl_data_read["PartyTaxScheme"]["TaxScheme"]
         param_invoice_header_area[unif_partner_area_key]["phone"] = suppl_data_read["Contact"]["Telephone"]
         param_invoice_header_area[unif_partner_area_key]["email"] = suppl_data_read["Contact"]["ElectronicMail"]
         ... #TODO: ...wip first add them in YAML owner file
@@ -942,7 +941,7 @@ def get_partner_data(
 
 'PartyTaxScheme': 
     -used- 'CompanyID"': '...',
-    -used- 'TaxScheme': 'VAT'
+    ----not.need TO DROP IT- 'TaxScheme': 'VAT'
 
 'PartyLegalEntity': 
     -used- 'RegistrationName': '...',
