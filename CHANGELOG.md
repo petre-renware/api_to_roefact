@@ -46,10 +46,12 @@
     * [x] 2. created a skeleton for `hier_get_data_file()` module, update its docstring and generate DLD documentation
     * [x] 3. set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
     * [x] 4. app_cli.py chk if file is ok and sent it as correct Path if, else raise an err msg and continue from Excel
-    * [x] 5. 1st code. Get owner data by using function `hier_get_data_file()`
-    * [ ] ... 6. 2nd code. Update `owner.yml` file and add bank information
+    * [x] 5. code. Get owner data by using function `hier_get_data_file()`
+    * [ ] ... 6. update `owner.yml` file and add bank information
+    * [ ] ... code. Get owner bank information from external data file
           #NOTE: ...wip @ rdinv line 941
     * [ ] ... make a template from `owner.yml` (like for `app_settings.yml`)
+    * [ ] ... upd xl2roefact README.md doc, new section "Utilizare nomenclator de furnizori (sau proprietari)"
     * [ ] ... prep release `0.5.4`
 
 * `hier-get-data-file` func to select hierarchical a file from `./` or `data/` (in libutils module):
