@@ -904,16 +904,22 @@ def get_partner_data(
         }
         print(f"\nRead data as {suppl_data_read=}\n") #FIXME dbg can drop
         # TODO: write data in corresponding keys
-        ... # line 971-CUI
+        ... # CUI
         param_invoice_header_area[unif_partner_area_key]["CUI"] = {
             "value": suppl_data_read["PartyLegalEntity"]["CompanyID"],
             "location": "external file (PartyLegalEntity -> CompanyID)",
             "label_value": None,
             "label_location": None
         }
-        ... # line 986-RegName
-        ... # line 1016-PostalAddress
-        ... # line 1055-multiple.rest.all.in.one.search
+        ... # RegName
+        param_invoice_header_area[unif_partner_area_key]["RegistrationName"] = {
+            "value": suppl_data_read["PartyLegalEntity"]["RegistrationName"],
+            "location": "external file (PartyLegalEntity -> CompanyID)",
+            "label_value": None,
+            "label_location": None
+        }
+        ... # line 1028-PostalAddress
+        ... # line 1075-multiple.rest.all.in.one.search
         '''data read data;
 'PostalAddress': 
     'StreetName': '...',
@@ -926,7 +932,7 @@ def get_partner_data(
     'TaxScheme': 'VAT'
 
 'PartyLegalEntity': 
-    'RegistrationName': '...',
+    ---used- 'RegistrationName': '...',
     ---used- 'CompanyID': '...'
 
 'Contact': 
