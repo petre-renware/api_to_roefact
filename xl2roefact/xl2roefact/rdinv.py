@@ -923,7 +923,7 @@ def get_partner_data(
             "cbc_PostalZone": suppl_data_read["PostalAddress"]["PostalZone"],
             "cac_Country": { "cbc_IdentificationCode": suppl_data_read["PostalAddress"]["CountryCode"] },
         }
-        ... # Tax & Contact
+        ... # Bank, Tax & Contact
         param_invoice_header_area[unif_partner_area_key]["reg_com"] = {
             "value": suppl_data_read["PartyTaxScheme"]["CompanyID"],
             "location": "external file (PartyLegalEntity -> CompanyID)"
@@ -936,16 +936,16 @@ def get_partner_data(
             "value": suppl_data_read["Contact"]["ElectronicMail"],
             "location": "external file (Contact -> ElectronicMail)"
         }
-        ... #TODO: ...wip first add them in YAML owner file
         param_invoice_header_area[unif_partner_area_key]["bank"] = {
-            "value": "...new field tbd... bank",
-            "location": "external file (...NOT YET DEFINED...)"
+            "value": suppl_data_read["Contact"]["Bank"],
+            "location": "external file (Contact -> Bank)"
         }
         param_invoice_header_area[unif_partner_area_key]["IBAN"] = {
-            "value": "...new field tbd... IBAN",
-            "location": "external file (...NOT YET DEFINED...)"
+            "value": suppl_data_read["Contact"]["IBAN"],
+            "location": "external file (Contact -> IBAN)"
         }
-        return  #TODO... then ret to line 255 and complete there
+        return
+        ... #... ... #TODO: then ret to line 255 and complete there
     else:
         # accept only known operations
         raise Exception("partner_type parameter not recognized value")
