@@ -926,12 +926,12 @@ def get_partner_data(
             "cac_Country": {"cbc_IdentificationCode": suppl_data_read["PostalAddress"]["CountryCode"]},
         }
         ... # Tax & Contact
-        param_invoice_header_area[unif_partner_area_key]["reg_com"] = suppl_data_read["PartyTaxScheme"]["CompanyID"]
-        param_invoice_header_area[unif_partner_area_key]["phone"] = suppl_data_read["Contact"]["Telephone"]
-        param_invoice_header_area[unif_partner_area_key]["email"] = suppl_data_read["Contact"]["ElectronicMail"]
+        param_invoice_header_area[unif_partner_area_key]["reg_com"]["value"] = suppl_data_read["PartyTaxScheme"]["CompanyID"]
+        param_invoice_header_area[unif_partner_area_key]["phone"]["value"] = suppl_data_read["Contact"]["Telephone"]
+        param_invoice_header_area[unif_partner_area_key]["email"]["value"] = suppl_data_read["Contact"]["ElectronicMail"]
         ... #TODO: ...wip first add them in YAML owner file
-        param_invoice_header_area[unif_partner_area_key]["bank"] = "...new field tbd... bank"
-        param_invoice_header_area[unif_partner_area_key]["IBAN"] = "...new field tbd... IBAN"
+        param_invoice_header_area[unif_partner_area_key]["bank"]["value"] = "...new field tbd... bank"
+        param_invoice_header_area[unif_partner_area_key]["IBAN"]["value"] = "...new field tbd... IBAN"
         '''data read data;
 'PostalAddress': 
     -used- 'StreetName': '...',
