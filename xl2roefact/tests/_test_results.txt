@@ -7,7 +7,7 @@ Traceback (most recent call last):
     __import__(pkg_name)
   File "/home/petre/api_to_roefact/xl2roefact/xl2roefact/__init__.py", line 5, in <module>
     from xl2roefact.rdinv import rdinv  # status #TODO: wip...
-  File "/home/petre/api_to_roefact/xl2roefact/xl2roefact/rdinv.py", line 923
-    "cbc_StreetName": suppl_data_read|"PostalAddress"]["StreetName"],
-                                                     ^
+  File "/home/petre/api_to_roefact/xl2roefact/xl2roefact/rdinv.py", line 924
+    "cbc_CityName": suppl_data_read["PostalAddress"]|"CityName"],
+                                                               ^
 SyntaxError: closing parenthesis ']' does not match opening parenthesis '{' on line 922
