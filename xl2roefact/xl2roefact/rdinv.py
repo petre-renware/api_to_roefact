@@ -260,7 +260,7 @@ def rdinv(
     invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
 
     # preserve processed Excel file meta information: start address, size.
-    meta_info = _build_meta_info_key(
+    meta_info = build_meta_info_key(
         excel_file_to_process=file_to_process,
         invoice_worksheet_name=invoice_worksheet_name,
         ws_size=tuple(ws.size),
