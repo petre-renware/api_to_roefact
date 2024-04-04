@@ -885,8 +885,7 @@ def get_partner_data(
         unif_partner_area_key = "supplier_area"
     elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
         unif_partner_area_key = "supplier_area"
-        # get data from `supplier_datafile` file which is already Path type
-        print(f"\n... ... ... In processing with {supplier_datafile=} (string name `{str(supplier_datafile)}`). Will exit forced as dbg point here...\n") #FIXME dbg can drop
+        # safe read data from `supplier_datafile` file only if it exists
         file_ok = supplier_datafile.exists() and supplier_datafile.is_file()
         if file_ok:
             yaml_in = supplier_datafile.read_text()
@@ -894,6 +893,8 @@ def get_partner_data(
         else:
             print(f"[red]ERROR: Owner / Supplier data file ([cyan]{supplier_datafile}[/]) cannot be read. Process terminated.[/].")
             sys.exit()
+        supplier_datafile_name = str{supplier_datafile)
+        print(f"\n... ... ... In processing with file string name `{supplier_datafile_name}`.") #FIXME dbg can drop                   
         print(f"\nRead data as {suppl_data_read=}\n") #FIXME dbg can drop
         ...
         ... # TODO: write data in corresponding keys
