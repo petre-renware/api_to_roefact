@@ -929,7 +929,7 @@ def get_partner_data(
             "location": "external file (PartyLegalEntity -> CompanyID)"
         }
         param_invoice_header_area[unif_partner_area_key]["phone"] = {
-            "value": sup7pl_data_read["Contact"]["Telephone"],
+            "value": suppl_data_read["Contact"]["Telephone"],
             "location": "external file (Contact -> Telephone)"
         }
         param_invoice_header_area[unif_partner_area_key]["email"] = {
