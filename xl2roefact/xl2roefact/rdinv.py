@@ -893,7 +893,7 @@ def get_partner_data(
         else:
             print(f"[red]ERROR: Owner / Supplier data file ([cyan]{supplier_datafile}[/]) cannot be read. Process terminated.[/].")
             sys.exit()
-        supplier_datafile_name = str{supplier_datafile)
+        supplier_datafile_name = str(supplier_datafile)
         print(f"\n... ... ... In processing with file string name `{supplier_datafile_name}`.") #FIXME dbg can drop                   
         print(f"\nRead data as {suppl_data_read=}\n") #FIXME dbg can drop
         ...
