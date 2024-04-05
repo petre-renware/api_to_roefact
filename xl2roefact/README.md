@@ -86,6 +86,7 @@ Instalarea aplicatiei *xl2roefact* este disponibila in urmatoarele variante:
 
 
 
+
 ## Configurarea aplicatiei xl2roefact
 
 Parametrii de configurare aplicatiei se gasesc in fisierul *`config_settings.py`*. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
@@ -128,11 +129,29 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
     
     Aceasta configurare inlocuieste configurarea implicita si se va aplica global in utilizarea aplicatiei. In continuare configurarile existente in directorul curent *suprascriu configurarea globala* (se aplica cu precedenta).
 
-
-
 >[Aici puteti gasiti pentru descarcare un model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact).
 
 
+
+
+
+
+## Utilizare nomenclator de furnizori
+
+Aplicatia *xl2roefact* permite utilizarea datelor furnizorilor din fisiere externe (in locul informatiilor din fisierele Excel) lucru ce poate fi folositor in urmatoarele cazuri:
+
+* cind utilizatorul aplicatiei o face in scopuri personale si multe facturi emise il au *pe el ca furnizor*. Aceast lucruvpermite ca informatia din Excel referitoare la furnizor sa fie sumara sau sa lipseasca, factura finala format `PDF` fiind generata cu aplicatia
+* ...
+
+
+
+
+
+-#TODO: update this ref let as last line of section
+>[Aici puteti gasiti pentru descarcare un model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact).
+
+
+ 
 
 
 
