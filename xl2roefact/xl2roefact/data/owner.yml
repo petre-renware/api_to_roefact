@@ -1,9 +1,10 @@
 #
-# Owner data entity. 
-#    - entity that contains owner master data
-#    - fields definition is presented as comments
+# Owner data entity:
+#    - entity that contains owner master data usable for invoice supplier (instead of invoice Excel data)
+#    - fields definition are presented as comments
 #    - a file contains data for only one owner
-#    - in `multi owner` implementations the name of file will be considered owner alternate key
+#    - in `multi owner` implementations the name of file will be considered supplier alternate key
+#    - detailed information about application usage with `owner-dbs-file` feature: `https://invoicetoroefact.renware.eu/xl2roefact/index.html`, section "Utilizare nomenclator de furnizori (sau proprietari)"
 #
 # Copyright (c) 2024 RENware Software Systems
 # Author: Petre Iordanescu (piu), petre.iordanescu@gmail.com
