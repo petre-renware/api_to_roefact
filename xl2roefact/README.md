@@ -142,15 +142,15 @@ Aplicatia *xl2roefact* permite utilizarea datelor pentruvfurnizori din fisiere e
 
 * cind utilizatorul aplicatiei o face in scopuri personale si multe facturi emise il au *pe el ca furnizor*. Aceast lucru permite ca informatia din Excel referitoare la furnizor sa fie sumara sau sa lipseasca, factura finala format `PDF` fiind generata cu aplicatia
 * cind utilizatorul aplicatiei o foloseste pentru a emite facturi pentru alte firme si astfel este mai comod sa foloseasca fisiere cu datele acestor firme decit sa introduca informatia in fiecare factura
-* cind se doreste ca datele furnizorului sa fie preluate dintr-un sistem extern ce le poate exporta drept fisisre
+* cind se doreste ca datele furnizorului sa fie preluate dintr-un sistem extern ce le poate exporta ca si fisisre
 
 
 ### Reguli generale de utilizare
 
 Aceasta sectiune descrie regulile generale ce trebuiesc avute in vedere pentru o completa si corecta utilizare a facilitatii "Nomenclator furnizori":
 
-* Un fisier acomodeaza un singur furnizor. Pentru mai multi furnizori se vor folosi fisere diferite.
-* Numele fisierului (fara extensie) trebuie sa coincida cu o cheie alternativa a furnizorului respectiv. Prin cheie alternativa se intelege acea cheie care este unica si poate asigura regasirea furnizorului prin folosirea ei. Ca si exemple din practicile curente ar fi cimpul numit uzual `code` sau `code_name` in mai toate sistemele de business. Acesta are avantajul unicitatii si a unei reprezentari "umane" (*en: human readable*). Desigur un cimp de tip cheie primara / ID este ideal dar de obicei acesta este tehnic iar valoarea sa nu ofera prea multe indicatii.
+* Un fisier acomodeaza un singur furnizor. Pentru mai multi furnizori se vor folosi fisiere diferite.
+* Numele fisierului (fara extensie) trebuie sa coincida cu o cheie alternativa a furnizorului respectiv. Prin cheie alternativa se intelege acea cheie care este unica si poate asigura regasirea furnizorului prin folosirea ei. Ca si exemple din practicile curente ar fi cimpul numit uzual `code` sau `code_name` existent in mai toate sistemele de business. Acesta are avantajul unicitatii si a unei reprezentari "umane" (*en: human readable*). Desigur un cimp de tip cheie primara / ID este ideal dar de obicei acesta este tehnic iar valoarea sa nu ofera prea multe indicatii.
 *  
 
 
