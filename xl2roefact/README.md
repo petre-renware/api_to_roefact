@@ -137,7 +137,7 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 
 
 ## Utilizare nomenclator de furnizori
-Aplicatia *xl2roefact* permite utilizarea datelor pentruvfurnizori din fisiere externe (in locul informatiilor din fisierele Excel) lucru ce poate fi folositor in urmatoarele cazuri:
+Aplicatia *xl2roefact* permite utilizarea datelor pentru furnizori din fisiere externe (in locul informatiilor din fisierele Excel) lucru ce poate fi folositor in urmatoarele situatii:
 
 * cind utilizatorul aplicatiei o face in scopuri personale si multe facturi emise il au *pe el ca furnizor*. Aceast lucru permite ca informatia din Excel referitoare la furnizor sa fie sumara sau sa lipseasca, factura finala format `PDF` fiind generata cu aplicatia
 * cind utilizatorul aplicatiei o foloseste pentru a emite facturi pentru alte firme si astfel este mai comod sa foloseasca fisiere cu datele acestor firme decit sa introduca informatia in fiecare factura
@@ -153,7 +153,6 @@ Aceasta sectiune descrie regulile generale ce trebuiesc avute in vedere pentru o
 
 
 ### TODO things:
-l
 * ... unde poate sta fisierul si cum se utilizeaza (ca la configurare)
 * ... cum utilizezi fisierul. Comenzile / optiunile aplicatiei
 * ... tips ptr "how to do when multi-furnizori"
