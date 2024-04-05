@@ -145,6 +145,15 @@ Aplicatia *xl2roefact* permite utilizarea datelor pentruvfurnizori din fisiere e
 * cind datele furnizorului se doreste a fi preluate dintr-un sistem extern ce le poate exporta drept fisisre
 
 
+### Reguli generale de utilizare
+
+Aceasta sectiune descrie regulile generale ce trebuiesc avute in vedere pentru o completa si corecta utilizare a facilitatii "Nomenclator furnizori":
+
+* Un fisier acomodeaza un singur furnizor. Pentru mai multi furnizori se vor folosi fisere diferite.
+* Numele fisierului (fara extensie) trebuie sa coincida cu o cheie alternativa a furnizorului respectiv. Prin cheie alternativa se intelege acea cheie care este unica si poate asigura regasirea furnizorului prin folosirea ei. Ca si exemple din practicile curente ar fi cimpul numit uzual `code` sau `code_name` in mai toate sistemele de business. Acesta are avantajul unicitatii si a unei reprezentari "umane" (*en: human readable*). Desigur un cimp de tip cheie primara / ID este ideal dar de obicei acesta este tehnic iar valoarea sa nu ofera prea multe indicatii.
+*  
+
+
 ### TODO things:
 * ... formatul fisisreului
 * ... unde poate sta fisierul si cum se utilizeaza (ca la configurare)
