@@ -4,6 +4,7 @@
 #    - fields definition are presented as comments
 #    - a file contains data for only one owner
 #    - in `multi owner` implementations the name of file will be considered supplier alternate key
+#    - ** DO NOT DROP EXISTING KEYS ** For unknown values use `null` as value
 #    - detailed information about application usage with `owner-dbs-file` feature: `https://invoicetoroefact.renware.eu/xl2roefact/index.html`, section "Utilizare nomenclator de furnizori (sau proprietari)"
 #
 # Copyright (c) 2024 RENware Software Systems
@@ -16,8 +17,8 @@
 PostalAddress:
     StreetName: ...  # Mandatory
     CityName: ...  # Mandatory
-    PostalZone: ...  # Recommended if known
-    CountryCode: RO  # Mandatory  #TODO.NOTE: field "cbc_Country.cbc_IdentificationCode"
+    PostalZone: ...  # Recommended if known, otherwise set to `null`
+    CountryCode: RO  # Mandatory
   
 
 # Owner Tax registered information
@@ -26,7 +27,7 @@ PostalAddress:
 #    - Version 1 allow only VAT tax scheme. Do not change field as other values will nor be recognized and will default to VAT
 PartyTaxScheme:
     CompanyID: ...  # Mandatory if VAT registered. legal VAT registration number
-    TaxScheme: VAT  # Informative attribute. Unrecognized values will be defaulted to VAT.  #TODO.NOTE: field "cbc_ID": "VAT",
+    TaxScheme: VAT  # For future use. System ignored value in current version.
 
 
 # Owner. Legal registration information
@@ -40,8 +41,8 @@ PartyLegalEntity:
 #    - all fields / atributes are string type, recommended ANSI UTF-8 to avoid characters misinterpreting un different collation usage
 #    - ref bank / account information, the invoice is able to accommodate just one. For more items, use another media to send tgis information (invoice appendix, company portal, etc)
 Contact:
-    Telephone: null  # Recommended
-    ElectronicMail: null  # Recommended
+    Telephone: ...  # Recommended
+    ElectronicMail: ...  # Recommended
     Bank: ...  # Recommended
     IBAN: ...  # Recommended
 
