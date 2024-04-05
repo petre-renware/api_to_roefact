@@ -145,10 +145,11 @@ Aplicatia *xl2roefact* permite utilizarea datelor pentruvfurnizori din fisiere e
 * cind datele furnizorului se doreste a fi preluate dintr-un sistem extern ce le poate exporta drept fisisre
 
 
-...tbd... formatul fisisreului
-...tbd... unde poate sta fisierul si cum se utilizeaza (ca la configurare)
-...tbd... cum utilizezi fisierul. Comenzile / optiunile aplicatiei
-...tbd... tips ptr "how to do when multi-furnizori"
+### TODO things:
+* ... formatul fisisreului
+* ... unde poate sta fisierul si cum se utilizeaza (ca la configurare)
+* ... cum utilizezi fisierul. Comenzile / optiunile aplicatiei
+* ... tips ptr "how to do when multi-furnizori"
 
 
 
