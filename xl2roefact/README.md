@@ -135,13 +135,30 @@ Aplicatia *xl2roefact* permite utilizarea datelor pentru furnizori din fisiere e
 ### Reguli generale de utilizare
 Aceasta sectiune descrie regulile generale ce trebuiesc avute in vedere pentru o completa si corecta utilizare a facilitatii "Nomenclator furnizori":
 
-* Nomenclatorul de furnizori se va completa intr-unul sau mai multe fisere de date (de tip text).
+* Nomenclatorul de furnizori se va completa intr-unul sau mai multe fisere de date (de tip text, vezi mai jos formatul exact).
 * Un fisier acomodeaza un singur furnizor. Pentru mai multi furnizori se vor folosi fisiere diferite.
 * Numele fisierului (fara extensie) trebuie sa coincida cu o cheie alternativa a furnizorului respectiv. Prin cheie alternativa se intelege acea cheie care este unica si poate asigura regasirea furnizorului prin folosirea ei. Ca si exemple din practicile curente ar fi cimpul numit uzual `code` sau `code_name` existent in mai toate sistemele de business. Acesta are avantajul unicitatii si a unei reprezentari "umane" (*en: human readable*). Desigur un cimp de tip cheie primara / ID este ideal dar de obicei acesta este tehnic iar valoarea sa nu ofera prea multe indicatii.
-* Formatul fisierului este `YAML` standard, fara folosirea de modele de date complexe, aatfel incit o eventuala conversie `JSON` <--> `YAML` sa poata fi realizata manual in ambele sensuri si fara necessitatea unor cunostinte avansate ci la nivel de redefinire a numelor cheilor.
+* Formatul fisierului este  [YAML](https://yaml.org/) standard, fara folosirea de modele de date complexe, aatfel incit o eventuala conversie `JSON` <--> `YAML` sa poata fi realizata manual in ambele sensuri si fara necessitatea unor cunostinte avansate ci la nivel de redefinire a numelor cheilor.
 
 
 ###  Locatia nomenclatorului
+Fisierele cu datele furnizorilor pot sta in ...
+
+...wip...
+
+
+### Sablon pentru nomenclator de furnizori
+Sablonul este proiectat pentru utilizarea in facturile emise si contine numai informatiile necesare in acest scop.<br>
+Astfel cimpurile existente trebuiesc pastrate, adica nu vor fi sterse.
+
+Vor fi *respectate si completate* corespunzator cimpurile specificate ca *obligatoriii (en: mandatory* in comentariile aferente fiecarui cimp.<br>
+Pentru acele cimpuri pentru care informatia este necunoscuta sau considerata irelevanta se va completa cu `null`.
+
+Se vor putea adauga orice alte cimpuri suplimentare cu conditia sa fie respectat formatul fisierului (`YAML`). acestea nu vor fi folosite de catre aplicatie, ci pur si simplu ignorate.
+
+>[Aici puteti gasiti un model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-cu-date-furnizor).
+
+
 
 
 ### TODO things:
@@ -153,8 +170,6 @@ Aceasta sectiune descrie regulile generale ce trebuiesc avute in vedere pentru o
 
 
 
--#TODO: update this ref let as last line of section
->[Aici puteti gasiti pentru descarcare un model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact).
 
 
  
