@@ -489,7 +489,7 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
 
     Notes:
     
-        * for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`.
+    * for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`.
     """
     _invoice_items_data_key = copy.deepcopy(invoice_items_area_xl_format["data"])
     _invoice_items_cols_key = copy.deepcopy(invoice_items_area_xl_format["keycols"])
