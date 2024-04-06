@@ -606,11 +606,13 @@ div.download-btn {
 <h3 id="054dev0-note-temporarydevversionuptofinishingit-invoice-supplier-from-owner-master-data-todo-in-progress"><code>0.5.4.dev0</code> #NOTE-(temporary.dev.version.up.to.finishing.it) invoice supplier from owner master data (#TODO: ... in progress...)</h3>
 <ul>
 <li>tbd.Must... this release should go to <code>master</code> branch being pure release</li>
+<li>tbd.Must... update <code>downloads.md</code></li>
+<li>tbd.Must... build all beliverables</li>
 <li>
-<p>tbd.Must... change this headings to <code>0.5.4</code> release, update all <code>/versions.yml</code> and assure that all are published</p>
+<p>tbd.Must... change this head to <code>0.5.4</code> version, update all <code>/versions.yml</code> and assure that all are published</p>
 </li>
 <li>
-<p>wip... <code>owner-dbs-file</code> get OWNER EXTERNAL DATA feature (version <code>0.5.4.dev0+owner-dbs-file</code>):</p>
+<p><code>owner-dbs-file</code> get OWNER EXTERNAL DATA feature (version <code>0.5.4.dev0+owner-dbs-file</code>):</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. create <code>data/owner.yml</code> structure to exactly what is needed for actual JSON "Invoice..." key</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. created a skeleton for <code>hier_get_data_file()</code> module, update its docstring and generate DLD documentation</li>
@@ -624,12 +626,10 @@ div.download-btn {
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 10. make template for owner data file (<code>owner_datafile_tmeplate.yml</code>) and prep it with built-in documentation hints</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 11. updated temporary all version to <code>0.5.4.dev0</code> to make DEV publishes (basically for site, but other tests are possibile)</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 12. add xl2roefact README doc with section "Utilizare nomenclator de furnizori"</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... 13. build site and publish as site version <code>0.5.4.dev0</code> (temporary value)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 13. build site and publish as site version <code>0.5.4.dev0</code> (temporary value)</li>
 </ul>
 </li>
-<li>
-<p><code>hier-get-data-file</code> func to select hierarchical a file from <code>./</code> or <code>data/</code> (in libutils module):</p>
-<ul class="task-list">
+<li><code>hier-get-data-file</code> func to select hierarchical a file from <code>./</code> or <code>data/</code> (in libutils module):<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. create skeleton <code>hier_get_data_file(file_name: str) -&gt; Path</code> in <code>xl2roefact.libutils</code> module</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 2. code function to solve actual functional case from <code>xl2roefact.config_settings</code> module</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3. update <code>xl2roefact.config_settings</code> module to use the new function</li>
