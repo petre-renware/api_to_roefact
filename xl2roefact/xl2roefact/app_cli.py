@@ -69,6 +69,7 @@ def settings(
     """Display application configuration parameters and settings that are subject to be changed by user.
 
     Args:
+    
         `rules`: show recommended rules to follow when change application configurable settings (available in both RO & EN languages). Defaults to `False`.
     """
 
@@ -131,6 +132,7 @@ def xl2json(
     """Extract data from an Excel file (save data to JSON format file with the same name as original file but `.json` extension).
 
     Args:
+    
         `file_name`: files to process (wildcards allowed).
         `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
         `owner_datafile`: File to read invoice supplier (owner) data instead Excel.
