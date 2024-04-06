@@ -215,3 +215,16 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 
 
 
+
+
+
+
+
+## Sablon fisier cu date furnizor  <a id="sablon-fisier-cu-date-furnizor"></a>
+
+
+[Descarcare aici](./../xl2roefact/doc/owner_datafile_tmeplate.yml "download").
+
+
+
+

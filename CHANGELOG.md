@@ -36,12 +36,12 @@
 
 ## 0.5
 
-### `0.5.4` invoice supplier from owner master data (#TODO: ... in progress...)
+### `0.5.4.dev0` #NOTE-(temporary.dev.version.up.to.finishing.it) invoice supplier from owner master data (#TODO: ... in progress...)
 
 * tbd.Must... this release should go to `master` branch being pure release
-* tbd... update all `/versions.yml`
+* tbd.Must... change this headings to `0.5.4` release, update all `/versions.yml` and assure that all are published
 
-* wip... `owner-dbs-file` get OWNER EXTERNAL DATA feature:
+* wip... `owner-dbs-file` get OWNER EXTERNAL DATA feature (NOTE: full version `0.5.4.dev0+owner-dbs-file`):
     * [x] 1. create `data/owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
     * [x] 2. created a skeleton for `hier_get_data_file()` module, update its docstring and generate DLD documentation
     * [x] 3. set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
@@ -50,9 +50,10 @@
     * [x] 6. update `owner.yml` file and add bank information
     * [x] 7. code. Get owner bank information from external data file
     * [x] 8. build xl2roefact DLD documentation
-    * [x] 9.. code. Review "place where called for OWNER info", clean, update and close code
+    * [x] 9. code. Review "place where called for OWNER info", clean, update and close code
     * [x] 10. make template for owner data file (`owner_datafile_tmeplate.yml`) and prep it with built-in documentation hints
-    * [ ] ... add xl2roefact README doc with section "Utilizare nomenclator de furnizori (sau proprietari)"
+    * [x] 11. updated temporary all version to `0.5.4.dev0` to make DEV publishes (basically for site, but other tests are possibile)
+    * [x] 12. add xl2roefact README doc with section "Utilizare nomenclator de furnizori"
     * [ ] ... prep release `0.5.4`
     * [ ] ... build site and publish as site version `0.5.4.dev0` (temporary value)
 
