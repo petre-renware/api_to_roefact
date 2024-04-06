@@ -142,9 +142,23 @@ Aceasta sectiune descrie regulile generale ce trebuiesc avute in vedere pentru o
 
 
 ###  Locatia nomenclatorului
-Fisierele cu datele furnizorilor pot sta in ...
+Fisierele cu datele furnizorilor pot sta in urmatoarele locatii:
 
-...wip...
+* *directorul curent* este locatia cu prioritatea maxima si in caz de "duplicate" ale unui fisier, cel de aici va fi luat in considerare
+* *directorul `data/`* din locatia unde este instalata aplicatia
+
+Recomandari si practici uzuale:
+
+* In situatiile in care sistemul este instalat pe un computer ce se foloseste frecvent cu aplicatia *xl2roefact* si exista un set de furnizori frecvent folositi se recomanda folosirea directorului `data/` pentru stocarea fisierelor nomenclator astfel incit sa poata fi refolosite usor.
+* In situatia folosirii a "multe" fisiere date furnizori se recomanda crearea unui director dedicat in locatia utilizata (vezi mai sus) si acesta sa fie referit in numle fisierului.
+
+
+### Utilizarea nomenclatorului
+Pentru a folosi cu aplicatia un fisier tip nomenclator furnizor se va utiliza optiunea:
+```shell
+xl2roefact xl2json -o fisier_furnizor
+```
+unde `fisier_furnizor` este numele fisierului ce contine datele unui furnizor. Locatia acestui fisier este relativa la [locatia considerata pentru folosire](#locatia-nomenclatorului)
 
 
 ### Sablon pentru nomenclator de furnizori
@@ -161,29 +175,16 @@ Se vor putea adauga orice alte cimpuri suplimentare cu conditia sa fie respectat
 
 
 
-### TODO things:
-* ... unde poate sta fisierul si cum se utilizeaza (ca la configurare)
-* ... cum utilizezi fisierul. Comenzile / optiunile aplicatiei
-* ... tips ptr "how to do when multi-furnizori"
-
-
-
-
-
-
-
- 
-
 
 
 ## Comenzile aplicatiei
 
 Interfata aplicatie este realizata utilizind conventiile si practicile uzuale pentru aplicatii tip linie de comanda consola. Pentru informatii privind comenzile se poate folosi optiunea de **help**, dispobilia atit la nivelul general:
-```bash
+```shell
 xl2roefact --help
 ```
 cit si la nivel detaliat pentru fiecare comanda
-```bash
+```shell
 xl2roefact [COMMAND] --help
 ```
 
@@ -191,9 +192,7 @@ xl2roefact [COMMAND] --help
 **Lista comenzilor:**
 
 * **about** - Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc)
-
 * **settings** _ Afiseaza parametrii de configurare a aplicatiei. [Vezi sectiunea de configurare a aplicatiei](#configurarea-aplicatiei-xl2roefact)
-
 * **xl2json** - Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice
 
 
