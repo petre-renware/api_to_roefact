@@ -82,11 +82,6 @@ def rdinv(
 
     Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data.
 
-    NOTE_important_variables:
-    
-        * `db: pylightxl object`: EXCEL object with invoice (as a whole)
-        * `ws: pylightxl object`: WORKSHEET object with invoice
-
     Args:
 
         `file_to_process`: the invoice file (exact file with path).
@@ -97,6 +92,11 @@ def rdinv(
     Return:
     
         `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`
+
+    Notes:
+
+    *`db: pylightxl object`: EXCEL object with invoice (as a whole)
+    * `ws: pylightxl object`: WORKSHEET object with invoice
     """
     # use as global only for those constants that could be changed by this function
     global DEFAULT_VAT_PERCENT
