@@ -53,7 +53,7 @@
     * [x] 9. code. Review "place where called for OWNER info", clean, update and close code
     * [x] 10. make template for owner data file (`owner_datafile_tmeplate.yml`) and prep it with built-in documentation hints
     * [x] 11. updated temporary all version to `0.5.4.dev0` to make DEV publishes (basically for site, but other tests are possibile)
-    * [ ] ... 12. add xl2roefact README doc with section "Utilizare nomenclator de furnizori"
+    * [x] 12. add xl2roefact README doc with section "Utilizare nomenclator de furnizori"
     * [ ] ... prep release `0.5.4`
     * [ ] ... build site and publish as site version `0.5.4.dev0` (temporary value)
 
