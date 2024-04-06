@@ -36,13 +36,13 @@
 
 ## 0.5
 
-### `0.5.4.dev0` #NOTE-(temporary.dev.version.up.to.finishing.it) invoice supplier from owner master data (#TODO: ... in progress...)
+### `0.5.4` invoice supplier from owner master data (240406 h21:00)
 
 * tbd.Must... this release should go to `master` branch being pure release
 * tbd.Must... update `downloads.md`
 * tbd.Must... build all beliverables
-* tbd.Must... change this head to `0.5.4` version, update all `/versions.yml` and assure that all are published
 
+* `prep-rlse-0.5.4` change this head to `0.5.4` version, update all `/versions.yml` and assure that all are published
 * `fix-download-owner-template` xl2roefact README sectiune "Descarcare (download) aplicatie xl2roefact CLI" de pus link catre sablon nomenclator furnizori
 * `fixed-tech-doc` generatorul plugin mkdocs ptr comenzile Typer nu a generat complet... A ramas ca inainte de modificare 0.5.4... adica nu apare optiunea `-o  -owner-file`
 * * `owner-dbs-file` get OWNER EXTERNAL DATA feature (version `0.5.4.dev0+owner-dbs-file`):
