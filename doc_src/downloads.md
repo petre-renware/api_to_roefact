@@ -215,3 +215,15 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 
 
 
+
+
+
+
+
+## Sablon fisier cu date furnizor  <a id="sablon-fisier-cu-date-furnizor"></a>
+
+-#TODO #FIXME ...to be completed ...alredy referred in xl2roefact README doc
+
+
+
+
