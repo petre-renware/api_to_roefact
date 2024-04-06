@@ -83,15 +83,18 @@ def rdinv(
     Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data.
 
     Args:
+    
         `file_to_process`: the invoice file (exact file with path).
         `invoice_worksheet_name`: the worksheet containing invoice, optional, defaults to first found worksheet.
         `debug_info`: key only, show debugging information, default `False`.
         `owner_datafile`: specify a file to read supplier data from, default `None` meaning to read supplier data from Excel file
 
     Return:
+    
         `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`
 
-    NOTE ref important variables:
+    NOTE_important_variables:
+    
         * `db: pylightxl object`: EXCEL object with invoice (as a whole)
         * `ws: pylightxl object`: WORKSHEET object with invoice
     """
@@ -374,6 +377,7 @@ def get_excel_data_at_label(
     """get "one key Excel values", like invoice number or invoice issue date.
 
     Args:
+    
         `pattern_to_search_for`: for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`.
         `worksheet`: the worksheet containing invoice (as object of `pyxllight` library).
         `area_to_scan`: area of cells to be searched, default whole worksheet.
@@ -381,11 +385,13 @@ def get_excel_data_at_label(
         `down_search_try`: establish if DOWN search method is tried, default `True`.
 
     Return:
+    
         `None` if not found OR `dictionary` containing:
             * `"value": int | float | str` - the value found covenrted to requested `targeted_type` if possible or `str` otherwise; if "out of space" then returns `None`
             * `"location": (row, col)` - adrees of cell where found value
 
     Notes:
+    
         * normal scan order is 1.RIGHT, 2.DOWN (if allowed), 3.IN-LABEL only in given area and pattern.
     """
     def __check_value(val: Any) -> bool:
@@ -474,12 +480,15 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
     """transform `invoice_items_area` in "canonical JSON format" (as kv pairs).
 
     Args:
+    
         `invoice_items_area_xl_format`: invoice items area in Excel format (ie, DataFrame with row, col, data).
 
     Return:
+    
         `invoice_items_area_xl_format`: dictionary with invoice items in Excel format (ie, rows, columns).
 
     Notes:
+    
         * for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`.
     """
     _invoice_items_data_key = copy.deepcopy(invoice_items_area_xl_format["data"])
@@ -592,12 +601,14 @@ def get_invoice_items_area(
     * NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
 
     Args:
+    
         `worksheet`: the worksheet containing invoice (as object of `pyxllight` library).
         `invoice_items_area_marker`: string with exact marker of invoice items table.
             NOTE: this is the UPPER-LEFT corner and is determined before calling this procedure.
         `wks_name`: the wroksheet name (string) of the `worksheet` object.
 
     Return:
+    
         `invoice_items_area`: dictionary with invoice items in Excel format (ie, rows, columns).
     """
     # obtain table with invoice items ==> `invoice_items_area`
@@ -683,6 +694,7 @@ def get_merged_cells_tobe_changed(
     """scan Excel file to detect all merged ranges.
 
     Args:
+    
         `file_to_scan`: the excel file to be scanned.
         `invoice_worksheet_name`: the worksheet to be scanned.
         `keep_cells_of_items_ssd_marker`: tuple with cells that will be marked IN ANY CASE to be preserved:
@@ -691,6 +703,7 @@ def get_merged_cells_tobe_changed(
             * default: `None`
 
     Return:
+    
         `cells_to_be_changed`: list with cells that need to be chaged in format `(row,col)`.
 
     Notes:
@@ -764,6 +777,7 @@ def build_meta_info_key(
     * (2.) this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality').
 
     Args:
+    
         `excel_file_to_process`: name of file to process as would appear in `meta_info` key.
         `invoice_worksheet_name`: the worksheet name as would appear in `meta_info` key.
         `ws_size`: worksheet size as would appear in `meta_info` key (index 0 max rows, index 1 max columns).
@@ -771,6 +785,7 @@ def build_meta_info_key(
         `found_cell`: position of cell used as start of invoice items subtable as would appear in `meta_info` key (index 0 row, index 1 column).
 
     Return:
+    
         `meta_info` dictionary built with meta information to be incorpoarted in final invoice dict
     """
     _tmp_meta_info = dict()
@@ -862,12 +877,14 @@ def get_partner_data(
     * *supplier_datafile exception*: if file is not found or cannot be read, this function will force complete application termination (`sys.exit`)
 
     Args:
+    
         `partner_type`: one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data)
         `wks`: current work-on `pylightxl Worksheet` object
         `param_invoice_header_area`: _mode IN-OUT_, outside `param_invoice_header_area` as used and needed in `rdinv()`. This function will write back in this variable
         `supplier_datafile`: for `partner_type = "CUSTOMER"` here is expected the file where to get supplier data
 
     Return:
+    
         `None`: all data is produced directly in parameters as side effect
     """
     # set variables constant-like suspected to be changed as global
