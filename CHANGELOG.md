@@ -40,7 +40,8 @@
 
 * tbd.Must... this release should go to `master` branch being pure release
 * tbd.Must... update `downloads.md`
-* tbd.Must... build all beliverables
+
+* ... build all beliverables. check for SEXE `.spec` file name to be `xl2roefact`
 
 * `prep-rlse-0.5.4` change this head to `0.5.4` version, update all `/versions.yml` and assure that all are published
 * `fix-download-owner-template` xl2roefact README sectiune "Descarcare (download) aplicatie xl2roefact CLI" de pus link catre sablon nomenclator furnizori
