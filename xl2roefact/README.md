@@ -28,27 +28,19 @@ Legaturi externe utile:
 
 
 
-
-
-
-
 Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si o poate incarca in sistemul *RO E-Fact*[^ld_roefact].
 
 Aceasta componenta ofera urmatoarele facilitati (acestea fiind obiectivele fundamentale ale componentei):
 
 * **transformarea facturilor din Excel in formatul `XML`** cerut de catre sistemul ANAF RO E-Fact pentru incarcare
-
- * **incarcarea acestora** in sistemul ANAF RO E-Fact[^ld_roefact]
-
-*  **transformarea facturilor din Excel intr-un format `JSON`**  intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard *REST*)
-
+* **incarcarea acestora** in sistemul ANAF RO E-Fact[^ld_roefact]
+* **transformarea facturilor din Excel intr-un format `JSON`**  intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard *REST*)
 * **generarea facturii in format PDF** pentru transmiterea acesteia catre client, semnarea electronica, tiparirea si arhivarea acesteia in format fizic (in general manipularea facturii in format *"human readable"*)
 
 Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obiective:
 
 * `xl2roefact` o **aplicatie de tip linie de comanda** (disponibila pentru sistemele de operare Windows, Linux si MacOS)
-
-* `xl2roefact PyPi` o **blioteca standard Python** utilizabila pentru dezvoltari proprii in scopul extinderii altor sisteme existente (*custom development*)
+* `xl2roefact PyPi` **blioteca standard Python** utilizabila pentru dezvoltari proprii in scopul extinderii altor sisteme existente (*custom development*)
 
 
 
@@ -56,7 +48,6 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 
 ## Instalarea aplicatiei xl2roefact
-
 Instalarea aplicatiei *xl2roefact* este disponibila in urmatoarele variante:
 
 * pentru **Windows**:
@@ -88,25 +79,22 @@ Instalarea aplicatiei *xl2roefact* este disponibila in urmatoarele variante:
 
 
 ## Configurarea aplicatiei xl2roefact
-
 Parametrii de configurare aplicatiei se gasesc in fisierul *`config_settings.py`*. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
 
 <!--#TODO: prev paragraph to replace new config method by using `app_settings.yml` in current directory -->
 
 Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtine help referitor la detaliile comenzi se va folosi
-```bash
+```shell
 xl2roefact settings --help
 ```
 
 Configurarile existente si regulile recomandate in configurarea aplicatiei se afiseaza folosind comanda:
-```bash
+```shell
 xl2roefact settings --rules
 ```
 
 
 ### Configurarea din fisier extern
-<!--  --Sablon fisier configurare a aplicatiei xl2roefact -->
-
 Configurarea aplicatuiei se poate face si prin intermediul unui fisier extern numit "*sablon de configurare*" (*en: configuration template*). Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.
 
 Sablonul este in format [YAML](https://yaml.org/) iar informatiile ce trebuiesc descrise sunt explicate individual in comentarii insotitoare.
