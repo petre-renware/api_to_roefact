@@ -11,9 +11,9 @@ rem     - stdout redirection: `./tests/_test_results.txt` >NUL
 cd xl2roefact
 python -m pip install pdm >NUL
 python -m pdm install >NUL
-pdm run xl2roefact settings -r
 
-
+echo Run OWNER dataFILE
+pdm run xl2roefact xl2json -d ./tests -o owner.yml
 
 
 rem cd tests

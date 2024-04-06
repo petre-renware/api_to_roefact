@@ -764,13 +764,14 @@ files = [
 
 [[package]]
 name = "pdm"
-version = "2.13.1"
+version = "2.13.2"
 requires_python = ">=3.8"
 summary = "A modern Python package and dependency manager supporting the latest PEP standards"
 groups = ["default"]
 dependencies = [
     "blinker",
     "dep-logic<1.0,>=0.2.0",
+    "filelock>=3.13",
     "findpython<1.0.0a0,>=0.6.0",
     "hishel<0.1.0,>=0.0.24",
     "httpx[socks]<1,>0.20",
@@ -791,8 +792,8 @@ dependencies = [
     "virtualenv>=20",
 ]
 files = [
-    {file = "pdm-2.13.1-py3-none-any.whl", hash = "sha256:d40dc5f1f880ca3114d3a0786ec71ec75fa442d5a3fe4a753f93fb58dc11a6ac"},
-    {file = "pdm-2.13.1.tar.gz", hash = "sha256:8e3c0975edd3ddeca513dac341e02780935139053d44ef6dd5cb462738f05414"},
+    {file = "pdm-2.13.2-py3-none-any.whl", hash = "sha256:27072cbc1d9f7db1d7698827991dbd21c16cd73e2c68dbd796421c17bf45ca33"},
+    {file = "pdm-2.13.2.tar.gz", hash = "sha256:e282bf1caf0a083fc0fb5e89ad6f79d7c579ff52c7bb58ee8587ea3d5bb9e14a"},
 ]
 
 [[package]]

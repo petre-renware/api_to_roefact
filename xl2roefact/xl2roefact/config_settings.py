@@ -1,6 +1,6 @@
 """Configuration and setting parameters.
 
-Regulile recomandate se gasessc in documentul (recommended rules are in document) [`doc/README_app_config_rules.md`](../doc/README_app_config_rules.md)
+Regulile recomandate se gasessc in documentul (recommended rules are in document `xl2roefact/data/README_app_config_rules.md`)
 
     Public objects:
 

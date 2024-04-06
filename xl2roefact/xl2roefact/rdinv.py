@@ -760,7 +760,7 @@ def build_meta_info_key(
 
     Notes:
     
-    * (1.) all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update.
+    * (1.) all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file).
     * (2.) this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality').
 
     Args:

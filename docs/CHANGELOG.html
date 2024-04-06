@@ -509,13 +509,8 @@ div.download-btn {
 <nav aria-label="0.5" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#054-invoice-supplier-from-owner-master-data-todo-in-progress">
-    0.5.4 invoice supplier from owner master data (#TODO: ... in progress...)
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#053rc1-fix-invoice-json-key-cacparty-naming-240331-h0600">
-    0.5.3rc1 fix invoice JSON key "cac:Party" naming (240331 h0600)
+<a class="md-nav__link" href="#054dev0-note-temporarydevversionuptofinishingit-invoice-supplier-from-owner-master-data-todo-in-progress">
+    0.5.4.dev0 #NOTE-(temporary.dev.version.up.to.finishing.it) invoice supplier from owner master data (#TODO: ... in progress...)
   </a>
 </li>
 </ul>
@@ -548,13 +543,8 @@ div.download-btn {
 <nav aria-label="0.5" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#054-invoice-supplier-from-owner-master-data-todo-in-progress">
-    0.5.4 invoice supplier from owner master data (#TODO: ... in progress...)
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#053rc1-fix-invoice-json-key-cacparty-naming-240331-h0600">
-    0.5.3rc1 fix invoice JSON key "cac:Party" naming (240331 h0600)
+<a class="md-nav__link" href="#054dev0-note-temporarydevversionuptofinishingit-invoice-supplier-from-owner-master-data-todo-in-progress">
+    0.5.4.dev0 #NOTE-(temporary.dev.version.up.to.finishing.it) invoice supplier from owner master data (#TODO: ... in progress...)
   </a>
 </li>
 </ul>
@@ -573,8 +563,7 @@ div.download-btn {
 <ul>
 <li><a href="#changelog">CHANGELOG</a><ul>
 <li><a href="#05">0.5</a><ul>
-<li><a href="#054-invoice-supplier-from-owner-master-data-todo-in-progress">0.5.4 invoice supplier from owner master data (#TODO: ... in progress...)</a></li>
-<li><a href="#053rc1-fix-invoice-json-key-cacparty-naming-240331-h0600">0.5.3rc1 fix invoice JSON key "cac:Party" naming (240331 h0600)</a></li>
+<li><a href="#054dev0-note-temporarydevversionuptofinishingit-invoice-supplier-from-owner-master-data-todo-in-progress">0.5.4.dev0 #NOTE-(temporary.dev.version.up.to.finishing.it) invoice supplier from owner master data (#TODO: ... in progress...)</a></li>
 </ul>
 </li>
 </ul>
@@ -614,38 +603,38 @@ div.download-btn {
         * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
 -->
 <h2 id="05">0.5</h2>
-<h3 id="054-invoice-supplier-from-owner-master-data-todo-in-progress"><code>0.5.4</code> invoice supplier from owner master data (#TODO: ... in progress...)</h3>
+<h3 id="054dev0-note-temporarydevversionuptofinishingit-invoice-supplier-from-owner-master-data-todo-in-progress"><code>0.5.4.dev0</code> #NOTE-(temporary.dev.version.up.to.finishing.it) invoice supplier from owner master data (#TODO: ... in progress...)</h3>
 <ul>
 <li>tbd.Must... this release should go to <code>master</code> branch being pure release</li>
+<li>tbd.Must... update <code>downloads.md</code></li>
+<li>tbd.Must... build all beliverables</li>
 <li>
-<p>tbd... update all <code>/versions.yml</code></p>
+<p>tbd.Must... change this head to <code>0.5.4</code> version, update all <code>/versions.yml</code> and assure that all are published</p>
 </li>
 <li>
-<p>tbd... get OWNER EXTERNAL DATA feature:</p>
+<p><code>owner-dbs-file</code> get OWNER EXTERNAL DATA feature (version <code>0.5.4.dev0+owner-dbs-file</code>):</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> code to get owner data</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> code to select hierarchical a file from <code>./</code> or <code>data/</code></li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> set <code>owner.yml</code> structure to exactly what is needed for actual JSON "Invoice..." key</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> make a template from <code>owner.yml</code> (like for <code>app_settings.yml</code>)</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> set a new flag for <code>xl2json</code> command for getting owner from ext data-file: <code>--owner -o [FILE]</code> where <code>FILE</code> being defaulted to <code>./owner.yml</code> or hierarchy to <code>data/owner.yml</code></li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> prep release <code>0.5.4rc1</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. create <code>data/owner.yml</code> structure to exactly what is needed for actual JSON "Invoice..." key</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. created a skeleton for <code>hier_get_data_file()</code> module, update its docstring and generate DLD documentation</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. set a new flag for <code>xl2json</code> command for getting owner from ext data-file: <code>--owner -o [FILE]</code> where <code>FILE</code> being defaulted to <code>./owner.yml</code> or hierarchy to <code>data/owner.yml</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. app_cli.py chk if file is ok and sent it as correct Path if, else raise an err msg and continue from Excel</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. code. Get owner data by using function <code>hier_get_data_file()</code></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 6. update <code>owner.yml</code> file and add bank information</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 7. code. Get owner bank information from external data file</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 8. build xl2roefact DLD documentation</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 9. code. Review "place where called for OWNER info", clean, update and close code</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 10. make template for owner data file (<code>owner_datafile_tmeplate.yml</code>) and prep it with built-in documentation hints</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 11. updated temporary all version to <code>0.5.4.dev0</code> to make DEV publishes (basically for site, but other tests are possibile)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 12. add xl2roefact README doc with section "Utilizare nomenclator de furnizori"</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 13. build site and publish as site version <code>0.5.4.dev0</code> (temporary value)</li>
 </ul>
 </li>
-</ul>
-<h3 id="053rc1-fix-invoice-json-key-cacparty-naming-240331-h0600"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming (240331 h0600)</h3>
-<ul>
-<li><code>240331fix-cacParty</code> FIX.BUG... invoice JSON wrong key name <code>"cac:Party"</code>. Correct key name <code>"cac_Party"</code>:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. updated <code>xl2roefact/xl2roefact/...rdinv</code> module</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. updated <code>xl2roefact/doc/...JSON example</code> document</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. update all versions</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. build all deliverables</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. publish on PyPi</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 6. update <code>downloads.md</code> for this deliverables</li>
-<li>built site &amp; publish</li>
+<li><code>hier-get-data-file</code> func to select hierarchical a file from <code>./</code> or <code>data/</code> (in libutils module):<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. create skeleton <code>hier_get_data_file(file_name: str) -&gt; Path</code> in <code>xl2roefact.libutils</code> module</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 2. code function to solve actual functional case from <code>xl2roefact.config_settings</code> module</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3. update <code>xl2roefact.config_settings</code> module to use the new function</li>
 </ul>
 </li>
-<li><code>240330piu02</code> publish a new site with invoice JSON updated ==&gt; set ONLY site version to <code>0.5.3rc1</code>. <strong>UNRELEASED &amp; UNTAGGED version</strong></li>
-<li><code>240330piu01</code> update JSON model ref new supplier section</li>
 </ul>
 <h1 id="archived-changelogs">Archived CHANGELOGs</h1>
 <details>
@@ -654,6 +643,7 @@ div.download-btn {
 </summary>
 <!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
 <ul>
+<li><a href="changelog_history/CHANGELOG-0.5.3rc1.html"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming</a></li>
 <li><a href="changelog_history/CHANGELOG-0.5.3rc0.html"><code>0.5.3rc0</code> invoice supplier from Excel</a></li>
 <li><a href="changelog_history/CHANGELOG-0.5.2.dev2.html"><code>0.5.2.dev2</code> release xl2roefact.<code>0.4.1.dev1</code> fix sEXE bug from <code>0.4.1.dev0</code> version</a></li>
 <li><a href="changelog_history/CHANGELOG-0.5.1.dev1.html"><code>0.5.1.dev1</code> site readability improvements</a></li>
@@ -727,7 +717,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 31, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 6, 2024</span>
 </small>
 </div>
 </article>
