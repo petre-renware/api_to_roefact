@@ -178,7 +178,6 @@ Se vor putea adauga orice alte cimpuri suplimentare cu conditia sa fie respectat
 
 
 ## Comenzile aplicatiei
-
 Interfata aplicatie este realizata utilizind conventiile si practicile uzuale pentru aplicatii tip linie de comanda consola. Pentru informatii privind comenzile se poate folosi optiunea de **help**, dispobilia atit la nivelul general:
 ```shell
 xl2roefact --help
@@ -212,7 +211,6 @@ xl2roefact [COMMAND] --help
 
 
 ## Practici si regului referitoare la continutul facturilor din Excel
-
 Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".
 
 Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ESTE O VARIANTA DE LUCRU RECOMANDATA**, dar nu obligatorie. Chiar si in cazul utilizarii acestuia, prin modificarea "structurii" acestuia, informatia poate ajunge *nerecognoscibila / neidentificabila* total sau partial daca nu sunt urmate regulile expuse.
@@ -321,6 +319,9 @@ Cheile de la primul nivel contin:
 * [Pachet instalare aplicatie Windows](../doc_src/downloads.md#format-executabil-windows-x64)
 * [Pachet instalare script Python](../doc_src/downloads.md#format-biblioteca-python)
 * [Model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact)
+* [Sablon fisier-date informatii furnizor](../doc_src/downloads.md#sablon-fisier-cu-date-furnizor)
+
+
 
 
 
