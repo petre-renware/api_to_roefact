@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='xl2roefact_to_update_name',
+    name='xl2roefact',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
