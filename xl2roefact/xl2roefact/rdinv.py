@@ -95,7 +95,7 @@ def rdinv(
 
     Notes:
 
-    *`db: pylightxl object`: EXCEL object with invoice (as a whole)
+    * `db: pylightxl object`: EXCEL object with invoice (as a whole)
     * `ws: pylightxl object`: WORKSHEET object with invoice
     """
     # use as global only for those constants that could be changed by this function
@@ -784,9 +784,9 @@ def build_meta_info_key(
         `keyword_for_items_table_marker`: the content of cell used as start of invoice items subtable as would appear in `meta_info`.
         `found_cell`: position of cell used as start of invoice items subtable as would appear in `meta_info` key (index 0 row, index 1 column).
 
-    Return:
+    Returns:
     
-        `meta_info` dictionary built with meta information to be incorpoarted in final invoice dict
+        `meta_info`: dictionary built with meta information to be incorpoarted in final invoice dict
     """
     _tmp_meta_info = dict()
 
