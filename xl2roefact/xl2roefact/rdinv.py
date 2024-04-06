@@ -392,7 +392,7 @@ def get_excel_data_at_label(
 
     Notes:
     
-        * normal scan order is 1.RIGHT, 2.DOWN (if allowed), 3.IN-LABEL only in given area and pattern.
+    * normal scan order is 1.RIGHT, 2.DOWN (if allowed), 3.IN-LABEL only in given area and pattern.
     """
     def __check_value(val: Any) -> bool:
         """ return `True` if a `val` is different of None or empty string or SYS_FILLED_EMPTY_CELL, otherwise return `False`
