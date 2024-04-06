@@ -38,7 +38,7 @@ def normalized_version(
     
         `raw_version (str)`: a raw version string. Defaults to package current version string.
 
-    Return:
+    Returns:
     
         `str:` canonical version string
     """
