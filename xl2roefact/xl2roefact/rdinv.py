@@ -95,8 +95,8 @@ def rdinv(
 
     NOTE_important_variables:
     
-        * `db: pylightxl object`: EXCEL object with invoice (as a whole)
-        * `ws: pylightxl object`: WORKSHEET object with invoice
+    * `db: pylightxl object`: EXCEL object with invoice (as a whole)
+    * `ws: pylightxl object`: WORKSHEET object with invoice
     """
     # use as global only for those constants that could be changed by this function
     global DEFAULT_VAT_PERCENT
