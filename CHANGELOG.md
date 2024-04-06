@@ -44,10 +44,10 @@
 * tbd.Must... change this head to `0.5.4` version, update all `/versions.yml` and assure that all are published
 
 * tdb.Bug... xl2roefact README sectiune "Descarcare (download) aplicatie xl2roefact CLI" de pus link catre sablon nomenclator furnizori
-* tbd.Bug... genratorul plugin mkdocs ptr comenzile Typer nu a generat complet... A ramas ca inainte de modificare 0.5.4... adica nu apare optiunea `-o  -owner-file`
+    ...and rebuild site
 
-
-* `owner-dbs-file` get OWNER EXTERNAL DATA feature (version `0.5.4.dev0+owner-dbs-file`):
+* `fixed-tech-doc` generatorul plugin mkdocs ptr comenzile Typer nu a generat complet... A ramas ca inainte de modificare 0.5.4... adica nu apare optiunea `-o  -owner-file`
+* * `owner-dbs-file` get OWNER EXTERNAL DATA feature (version `0.5.4.dev0+owner-dbs-file`):
     * [x] 1. create `data/owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
     * [x] 2. created a skeleton for `hier_get_data_file()` module, update its docstring and generate DLD documentation
     * [x] 3. set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
