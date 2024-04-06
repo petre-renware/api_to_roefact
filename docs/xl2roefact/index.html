@@ -303,6 +303,35 @@ div.download-btn {
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#utilizare-nomenclator-de-furnizori">
+    Utilizare nomenclator de furnizori
+  </a>
+<nav aria-label="Utilizare nomenclator de furnizori" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reguli-generale-de-utilizare">
+    Reguli generale de utilizare
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#locatia-nomenclatorului">
+    Locatia nomenclatorului
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#utilizarea-nomenclatorului">
+    Utilizarea nomenclatorului
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sablon-pentru-nomenclator-de-furnizori">
+    Sablon pentru nomenclator de furnizori
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#comenzile-aplicatiei">
     Comenzile aplicatiei
   </a>
@@ -663,6 +692,35 @@ div.download-btn {
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#utilizare-nomenclator-de-furnizori">
+    Utilizare nomenclator de furnizori
+  </a>
+<nav aria-label="Utilizare nomenclator de furnizori" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reguli-generale-de-utilizare">
+    Reguli generale de utilizare
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#locatia-nomenclatorului">
+    Locatia nomenclatorului
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#utilizarea-nomenclatorului">
+    Utilizarea nomenclatorului
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sablon-pentru-nomenclator-de-furnizori">
+    Sablon pentru nomenclator de furnizori
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#comenzile-aplicatiei">
     Comenzile aplicatiei
   </a>
@@ -762,12 +820,12 @@ div.download-btn {
 <article class="md-content__inner md-typeset"><div class="download-btn"><a href="../pdfs/xl2roefact/index.html/index.pdf">Download PDF</a></div>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact">xl2roefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.3rc1-blue"/></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.4.dev0-blue"/></p>
 <p>Legaturi externe utile:</p>
 <ul>
-<li><a href="https://invoicetoroefact.renware.eu/"><strong>Site dedicat</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
-<li><a href="https://pypi.org/project/xl2roefact/">Pachet pe <em>PyPi</em></a></li>
-<li><a href="https://github.com/petre-renware/api_to_roefact/">Surse pe <em>GitHub</em></a></li>
+<li><a href="https://invoicetoroefact.renware.eu/"><strong>Web Site</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
+<li><a href="https://pypi.org/project/xl2roefact/">Pachet <em>PyPi</em></a></li>
+<li><a href="https://github.com/petre-renware/api_to_roefact/">Surse <em>GitHub</em></a></li>
 <li><a href="doc/README_xl2roefact_library.html">Vedere de ansamblu pachet biblioteca Python</a></li>
 <li><a href="doc/810.05a-xl2roefact_DLD_specs.html">Referinta <em>API</em></a></li>
 </ul>
@@ -783,27 +841,15 @@ div.download-btn {
 <p>Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si o poate incarca in sistemul <em>RO E-Fact</em><sup id="fnref:ld_roefact"><a class="footnote-ref" href="#fn:ld_roefact">1</a></sup>.</p>
 <p>Aceasta componenta ofera urmatoarele facilitati (acestea fiind obiectivele fundamentale ale componentei):</p>
 <ul>
-<li>
-<p><strong>transformarea facturilor din Excel in formatul <code>XML</code></strong> cerut de catre sistemul ANAF RO E-Fact pentru incarcare</p>
-</li>
-<li>
-<p><strong>incarcarea acestora</strong> in sistemul ANAF RO E-Fact<sup id="fnref2:ld_roefact"><a class="footnote-ref" href="#fn:ld_roefact">1</a></sup></p>
-</li>
-<li>
-<p><strong>transformarea facturilor din Excel intr-un format <code>JSON</code></strong>  intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard <em>REST</em>)</p>
-</li>
-<li>
-<p><strong>generarea facturii in format PDF</strong> pentru transmiterea acesteia catre client, semnarea electronica, tiparirea si arhivarea acesteia in format fizic (in general manipularea facturii in format <em>"human readable"</em>)</p>
-</li>
+<li><strong>transformarea facturilor din Excel in formatul <code>XML</code></strong> cerut de catre sistemul ANAF RO E-Fact pentru incarcare</li>
+<li><strong>incarcarea acestora</strong> in sistemul ANAF RO E-Fact<sup id="fnref2:ld_roefact"><a class="footnote-ref" href="#fn:ld_roefact">1</a></sup></li>
+<li><strong>transformarea facturilor din Excel intr-un format <code>JSON</code></strong>  intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard <em>REST</em>)</li>
+<li><strong>generarea facturii in format PDF</strong> pentru transmiterea acesteia catre client, semnarea electronica, tiparirea si arhivarea acesteia in format fizic (in general manipularea facturii in format <em>"human readable"</em>)</li>
 </ul>
 <p>Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obiective:</p>
 <ul>
-<li>
-<p><code>xl2roefact</code> o <strong>aplicatie de tip linie de comanda</strong> (disponibila pentru sistemele de operare Windows, Linux si MacOS)</p>
-</li>
-<li>
-<p><code>xl2roefact PyPi</code> o <strong>blioteca standard Python</strong> utilizabila pentru dezvoltari proprii in scopul extinderii altor sisteme existente (<em>custom development</em>)</p>
-</li>
+<li><code>xl2roefact</code> o <strong>aplicatie de tip linie de comanda</strong> (disponibila pentru sistemele de operare Windows, Linux si MacOS)</li>
+<li><code>xl2roefact PyPi</code> <strong>blioteca standard Python</strong> utilizabila pentru dezvoltari proprii in scopul extinderii altor sisteme existente (<em>custom development</em>)</li>
 </ul>
 <h2 id="instalarea-aplicatiei-xl2roefact">Instalarea aplicatiei xl2roefact</h2>
 <p>Instalarea aplicatiei <em>xl2roefact</em> este disponibila in urmatoarele variante:</p>
@@ -853,7 +899,6 @@ div.download-btn {
 <div class="highlight"><pre><span></span><code>xl2roefact<span class="w"> </span>settings<span class="w"> </span>--rules
 </code></pre></div></p>
 <h3 id="configurarea-din-fisier-extern">Configurarea din fisier extern</h3>
-<!--  --Sablon fisier configurare a aplicatiei xl2roefact -->
 <p>Configurarea aplicatuiei se poate face si prin intermediul unui fisier extern numit "<em>sablon de configurare</em>" (<em>en: configuration template</em>). Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.</p>
 <p>Sablonul este in format <a href="https://yaml.org/">YAML</a> iar informatiile ce trebuiesc descrise sunt explicate individual in comentarii insotitoare.
 De asemenea este util a fi citite si recomandarile date in pagina de descriere a aplicatiei.</p>
@@ -875,6 +920,46 @@ De asemenea este util a fi citite si recomandarile date in pagina de descriere a
 <blockquote>
 <p><a href="../doc_src/downloads.html#sablon-fisier-configurare-a-aplicatiei-xl2roefact">Aici puteti gasiti pentru descarcare un model de sablon de configuare</a>.</p>
 </blockquote>
+<h2 id="utilizare-nomenclator-de-furnizori">Utilizare nomenclator de furnizori</h2>
+<p>Aplicatia <em>xl2roefact</em> permite utilizarea datelor pentru furnizori din fisiere externe (in locul informatiilor din fisierele Excel) lucru ce poate fi folositor in urmatoarele situatii:</p>
+<ul>
+<li>cind utilizatorul aplicatiei o face in scopuri personale si multe facturi emise il au <em>pe el ca furnizor</em>. Aceast lucru permite ca informatia din Excel referitoare la furnizor sa fie sumara sau sa lipseasca, factura finala format <code>PDF</code> fiind generata cu aplicatia</li>
+<li>cind utilizatorul aplicatiei o foloseste pentru a emite facturi pentru alte firme si astfel este mai comod sa foloseasca fisiere cu datele acestor firme decit sa introduca informatia in fiecare factura</li>
+<li>cind se doreste ca datele furnizorului sa fie preluate dintr-un sistem extern ce le poate exporta ca si fisisre</li>
+</ul>
+<h3 id="reguli-generale-de-utilizare">Reguli generale de utilizare</h3>
+<p>Aceasta sectiune descrie regulile generale ce trebuiesc avute in vedere pentru o completa si corecta utilizare a facilitatii "Nomenclator furnizori":</p>
+<ul>
+<li>Nomenclatorul de furnizori se va completa intr-unul sau mai multe fisere de date (de tip text, vezi mai jos formatul exact).</li>
+<li>Un fisier acomodeaza un singur furnizor. Pentru mai multi furnizori se vor folosi fisiere diferite.</li>
+<li>Numele fisierului (fara extensie) trebuie sa coincida cu o cheie alternativa a furnizorului respectiv. Prin cheie alternativa se intelege acea cheie care este unica si poate asigura regasirea furnizorului prin folosirea ei. Ca si exemple din practicile curente ar fi cimpul numit uzual <code>code</code> sau <code>code_name</code> existent in mai toate sistemele de business. Acesta are avantajul unicitatii si a unei reprezentari "umane" (<em>en: human readable</em>). Desigur un cimp de tip cheie primara / ID este ideal dar de obicei acesta este tehnic iar valoarea sa nu ofera prea multe indicatii.</li>
+<li>Formatul fisierului este  <a href="https://yaml.org/">YAML</a> standard, fara folosirea de modele de date complexe, aatfel incit o eventuala conversie <code>JSON</code> &lt;--&gt; <code>YAML</code> sa poata fi realizata manual in ambele sensuri si fara necessitatea unor cunostinte avansate ci la nivel de redefinire a numelor cheilor.</li>
+</ul>
+<h3 id="locatia-nomenclatorului">Locatia nomenclatorului</h3>
+<p>Fisierele cu datele furnizorilor pot sta in urmatoarele locatii:</p>
+<ul>
+<li><em>directorul curent</em> este locatia cu prioritatea maxima si in caz de "duplicate" ale unui fisier, cel de aici va fi luat in considerare</li>
+<li><em>directorul <code>data/</code></em> din locatia unde este instalata aplicatia</li>
+</ul>
+<p>Recomandari si practici uzuale:</p>
+<ul>
+<li>In situatiile in care sistemul este instalat pe un computer ce se foloseste frecvent cu aplicatia <em>xl2roefact</em> si exista un set de furnizori frecvent folositi se recomanda folosirea directorului <code>data/</code> pentru stocarea fisierelor nomenclator astfel incit sa poata fi refolosite usor.</li>
+<li>In situatia folosirii a "multe" fisiere date furnizori se recomanda crearea unui director dedicat in locatia utilizata (vezi mai sus) si acesta sa fie referit in numle fisierului.</li>
+</ul>
+<h3 id="utilizarea-nomenclatorului">Utilizarea nomenclatorului</h3>
+<p>Pentru a folosi cu aplicatia un fisier tip nomenclator furnizor se va utiliza optiunea:
+<div class="highlight"><pre><span></span><code>xl2roefact<span class="w"> </span>xl2json<span class="w"> </span>-o<span class="w"> </span>fisier_furnizor
+</code></pre></div>
+unde <code>fisier_furnizor</code> este numele fisierului ce contine datele unui furnizor. Locatia acestui fisier este relativa la <a href="#locatia-nomenclatorului">locatia considerata pentru folosire</a></p>
+<h3 id="sablon-pentru-nomenclator-de-furnizori">Sablon pentru nomenclator de furnizori</h3>
+<p>Sablonul este proiectat pentru utilizarea in facturile emise si contine numai informatiile necesare in acest scop.<br/>
+Astfel cimpurile existente trebuiesc pastrate, adica nu vor fi sterse.</p>
+<p>Vor fi <em>respectate si completate</em> corespunzator cimpurile specificate ca <em>obligatoriii (en: mandatory</em> in comentariile aferente fiecarui cimp.<br/>
+Pentru acele cimpuri pentru care informatia este necunoscuta sau considerata irelevanta se va completa cu <code>null</code>.</p>
+<p>Se vor putea adauga orice alte cimpuri suplimentare cu conditia sa fie respectat formatul fisierului (<code>YAML</code>). acestea nu vor fi folosite de catre aplicatie, ci pur si simplu ignorate.</p>
+<blockquote>
+<p><a href="../doc_src/downloads.html#sablon-fisier-cu-date-furnizor">Aici puteti gasiti un model de sablon de configuare</a>.</p>
+</blockquote>
 <h2 id="comenzile-aplicatiei">Comenzile aplicatiei</h2>
 <p>Interfata aplicatie este realizata utilizind conventiile si practicile uzuale pentru aplicatii tip linie de comanda consola. Pentru informatii privind comenzile se poate folosi optiunea de <strong>help</strong>, dispobilia atit la nivelul general:
 <div class="highlight"><pre><span></span><code>xl2roefact<span class="w"> </span>--help
@@ -884,15 +969,9 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div></p>
 <p><strong>Lista comenzilor:</strong></p>
 <ul>
-<li>
-<p><strong>about</strong> - Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc)</p>
-</li>
-<li>
-<p><strong>settings</strong> _ Afiseaza parametrii de configurare a aplicatiei. <a href="#configurarea-aplicatiei-xl2roefact">Vezi sectiunea de configurare a aplicatiei</a></p>
-</li>
-<li>
-<p><strong>xl2json</strong> - Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice</p>
-</li>
+<li><strong>about</strong> - Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc)</li>
+<li><strong>settings</strong> _ Afiseaza parametrii de configurare a aplicatiei. <a href="#configurarea-aplicatiei-xl2roefact">Vezi sectiunea de configurare a aplicatiei</a></li>
+<li><strong>xl2json</strong> - Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice</li>
 </ul>
 <p><strong>Comenzile detaliate:</strong></p>
 <p><a id="comenzile-aplicatiei"></a> <!-- #NOTE ATTN do not drop this anchor tag because is referred in <code>mkdocs.yml</code> navigation section --></p>
@@ -1069,7 +1148,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 31, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 6, 2024</span>
 </small>
 </div>
 </article>

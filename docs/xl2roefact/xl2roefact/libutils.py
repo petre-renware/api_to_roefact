@@ -11,18 +11,60 @@ Components:
 * `complete_sexe_file() -> bool`: Rename and move resulted exe file (called from `build_sexe` script)
 * `dict_sum_by_key(dict, str) -> float`: Sum a dictionary for a given key at all depth levels
 * `find_str_in_list(list, list) -> int`: Search more strings (ie, a list) in list of strings
+* `hier_get_data_file(file_name: str) -> Path`: Get `Path(file_name)` from hierarchy of locations
 * `invoice_taxes_summary(list[dict]) -> dict`: Calculates invoice taxes summary as required by ROefact requirements
 * `isnumber(str) -> bool`: Test a string if it could be used as number (int or float)
 
 """
 
 import sys
+import os
 from rich import print
 from fractions import Fraction
 import copy
 from xl2roefact.__version__ import normalized_version
 from pathlib import Path
 import shutil
+
+
+
+
+# NOTE: rdy, unit test PASS @240401
+def hier_get_data_file(
+    file_name: str
+) -> Path | None:
+    """Get `Path(file_name)` from hierarchy of locations: (1) current directory, (2) package `data/` directory, (3) `None` is file does not exists in 1 or 2 locations.
+    
+    Args:
+        `file_name`: the name of the file to be returned as full path
+    
+    Return:
+        `Path`: path of file if was found in (1) or (2) locations or `None` if not found
+    """
+    # settings to differently treat single EXE vs other application types
+    frozen_sexe = getattr(sys, 'frozen', False)
+    if frozen_sexe:
+        app_dir = sys._MEIPASS
+    else:
+        app_dir = os.path.dirname(os.path.abspath(__file__))
+    crt_dir = Path.cwd()
+    # first search in current directory
+    file_to_find = Path(
+        crt_dir, file_name
+    )
+    ok_to_use = file_to_find.exists() and file_to_find.is_file()
+    if ok_to_use:
+        return file_to_find
+    # second search in application directory
+    file_to_find = Path(
+        app_dir, "data/", file_name
+    )
+    ok_to_use = file_to_find.exists() and file_to_find.is_file()
+    if ok_to_use:
+        return file_to_find
+    # if both searches failed will return None
+    return None
+
 
 
 
@@ -38,6 +80,7 @@ def complete_sexe_file(
 
     Args:
         `drop_source`: indicate to delete source file after copying, ie make a "move" operation, otherwise make a copy keeping the source file. Default behaviour is to delete source.
+    
     Return:
         `bool`: True if file was found, renamed and moved with no error
     """
