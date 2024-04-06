@@ -1,9 +1,11 @@
+#
 # INVOICEtoROefact system and components version
 #
 # - Copyright; (c) 2023, 2024 RENware Software Systems
 # - Author: Petre Iordanescu (petre.iordanescu@gmail.com)
+#
 
-extra:  #NOTE: components version used as Jinja fields in markdown docs
+extra:  # NOTE: components version used as Jinja fields in site markdown docs
     INVOICEtoROefact_version: "0.5.4"  # prev release "0.5.3rc1"
     xl2roefact_version: "0.5.4"  # prev release "0.5.3rc1"
     web2roefact_version: "n/a"
