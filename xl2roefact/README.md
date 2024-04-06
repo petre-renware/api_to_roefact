@@ -135,9 +135,13 @@ Aplicatia *xl2roefact* permite utilizarea datelor pentru furnizori din fisiere e
 ### Reguli generale de utilizare
 Aceasta sectiune descrie regulile generale ce trebuiesc avute in vedere pentru o completa si corecta utilizare a facilitatii "Nomenclator furnizori":
 
+* Nomenclatorul de furnizori se va completa intr-unul sau mai multe fisere de date (de tip text).
 * Un fisier acomodeaza un singur furnizor. Pentru mai multi furnizori se vor folosi fisiere diferite.
 * Numele fisierului (fara extensie) trebuie sa coincida cu o cheie alternativa a furnizorului respectiv. Prin cheie alternativa se intelege acea cheie care este unica si poate asigura regasirea furnizorului prin folosirea ei. Ca si exemple din practicile curente ar fi cimpul numit uzual `code` sau `code_name` existent in mai toate sistemele de business. Acesta are avantajul unicitatii si a unei reprezentari "umane" (*en: human readable*). Desigur un cimp de tip cheie primara / ID este ideal dar de obicei acesta este tehnic iar valoarea sa nu ofera prea multe indicatii.
 * Formatul fisierului este `YAML` standard, fara folosirea de modele de date complexe, aatfel incit o eventuala conversie `JSON` <--> `YAML` sa poata fi realizata manual in ambele sensuri si fara necessitatea unor cunostinte avansate ci la nivel de redefinire a numelor cheilor.
+
+
+###  Locatia nomenclatorului
 
 
 ### TODO things:
