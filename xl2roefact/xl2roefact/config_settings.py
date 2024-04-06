@@ -2,9 +2,9 @@
 
 Regulile recomandate se gasessc in documentul (recommended rules are in document `xl2roefact/data/README_app_config_rules.md`)
 
-    Public objects:
+Public_objects:
 
-        `rules_content`: contains the rules text (rendered)
+    `rules_content`: contains the rules text (rendered)
 
 * copyright: (c) 2023 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
