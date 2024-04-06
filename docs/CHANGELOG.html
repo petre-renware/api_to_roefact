@@ -612,8 +612,12 @@ div.download-btn {
 <p>tbd.Must... change this head to <code>0.5.4</code> version, update all <code>/versions.yml</code> and assure that all are published</p>
 </li>
 <li>
-<p><code>owner-dbs-file</code> get OWNER EXTERNAL DATA feature (version <code>0.5.4.dev0+owner-dbs-file</code>):</p>
+<p><code>fix-download-owner-template</code> xl2roefact README sectiune "Descarcare (download) aplicatie xl2roefact CLI" de pus link catre sablon nomenclator furnizori</p>
+</li>
+<li><code>fixed-tech-doc</code> generatorul plugin mkdocs ptr comenzile Typer nu a generat complet... A ramas ca inainte de modificare 0.5.4... adica nu apare optiunea <code>-o  -owner-file</code></li>
+<li>
 <ul class="task-list">
+<li><code>owner-dbs-file</code> get OWNER EXTERNAL DATA feature (version <code>0.5.4.dev0+owner-dbs-file</code>):</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. create <code>data/owner.yml</code> structure to exactly what is needed for actual JSON "Invoice..." key</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. created a skeleton for <code>hier_get_data_file()</code> module, update its docstring and generate DLD documentation</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. set a new flag for <code>xl2json</code> command for getting owner from ext data-file: <code>--owner -o [FILE]</code> where <code>FILE</code> being defaulted to <code>./owner.yml</code> or hierarchy to <code>data/owner.yml</code></li>
