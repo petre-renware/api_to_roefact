@@ -54,7 +54,7 @@ MSI  [`0.5.4` invoice supplier from owner master data(
 xl2roefact-0.5.4-win64.msi)
 
 
-SEXE  [`0.5.4` invoice supplier from owner master data](
+*** SEXE  [`0.5.4` invoice supplier from owner master data](
 ../xl2roefact/dist/  ...file.here...
 xl2roefact-0.5.4-win64.exe)
 
@@ -167,6 +167,7 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
 
 ??? note "0.5"
+    * [`0.5.4` invoice supplier from owner master data](../xl2roefact/dist/xl2roefact-0.5.4-win64.exe)
     * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.exe)
     * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe)
 
