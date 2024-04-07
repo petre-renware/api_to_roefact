@@ -44,14 +44,7 @@ WHEEL [`0.5.4` invoice supplier from owner master data WHEEL](
 xl2roefact-0.5.4-py3-none-any.whl)
 
 
-DIST  [`0.5.4` invoice supplier from owner master data DIST](
-../xl2roefact/dist/  ...file.here...
-xl2roefact-0.5.4.tar.gz)
 
-
-*** MSI  [`0.5.4` invoice supplier from owner master data(
-../xl2roefact/dist/  ...file.here...
-xl2roefact-0.5.4-win64.msi)
 
 -#FIXME ... ... ... wip up here
 
@@ -60,6 +53,8 @@ xl2roefact-0.5.4-win64.msi)
 
 
 ??? note "0.5"
+    * ...
+    * [`0.5.4` invoice supplier from owner master data DIST](../xl2roefact/dist/xl2roefact-0.5.4.tar.gz)
     * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc1-py3-none-any.whl)
     * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming DIST](../xl2roefact/dist/xl2roefact-0.5.3rc1.tar.gz)
     * [`0.5.3rc0` invoice supplier from Excel WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl)
