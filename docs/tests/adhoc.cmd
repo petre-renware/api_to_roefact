@@ -7,16 +7,13 @@ rem     - stdout redirection: `./tests/_test_results.txt` >NUL
 
 
 
-
 cd xl2roefact
 python -m pip install pdm >NUL
 python -m pdm install >NUL
 
-echo Run OWNER dataFILE
-pdm run build_doc
+rem pdm run build_doc
 
-
-rem cd tests
-rem .\xl2roefact-0.4.1.dev1-win64.exe settings -r
+echo Show app version on SEXE run
+.\dist\xl2roefact-0.5.4-win64.exe -V
 
 

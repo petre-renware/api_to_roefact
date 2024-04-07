@@ -15,11 +15,11 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pip install pdm  1>NUL
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pdm install  1>NUL 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo Run OWNER dataFILE 
-Run OWNER dataFILE
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem pdm run build_doc 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run build_doc 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo Show app version on SEXE run 
+Show app version on SEXE run
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem cd tests 
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem .\xl2roefact-0.4.1.dev1-win64.exe settings -r 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>.\dist\xl2roefact-0.5.4-win64.exe -V 
+***INFO: Application settings loaded from application code (default settings).
+xl2roefact 0.5.4

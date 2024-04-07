@@ -94,7 +94,7 @@ def complete_sexe_file(
     # get canonical version string
     canonical_version = str(normalized_version())
     # construct a Path() type for source
-    source_file = Path("./dist_sexe/xl2roefact_to_update_name.exe")
+    source_file = Path("./dist_sexe/xl2roefact.exe")
     # construct a Path() type for for destination
     dest_file = Path(f"./dist/xl2roefact-{canonical_version}-win64.exe")
     # mv source file to dest using new name. If destination exists is replaced
