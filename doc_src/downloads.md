@@ -36,11 +36,14 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
 
+
 ??? note "0.5"
-    * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc1-py3-none-any.whl)
-    * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming DIST](../xl2roefact/dist/xl2roefact-0.5.3rc1.tar.gz)
-    * [`0.5.3rc0` invoice supplier from Excel WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl)
-    * [`0.5.3rc0` invoice supplier from Excel DIST](../xl2roefact/dist/xl2roefact-0.5.3rc0.tar.gz)
+    * [`0.5.4` invoice supplier from owner master data WHEEL](../xl2roefact/dist/xl2roefact-0.5.4-py3-none-any.whl "download")
+    * [`0.5.4` invoice supplier from owner master data DIST](../xl2roefact/dist/xl2roefact-0.5.4.tar.gz "download")
+    * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc1-py3-none-any.whl "download")
+    * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming DIST](../xl2roefact/dist/xl2roefact-0.5.3rc1.tar.gz "download")
+    * [`0.5.3rc0` invoice supplier from Excel WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl "download")
+    * [`0.5.3rc0` invoice supplier from Excel DIST](../xl2roefact/dist/xl2roefact-0.5.3rc0.tar.gz "download")
 
 
 ??? note "0.4"
@@ -55,6 +58,9 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 ??? note "0.3"
+
+    <small markdown="1">NOTA: versiunile `0.3` nu mai sunt intretinute de la 10-Aprilie-2024 (end of life support).</small>
+
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] WHEEL](../xl2roefact/dist/xl2roefact-0.3.1b1-py3-none-any.whl "download")
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] DIST](../xl2roefact/dist/xl2roefact-0.3.1b1.tar.gz "download")
     * [`0.3.1b` xl2roefact documentation fixes WHEEL](../xl2roefact/dist/xl2roefact-0.3.1b0-py3-none-any.whl "download")
@@ -103,8 +109,9 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
 ??? note "0.5"
-    * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.msi)
-    * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi)
+    * [`0.5.4` invoice supplier from owner master data](../xl2roefact/dist/xl2roefact-0.5.4-win64.msi "download")
+    * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.msi "download")
+    * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi "download")
 
 ??? note "0.4"
     * [`0.4.1.dev1` fix sEXE bug from v(0.4.1.dev0) version](../xl2roefact/dist/xl2roefact-0.4.1.dev1-win64.msi "download")
@@ -113,6 +120,9 @@ Nici o resursa disponibila.
 
 
 ??? note "0.3"
+
+    <small markdown="1">NOTA: versiunile `0.3` nu mai sunt intretinute de la 10-Aprilie-2024 (end of life support).</small>
+
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.msi "download")
     * [`0.3.1b` xl2roefact documentation fixes](../xl2roefact/dist/xl2roefact-0.3.1b0-win64.msi "download")
     * [`0.3.0b` xl2roefact invoice taxes summary](../xl2roefact/dist/xl2roefact-0.3.0b0-win64.msi "download")
@@ -138,8 +148,9 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
 
 ??? note "0.5"
-    * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.exe)
-    * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe)
+    * [`0.5.4` invoice supplier from owner master data](../xl2roefact/dist/xl2roefact-0.5.4-win64.exe "download")
+    * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.exe "download")
+    * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe "download")
 
 
 ??? note "0.4"
@@ -149,6 +160,9 @@ Nici o resursa disponibila.
 
 
 ??? note "0.3"
+
+    <small markdown="1">NOTA: versiunile `0.3` nu mai sunt intretinute de la 10-Aprilie-2024 (end of life support).</small>
+
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe "download")
 
 

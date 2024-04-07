@@ -38,11 +38,13 @@
 
 ### `0.5.4` invoice supplier from owner master data (240406 h22:00)
 
+<!--  #TODO ramase ... ... ...
 * tbd.Must... this release should go to `master` branch being pure release
-
 * ... build and update site (#NOTE: HIDE ANY OPEN ISS OF 0.5.4)
-* ... update `downloads.md`
+-->
 
+
+* `upd-dwnld-0.5.4` update `downloads.md` for 0.5.4 deliverables
 * `build-apps-0.5.4` build all deliverables & publish package on PyPi
 * `prep-rlse-0.5.4` change this head to `0.5.4` version, update all `/versions.yml` and assure that all are published
 * `fix-download-owner-template` xl2roefact README sectiune "Descarcare (download) aplicatie xl2roefact CLI" de pus link catre sablon nomenclator furnizori
