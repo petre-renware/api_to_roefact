@@ -58,6 +58,9 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 ??? note "0.3"
+
+    <small markdown="1">NOTA: versiunile `0.3` nu mai sunt intretinute de la 10-Aprilie-2024 (end of life support).</small>
+
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] WHEEL](../xl2roefact/dist/xl2roefact-0.3.1b1-py3-none-any.whl "download")
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list] DIST](../xl2roefact/dist/xl2roefact-0.3.1b1.tar.gz "download")
     * [`0.3.1b` xl2roefact documentation fixes WHEEL](../xl2roefact/dist/xl2roefact-0.3.1b0-py3-none-any.whl "download")
@@ -117,6 +120,9 @@ Nici o resursa disponibila.
 
 
 ??? note "0.3"
+
+    <small markdown="1">NOTA: versiunile `0.3` nu mai sunt intretinute de la 10-Aprilie-2024 (end of life support).</small>
+
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.msi "download")
     * [`0.3.1b` xl2roefact documentation fixes](../xl2roefact/dist/xl2roefact-0.3.1b0-win64.msi "download")
     * [`0.3.0b` xl2roefact invoice taxes summary](../xl2roefact/dist/xl2roefact-0.3.0b0-win64.msi "download")
@@ -154,6 +160,9 @@ Nici o resursa disponibila.
 
 
 ??? note "0.3"
+
+    <small markdown="1">NOTA: versiunile `0.3` nu mai sunt intretinute de la 10-Aprilie-2024 (end of life support).</small>
+
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe "download")
 
 
