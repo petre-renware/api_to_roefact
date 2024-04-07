@@ -1,31 +1,28 @@
-"""xl2roefact version info.
+"""`xl2roefact` version info.
 ```
- ######## ####              ########  ######
- #  ##  # #  #              #      # ##    ##
- ##    ## #  #              ###  ### #  ##  #
-  ##  ##  #  #                #  #   #  ##  #
- ##    ## #  #                #  #   #  ##  #
- #  ##  # #  #####            #  #   #  ##  #
- #  ##  # #      #            #  #   ##    ##
- ######## ########            ####    ######
+######## ####              ########  ######
+#  ##  # #  #              #      # ##    ##
+##    ## #  #              ###  ### #  ##  #
+##  ##  #  #                #  #   #  ##  #
+##    ## #  #                #  #   #  ##  #
+#  ##  # #  #####            #  #   #  ##  #
+#  ##  # #      #            #  #   ##    ##
+######## ########            ####    ######
 
-                            ######## ########  ######   ######  ########
- #######   ######           #      # #     #  ##    ## ##    ## #      #
- #     ## ##    ## #######  #  ##### #  ####  #  ##  # #  ##  # ###  ###
- #  ##  # #  ##  # #     #  #    #   #    #   #      # #  #####   #  #
- #  ##### #  ##  # #######  #  ###   #  ###   #  ##  # #  #####   #  #
- #  # #   #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  #
- #  #  #  ##    ##          #      # #  #     #  ##  # ##    ##   #  #
- ####   #  ######           ######## ####     ########  ######    ####
+                           ######## ########  ######   ######  ########
+#######   ######           #      # #     #  ##    ## ##    ## #      #
+#     ## ##    ## #######  #  ##### #  ####  #  ##  # #  ##  # ###  ###
+#  ##  # #  ##  # #     #  #    #   #    #   #      # #  #####   #  #
+#  ##### #  ##  # #######  #  ###   #  ###   #  ##  # #  #####   #  #
+#  # #   #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  #
+#  #  #  ##    ##          #      # #  #     #  ##  # ##    ##   #  #
+####   #  ######           ######## ####     ########  ######    ####
 ```
 """
 
 import packaging.utils
 
-__version__ = "0.5.3rc1"
-
-
-
+__version__ = "0.5.4"  # prev release "0.5.3rc1"
 
 
 def normalized_version(
@@ -33,14 +30,14 @@ def normalized_version(
 ) -> str:
     """transform version string in canonical form.
 
-    Usage:
-    - `import xl2roefact`
-    - `xl2roefact.__version__.normalized_version()`
+    Used in `__init__.py` to return `__version__` object as will be seen by package consumers
 
     Args:
-        `raw_version (str)`: a raw version string. Defaults to package current version string.
+    
+        `raw_version`: a raw version string. Defaults to package current version string.
 
     Returns:
+    
         `str:` canonical version string
     """
     return packaging.utils.canonicalize_version(raw_version)

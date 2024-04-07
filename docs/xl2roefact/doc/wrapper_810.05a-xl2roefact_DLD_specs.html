@@ -534,6 +534,7 @@ div.download-btn {
 </li>
 <li><a href="#ldxml">ldxml</a></li>
 <li><a href="#libutils">libutils</a><ul>
+<li><a href="#hier_get_data_file">hier_get_data_file</a></li>
 <li><a href="#complete_sexe_file">complete_sexe_file</a></li>
 <li><a href="#invoice_taxes_summary">invoice_taxes_summary</a></li>
 <li><a href="#dict_sum_by_key">dict_sum_by_key</a></li>
@@ -546,6 +547,8 @@ div.download-btn {
 <li><a href="#get_excel_data_at_label">get_excel_data_at_label</a></li>
 <li><a href="#mk_kv_invoice_items_area">mk_kv_invoice_items_area</a></li>
 <li><a href="#get_invoice_items_area">get_invoice_items_area</a></li>
+<li><a href="#get_merged_cells_tobe_changed">get_merged_cells_tobe_changed</a></li>
+<li><a href="#build_meta_info_key">build_meta_info_key</a></li>
 <li><a href="#get_partner_data">get_partner_data</a></li>
 </ul>
 </li>
@@ -556,6 +559,7 @@ div.download-btn {
 </li>
 <li><a href="#__main__">__main__</a></li>
 <li><a href="#__version___1">__version__</a><ul>
+<li><a href="#__version___2">__version__</a></li>
 <li><a href="#normalized_version">normalized_version</a></li>
 </ul>
 </li>
@@ -575,7 +579,7 @@ div.download-btn {
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">about</span><span class="p">()</span>
 </code></pre></div>
-<p>provide a short application description.</p>
+<p>Provide a short application description.</p>
 <p><a id="app_cli.settings"></a></p>
 <h4 id="settings">settings</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -585,7 +589,7 @@ div.download-btn {
     <span class="n">Option</span><span class="p">(</span><span class="s2">"--rules"</span><span class="p">,</span> <span class="s2">"-r"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"show settings recommended update rules"</span><span class="p">),</span>
 <span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-<p>display application configuration parameters and settings that are subject to be changed by user.</p>
+<p>Display application configuration parameters and settings that are subject to be changed by user.</p>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>rules</code> - show recommended rules to follow when change application configurable settings (available in both RO &amp; EN languages). Defaults to <code>False</code>.</li>
@@ -612,17 +616,31 @@ div.download-btn {
             <span class="s2">"directory to be used to look for Excel files (if default directory does not exists will consider current directory instead)."</span>
         <span class="p">),</span>
     <span class="p">]</span> <span class="o">=</span> <span class="s2">"invoice_files/"</span><span class="p">,</span>
+    <span class="n">owner_datafile</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
+        <span class="n">Path</span><span class="p">,</span>
+        <span class="n">typer</span><span class="o">.</span><span class="n">Option</span><span class="p">(</span>
+            <span class="s2">"--owner-datafile"</span><span class="p">,</span>
+            <span class="s2">"-o"</span><span class="p">,</span>
+            <span class="n">exists</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">file_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">writable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">readable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">resolve_path</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s2">"File to read invoice supplier (owner) data instead Excel."</span><span class="p">),</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">verbose</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
         <span class="n">typer</span><span class="o">.</span>
         <span class="n">Option</span><span class="p">(</span><span class="s2">"--verbose"</span><span class="p">,</span> <span class="s2">"-v"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"show detailed processing messages"</span><span class="p">),</span>
     <span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-<p>extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
+<p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>file_name</code> - files to process (wildcards allowed).</li>
 <li><code>files_directory</code> - directory to be used to look for Excel files. Defaults to <code>invoice_files/</code>. NOTE: if default directory does not exists will consider current directory instead</li>
+<li><code>owner_datafile</code> - File to read invoice supplier (owner) data instead Excel.</li>
 <li><code>verbose</code> - show detailed processing messages". Defaults to <code>False</code>.</li>
 </ul>
 <p><a id="app_cli.called_when_no_command"></a></p>
@@ -632,10 +650,10 @@ div.download-btn {
     <span class="n">ctx</span><span class="p">:</span> <span class="n">typer</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span>
     <span class="n">version</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">bool</span><span class="p">,</span>
-        <span class="n">typer</span><span class="o">.</span><span class="n">Option</span><span class="p">(</span><span class="s2">"--version"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"show application version"</span><span class="p">),</span>
+        <span class="n">typer</span><span class="o">.</span><span class="n">Option</span><span class="p">(</span><span class="s2">"--version"</span><span class="p">,</span> <span class="s2">"-V"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"show application version"</span><span class="p">),</span>
     <span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-<p>function called when no command is invoked and to provide only application version (for external users to test it!).</p>
+<p>Application global information (command agnostic).</p>
 <p><a id="app_cli.run"></a></p>
 <h4 id="run">run</h4>
 <p>NOTE: for <code>run</code> "reason to be" as copy of <code>app_cli</code> see iss <code>0.1.22b 240216piu_a</code></p>
@@ -672,11 +690,12 @@ div.download-btn {
 <p><a id="config_settings"></a></p>
 <h1 id="config_settings">config_settings</h1>
 <p>Configuration and setting parameters.</p>
-<p>Regulile recomandate se gasessc in documentul (recommended rules are in document) <a href="../doc/README_app_config_rules.md"><code>doc/README_app_config_rules.md</code></a></p>
-<pre><code>Public objects:
-
-    `rules_content`: contains the rules text (rendered)
-</code></pre>
+<p>Regulile recomandate se gasessc in documentul (recommended rules are in document <code>xl2roefact/data/README_app_config_rules.md</code>)</p>
+<p>Public objects:</p>
+<ul>
+<li><code>rules_content</code>: contains the rules text (rendered)</li>
+</ul>
+<p>Info:</p>
 <ul>
 <li>copyright: (c) 2023 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
@@ -689,7 +708,7 @@ div.download-btn {
 <hr/>
 <p><a id="config_settings.python_object"></a></p>
 <h4 id="python_object">python_object</h4>
-<p>suppose no info found</p>
+<p>suppose no settings loaded</p>
 <p><a id="ldxml"></a></p>
 <h1 id="ldxml">ldxml</h1>
 <p>ldxml: modul de incarcare a facturii in sistemul ANAF E-Factura</p>
@@ -719,17 +738,32 @@ div.download-btn {
 <li><code>complete_sexe_file() -&gt; bool</code>: Rename and move resulted exe file (called from <code>build_sexe</code> script)</li>
 <li><code>dict_sum_by_key(dict, str) -&gt; float</code>: Sum a dictionary for a given key at all depth levels</li>
 <li><code>find_str_in_list(list, list) -&gt; int</code>: Search more strings (ie, a list) in list of strings</li>
+<li><code>hier_get_data_file(file_name: str) -&gt; Path</code>: Get <code>Path(file_name)</code> from hierarchy of locations</li>
 <li><code>invoice_taxes_summary(list[dict]) -&gt; dict</code>: Calculates invoice taxes summary as required by ROefact requirements</li>
 <li><code>isnumber(str) -&gt; bool</code>: Test a string if it could be used as number (int or float)</li>
+</ul>
+<p><a id="libutils.hier_get_data_file"></a></p>
+<h4 id="hier_get_data_file">hier_get_data_file</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hier_get_data_file</span><span class="p">(</span><span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span>
+</code></pre></div>
+<p>Get <code>Path(file_name)</code> from hierarchy of locations: (1) current directory, (2) package <code>data/</code> directory, (3) <code>None</code> is file does not exists in 1 or 2 locations.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>file_name</code> - the name of the file to be returned as full path</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>Path</code> - path of file if was found in (1) or (2) locations or <code>None</code> if not found</li>
 </ul>
 <p><a id="libutils.complete_sexe_file"></a></p>
 <h4 id="complete_sexe_file">complete_sexe_file</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">complete_sexe_file</span><span class="p">(</span><span class="n">drop_source</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <p>Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.</p>
+<p>Specs:</p>
 <ul>
-<li>Specs: file to process <code>.../dist_sexe/xl2roefact_to_update_name.exe</code> --&gt; `.../dist/xl2roefact-version-win64.exe</li>
-<li>NOTE: all function code suppose that current directory is root of <code>xl2roefact</code>, ie where is located <code>pyproject.toml</code> of package</li>
+<li><code>file to process</code>.../dist_sexe/xl2roefact_to_update_name.exe<code>--&gt;</code>.../dist/xl2roefact-version-win64.exe</li>
+<li>Note 1: all function code suppose that current directory is root of <code>xl2roefact</code>, ie where is located <code>pyproject.toml</code> of package</li>
 </ul>
 <p><strong>Arguments</strong>:</p>
 <ul>
@@ -814,7 +848,8 @@ div.download-btn {
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rdinv</span><span class="p">(</span><span class="n">file_to_process</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
           <span class="n">invoice_worksheet_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
           <span class="o">*</span><span class="p">,</span>
-          <span class="n">debug_info</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
+          <span class="n">debug_info</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+          <span class="n">owner_datafile</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
 </code></pre></div>
 <p>read Excel file for invoice data.</p>
 <p>Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data.</p>
@@ -823,14 +858,17 @@ div.download-btn {
 <li><code>file_to_process</code> - the invoice file (exact file with path).</li>
 <li><code>invoice_worksheet_name</code> - the worksheet containing invoice, optional, defaults to first found worksheet.</li>
 <li><code>debug_info</code> - key only, show debugging information, default <code>False</code>.</li>
+<li><code>owner_datafile</code> - specify a file to read supplier data from, default <code>None</code> meaning to read supplier data from Excel file</li>
 </ul>
 <p><strong>Returns</strong>:</p>
 <ul>
 <li><code>dict</code> - the invoice extracted information from Excel file as <code>dict(Invoice: dict, meta_info: dict, excel_original_data: dict)</code></li>
 </ul>
-<p>NOTE ref important variables:
-  * <code>db: pylightxl object</code>: EXCEL object with invoice (as a whole)
-  * <code>ws: pylightxl object</code>: WORKSHEET object with invoice</p>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li><code>db: pylightxl object</code>: EXCEL object with invoice (as a whole)</li>
+<li><code>ws: pylightxl object</code>: WORKSHEET object with invoice</li>
+</ul>
 <p><a id="rdinv.get_excel_data_at_label"></a></p>
 <h4 id="get_excel_data_at_label">get_excel_data_at_label</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_excel_data_at_label</span><span class="p">(</span><span class="n">pattern_to_search_for</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
@@ -879,11 +917,13 @@ div.download-btn {
                            <span class="n">wks_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
 </code></pre></div>
 <p>get invoice for <code>invoice_items_area</code>, process it and return its Excel format.</p>
-<p>Process steps &amp; notes:
-* find invoice items subtable.
-* clean invoice items subtable.
-* extract relevenat data.
-* NOTE: all Excel cell addresses are in <code>(row, col)</code> format (ie, Not Excel format like "A:26, C:42, ...")</p>
+<p>Process steps &amp; notes:</p>
+<ul>
+<li>find invoice items subtable.</li>
+<li>clean invoice items subtable.</li>
+<li>extract relevenat data.</li>
+<li>NOTE: all Excel cell addresses are in <code>(row, col)</code> format (ie, Not Excel format like "A:26, C:42, ...")</li>
+</ul>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>worksheet</code> - the worksheet containing invoice (as object of <code>pyxllight</code> library).</li>
@@ -895,18 +935,77 @@ div.download-btn {
 <ul>
 <li><code>invoice_items_area</code> - dictionary with invoice items in Excel format (ie, rows, columns).</li>
 </ul>
+<p><a id="rdinv.get_merged_cells_tobe_changed"></a></p>
+<h4 id="get_merged_cells_tobe_changed">get_merged_cells_tobe_changed</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_merged_cells_tobe_changed</span><span class="p">(</span><span class="n">file_to_scan</span><span class="p">,</span>
+                                  <span class="n">invoice_worksheet_name</span><span class="p">,</span>
+                                  <span class="n">keep_cells_of_items_ssd_marker</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span>
+</code></pre></div>
+<p>scan Excel file to detect all merged ranges.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>file_to_scan</code> - the excel file to be scanned.</li>
+<li><code>invoice_worksheet_name</code> - the worksheet to be scanned.</li>
+<li><code>keep_cells_of_items_ssd_marker</code> - tuple with cells that will be marked IN ANY CASE to be preserved:</li>
+<li>use case: to keep all potential invoice items ssd rows.</li>
+<li>format: <code>tuple(row, col, val)</code> where row &amp; col are relevant here</li>
+<li>default: <code>None</code></li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>cells_to_be_changed</code> - list with cells that need to be chaged in format <code>(row,col)</code>.</li>
+</ul>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>function is intended to be used ONLY internal in this module.</li>
+<li>use <code>openpyxl</code> library to do its job.</li>
+</ul>
+<p><a id="rdinv.build_meta_info_key"></a></p>
+<h4 id="build_meta_info_key">build_meta_info_key</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">build_meta_info_key</span><span class="p">(</span><span class="n">excel_file_to_process</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                        <span class="n">invoice_worksheet_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">ws_size</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                        <span class="n">keyword_for_items_table_marker</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                        <span class="n">found_cell</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
+</code></pre></div>
+<p>build meta_info key to preserve processed Excel file meta information: start address, size.</p>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>(1.) all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file).</li>
+<li>(2.) this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality').</li>
+</ul>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>excel_file_to_process</code> - name of file to process as would appear in <code>meta_info</code> key.</li>
+<li><code>invoice_worksheet_name</code> - the worksheet name as would appear in <code>meta_info</code> key.</li>
+<li><code>ws_size</code> - worksheet size as would appear in <code>meta_info</code> key (index 0 max rows, index 1 max columns).</li>
+<li><code>keyword_for_items_table_marker</code> - the content of cell used as start of invoice items subtable as would appear in <code>meta_info</code>.</li>
+<li><code>found_cell</code> - position of cell used as start of invoice items subtable as would appear in <code>meta_info</code> key (index 0 row, index 1 column).</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>meta_info</code> - dictionary built with meta information to be incorpoarted in final invoice dict</li>
+</ul>
 <p><a id="rdinv.get_partner_data"></a></p>
 <h4 id="get_partner_data">get_partner_data</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_partner_data</span><span class="p">(</span><span class="n">partner_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">wks</span><span class="p">,</span>
-                     <span class="n">param_invoice_header_area</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_partner_data</span><span class="p">(</span><span class="n">partner_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                     <span class="o">*</span><span class="p">,</span>
+                     <span class="n">wks</span><span class="p">,</span>
+                     <span class="n">param_invoice_header_area</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                     <span class="n">supplier_datafile</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <p>Get invoice partener data from Excel.</p>
-<p>For developers note: function works by generating side effects and must be located in <code>rdinv.py</code></p>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li><em>for developers</em>: function works by generating side effects and must be located in <code>rdinv.py</code></li>
+<li><em>side effects</em>: this function works by directly modifying <code>param_invoice_header_area</code> sent parameter</li>
+<li><em>supplier_datafile exception</em>: if file is not found or cannot be read, this function will force complete application termination (<code>sys.exit</code>)</li>
+</ul>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>partner_type</code> - one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data)</li>
 <li><code>wks</code> - current work-on <code>pylightxl Worksheet</code> object</li>
-<li><code>param_invoice_header_area</code> - outside <code>param_invoice_header_area</code> as used and needed in <code>rdinv()</code>. This function will write back in this variable</li>
+<li><code>param_invoice_header_area</code> - <em>mode IN-OUT</em>, outside <code>param_invoice_header_area</code> as used and needed in <code>rdinv()</code>. This function will write back in this variable</li>
+<li><code>supplier_datafile</code> - for <code>partner_type = "CUSTOMER"</code> here is expected the file where to get supplier data</li>
 </ul>
 <p><strong>Returns</strong>:</p>
 <ul>
@@ -953,35 +1052,38 @@ div.download-btn {
 </ul>
 <p><a id="__version__"></a></p>
 <h1 id="__version___1">__version__</h1>
-<p>xl2roefact version info.
-<div class="highlight"><pre><span></span><code> ######## ####              ########  ######
- #  ##  # #  #              #      # ##    ##
- ##    ## #  #              ###  ### #  ##  #
-  ##  ##  #  #                #  #   #  ##  #
- ##    ## #  #                #  #   #  ##  #
- #  ##  # #  #####            #  #   #  ##  #
- #  ##  # #      #            #  #   ##    ##
- ######## ########            ####    ######
+<p><code>xl2roefact</code> version info.
+<div class="highlight"><pre><span></span><code>######## ####              ########  ######
+#  ##  # #  #              #      # ##    ##
+##    ## #  #              ###  ### #  ##  #
+##  ##  #  #                #  #   #  ##  #
+##    ## #  #                #  #   #  ##  #
+#  ##  # #  #####            #  #   #  ##  #
+#  ##  # #      #            #  #   ##    ##
+######## ########            ####    ######
 
-                            ######## ########  ######   ######  ########
- #######   ######           #      # #     #  ##    ## ##    ## #      #
- #     ## ##    ## #######  #  ##### #  ####  #  ##  # #  ##  # ###  ###
- #  ##  # #  ##  # #     #  #    #   #    #   #      # #  #####   #  #
- #  ##### #  ##  # #######  #  ###   #  ###   #  ##  # #  #####   #  #
- #  # #   #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  #
- #  #  #  ##    ##          #      # #  #     #  ##  # ##    ##   #  #
- ####   #  ######           ######## ####     ########  ######    ####
+                           ######## ########  ######   ######  ########
+#######   ######           #      # #     #  ##    ## ##    ## #      #
+#     ## ##    ## #######  #  ##### #  ####  #  ##  # #  ##  # ###  ###
+#  ##  # #  ##  # #     #  #    #   #    #   #      # #  #####   #  #
+#  ##### #  ##  # #######  #  ###   #  ###   #  ##  # #  #####   #  #
+#  # #   #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  #
+#  #  #  ##    ##          #      # #  #     #  ##  # ##    ##   #  #
+####   #  ######           ######## ####     ########  ######    ####
 </code></pre></div></p>
+<p><a id="__version__.__version__"></a></p>
+<h4 id="__version___2">__version__</h4>
+<p>prev release "0.5.3rc1"</p>
 <p><a id="__version__.normalized_version"></a></p>
 <h4 id="normalized_version">normalized_version</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">normalized_version</span><span class="p">(</span><span class="n">raw_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </code></pre></div>
 <p>transform version string in canonical form.</p>
-<p>Usage:
-- <code>import xl2roefact</code>
-- <code>xl2roefact.__version__.normalized_version()</code></p>
+<p>Used in <code>__init__.py</code> to return <code>__version__</code> object as will be seen by package consumers</p>
 <p><strong>Arguments</strong>:</p>
-<p><code>raw_version (str)</code>: a raw version string. Defaults to package current version string.</p>
+<ul>
+<li><code>raw_version</code> - a raw version string. Defaults to package current version string.</li>
+</ul>
 <p><strong>Returns</strong>:</p>
 <p><code>str:</code> canonical version string</p>
 <p><a id="data"></a></p>
@@ -991,7 +1093,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 31, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 7, 2024</span>
 </small>
 </div>
 </article>

@@ -11,12 +11,14 @@ Components:
 * `complete_sexe_file() -> bool`: Rename and move resulted exe file (called from `build_sexe` script)
 * `dict_sum_by_key(dict, str) -> float`: Sum a dictionary for a given key at all depth levels
 * `find_str_in_list(list, list) -> int`: Search more strings (ie, a list) in list of strings
+* `hier_get_data_file(file_name: str) -> Path`: Get `Path(file_name)` from hierarchy of locations
 * `invoice_taxes_summary(list[dict]) -> dict`: Calculates invoice taxes summary as required by ROefact requirements
 * `isnumber(str) -> bool`: Test a string if it could be used as number (int or float)
 
 """
 
 import sys
+import os
 from rich import print
 from fractions import Fraction
 import copy
@@ -27,25 +29,72 @@ import shutil
 
 
 
+# NOTE: rdy, unit test PASS @240401
+def hier_get_data_file(
+    file_name: str
+) -> Path | None:
+    """Get `Path(file_name)` from hierarchy of locations: (1) current directory, (2) package `data/` directory, (3) `None` is file does not exists in 1 or 2 locations.
+    
+    Args:
+    
+        `file_name`: the name of the file to be returned as full path
+    
+    Return:
+    
+        `Path`: path of file if was found in (1) or (2) locations or `None` if not found
+    """
+    # settings to differently treat single EXE vs other application types
+    frozen_sexe = getattr(sys, 'frozen', False)
+    if frozen_sexe:
+        app_dir = sys._MEIPASS
+    else:
+        app_dir = os.path.dirname(os.path.abspath(__file__))
+    crt_dir = Path.cwd()
+    # first search in current directory
+    file_to_find = Path(
+        crt_dir, file_name
+    )
+    ok_to_use = file_to_find.exists() and file_to_find.is_file()
+    if ok_to_use:
+        return file_to_find
+    # second search in application directory
+    file_to_find = Path(
+        app_dir, "data/", file_name
+    )
+    ok_to_use = file_to_find.exists() and file_to_find.is_file()
+    if ok_to_use:
+        return file_to_find
+    # if both searches failed will return None
+    return None
+
+
+
+
+
 # NOTE: rdy, unit test PASS @240309
 def complete_sexe_file(
     drop_source: bool = True
 ) -> bool:
     """Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.
 
-    * Specs: file to process `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
-    * NOTE: all function code suppose that current directory is root of `xl2roefact`, ie where is located `pyproject.toml` of package
+    Specs:
+
+    * `file to process `.../dist_sexe/xl2roefact_to_update_name.exe` --> `.../dist/xl2roefact-version-win64.exe
+    * Note 1: all function code suppose that current directory is root of `xl2roefact`, ie where is located `pyproject.toml` of package
 
     Args:
+    
         `drop_source`: indicate to delete source file after copying, ie make a "move" operation, otherwise make a copy keeping the source file. Default behaviour is to delete source.
+    
     Return:
+    
         `bool`: True if file was found, renamed and moved with no error
     """
     process_stat = False
     # get canonical version string
     canonical_version = str(normalized_version())
     # construct a Path() type for source
-    source_file = Path("./dist_sexe/xl2roefact_to_update_name.exe")
+    source_file = Path("./dist_sexe/xl2roefact.exe")
     # construct a Path() type for for destination
     dest_file = Path(f"./dist/xl2roefact-{canonical_version}-win64.exe")
     # mv source file to dest using new name. If destination exists is replaced
@@ -73,9 +122,11 @@ def invoice_taxes_summary(
     """Calculates invoice taxes summary as required by ROefact requirements.
 
     Args:
+    
         `invoice_lines`: section with item lines from 'big' invoice dictionary
 
     Return:
+    
         `list`: usable for "cac_TaxSubtotal" key
     """
     copyof_invoice_lines = copy.deepcopy(invoice_lines)[0]  # make a copy and keep only real-effective list (first item of)
@@ -127,10 +178,12 @@ def dict_sum_by_key(
     """Sum all dictionary (or list off dictionaries) items, at all levels, for a given key.
 
     Args:
+    
         `search_dict`: dictionary to be searched for
         `sum_key`: key to be searched
 
     Return:
+    
         `float`: with required sum
     """
     s = 0
@@ -161,9 +214,11 @@ def isnumber(a_string: str) -> bool:
     """test if a string is valid as any kind of number.
 
     Args:
+    
         `a_string`: input string.
 
     Return:
+    
         `True`: if input string is valid as any kind of number, orherwise `False`.
     """
     try:
@@ -183,10 +238,12 @@ def find_str_in_list(list_of_str_to_find: list, list_to_search: list) -> int:
     """find a substring from `list_of_str_to_find` in elements of `list_to_search`.
 
     Args:
+    
         `list_of_str_to_find`: list of strings to search for.
         `list_to_search`: liste where to search for substrings.
 
     Return:
+    
         `index`: the index of list item which contains `str_to_find` (first found) or `None` if not found.
     """
     __found = False

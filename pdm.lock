@@ -595,7 +595,7 @@ files = [
 
 [[package]]
 name = "gitpython"
-version = "3.1.42"
+version = "3.1.43"
 requires_python = ">=3.7"
 summary = "GitPython is a Python library used to interact with Git repositories"
 groups = ["default"]
@@ -603,8 +603,8 @@ dependencies = [
     "gitdb<5,>=4.0.1",
 ]
 files = [
-    {file = "GitPython-3.1.42-py3-none-any.whl", hash = "sha256:1bf9cd7c9e7255f77778ea54359e54ac22a72a5b51288c457c881057b7bb9ecd"},
-    {file = "GitPython-3.1.42.tar.gz", hash = "sha256:2d99869e0fef71a73cbd242528105af1d6c1b108c60dfabd994bf292f76c3ceb"},
+    {file = "GitPython-3.1.43-py3-none-any.whl", hash = "sha256:eec7ec56b92aad751f9912a73404bc02ba212a23adb2c7098ee668417051a1ff"},
+    {file = "GitPython-3.1.43.tar.gz", hash = "sha256:35f314a9f878467f5453cc1fee295c3e18e52f1b99f10f6cf5b1682e968a9e7c"},
 ]
 
 [[package]]
@@ -2078,7 +2078,7 @@ files = [
 
 [[package]]
 name = "xl2roefact"
-version = "0.5.3rc0"
+version = "0.5.4"
 requires_python = "<3.11,>=3.10"
 summary = "Excel invoices data retrieve, export & upload to RO E-Fact system"
 groups = ["default"]
@@ -2119,8 +2119,8 @@ dependencies = [
     "wheel~=0.42",
 ]
 files = [
-    {file = "xl2roefact-0.5.3rc0-py3-none-any.whl", hash = "sha256:a38ad3e49708bac8f8114266fe895c35627c4c380b05e1a47b4d9c68b1e31366"},
-    {file = "xl2roefact-0.5.3rc0.tar.gz", hash = "sha256:9676b431d9c97d06280032f0a8b305aa5c15d5ddd5db35804cd45ceb856940a6"},
+    {file = "xl2roefact-0.5.4-py3-none-any.whl", hash = "sha256:09d1d223682a0e73ee75c13add7c77e95282231ea355e6f001c9ffa12f60aadf"},
+    {file = "xl2roefact-0.5.4.tar.gz", hash = "sha256:03a874213703df6df8b45b70fec71a3a0d539aa6ecb1ce5431916b386ad6fd1d"},
 ]
 
 [[package]]

@@ -22,8 +22,10 @@ import copy
 from rich.pretty import pprint
 from string import ascii_lowercase
 import json
+import yaml
 from typing import Callable, Any
 from functools import partial
+from pathlib import Path
 import pylightxl as xl
 import openpyxl as opnxl
 
@@ -32,6 +34,7 @@ from .libutils import isnumber
 from .libutils import find_str_in_list
 from .libutils import dict_sum_by_key
 from .libutils import invoice_taxes_summary
+from .libutils import hier_get_data_file
 from . import config_settings  # application configuration parameters
 
 __all__ = ["rdinv"]  # limit what symbols to be available when import all/full module as `from xl2roefact.rdinv import *`
@@ -72,23 +75,28 @@ def rdinv(
     file_to_process: str,
     invoice_worksheet_name: str = None,
     *,
-    debug_info: bool = False
+    debug_info: bool = False,
+    owner_datafile: Path = None
 ) -> dict:
     """read Excel file for invoice data.
 
     Produce a dictionary structure + JSON file with all data regarding read invoice: canonical KV data, meta data, map to convert to XML and original Excel data.
 
     Args:
+
         `file_to_process`: the invoice file (exact file with path).
         `invoice_worksheet_name`: the worksheet containing invoice, optional, defaults to first found worksheet.
         `debug_info`: key only, show debugging information, default `False`.
+        `owner_datafile`: specify a file to read supplier data from, default `None` meaning to read supplier data from Excel file
 
     Return:
+    
         `dict`: the invoice extracted information from Excel file as `dict(Invoice: dict, meta_info: dict, excel_original_data: dict)`
 
-    NOTE ref important variables:
-        * `db: pylightxl object`: EXCEL object with invoice (as a whole)
-        * `ws: pylightxl object`: WORKSHEET object with invoice
+    Notes:
+
+    * `db: pylightxl object`: EXCEL object with invoice (as a whole)
+    * `ws: pylightxl object`: WORKSHEET object with invoice
     """
     # use as global only for those constants that could be changed by this function
     global DEFAULT_VAT_PERCENT
@@ -140,7 +148,7 @@ def rdinv(
     keyword_for_items_table_marker = _found_cell_for_invoice_items_area_marker[2]
 
     # detect all cells that should be filled with SYS_FILLED_EMPTY_CELL (these are cells id merged groups where first cell in merged group is relevant (diff from empty))
-    detected_cells_which_will_be_fake_filled = _get_merged_cells_tobe_changed(
+    detected_cells_which_will_be_fake_filled = get_merged_cells_tobe_changed(
         file_to_scan=file_to_process,
         invoice_worksheet_name=invoice_worksheet_name,
         keep_cells_of_items_ssd_marker=_found_cell_for_invoice_items_area_marker)  # this call specify to keep unchanged that cells with some description
@@ -232,14 +240,21 @@ def rdinv(
     )
     #
     # get and solve `invoice_header_area` for all SUPPLIER data
-    _ = get_partner_data(
-        partner_type="SUPPLIER",
-        wks=ws,
-        param_invoice_header_area=invoice_header_area
-    )
+    if owner_datafile is None:  # get supplier data from Excel file
+        _ = get_partner_data(
+            partner_type="SUPPLIER",
+            wks=ws,
+            param_invoice_header_area=invoice_header_area
+        )
+    else:  # get supplier data from `owner-data-file`
+        _ = get_partner_data(
+            partner_type="OWNER",
+            wks=ws,
+            param_invoice_header_area=invoice_header_area,
+            supplier_datafile=owner_datafile
+        )
     #
-    # TODO: ... mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`
-
+    # TODO: ... mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`. SEE ALSO line 331
 
     """#NOTE: section to ( Excel data )--->( JSON ) format preparation and finishing
         this is required to be after header determination (because CURRENCY could be known here and will impact config param `DEFAULT_CURRENCY`)
@@ -248,7 +263,7 @@ def rdinv(
     invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
 
     # preserve processed Excel file meta information: start address, size.
-    meta_info = _build_meta_info_key(
+    meta_info = build_meta_info_key(
         excel_file_to_process=file_to_process,
         invoice_worksheet_name=invoice_worksheet_name,
         ws_size=tuple(ws.size),
@@ -316,7 +331,7 @@ def rdinv(
                 "cbc_TaxAmount": round(sum([i["cbc_TaxAmount"] if i["cbc_TaxAmount"] is not None else 0 for i in tmp_cac_TaxSummary]), 2),
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
-            # TODO: ... chk for remained structure values and check XLM-JSON map
+            # TODO: ... chk for remained structure values and check XLM-JSON map. SEE ALSO line 254
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
@@ -362,6 +377,7 @@ def get_excel_data_at_label(
     """get "one key Excel values", like invoice number or invoice issue date.
 
     Args:
+    
         `pattern_to_search_for`: for example for inv number, will pass the `PATTERN_FOR_INVOICE_NUMBER_LABEL`.
         `worksheet`: the worksheet containing invoice (as object of `pyxllight` library).
         `area_to_scan`: area of cells to be searched, default whole worksheet.
@@ -369,12 +385,14 @@ def get_excel_data_at_label(
         `down_search_try`: establish if DOWN search method is tried, default `True`.
 
     Return:
+    
         `None` if not found OR `dictionary` containing:
             * `"value": int | float | str` - the value found covenrted to requested `targeted_type` if possible or `str` otherwise; if "out of space" then returns `None`
             * `"location": (row, col)` - adrees of cell where found value
 
     Notes:
-        * normal scan order is 1.RIGHT, 2.DOWN (if allowed), 3.IN-LABEL only in given area and pattern.
+    
+    * normal scan order is 1.RIGHT, 2.DOWN (if allowed), 3.IN-LABEL only in given area and pattern.
     """
     def __check_value(val: Any) -> bool:
         """ return `True` if a `val` is different of None or empty string or SYS_FILLED_EMPTY_CELL, otherwise return `False`
@@ -462,13 +480,16 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
     """transform `invoice_items_area` in "canonical JSON format" (as kv pairs).
 
     Args:
+    
         `invoice_items_area_xl_format`: invoice items area in Excel format (ie, DataFrame with row, col, data).
 
     Return:
+    
         `invoice_items_area_xl_format`: dictionary with invoice items in Excel format (ie, rows, columns).
 
     Notes:
-        * for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`.
+    
+    * for ROefact XML model (& plan) see `invoice_files/__model_test_factura_generat_anaf.xml`.
     """
     _invoice_items_data_key = copy.deepcopy(invoice_items_area_xl_format["data"])
     _invoice_items_cols_key = copy.deepcopy(invoice_items_area_xl_format["keycols"])
@@ -573,18 +594,21 @@ def get_invoice_items_area(
     """get invoice for `invoice_items_area`, process it and return its Excel format.
 
     Process steps & notes:
-        * find invoice items subtable.
-        * clean invoice items subtable.
-        * extract relevenat data.
-        * NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
+    
+    * find invoice items subtable.
+    * clean invoice items subtable.
+    * extract relevenat data.
+    * NOTE: all Excel cell addresses are in `(row, col)` format (ie, Not Excel format like "A:26, C:42, ...")
 
     Args:
+    
         `worksheet`: the worksheet containing invoice (as object of `pyxllight` library).
         `invoice_items_area_marker`: string with exact marker of invoice items table.
             NOTE: this is the UPPER-LEFT corner and is determined before calling this procedure.
         `wks_name`: the wroksheet name (string) of the `worksheet` object.
 
     Return:
+    
         `invoice_items_area`: dictionary with invoice items in Excel format (ie, rows, columns).
     """
     # obtain table with invoice items ==> `invoice_items_area`
@@ -662,7 +686,7 @@ def get_invoice_items_area(
 
 
 # NOTE: ready, test PASS @ 231111 by [piu]
-def _get_merged_cells_tobe_changed(
+def get_merged_cells_tobe_changed(
     file_to_scan,
     invoice_worksheet_name,
     keep_cells_of_items_ssd_marker = None
@@ -670,6 +694,7 @@ def _get_merged_cells_tobe_changed(
     """scan Excel file to detect all merged ranges.
 
     Args:
+    
         `file_to_scan`: the excel file to be scanned.
         `invoice_worksheet_name`: the worksheet to be scanned.
         `keep_cells_of_items_ssd_marker`: tuple with cells that will be marked IN ANY CASE to be preserved:
@@ -678,11 +703,13 @@ def _get_merged_cells_tobe_changed(
             * default: `None`
 
     Return:
+    
         `cells_to_be_changed`: list with cells that need to be chaged in format `(row,col)`.
 
     Notes:
-        * function is intended to be used ONLY internal in this module.
-        * use `openpyxl` library to do its job.
+    
+    * function is intended to be used ONLY internal in this module.
+    * use `openpyxl` library to do its job.
     """
     all_detected_ranges = []
     # open Excel file & worksheet
@@ -735,7 +762,7 @@ def _get_merged_cells_tobe_changed(
 
 
 # NOTE: ready, test PASS @ 231127 by [piu]
-def _build_meta_info_key(
+def build_meta_info_key(
     excel_file_to_process: str,
     invoice_worksheet_name: str,
     ws_size: list,
@@ -745,18 +772,21 @@ def _build_meta_info_key(
     """build meta_info key to preserve processed Excel file meta information: start address, size.
 
     Notes:
-        1: all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file) #TODO subject of documentation update.
-        2: this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality').
+    
+    * (1.) all cell addresses are in format (row, col) and are absolute (ie, valid for whole Excel file).
+    * (2.) this function is designed to be used internally by current module (using outside it is not guaranteed for information 'quality').
 
     Args:
+    
         `excel_file_to_process`: name of file to process as would appear in `meta_info` key.
         `invoice_worksheet_name`: the worksheet name as would appear in `meta_info` key.
         `ws_size`: worksheet size as would appear in `meta_info` key (index 0 max rows, index 1 max columns).
         `keyword_for_items_table_marker`: the content of cell used as start of invoice items subtable as would appear in `meta_info`.
         `found_cell`: position of cell used as start of invoice items subtable as would appear in `meta_info` key (index 0 row, index 1 column).
 
-    Return:
-        `meta_info` dictionary built with meta information to be incorpoarted in final invoice dict
+    Returns:
+    
+        `meta_info`: dictionary built with meta information to be incorpoarted in final invoice dict
     """
     _tmp_meta_info = dict()
 
@@ -830,23 +860,31 @@ def _build_meta_info_key(
 
 
 
-# NOTE: ready, test PASS @ 240325 by [piu]
+# NOTE: ready, test PASS @ 240404 by [piu]
 def get_partner_data(
-    partner_type: str,  # IN
+    partner_type: str,
     *,
-    wks,  # INOUT
-    param_invoice_header_area: dict  # INOUT
+    wks,
+    param_invoice_header_area: dict,
+    supplier_datafile: Path = None
 ) -> None:
     """Get invoice partener data from Excel.
 
-    For developers note: function works by generating side effects and must be located in `rdinv.py`
+    Notes:
+    
+    * *for developers*: function works by generating side effects and must be located in `rdinv.py`
+    * *side effects*: this function works by directly modifying `param_invoice_header_area` sent parameter
+    * *supplier_datafile exception*: if file is not found or cannot be read, this function will force complete application termination (`sys.exit`)
 
     Args:
+    
         `partner_type`: one of "CUSTOMER", "SUPPLIER" or "OWNER" to specify for what kind of parner get data. The value "OWNER" is designed to get data from an outside database / file (master data)
         `wks`: current work-on `pylightxl Worksheet` object
-        `param_invoice_header_area`: outside `param_invoice_header_area` as used and needed in `rdinv()`. This function will write back in this variable
+        `param_invoice_header_area`: _mode IN-OUT_, outside `param_invoice_header_area` as used and needed in `rdinv()`. This function will write back in this variable
+        `supplier_datafile`: for `partner_type = "CUSTOMER"` here is expected the file where to get supplier data
 
     Return:
+    
         `None`: all data is produced directly in parameters as side effect
     """
     # set variables constant-like suspected to be changed as global
@@ -867,9 +905,67 @@ def get_partner_data(
         UNIF_DEFAULT_PARTNER_COUNTRY = DEFAULT_SUPPLIER_COUNTRY
         unif_partner_area_key = "supplier_area"
     elif partner_type == "OWNER":  # subject to load SUPPLIER data from external data source
-        ...  # TODO: get OWNER EXTERNAL DATA feature code here
-    else:
-        # accept only known operations
+        unif_partner_area_key = "supplier_area"
+        # safe read data from `supplier_datafile` file only if it exists
+        file_ok = supplier_datafile.exists() and supplier_datafile.is_file()
+        if file_ok:
+            yaml_in = supplier_datafile.read_text()
+            suppl_data_read = yaml.safe_load(yaml_in)
+        else:
+            print(f"[red]ERROR: Owner / Supplier data file ([cyan]{supplier_datafile}[/]) cannot be read. Process terminated.[/].")
+            sys.exit()
+        supplier_datafile_name = str(supplier_datafile)
+        # save info about area to search as external file and its name
+        param_invoice_header_area[unif_partner_area_key] = {
+            "area_info": {
+               "value": supplier_datafile_name,
+                "location": "external file",
+            }
+        }
+        # CUI
+        param_invoice_header_area[unif_partner_area_key]["CUI"] = {
+            "value": suppl_data_read["PartyLegalEntity"]["CompanyID"],
+            "location": "external file (PartyLegalEntity -> CompanyID)",
+            "label_value": None,
+            "label_location": None
+        }
+        # RegName
+        param_invoice_header_area[unif_partner_area_key]["RegistrationName"] = {
+            "value": suppl_data_read["PartyLegalEntity"]["RegistrationName"],
+            "location": "external file (PartyLegalEntity -> CompanyID)",
+            "label_value": None,
+            "label_location": None
+        }
+        # PostalAddress
+        param_invoice_header_area[unif_partner_area_key]["PostalAddress"] = {
+            "cbc_StreetName": suppl_data_read["PostalAddress"]["StreetName"],
+            "cbc_CityName": suppl_data_read["PostalAddress"]["CityName"],
+            "cbc_PostalZone": suppl_data_read["PostalAddress"]["PostalZone"],
+            "cac_Country": { "cbc_IdentificationCode": suppl_data_read["PostalAddress"]["CountryCode"] },
+        }
+        # Bank, Tax & Contact
+        param_invoice_header_area[unif_partner_area_key]["reg_com"] = {
+            "value": suppl_data_read["PartyTaxScheme"]["CompanyID"],
+            "location": "external file (PartyLegalEntity -> CompanyID)"
+        }
+        param_invoice_header_area[unif_partner_area_key]["phone"] = {
+            "value": suppl_data_read["Contact"]["Telephone"],
+            "location": "external file (Contact -> Telephone)"
+        }
+        param_invoice_header_area[unif_partner_area_key]["email"] = {
+            "value": suppl_data_read["Contact"]["ElectronicMail"],
+            "location": "external file (Contact -> ElectronicMail)"
+        }
+        param_invoice_header_area[unif_partner_area_key]["bank"] = {
+            "value": suppl_data_read["Contact"]["Bank"],
+            "location": "external file (Contact -> Bank)"
+        }
+        param_invoice_header_area[unif_partner_area_key]["IBAN"] = {
+            "value": suppl_data_read["Contact"]["IBAN"],
+            "location": "external file (Contact -> IBAN)"
+        }
+        return
+    else:  # accept only known operations
         raise Exception("partner_type parameter not recognized value")
     #
     # find invoice partner ==> one of (cac:AccountingCustomerParty , cac:AccountingSupplierParty)
@@ -1010,7 +1106,6 @@ def get_partner_data(
     param_invoice_header_area[unif_partner_area_key]["IBAN"] = _tmp_IBAN
     param_invoice_header_area[unif_partner_area_key]["phone"] = _tmp_phone
     param_invoice_header_area[unif_partner_area_key]["email"] = _tmp_email
-
     return
 
 

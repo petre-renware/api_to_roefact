@@ -6,9 +6,9 @@
 
 Legaturi externe utile:
 
-* [**Site dedicat**](https://invoicetoroefact.renware.eu/). (*Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.*)
-* [Pachet pe *PyPi*](https://pypi.org/project/xl2roefact/)
-* [Surse pe *GitHub*](https://github.com/petre-renware/api_to_roefact/)
+* [**Web Site**](https://invoicetoroefact.renware.eu/). (*Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.*)
+* [Pachet *PyPi*](https://pypi.org/project/xl2roefact/)
+* [Surse *GitHub*](https://github.com/petre-renware/api_to_roefact/)
 * [Vedere de ansamblu pachet biblioteca Python](./doc/README_xl2roefact_library.md)
 * [Referinta *API*](./doc/810.05a-xl2roefact_DLD_specs.md)
 
@@ -28,27 +28,19 @@ Legaturi externe utile:
 
 
 
-
-
-
-
 Aceasta componenta este "totul despre crearea de facturi electronice" din formatul Excel office (xlsx). Aplicatia poate genera factura in format JSON, XML, PDF si o poate incarca in sistemul *RO E-Fact*[^ld_roefact].
 
 Aceasta componenta ofera urmatoarele facilitati (acestea fiind obiectivele fundamentale ale componentei):
 
 * **transformarea facturilor din Excel in formatul `XML`** cerut de catre sistemul ANAF RO E-Fact pentru incarcare
-
- * **incarcarea acestora** in sistemul ANAF RO E-Fact[^ld_roefact]
-
-*  **transformarea facturilor din Excel intr-un format `JSON`**  intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard *REST*)
-
+* **incarcarea acestora** in sistemul ANAF RO E-Fact[^ld_roefact]
+* **transformarea facturilor din Excel intr-un format `JSON`**  intermediar, independent de platforma si care permite integrarea acestora cu alte sisteme (standard *REST*)
 * **generarea facturii in format PDF** pentru transmiterea acesteia catre client, semnarea electronica, tiparirea si arhivarea acesteia in format fizic (in general manipularea facturii in format *"human readable"*)
 
 Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obiective:
 
 * `xl2roefact` o **aplicatie de tip linie de comanda** (disponibila pentru sistemele de operare Windows, Linux si MacOS)
-
-* `xl2roefact PyPi` o **blioteca standard Python** utilizabila pentru dezvoltari proprii in scopul extinderii altor sisteme existente (*custom development*)
+* `xl2roefact PyPi` **blioteca standard Python** utilizabila pentru dezvoltari proprii in scopul extinderii altor sisteme existente (*custom development*)
 
 
 
@@ -56,7 +48,6 @@ Componenta ofera doua instrumente pentru realizarea si indeplinirea acestor obie
 
 
 ## Instalarea aplicatiei xl2roefact
-
 Instalarea aplicatiei *xl2roefact* este disponibila in urmatoarele variante:
 
 * pentru **Windows**:
@@ -86,26 +77,24 @@ Instalarea aplicatiei *xl2roefact* este disponibila in urmatoarele variante:
 
 
 
-## Configurarea aplicatiei xl2roefact
 
+## Configurarea aplicatiei xl2roefact
 Parametrii de configurare aplicatiei se gasesc in fisierul *`config_settings.py`*. Acestia sunt sub elaborati in limbaj Python prin utilizarea conventiilor de constante conform recomandarilor PEP (numele capitatlizat) si sunt acompaniti de linii de explicatii privind aplicabilitatea lor.
 
 <!--#TODO: prev paragraph to replace new config method by using `app_settings.yml` in current directory -->
 
 Configurare aplicatiei se poate face interactiv si din aplicatie. Pentru a obtine help referitor la detaliile comenzi se va folosi
-```bash
+```shell
 xl2roefact settings --help
 ```
 
 Configurarile existente si regulile recomandate in configurarea aplicatiei se afiseaza folosind comanda:
-```bash
+```shell
 xl2roefact settings --rules
 ```
 
 
 ### Configurarea din fisier extern
-<!--  --Sablon fisier configurare a aplicatiei xl2roefact -->
-
 Configurarea aplicatuiei se poate face si prin intermediul unui fisier extern numit "*sablon de configurare*" (*en: configuration template*). Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.
 
 Sablonul este in format [YAML](https://yaml.org/) iar informatiile ce trebuiesc descrise sunt explicate individual in comentarii insotitoare.
@@ -128,22 +117,73 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
     
     Aceasta configurare inlocuieste configurarea implicita si se va aplica global in utilizarea aplicatiei. In continuare configurarile existente in directorul curent *suprascriu configurarea globala* (se aplica cu precedenta).
 
-
-
 >[Aici puteti gasiti pentru descarcare un model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact).
 
 
 
 
 
-## Comenzile aplicatiei
 
+## Utilizare nomenclator de furnizori
+Aplicatia *xl2roefact* permite utilizarea datelor pentru furnizori din fisiere externe (in locul informatiilor din fisierele Excel) lucru ce poate fi folositor in urmatoarele situatii:
+
+* cind utilizatorul aplicatiei o face in scopuri personale si multe facturi emise il au *pe el ca furnizor*. Aceast lucru permite ca informatia din Excel referitoare la furnizor sa fie sumara sau sa lipseasca, factura finala format `PDF` fiind generata cu aplicatia
+* cind utilizatorul aplicatiei o foloseste pentru a emite facturi pentru alte firme si astfel este mai comod sa foloseasca fisiere cu datele acestor firme decit sa introduca informatia in fiecare factura
+* cind se doreste ca datele furnizorului sa fie preluate dintr-un sistem extern ce le poate exporta ca si fisisre
+
+
+### Reguli generale de utilizare
+Aceasta sectiune descrie regulile generale ce trebuiesc avute in vedere pentru o completa si corecta utilizare a facilitatii "Nomenclator furnizori":
+
+* Nomenclatorul de furnizori se va completa intr-unul sau mai multe fisere de date (de tip text, vezi mai jos formatul exact).
+* Un fisier acomodeaza un singur furnizor. Pentru mai multi furnizori se vor folosi fisiere diferite.
+* Numele fisierului (fara extensie) trebuie sa coincida cu o cheie alternativa a furnizorului respectiv. Prin cheie alternativa se intelege acea cheie care este unica si poate asigura regasirea furnizorului prin folosirea ei. Ca si exemple din practicile curente ar fi cimpul numit uzual `code` sau `code_name` existent in mai toate sistemele de business. Acesta are avantajul unicitatii si a unei reprezentari "umane" (*en: human readable*). Desigur un cimp de tip cheie primara / ID este ideal dar de obicei acesta este tehnic iar valoarea sa nu ofera prea multe indicatii.
+* Formatul fisierului este  [YAML](https://yaml.org/) standard, fara folosirea de modele de date complexe, aatfel incit o eventuala conversie `JSON` <--> `YAML` sa poata fi realizata manual in ambele sensuri si fara necessitatea unor cunostinte avansate ci la nivel de redefinire a numelor cheilor.
+
+
+###  Locatia nomenclatorului
+Fisierele cu datele furnizorilor pot sta in urmatoarele locatii:
+
+* *directorul curent* este locatia cu prioritatea maxima si in caz de "duplicate" ale unui fisier, cel de aici va fi luat in considerare
+* *directorul `data/`* din locatia unde este instalata aplicatia
+
+Recomandari si practici uzuale:
+
+* In situatiile in care sistemul este instalat pe un computer ce se foloseste frecvent cu aplicatia *xl2roefact* si exista un set de furnizori frecvent folositi se recomanda folosirea directorului `data/` pentru stocarea fisierelor nomenclator astfel incit sa poata fi refolosite usor.
+* In situatia folosirii a "multe" fisiere date furnizori se recomanda crearea unui director dedicat in locatia utilizata (vezi mai sus) si acesta sa fie referit in numle fisierului.
+
+
+### Utilizarea nomenclatorului
+Pentru a folosi cu aplicatia un fisier tip nomenclator furnizor se va utiliza optiunea:
+```shell
+xl2roefact xl2json -o fisier_furnizor
+```
+unde `fisier_furnizor` este numele fisierului ce contine datele unui furnizor. Locatia acestui fisier este relativa la [locatia considerata pentru folosire](#locatia-nomenclatorului)
+
+
+### Sablon pentru nomenclator de furnizori
+Sablonul este proiectat pentru utilizarea in facturile emise si contine numai informatiile necesare in acest scop.<br>
+Astfel cimpurile existente trebuiesc pastrate, adica nu vor fi sterse.
+
+Vor fi *respectate si completate* corespunzator cimpurile specificate ca *obligatoriii (en: mandatory* in comentariile aferente fiecarui cimp.<br>
+Pentru acele cimpuri pentru care informatia este necunoscuta sau considerata irelevanta se va completa cu `null`.
+
+Se vor putea adauga orice alte cimpuri suplimentare cu conditia sa fie respectat formatul fisierului (`YAML`). acestea nu vor fi folosite de catre aplicatie, ci pur si simplu ignorate.
+
+>[Aici puteti gasiti un model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-cu-date-furnizor).
+
+
+
+
+
+
+## Comenzile aplicatiei
 Interfata aplicatie este realizata utilizind conventiile si practicile uzuale pentru aplicatii tip linie de comanda consola. Pentru informatii privind comenzile se poate folosi optiunea de **help**, dispobilia atit la nivelul general:
-```bash
+```shell
 xl2roefact --help
 ```
 cit si la nivel detaliat pentru fiecare comanda
-```bash
+```shell
 xl2roefact [COMMAND] --help
 ```
 
@@ -151,9 +191,7 @@ xl2roefact [COMMAND] --help
 **Lista comenzilor:**
 
 * **about** - Afiseaza informatii despre aceatsa aplicatie (copyright, scop, etc)
-
 * **settings** _ Afiseaza parametrii de configurare a aplicatiei. [Vezi sectiunea de configurare a aplicatiei](#configurarea-aplicatiei-xl2roefact)
-
 * **xl2json** - Transforma fisierul (fisierele) Excel in forma JSON pentru utilizare ulterioara ca forma de date standardizat pentru schimbul de informatii cu alte sisteme electronice
 
 
@@ -173,7 +211,6 @@ xl2roefact [COMMAND] --help
 
 
 ## Practici si regului referitoare la continutul facturilor din Excel
-
 Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".
 
 Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ESTE O VARIANTA DE LUCRU RECOMANDATA**, dar nu obligatorie. Chiar si in cazul utilizarii acestuia, prin modificarea "structurii" acestuia, informatia poate ajunge *nerecognoscibila / neidentificabila* total sau partial daca nu sunt urmate regulile expuse.
@@ -282,6 +319,9 @@ Cheile de la primul nivel contin:
 * [Pachet instalare aplicatie Windows](../doc_src/downloads.md#format-executabil-windows-x64)
 * [Pachet instalare script Python](../doc_src/downloads.md#format-biblioteca-python)
 * [Model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact)
+* [Sablon fisier-date informatii furnizor](../doc_src/downloads.md#sablon-fisier-cu-date-furnizor)
+
+
 
 
 

@@ -15,85 +15,11 @@ D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pip install pdm  1>NUL
 
 D:\a\api_to_roefact\api_to_roefact\xl2roefact>python -m pdm install  1>NUL 
 
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>pdm run xl2roefact settings -r 
-***INFO: Application settings loaded from installation directory (global settings).
-Reguli recomandate pentru adaptarea aplicatiei la modelul dvs de factura in    
-Excel:                                                                         
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem pdm run build_doc 
 
- • fiecare parametru are un hep scurt (liniile ce incep cu caracterul #) -     
-   citi-l inainte de a modifica uun parametru                                  
- • nu schimbati numele parametrilor asa cum este el specificat inainte de      
-   semnul egal (=)                                                             
- • listele sunt incluse intre paranteze drepte ([...]) si elementele lor sunt  
-   separate prin caracterul virgula (,)                                        
- • sirurile de caractere sunt incluse intre ghilimele (caracterul ")           
- • daca doriti stergerea unei listei (de ex daca nu doriti nici o optiune      
-   pentru acea lista) doar lasati acel parametru cu valoarea [] - nu stergeti  
-   in nici un caz acel parametru                                               
- • nu adaugati parametrii suplimentari (altii decit cei specificati aici),     
-   acestia nu vor fi utilizati fara a modifica aplicatia (de asemenea riscati  
-   sa induceti erori in cod)                                                   
- • pentru datele calendaristice in celulul Excel a se utiliza formatul standard
-   de data (date) si modificati formatul de afisare in formatul dorit pe       
-   factura tiparibila                                                          
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>echo Show app version on SEXE run 
+Show app version on SEXE run
 
-(en-us) Recommended rules to configure the application to your Excel invoice   
-model:                                                                         
-
- • each parameter has a short help (lines starting with # character) - read it 
-   before changing that parameter                                              
- • do not change parametrs name as specified before equal (=) sign             
- • lists are enclosed in sqaured brackets ([...]) and items are separated by   
-   comma character (,)                                                         
- • strings are enclosed in " characters                                        
- • if you want to clear a list (for example you do not wants any options       
-   inside) just let it as <PARAMETR NAME> = [] - do not drop that parameter    
- • do not add supplementary parameters, they will not be used without software 
-   changes (also risk to induce potential errors)                              
- • for calendaristic dates Excel cells use date format and change it as display
-   option to show wanted format                                                
-
-
-Current settings:
--------------------------------
-DEFAULT_CURRENCY = RON
-DEFAULT_CUSTOMER_COUNTRY = RO
-DEFAULT_SUPPLIER_COUNTRY = RO
-DEFAULT_UNKNOWN_ITEM_NAME = --- n/a ---
-DEFAULT_UNKNOWN_UOM = None
-DEFAULT_VAT_PERCENT = 0.19
-PATTERN_FOR_CUSTOMER_LEGAL_NAME = ['clien', 'custo', 'sc', 's.c', 'diviz', 
-'depart', 'sa', 's.a', 'srl', 's.r.l', 'pfa', 'p.f.a', 'ra', 'r.a']
-PATTERN_FOR_INVOICE_CURRENCY_LABEL = ['mone', 'curr', 'ccy']
-PATTERN_FOR_INVOICE_CUSTOMER_SUBTABLE_MARKER = ['clien', 'custo', 'sc', 's.c', 
-'diviz', 'depart', 'sa', 's.a', 'srl', 's.r.l', 'pfa', 'p.f.a', 'ra', 'r.a']
-PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL = ['data', 'data fact', 'data emit', 
-'date', 'invoice date', 'issue date']
-PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER = [' crt', ' crt.', 'no. crt.', 'no 
-crt', 'no. crt', 'no crt.', 'nr. crt.', 'nr crt', 'nr. crt', 'nr crt.', '#']
-PATTERN_FOR_INVOICE_NUMBER_LABEL = ['nr. fact', 'nr fact', 'numar fact', 'fact 
-nr', 'factura num', 'invoice number', 'invoice no', 'invoice:']
-PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = ['furniz', 'proprie', 'suppl', 
-'owne', 'sc', 's.c', 'diviz', 'depart', 'sa', 's.a', 'srl', 's.r.l', 'pfa', 
-'p.f.a', 'ra', 'r.a']
-PATTERN_FOR_PARTNER_ADDRESS = ['adr', 'addr', 'tara', 'count', 'locali', 
-'oras', 'city', 'town', 'str']
-PATTERN_FOR_PARTNER_ADDRESS_CITY = ['judet', 'county', 'locali', 'oras', 
-'city', 'town', 'land']
-PATTERN_FOR_PARTNER_ADDRESS_COUNTRY = ['tara', 'countr']
-PATTERN_FOR_PARTNER_ADDRESS_STREET = ['str', 'sos', 'bd', 'calea', 'ave', 
-'highwa']
-PATTERN_FOR_PARTNER_ADDRESS_ZIPCODE = ['cod pos', 'zip cod', 'postal']
-PATTERN_FOR_PARTNER_BANK = ['banc', 'bank']
-PATTERN_FOR_PARTNER_EMAIL = ['mail', 'email', 'e-mail']
-PATTERN_FOR_PARTNER_IBAN = ['iban', 'cont', 'bank acc']
-PATTERN_FOR_PARTNER_ID = ['cui', 'c.u.i', 'cif', 'c.i.f', 'id']
-PATTERN_FOR_PARTNER_REGCOM = ['reg com', 'reg. com', 'comert']
-PATTERN_FOR_PARTNER_TEL = ['tel', 'phon']
-PATTERN_FOR_SUPPLIER_LEGAL_NAME = ['furniz', 'proprie', 'suppl', 'owne', 'sc', 
-'s.c', 'diviz', 'depart', 'sa', 's.a', 'srl', 's.r.l', 'pfa', 'p.f.a', 'ra', 
-'r.a']
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem cd tests 
-
-D:\a\api_to_roefact\api_to_roefact\xl2roefact>rem .\xl2roefact-0.4.1.dev1-win64.exe settings -r 
+D:\a\api_to_roefact\api_to_roefact\xl2roefact>.\dist\xl2roefact-0.5.4-win64.exe -V 
+***INFO: Application settings loaded from application code (default settings).
+xl2roefact 0.5.4

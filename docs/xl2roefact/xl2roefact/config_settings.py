@@ -1,10 +1,12 @@
 """Configuration and setting parameters.
 
-Regulile recomandate se gasessc in documentul (recommended rules are in document) [`doc/README_app_config_rules.md`](../doc/README_app_config_rules.md)
+Regulile recomandate se gasessc in documentul (recommended rules are in document `xl2roefact/data/README_app_config_rules.md`)
 
-    Public objects:
+Public objects:
 
-        `rules_content`: contains the rules text (rendered)
+* `rules_content`: contains the rules text (rendered)
+
+Info:
 
 * copyright: (c) 2023 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
@@ -16,6 +18,7 @@ import sys
 from rich.markdown import Markdown
 import yaml
 from pprint import pprint
+from .libutils import hier_get_data_file
 
 """---------------------------------------------------------------------------------------------------------------------------
 # NOTE: urmatorii parametri sunt utilizati pentru a obtine valori implicite (default) atunci cind nu sunt gasite anumite date / informatii.
@@ -46,6 +49,7 @@ DEFAULT_CURRENCY: str = "RON"
 # in mod explicit pe factura (in zona de adresa). Prin sintagma "partener" pe factura sa intelege oricare din cele doua parti implicate in
 # procesul de facturare, si anume: FURNIZORUL si CLIENTUL
 DEFAULT_CUSTOMER_COUNTRY: str = "RO"
+# ...and the corresponding one for supplier
 DEFAULT_SUPPLIER_COUNTRY: str = "RO"
 
 
@@ -178,71 +182,19 @@ PATTERN_FOR_SUPPLIER_LEGAL_NAME = PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 
 
 
+# ------- NOTE: the following code runs unconditionally at module import
 
-
-
-
-
-
-# ----------------------------------------------------------
-# here start the code section where external data is get
-
-# settings to differently treat single EXE vs other application types
-frozen_sexe = getattr(sys, 'frozen', False)
-if frozen_sexe:
-    app_dir = sys._MEIPASS
-else:
-    app_dir = os.path.dirname(os.path.abspath(__file__))
-crt_dir = Path.cwd()
-
-# get & render rules text from markdown file. Available ONLY for applications non standalone-EXE
-if not frozen_sexe:
-    rules_file = Path(
-        app_dir,
-        "data/README_app_config_rules.md"
-    )
-    rules_content = Markdown(rules_file.read_text())
-else:
-    rules_content = Markdown(
-        "***WARNING NOTE: **Rules cannot be displayed for standalone exe application**. Please visit the application site: *`http://invoicetoroefact.renware.eu`*."
-    )
-
-# read app_settings.yml. Use below order to apply
-'''Specs: order to search and load for `app_config.yml`. Rule: First found win:
-    * (1) crt directory (with `cwd`) with `Path(Path.cwd(), "data/app_settings.yml")`
-    * (2) package / application directory and file with `Path(os.path.dirname(__file__), "data/app_settings.yml")`
-    * (3) settings from `config_settings.py`
-'''
-# order method (1) - method apply for all application types
-config_file = Path(
-    crt_dir,
-    "app_settings.yml"
-)
-ok_to_use = config_file.exists() and config_file.is_file()
-python_object = None  # suppose no info found
-if ok_to_use:
-    yaml_in = config_file.read_text()
+# section to read settings from external data file
+file_to_use = hier_get_data_file("app_settings.yml")
+python_object = None  # suppose no settings loaded
+if file_to_use:
+    yaml_in = file_to_use.read_text()
     python_object = yaml.safe_load(yaml_in)
-    print("***INFO: Application settings loaded from current directory (local settings).")
-
-# order method (2) - method apply ONLY for applications non standalone-EXE
-if not frozen_sexe:
-    if python_object is None:  # exec only if previous method did not read something
-        config_file = Path(
-            app_dir,
-            "data/app_settings.yml"
-        )
-        ok_to_use = config_file.exists() and config_file.is_file()
-        python_object = None  # suppose no info found
-        if ok_to_use:
-            yaml_in = config_file.read_text()
-            python_object = yaml.safe_load(yaml_in)
-            print("***INFO: Application settings loaded from installation directory (global settings).")
-
-# assign `python_object` to locals() environment
-if python_object is not None:  # exec only if previous method has been read something
+    print("***INFO: Application settings loaded from file.")
+# assign `python_object` to locals() environment...
+if python_object is not None:  # ...only if previous method has read something
     locals().update(python_object)
-else:  # if none of previous methods applied then will remain the content hard-coded in this module
+else:  # if nothing or wrong read from previous method, settings applied will remain to values hard-coded in this module
     print("***INFO: Application settings loaded from application code (default settings).")
 
 
