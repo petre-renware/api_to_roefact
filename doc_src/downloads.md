@@ -126,7 +126,7 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
 ??? note "0.5"
-    * [`0.5.4` invoice supplier from owner master data(../xl2roefact/dist/xl2roefact-0.5.4-win64.msi)
+    * [`0.5.4` invoice supplier from owner master data](../xl2roefact/dist/xl2roefact-0.5.4-win64.msi)
     * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](../xl2roefact/dist/xl2roefact-0.5.3rc1-win64.msi)
     * [`0.5.3rc0` invoice supplier from Excel](../xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi)
 
