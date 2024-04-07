@@ -29,6 +29,7 @@ jobs:
           #   install PDM and build environment
           python -m pip install pdm
           python -m pdm install
+          python -m pdm update
 
           #    build site with mkdocs
           python -m pdm run build_site
