@@ -1745,25 +1745,26 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><a id="comenzile-aplicatiei"></a>  <!-- #NOTE ATTN do not drop this anchor tag because is referred in <code>mkdocs.yml</code> navigation section --></p>
 <!--#NOTE: next section generate application commands in same style as obtained using `--help` CLI options -->
 <h3 id="xl2roefact-index-xl2roefact_1">xl2roefact</h3>
-<p>function called when no command is invoked and to provide only application version (for external users to test it!).</p>
+<p>Application global information (command agnostic).</p>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code>xl2roefact [OPTIONS] COMMAND [ARGS]...
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  --version             show application version
+<div class="highlight"><pre><span></span><code>  -V, --version         show application version
   --install-completion  Install completion for the current shell.
   --show-completion     Show completion for the current shell, to copy it or
                         customize the installation.
 </code></pre></div>
 <h4 id="xl2roefact-index-about">about</h4>
-<p>provide a short application description.</p>
+<p>Provide a short application description.</p>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code>xl2roefact about [OPTIONS]
 </code></pre></div>
 <h4 id="xl2roefact-index-settings">settings</h4>
-<p>display application configuration parameters and settings that are subject to be changed by user.</p>
-<p>Args:
-    <code>rules</code>: show recommended rules to follow when change application configurable settings (available in both RO &amp; EN languages). Defaults to <code>False</code>.</p>
+<p>Display application configuration parameters and settings that are subject to be changed by user.</p>
+<p>Args:</p>
+<pre><code>`rules`: show recommended rules to follow when change application configurable settings (available in both RO &amp; EN languages). Defaults to `False`.
+</code></pre>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code>xl2roefact settings [OPTIONS]
 </code></pre></div>
@@ -1771,11 +1772,13 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update rules
 </code></pre></div>
 <h4 id="xl2roefact-index-xl2json">xl2json</h4>
-<p>extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
-<p>Args:
-    <code>file_name</code>: files to process (wildcards allowed).
-    <code>files_directory</code>: directory to be used to look for Excel files. Defaults to <code>invoice_files/</code>. NOTE: if default directory does not exists will consider current directory instead
-    <code>verbose</code>: show detailed processing messages". Defaults to <code>False</code>.</p>
+<p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
+<p>Args:</p>
+<pre><code>`file_name`: files to process (wildcards allowed).
+`files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
+`owner_datafile`: File to read invoice supplier (owner) data instead Excel.
+`verbose`: show detailed processing messages". Defaults to `False`.
+</code></pre>
 <p>Usage:</p>
 <div class="highlight"><pre><span></span><code>xl2roefact xl2json [OPTIONS] [FILE_NAME]
 </code></pre></div>
@@ -1787,6 +1790,8 @@ cit si la nivel detaliat pentru fiecare comanda
                                   (if default directory does not exists will
                                   consider current directory instead).
                                   [default: invoice_files/]
+  -o, --owner-datafile PATH       File to read invoice supplier (owner) data
+                                  instead Excel.
   -v, --verbose                   show detailed processing messages
 </code></pre></div>
 <h2 id="xl2roefact-index-practici-si-regului-referitoare-la-continutul-facturilor-din-excel">Practici si regului referitoare la continutul facturilor din Excel</h2>
