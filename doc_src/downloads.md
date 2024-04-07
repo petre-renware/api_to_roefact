@@ -36,6 +36,23 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
 
+-#FIXME ... wip from here
+
+
+
+xl2roefact-0.5.4-py3-none-any.whl
+
+xl2roefact-0.5.4.tar.gz
+
+xl2roefact-0.5.4-win64.msi
+
+xl2roefact-0.5.4-win64.exe
+
+
+
+-#FIXME ... wip up here
+
+
 ??? note "0.5"
     * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming WHEEL](../xl2roefact/dist/xl2roefact-0.5.3rc1-py3-none-any.whl)
     * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming DIST](../xl2roefact/dist/xl2roefact-0.5.3rc1.tar.gz)
