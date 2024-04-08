@@ -34,10 +34,18 @@
 
 
 ## 0.6 finalize JSON model to contain all RO eFact XML mandatory taga
+
+### `0.6.1` clean xl2roefact & invoicetoroefact projects
+
 * tbd.Must... final task before 1.0 XML generator
+* `240408piu-adm1` updated xl2roefact python requirement, relaxed to `>=3.10`
 
 
 
+
+
+
+<!--TODO: archive this -->
 ## 0.5
 
 ### `0.5.4` invoice supplier from owner master data (240406 h22:00)
