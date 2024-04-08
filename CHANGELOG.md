@@ -38,10 +38,14 @@
 * tbd... next main job of release
 * tbd... prep release upd DLdoc & HLdoc
 * tbd... prep release set all versios
+
+
+### `0.6.dev1` code missing XML tags
+
 * tbd... update JSON-XML map
 * tbd... code for missing XML tags
+* `init-work` set site & xl2roefact versions to `0.6.dev1`
 
-* wip... #FIXME: to preventive set xl2roefact version to `0.6.dev1`
 
 ### `0.6.dev0` clean xl2roefact & invoicetoroefact projects (...yymmdd hhmm...)
 
