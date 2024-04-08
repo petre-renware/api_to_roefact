@@ -36,7 +36,8 @@
 ## 0.6 finalize JSON model to contain all RO eFact XML mandatory taga
 
 * tbd... next main job of release
-* tbd... prep release
+* tbd... prep release upd DLdoc & HLdoc
+* tbd... prep release set all versios
 * tbd... update JSON-XML map
 * tbd... code for missing XML tags
 
