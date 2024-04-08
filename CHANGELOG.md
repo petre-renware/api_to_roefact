@@ -35,14 +35,25 @@
 
 ## 0.6 finalize JSON model to contain all RO eFact XML mandatory taga
 
-### `0.6.1` clean xl2roefact & invoicetoroefact projects
+* tbd... next main job of release
+* tbd... prep release upd DLdoc & HLdoc
+* tbd... prep release set all versios
+* tbd... update JSON-XML map
+* tbd... code for missing XML tags
 
-* tbd.Must... final task before 1.0 XML generator
+* wip... #FIXME: to preventive set xl2roefact version to `0.6.dev1`
 
+### `0.6.dev0` clean xl2roefact & invoicetoroefact projects (...yymmdd hhmm...)
+
+* `240408piu-adm1` cleaning and updating version strings and code
+    * rebuild site
+    * update xl2roefact/__version.py__
+    * update main versions.yml
 * `240408piu-adm1`  cleaning and updating environments:
     * updated xl2roefact python requirement, relaxed to `>=3.10`
     * updated site version to `0.6.1dev0` to mark in progress work
     * installed `chromium` on dev server
+
 
 
 
