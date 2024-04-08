@@ -41,6 +41,7 @@
 * `240408piu-adm1`
     * updated xl2roefact python requirement, relaxed to `>=3.10`
     * updated site version to `0.6.1dev0` to mark in progress work
+    * installed `chromium` on dev server
 
 
 
