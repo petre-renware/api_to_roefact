@@ -1376,7 +1376,7 @@
                         <section class="print-page" id="index"><p><img alt="api_to_roefact_logo" src="doc_src/pictures/api_to_roefact_logo.png" width="300" /></p>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="index-invoicetoroefact">INVOICEtoROefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.4-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6.1dev0-blue" /></p>
 <p><strong>Facturi emise in Excel</strong>, problema rezolvata cu <strong>INVOICEtoROefact</strong> !</p>
 <p>Emiteti si folositi in continuare facturi in Excel. Acest sistem va produce fisierul XML de care aveti nevoie pentru sistemul <a href="https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura">ANAF E-Factura</a>.</p>
 <p>Si mai mult, daca aveti nevoie, puteti Integra aceste facturi si alte sisteme externe prin metode moderne, uzuale, curente, incetatenite de ani de zile si binecunoscute de specialistii din IT.</p>
@@ -1751,9 +1751,13 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div>
 <p>Options:</p>
 <div class="highlight"><pre><span></span><code>  -V, --version         show application version
-  --install-completion  Install completion for the current shell.
-  --show-completion     Show completion for the current shell, to copy it or
-                        customize the installation.
+  --install-completion  Install completion for the
+                        current shell.
+  --show-completion     Show completion for the
+                        current shell, to copy it
+                        or customize the
+                        installation.
+  --help                Show this message and
 </code></pre></div>
 <h4 id="xl2roefact-index-about">about</h4>
 <p>Provide a short application description.</p>
@@ -1769,7 +1773,8 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact settings [OPTIONS]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update rules
+<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update
+               rules
 </code></pre></div>
 <h4 id="xl2roefact-index-xl2json">xl2json</h4>
 <p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
@@ -1783,16 +1788,32 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact xl2json [OPTIONS] [FILE_NAME]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  [FILE_NAME]                     files to process (wildcards allowed)
-                                  [default: *.xlsx]
+<div class="highlight"><pre><span></span><code>  [FILE_NAME]                     files to process
+                                  (wildcards
+                                  allowed)
+                                  [default:
+                                  *.xlsx]
   -d, --files-directory DIRECTORY
-                                  directory to be used to look for Excel files
-                                  (if default directory does not exists will
-                                  consider current directory instead).
-                                  [default: invoice_files/]
-  -o, --owner-datafile PATH       File to read invoice supplier (owner) data
+                                  directory to be
+                                  used to look for
+                                  Excel files (if
+                                  default
+                                  directory does
+                                  not exists will
+                                  consider current
+                                  directory
+                                  instead).
+                                  [default:
+                                  invoice_files/]
+  -o, --owner-datafile PATH       File to read
+                                  invoice supplier
+                                  (owner) data
                                   instead Excel.
-  -v, --verbose                   show detailed processing messages
+  -v, --verbose                   show detailed
+                                  processing
+                                  messages
+  --help                          Show this
+                                  message and
 </code></pre></div>
 <h2 id="xl2roefact-index-practici-si-regului-referitoare-la-continutul-facturilor-din-excel">Practici si regului referitoare la continutul facturilor din Excel</h2>
 <p>Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".</p>
@@ -3918,7 +3939,10 @@ Public License instead of this License.  But first, please read
 <div class="toc">
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
-<li><a href="#changelog-06-finalize-json-model-to-contain-all-ro-efact-xml-mandatory-taga">0.6 finalize JSON model to contain all RO eFact XML mandatory taga</a></li>
+<li><a href="#changelog-06-finalize-json-model-to-contain-all-ro-efact-xml-mandatory-taga">0.6 finalize JSON model to contain all RO eFact XML mandatory taga</a><ul>
+<li><a href="#changelog-061-clean-xl2roefact-invoicetoroefact-projects">0.6.1 clean xl2roefact &amp; invoicetoroefact projects</a></li>
+</ul>
+</li>
 <li><a href="#changelog-05">0.5</a><ul>
 <li><a href="#changelog-054-invoice-supplier-from-owner-master-data-240406-h2200">0.5.4 invoice supplier from owner master data (240406 h22:00)</a></li>
 </ul>
@@ -3961,9 +3985,21 @@ Public License instead of this License.  But first, please read
 -->
 
 <h2 id="changelog-06-finalize-json-model-to-contain-all-ro-efact-xml-mandatory-taga">0.6 finalize JSON model to contain all RO eFact XML mandatory taga</h2>
+<h3 id="changelog-061-clean-xl2roefact-invoicetoroefact-projects"><code>0.6.1</code> clean xl2roefact &amp; invoicetoroefact projects</h3>
 <ul>
-<li>tbd.Must... final task before 1.0 XML generator</li>
+<li>
+<p>tbd.Must... final task before 1.0 XML generator</p>
+</li>
+<li>
+<p><code>240408piu-adm1</code>  cleaning and updating environments:</p>
+<ul>
+<li>updated xl2roefact python requirement, relaxed to <code>&gt;=3.10</code></li>
+<li>updated site version to <code>0.6.1dev0</code> to mark in progress work</li>
+<li>installed <code>chromium</code> on dev server</li>
 </ul>
+</li>
+</ul>
+<!--TODO: archive this -->
 <h2 id="changelog-05">0.5</h2>
 <h3 id="changelog-054-invoice-supplier-from-owner-master-data-240406-h2200"><code>0.5.4</code> invoice supplier from owner master data (240406 h22:00)</h3>
 <ul>
