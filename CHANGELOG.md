@@ -44,7 +44,7 @@
 
 * tbd... update JSON-XML map
 * tbd... code for missing XML tags
-* `init-work` set versions to `0.6.dev1`
+* `init-work` set site & xl2roefact versions to `0.6.dev1`
 
 
 ### `0.6.dev0` clean xl2roefact & invoicetoroefact projects (...yymmdd hhmm...)
