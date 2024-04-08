@@ -44,6 +44,7 @@
 ### `0.6.dev0` clean xl2roefact & invoicetoroefact projects (...yymmdd hhmm...)
 
 * `240408piu-adm1` cleaning and updating version strings and code
+    * rebuild site
     * update xl2roefact/__version.py__
     * update main versions.yml
 
