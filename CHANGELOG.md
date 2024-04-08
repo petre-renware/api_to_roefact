@@ -38,7 +38,9 @@
 ### `0.6.1` clean xl2roefact & invoicetoroefact projects
 
 * tbd.Must... final task before 1.0 XML generator
-* `240408piu-adm1` updated xl2roefact python requirement, relaxed to `>=3.10`
+* `240408piu-adm1`
+    * updated xl2roefact python requirement, relaxed to `>=3.10`
+    * updated site version to `0.6.1dev0` to mark in progress work
 
 
 
