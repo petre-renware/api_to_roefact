@@ -44,6 +44,7 @@
 
 * tbd... update JSON-XML map
 * tbd... code for missing XML tags
+* `240409piu01` made `xl2roefact/tests/todos1.md` file with list of XML tags to do and all other specs to complete activity
 * `init-work` set site & xl2roefact versions to `0.6.dev1`
 
 
