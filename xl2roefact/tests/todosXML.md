@@ -31,7 +31,7 @@
 
 # JSON-XML map
 
-NOTE: verified @240409. 8 tags
+NOTE: inserted in code @240410 09:30
 
 ```python
 
