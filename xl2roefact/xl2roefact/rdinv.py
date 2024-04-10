@@ -852,6 +852,15 @@ def build_meta_info_key(
         ("cac_TaxCategory", "cac:TaxCategory"),  # specific for Tax Summary section
         ("cac_AccountingSupplierParty", "cac:AccountingSupplierParty"),  # specific to supplier
         ("cac_PartyTaxScheme", "cac:PartyTaxScheme"),  # specific to supplier
+        # codes that are not from Excel file but that need to be present in XML file for RO eFact. Normally exceeds an Excel invoice, being at least for a "mini ERP" system
+        ("cbc_DueDate", "cbc:DueDate"),
+        ("cbc_InvoiceTypeCode", "cbc:InvoiceTypeCode"),
+        ("cbc_Note", "cbc:Note"),
+        ("cbc_TaxPointDate", "cbc:TaxPointDate"),
+        ("cac_Delivery", "cac:Delivery"),
+        ("cbc_ActualDeliveryDate", "cbc:ActualDeliveryDate"),
+        ("cac_PaymentMeans", "cac:PaymentMeans"),
+        ("cbc_PaymentMeansCode", "cbc:PaymentMeansCode"),
     ]
     return copy.deepcopy(_tmp_meta_info)
 
