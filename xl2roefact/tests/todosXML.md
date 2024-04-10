@@ -36,7 +36,7 @@ NOTE: verified @240409. 8 tags
 ```python
 
 ("cbc_DueDate", "cbc:DueDate"),
-("cbc_InvoiceTypeCode"), (cbc:InvoiceTypeCode"),
+("cbc_InvoiceTypeCode", "cbc:InvoiceTypeCode"),
 ("cbc_Note", "cbc:Note"),
 ("cbc_TaxPointDate", "cbc:TaxPointDate"),
 ("cac_Delivery", "cac:Delivery"),
