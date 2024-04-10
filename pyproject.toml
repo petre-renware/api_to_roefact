@@ -157,7 +157,7 @@ dependencies = [
     "webencodings~=0.5.1",
     "websocket-client~=1.6.1",
     "wsproto~=1.2.0",
-    "xl2roefact>=0.5.4",
+    "xl2roefact",  # always try for las version available
     "zipp~=3.16.2",
     "zopfli~=0.2.2"
 ]
