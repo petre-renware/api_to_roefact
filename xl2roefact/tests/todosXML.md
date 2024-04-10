@@ -40,7 +40,7 @@ NOTE: verified @240409. 8 tags
 ("cbc_Note", "cbc:Note"),
 ("cbc_TaxPointDate", "cbc:TaxPointDate"),
 ("cac_Delivery", "cac:Delivery"),
-("cbc_ActualDeliveryDate"), (cbc:ActualDeliveryDate"),
+("cbc_ActualDeliveryDate", "cbc:ActualDeliveryDate"),
 ("cac_PaymentMeans", "cac:PaymentMeans"),
 ("cbc_PaymentMeansCode", "cbc:PaymentMeansCode"),
 
