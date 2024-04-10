@@ -44,6 +44,7 @@
 
 * tbd... update JSON-XML map
 * tbd... code for missing XML tags
+* `xml-json-map` updated `xl2roefact.rdinv` module for XML-JSON map
 * `fin-xml-specs` made `xl2roefact/tests/todosXML.md` file with list of XML tags to do and all other specs to complete activity
 * `init-work` set site & xl2roefact versions to `0.6.dev1`
 
