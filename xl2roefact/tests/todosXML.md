@@ -35,14 +35,14 @@ NOTE: verified @240409. 8 tags
 
 ```python
 
-["cbc_DueDate", "cbc:DueDate"]
-["cbc_InvoiceTypeCode", "cbc:InvoiceTypeCode"]
-["cbc_Note", "cbc:Note"]
-["cbc_TaxPointDate", "cbc:TaxPointDate"]
-["cac_Delivery", "cac:Delivery"]
-["cbc_ActualDeliveryDate", "cbc:ActualDeliveryDate"]
-["cac_PaymentMeans", "cac:PaymentMeans"]
-["cbc_PaymentMeansCode", "cbc:PaymentMeansCode"]
+("cbc_DueDate", "cbc:DueDate"),
+("cbc_InvoiceTypeCode"), (cbc:InvoiceTypeCode"),
+("cbc_Note", "cbc:Note"),
+("cbc_TaxPointDate", "cbc:TaxPointDate"),
+("cac_Delivery", "cac:Delivery"),
+("cbc_ActualDeliveryDate"), (cbc:ActualDeliveryDate"),
+("cac_PaymentMeans", "cac:PaymentMeans"),
+("cbc_PaymentMeansCode"), (cbc:PaymentMeansCode"),
 
 ```
 
