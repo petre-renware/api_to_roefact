@@ -37,7 +37,7 @@
 
 * tbd... next main job of release
 * tbd... prep release upd DLdoc & HLdoc
-* tbd... prep release set all versios
+* tbd... prep release set all versions
 
 
 ### `0.6.dev1` code missing XML tags
