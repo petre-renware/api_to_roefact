@@ -42,13 +42,17 @@
 
 ### `0.6.dev1` code missing XML tags
 
-* tbd... update JSON-XML map
 * ... `code-miss-tags` code for missing XML tags:
   * [ ] ... 1 `cbc_DueDate` set as invoice date + parameter `DUE_DATE` with default value 30 days ...
                or... search in `invoice_header_area` ref something like `DUE_DATE = ["scad", "due da", "date due"]` and then apply default if not found
-  * [ ] ... for `<cbc_InvoiceTypeCode` make a choose application  parameter (with only one value now == 380)
-  * [ ] ...
-  * [ ] ...
+  * [ ] ... `<cbc_InvoiceTypeCode` make a choose application  parameter (with only one value now == 380)
+  * [ ] ... `cbc_Note` set to "proccesed @`{date_time_now}` with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time
+  * [ ] ... `cbc_TaxPointDate` will be set to 25 of next month from invoice issued month
+  * [ ] ... `cac_Delivery` will be set to invoice issued date
+  * [ ] ... `cac_PaymentMeans` will be set to `1` as unknown at invoicing issuing date
+  * [ ] ... test and clean code
+  * [ ] ... check & update xl2roefact `README.md`
+  * [ ] ... build package version `0.6`
 * `xml-json-map` updated `xl2roefact.rdinv` module for XML-JSON map
 * `fin-xml-specs` made `xl2roefact/tests/todosXML.md` file with list of XML tags to do and all other specs to complete activity
 * `init-work` set site & xl2roefact versions to `0.6.dev1`
