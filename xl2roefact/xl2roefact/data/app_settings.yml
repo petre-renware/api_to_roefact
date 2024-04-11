@@ -43,6 +43,10 @@ DEFAULT_CURRENCY: "RON"
 DEFAULT_CUSTOMER_COUNTRY: "RO"
 DEFAULT_SUPPLIER_COUNTRY: "RO"
 
+#--- scadenta implicita
+# scadenta implicita a facturii (in zile calendaristice) daca nu estrecuta in clar pe factura
+DEFAULT_DUE_DATE_DAYS: 30
+
 
 #---------------------------------------------------------------------------------------------------------------------------
 # NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de
