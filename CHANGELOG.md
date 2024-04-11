@@ -53,7 +53,7 @@
   * [ ] ... test and clean code
   * [ ] ... check & update xl2roefact `README.md`
   * [ ] ... build package version `0.6rc1`
-
+* `init-work` set site & xl2roefact versions to `0.6rc1`
 
 ### `0.6.dev1` code missing XML tags
 
