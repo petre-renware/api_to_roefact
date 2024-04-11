@@ -207,7 +207,10 @@ else:  # if nothing or wrong read from previous method, settings applied will re
 # prepare `rules_content` public variable to be use as "mini help" by `settings -r` command of application
 frozen_sexe = getattr(sys, 'frozen', False)
 if not frozen_sexe:
-    rules_file = hier_get_data_file("README_app_config_rules.md") 
+    rules_file = Path(
+        app_dir,
+        "data/README_app_config_rules.md"
+    )
     rules_content = Markdown(rules_file.read_text())
 else:
     rules_content = Markdown(
