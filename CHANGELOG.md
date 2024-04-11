@@ -54,8 +54,7 @@
 * ... `cbc_DueDate` search in `invoice_header_area` ref something like `DUE_DATE = ["scad", "due da", "date due"]`.
   Apply `invoice_header_area["issued_date"]["value": "2023-08-28"] + DUE_DATE_DAYS` if not found
 
-* ...wip... `cac_Delivery` set as invoice issued date
-
+* `cac_Delivery` set as invoice issued date
 * `cac_PaymentMeans` will be set to `1` supposing is unknown at invoicing issuing date
 * `DEFAULT_DUE_DATE_DAYS` new app config parameter with default value 30 days
 * `cbc_Note` set to "proccesed @`{date_time_now}` with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time
