@@ -193,12 +193,13 @@
                     }
                 }
             ]
-        }
+        },
+        "cbc_Note": "proccesed @2024-04-11T04:38:58.141850+00:00 with xl2roefact"
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-10T06:17:00.114030+00:00",
+        "last_processing_time": "2024-04-11T04:38:58.141475+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,

@@ -166,12 +166,13 @@
                     }
                 }
             ]
-        }
+        },
+        "cbc_Note": "proccesed @2024-04-11T04:38:58.072553+00:00 with xl2roefact"
     },
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-10T06:17:00.047786+00:00",
+        "last_processing_time": "2024-04-11T04:38:58.072203+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
