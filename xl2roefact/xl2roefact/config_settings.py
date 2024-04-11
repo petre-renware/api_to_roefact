@@ -52,6 +52,10 @@ DEFAULT_CUSTOMER_COUNTRY: str = "RO"
 # ...and the corresponding one for supplier
 DEFAULT_SUPPLIER_COUNTRY: str = "RO"
 
+#--- scadenta implicita
+# scadenta implicita a facturii (in zile calendaristice) daca nu estrecuta in clar pe factura
+DEFAULT_DUE_DATE_DAYS = 30
+
 
 """---------------------------------------------------------------------------------------------------------------------------
 # NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de
