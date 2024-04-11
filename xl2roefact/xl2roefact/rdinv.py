@@ -254,8 +254,6 @@ def rdinv(
             supplier_datafile=owner_datafile
         )
     #
-    # TODO: ... mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`. SEE ALSO line 331
-
     """#NOTE: section to ( Excel data )--->( JSON ) format preparation and finishing
         this is required to be after header determination (because CURRENCY could be known here and will impact config param `DEFAULT_CURRENCY`)
     """
@@ -331,7 +329,12 @@ def rdinv(
                 "cbc_TaxAmount": round(sum([i["cbc_TaxAmount"] if i["cbc_TaxAmount"] is not None else 0 for i in tmp_cac_TaxSummary]), 2),
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
-            # TODO: ... chk for remained structure values and check XLM-JSON map. SEE ALSO line 254
+            # remained "administrative" structure values. For details see ISS `0.6rc1`+`code missing XML tags`
+            "cbc_Note": f"proccesed @{datetime.now(timezone.utc).isoformat()} with xl2roefact",
+            # TODO: ... ... ...
+
+
+            
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
