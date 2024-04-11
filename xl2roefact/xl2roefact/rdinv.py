@@ -334,6 +334,9 @@ def rdinv(
             "cac_PaymentMeans": {
                 "cbc_PaymentMeansCode": 1  #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
             },
+            "cac_Delivery": {
+                "cbc_ActualDeliveryDate": f"{ ...hereuare... }"  # suppose identical with invoice date. Format: `YYYY-MM-DD`
+            },
             # TODO: ... ... ...
 
 
