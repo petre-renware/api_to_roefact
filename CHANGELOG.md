@@ -43,7 +43,9 @@
 ### `0.6rc1` code missing XML tags
 
 * ... build package version `0.6rc1`
-* ... check & update xl2roefact `README.md` & write about invoice type ref `cbc_InvoiceTypeCode`
+* ... check & update xl2roefact `README.md` ...
+    & write about invoice type ref `cbc_InvoiceTypeCode`
+    & more sections "For developers" ref how manage some settings if introduce `sys_config.py` feature (separated and different of `app_confiv`)
 * ... delete `xl2roefact/tests...` specs / helper file
 * ... test and clean code
 * ... `cbc_InvoiceTypeCode` make a choose application  parameter (with only one value now == 380)
