@@ -40,7 +40,7 @@
 * tbd... prep release set all versions
 
 
-### `0.6.dev1` code missing XML tags
+### `0.6rc1` code missing XML tags
 
 * ... `code-miss-tags` code for missing XML tags:
   * [ ] ... 1 `cbc_DueDate` set as invoice date + parameter `DUE_DATE` with default value 30 days ...
@@ -52,11 +52,15 @@
   * [ ] ... `cac_PaymentMeans` will be set to `1` as unknown at invoicing issuing date
   * [ ] ... test and clean code
   * [ ] ... check & update xl2roefact `README.md`
-  * [ ] ... build package version `0.6`
+  * [ ] ... build package version `0.6rc1`
+
+
+### `0.6.dev1` code missing XML tags
+
+* `arch-prev-rlse-chlogs` archive `0.5.4` CHANGELOG
 * `xml-json-map` updated `xl2roefact.rdinv` module for XML-JSON map
 * `fin-xml-specs` made `xl2roefact/tests/todosXML.md` file with list of XML tags to do and all other specs to complete activity
 * `init-work` set site & xl2roefact versions to `0.6.dev1`
-
 
 ### `0.6.dev0` clean xl2roefact & invoicetoroefact projects (...yymmdd hhmm...)
 
@@ -76,6 +80,7 @@
 
 
 <!--TODO: archive this -->
+
 ## 0.5
 
 ### `0.5.4` invoice supplier from owner master data (240406 h22:00)
@@ -104,7 +109,7 @@
     * [x] 2. code function to solve actual functional case from `xl2roefact.config_settings` module
     * [x] 3. update `xl2roefact.config_settings` module to use the new function
 
-
+<!--#FIXME end of arch TODO -->
 
 
 
