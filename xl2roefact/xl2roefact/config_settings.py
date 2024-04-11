@@ -52,6 +52,10 @@ DEFAULT_CUSTOMER_COUNTRY: str = "RO"
 # ...and the corresponding one for supplier
 DEFAULT_SUPPLIER_COUNTRY: str = "RO"
 
+#--- scadenta implicita
+# scadenta implicita a facturii (in zile calendaristice) daca nu estrecuta in clar pe factura
+DEFAULT_DUE_DATE_DAYS: int = 30
+
 
 """---------------------------------------------------------------------------------------------------------------------------
 # NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de
@@ -197,6 +201,9 @@ if python_object is not None:  # ...only if previous method has read something
 else:  # if nothing or wrong read from previous method, settings applied will remain to values hard-coded in this module
     print("***INFO: Application settings loaded from application code (default settings).")
 
-
+# prepare `rules_content` public variable to be use as "mini help" by `settings -r` command of application
+rules_content = ""  # initialize with empty string to show nothing in case is a problem with file reading
+rules_file = hier_get_data_file("README_app_config_rules.md")
+rules_content = Markdown(rules_file.read_text())
 
 
