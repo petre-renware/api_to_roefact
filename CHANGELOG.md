@@ -125,12 +125,14 @@
 
 # Archived CHANGELOGs
 
+<!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
+
 
 <details markdown="1"><summary markdown="1">
 ## 0.5 version
 </summary>
 
-<!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
+* [`0.5.4` invoice supplier from owner master data](./changelog_history/CHANGELOG-0.5.4.md)
 * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](./changelog_history/CHANGELOG-0.5.3rc1.md)
 * [`0.5.3rc0` invoice supplier from Excel](./changelog_history/CHANGELOG-0.5.3rc0.md)
 * [`0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version](./changelog_history/CHANGELOG-0.5.2.dev2.md)
