@@ -201,10 +201,8 @@ if python_object is not None:  # ...only if previous method has read something
 else:  # if nothing or wrong read from previous method, settings applied will remain to values hard-coded in this module
     print("***INFO: Application settings loaded from application code (default settings).")
 
-
-
-
 # prepare `rules_content` public variable to be use as "mini help" by `settings -r` command of application
+rules_content = ""  # initialize with empty string to show nothing in case is a problem with file reading
 frozen_sexe = getattr(sys, 'frozen', False)
 if not frozen_sexe:
     rules_file = Path(
