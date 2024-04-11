@@ -188,20 +188,6 @@ PATTERN_FOR_SUPPLIER_LEGAL_NAME = PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 
 # ------- NOTE: the following code runs unconditionally at module import
 
-
-frozen_sexe = getattr(sys, 'frozen', False)
-if not frozen_sexe:
-    rules_file = Path(
-        app_dir,
-        "data/README_app_config_rules.md"
-    )
-    rules_content = Markdown(rules_file.read_text())
-else:
-    rules_content = Markdown(
-        "***WARNING NOTE: **Rules cannot be displayed for standalone exe application**. Please visit the application site: *`http://invoicetoroefact.renware.eu`*."
-    )
-
-
 # section to read settings from external data file
 file_to_use = hier_get_data_file("app_settings.yml")
 python_object = None  # suppose no settings loaded
@@ -217,4 +203,17 @@ else:  # if nothing or wrong read from previous method, settings applied will re
 
 
 
+
+# prepare `rules_content` public variable to be use as "mini help" by `settings -r` command of application
+frozen_sexe = getattr(sys, 'frozen', False)
+if not frozen_sexe:
+    rules_file = Path(
+        app_dir,
+        "data/README_app_config_rules.md"
+    )
+    rules_content = Markdown(rules_file.read_text())
+else:
+    rules_content = Markdown(
+        "***WARNING NOTE: **Rules cannot be displayed for standalone exe application**. Please visit the application site: *`http://invoicetoroefact.renware.eu`*."
+    )
 
