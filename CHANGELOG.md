@@ -43,10 +43,10 @@
 ### `0.6rc1` code missing XML tags
 
 * ... `code-miss-tags` code for missing XML tags:
+  * [x] (a) `cbc_Note` set to "proccesed @`{date_time_now}` with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time
   * [ ] ... 1 `cbc_DueDate` set as invoice date + parameter `DUE_DATE` with default value 30 days ...
                or... search in `invoice_header_area` ref something like `DUE_DATE = ["scad", "due da", "date due"]` and then apply default if not found
   * [ ] ... `<cbc_InvoiceTypeCode` make a choose application  parameter (with only one value now == 380)
-  * [ ] ... `cbc_Note` set to "proccesed @`{date_time_now}` with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time
   * [ ] ... `cbc_TaxPointDate` will be set to 25 of next month from invoice issued month
   * [ ] ... `cac_Delivery` will be set to invoice issued date
   * [ ] ... `cac_PaymentMeans` will be set to `1` as unknown at invoicing issuing date
