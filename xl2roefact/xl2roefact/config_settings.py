@@ -203,12 +203,12 @@ else:  # if nothing or wrong read from previous method, settings applied will re
 
 # prepare `rules_content` public variable to be use as "mini help" by `settings -r` command of application
 rules_content = ""  # initialize with empty string to show nothing in case is a problem with file reading
-frozen_sexe = getattr(sys, 'frozen', False)
-if not frozen_sexe:
-    rules_file = hier_get_data_file("README_app_config_rules.md")
-    rules_content = Markdown(rules_file.read_text())
-else:
-    rules_content = Markdown(
+#... frozen_sexe = getattr(sys, 'frozen', False)
+#... if not frozen_sexe:
+rules_file = hier_get_data_file("README_app_config_rules.md")
+rules_content = Markdown(rules_file.read_text())
+#... else:
+#...     rules_content = Markdown(
         "***WARNING NOTE: **Rules cannot be displayed for standalone exe application**. Please visit the application site: *`http://invoicetoroefact.renware.eu`*."
     )
 
