@@ -210,5 +210,5 @@ rules_content = Markdown(rules_file.read_text())
 #... else:
 #...     rules_content = Markdown(
 #...         "***WARNING NOTE: **Rules #... cannot be displayed for standalone exe application**. Please visit the application site: #... *`http://invoicetoroefact.renware.eu`*."
-    )
+#...     )
 
