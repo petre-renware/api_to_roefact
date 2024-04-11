@@ -32,7 +32,6 @@ DEFAULT_UNKNOWN_UOM: null
 # --- moneda implicita
 # este utilizat de catre aplicatie in toate conditiile in care pe factura nu este specifcata in clar o moneda
 # specifcarea monedei ca sau in titlurile coloanelor nu este luata in considerare (nu este garantat ca este moneda reala a facturii !)
-# --- TIPUL INFORMATIEI; ...
 DEFAULT_CURRENCY: "RON"
 
 # --- tara implicita
