@@ -6,7 +6,7 @@
 # CHANGELOG 0.5.4
 
 
-## `0.5.4` invoice supplier from owner master data (240406 h22:00)
+### `0.5.4` invoice supplier from owner master data (240406 h22:00)
 
 * `upd-dwnld-0.5.4` update `downloads.md` for 0.5.4 deliverables
 * `build-apps-0.5.4` build all deliverables & publish package on PyPi
