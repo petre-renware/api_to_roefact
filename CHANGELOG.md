@@ -44,9 +44,9 @@
 
 * ... build package version `0.6rc1`
 * ... `app-readme-doc` check & update xl2roefact `README.md`:
-    * [ ] functionalities in this release (JSON schema update)
-    * [ ] write about invoice type ref `cbc_InvoiceTypeCode`
-    * [ ] more sections "For developers" ref how manage some settings if introduce `sys_config.py` feature (separated and different of `app_confiv`)
+    * [ ] ... functionalities in this release (JSON schema update)
+    * [ ] ... write about invoice type ref `cbc_InvoiceTypeCode`
+    * [ ] ... more sections "For developers" ref how manage some settings if introduce `sys_config.py` feature (separated and different of `app_confiv`)
     * [x] `240413_01` updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for `PyPi` availability in project description
 * ... delete `xl2roefact/tests...` specs / helper file
 * ... test and clean code
