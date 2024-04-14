@@ -91,6 +91,8 @@ data = [{path = "data/*", relative-to = "data/"}]  # installed under `data/...` 
 [tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
 build_wheel = { shell = "pdm build --no-clean" }  # build python packages (wheel & sdist) in `dist/` directory
 build_msi = { shell = "python setup.py bdist_msi" }  # build MSI pachkage in `dist/` directory
+#FIXME `bdist_appimage` must be tested
+build_appimage = { shell = "python setup.py bdist_appimage" }  # build APPIMAGE pachkage in `dist/` directory
 
 build_sexe = { cmd = [
     "pyinstaller",
