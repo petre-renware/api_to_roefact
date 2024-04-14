@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:e7aaf4ed3da4dcfe7ff17870ecfbdfadd37b902bb2ebc9e5d5df2ecef8eebc71"
+content_hash = "sha256:2ecc2a29d68a3352e50068916636f837ee9b686b70164f7358b50a6ae2bbb47e"
 
 [[package]]
 name = "altgraph"
@@ -1230,17 +1230,6 @@ files = [
 ]
 
 [[package]]
-name = "pip"
-version = "24.0"
-requires_python = ">=3.7"
-summary = "The PyPA recommended tool for installing Python packages."
-groups = ["default"]
-files = [
-    {file = "pip-24.0-py3-none-any.whl", hash = "sha256:ba0d021a166865d2265246961bec0152ff124de910c5cc39f1156ce3fa7c69dc"},
-    {file = "pip-24.0.tar.gz", hash = "sha256:ea9bd1a847e8c5774a5777bb398c19e80bcd4e2aa16a4b301b718fe6f593aba2"},
-]
-
-[[package]]
 name = "platformdirs"
 version = "4.1.0"
 requires_python = ">=3.8"
@@ -2074,53 +2063,6 @@ dependencies = [
 files = [
     {file = "wsproto-1.2.0-py3-none-any.whl", hash = "sha256:b9acddd652b585d75b20477888c56642fdade28bdfd3579aa24a4d2c037dd736"},
     {file = "wsproto-1.2.0.tar.gz", hash = "sha256:ad565f26ecb92588a3e43bc3d96164de84cd9902482b130d0ddbaa9664a85065"},
-]
-
-[[package]]
-name = "xl2roefact"
-version = "0.5.4"
-requires_python = "<3.11,>=3.10"
-summary = "Excel invoices data retrieve, export & upload to RO E-Fact system"
-groups = ["default"]
-dependencies = [
-    "Fraction~=2.2",
-    "Jinja2~=3.1",
-    "MarkupSafe~=2.1",
-    "Pygments~=2.17",
-    "altgraph~=0.17",
-    "argcomplete~=3.2",
-    "commonmark~=0.9",
-    "et-xmlfile~=1.1",
-    "lief~=0.13",
-    "markdown-it-py~=3.0",
-    "mdurl~=0.1",
-    "msgpack>=1.0.8",
-    "openpyxl~=3.1",
-    "packaging~=23.2",
-    "pdm~=2.12",
-    "pefile~=2023.2",
-    "pip~=24.0",
-    "platformdirs~=4.1",
-    "pylightxl~=1.61",
-    "pyproject-hooks~=1.0",
-    "python-dateutil~=2.8",
-    "pytzdata~=2020.1",
-    "pywin32-ctypes~=0.2",
-    "pyyaml>=6.0.1",
-    "rich~=13.7",
-    "setuptools~=69.0",
-    "shellingham~=1.5",
-    "six~=1.16",
-    "time-machine~=2.13",
-    "tomli~=2.0",
-    "typing-extensions~=4.9",
-    "tzdata~=2023.4",
-    "userpath~=1.9",
-    "wheel~=0.42",
-]
-files = [
-    {file = "xl2roefact-0.5.4-py3-none-any.whl", hash = "sha256:09d1d223682a0e73ee75c13add7c77e95282231ea355e6f001c9ffa12f60aadf"},
-    {file = "xl2roefact-0.5.4.tar.gz", hash = "sha256:03a874213703df6df8b45b70fec71a3a0d539aa6ecb1ce5431916b386ad6fd1d"},
 ]
 
 [[package]]
