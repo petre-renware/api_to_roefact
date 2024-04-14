@@ -187,7 +187,7 @@ dev = [
 
 
 
-#NOTE section add for `cxFreeze`, for details see here: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
+# NOTE: section used by `cxFreeze`, For details see here: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
 [tool.distutils.build_exe]
 excludes = ["tkinter", "unittest"]
 zip_include_packages = ["encodings", "PySide6"]
