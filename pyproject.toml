@@ -7,8 +7,7 @@ description = "Issued invoices, Excel & Web, import, export & upload to RO E-Fac
 authors = [
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" },
     { name = "RENware Software Systems", email = "renware.systems@gmail.com" }
-]
-# dependencies = []  # is expected to be created by `pdm init`
+]
 license = {file = "LICENSE.md"}
 requires-python = ">=3.10,<3.11"  # old version, updated for xl2roefact compatibility ">=3.10,<3.13"
 classifiers = [  #  [piu@231226] just informative key at this moment
