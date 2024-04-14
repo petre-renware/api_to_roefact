@@ -187,7 +187,9 @@ build_site = {shell = "mkdocs build"}  # run `mkdocs` to build site with paramet
 #  - all `cx-*`packages
 #  - `pydoc` and all other doc generators
 #  - ...NOTE; write here more as detected...
-dev = []
+dev = [
+    "-e file:///${PROJECT_ROOT}/xl2roefact#egg=xl2roefact",
+]
 
 
 
