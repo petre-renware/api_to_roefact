@@ -175,8 +175,8 @@ PATTERN_FOR_SUPPLIER_LEGAL_NAME: *patt_suppl_marker
 # --- data scadentei
 # pattern utilizat pentru regasirea datei scadentei facturii
 PATTERN_FOR_DUE_DATE: [
-    "scad", "termen plat", "termen de plat"
-    "due da", "date due"
+    "scad", "termen plat", "termen de plat",
+    "due da", "date due",
 ]
 
 
