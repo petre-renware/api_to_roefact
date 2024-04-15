@@ -16,7 +16,7 @@ Specifications:
 """
 
 import os, sys
-from datetime import datetime, timezone, tzinfo, strptime
+from datetime import datetime, timezone, tzinfo
 from rich import print
 import copy
 from rich.pretty import pprint
@@ -276,7 +276,7 @@ def rdinv(
         
         
         #FIXME ...cvt nxt item to datetime...
-        invoice_issdate_asdate = strptime(
+        invoice_issdate_asdate = datetime.strptime(
             invoice_header_area["issued_date"]["value"],
             '%Y-%m-%d'
         )
