@@ -205,7 +205,7 @@ if file_to_use:
 # assign `python_object` to locals() environment...
 if python_object is not None:  # ...only if previous method has read something
     locals().update(python_object)
-else:  # if nothing or wrong read from previous method, settings applied will remain to values hard-coded in this module 
+else:  # if nothing or wrong read from previous method, settings applied will remain to values hard-coded in this module
     print("***INFO: Application settings loaded from application code (default settings).")
 
 # prepare `rules_content` public variable to be use as "mini help" by `settings -r` command of application
