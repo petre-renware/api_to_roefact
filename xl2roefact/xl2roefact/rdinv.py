@@ -278,7 +278,7 @@ def rdinv(
         #FIXME ...cvt nxt item to datetime...
         invoice_issdate_asdate = invoice_header_area["issued_date"]["value"]
     )  # reusable calculations to be used in next code. see details in issue `0.3.0b+240302piu01`
-    print("***Saved tmp_reusable_items inv iss date: ", tmp_reusable_items["invoice_issdate_asdate"])  #FIXME dbg drop me
+    print(f"***Saved inv iss date: {tmp_reusable_items["invoice_issdate_asdate"]=}")  #FIXME dbg drop me
     sys.exit()  #FIXME dbg drop me
     
     
