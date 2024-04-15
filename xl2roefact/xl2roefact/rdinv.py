@@ -273,6 +273,10 @@ def rdinv(
     tmp_reusable_items = dict(
         cbc_LineExtensionAmount = sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]),
         LineVatAmount = sum([dict_sum_by_key(i, "LineVatAmount") for i in tmp_InvoiceLine_list]),
+        invoice_issdate_asdate = datetime.strptime(
+            invoice_header_area["issued_date"]["value"],
+            '%Y-%m-%d'
+        )
     )  # reusable calculations to be used in next code. see details in issue `0.3.0b+240302piu01`
     tmp_cac_TaxSummary = invoice_taxes_summary(tmp_InvoiceLine_list)  # invoke invoice tax summary calculation
     invoice = {
@@ -337,7 +341,8 @@ def rdinv(
             "cac_Delivery": {
                 "cbc_ActualDeliveryDate": copy.deepcopy(invoice_header_area["issued_date"]["value"])  # suppose identical with invoice date. Format: `YYYY-MM-DD`
             },
-            # TODO: ... ... ...
+            # TODO: ... ... ... 
+            # can use `tmp_reusable_items["invoice_issdate_asdate"]` as datatime object
 
 
             
