@@ -55,9 +55,7 @@
 * ... `cbc_DueDate` search in `invoice_header_area` ref `PATTERN_FOR_DUE_DATE` search pattern.
   Apply `invoice_header_area["issued_date"]["value": "2023-08-28"] + DUE_DATE_DAYS` if not found
 
-* ... `PATTERN_FOR_DUE_DATE` update `config_settings.py` & `app_settings.yml`,
-  create `PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]` 
-
+* `PATTERN_FOR_DUE_DATE` update `config_settings.py` & `app_settings.yml`, create `PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]` 
 *  `inv-issdate-todate` upd `rdinv` for final json dict convert & local save invoice issued date in `datetime` format
   ==> `tmp_reusable_items["invoice_issdate_asdate"]`
 * `cac_Delivery` set as invoice issued date
