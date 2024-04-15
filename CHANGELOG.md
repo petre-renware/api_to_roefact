@@ -55,6 +55,8 @@
 * ... `cbc_DueDate` search in `invoice_header_area` ref something like `DUE_DATE = ["scad", "due da", "date due"]`.
   Apply `invoice_header_area["issued_date"]["value": "2023-08-28"] + DUE_DATE_DAYS` if not found
 
+*  ... `inv-issdate-todate` upd `rdinv`: use `isoformat` to make conversion & save for final json dict a version of invoice issued date in `datetime` format
+
 * `cac_Delivery` set as invoice issued date
 * `cac_PaymentMeans` will be set to `1` supposing is unknown at invoicing issuing date
 * `DEFAULT_DUE_DATE_DAYS` new app config parameter with default value 30 days
