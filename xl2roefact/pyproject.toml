@@ -36,6 +36,8 @@ dependencies = [
     "six~=1.16",
     "time-machine~=2.13",
     "tomli~=2.0",
+    "click~=8.1",
+    "typer~=0.9",
     "typing-extensions~=4.9",
     "tzdata~=2023.4",
     "userpath~=1.9",
@@ -122,8 +124,6 @@ pypi_publish = { shell = "git checkout -b pypi-publish; git push --force" }
 [tool.pdm.dev-dependencies] # dependencies used only in develeopment and not transfered in Pythn package building
 dev = [
     "build~=1.0",
-    "click~=8.1",
-    "typer~=0.9",
     "pydoc-markdown~=4.8",
     "cx-Freeze~=6.15",
     "cx-Logging~=3.1",
