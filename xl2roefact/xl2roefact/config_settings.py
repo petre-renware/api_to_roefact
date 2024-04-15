@@ -183,6 +183,13 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: list[str] = [
 # NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
 PATTERN_FOR_SUPPLIER_LEGAL_NAME = PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 
+# --- data scadentei
+# pattern utilizat pentru regasirea datei scadentei facturii
+PATTERN_FOR_DUE_DATE = [
+    "scad", "termen plat", "termen de plat"
+    "due da", "date due"
+]
+
 
 
 

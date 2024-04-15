@@ -172,4 +172,11 @@ PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER: &patt_suppl_marker [
 # NOTE se presupune a fi la inceputul zonei cu datele furnizorului, deci se ca cauta dupa acelasi pattern
 PATTERN_FOR_SUPPLIER_LEGAL_NAME: *patt_suppl_marker
 
+# --- data scadentei
+# pattern utilizat pentru regasirea datei scadentei facturii
+PATTERN_FOR_DUE_DATE: [
+    "scad", "termen plat", "termen de plat",
+    "due da", "date due",
+]
+
 
