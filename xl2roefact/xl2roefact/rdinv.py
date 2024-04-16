@@ -16,7 +16,7 @@ Specifications:
 """
 
 import os, sys
-from datetime import datetime, timezone, tzinfo
+from datetime import datetime, timezone, tzinfo, timedelta
 from rich import print
 import copy
 from rich.pretty import pprint
@@ -248,9 +248,12 @@ def rdinv(
         due_date_info["value"] = due_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     else:
         # apply `DEFAULT_DUE_DATE_DAYS` to invoice issue date
+        #NOTE use `a date + timedelta(days = 2)`
         #FIXME nxt line is test tb replaced
         due_date_info["value"] = DEFAULT_DUE_DATE_DAYS  #FIXME test tb replaced
-        ...
+        # convert invoice issued date to date ... hint line 254
+        # code... invoice_issued_date_as_date = ...
+        # code... due_date_info["value"] = invoice_issued_date_as_date + timedelta(days = DEFAULT_DUE_DATE_DAYS)`
     invoice_header_area["due_date"] = copy.deepcopy(due_date_info)
     # ...
     #FIXME ...wip...hereuare...
