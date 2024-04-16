@@ -243,7 +243,8 @@ def rdinv(
         area_to_scan=_area_to_search,
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    due_date_info["value"] = due_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
+    if due_date_info["value"]:  # if found something then try to clean it in case is intended to be a date-time
+        due_date_info["value"] = due_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["due_date"] = copy.deepcopy(due_date_info)
     # ...
     #FIXME ...wip...hereuare...
