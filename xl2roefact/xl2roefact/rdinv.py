@@ -231,6 +231,12 @@ def rdinv(
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
+    #FIXME ...wip...hereuare...
+    #  PATTERN_FOR_DUE_DATE
+
+
+    
+    #FIXME ...wip...hereuare...
     #
     # get and solve `invoice_header_area` for all CUSTOMER data
     _ = get_partner_data(
