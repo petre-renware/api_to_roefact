@@ -167,7 +167,7 @@
                 }
             ]
         },
-        "cbc_Note": "proccesed @2024-04-16T12:09:52.208631+00:00 with xl2roefact",
+        "cbc_Note": "proccesed @2024-04-16T12:40:07.691636+00:00 with xl2roefact",
         "cac_PaymentMeans": {
             "cbc_PaymentMeansCode": 1
         },
@@ -178,7 +178,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-16T12:09:52.208271+00:00",
+        "last_processing_time": "2024-04-16T12:40:07.691266+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -498,7 +498,7 @@
                 ]
             },
             "due_date": {
-                "value": "wip... DEFAULT_DUE_DATE_DAYS=30",
+                "value": "2023-11-16",
                 "location": [
                     null,
                     null
