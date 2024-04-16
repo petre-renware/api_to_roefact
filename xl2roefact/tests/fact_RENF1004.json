@@ -3,6 +3,7 @@
         "cbc_ID": "RENF-1004",
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-08-28",
+        "cbc_DueDate": "2023-09-27",
         "cac_AccountingCustomerParty": {
             "cac_Party": {
                 "cac_PartyLegalEntity": {
@@ -194,7 +195,7 @@
                 }
             ]
         },
-        "cbc_Note": "proccesed @2024-04-16T12:47:12.830264+00:00 with xl2roefact",
+        "cbc_Note": "proccesed @2024-04-16T13:26:46.687380+00:00 with xl2roefact",
         "cac_PaymentMeans": {
             "cbc_PaymentMeansCode": 1
         },
@@ -205,7 +206,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-16T12:47:12.829858+00:00",
+        "last_processing_time": "2024-04-16T13:26:46.686955+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
@@ -282,6 +283,10 @@
             [
                 "cbc_IssueDate",
                 "cbc:IssueDate"
+            ],
+            [
+                "cbc_DueDate",
+                "cbc:DueDate"
             ],
             [
                 "cac_AccountingCustomerParty",
