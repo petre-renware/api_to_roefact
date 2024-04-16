@@ -859,7 +859,7 @@ def build_meta_info_key(
         ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount"),
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
         ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
-        ("`cbc_DueDate", "cbc:DueDate"),  # invoice due date
+        ("cbc_DueDate", "cbc:DueDate"),  # invoice due date
         ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer information - MASTER RECORD
         ("cac_Party", "cac:Party"),  # invoice customer details ref Parner info (legal, address, ...) - DETAIL L1 RECORD
         ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL L2 RECORD
