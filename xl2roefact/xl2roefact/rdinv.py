@@ -248,7 +248,7 @@ def rdinv(
         due_date_info["value"] = due_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     else:
         # convert invoice issued daye to datetime format
-         invoice_issued_date_as_date = datetime.strptime(
+        invoice_issued_date_as_date = datetime.strptime(
             invoice_header_area["issued_date"]["value"],
             '%Y-%m-%d'
         )
