@@ -307,6 +307,7 @@ def rdinv(
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
+            "cbc_DueDate": copy.deepcopy(invoice_header_area["due_date"]["value"]),  # invoice due date as `cbc_DueDate`
             "cac_AccountingCustomerParty": {
                 "cac_Party": {
                     "cac_PartyLegalEntity": {
