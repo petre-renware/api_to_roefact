@@ -247,18 +247,15 @@ def rdinv(
     if due_date_info["value"] is not None:  # if found something then try to clean it in case is intended to be a date-time
         due_date_info["value"] = due_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     else:
-        # apply `DEFAULT_DUE_DATE_DAYS` to invoice issue date
-        #NOTE use `a date + timedelta(days = 2)`
-        #FIXME nxt line is test tb replaced
-        #due_date_info["value"] = f"wip... {DEFAULT_DUE_DATE_DAYS=}"  #FIXME test tb replaced
-        # convert invoice issued date to date ... hint line 254
-        invoice_issued_date_as_date = datetime.strptime(
+        # convert invoice issued daye to datetime format
+         invoice_issued_date_as_date = datetime.strptime(
             invoice_header_area["issued_date"]["value"],
             '%Y-%m-%d'
         )
-        #print(f"****AVEM ASA: {invoice_issued_date_as_date=}")  #FIXME dbg can drop
-        due_date_info["value"] = invoice_issued_date_as_date + timedelta(days = DEFAULT_DUE_DATE_DAYS)
-        # ... convert to date iso format
+        # apply `DEFAULT_DUE_DATE_DAYS` to invoice issue date and convert it to date isoformat
+        _tmp = invoice_issued_date_as_date + timedelta(days = DEFAULT_DUE_DATE_DAYS)
+        due_date_info["value"] = _tmp.date().isoformat()
+        #...
     invoice_header_area["due_date"] = copy.deepcopy(due_date_info)
     # ...
     #FIXME ...wip...hereuare...
