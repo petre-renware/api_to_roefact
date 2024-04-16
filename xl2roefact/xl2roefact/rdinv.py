@@ -16,7 +16,7 @@ Specifications:
 """
 
 import os, sys
-from datetime import datetime, timezone, tzinfo
+from datetime import datetime, timezone, tzinfo, timedelta
 from rich import print
 import copy
 from rich.pretty import pprint
@@ -49,6 +49,7 @@ DEFAULT_UNKNOWN_UOM = config_settings.DEFAULT_UNKNOWN_UOM
 DEFAULT_CURRENCY = config_settings.DEFAULT_CURRENCY
 DEFAULT_CUSTOMER_COUNTRY = config_settings.DEFAULT_CUSTOMER_COUNTRY
 DEFAULT_SUPPLIER_COUNTRY = config_settings.DEFAULT_SUPPLIER_COUNTRY
+DEFAULT_DUE_DATE_DAYS = config_settings.DEFAULT_DUE_DATE_DAYS
 PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER
 PATTERN_FOR_INVOICE_NUMBER_LABEL = config_settings.PATTERN_FOR_INVOICE_NUMBER_LABEL
 PATTERN_FOR_INVOICE_CURRENCY_LABEL = config_settings.PATTERN_FOR_INVOICE_CURRENCY_LABEL
@@ -69,6 +70,7 @@ PATTERN_FOR_PARTNER_BANK = config_settings.PATTERN_FOR_PARTNER_BANK
 PATTERN_FOR_PARTNER_REGCOM = config_settings.PATTERN_FOR_PARTNER_REGCOM
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAME
+PATTERN_FOR_DUE_DATE = config_settings.PATTERN_FOR_DUE_DATE
 
 
 def rdinv(
@@ -197,6 +199,7 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
+        due_date = None,
         customer_area = None,
         supplier_area = None,
     )
@@ -231,6 +234,26 @@ def rdinv(
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
+    #
+    # find invoice due date ==> `cbc_DueDate`
+    due_date_info = get_excel_data_at_label(
+        pattern_to_search_for= PATTERN_FOR_DUE_DATE,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+        targeted_type=str
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    if due_date_info["value"] is not None:  # if found something then try to clean it in case is intended to be a date-time
+        due_date_info["value"] = due_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
+    else:
+        # convert invoice issued daye to datetime format
+        invoice_issued_date_as_date = datetime.strptime(
+            invoice_header_area["issued_date"]["value"],
+            '%Y-%m-%d'
+        )
+        # apply `DEFAULT_DUE_DATE_DAYS` to invoice issue date and convert it to date isoformat
+        _tmp = invoice_issued_date_as_date + timedelta(days = DEFAULT_DUE_DATE_DAYS)
+        due_date_info["value"] = _tmp.date().isoformat()
+    invoice_header_area["due_date"] = copy.deepcopy(due_date_info)
     #
     # get and solve `invoice_header_area` for all CUSTOMER data
     _ = get_partner_data(
@@ -284,6 +307,7 @@ def rdinv(
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
+            "cbc_DueDate": copy.deepcopy(invoice_header_area["due_date"]["value"]),  # invoice due date as `cbc_DueDate`
             "cac_AccountingCustomerParty": {
                 "cac_Party": {
                     "cac_PartyLegalEntity": {
@@ -836,6 +860,7 @@ def build_meta_info_key(
         ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount"),
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
         ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
+        ("cbc_DueDate", "cbc:DueDate"),  # invoice due date
         ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer information - MASTER RECORD
         ("cac_Party", "cac:Party"),  # invoice customer details ref Parner info (legal, address, ...) - DETAIL L1 RECORD
         ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL L2 RECORD

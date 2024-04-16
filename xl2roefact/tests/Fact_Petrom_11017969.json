@@ -3,6 +3,7 @@
         "cbc_ID": "11017969",
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-10-17",
+        "cbc_DueDate": "2023-11-16",
         "cac_AccountingCustomerParty": {
             "cac_Party": {
                 "cac_PartyLegalEntity": {
@@ -167,7 +168,7 @@
                 }
             ]
         },
-        "cbc_Note": "proccesed @2024-04-15T06:16:22.017007+00:00 with xl2roefact",
+        "cbc_Note": "proccesed @2024-04-16T13:33:44.632270+00:00 with xl2roefact",
         "cac_PaymentMeans": {
             "cbc_PaymentMeansCode": 1
         },
@@ -178,7 +179,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-15T06:16:22.015082+00:00",
+        "last_processing_time": "2024-04-16T13:33:44.631880+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
@@ -255,6 +256,10 @@
             [
                 "cbc_IssueDate",
                 "cbc:IssueDate"
+            ],
+            [
+                "cbc_DueDate",
+                "cbc:DueDate"
             ],
             [
                 "cac_AccountingCustomerParty",
@@ -496,6 +501,15 @@
                     28,
                     8
                 ]
+            },
+            "due_date": {
+                "value": "2023-11-16",
+                "location": [
+                    null,
+                    null
+                ],
+                "label_value": null,
+                "label_location": null
             },
             "customer_area": {
                 "area_info": {
