@@ -49,6 +49,7 @@ DEFAULT_UNKNOWN_UOM = config_settings.DEFAULT_UNKNOWN_UOM
 DEFAULT_CURRENCY = config_settings.DEFAULT_CURRENCY
 DEFAULT_CUSTOMER_COUNTRY = config_settings.DEFAULT_CUSTOMER_COUNTRY
 DEFAULT_SUPPLIER_COUNTRY = config_settings.DEFAULT_SUPPLIER_COUNTRY
+DEFAULT_DUE_DATE_DAYS = config_settings.DEFAULT_DUE_DATE_DAYS
 PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER
 PATTERN_FOR_INVOICE_NUMBER_LABEL = config_settings.PATTERN_FOR_INVOICE_NUMBER_LABEL
 PATTERN_FOR_INVOICE_CURRENCY_LABEL = config_settings.PATTERN_FOR_INVOICE_CURRENCY_LABEL
@@ -243,8 +244,13 @@ def rdinv(
         area_to_scan=_area_to_search,
         targeted_type=str
     )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    if due_date_info["value"]:  # if found something then try to clean it in case is intended to be a date-time
+    if due_date_info["value"] is not None:  # if found something then try to clean it in case is intended to be a date-time
         due_date_info["value"] = due_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
+    else:
+        # apply `DEFAULT_DUE_DATE_DAYS` to invoice issue date
+        #FIXME nxt line is test tb replaced
+        due_date_info["value"] = DEFAULT_DUE_DATE_DAYS  #FIXME test tb replaced
+        ...
     invoice_header_area["due_date"] = copy.deepcopy(due_date_info)
     # ...
     #FIXME ...wip...hereuare...
