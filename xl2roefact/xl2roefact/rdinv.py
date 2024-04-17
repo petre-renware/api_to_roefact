@@ -308,7 +308,7 @@ def rdinv(
         tmp_cbc_TaxPointDate.year,
         tmp_cbc_TaxPointDate.month,
         25
-    )
+    ).date()
     tmp_cbc_TaxPointDate = tmp_cbc_TaxPointDate.isoformat()
     invoice = {
         "Invoice": {
@@ -373,8 +373,7 @@ def rdinv(
             "cac_Delivery": {
                 "cbc_ActualDeliveryDate": copy.deepcopy(invoice_header_area["issued_date"]["value"])  # suppose identical with invoice date. Format: `YYYY-MM-DD`
             },
-            # ... wip ... wip ...
-            "cbc_TaxPointDate": f"wip... {tmp_cbc_TaxPointDate=}",
+            "cbc_TaxPointDate": str(tmp_cbc_TaxPointDate),
             # TODO: ... ... ...
             # can use `tmp_reusable_items["invoice_issdate_asdate"]` as datatime object
 
