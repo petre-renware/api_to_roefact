@@ -304,7 +304,7 @@ def rdinv(
     tmp_cac_TaxSummary = invoice_taxes_summary(tmp_InvoiceLine_list)  # invoke invoice tax summary calculation
     # calculate date when VAT becomes eligible (@240417 is 25 of next month after issued month)
     tmp_cbc_TaxPointDate = tmp_reusable_items["invoice_issdate_asdate"] + timedelta(days = 31)  # 31 days will move one month latter
-    tmp_cbc_TaxPointDate = datetime.datetime(
+    tmp_cbc_TaxPointDate = datetime(
         year(tmp_cbc_TaxPointDate),
         month(tmp_cbc_TaxPointDate),
         25
