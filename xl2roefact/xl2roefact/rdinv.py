@@ -302,6 +302,10 @@ def rdinv(
         ).date()
     )  # reusable calculations to be used in next code. see details in issue `0.3.0b+240302piu01`
     tmp_cac_TaxSummary = invoice_taxes_summary(tmp_InvoiceLine_list)  # invoke invoice tax summary calculation
+    # calculate date when VAT becomes eligible (@240417 is 25 of next month after issued month)
+    tmp_cbc_TaxPointDate = tmp_reusable_items["invoice_issdate_asdate"]
+    tmp_cbc_TaxPointDate = tmp_cbc_TaxPointDate.isoformat()
+    ...
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
@@ -366,7 +370,7 @@ def rdinv(
                 "cbc_ActualDeliveryDate": copy.deepcopy(invoice_header_area["issued_date"]["value"])  # suppose identical with invoice date. Format: `YYYY-MM-DD`
             },
             # ... wip ... wip ...
-            "cbc_TaxPointDate": f"wip... {str(invoice_issdate_asdate)=}"
+            "cbc_TaxPointDate": f"wip... {tmp_cbc_TaxPointDate=}",
             # TODO: ... ... ...
             # can use `tmp_reusable_items["invoice_issdate_asdate"]` as datatime object
 
