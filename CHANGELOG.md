@@ -51,9 +51,8 @@
 * ... delete `xl2roefact/tests...` specs / helper file
 * ... test and clean code
 * ... `cbc_InvoiceTypeCode` make a choose application  parameter (with only one value now == 380)
-
-* wip... `cbc_TaxPointDate` will be set to 25 of next month from invoice issued month
-
+* ...
+* `cbc_TaxPointDate` will be set to 25 of next month from invoice issued month
 * `cbc_DueDate` search `invoice_header_area` ref `PATTERN_FOR_DUE_DATE` pattern. Use found data if not None or default it to `invoice_header_area["issued_date"]["value"] + DUE_DATE_DAYS` if None found
 * `PATTERN_FOR_DUE_DATE` update `config_settings.py` & `app_settings.yml`, create `PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]` 
 *  `inv-issdate-todate` upd `rdinv` for final json dict convert & local save invoice issued date in `datetime` format
