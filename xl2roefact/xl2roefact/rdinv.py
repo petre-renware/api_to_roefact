@@ -900,6 +900,7 @@ def build_meta_info_key(
         ("cbc_ActualDeliveryDate", "cbc:ActualDeliveryDate"),
         ("cac_PaymentMeans", "cac:PaymentMeans"),
         ("cbc_PaymentMeansCode", "cbc:PaymentMeansCode"),
+        ("cbc_TaxPointDate", "cbc:TaxPointDate"),  # date when VAT becomes eligible for payment
     ]
     return copy.deepcopy(_tmp_meta_info)
 
