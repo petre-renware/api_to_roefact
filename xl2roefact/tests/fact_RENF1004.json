@@ -195,19 +195,19 @@
                 }
             ]
         },
-        "cbc_Note": "proccesed @2024-04-17T04:15:15.701228+00:00 with xl2roefact",
+        "cbc_Note": "proccesed @2024-04-17T04:19:30.778067+00:00 with xl2roefact",
         "cac_PaymentMeans": {
             "cbc_PaymentMeansCode": 1
         },
         "cac_Delivery": {
             "cbc_ActualDeliveryDate": "2023-08-28"
         },
-        "cbc_TaxPointDate": "wip... tmp_cbc_TaxPointDate='2023-09-25T00:00:00'"
+        "cbc_TaxPointDate": "2023-09-25"
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-17T04:15:15.700809+00:00",
+        "last_processing_time": "2024-04-17T04:19:30.777647+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
