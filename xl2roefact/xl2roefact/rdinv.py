@@ -366,7 +366,7 @@ def rdinv(
                 "cbc_ActualDeliveryDate": copy.deepcopy(invoice_header_area["issued_date"]["value"])  # suppose identical with invoice date. Format: `YYYY-MM-DD`
             },
             # ... wip ... wip ...
-            "cbc_TaxPointDate": f"wip... {str(invoice_issdate_asdate)=}“
+            "cbc_TaxPointDate": f"wip... {str(invoice_issdate_asdate)=}"
             # TODO: ... ... ...
             # can use `tmp_reusable_items["invoice_issdate_asdate"]` as datatime object
 
