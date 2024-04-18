@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 """xl2roefact: module to unify all xl2roefact and to be used as executable CLI by any users.
 
 Identification:
