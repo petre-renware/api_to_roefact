@@ -29,6 +29,10 @@ InvoiceTypes = [
         "value": "380"
     },
     # ... more invoice types here in future (v > 0.6)
+    {
+        "code": "test1", #FIXME dbg can drop
+        "value": "test1 val" #FIXME dbg can drop
+    }
 ]
 
 
@@ -38,18 +42,12 @@ InvoiceTypes = [
 class InvoiceTypesEnum(str, Enum):
     for inv_type in InvoiceTypes:
         locals()[inv_type["code"]] = inv_type["value"]
-        #for _k, _v in inv_type.items():
-        #    print(f"**** {_k=} {_v=}") #FIXME dbg can drop
-        #    #locals()[_k] = _v
-        #    #exec(_k) = _v
-            
-
 
 
 #--- 99. TEST section ---
-print("**** InvoiceTypesEnum definition:")  #FIXME dbg can drop
+print("\n**** InvoiceTypesEnum definition:")  #FIXME dbg can drop
 pprint(list(InvoiceTypesEnum))  #FIXME dbg can drop
-print("**** ---- End of InvoiceTypesEnum definition")  #FIXME dbg can drop
+print("**** ---- End of InvoiceTypesEnum definition\n")  #FIXME dbg can drop
 
 
 
