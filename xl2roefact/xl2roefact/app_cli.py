@@ -30,6 +30,7 @@ from xl2roefact.wrxml import wrxml  # status #FIXME: not yet started
 from xl2roefact.chkxml import chkxml  # status #FIXME: not yet started
 from xl2roefact.ldxml import ldxml  # status #FIXME: not yet started
 from xl2roefact.chkisld import chkisld  # status #FIXME: not yet started
+from xl2roefact import sys_settings
 
 
 
