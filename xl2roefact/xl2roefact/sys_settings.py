@@ -41,7 +41,7 @@ InvoiceTypes = [
 # Enumeration used by CLI app for invoice typrs argument / option
 class InvoiceTypesEnum(str, Enum):
     for inv_type in InvoiceTypes:
-        print(f"{inv_type["code"]=} is {inv_type["value"]=}")  #FIXME dbg drop 
+        print(f'{inv_type["code"]=} is {inv_type["value"]=}')  #FIXME dbg drop 
         #exec(inv_type["code"]) = inv_type["value"]
 
 
