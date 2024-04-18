@@ -18,7 +18,7 @@ from .libutils import hier_get_data_file
 # Object that keep allowed InvoiceType codes (derived as `cbc_InvoiceTypeCode`) 
 InvoiceType = {
     "name": "Factura normala",
-    "code": 380
+    "code": "380"
 }
 
 
