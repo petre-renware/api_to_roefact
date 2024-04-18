@@ -27,7 +27,8 @@ InvoiceTypes = [
     {
         "code": "normal",  # regular invoice (RO: factura normala) type (ie, not intra-community for example)
         "value": "380"
-    }
+    },
+    # ... more invoice types here in future (v > 0.6)
 ]
 
 
@@ -36,7 +37,7 @@ InvoiceTypes = [
 # Enumeration used by CLI app for invoice typrs argument / option
 class InvoiceTypesEnum(str, Enum);
     for inv_type in InvoiceTypes:
-        nonlocal _k, _v
+        nonlocal _k, _v  # prevent errors when `_k` is an existing key as becoming global variable by applying `local()`
         for _k, _v in inv_type.items():
             locals()[_k] = _v
             
