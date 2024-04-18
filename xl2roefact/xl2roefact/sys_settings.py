@@ -36,9 +36,12 @@ InvoiceTypes = {
 #--- 2. PARAMETERS section ---
 
 # Enumeration used by CLI app for invoice typrs argument / option
+'''
 class InvoiceTypesEnum(str, Enum):
     for _k in InvoiceTypes:
         locals()[_k] = InvoiceTypes[_k]
+'''
+InvoiceTypesEnum = Enum("InvoiceTypesEnum", InvoiceTypes)
 
 
 #--- 99. TEST section ---
