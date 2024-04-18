@@ -42,7 +42,7 @@ InvoiceTypes = [
 class InvoiceTypesEnum(str, Enum):
     for inv_type in InvoiceTypes:
         _to_var = inv_type["code"]
-        locals()["_to_var"] = inv_type["value"]
+        locals()[_to_var] = inv_type["value"]
 
 
 #--- 99. TEST section ---
