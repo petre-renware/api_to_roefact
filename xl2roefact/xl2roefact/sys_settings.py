@@ -36,10 +36,7 @@ InvoiceTypes = [
 
 # Enumeration used by CLI app for invoice typrs argument / option
 class InvoiceTypesEnum(str, Enum):
-    #_k = _v = None
     for inv_type in InvoiceTypes:
-        nonlocal _k, _v  # prevent errors when `_k` is an existing key as becoming global variable by applying `local()`
-        _k = _v = None
         for _k, _v in inv_type.items():
             locals()[_k] = _v
             
