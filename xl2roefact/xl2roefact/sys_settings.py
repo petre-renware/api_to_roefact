@@ -1,14 +1,8 @@
-"""Configuration and setting parameters.
+"""System database with parameters.
 
-Regulile recomandate se gasessc in documentul (recommended rules are in document `xl2roefact/data/README_app_config_rules.md`)
+This module IS NOT intended to be modified by end users or administrators. Only development stuff can alter this database because application code must be updated accordingly.
 
-Public objects:
-
-* `rules_content`: contains the rules text (rendered)
-
-Info:
-
-* copyright: (c) 2023 RENWare Software Systems
+* copyright: (c) 2024 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 """
 
@@ -19,3 +13,13 @@ from rich.markdown import Markdown
 import yaml
 from pprint import pprint
 from .libutils import hier_get_data_file
+
+
+# Object that keep allowed InvoiceType codes (derived as `cbc_InvoiceTypeCode`) 
+InvoiceType = {
+    "name": "Factura normala",
+    "code": 380
+}
+
+
+
