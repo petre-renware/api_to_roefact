@@ -23,11 +23,13 @@ from enum import Enum
 
 # Object that keep allowed InvoiceType codes (derived as `cbc_InvoiceTypeCode`)
 #  WARNING: object records hardly impact invoice VAT calculation and recognition
-InvoiceType = {
-    "description": "Factura normala",  # regular invoice type (ie, not intra-community for example) 
-    "code": "normal", 
-    "value": "380"
-}
+InvoiceType = [
+    {
+        "code": "normal",
+        "value": "380",
+        "description": "Factura normala",  # regular invoice type (ie, not intra-community for example)
+    }
+]
 
 
 #--- 2. PARAMETERS section ---
