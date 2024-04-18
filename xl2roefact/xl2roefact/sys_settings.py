@@ -21,26 +21,26 @@ from enum import Enum
 
 #--- 1. DATABASE section ----
 
-# Object that keep allowed InvoiceType codes (derived as `cbc_InvoiceTypeCode`)
-#  WARNING: object records hardly impact invoice VAT calculation and recognition
-InvoiceTypes = [
-    {
-        "code": "normal",  # regular invoice (RO: factura normala) type (ie, not intra-community for example)
-        "value": "380"
-    },
+# Object that keep allowed InvoiceType codes:
+# - `key`: displayed type to choose
+# - `value`: value used for JSON-`cbc_InvoiceTypeCode` key respectively XML-`cbc:InvoiceTypeCode` attribute
+# WARNING: object records hardly impact invoice VAT calculation and recognition
+InvoiceTypes = {
+    "NORMALA": "380",  # regular invoice (RO: factura normala) type (ie, not intra-community for example)
+    "TEST": "tst",  #FIXME dbg drop me. Sample record for test
     # ... more invoice types here in future (v > 0.6)
-]
+}
+
 
 
 #--- 2. PARAMETERS section ---
 
 # Enumeration used by CLI app for invoice typrs argument / option
 class InvoiceTypesEnum(str, Enum):
-    #TODO: piu@240418 temporary hard coded. Must be loaded from `InvoiceTypes` structure
-    normal = "380"
-    test = "FIXME test val. drop me"
+    for _k, _v in InvoiceTypes.items():
+        local()[_k] = _v
 
 
 #--- 99. TEST section ---
-
+print(f"\n**** Object resulted {list(InvoiceTypesEnum)}")  #FIXME dbg drop
 
