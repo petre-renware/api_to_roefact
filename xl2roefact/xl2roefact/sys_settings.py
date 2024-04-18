@@ -29,10 +29,6 @@ InvoiceTypes = [
         "value": "380"
     },
     # ... more invoice types here in future (v > 0.6)
-    {
-        "code": "test1", #FIXME dbg can drop
-        "value": "test1 val" #FIXME dbg can drop
-    }
 ]
 
 
@@ -40,15 +36,11 @@ InvoiceTypes = [
 
 # Enumeration used by CLI app for invoice typrs argument / option
 class InvoiceTypesEnum(str, Enum):
-    for inv_type in InvoiceTypes:
-        print(f'{inv_type["code"]=} is {inv_type["value"]=}')  #FIXME dbg drop 
-        #exec(inv_type["code"]) = inv_type["value"]
+    #TODO: piu@240418 temporary hard coded. Must be loaded from `InvoiceTypes` structure
+    normal = "380"
+    test = "FIXME test val. drop me"
 
 
 #--- 99. TEST section ---
-print("\n**** InvoiceTypesEnum definition:")  #FIXME dbg can drop
-pprint(list(InvoiceTypesEnum))  #FIXME dbg can drop
-print("**** ---- End of InvoiceTypesEnum definition\n")  #FIXME dbg can drop
-
 
 
