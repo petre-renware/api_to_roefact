@@ -15,9 +15,10 @@ from pprint import pprint
 from .libutils import hier_get_data_file
 
 
-# Object that keep allowed InvoiceType codes (derived as `cbc_InvoiceTypeCode`) 
+# Object that keep allowed InvoiceType codes (derived as `cbc_InvoiceTypeCode`)
+#  WARNING: object records hardly impact invoice VAT calculation and recognition
 InvoiceType = {
-    "name": "Factura normala",
+    "name": "Factura normala",  # regular invoice type (ie, not intra-community for example)
     "code": "380"
 }
 
