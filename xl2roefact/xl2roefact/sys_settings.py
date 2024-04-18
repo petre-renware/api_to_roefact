@@ -48,7 +48,7 @@ class InvoiceTypesEnum(str, Enum):
 
 #--- 99. TEST section ---
 print("**** InvoiceTypesEnum definition:")  #FIXME dbg can drop
-pprint(InvoiceTypesEnum)  #FIXME dbg can drop
+pprint(list(InvoiceTypesEnum))  #FIXME dbg can drop
 print("**** ---- End of InvoiceTypesEnum definition")  #FIXME dbg can drop
 
 
