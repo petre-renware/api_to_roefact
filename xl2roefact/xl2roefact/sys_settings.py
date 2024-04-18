@@ -38,7 +38,7 @@ InvoiceTypes = [
 class InvoiceTypesEnum(str, Enum):
     for inv_type in InvoiceTypes:
         for _k, _v in inv_type.items():
-            locals()[_k] = _v
+            eval(_k) = _v
             
 
 
