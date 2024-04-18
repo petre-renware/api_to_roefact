@@ -35,12 +35,10 @@ InvoiceType = [
 #--- 2. PARAMETERS section ---
 
 # Enumeration used 
-invoice_types = Enum(
-    "InvoiceTypesEnum",
-    
-):
-#    eval{InvoiceType["code"]) = InvoiceType["value"]
-    
+class InvoiceTypesEnum(str, Enum
+    ...
+    eval{InvoiceType["code"]) = InvoiceType["value"]
+)                  
 
 
 
