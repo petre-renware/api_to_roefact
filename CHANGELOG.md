@@ -51,10 +51,10 @@
 * ... delete `xl2roefact/tests...` specs / helper file
 * ... test and clean code
 
-* wip... `cbc_InvoiceTypeCode` make a choose application  parameter (with only one value now == 380):
-  * create `xl2roefact/sys_settings.py` component dedicated to system settings (ie, not user configurable but only developers; is intended that later versions to use also a database for)
-  * ...
+* wip... `cbc_InvoiceTypeCode` make a choose application  parameter.
+  Values are taken from `sys_settings` module, object `InvoiceType`
 
+* `sys_settings-module` created `xl2roefact/sys_settings.py` component dedicated to system settings (ie, not user configurable but only developers; is intended that later versions to use also a database for)
 * `cbc_TaxPointDate` will be set to 25 of next month from invoice issued month
 * `cbc_DueDate` search `invoice_header_area` ref `PATTERN_FOR_DUE_DATE` pattern. Use found data if not None or default it to `invoice_header_area["issued_date"]["value"] + DUE_DATE_DAYS` if None found
 * `PATTERN_FOR_DUE_DATE` update `config_settings.py` & `app_settings.yml`, create `PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]` 
