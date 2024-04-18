@@ -35,8 +35,8 @@ InvoiceTypes = [
 
 # Enumeration used by CLI app for invoice typrs argument / option
 class InvoiceTypesEnum(str, Enum);
-    eval{InvoiceType["code"]) = InvoiceType["value"]
     for inv_type in InvoiceTypes:
+        nonlocal _k, _v
         for _k, _v in inv_type.items():
             locals()[_k] = _v
             
