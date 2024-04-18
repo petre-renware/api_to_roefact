@@ -50,12 +50,12 @@
     * [x] `240413_01` updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for `PyPi` availability in project description
 * ... delete `xl2roefact/tests...` specs / helper file
 * ... test and clean code
-
-* wip... `cbc_InvoiceTypeCode` make a choose application  parameter.
-  Values are taken from `sys_settings` module, object `InvoiceType`
-    * created `InvoiceTypesEnum` as prep for CLI app parameter
-    * ...
-
+* ... `InvoiceTypeCode-param` make a choose application  parameter.
+  Values to be taken from `sys_settings` module, object `InvoiceType`
+* ... ... ...
+* `sys_settings-invoice-type` populated "system database" with allowed invoice types
+    * created `InvoiceTypes` dictionary with allowed invoice types
+    * created `InvoiceTypesEnum` as Enum to be used by CLI app parameter (dinamically generated from previous data object)
 * `sys_settings-module` created `xl2roefact/sys_settings.py` component dedicated to system settings (ie, not user configurable but only developers; is intended that later versions to use also a database for)
 * `cbc_TaxPointDate` will be set to 25 of next month from invoice issued month
 * `cbc_DueDate` search `invoice_header_area` ref `PATTERN_FOR_DUE_DATE` pattern. Use found data if not None or default it to `invoice_header_area["issued_date"]["value"] + DUE_DATE_DAYS` if None found
