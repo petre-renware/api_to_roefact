@@ -39,7 +39,7 @@ class InvoiceTypesEnum(str, Enum):
     for inv_type in InvoiceTypes:
         for _k, _v in inv_type.items():
             print(f"**** {_k=} {_v=}") #FIXME dbg can drop
-            locals()[_k] = _v
+            #locals()[_k] = _v
             #exec(_k) = _v
             
 
