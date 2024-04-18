@@ -3,7 +3,7 @@
 This module IS NOT intended to be modified by end users or administrators.
 Only development stuff can alter this database because application code must be updated accordingly.
 
-* NOTE for updaters: because dependencies code sections should follow the strict order they was enumerated 
+* NOTE for updaters: because dependencies, code sections should follow strict enumerated order in comments
 
 * copyright: (c) 2024 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
@@ -32,18 +32,10 @@ InvoiceTypes = {
 }
 
 
-
 #--- 2. PARAMETERS section ---
 
 # Enumeration used by CLI app for invoice typrs argument / option
-'''
-class InvoiceTypesEnum(str, Enum):
-    for _k in InvoiceTypes:
-        locals()[_k] = InvoiceTypes[_k]
-'''
 InvoiceTypesEnum = Enum("InvoiceTypesEnum", InvoiceTypes)
 
 
-#--- 99. TEST section ---
-print(f"\n**** Object resulted {list(InvoiceTypesEnum)}")  #FIXME dbg drop
 
