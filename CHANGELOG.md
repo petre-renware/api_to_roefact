@@ -50,9 +50,10 @@
     * [x] `240413_01` updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for `PyPi` availability in project description
 * ... delete `xl2roefact/tests...` specs / helper file
 * ... test and clean code
-
-* `cbc_InvoiceTypeCode` make a choose application  parameter.
-  Values are taken from `sys_settings` module, object `InvoiceType`
+* ... `InvoiceTypeCode-param` make a choose application  parameter.
+  Values to be taken from `sys_settings` module, object `InvoiceType`
+* ... ... ...
+* `sys_settings-invoice-type` populated "system database" with allowed invoice types
     * created `InvoiceTypes` dictionary with allowed invoice types
     * created `InvoiceTypesEnum` as Enum to be used by CLI app parameter (dinamically generated from previous data object)
 * `sys_settings-module` created `xl2roefact/sys_settings.py` component dedicated to system settings (ie, not user configurable but only developers; is intended that later versions to use also a database for)
