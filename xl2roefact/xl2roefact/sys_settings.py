@@ -37,7 +37,7 @@ InvoiceTypes = {
 
 # Enumeration used by CLI app for invoice typrs argument / option
 class InvoiceTypesEnum(str, Enum):
-    for _k, in InvoiceTypes:
+    for _k in InvoiceTypes:
         locals()[_k] = InvoiceTypes[_k]
 
 
