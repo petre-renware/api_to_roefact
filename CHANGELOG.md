@@ -47,8 +47,7 @@
     * [ ] ... functionalities in this release (JSON schema update)
     * [ ] ... write about invoice type ref `cbc_InvoiceTypeCode`
     * [ ] ... more sections "For developers" ref how manage some settings if introduce `sys_config.py` feature (different of `app_config`)
-    <!--TODO set version back to `0.6rc1` -->
-    * [x] `0.6.dev1` restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view
+    * [x] `site-0.6.dev1` restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view
     * [x] `240413_01` updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for `PyPi` availability in project description
 * ... delete `xl2roefact/tests...` specs / helper file
 * ... test and clean code
