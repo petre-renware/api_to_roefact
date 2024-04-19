@@ -23,16 +23,13 @@ Si mai mult, daca aveti nevoie, puteti Integra aceste facturi si alte sisteme ex
 flowchart TD
     top[[INVOICEtoROefact \n System]]
 
-    xl2roefact[ xl2roefact \n componenta locala]
-    web2roefact[web2roefact \n componenta web]
-    xxx[ ... ]
+    xl2roefact[ xl2roefact \n Componenta locala]
+    web2roefact[web2roefact \n Componenta web]
+    invtmpl[invoice template \n Template factura Excel]
 
-    bot[[DB-TIER \n database server \n components]]
-
-    top --- sys_core
-    sys_core --- app_portal
-    sys_core --- commons
-    app_portal --- bot
+    top -- xl2roefact
+    top -- web2roefact
+    top --- invtmpl
 ```
 
 Sistemul **INVOICEtoROefact** ofera urmatoarele componente:
