@@ -16,7 +16,7 @@ Specifications:
 """
 
 import os, sys
-from datetime import datetime, timezone, tzinfo
+from datetime import datetime, timezone, tzinfo, timedelta
 from rich import print
 import copy
 from rich.pretty import pprint
@@ -49,6 +49,7 @@ DEFAULT_UNKNOWN_UOM = config_settings.DEFAULT_UNKNOWN_UOM
 DEFAULT_CURRENCY = config_settings.DEFAULT_CURRENCY
 DEFAULT_CUSTOMER_COUNTRY = config_settings.DEFAULT_CUSTOMER_COUNTRY
 DEFAULT_SUPPLIER_COUNTRY = config_settings.DEFAULT_SUPPLIER_COUNTRY
+DEFAULT_DUE_DATE_DAYS = config_settings.DEFAULT_DUE_DATE_DAYS
 PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER
 PATTERN_FOR_INVOICE_NUMBER_LABEL = config_settings.PATTERN_FOR_INVOICE_NUMBER_LABEL
 PATTERN_FOR_INVOICE_CURRENCY_LABEL = config_settings.PATTERN_FOR_INVOICE_CURRENCY_LABEL
@@ -69,6 +70,7 @@ PATTERN_FOR_PARTNER_BANK = config_settings.PATTERN_FOR_PARTNER_BANK
 PATTERN_FOR_PARTNER_REGCOM = config_settings.PATTERN_FOR_PARTNER_REGCOM
 PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER = config_settings.PATTERN_FOR_INVOICE_SUPPLIER_SUBTABLE_MARKER
 PATTERN_FOR_SUPPLIER_LEGAL_NAME = config_settings.PATTERN_FOR_SUPPLIER_LEGAL_NAME
+PATTERN_FOR_DUE_DATE = config_settings.PATTERN_FOR_DUE_DATE
 
 
 def rdinv(
@@ -197,6 +199,7 @@ def rdinv(
         invoice_number = None,
         issued_date = None,
         currency = None,
+        due_date = None,
         customer_area = None,
         supplier_area = None,
     )
@@ -232,6 +235,26 @@ def rdinv(
     issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
     invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
     #
+    # find invoice due date ==> `cbc_DueDate`
+    due_date_info = get_excel_data_at_label(
+        pattern_to_search_for= PATTERN_FOR_DUE_DATE,
+        worksheet=ws,
+        area_to_scan=_area_to_search,
+        targeted_type=str
+    )  # returned info: `{"value": ..., "location": (row..., col...)}`
+    if due_date_info["value"] is not None:  # if found something then try to clean it in case is intended to be a date-time
+        due_date_info["value"] = due_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
+    else:
+        # convert invoice issued daye to datetime format
+        invoice_issued_date_as_date = datetime.strptime(
+            invoice_header_area["issued_date"]["value"],
+            '%Y-%m-%d'
+        )
+        # apply `DEFAULT_DUE_DATE_DAYS` to invoice issue date and convert it to date isoformat
+        _tmp = invoice_issued_date_as_date + timedelta(days = DEFAULT_DUE_DATE_DAYS)
+        due_date_info["value"] = _tmp.date().isoformat()
+    invoice_header_area["due_date"] = copy.deepcopy(due_date_info)
+    #
     # get and solve `invoice_header_area` for all CUSTOMER data
     _ = get_partner_data(
         partner_type="CUSTOMER",
@@ -254,8 +277,6 @@ def rdinv(
             supplier_datafile=owner_datafile
         )
     #
-    # TODO: ... mai sunt ai cele "pre-stabilite" in versiunea curenta, gen `cbc:InvoiceTypeCode = 380`. SEE ALSO line 331
-
     """#NOTE: section to ( Excel data )--->( JSON ) format preparation and finishing
         this is required to be after header determination (because CURRENCY could be known here and will impact config param `DEFAULT_CURRENCY`)
     """
@@ -275,13 +296,26 @@ def rdinv(
     tmp_reusable_items = dict(
         cbc_LineExtensionAmount = sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]),
         LineVatAmount = sum([dict_sum_by_key(i, "LineVatAmount") for i in tmp_InvoiceLine_list]),
+        invoice_issdate_asdate = datetime.strptime(
+            invoice_header_area["issued_date"]["value"],
+            '%Y-%m-%d'
+        ).date()
     )  # reusable calculations to be used in next code. see details in issue `0.3.0b+240302piu01`
     tmp_cac_TaxSummary = invoice_taxes_summary(tmp_InvoiceLine_list)  # invoke invoice tax summary calculation
+    # calculate date when VAT becomes eligible (@240417 is 25 of next month after issued month)
+    tmp_cbc_TaxPointDate = tmp_reusable_items["invoice_issdate_asdate"] + timedelta(days = 31)  # 31 days will move one month latter
+    tmp_cbc_TaxPointDate = datetime(
+        tmp_cbc_TaxPointDate.year,
+        tmp_cbc_TaxPointDate.month,
+        25
+    ).date()
+    tmp_cbc_TaxPointDate = tmp_cbc_TaxPointDate.isoformat()
     invoice = {
         "Invoice": {
             "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
             "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
             "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
+            "cbc_DueDate": copy.deepcopy(invoice_header_area["due_date"]["value"]),  # invoice due date as `cbc_DueDate`
             "cac_AccountingCustomerParty": {
                 "cac_Party": {
                     "cac_PartyLegalEntity": {
@@ -331,7 +365,20 @@ def rdinv(
                 "cbc_TaxAmount": round(sum([i["cbc_TaxAmount"] if i["cbc_TaxAmount"] is not None else 0 for i in tmp_cac_TaxSummary]), 2),
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
-            # TODO: ... chk for remained structure values and check XLM-JSON map. SEE ALSO line 254
+            # remained mostly "administrative" structure values. For details see ISS `0.6rc1`+`code missing XML tags`
+            "cbc_Note": f"proccesed @{datetime.now(timezone.utc).isoformat()} with xl2roefact",
+            "cac_PaymentMeans": {
+                "cbc_PaymentMeansCode": 1  #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
+            },
+            "cac_Delivery": {
+                "cbc_ActualDeliveryDate": copy.deepcopy(invoice_header_area["issued_date"]["value"])  # suppose identical with invoice date. Format: `YYYY-MM-DD`
+            },
+            "cbc_TaxPointDate": str(tmp_cbc_TaxPointDate),
+            # TODO: ... ... ...
+            # can use `tmp_reusable_items["invoice_issdate_asdate"]` as datatime object
+
+
+            
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
@@ -822,6 +869,7 @@ def build_meta_info_key(
         ("cbc_LineExtensionAmount", "cbc:LineExtensionAmount"),
         ("cbc_DocumentCurrencyCode", "cbc:DocumentCurrencyCode"),  # invoice currency
         ("cbc_IssueDate", "cbc:IssueDate"),  # invoice issue date
+        ("cbc_DueDate", "cbc:DueDate"),  # invoice due date
         ("cac_AccountingCustomerParty", "cac:AccountingCustomerParty"),  # invoice customer information - MASTER RECORD
         ("cac_Party", "cac:Party"),  # invoice customer details ref Parner info (legal, address, ...) - DETAIL L1 RECORD
         ("cac_PartyLegalEntity", "cac:PartyLegalEntity"),  # invoice customer inforation - DETAIL L2 RECORD
@@ -852,6 +900,16 @@ def build_meta_info_key(
         ("cac_TaxCategory", "cac:TaxCategory"),  # specific for Tax Summary section
         ("cac_AccountingSupplierParty", "cac:AccountingSupplierParty"),  # specific to supplier
         ("cac_PartyTaxScheme", "cac:PartyTaxScheme"),  # specific to supplier
+        # codes that are not from Excel file but that need to be present in XML file for RO eFact. Normally exceeds an Excel invoice, being at least for a "mini ERP" system
+        ("cbc_DueDate", "cbc:DueDate"),
+        ("cbc_InvoiceTypeCode", "cbc:InvoiceTypeCode"),
+        ("cbc_Note", "cbc:Note"),
+        ("cbc_TaxPointDate", "cbc:TaxPointDate"),
+        ("cac_Delivery", "cac:Delivery"),
+        ("cbc_ActualDeliveryDate", "cbc:ActualDeliveryDate"),
+        ("cac_PaymentMeans", "cac:PaymentMeans"),
+        ("cbc_PaymentMeansCode", "cbc:PaymentMeansCode"),
+        ("cbc_TaxPointDate", "cbc:TaxPointDate"),  # date when VAT becomes eligible for payment
     ]
     return copy.deepcopy(_tmp_meta_info)
 

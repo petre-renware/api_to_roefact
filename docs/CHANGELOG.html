@@ -509,22 +509,18 @@ div.download-btn {
 <nav aria-label="0.6 finalize JSON model to contain all RO eFact XML mandatory taga" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#06rc1-code-missing-xml-tags">
+    0.6rc1 code missing XML tags
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#06dev1-code-missing-xml-tags">
+    0.6.dev1 code missing XML tags
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#06dev0-clean-xl2roefact-invoicetoroefact-projects-yymmdd-hhmm">
     0.6.dev0 clean xl2roefact &amp; invoicetoroefact projects (...yymmdd hhmm...)
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#05">
-    0.5
-  </a>
-<nav aria-label="0.5" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#054-invoice-supplier-from-owner-master-data-240406-h2200">
-    0.5.4 invoice supplier from owner master data (240406 h22:00)
   </a>
 </li>
 </ul>
@@ -557,22 +553,18 @@ div.download-btn {
 <nav aria-label="0.6 finalize JSON model to contain all RO eFact XML mandatory taga" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#06rc1-code-missing-xml-tags">
+    0.6rc1 code missing XML tags
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#06dev1-code-missing-xml-tags">
+    0.6.dev1 code missing XML tags
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#06dev0-clean-xl2roefact-invoicetoroefact-projects-yymmdd-hhmm">
     0.6.dev0 clean xl2roefact &amp; invoicetoroefact projects (...yymmdd hhmm...)
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#05">
-    0.5
-  </a>
-<nav aria-label="0.5" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#054-invoice-supplier-from-owner-master-data-240406-h2200">
-    0.5.4 invoice supplier from owner master data (240406 h22:00)
   </a>
 </li>
 </ul>
@@ -591,11 +583,9 @@ div.download-btn {
 <ul>
 <li><a href="#changelog">CHANGELOG</a><ul>
 <li><a href="#06-finalize-json-model-to-contain-all-ro-efact-xml-mandatory-taga">0.6 finalize JSON model to contain all RO eFact XML mandatory taga</a><ul>
+<li><a href="#06rc1-code-missing-xml-tags">0.6rc1 code missing XML tags</a></li>
+<li><a href="#06dev1-code-missing-xml-tags">0.6.dev1 code missing XML tags</a></li>
 <li><a href="#06dev0-clean-xl2roefact-invoicetoroefact-projects-yymmdd-hhmm">0.6.dev0 clean xl2roefact &amp; invoicetoroefact projects (...yymmdd hhmm...)</a></li>
-</ul>
-</li>
-<li><a href="#05">0.5</a><ul>
-<li><a href="#054-invoice-supplier-from-owner-master-data-240406-h2200">0.5.4 invoice supplier from owner master data (240406 h22:00)</a></li>
 </ul>
 </li>
 </ul>
@@ -638,70 +628,71 @@ div.download-btn {
 <ul>
 <li>tbd... next main job of release</li>
 <li>tbd... prep release upd DLdoc &amp; HLdoc</li>
-<li>tbd... prep release set all versios</li>
-<li>tbd... update JSON-XML map</li>
-<li>tbd... code for missing XML tags</li>
+<li>tbd... prep release set all versions</li>
+</ul>
+<h3 id="06rc1-code-missing-xml-tags"><code>0.6rc1</code> code missing XML tags</h3>
+<ul>
+<li>... build package version <code>0.6rc1</code></li>
+<li>... <code>app-readme-doc</code> check &amp; update xl2roefact <code>README.md</code>:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... functionalities in this release (JSON schema update)</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... write about invoice type ref <code>cbc_InvoiceTypeCode</code></li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... more sections "For developers" ref how manage some settings if introduce <code>sys_config.py</code> feature (different of <code>app_config</code>)
+<!--TODO set version back to <code>0.6rc1</code> --></li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> <code>0.6.dev1</code> restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> <code>240413_01</code> updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for <code>PyPi</code> availability in project description</li>
+</ul>
+</li>
+<li>... delete <code>xl2roefact/tests...</code> specs / helper file</li>
+<li>... test and clean code</li>
+<li>... <code>InvoiceTypeCode-param</code> make a choose application  parameter.
+  Values to be taken from <code>sys_settings</code> module, object <code>InvoiceType</code></li>
+<li>... ... ...</li>
+<li><code>sys_settings-invoice-type</code> populated "system database" with allowed invoice types<ul>
+<li>created <code>InvoiceTypes</code> dictionary with allowed invoice types</li>
+<li>created <code>InvoiceTypesEnum</code> as Enum to be used by CLI app parameter (dinamically generated from previous data object)</li>
+</ul>
+</li>
+<li><code>sys_settings-module</code> created <code>xl2roefact/sys_settings.py</code> component dedicated to system settings (ie, not user configurable but only developers; is intended that later versions to use also a database for)</li>
+<li><code>cbc_TaxPointDate</code> will be set to 25 of next month from invoice issued month</li>
+<li><code>cbc_DueDate</code> search <code>invoice_header_area</code> ref <code>PATTERN_FOR_DUE_DATE</code> pattern. Use found data if not None or default it to <code>invoice_header_area["issued_date"]["value"] + DUE_DATE_DAYS</code> if None found</li>
+<li><code>PATTERN_FOR_DUE_DATE</code> update <code>config_settings.py</code> &amp; <code>app_settings.yml</code>, create <code>PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]</code> </li>
+<li><code>inv-issdate-todate</code> upd <code>rdinv</code> for final json dict convert &amp; local save invoice issued date in <code>datetime</code> format to--&gt; <code>tmp_reusable_items["invoice_issdate_asdate"]</code></li>
+<li><code>cac_Delivery</code> set as invoice issued date</li>
+<li><code>cac_PaymentMeans</code> will be set to <code>1</code> supposing is unknown at invoicing issuing date</li>
+<li><code>DEFAULT_DUE_DATE_DAYS</code> new app config parameter with default value 30 days</li>
+<li><code>cbc_Note</code> set to "proccesed @<code>{date_time_now}</code> with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time</li>
+<li><code>init-work</code> set site &amp; xl2roefact versions to <code>0.6rc1</code></li>
+</ul>
+<h3 id="06dev1-code-missing-xml-tags"><code>0.6.dev1</code> code missing XML tags</h3>
+<ul>
+<li><code>arch-prev-rlse-chlogs</code> archive <code>0.5.4</code> CHANGELOG</li>
+<li><code>xml-json-map</code> updated <code>xl2roefact.rdinv</code> module for XML-JSON map</li>
+<li><code>fin-xml-specs</code> made <code>xl2roefact/tests/todosXML.md</code> file with list of XML tags to do and all other specs to complete activity</li>
+<li><code>init-work</code> set site &amp; xl2roefact versions to <code>0.6.dev1</code></li>
 </ul>
 <h3 id="06dev0-clean-xl2roefact-invoicetoroefact-projects-yymmdd-hhmm"><code>0.6.dev0</code> clean xl2roefact &amp; invoicetoroefact projects (...yymmdd hhmm...)</h3>
 <ul>
-<li>
-<p><code>240408piu-adm1</code> cleaning and updating version strings and code</p>
-<ul>
+<li><code>240408piu-adm1</code> cleaning and updating version strings and code<ul>
 <li>rebuild site</li>
 <li>update xl2roefact/<strong>version.py</strong></li>
 <li>update main versions.yml</li>
 </ul>
 </li>
-<li>
-<p><code>240408piu-adm1</code>  cleaning and updating environments:</p>
-<ul>
+<li><code>240408piu-adm1</code>  cleaning and updating environments:<ul>
 <li>updated xl2roefact python requirement, relaxed to <code>&gt;=3.10</code></li>
 <li>updated site version to <code>0.6.1dev0</code> to mark in progress work</li>
 <li>installed <code>chromium</code> on dev server</li>
 </ul>
 </li>
 </ul>
-<!--TODO: archive this -->
-<h2 id="05">0.5</h2>
-<h3 id="054-invoice-supplier-from-owner-master-data-240406-h2200"><code>0.5.4</code> invoice supplier from owner master data (240406 h22:00)</h3>
-<ul>
-<li><code>upd-dwnld-0.5.4</code> update <code>downloads.md</code> for 0.5.4 deliverables</li>
-<li><code>build-apps-0.5.4</code> build all deliverables &amp; publish package on PyPi</li>
-<li><code>prep-rlse-0.5.4</code> change this head to <code>0.5.4</code> version, update all <code>/versions.yml</code> and assure that all are published</li>
-<li><code>fix-download-owner-template</code> xl2roefact README sectiune "Descarcare (download) aplicatie xl2roefact CLI" de pus link catre sablon nomenclator furnizori</li>
-<li><code>fixed-tech-doc</code> generatorul plugin mkdocs ptr comenzile Typer nu a generat complet... A ramas ca inainte de modificare 0.5.4... adica nu apare optiunea <code>-o  -owner-file</code></li>
-<li>
-<ul class="task-list">
-<li><code>owner-dbs-file</code> get OWNER EXTERNAL DATA feature (version <code>0.5.4.dev0+owner-dbs-file</code>):</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. create <code>data/owner.yml</code> structure to exactly what is needed for actual JSON "Invoice..." key</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 2. created a skeleton for <code>hier_get_data_file()</code> module, update its docstring and generate DLD documentation</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 3. set a new flag for <code>xl2json</code> command for getting owner from ext data-file: <code>--owner -o [FILE]</code> where <code>FILE</code> being defaulted to <code>./owner.yml</code> or hierarchy to <code>data/owner.yml</code></li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 4. app_cli.py chk if file is ok and sent it as correct Path if, else raise an err msg and continue from Excel</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 5. code. Get owner data by using function <code>hier_get_data_file()</code></li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 6. update <code>owner.yml</code> file and add bank information</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 7. code. Get owner bank information from external data file</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 8. build xl2roefact DLD documentation</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 9. code. Review "place where called for OWNER info", clean, update and close code</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 10. make template for owner data file (<code>owner_datafile_tmeplate.yml</code>) and prep it with built-in documentation hints</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 11. updated temporary all version to <code>0.5.4.dev0</code> to make DEV publishes (basically for site, but other tests are possibile)</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 12. add xl2roefact README doc with section "Utilizare nomenclator de furnizori"</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 13. build site and publish as site version <code>0.5.4.dev0</code> (temporary value)</li>
-</ul>
-</li>
-<li><code>hier-get-data-file</code> func to select hierarchical a file from <code>./</code> or <code>data/</code> (in libutils module):<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> 1. create skeleton <code>hier_get_data_file(file_name: str) -&gt; Path</code> in <code>xl2roefact.libutils</code> module</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 2. code function to solve actual functional case from <code>xl2roefact.config_settings</code> module</li>
-<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> 3. update <code>xl2roefact.config_settings</code> module to use the new function</li>
-</ul>
-</li>
-</ul>
 <h1 id="archived-changelogs">Archived CHANGELOGs</h1>
+<!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
 <details>
 <summary markdown="1">
 <h2 id="05-version">0.5 version</h2>
 </summary>
-<!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
 <ul>
+<li><a href="changelog_history/CHANGELOG-0.5.4.html"><code>0.5.4</code> invoice supplier from owner master data</a></li>
 <li><a href="changelog_history/CHANGELOG-0.5.3rc1.html"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming</a></li>
 <li><a href="changelog_history/CHANGELOG-0.5.3rc0.html"><code>0.5.3rc0</code> invoice supplier from Excel</a></li>
 <li><a href="changelog_history/CHANGELOG-0.5.2.dev2.html"><code>0.5.2.dev2</code> release xl2roefact.<code>0.4.1.dev1</code> fix sEXE bug from <code>0.4.1.dev0</code> version</a></li>
@@ -776,7 +767,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 8, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 19, 2024</span>
 </small>
 </div>
 </article>

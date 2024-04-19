@@ -1376,27 +1376,38 @@
                         <section class="print-page" id="index"><p><img alt="api_to_roefact_logo" src="doc_src/pictures/api_to_roefact_logo.png" width="300" /></p>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="index-invoicetoroefact">INVOICEtoROefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6.dev0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6.dev1-blue" /></p>
 <p><strong>Facturi emise in Excel</strong>, problema rezolvata cu <strong>INVOICEtoROefact</strong> !</p>
 <p>Emiteti si folositi in continuare facturi in Excel. Acest sistem va produce fisierul XML de care aveti nevoie pentru sistemul <a href="https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura">ANAF E-Factura</a>.</p>
 <p>Si mai mult, daca aveti nevoie, puteti Integra aceste facturi si alte sisteme externe prin metode moderne, uzuale, curente, incetatenite de ani de zile si binecunoscute de specialistii din IT.</p>
 <h2 id="index-componentele-si-facilitatile-sistemului">Componentele si facilitatile sistemului</h2>
 <p>Sistemul <strong>INVOICEtoROefact</strong> ofera urmatoarele componente:</p>
+<pre class="mermaid"><code>flowchart TD
+    top[[INVOICEtoROefact \n System]]
+
+    xl2roefact[ xl2roefact \n Componenta locala]
+    web2roefact[web2roefact \n Componenta web]
+    invtmpl[invoice template \n Template factura Excel]
+
+    top --- xl2roefact
+    top --- web2roefact
+    top --- invtmpl</code></pre>
 <ul>
 <li>
-<p><strong><a href="#xl2roefact-index">xl2roefact</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.6.dev0-blue" /> - procesarea facturilor in mod linie de comanda</p>
+<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.4-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
+<ul>
+<li><a href="#xl2roefact-index">aplicatie linie comanda</a></li>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library">biblioteca python dezvoltari proprii</a></li>
+</ul>
 </li>
 <li>
 <p><strong>web2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-n/a-blue" /> - procesarea facturilor din interfara web  <!--#TODO link tbd --></p>
 </li>
 <li>
-<p><strong><a href="#xl2roefact-doc-readme_xl2roefact_library">xl2roefact python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.6.dev0-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
-</li>
-<li>
 <p><strong><a href="#excel_invoice_template-index">invoice template</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.1.20-blue" /> - model / sablon factura in Excel</p>
 </li>
 </ul>
-<p><a href="#doc_src-810-dsgn-810.05a-system_components">Descrierea tuturor acestora poate fi accessata aici</a>.</p>
+<p><a href="#doc_src-810-dsgn-810.05a-system_components">Descrierea facilitatilor acestor componente poate fi accessata aici</a>.</p>
 <h2 id="index-date-identificare">Date identificare</h2>
 <ul>
 <li>p/n: <code>0000-0095</code></li>
@@ -1432,10 +1443,10 @@
 <p>Sistemul ofera urmatoarele componente:</p>
 <ul>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></strong>  <img alt="Static Badge" src="https://img.shields.io/badge/version-0.6.dev0-blue" /> - procesarea facturilor in mod linie de comanda</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></strong>  <img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.4-blue" /> - procesarea facturilor in mod linie de comanda</p>
 </li>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.6.dev0-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.4-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
 </li>
 <li>
 <p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-web2roefact">web2roefact</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-n/a-blue" /> - procesarea facturilor din interfara web</p>
@@ -1587,15 +1598,19 @@
                         </h1>
                         <section class="print-page" id="xl2roefact-index"><p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact-index-xl2roefact">xl2roefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6.dev0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.4-blue" /></p>
 <p>Legaturi externe utile:</p>
 <ul>
 <li><a href="https://invoicetoroefact.renware.eu/"><strong>Web Site</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
 <li><a href="https://pypi.org/project/xl2roefact/">Pachet <em>PyPi</em></a></li>
 <li><a href="https://github.com/petre-renware/api_to_roefact/">Surse <em>GitHub</em></a></li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library">Vedere de ansamblu pachet biblioteca Python</a></li>
-<li><a href="#xl2roefact-doc-810.05a-xl2roefact_dld_specs">Referinta <em>API</em></a></li>
+<li><a href="https://invoicetoroefact.renware.eu/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html">Referinta <em>API</em></a></li>
 </ul>
+<!--Refrence to source doc. If used like that, then must be resolved with an external tool before generating a complete README.html doc. The `mkdoxs` is able to do that but in `PyPi` published version will be unusable
+(./doc/810.05a-xl2roefact_DLD_specs.md)
+-->
+
 <h2 id="xl2roefact-index-facilitati">Facilitati</h2>
 <p><img alt="Static Badge" src="https://img.shields.io/badge/MSI_installer-YES-darkgreen" />
 <img alt="Static Badge" src="https://img.shields.io/badge/standlone_EXE-YES-darkgreen" />
@@ -1751,13 +1766,9 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div>
 <p>Options:</p>
 <div class="highlight"><pre><span></span><code>  -V, --version         show application version
-  --install-completion  Install completion for the
-                        current shell.
-  --show-completion     Show completion for the
-                        current shell, to copy it
-                        or customize the
-                        installation.
-  --help                Show this message and
+  --install-completion  Install completion for the current shell.
+  --show-completion     Show completion for the current shell, to copy it or
+                        customize the installation.
 </code></pre></div>
 <h4 id="xl2roefact-index-about">about</h4>
 <p>Provide a short application description.</p>
@@ -1773,8 +1784,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact settings [OPTIONS]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update
-               rules
+<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update rules
 </code></pre></div>
 <h4 id="xl2roefact-index-xl2json">xl2json</h4>
 <p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
@@ -1788,32 +1798,16 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact xl2json [OPTIONS] [FILE_NAME]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  [FILE_NAME]                     files to process
-                                  (wildcards
-                                  allowed)
-                                  [default:
-                                  *.xlsx]
+<div class="highlight"><pre><span></span><code>  [FILE_NAME]                     files to process (wildcards allowed)
+                                  [default: *.xlsx]
   -d, --files-directory DIRECTORY
-                                  directory to be
-                                  used to look for
-                                  Excel files (if
-                                  default
-                                  directory does
-                                  not exists will
-                                  consider current
-                                  directory
-                                  instead).
-                                  [default:
-                                  invoice_files/]
-  -o, --owner-datafile PATH       File to read
-                                  invoice supplier
-                                  (owner) data
+                                  directory to be used to look for Excel files
+                                  (if default directory does not exists will
+                                  consider current directory instead).
+                                  [default: invoice_files/]
+  -o, --owner-datafile PATH       File to read invoice supplier (owner) data
                                   instead Excel.
-  -v, --verbose                   show detailed
-                                  processing
-                                  messages
-  --help                          Show this
-                                  message and
+  -v, --verbose                   show detailed processing messages
 </code></pre></div>
 <h2 id="xl2roefact-index-practici-si-regului-referitoare-la-continutul-facturilor-din-excel">Practici si regului referitoare la continutul facturilor din Excel</h2>
 <p>Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".</p>
@@ -1963,7 +1957,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 </li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii</a></li>
-<li><a href="#xl2roefact-doc-readme_xl2roefact_library-api-reference">API Reference</a></li>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library-api-refrence">API Refrence</a></li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-download-xl2roefact-library">Download xl2roefact library</a></li>
 </ul>
 </li>
@@ -2013,7 +2007,11 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><strong><code>excel_original_data</code></strong> - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel</li>
 </ul>
 <p>An <a href="#xl2roefact-doc-invoice_json_model_">example of JSON generated file is available here</a></p>
-<h2 id="xl2roefact-doc-readme_xl2roefact_library-api-reference"><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs">API Reference</a></h2>
+<h2 id="xl2roefact-doc-readme_xl2roefact_library-api-refrence"><a href="https://invoicetoroefact.renware.eu/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html">API Refrence</a></h2>
+<!--NOTE: reference using in-profect document
+[API Reference](./wrapper_810.05a-xl2roefact_DLD_specs.md)
+-->
+
 <h2 id="xl2roefact-doc-readme_xl2roefact_library-download-xl2roefact-library">Download xl2roefact library</h2>
 <ul>
 <li><a href="#doc_src-downloads-format-biblioteca-python">Pachete instalare biblioteca Python formate WHEEL si DIST</a></li>
@@ -3940,11 +3938,9 @@ Public License instead of this License.  But first, please read
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-06-finalize-json-model-to-contain-all-ro-efact-xml-mandatory-taga">0.6 finalize JSON model to contain all RO eFact XML mandatory taga</a><ul>
+<li><a href="#changelog-06rc1-code-missing-xml-tags">0.6rc1 code missing XML tags</a></li>
+<li><a href="#changelog-06dev1-code-missing-xml-tags">0.6.dev1 code missing XML tags</a></li>
 <li><a href="#changelog-06dev0-clean-xl2roefact-invoicetoroefact-projects-yymmdd-hhmm">0.6.dev0 clean xl2roefact &amp; invoicetoroefact projects (...yymmdd hhmm...)</a></li>
-</ul>
-</li>
-<li><a href="#changelog-05">0.5</a><ul>
-<li><a href="#changelog-054-invoice-supplier-from-owner-master-data-240406-h2200">0.5.4 invoice supplier from owner master data (240406 h22:00)</a></li>
 </ul>
 </li>
 </ul>
@@ -3988,70 +3984,72 @@ Public License instead of this License.  But first, please read
 <ul>
 <li>tbd... next main job of release</li>
 <li>tbd... prep release upd DLdoc &amp; HLdoc</li>
-<li>tbd... prep release set all versios</li>
-<li>tbd... update JSON-XML map</li>
-<li>tbd... code for missing XML tags</li>
+<li>tbd... prep release set all versions</li>
+</ul>
+<h3 id="changelog-06rc1-code-missing-xml-tags"><code>0.6rc1</code> code missing XML tags</h3>
+<ul>
+<li>... build package version <code>0.6rc1</code></li>
+<li>... <code>app-readme-doc</code> check &amp; update xl2roefact <code>README.md</code>:<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... functionalities in this release (JSON schema update)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... write about invoice type ref <code>cbc_InvoiceTypeCode</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... more sections "For developers" ref how manage some settings if introduce <code>sys_config.py</code> feature (different of <code>app_config</code>)
+<!--TODO set version back to <code>0.6rc1</code> --></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>0.6.dev1</code> restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>240413_01</code> updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for <code>PyPi</code> availability in project description</li>
+</ul>
+</li>
+<li>... delete <code>xl2roefact/tests...</code> specs / helper file</li>
+<li>... test and clean code</li>
+<li>... <code>InvoiceTypeCode-param</code> make a choose application  parameter.
+  Values to be taken from <code>sys_settings</code> module, object <code>InvoiceType</code></li>
+<li>... ... ...</li>
+<li><code>sys_settings-invoice-type</code> populated "system database" with allowed invoice types<ul>
+<li>created <code>InvoiceTypes</code> dictionary with allowed invoice types</li>
+<li>created <code>InvoiceTypesEnum</code> as Enum to be used by CLI app parameter (dinamically generated from previous data object)</li>
+</ul>
+</li>
+<li><code>sys_settings-module</code> created <code>xl2roefact/sys_settings.py</code> component dedicated to system settings (ie, not user configurable but only developers; is intended that later versions to use also a database for)</li>
+<li><code>cbc_TaxPointDate</code> will be set to 25 of next month from invoice issued month</li>
+<li><code>cbc_DueDate</code> search <code>invoice_header_area</code> ref <code>PATTERN_FOR_DUE_DATE</code> pattern. Use found data if not None or default it to <code>invoice_header_area["issued_date"]["value"] + DUE_DATE_DAYS</code> if None found</li>
+<li><code>PATTERN_FOR_DUE_DATE</code> update <code>config_settings.py</code> &amp; <code>app_settings.yml</code>, create <code>PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]</code> </li>
+<li><code>inv-issdate-todate</code> upd <code>rdinv</code> for final json dict convert &amp; local save invoice issued date in <code>datetime</code> format to--&gt; <code>tmp_reusable_items["invoice_issdate_asdate"]</code></li>
+<li><code>cac_Delivery</code> set as invoice issued date</li>
+<li><code>cac_PaymentMeans</code> will be set to <code>1</code> supposing is unknown at invoicing issuing date</li>
+<li><code>DEFAULT_DUE_DATE_DAYS</code> new app config parameter with default value 30 days</li>
+<li><code>cbc_Note</code> set to "proccesed @<code>{date_time_now}</code> with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time</li>
+<li><code>init-work</code> set site &amp; xl2roefact versions to <code>0.6rc1</code></li>
+</ul>
+<h3 id="changelog-06dev1-code-missing-xml-tags"><code>0.6.dev1</code> code missing XML tags</h3>
+<ul>
+<li><code>arch-prev-rlse-chlogs</code> archive <code>0.5.4</code> CHANGELOG</li>
+<li><code>xml-json-map</code> updated <code>xl2roefact.rdinv</code> module for XML-JSON map</li>
+<li><code>fin-xml-specs</code> made <code>xl2roefact/tests/todosXML.md</code> file with list of XML tags to do and all other specs to complete activity</li>
+<li><code>init-work</code> set site &amp; xl2roefact versions to <code>0.6.dev1</code></li>
 </ul>
 <h3 id="changelog-06dev0-clean-xl2roefact-invoicetoroefact-projects-yymmdd-hhmm"><code>0.6.dev0</code> clean xl2roefact &amp; invoicetoroefact projects (...yymmdd hhmm...)</h3>
 <ul>
-<li>
-<p><code>240408piu-adm1</code> cleaning and updating version strings and code</p>
-<ul>
+<li><code>240408piu-adm1</code> cleaning and updating version strings and code<ul>
 <li>rebuild site</li>
 <li>update xl2roefact/<strong>version.py</strong></li>
 <li>update main versions.yml</li>
 </ul>
 </li>
-<li>
-<p><code>240408piu-adm1</code>  cleaning and updating environments:</p>
-<ul>
+<li><code>240408piu-adm1</code>  cleaning and updating environments:<ul>
 <li>updated xl2roefact python requirement, relaxed to <code>&gt;=3.10</code></li>
 <li>updated site version to <code>0.6.1dev0</code> to mark in progress work</li>
 <li>installed <code>chromium</code> on dev server</li>
 </ul>
 </li>
 </ul>
-<!--TODO: archive this -->
-<h2 id="changelog-05">0.5</h2>
-<h3 id="changelog-054-invoice-supplier-from-owner-master-data-240406-h2200"><code>0.5.4</code> invoice supplier from owner master data (240406 h22:00)</h3>
-<ul>
-<li><code>upd-dwnld-0.5.4</code> update <code>downloads.md</code> for 0.5.4 deliverables</li>
-<li><code>build-apps-0.5.4</code> build all deliverables &amp; publish package on PyPi</li>
-<li><code>prep-rlse-0.5.4</code> change this head to <code>0.5.4</code> version, update all <code>/versions.yml</code> and assure that all are published</li>
-<li><code>fix-download-owner-template</code> xl2roefact README sectiune "Descarcare (download) aplicatie xl2roefact CLI" de pus link catre sablon nomenclator furnizori</li>
-<li><code>fixed-tech-doc</code> generatorul plugin mkdocs ptr comenzile Typer nu a generat complet... A ramas ca inainte de modificare 0.5.4... adica nu apare optiunea <code>-o  -owner-file</code></li>
-<li>
-<ul class="task-list">
-<li><code>owner-dbs-file</code> get OWNER EXTERNAL DATA feature (version <code>0.5.4.dev0+owner-dbs-file</code>):</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. create <code>data/owner.yml</code> structure to exactly what is needed for actual JSON "Invoice..." key</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. created a skeleton for <code>hier_get_data_file()</code> module, update its docstring and generate DLD documentation</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. set a new flag for <code>xl2json</code> command for getting owner from ext data-file: <code>--owner -o [FILE]</code> where <code>FILE</code> being defaulted to <code>./owner.yml</code> or hierarchy to <code>data/owner.yml</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 4. app_cli.py chk if file is ok and sent it as correct Path if, else raise an err msg and continue from Excel</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 5. code. Get owner data by using function <code>hier_get_data_file()</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 6. update <code>owner.yml</code> file and add bank information</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 7. code. Get owner bank information from external data file</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 8. build xl2roefact DLD documentation</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 9. code. Review "place where called for OWNER info", clean, update and close code</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 10. make template for owner data file (<code>owner_datafile_tmeplate.yml</code>) and prep it with built-in documentation hints</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 11. updated temporary all version to <code>0.5.4.dev0</code> to make DEV publishes (basically for site, but other tests are possibile)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 12. add xl2roefact README doc with section "Utilizare nomenclator de furnizori"</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 13. build site and publish as site version <code>0.5.4.dev0</code> (temporary value)</li>
-</ul>
-</li>
-<li><code>hier-get-data-file</code> func to select hierarchical a file from <code>./</code> or <code>data/</code> (in libutils module):<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 1. create skeleton <code>hier_get_data_file(file_name: str) -&gt; Path</code> in <code>xl2roefact.libutils</code> module</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 2. code function to solve actual functional case from <code>xl2roefact.config_settings</code> module</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 3. update <code>xl2roefact.config_settings</code> module to use the new function</li>
-</ul>
-</li>
-</ul>
 <h1 id="changelog-archived-changelogs">Archived CHANGELOGs</h1>
+<!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
+
 <details>
 <summary markdown="1">
 <h2 id="changelog-05-version">0.5 version</h2>
 </summary>
-<!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
 <ul>
+<li><a href="#changelog_history-changelog-0.5.4"><code>0.5.4</code> invoice supplier from owner master data</a></li>
 <li><a href="#changelog_history-changelog-0.5.3rc1"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming</a></li>
 <li><a href="#changelog_history-changelog-0.5.3rc0"><code>0.5.3rc0</code> invoice supplier from Excel</a></li>
 <li><a href="#changelog_history-changelog-0.5.2.dev2"><code>0.5.2.dev2</code> release xl2roefact.<code>0.4.1.dev1</code> fix sEXE bug from <code>0.4.1.dev0</code> version</a></li>

@@ -36,6 +36,8 @@ dependencies = [
     "six~=1.16",
     "time-machine~=2.13",
     "tomli~=2.0",
+    "click~=8.1",
+    "typer~=0.9",
     "typing-extensions~=4.9",
     "tzdata~=2023.4",
     "userpath~=1.9",
@@ -45,7 +47,7 @@ dependencies = [
 ]
 readme = "README.md"
 license = { file = "LICENSE" }
-requires-python = ">=3.10" # <3.11,>=3.6
+requires-python = "<3.12,>=3.9"
 classifiers = [
     # "Product code :: 0000-0095",  # not accepted by PyPi
     "Programming Language :: Python :: 3.10",
@@ -58,6 +60,7 @@ classifiers = [
 ]
 
 
+
 [project.urls]
 Homepage = "https://invoicetoroefact.renware.eu"
 PDF-Documentation = "https://invoicetoroefact.renware.eu/pdfs/print_page.html/print_page.pdf"
@@ -65,14 +68,17 @@ PyPi-Package = "https://pypi.org/project/xl2roefact/"
 GitHub = "https://github.com/petre-renware/api_to_roefact"
 
 
+
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 
+
 [tool.pdm]
 version = { source = "file", path = "xl2roefact/__version__.py" }
 distribution = true  # required for PyPi package publishing
+
 
 
 [tool.pdm.build.wheel-data]
@@ -83,9 +89,13 @@ data = [{path = "data/*", relative-to = "data/"}]  # installed under `data/...` 
 # include = [{path = "include/**/*.h", relative-to = "include/"}]  # Install all files under include/ to the $prefix/include directory recursively, keeping the directory structure
 
 
+
 [tool.pdm.scripts]  # reference: `https://pdm-project.org/latest/usage/scripts/`
 build_wheel = { shell = "pdm build --no-clean" }  # build python packages (wheel & sdist) in `dist/` directory
 build_msi = { shell = "python setup.py bdist_msi" }  # build MSI pachkage in `dist/` directory
+#FIXME `bdist_appimage` must be tested
+build_appimage = { shell = "python setup.py bdist_appimage" }  # build APPIMAGE pachkage in `dist/` directory
+
 build_sexe = { cmd = [
     "pyinstaller",
     "--distpath=dist_sexe/",        # folder where to write deliverables
@@ -96,6 +106,7 @@ build_sexe = { cmd = [
     "xl2roefact_copy_for_sexe.py",  # use the copy of original xl2roefact.py just to have other name than directory containing used library (pyinstaller constraint)
 ] } # build portable single EXE file
 post_build_sexe = { call = "xl2roefact.libutils:complete_sexe_file" }  # process resulted exe to normalise its name and move to `.../dist/`
+
 build_doc = { shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md" }  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
 build_all = { composite = [
     "build_wheel",
@@ -104,15 +115,15 @@ build_all = { composite = [
     "build_doc",
 ] } # build all packages (MSI, python package wheel, python package sdist, design doc)
 xl2roefact = { shell = "python -m xl2roefact" } # run `xl2roefact` as python module
-#NOTE use `pypi_publish` with caution and after a clean commit in current branch, as PyPi publishing is be made only from GittHub as single trusted source @240319
+
+#NOTE use `pypi_publish` with caution and after a clean commit in current branch, as PyPi publishing is configured to accept uploads  only from GittHub as single trusted source @240319
 pypi_publish = { shell = "git checkout -b pypi-publish; git push --force" }
+
 
 
 [tool.pdm.dev-dependencies] # dependencies used only in develeopment and not transfered in Pythn package building
 dev = [
     "build~=1.0",
-    "click~=8.1",
-    "typer~=0.9",
     "pydoc-markdown~=4.8",
     "cx-Freeze~=6.15",
     "cx-Logging~=3.1",
@@ -121,14 +132,9 @@ dev = [
 ]
 
 
-[tool.hatch.metadata] #FIXME piu: i think this is related to `Hatchling builder` so is useless with `PDM builder` - DROP this table after some tests
-allow-direct-references = true
 
-
-#NOTE section add for `cxFreeze`, for details see here: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
+# NOTE: section usef by `cxFreeze`, For details see here: `https://cx-freeze.readthedocs.io/en/latest/setup_script.html#commands`
 [tool.distutils.build_exe]
 excludes = ["tkinter", "unittest"]
 zip_include_packages = ["encodings", "PySide6"]
 
-
-# #NOTE: see `https://github.com/pypa/sampleproject/blob/main/pyproject.toml` for all keywords description

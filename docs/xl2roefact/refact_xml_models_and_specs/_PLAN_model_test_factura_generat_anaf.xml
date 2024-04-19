@@ -10,7 +10,7 @@
 
     <cbc:ID>nr_factura</cbc:ID>  #NOTE DONE / RDY
     <cbc:IssueDate>2013-11-17</cbc:IssueDate>  #NOTE DONE / RDY
-    <cbc:DueDate>2023-11-21</cbc:DueDate>  #TODO tbd... - acesta est edata scadentei - planned for application version 2.x.x
+    <cbc:DueDate>2023-11-21</cbc:DueDate>  #NOTE DONE / RDY
     <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>  #TODO tbd... # this must remain as is here and check also `factura_facuta_in_anaf_sintaxa_UBL_20231128.xml` (380 value means == NORMAL INVOICE, not credit note, return invoice, canceling invoice, ...)
     <cbc:Note>test generat 2023-11-21</cbc:Note>  #TODO tbd...
     <cbc:TaxPointDate>2013-11-20</cbc:TaxPointDate>  #TODO tbd...

@@ -3,6 +3,7 @@
         "cbc_ID": "RENF-1004",
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-08-28",
+        "cbc_DueDate": "2023-09-27",
         "cac_AccountingCustomerParty": {
             "cac_Party": {
                 "cac_PartyLegalEntity": {
@@ -29,8 +30,8 @@
         "cac_AccountingSupplierParty": {
             "cac_Party": {
                 "cac_PartyLegalEntity": {
-                    "cbc_CompanyID": "...",
-                    "cbc_RegistrationName": "..."
+                    "cbc_CompanyID": "42561459",
+                    "cbc_RegistrationName": "REN-CONSULTING SOFT ACTIVITY SRL"
                 },
                 "cac_PostalAddress": {
                     "cbc_StreetName": "",
@@ -41,14 +42,14 @@
                     }
                 },
                 "cac_Contact": {
-                    "cbc_Telephone": null,
-                    "cbc_ElectronicMail": null,
-                    "RegCom": "...",
-                    "Bank": "...",
-                    "IBAN": "..."
+                    "cbc_Telephone": "0744-68.48.76",
+                    "cbc_ElectronicMail": "renware.systems@gmail.com",
+                    "RegCom": "J40/5662/2020",
+                    "Bank": "Banca Transilvania",
+                    "IBAN": "RO29 BTRL RONC RT05 5704 8601"
                 },
                 "cac_PartyTaxScheme": {
-                    "cbc_CompanyID": "...",
+                    "cbc_CompanyID": "42561459",
                     "cac_TaxScheme": {
                         "cbc_ID": "VAT"
                     }
@@ -193,12 +194,20 @@
                     }
                 }
             ]
-        }
+        },
+        "cbc_Note": "proccesed @2024-04-18T04:10:02.876896+00:00 with xl2roefact",
+        "cac_PaymentMeans": {
+            "cbc_PaymentMeansCode": 1
+        },
+        "cac_Delivery": {
+            "cbc_ActualDeliveryDate": "2023-08-28"
+        },
+        "cbc_TaxPointDate": "2023-09-25"
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-04T08:23:19.886397+00:00",
+        "last_processing_time": "2024-04-18T04:10:02.876450+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
@@ -275,6 +284,10 @@
             [
                 "cbc_IssueDate",
                 "cbc:IssueDate"
+            ],
+            [
+                "cbc_DueDate",
+                "cbc:DueDate"
             ],
             [
                 "cac_AccountingCustomerParty",
@@ -395,6 +408,42 @@
             [
                 "cac_PartyTaxScheme",
                 "cac:PartyTaxScheme"
+            ],
+            [
+                "cbc_DueDate",
+                "cbc:DueDate"
+            ],
+            [
+                "cbc_InvoiceTypeCode",
+                "cbc:InvoiceTypeCode"
+            ],
+            [
+                "cbc_Note",
+                "cbc:Note"
+            ],
+            [
+                "cbc_TaxPointDate",
+                "cbc:TaxPointDate"
+            ],
+            [
+                "cac_Delivery",
+                "cac:Delivery"
+            ],
+            [
+                "cbc_ActualDeliveryDate",
+                "cbc:ActualDeliveryDate"
+            ],
+            [
+                "cac_PaymentMeans",
+                "cac:PaymentMeans"
+            ],
+            [
+                "cbc_PaymentMeansCode",
+                "cbc:PaymentMeansCode"
+            ],
+            [
+                "cbc_TaxPointDate",
+                "cbc:TaxPointDate"
             ]
         ]
     },
@@ -509,6 +558,15 @@
                     8
                 ]
             },
+            "due_date": {
+                "value": "2023-09-27",
+                "location": [
+                    null,
+                    null
+                ],
+                "label_value": null,
+                "label_location": null
+            },
             "customer_area": {
                 "area_info": {
                     "value": "Client",
@@ -615,48 +673,106 @@
             },
             "supplier_area": {
                 "area_info": {
-                    "value": "/home/petre/api_to_roefact/xl2roefact/xl2roefact/data/owner.yml",
-                    "location": "external file"
+                    "value": "Furnizor",
+                    "location": [
+                        [
+                            8,
+                            2
+                        ],
+                        [
+                            17,
+                            3
+                        ]
+                    ]
                 },
                 "CUI": {
-                    "value": "...",
-                    "location": "external file (PartyLegalEntity -> CompanyID)",
-                    "label_value": null,
-                    "label_location": null
+                    "value": "42561459",
+                    "location": [
+                        11,
+                        3
+                    ],
+                    "label_value": "CIF:",
+                    "label_location": [
+                        11,
+                        2
+                    ]
                 },
                 "RegistrationName": {
-                    "value": "...",
-                    "location": "external file (PartyLegalEntity -> CompanyID)",
-                    "label_value": null,
-                    "label_location": null
+                    "value": "REN-CONSULTING SOFT ACTIVITY SRL",
+                    "location": [
+                        9,
+                        2
+                    ],
+                    "label_value": "n/a",
+                    "label_location": "n/a"
                 },
                 "PostalAddress": {
-                    "cbc_StreetName": "...",
-                    "cbc_CityName": "...",
-                    "cbc_PostalZone": "...",
+                    "cbc_StreetName": "Nicolae Titulescu, nr 81-87, Bucureşti, Sector 1",
+                    "cbc_CityName": "",
+                    "cbc_PostalZone": "",
                     "cac_Country": {
                         "cbc_IdentificationCode": "RO"
                     }
                 },
                 "reg_com": {
-                    "value": "...",
-                    "location": "external file (PartyLegalEntity -> CompanyID)"
-                },
-                "phone": {
-                    "value": null,
-                    "location": "external file (Contact -> Telephone)"
-                },
-                "email": {
-                    "value": null,
-                    "location": "external file (Contact -> ElectronicMail)"
+                    "value": "J40/5662/2020",
+                    "location": [
+                        10,
+                        3
+                    ],
+                    "label_value": "Reg. com.: ",
+                    "label_location": [
+                        10,
+                        2
+                    ]
                 },
                 "bank": {
-                    "value": "...",
-                    "location": "external file (Contact -> Bank)"
+                    "value": "Banca Transilvania",
+                    "location": [
+                        16,
+                        3
+                    ],
+                    "label_value": "Banca:",
+                    "label_location": [
+                        16,
+                        2
+                    ]
                 },
                 "IBAN": {
-                    "value": "...",
-                    "location": "external file (Contact -> IBAN)"
+                    "value": "RO29 BTRL RONC RT05 5704 8601",
+                    "location": [
+                        17,
+                        3
+                    ],
+                    "label_value": "Cont:",
+                    "label_location": [
+                        17,
+                        2
+                    ]
+                },
+                "phone": {
+                    "value": "0744-68.48.76",
+                    "location": [
+                        15,
+                        3
+                    ],
+                    "label_value": "Tel:",
+                    "label_location": [
+                        15,
+                        2
+                    ]
+                },
+                "email": {
+                    "value": "renware.systems@gmail.com",
+                    "location": [
+                        14,
+                        3
+                    ],
+                    "label_value": "Email:",
+                    "label_location": [
+                        14,
+                        2
+                    ]
                 }
             }
         },
