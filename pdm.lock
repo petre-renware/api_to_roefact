@@ -1843,7 +1843,7 @@ name = "typer"
 version = "0.9.4"
 requires_python = ">=3.6"
 summary = "Typer, build great CLIs. Easy to code. Based on Python type hints."
-groups = ["default"]
+groups = ["default", "dev"]
 dependencies = [
     "click<9.0.0,>=7.1.1",
     "typing-extensions>=3.7.4.3",
@@ -1945,7 +1945,7 @@ files = [
 
 [[package]]
 name = "virtualenv"
-version = "20.25.1"
+version = "20.25.3"
 requires_python = ">=3.7"
 summary = "Virtual Python Environment builder"
 groups = ["default", "dev"]
@@ -1955,8 +1955,8 @@ dependencies = [
     "platformdirs<5,>=3.9.1",
 ]
 files = [
-    {file = "virtualenv-20.25.1-py3-none-any.whl", hash = "sha256:961c026ac520bac5f69acb8ea063e8a4f071bcc9457b9c1f28f6b085c511583a"},
-    {file = "virtualenv-20.25.1.tar.gz", hash = "sha256:e08e13ecdca7a0bd53798f356d5831434afa5b07b93f0abdf0797b7a06ffe197"},
+    {file = "virtualenv-20.25.3-py3-none-any.whl", hash = "sha256:8aac4332f2ea6ef519c648d0bc48a5b1d324994753519919bddbb1aff25a104e"},
+    {file = "virtualenv-20.25.3.tar.gz", hash = "sha256:7bb554bbdfeaacc3349fa614ea5bff6ac300fc7c335e9facf3a3bcfc703f45be"},
 ]
 
 [[package]]
@@ -2091,6 +2091,7 @@ dependencies = [
     "Pygments~=2.17",
     "altgraph~=0.17",
     "argcomplete~=3.2",
+    "click~=8.1",
     "commonmark~=0.9",
     "et-xmlfile~=1.1",
     "lief~=0.13",
@@ -2115,6 +2116,7 @@ dependencies = [
     "six~=1.16",
     "time-machine~=2.13",
     "tomli~=2.0",
+    "typer~=0.9",
     "typing-extensions~=4.9",
     "tzdata~=2023.4",
     "userpath~=1.9",
