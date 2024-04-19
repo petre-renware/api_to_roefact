@@ -19,6 +19,22 @@ Si mai mult, daca aveti nevoie, puteti Integra aceste facturi si alte sisteme ex
 
 ## Componentele si facilitatile sistemului
 
+```mermaid
+flowchart TD
+    top[[INVOICEtoROefact \n System]]
+
+    xl2roefact[ xl2roefact \n componenta locala]
+    web2roefact[web2roefact \n componenta web]
+    xxx[ ... ]
+
+    bot[[DB-TIER \n database server \n components]]
+
+    top --- sys_core
+    sys_core --- app_portal
+    sys_core --- commons
+    app_portal --- bot
+```
+
 Sistemul **INVOICEtoROefact** ofera urmatoarele componente:
 
 * __[xl2roefact](./xl2roefact/README.md)__ ![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue) - procesarea facturilor in mod linie de comanda
