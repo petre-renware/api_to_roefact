@@ -36,7 +36,7 @@ flowchart TD
 
 * __xl2roefact__ ![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue) - procesarea facturilor prin cod / program (development propriu)
     * [aplicatie linie comanda](./xl2roefact/README.md)
-    * [biblioteca python dezvoltare](xl2roefact/doc/README_xl2roefact_library.md)
+    * [biblioteca python dezvoltari proprii](xl2roefact/doc/README_xl2roefact_library.md)
 
 * __web2roefact__ ![Static Badge](https://img.shields.io/badge/version-{{ web2roefact_version }}-blue) - procesarea facturilor din interfara web  <!--#TODO link tbd -->
 
