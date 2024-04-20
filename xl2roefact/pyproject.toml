@@ -69,6 +69,12 @@ GitHub = "https://github.com/petre-renware/api_to_roefact"
 
 
 
+[project.scripts]  #TODO section must be tested by installation in new environment OTHER than project environment
+xl2roefact = "xl2roefact.app_cli:main"
+
+
+
+
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"

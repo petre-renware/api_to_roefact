@@ -40,7 +40,7 @@
 * tbd... prep release set all versions
 
 
-### `0.6rc1` code missing XML tags
+### `0.6rc1` invoice type JSON-XML tag
 
 * ... build package version `0.6rc1`
 * ... `app-readme-doc` check & update xl2roefact `README.md`:
@@ -54,6 +54,15 @@
 * ... `InvoiceTypeCode-param` make a choose application  parameter.
   Values to be taken from `sys_settings` module, object `InvoiceType`
 * ... ... ...
+
+
+### `0.6rc0` system database and parameters 
+
+* `0.6rc0+240420` build and publish release:
+    1. update versions for `xl2roefact` and `invoicetoroefact`
+    2. ... build xl2roefact documentation
+    4. ... wheel deliverables build & PyPi publish
+    5. ... site build & publish
 * `sys_settings-invoice-type` populated "system database" with allowed invoice types
     * created `InvoiceTypes` dictionary with allowed invoice types
     * created `InvoiceTypesEnum` as Enum to be used by CLI app parameter (dinamically generated from previous data object)
