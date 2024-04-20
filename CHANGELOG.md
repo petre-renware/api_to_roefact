@@ -63,7 +63,7 @@
     2. build xl2roefact documentation
     4. wheel deliverables build & PyPi publish
     5. updated `downloads.md`
-    6. ... site build & publish
+    6. site build & publish
 * `sys_settings-invoice-type` populated "system database" with allowed invoice types
     * created `InvoiceTypes` dictionary with allowed invoice types
     * created `InvoiceTypesEnum` as Enum to be used by CLI app parameter (dinamically generated from previous data object)
