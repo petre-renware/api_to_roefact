@@ -33,9 +33,16 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 ### xl2roefact pachete redistribuibile   <a id="pachetul-xl2roefact-python-library-format-sursa"></a>
 
+<!--NOTE: starting with `0.6rc0` source deliverables are available only on `PyPi` -->
+
+??? note "0.6"
+    * [`0.6rc0 system database and parameters`](https://pypi.org/project/xl2roefact/0.6rc0/)
+
+
+!!! error "Versiunile development"
+    Versiunile `< 0.5` nu vor mai fi disponibile incepind de la 01-May-2024 (*end of life*).
+
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
-
-
 
 ??? note "0.5"
     * [`0.5.4` invoice supplier from owner master data WHEEL](../xl2roefact/dist/xl2roefact-0.5.4-py3-none-any.whl "download")
