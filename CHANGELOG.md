@@ -62,7 +62,7 @@
     1. update versions for `xl2roefact` and `invoicetoroefact`
     2. build xl2roefact documentation
     4. wheel deliverables build & PyPi publish
-    5. ... update `downloads.md`
+    5. updated `downloads.md`
     6. ... site build & publish
 * `sys_settings-invoice-type` populated "system database" with allowed invoice types
     * created `InvoiceTypes` dictionary with allowed invoice types
