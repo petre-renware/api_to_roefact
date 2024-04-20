@@ -58,9 +58,11 @@
 
 ### `0.6rc0` system database and parameters 
 
-* `240420` build and publish release:
+* `0.6rc0+240420` build and publish release:
     1. update versions for `xl2roefact` and `invoicetoroefact`
-    2. ...
+    2. ... build xl2roefact documentation
+    4. ... wheel deliverables build & PyPi publish
+    5. ... site build & publish
 * `sys_settings-invoice-type` populated "system database" with allowed invoice types
     * created `InvoiceTypes` dictionary with allowed invoice types
     * created `InvoiceTypesEnum` as Enum to be used by CLI app parameter (dinamically generated from previous data object)
