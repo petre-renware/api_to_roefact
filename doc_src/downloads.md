@@ -4,20 +4,17 @@
 <!--NOTE: DISCLAIMER -->
 
 !!! warning "Versiuni END OF LIFE"
-    Versiunile `< 0.5` nu vor mai fi intretinute si nici disponibile incepind de la 01-May-2024 (*end of life*).
+    Versiunile `<= 0.5` nu vor mai fi intretinute si nici disponibile incepind de la 01-May-2024 (*end of life*).
 
 !!! warning "Versiunile development"
     Versiunile ce contin in codul / numarul lor acronimul `dev` sunt considerate versiuni elaborate in faza de dezvoltare software.
-    Aceste versiuni sunt functionale cu singura observatie ca testele facute sunt doar din punct de vedeare a codului si nu cu date de business, adica nu prezinta erori in functionare.
-    Se recomanda a folosi aceste versiuni in cazurile de dezvoltari proprii sau integrari cu alte sisteme.
-
-
-
+    Aceste versiuni sunt functionale dar testate doar cu date de test si nu cu date de business.
+    Se recomanda a folosi aceste versiuni doar pentru dezvoltari proprii sau integrari cu alte sisteme.
 
 
 # Descarcare resurse (downloads)
 
-<!-- NOTE: intentionally no TOC in this doc -->
+<!--NOTE: intentionally start with Heading-1 and no TOC in this doc -->
 
 
 ## Format sursa biblioteca Python  <a id="format-biblioteca-python"></a>
