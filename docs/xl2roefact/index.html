@@ -820,15 +820,18 @@ div.download-btn {
 <article class="md-content__inner md-typeset"><div class="download-btn"><a href="../pdfs/xl2roefact/index.html/index.pdf">Download PDF</a></div>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact">xl2roefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.4-blue"/></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6rc0-blue"/></p>
 <p>Legaturi externe utile:</p>
 <ul>
 <li><a href="https://invoicetoroefact.renware.eu/"><strong>Web Site</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
 <li><a href="https://pypi.org/project/xl2roefact/">Pachet <em>PyPi</em></a></li>
 <li><a href="https://github.com/petre-renware/api_to_roefact/">Surse <em>GitHub</em></a></li>
 <li><a href="doc/README_xl2roefact_library.html">Vedere de ansamblu pachet biblioteca Python</a></li>
-<li><a href="doc/810.05a-xl2roefact_DLD_specs.html">Referinta <em>API</em></a></li>
+<li><a href="https://invoicetoroefact.renware.eu/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html">Referinta <em>API</em></a></li>
 </ul>
+<!--Refrence to source doc. If used like that, then must be resolved with an external tool before generating a complete README.html doc. The `mkdoxs` is able to do that but in `PyPi` published version will be unusable
+(./doc/810.05a-xl2roefact_DLD_specs.md)
+-->
 <h2 id="facilitati">Facilitati</h2>
 <p><img alt="Static Badge" src="https://img.shields.io/badge/MSI_installer-YES-darkgreen">
 <img alt="Static Badge" src="https://img.shields.io/badge/standlone_EXE-YES-darkgreen"/>
@@ -983,8 +986,10 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div>
 <p>Options:</p>
 <div class="highlight"><pre><span></span><code>  -V, --version         show application version
-  --install-completion  Install completion for the current shell.
-  --show-completion     Show completion for the current shell, to copy it or
+  --install-completion  Install completion for the
+                        current shell.
+  --show-completion     Show completion for the
+                        current shell, to copy it or
                         customize the installation.
 </code></pre></div>
 <h4 id="about">about</h4>
@@ -1015,16 +1020,24 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact xl2json [OPTIONS] [FILE_NAME]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  [FILE_NAME]                     files to process (wildcards allowed)
+<div class="highlight"><pre><span></span><code>  [FILE_NAME]                     files to process
+                                  (wildcards allowed)
                                   [default: *.xlsx]
   -d, --files-directory DIRECTORY
-                                  directory to be used to look for Excel files
-                                  (if default directory does not exists will
-                                  consider current directory instead).
-                                  [default: invoice_files/]
-  -o, --owner-datafile PATH       File to read invoice supplier (owner) data
-                                  instead Excel.
-  -v, --verbose                   show detailed processing messages
+                                  directory to be used
+                                  to look for Excel
+                                  files (if default
+                                  directory does not
+                                  exists will consider
+                                  current directory
+                                  instead).  [default:
+                                  invoice_files/]
+  -o, --owner-datafile PATH       File to read invoice
+                                  supplier (owner)
+                                  data instead Excel.
+  -v, --verbose                   show detailed
+                                  processing messages
+  --help                          Show this message
 </code></pre></div>
 <h2 id="practici-si-regului-referitoare-la-continutul-facturilor-din-excel">Practici si regului referitoare la continutul facturilor din Excel</h2>
 <p>Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".</p>
@@ -1154,7 +1167,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 7, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 13, 2024</span>
 </small>
 </div>
 </article>

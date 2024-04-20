@@ -552,27 +552,38 @@ div.download-btn {
 <p><img alt="api_to_roefact_logo" src="doc_src/pictures/api_to_roefact_logo.png" width="300"/></p>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="invoicetoroefact">INVOICEtoROefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.4-blue"/></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6rc0-blue"/></p>
 <p><strong>Facturi emise in Excel</strong>, problema rezolvata cu <strong>INVOICEtoROefact</strong> !</p>
 <p>Emiteti si folositi in continuare facturi in Excel. Acest sistem va produce fisierul XML de care aveti nevoie pentru sistemul <a href="https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura">ANAF E-Factura</a>.</p>
 <p>Si mai mult, daca aveti nevoie, puteti Integra aceste facturi si alte sisteme externe prin metode moderne, uzuale, curente, incetatenite de ani de zile si binecunoscute de specialistii din IT.</p>
 <h2 id="componentele-si-facilitatile-sistemului">Componentele si facilitatile sistemului</h2>
 <p>Sistemul <strong>INVOICEtoROefact</strong> ofera urmatoarele componente:</p>
+<pre class="mermaid"><code>flowchart TD
+    top[[INVOICEtoROefact \n System]]
+
+    xl2roefact[ xl2roefact \n Componenta locala]
+    web2roefact[web2roefact \n Componenta web]
+    invtmpl[invoice template \n Template factura Excel]
+
+    top --- xl2roefact
+    top --- web2roefact
+    top --- invtmpl</code></pre>
 <ul>
 <li>
-<p><strong><a href="xl2roefact/index.html">xl2roefact</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.4-blue"/> - procesarea facturilor in mod linie de comanda</p>
+<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.6rc0-blue"/> - procesarea facturilor prin cod / program (development propriu)</p>
+<ul>
+<li><a href="xl2roefact/index.html">aplicatie linie comanda</a></li>
+<li><a href="xl2roefact/doc/README_xl2roefact_library.html">biblioteca python dezvoltari proprii</a></li>
+</ul>
 </li>
 <li>
 <p><strong>web2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-n/a-blue"/> - procesarea facturilor din interfara web  <!--#TODO link tbd --></p>
 </li>
 <li>
-<p><strong><a href="xl2roefact/doc/README_xl2roefact_library.html">xl2roefact python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.5.4-blue"/> - procesarea facturilor prin cod / program (development propriu)</p>
-</li>
-<li>
 <p><strong><a href="excel_invoice_template/index.html">invoice template</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.1.20-blue"/> - model / sablon factura in Excel</p>
 </li>
 </ul>
-<p><a href="doc_src/810-DSGN/810.05a-system_components.html">Descrierea tuturor acestora poate fi accessata aici</a>.</p>
+<p><a href="doc_src/810-DSGN/810.05a-system_components.html">Descrierea facilitatilor acestor componente poate fi accessata aici</a>.</p>
 <h2 id="date-identificare">Date identificare</h2>
 <ul>
 <li>p/n: <code>0000-0095</code></li>
@@ -590,7 +601,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 7, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 19, 2024</span>
 </small>
 </div>
 </article>

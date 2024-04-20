@@ -34,42 +34,67 @@
 
 
 ## 0.6 finalize JSON model to contain all RO eFact XML mandatory taga
-* tbd.Must... final task before 1.0 XML generator
+
+* tbd... next main job of release
+* tbd... prep release upd DLdoc & HLdoc
+* tbd... prep release set all versions
 
 
+### `0.6rc1` invoice type JSON-XML tag
 
-## 0.5
-
-### `0.5.4` invoice supplier from owner master data (240406 h22:00)
-
-* `upd-dwnld-0.5.4` update `downloads.md` for 0.5.4 deliverables
-* `build-apps-0.5.4` build all deliverables & publish package on PyPi
-* `prep-rlse-0.5.4` change this head to `0.5.4` version, update all `/versions.yml` and assure that all are published
-* `fix-download-owner-template` xl2roefact README sectiune "Descarcare (download) aplicatie xl2roefact CLI" de pus link catre sablon nomenclator furnizori
-* `fixed-tech-doc` generatorul plugin mkdocs ptr comenzile Typer nu a generat complet... A ramas ca inainte de modificare 0.5.4... adica nu apare optiunea `-o  -owner-file`
-* * `owner-dbs-file` get OWNER EXTERNAL DATA feature (version `0.5.4.dev0+owner-dbs-file`):
-    * [x] 1. create `data/owner.yml` structure to exactly what is needed for actual JSON "Invoice..." key
-    * [x] 2. created a skeleton for `hier_get_data_file()` module, update its docstring and generate DLD documentation
-    * [x] 3. set a new flag for `xl2json` command for getting owner from ext data-file: `--owner -o [FILE]` where `FILE` being defaulted to `./owner.yml` or hierarchy to `data/owner.yml`
-    * [x] 4. app_cli.py chk if file is ok and sent it as correct Path if, else raise an err msg and continue from Excel
-    * [x] 5. code. Get owner data by using function `hier_get_data_file()`
-    * [x] 6. update `owner.yml` file and add bank information
-    * [x] 7. code. Get owner bank information from external data file
-    * [x] 8. build xl2roefact DLD documentation
-    * [x] 9. code. Review "place where called for OWNER info", clean, update and close code
-    * [x] 10. make template for owner data file (`owner_datafile_tmeplate.yml`) and prep it with built-in documentation hints
-    * [x] 11. updated temporary all version to `0.5.4.dev0` to make DEV publishes (basically for site, but other tests are possibile)
-    * [x] 12. add xl2roefact README doc with section "Utilizare nomenclator de furnizori"
-    * [x] 13. build site and publish as site version `0.5.4.dev0` (temporary value)
-* `hier-get-data-file` func to select hierarchical a file from `./` or `data/` (in libutils module):
-    * [x] 1. create skeleton `hier_get_data_file(file_name: str) -> Path` in `xl2roefact.libutils` module
-    * [x] 2. code function to solve actual functional case from `xl2roefact.config_settings` module
-    * [x] 3. update `xl2roefact.config_settings` module to use the new function
+* ... build package version `0.6rc1`
+* ... `app-readme-doc` check & update xl2roefact `README.md`:
+    * [ ] ... functionalities in this release (JSON schema update)
+    * [ ] ... write about invoice type ref `cbc_InvoiceTypeCode`
+    * [ ] ... more sections "For developers" ref how manage some settings if introduce `sys_config.py` feature (different of `app_config`)
+    * [x] `site-0.6.dev1` restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view
+    * [x] `240413_01` updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for `PyPi` availability in project description
+* ... delete `xl2roefact/tests...` specs / helper file
+* ... test and clean code
+* ... `InvoiceTypeCode-param` make a choose application  parameter.
+  Values to be taken from `sys_settings` module, object `InvoiceType`
+* ... ... ...
 
 
+### `0.6rc0` system database and parameters 
 
+* `0.6rc0+240420` build and publish release:
+    1. update versions for `xl2roefact` and `invoicetoroefact`
+    2. build xl2roefact documentation
+    4. wheel deliverables build & PyPi publish
+    5. updated `downloads.md`
+    6. site build & publish
+* `sys_settings-invoice-type` populated "system database" with allowed invoice types
+    * created `InvoiceTypes` dictionary with allowed invoice types
+    * created `InvoiceTypesEnum` as Enum to be used by CLI app parameter (dinamically generated from previous data object)
+* `sys_settings-module` created `xl2roefact/sys_settings.py` component dedicated to system settings (ie, not user configurable but only developers; is intended that later versions to use also a database for)
+* `cbc_TaxPointDate` will be set to 25 of next month from invoice issued month
+* `cbc_DueDate` search `invoice_header_area` ref `PATTERN_FOR_DUE_DATE` pattern. Use found data if not None or default it to `invoice_header_area["issued_date"]["value"] + DUE_DATE_DAYS` if None found
+* `PATTERN_FOR_DUE_DATE` update `config_settings.py` & `app_settings.yml`, create `PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]` 
+* `inv-issdate-todate` upd `rdinv` for final json dict convert & local save invoice issued date in `datetime` format to--> `tmp_reusable_items["invoice_issdate_asdate"]`
+* `cac_Delivery` set as invoice issued date
+* `cac_PaymentMeans` will be set to `1` supposing is unknown at invoicing issuing date
+* `DEFAULT_DUE_DATE_DAYS` new app config parameter with default value 30 days
+* `cbc_Note` set to "proccesed @`{date_time_now}` with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time
+* `init-work` set site & xl2roefact versions to `0.6rc1`
 
+### `0.6.dev1` code missing XML tags
 
+* `arch-prev-rlse-chlogs` archive `0.5.4` CHANGELOG
+* `xml-json-map` updated `xl2roefact.rdinv` module for XML-JSON map
+* `fin-xml-specs` made `xl2roefact/tests/todosXML.md` file with list of XML tags to do and all other specs to complete activity
+* `init-work` set site & xl2roefact versions to `0.6.dev1`
+
+### `0.6.dev0` clean xl2roefact & invoicetoroefact projects (...yymmdd hhmm...)
+
+* `240408piu-adm1` cleaning and updating version strings and code
+    * rebuild site
+    * update xl2roefact/__version.py__
+    * update main versions.yml
+* `240408piu-adm1`  cleaning and updating environments:
+    * updated xl2roefact python requirement, relaxed to `>=3.10`
+    * updated site version to `0.6.1dev0` to mark in progress work
+    * installed `chromium` on dev server
 
 
 
@@ -82,12 +107,13 @@
 
 # Archived CHANGELOGs
 
+<!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
 
 <details markdown="1"><summary markdown="1">
 ## 0.5 version
 </summary>
 
-<!--* [...v_xxx...](./changelog_history/CHANGELOG-xxx.md) -->
+* [`0.5.4` invoice supplier from owner master data](./changelog_history/CHANGELOG-0.5.4.md)
 * [`0.5.3rc1` fix invoice JSON key "cac:Party" naming](./changelog_history/CHANGELOG-0.5.3rc1.md)
 * [`0.5.3rc0` invoice supplier from Excel](./changelog_history/CHANGELOG-0.5.3rc0.md)
 * [`0.5.2.dev2` release xl2roefact.`0.4.1.dev1` fix sEXE bug from `0.4.1.dev0` version](./changelog_history/CHANGELOG-0.5.2.dev2.md)

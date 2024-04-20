@@ -87,7 +87,7 @@ div.download-btn {
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#app_cli">
+<a class="md-skip" href="#__version__">
           Skip to content
         </a>
 </div>
@@ -509,28 +509,13 @@ div.download-btn {
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#about">
-    about
+<a class="md-nav__link" href="#__version___1">
+    __version__
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#settings">
-    settings
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#xl2json">
-    xl2json
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#called_when_no_command">
-    called_when_no_command
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#run">
-    run
+<a class="md-nav__link" href="#normalized_version">
+    normalized_version
   </a>
 </li>
 </ul>
@@ -540,6 +525,42 @@ div.download-btn {
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset"><div class="download-btn"><a href="../../pdfs/xl2roefact/doc/810.05a-xl2roefact_DLD_specs.html/810.05a-xl2roefact_DLD_specs.pdf">Download PDF</a></div>
+<p><a id="__version__"></a></p>
+<h1 id="__version__">__version__</h1>
+<p><code>xl2roefact</code> version info.
+<div class="highlight"><pre><span></span><code>######## ####              ########  ######
+#  ##  # #  #              #      # ##    ##
+##    ## #  #              ###  ### #  ##  #
+##  ##  #  #                #  #   #  ##  #
+##    ## #  #                #  #   #  ##  #
+#  ##  # #  #####            #  #   #  ##  #
+#  ##  # #      #            #  #   ##    ##
+######## ########            ####    ######
+
+                           ######## ########  ######   ######  ########
+#######   ######           #      # #     #  ##    ## ##    ## #      #
+#     ## ##    ## #######  #  ##### #  ####  #  ##  # #  ##  # ###  ###
+#  ##  # #  ##  # #     #  #    #   #    #   #      # #  #####   #  #
+#  ##### #  ##  # #######  #  ###   #  ###   #  ##  # #  #####   #  #
+#  # #   #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  #
+#  #  #  ##    ##          #      # #  #     #  ##  # ##    ##   #  #
+####   #  ######           ######## ####     ########  ######    ####
+</code></pre></div></p>
+<p><a id="__version__.__version__"></a></p>
+<h4 id="__version___1">__version__</h4>
+<p>current 0.6rc0, previous 0.5.4</p>
+<p><a id="__version__.normalized_version"></a></p>
+<h4 id="normalized_version">normalized_version</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">normalized_version</span><span class="p">(</span><span class="n">raw_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+<p>transform version string in canonical form.</p>
+<p>Used in <code>__init__.py</code> to return <code>__version__</code> object as will be seen by package consumers</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>raw_version</code> - a raw version string. Defaults to package current version string.</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<p><code>str:</code> canonical version string</p>
 <p><a id="app_cli"></a></p>
 <h1 id="app_cli">app_cli</h1>
 <p>app_cli: the command line application for all xl2roefact functionalities.</p>
@@ -631,58 +652,44 @@ div.download-btn {
 <p><a id="app_cli.run"></a></p>
 <h4 id="run">run</h4>
 <p>NOTE: for <code>run</code> "reason to be" as copy of <code>app_cli</code> see iss <code>0.1.22b 240216piu_a</code></p>
-<p><a id="chkisld"></a></p>
-<h1 id="chkisld">chkisld</h1>
-<p>chkisld: modul de verificare a starii de incarcare a unei facturi emise</p>
+<p><a id="__init__"></a></p>
+<h1 id="__init__">__init__</h1>
+<p><a id="__init__.__version__"></a></p>
+<h4 id="__version___2">__version__</h4>
+<p>default conversion takes place over xl2roefact actual version</p>
+<p><a id="__main__"></a></p>
+<h1 id="__main__">__main__</h1>
+<p><strong>xl2roefact.<strong>main</strong></strong>: Python package standard file to assure run as <code>python -m xl2roefact</code>.</p>
 <p>Identification:</p>
 <ul>
-<li>code-name: <code>chkisld</code></li>
+<li>code-name: <code>__main__</code></li>
 <li>copyright: (c) 2023 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Deployments:</p>
+<ul>
+<li>Windows:  MSI installer with EXE application.</li>
+<li>Linux: <code>xl2roefact</code> executable shell as wrapper for <code>xl2roefact.py</code>.</li>
 </ul>
 <p>Specifications:</p>
 <ul>
-<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
-<li>INTRARI: fisier <code>f-XLSX</code> sau numarul / cheia / codul facturii</li>
-<li>IESIRI: valoarea echivalent <code>TRUE</code> daca factura a fost deja incarcata sau valoare echivalent <code>FALSE</code> daca factura nu a fost incarcata</li>
+<li>command general format: <code>python -m xl2roefact [OPTIONS] COMMAND [ARGS]...</code>.</li>
+<li>help: <code>python -m xl2roefact --help</code>.</li>
 </ul>
-<p><a id="chkxml"></a></p>
-<h1 id="chkxml">chkxml</h1>
-<p>chkxml: modul de validare a facturii in sistemul ANAF E-Factura</p>
-<p>Identification:</p>
+<p><a id="sys_settings"></a></p>
+<h1 id="sys_settings">sys_settings</h1>
+<p>System database and parameters.</p>
+<p>This module IS NOT intended to be modified by end users or administrators.
+Only development stuff can alter this database because application code must be updated accordingly.</p>
 <ul>
-<li>code-name: <code>chkxml</code></li>
-<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>
+<p>NOTE for updaters: because dependencies, code sections should follow strict enumerated order in comments</p>
+</li>
+<li>
+<p>copyright: (c) 2024 RENWare Software Systems</p>
+</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
-<p>Specifications:</p>
-<ul>
-<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
-<li>INTRARI: fisier <code>f-XML</code></li>
-<li>IESIRI: raport cu eventualele erori de validare</li>
-</ul>
-<p><a id="config_settings"></a></p>
-<h1 id="config_settings">config_settings</h1>
-<p>Configuration and setting parameters.</p>
-<p>Regulile recomandate se gasessc in documentul (recommended rules are in document <code>xl2roefact/data/README_app_config_rules.md</code>)</p>
-<p>Public objects:</p>
-<ul>
-<li><code>rules_content</code>: contains the rules text (rendered)</li>
-</ul>
-<p>Info:</p>
-<ul>
-<li>copyright: (c) 2023 RENWare Software Systems</li>
-<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
-</ul>
-<p><a id="config_settings.DEFAULT_SUPPLIER_COUNTRY"></a></p>
-<h4 id="default_supplier_country">DEFAULT_SUPPLIER_COUNTRY</h4>
-<hr/>
-<p><strong>NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de</strong></p>
-<p>__  comanda <code>xl2json</code> reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)__</p>
-<hr/>
-<p><a id="config_settings.python_object"></a></p>
-<h4 id="python_object">python_object</h4>
-<p>suppose no settings loaded</p>
 <p><a id="ldxml"></a></p>
 <h1 id="ldxml">ldxml</h1>
 <p>ldxml: modul de incarcare a facturii in sistemul ANAF E-Factura</p>
@@ -698,108 +705,20 @@ div.download-btn {
 <li>INTRARI: fisier <code>f-XML</code></li>
 <li>IESIRI: raport cu validarea si identificatorul incarcarii</li>
 </ul>
-<p><a id="libutils"></a></p>
-<h1 id="libutils">libutils</h1>
-<p>general utilities library for all <code>xl2roefact</code> components and modules.</p>
+<p><a id="wrxml"></a></p>
+<h1 id="wrxml">wrxml</h1>
+<p>wrxml: modul de generare a fisierului format XML</p>
 <p>Identification:</p>
 <ul>
-<li>code-name: <code>libutils</code></li>
-<li>copyright: (c) 2023, 2024 RENWare Software Systems</li>
+<li>code-name: <code>wrxml</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
-<p>Components:</p>
+<p>Specifications:</p>
 <ul>
-<li><code>complete_sexe_file() -&gt; bool</code>: Rename and move resulted exe file (called from <code>build_sexe</code> script)</li>
-<li><code>dict_sum_by_key(dict, str) -&gt; float</code>: Sum a dictionary for a given key at all depth levels</li>
-<li><code>find_str_in_list(list, list) -&gt; int</code>: Search more strings (ie, a list) in list of strings</li>
-<li><code>hier_get_data_file(file_name: str) -&gt; Path</code>: Get <code>Path(file_name)</code> from hierarchy of locations</li>
-<li><code>invoice_taxes_summary(list[dict]) -&gt; dict</code>: Calculates invoice taxes summary as required by ROefact requirements</li>
-<li><code>isnumber(str) -&gt; bool</code>: Test a string if it could be used as number (int or float)</li>
-</ul>
-<p><a id="libutils.hier_get_data_file"></a></p>
-<h4 id="hier_get_data_file">hier_get_data_file</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hier_get_data_file</span><span class="p">(</span><span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span>
-</code></pre></div>
-<p>Get <code>Path(file_name)</code> from hierarchy of locations: (1) current directory, (2) package <code>data/</code> directory, (3) <code>None</code> is file does not exists in 1 or 2 locations.</p>
-<p><strong>Arguments</strong>:</p>
-<ul>
-<li><code>file_name</code> - the name of the file to be returned as full path</li>
-</ul>
-<p><strong>Returns</strong>:</p>
-<ul>
-<li><code>Path</code> - path of file if was found in (1) or (2) locations or <code>None</code> if not found</li>
-</ul>
-<p><a id="libutils.complete_sexe_file"></a></p>
-<h4 id="complete_sexe_file">complete_sexe_file</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">complete_sexe_file</span><span class="p">(</span><span class="n">drop_source</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
-</code></pre></div>
-<p>Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.</p>
-<p>Specs:</p>
-<ul>
-<li><code>file to process</code>.../dist_sexe/xl2roefact_to_update_name.exe<code>--&gt;</code>.../dist/xl2roefact-version-win64.exe</li>
-<li>Note 1: all function code suppose that current directory is root of <code>xl2roefact</code>, ie where is located <code>pyproject.toml</code> of package</li>
-</ul>
-<p><strong>Arguments</strong>:</p>
-<ul>
-<li><code>drop_source</code> - indicate to delete source file after copying, ie make a "move" operation, otherwise make a copy keeping the source file. Default behaviour is to delete source.</li>
-</ul>
-<p><strong>Returns</strong>:</p>
-<ul>
-<li><code>bool</code> - True if file was found, renamed and moved with no error</li>
-</ul>
-<p><a id="libutils.invoice_taxes_summary"></a></p>
-<h4 id="invoice_taxes_summary">invoice_taxes_summary</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">invoice_taxes_summary</span><span class="p">(</span><span class="n">invoice_lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span>
-</code></pre></div>
-<p>Calculates invoice taxes summary as required by ROefact requirements.</p>
-<p><strong>Arguments</strong>:</p>
-<ul>
-<li><code>invoice_lines</code> - section with item lines from 'big' invoice dictionary</li>
-</ul>
-<p><strong>Returns</strong>:</p>
-<ul>
-<li><code>list</code> - usable for "cac_TaxSubtotal" key</li>
-</ul>
-<p><a id="libutils.dict_sum_by_key"></a></p>
-<h4 id="dict_sum_by_key">dict_sum_by_key</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dict_sum_by_key</span><span class="p">(</span><span class="n">search_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="n">sum_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
-</code></pre></div>
-<p>Sum all dictionary (or list off dictionaries) items, at all levels, for a given key.</p>
-<p><strong>Arguments</strong>:</p>
-<ul>
-<li><code>search_dict</code> - dictionary to be searched for</li>
-<li><code>sum_key</code> - key to be searched</li>
-</ul>
-<p><strong>Returns</strong>:</p>
-<ul>
-<li><code>float</code> - with required sum</li>
-</ul>
-<p><a id="libutils.isnumber"></a></p>
-<h4 id="isnumber">isnumber</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">isnumber</span><span class="p">(</span><span class="n">a_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
-</code></pre></div>
-<p>test if a string is valid as any kind of number.</p>
-<p><strong>Arguments</strong>:</p>
-<ul>
-<li><code>a_string</code> - input string.</li>
-</ul>
-<p><strong>Returns</strong>:</p>
-<ul>
-<li><code>True</code> - if input string is valid as any kind of number, orherwise <code>False</code>.</li>
-</ul>
-<p><a id="libutils.find_str_in_list"></a></p>
-<h4 id="find_str_in_list">find_str_in_list</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_str_in_list</span><span class="p">(</span><span class="n">list_of_str_to_find</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">list_to_search</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span>
-</code></pre></div>
-<p>find a substring from <code>list_of_str_to_find</code> in elements of <code>list_to_search</code>.</p>
-<p><strong>Arguments</strong>:</p>
-<ul>
-<li><code>list_of_str_to_find</code> - list of strings to search for.</li>
-<li><code>list_to_search</code> - liste where to search for substrings.</li>
-</ul>
-<p><strong>Returns</strong>:</p>
-<ul>
-<li><code>index</code> - the index of list item which contains <code>str_to_find</code> (first found) or <code>None</code> if not found.</li>
+<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
+<li>INTRARI: fisier <code>f-JSON</code></li>
+<li>IESIRI: fisier format XML conform cerintelor si sistemului ANAF E-Factura (cod: <code>f-XML</code>)</li>
 </ul>
 <p><a id="rdinv"></a></p>
 <h1 id="rdinv">rdinv</h1>
@@ -985,81 +904,164 @@ div.download-btn {
 <ul>
 <li><code>None</code> - all data is produced directly in parameters as side effect</li>
 </ul>
-<p><a id="wrxml"></a></p>
-<h1 id="wrxml">wrxml</h1>
-<p>wrxml: modul de generare a fisierului format XML</p>
+<p><a id="chkxml"></a></p>
+<h1 id="chkxml">chkxml</h1>
+<p>chkxml: modul de validare a facturii in sistemul ANAF E-Factura</p>
 <p>Identification:</p>
 <ul>
-<li>code-name: <code>wrxml</code></li>
+<li>code-name: <code>chkxml</code></li>
 <li>copyright: (c) 2023 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
 <p>Specifications:</p>
 <ul>
 <li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
-<li>INTRARI: fisier <code>f-JSON</code></li>
-<li>IESIRI: fisier format XML conform cerintelor si sistemului ANAF E-Factura (cod: <code>f-XML</code>)</li>
+<li>INTRARI: fisier <code>f-XML</code></li>
+<li>IESIRI: raport cu eventualele erori de validare</li>
 </ul>
-<p><a id="__init__"></a></p>
-<h1 id="__init__">__init__</h1>
-<p><a id="__init__.__version__"></a></p>
-<h4 id="__version__">__version__</h4>
-<p>default conversion takes place over xl2roefact actual version</p>
-<p><a id="__main__"></a></p>
-<h1 id="__main__">__main__</h1>
-<p><strong>xl2roefact.<strong>main</strong></strong>: Python package standard file to assure run as <code>python -m xl2roefact</code>.</p>
+<p><a id="chkisld"></a></p>
+<h1 id="chkisld">chkisld</h1>
+<p>chkisld: modul de verificare a starii de incarcare a unei facturi emise</p>
 <p>Identification:</p>
 <ul>
-<li>code-name: <code>__main__</code></li>
+<li>code-name: <code>chkisld</code></li>
 <li>copyright: (c) 2023 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
-<p>Deployments:</p>
-<ul>
-<li>Windows:  MSI installer with EXE application.</li>
-<li>Linux: <code>xl2roefact</code> executable shell as wrapper for <code>xl2roefact.py</code>.</li>
-</ul>
 <p>Specifications:</p>
 <ul>
-<li>command general format: <code>python -m xl2roefact [OPTIONS] COMMAND [ARGS]...</code>.</li>
-<li>help: <code>python -m xl2roefact --help</code>.</li>
+<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
+<li>INTRARI: fisier <code>f-XLSX</code> sau numarul / cheia / codul facturii</li>
+<li>IESIRI: valoarea echivalent <code>TRUE</code> daca factura a fost deja incarcata sau valoare echivalent <code>FALSE</code> daca factura nu a fost incarcata</li>
 </ul>
-<p><a id="__version__"></a></p>
-<h1 id="__version___1">__version__</h1>
-<p><code>xl2roefact</code> version info.
-<div class="highlight"><pre><span></span><code>######## ####              ########  ######
-#  ##  # #  #              #      # ##    ##
-##    ## #  #              ###  ### #  ##  #
-##  ##  #  #                #  #   #  ##  #
-##    ## #  #                #  #   #  ##  #
-#  ##  # #  #####            #  #   #  ##  #
-#  ##  # #      #            #  #   ##    ##
-######## ########            ####    ######
-
-                           ######## ########  ######   ######  ########
-#######   ######           #      # #     #  ##    ## ##    ## #      #
-#     ## ##    ## #######  #  ##### #  ####  #  ##  # #  ##  # ###  ###
-#  ##  # #  ##  # #     #  #    #   #    #   #      # #  #####   #  #
-#  ##### #  ##  # #######  #  ###   #  ###   #  ##  # #  #####   #  #
-#  # #   #  ##  #          #  ##### #  #     #  ##  # #  ##  #   #  #
-#  #  #  ##    ##          #      # #  #     #  ##  # ##    ##   #  #
-####   #  ######           ######## ####     ########  ######    ####
-</code></pre></div></p>
-<p><a id="__version__.__version__"></a></p>
-<h4 id="__version___2">__version__</h4>
-<p>prev release "0.5.3rc1"</p>
-<p><a id="__version__.normalized_version"></a></p>
-<h4 id="normalized_version">normalized_version</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">normalized_version</span><span class="p">(</span><span class="n">raw_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+<p><a id="libutils"></a></p>
+<h1 id="libutils">libutils</h1>
+<p>general utilities library for all <code>xl2roefact</code> components and modules.</p>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>libutils</code></li>
+<li>copyright: (c) 2023, 2024 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Components:</p>
+<ul>
+<li><code>complete_sexe_file() -&gt; bool</code>: Rename and move resulted exe file (called from <code>build_sexe</code> script)</li>
+<li><code>dict_sum_by_key(dict, str) -&gt; float</code>: Sum a dictionary for a given key at all depth levels</li>
+<li><code>find_str_in_list(list, list) -&gt; int</code>: Search more strings (ie, a list) in list of strings</li>
+<li><code>hier_get_data_file(file_name: str) -&gt; Path</code>: Get <code>Path(file_name)</code> from hierarchy of locations</li>
+<li><code>invoice_taxes_summary(list[dict]) -&gt; dict</code>: Calculates invoice taxes summary as required by ROefact requirements</li>
+<li><code>isnumber(str) -&gt; bool</code>: Test a string if it could be used as number (int or float)</li>
+</ul>
+<p><a id="libutils.hier_get_data_file"></a></p>
+<h4 id="hier_get_data_file">hier_get_data_file</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hier_get_data_file</span><span class="p">(</span><span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span>
 </code></pre></div>
-<p>transform version string in canonical form.</p>
-<p>Used in <code>__init__.py</code> to return <code>__version__</code> object as will be seen by package consumers</p>
+<p>Get <code>Path(file_name)</code> from hierarchy of locations: (1) current directory, (2) package <code>data/</code> directory, (3) <code>None</code> is file does not exists in 1 or 2 locations.</p>
 <p><strong>Arguments</strong>:</p>
 <ul>
-<li><code>raw_version</code> - a raw version string. Defaults to package current version string.</li>
+<li><code>file_name</code> - the name of the file to be returned as full path</li>
 </ul>
 <p><strong>Returns</strong>:</p>
-<p><code>str:</code> canonical version string</p>
+<ul>
+<li><code>Path</code> - path of file if was found in (1) or (2) locations or <code>None</code> if not found</li>
+</ul>
+<p><a id="libutils.complete_sexe_file"></a></p>
+<h4 id="complete_sexe_file">complete_sexe_file</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">complete_sexe_file</span><span class="p">(</span><span class="n">drop_source</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+</code></pre></div>
+<p>Rename and move resulted exe file. This function is dedicated only to development phase, so various objects are hard coded.</p>
+<p>Specs:</p>
+<ul>
+<li><code>file to process</code>.../dist_sexe/xl2roefact_to_update_name.exe<code>--&gt;</code>.../dist/xl2roefact-version-win64.exe</li>
+<li>Note 1: all function code suppose that current directory is root of <code>xl2roefact</code>, ie where is located <code>pyproject.toml</code> of package</li>
+</ul>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>drop_source</code> - indicate to delete source file after copying, ie make a "move" operation, otherwise make a copy keeping the source file. Default behaviour is to delete source.</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>bool</code> - True if file was found, renamed and moved with no error</li>
+</ul>
+<p><a id="libutils.invoice_taxes_summary"></a></p>
+<h4 id="invoice_taxes_summary">invoice_taxes_summary</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">invoice_taxes_summary</span><span class="p">(</span><span class="n">invoice_lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span>
+</code></pre></div>
+<p>Calculates invoice taxes summary as required by ROefact requirements.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>invoice_lines</code> - section with item lines from 'big' invoice dictionary</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>list</code> - usable for "cac_TaxSubtotal" key</li>
+</ul>
+<p><a id="libutils.dict_sum_by_key"></a></p>
+<h4 id="dict_sum_by_key">dict_sum_by_key</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">dict_sum_by_key</span><span class="p">(</span><span class="n">search_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="n">sum_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
+</code></pre></div>
+<p>Sum all dictionary (or list off dictionaries) items, at all levels, for a given key.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>search_dict</code> - dictionary to be searched for</li>
+<li><code>sum_key</code> - key to be searched</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>float</code> - with required sum</li>
+</ul>
+<p><a id="libutils.isnumber"></a></p>
+<h4 id="isnumber">isnumber</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">isnumber</span><span class="p">(</span><span class="n">a_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+</code></pre></div>
+<p>test if a string is valid as any kind of number.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>a_string</code> - input string.</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>True</code> - if input string is valid as any kind of number, orherwise <code>False</code>.</li>
+</ul>
+<p><a id="libutils.find_str_in_list"></a></p>
+<h4 id="find_str_in_list">find_str_in_list</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_str_in_list</span><span class="p">(</span><span class="n">list_of_str_to_find</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">list_to_search</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span>
+</code></pre></div>
+<p>find a substring from <code>list_of_str_to_find</code> in elements of <code>list_to_search</code>.</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>list_of_str_to_find</code> - list of strings to search for.</li>
+<li><code>list_to_search</code> - liste where to search for substrings.</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>index</code> - the index of list item which contains <code>str_to_find</code> (first found) or <code>None</code> if not found.</li>
+</ul>
+<p><a id="config_settings"></a></p>
+<h1 id="config_settings">config_settings</h1>
+<p>Configuration and setting parameters.</p>
+<p>Regulile recomandate se gasessc in documentul (recommended rules are in document <code>xl2roefact/data/README_app_config_rules.md</code>)</p>
+<p>Public objects:</p>
+<ul>
+<li><code>rules_content</code>: contains the rules text (rendered)</li>
+</ul>
+<p>Info:</p>
+<ul>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p><a id="config_settings.DEFAULT_DUE_DATE_DAYS"></a></p>
+<h4 id="default_due_date_days">DEFAULT_DUE_DATE_DAYS</h4>
+<hr/>
+<p><strong>NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de</strong></p>
+<p>__  comanda <code>xl2json</code> reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)__</p>
+<hr/>
+<p><a id="config_settings.python_object"></a></p>
+<h4 id="python_object">python_object</h4>
+<p>suppose no settings loaded</p>
+<p><a id="config_settings.rules_content"></a></p>
+<h4 id="rules_content">rules_content</h4>
+<p>initialize with empty string to show nothing in case is a problem with file reading</p>
 <p><a id="data"></a></p>
 <h1 id="data">data</h1>
 <hr/>
@@ -1067,7 +1069,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 7, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 20, 2024</span>
 </small>
 </div>
 </article>
