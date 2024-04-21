@@ -1769,8 +1769,10 @@ cit si la nivel detaliat pentru fiecare comanda
   --install-completion  Install completion for the
                         current shell.
   --show-completion     Show completion for the
-                        current shell, to copy it or
-                        customize the installation.
+                        current shell, to copy it
+                        or customize the
+                        installation.
+  --help                Show this message and
 </code></pre></div>
 <h4 id="xl2roefact-index-about">about</h4>
 <p>Provide a short application description.</p>
@@ -1786,7 +1788,8 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact settings [OPTIONS]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update rules
+<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update
+               rules
 </code></pre></div>
 <h4 id="xl2roefact-index-xl2json">xl2json</h4>
 <p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
@@ -1801,23 +1804,31 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div>
 <p>Options:</p>
 <div class="highlight"><pre><span></span><code>  [FILE_NAME]                     files to process
-                                  (wildcards allowed)
-                                  [default: *.xlsx]
+                                  (wildcards
+                                  allowed)
+                                  [default:
+                                  *.xlsx]
   -d, --files-directory DIRECTORY
-                                  directory to be used
-                                  to look for Excel
-                                  files (if default
-                                  directory does not
-                                  exists will consider
-                                  current directory
-                                  instead).  [default:
+                                  directory to be
+                                  used to look for
+                                  Excel files (if
+                                  default
+                                  directory does
+                                  not exists will
+                                  consider current
+                                  directory
+                                  instead).
+                                  [default:
                                   invoice_files/]
-  -o, --owner-datafile PATH       File to read invoice
-                                  supplier (owner)
-                                  data instead Excel.
+  -o, --owner-datafile PATH       File to read
+                                  invoice supplier
+                                  (owner) data
+                                  instead Excel.
   -v, --verbose                   show detailed
-                                  processing messages
-  --help                          Show this message
+                                  processing
+                                  messages
+  --help                          Show this
+                                  message and
 </code></pre></div>
 <h2 id="xl2roefact-index-practici-si-regului-referitoare-la-continutul-facturilor-din-excel">Practici si regului referitoare la continutul facturilor din Excel</h2>
 <p>Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".</p>
@@ -3200,7 +3211,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.5</summary>
 <ul>
-<li><a href="xl2roefact/dist/xl2roefact-0.5.4-py3-none-any.whl" title="download"><code>0.5.4</code> invoice supplier from owner master data WHEEL</a></li>
+<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.4-py3-none-any.whl">ME... <code>0.5.4</code> invoice supplier from owner master data WHEEL</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.5.4.tar.gz" title="download"><code>0.5.4</code> invoice supplier from owner master data DIST</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.5.3rc1-py3-none-any.whl" title="download"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming WHEEL</a></li>
 <li><a href="xl2roefact/dist/xl2roefact-0.5.3rc1.tar.gz" title="download"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming DIST</a></li>
@@ -4062,7 +4073,7 @@ Public License instead of this License.  But first, please read
 <li>build xl2roefact documentation</li>
 <li>wheel deliverables build &amp; PyPi publish</li>
 <li>updated <code>downloads.md</code></li>
-<li>... site build &amp; publish</li>
+<li>site build &amp; publish</li>
 </ol>
 </li>
 <li><code>sys_settings-invoice-type</code> populated "system database" with allowed invoice types<ul>
