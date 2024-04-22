@@ -44,15 +44,14 @@
 
 * ... build package version `0.6rc1`
 * ... `app-readme-doc` check & update xl2roefact `README.md`:
-    * [ ] ... functionalities in this release (JSON schema update)
-    * [ ] ... write about invoice type ref `cbc_InvoiceTypeCode`
-    * [ ] ... section "Referinta dezvoltare sofrware" ref how manage some settings if introduce `sys_config.py` feature (different of `app_config`)
+    * [ ] ... example JSON schema update
+    * [ ] ... short note about allowed invoice type (`cbc_InvoiceTypeCode`)
+    * [ ] ... `doc-sys-settings-feat` in "Referinta dezvoltare sofrware" explain how manage system settings using `sys_config.py`
     * [x] `for-developers-section` introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing `README_xl2roefact_library.md`
     * [x] `site-0.6.dev1` restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view
     * [x] `240413_01` updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for `PyPi` availability in project description
-* wip... `InvoiceTypeCode-app-param` make `invoice_type_code` choose-type app parameter
+* `InvoiceTypeCode-app-param` make `invoice_type_code` choose-type app parameter
 * `InvoiceTypeCode-func-param` make `xl2roefact.rdinv()` parameter `invoice_type_code` parameter with default value `InvoiceTypesEnum.NORMALA`
-
 
 ### `0.6rc0` system database and parameters 
 
