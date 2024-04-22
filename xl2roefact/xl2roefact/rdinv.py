@@ -90,8 +90,9 @@ def rdinv(
 
         `file_to_process`: the invoice file (exact file with path).
         `invoice_worksheet_name`: the worksheet containing invoice, optional, defaults to first found worksheet.
+        `invoice_type_code`:  code of invoice type, for example "380" for regular.
         `debug_info`: key only, show debugging information, default `False`.
-        `owner_datafile`: specify a file to read supplier data from, default `None` meaning to read supplier data from Excel file
+        `owner_datafile`: specify a file to read supplier data from, default `None` meaning to read supplier data from Excel file.
 
     Return:
     
@@ -376,6 +377,7 @@ def rdinv(
                 "cbc_ActualDeliveryDate": copy.deepcopy(invoice_header_area["issued_date"]["value"])  # suppose identical with invoice date. Format: `YYYY-MM-DD`
             },
             "cbc_TaxPointDate": str(tmp_cbc_TaxPointDate),
+            "cbc_InvoiceTypeCode": invoice_type_code.value,  # ......
             # TODO: ... ... ...
             # can use `tmp_reusable_items["invoice_issdate_asdate"]` as datatime object
 
