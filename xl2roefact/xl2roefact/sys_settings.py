@@ -25,11 +25,11 @@ from enum import Enum
 # - `key`: displayed type to choose
 # - `value`: value used for JSON-`cbc_InvoiceTypeCode` key respectively XML-`cbc:InvoiceTypeCode` attribute
 # WARNING: object records hardly impact invoice VAT calculation and recognition
-InvoiceTypes = {
-    "NORMALA": "380",  # regular invoice (RO: factura normala) type (ie, not intra-community for example)
-    # "TEST": "tst",  #FIXME dbg drop me. Sample record for test
+InvoiceTypes = dict(
+    NORMALA = "380",  # regular invoice (RO: factura normala) type (ie, not intra-community for example)
+    # TEST = "tst",  #FIXME dbg drop me. Sample record for test
     # ... more invoice types here in future (v > 0.6)
-}
+)
 
 
 #--- 2. PARAMETERS section ---
