@@ -50,9 +50,7 @@
     * [x] `for-developers-section` introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing `README_xl2roefact_library.md`
     * [x] `site-0.6.dev1` restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view
     * [x] `240413_01` updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for `PyPi` availability in project description
-* ... delete `xl2roefact/tests...` specs / helper file
-* ... test and clean code
-* ... `InvoiceTypeCode-app-param` make choose-type app parameter
+* wip... `InvoiceTypeCode-app-param` make `invoice_type_code` choose-type app parameter
 * `InvoiceTypeCode-func-param` make `xl2roefact.rdinv()` parameter `invoice_type_code` parameter with default value `InvoiceTypesEnum.NORMALA`
 
 
