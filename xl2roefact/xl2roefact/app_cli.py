@@ -91,7 +91,7 @@ def settings(
 def xl2json(
     invoice_type: Annotated[
         InvoiceTypesEnum, typer.Option(case_sensitive=False)
-    ] = InvoiceTypesEnum.380, #.NORMALA,
+    ] = InvoiceTypesEnum.NORMALA,
     file_name: Annotated[
         str,
         typer.Argument(
