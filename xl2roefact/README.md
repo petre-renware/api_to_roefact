@@ -9,8 +9,8 @@ Legaturi externe utile:
 * [**Web Site**](https://invoicetoroefact.renware.eu/). (*Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.*)
 * [Pachet *PyPi*](https://pypi.org/project/xl2roefact/)
 * [Surse *GitHub*](https://github.com/petre-renware/api_to_roefact/)
-* [Referinta *dezvoltare sofrware* - biblioteca Python](xl2roefact/doc/README_xl2roefact_library.html)
-* [Referinta *API*](doc/wrapper_810.05a-xl2roefact_DLD_specs.html)
+* [Referinta *dezvoltare sofrware* - biblioteca Python](https://invoicetoroefact.renware.eu/xl2roefact/xl2roefact/doc/README_xl2roefact_library.html)
+* [Referinta *API*](https://invoicetoroefact.renware.eu/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html)
 <!--Refrence to source doc. If used like that, then must be resolved with an external tool before generating a complete README.html doc. The `mkdoxs` is able to do that but in `PyPi` published version will be unusable
 (./doc/810.05a-xl2roefact_DLD_specs.md)
 -->
