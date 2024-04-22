@@ -30,8 +30,7 @@ from xl2roefact.wrxml import wrxml  # status #FIXME: not yet started
 from xl2roefact.chkxml import chkxml  # status #FIXME: not yet started
 from xl2roefact.ldxml import ldxml  # status #FIXME: not yet started
 from xl2roefact.chkisld import chkisld  # status #FIXME: not yet started
-from xl2roefact import sys_settings
-
+from xl2roefact.sys_settings import InvoiceTypesEnum
 
 
 """ CLI builder section.
@@ -90,6 +89,7 @@ def settings(
 
 @app_cli.command()
 def xl2json(
+    invoice_type: InvoiceTypesEnum  = InvoiceTypesEnum.NORMALA.value,
     file_name: Annotated[
         str,
         typer.Argument(
@@ -133,7 +133,8 @@ def xl2json(
     """Extract data from an Excel file (save data to JSON format file with the same name as original file but `.json` extension).
 
     Args:
-    
+
+        `invoice_type_code`: invoice type (for exaple regular invoice or storno) as this info is not usually subject of Excel file. Default to `380` (regular / usual invoice)
         `file_name`: files to process (wildcards allowed).
         `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
         `owner_datafile`: File to read invoice supplier (owner) data instead Excel.
@@ -157,12 +158,21 @@ def xl2json(
         if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
             full_path_owner_datafile = hier_get_data_file(owner_datafile)
             if full_path_owner_datafile:
-                invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose, owner_datafile=full_path_owner_datafile)
+                invoice_datadict = rdinv(
+                    invoice_type_code=invoice_type,
+                    file_to_process=invoice_to_process,
+                    debug_info=verbose,
+                    owner_datafile=full_path_owner_datafile
+                )
             else:
                 print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
                 return  # just exit...
         else:
-            invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose)
+            invoice_datadict = rdinv(
+                invoice_type_code=invoice_type,
+                file_to_process=invoice_to_process,
+                debug_info=verbose
+            )
         if not invoice_datadict:
             print(f"[yellow]INFO note:[/] last step returned an error and process could be incomplete. Please review previous messages.")
         #

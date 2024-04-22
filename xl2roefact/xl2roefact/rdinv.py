@@ -901,7 +901,6 @@ def build_meta_info_key(
         ("cac_PartyTaxScheme", "cac:PartyTaxScheme"),  # specific to supplier
         # codes that are not from Excel file but that need to be present in XML file for RO eFact. Normally exceeds an Excel invoice, being at least for a "mini ERP" system
         ("cbc_DueDate", "cbc:DueDate"),
-        ("cbc_InvoiceTypeCode", "cbc:InvoiceTypeCode"),
         ("cbc_Note", "cbc:Note"),
         ("cbc_TaxPointDate", "cbc:TaxPointDate"),
         ("cac_Delivery", "cac:Delivery"),
