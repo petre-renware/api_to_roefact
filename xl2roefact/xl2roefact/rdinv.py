@@ -368,7 +368,7 @@ def rdinv(
                 "cbc_TaxAmount": round(sum([i["cbc_TaxAmount"] if i["cbc_TaxAmount"] is not None else 0 for i in tmp_cac_TaxSummary]), 2),
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
-            # remained mostly "administrative" structure values. For details see ISS `0.6rc1`+`code missing XML tags`
+            # mostly "administrative" structure. For details see CHANGELOG of `0.6rc0 & 0.6rc1`
             "cbc_Note": f"proccesed @{datetime.now(timezone.utc).isoformat()} with xl2roefact",
             "cac_PaymentMeans": {
                 "cbc_PaymentMeansCode": 1  #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
@@ -378,8 +378,6 @@ def rdinv(
             },
             "cbc_TaxPointDate": str(tmp_cbc_TaxPointDate),
             "cbc_InvoiceTypeCode": str(invoice_type_code.value),  # not subject of Excel file, got from parameter value. Known when call function
-            # TODO: ... ... ...
-            # can use `tmp_reusable_items["invoice_issdate_asdate"]` as datatime object
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
