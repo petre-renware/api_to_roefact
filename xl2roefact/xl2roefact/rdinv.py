@@ -35,6 +35,7 @@ from .libutils import find_str_in_list
 from .libutils import dict_sum_by_key
 from .libutils import invoice_taxes_summary
 from .libutils import hier_get_data_file
+from sys-settings import InvoiceTypesEnum
 from . import config_settings  # application configuration parameters
 
 __all__ = ["rdinv"]  # limit what symbols to be available when import all/full module as `from xl2roefact.rdinv import *`
@@ -77,6 +78,7 @@ def rdinv(
     file_to_process: str,
     invoice_worksheet_name: str = None,
     *,
+    invoice_type-code: InvoiceTypesEnum = InvoiceTypesEnum.NORMALA,
     debug_info: bool = False,
     owner_datafile: Path = None
 ) -> dict:
@@ -622,6 +624,7 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
                 },
                 "cbc_LineExtensionAmount": _item_total,
                 "LineVatAmount": None if _item_total is None else _item_VAT,  # line VAT calculation is subject of some Amount existence
+                "cbc_InvoiceTypeCode": invoice_type-code.value,  # not subject of Excel file, got from parameter value. Known when call function
             }
         }
         _invoice_items_area_json_format.append(_line_info["cac_InvoiceLine"])
@@ -910,6 +913,7 @@ def build_meta_info_key(
         ("cac_PaymentMeans", "cac:PaymentMeans"),
         ("cbc_PaymentMeansCode", "cbc:PaymentMeansCode"),
         ("cbc_TaxPointDate", "cbc:TaxPointDate"),  # date when VAT becomes eligible for payment
+        ("cbc_InvoiceTypeCode"", "cbc:InvoiceTypeCode"),  # invoice type (regular, return, canceling, ...)
     ]
     return copy.deepcopy(_tmp_meta_info)
 
