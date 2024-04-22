@@ -90,7 +90,11 @@ def settings(
 @app_cli.command()
 def xl2json(
     invoice_type: Annotated[
-        InvoiceTypesEnum, typer.Option(case_sensitive=False)
+        InvoiceTypesEnum, typer.Option(case_sensitive=False),
+        typer.Option(
+            "--invoice-type", "-T",
+            help="Invoice type code (defaults to 380 regular / usual invoice)"
+        )
     ] = InvoiceTypesEnum.NORMALA,
     file_name: Annotated[
         str,
