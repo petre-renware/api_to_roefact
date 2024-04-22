@@ -35,7 +35,7 @@ from .libutils import find_str_in_list
 from .libutils import dict_sum_by_key
 from .libutils import invoice_taxes_summary
 from .libutils import hier_get_data_file
-from sys-settings import InvoiceTypesEnum
+from sys_settings import InvoiceTypesEnum
 from . import config_settings  # application configuration parameters
 
 __all__ = ["rdinv"]  # limit what symbols to be available when import all/full module as `from xl2roefact.rdinv import *`
