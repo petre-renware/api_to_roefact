@@ -160,12 +160,21 @@ def xl2json(
         if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
             full_path_owner_datafile = hier_get_data_file(owner_datafile)
             if full_path_owner_datafile:
-                invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose, owner_datafile=full_path_owner_datafile)  #FIXME to send param `invoice_type_code=invoice_type`
+                invoice_datadict = rdinv(
+                    invoice_type_code=invoice_type,
+                    file_to_process=invoice_to_process,
+                    debug_info=verbose,
+                    owner_datafile=full_path_owner_datafile
+                )
             else:
                 print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
                 return  # just exit...
         else:
-            invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose)
+            invoice_datadict = rdinv(
+                invoice_type_code=invoice_type,
+                file_to_process=invoice_to_process,
+                debug_info=verbose
+            )
         if not invoice_datadict:
             print(f"[yellow]INFO note:[/] last step returned an error and process could be incomplete. Please review previous messages.")
         #
