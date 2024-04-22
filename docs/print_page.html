@@ -1376,7 +1376,7 @@
                         <section class="print-page" id="index"><p><img alt="api_to_roefact_logo" src="doc_src/pictures/api_to_roefact_logo.png" width="300" /></p>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="index-invoicetoroefact">INVOICEtoROefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6rc0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6rc1-blue" /></p>
 <p><strong>Facturi emise in Excel</strong>, problema rezolvata cu <strong>INVOICEtoROefact</strong> !</p>
 <p>Emiteti si folositi in continuare facturi in Excel. Acest sistem va produce fisierul XML de care aveti nevoie pentru sistemul <a href="https://www.anaf.ro/anaf/internet/ANAF/despre_anaf/strategii_anaf/proiecte_digitalizare/e.factura">ANAF E-Factura</a>.</p>
 <p>Si mai mult, daca aveti nevoie, puteti Integra aceste facturi si alte sisteme externe prin metode moderne, uzuale, curente, incetatenite de ani de zile si binecunoscute de specialistii din IT.</p>
@@ -1604,7 +1604,7 @@
 <li><a href="https://invoicetoroefact.renware.eu/"><strong>Web Site</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
 <li><a href="https://pypi.org/project/xl2roefact/">Pachet <em>PyPi</em></a></li>
 <li><a href="https://github.com/petre-renware/api_to_roefact/">Surse <em>GitHub</em></a></li>
-<li><a href="#xl2roefact-doc-readme_xl2roefact_library">Vedere de ansamblu pachet biblioteca Python</a></li>
+<li><a href="https://invoicetoroefact.renware.eu/xl2roefact/doc/README_xl2roefact_library.html">Referinta <em>dezvoltare software - biblioteca Python</em></a></li>
 <li><a href="https://invoicetoroefact.renware.eu/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html">Referinta <em>API</em></a></li>
 </ul>
 <!--Refrence to source doc. If used like that, then must be resolved with an external tool before generating a complete README.html doc. The `mkdoxs` is able to do that but in `PyPi` published version will be unusable
@@ -1929,7 +1929,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </li>
 <li><strong><code>excel_original_data</code></strong> - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel</li>
 </ul>
-<p><small markdown="1">Pentru detalii suplimentare despre formatul JSON trebyie consultata componenta referitoare la <strong><em><a href="#xl2roefact-doc-readme_xl2roefact_library">biblioteca <code>xl2roefact</code> destinata dezvoltarii software</a></em></strong>.</small></p>
+<p>Detalii suplimentare despre formatul JSON se gasesc in documentaţia <em><a href="#xl2roefact-doc-readme_xl2roefact_library">Referinta dezvoltare software</a></em>.</p>
 <h2 id="xl2roefact-index-descarcare-download-aplicatie-xl2roefact-cli">Descarcare (download) aplicatie xl2roefact CLI</h2>
 <ul>
 <li><a href="#doc_src-downloads-format-executabil-windows-x64">Pachet instalare aplicatie Windows</a></li>
@@ -1937,11 +1937,12 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><a href="#doc_src-downloads-sablon-fisier-configurare-a-aplicatiei-xl2roefact">Model de sablon de configuare</a></li>
 <li><a href="#doc_src-downloads-sablon-fisier-cu-date-furnizor">Sablon fisier-date informatii furnizor</a></li>
 </ul>
+<h2 id="xl2roefact-index-referinta-dezvoltare-software">Referinta dezvoltare software</h2>
+<p>Documentatia <strong><a href="#xl2roefact-doc-readme_xl2roefact_library">"Referinta dezvoltare software"</a></strong> ofera detail necesare pentru utilizarea bibliotecii sursa in dezvoltari specifice, extindere si integrare cu alte sisteme.</p>
 <h2 id="xl2roefact-index-date-identificare">Date identificare</h2>
 <ul>
 <li>part number (p/n): <code>0000-0095-xl2roefact</code></li>
-<li>producator si copyright: RENWare Software Systems</li>
-<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+<li>producator si copyright: RENWare Software Systems (referinte detalii tehnice: Petre Iordanescu, <em>petre.iordanescu@gmail.com</em>)</li>
 </ul>
 <h2 id="xl2roefact-index-license"><a href="#xl2roefact-license" title="download">License</a></h2>
 <h2 id="xl2roefact-index-note">Note</h2>
@@ -1967,10 +1968,10 @@ cit si la nivel detaliat pentru fiecare comanda
 - The DLD doc is a tech desc of every module, functions
 -->
 
-<h1 id="xl2roefact-doc-readme_xl2roefact_library-xl2roefact-python-library">xl2roefact python library</h1>
+<h1 id="xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</h1>
 <div class="toc">
 <ul>
-<li><a href="#xl2roefact-doc-readme_xl2roefact_library-xl2roefact-python-library">xl2roefact python library</a><ul>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</a><ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-library-modules">Library modules</a></li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-install-library">Install library</a><ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-install-from-pypi">Install from PyPi</a></li>
@@ -4055,7 +4056,8 @@ Public License instead of this License.  But first, please read
 <li>... <code>app-readme-doc</code> check &amp; update xl2roefact <code>README.md</code>:<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... functionalities in this release (JSON schema update)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... write about invoice type ref <code>cbc_InvoiceTypeCode</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... more sections "For developers" ref how manage some settings if introduce <code>sys_config.py</code> feature (different of <code>app_config</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... section "Referinta dezvoltare sofrware" ref how manage some settings if introduce <code>sys_config.py</code> feature (different of <code>app_config</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>for-developers-section</code> introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing <code>README_xl2roefact_library.md</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>site-0.6.dev1</code> restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>240413_01</code> updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for <code>PyPi</code> availability in project description</li>
 </ul>
