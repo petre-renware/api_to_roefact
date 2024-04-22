@@ -377,7 +377,7 @@ def rdinv(
                 "cbc_ActualDeliveryDate": copy.deepcopy(invoice_header_area["issued_date"]["value"])  # suppose identical with invoice date. Format: `YYYY-MM-DD`
             },
             "cbc_TaxPointDate": str(tmp_cbc_TaxPointDate),
-            "cbc_InvoiceTypeCode": invoice_type_code.value,  # not subject of Excel file, got from parameter value. Known when call function
+            "cbc_InvoiceTypeCode": str(invoice_type_code.value),  # not subject of Excel file, got from parameter value. Known when call function
             # TODO: ... ... ...
             # can use `tmp_reusable_items["invoice_issdate_asdate"]` as datatime object
 
