@@ -377,7 +377,7 @@ def rdinv(
                 "cbc_ActualDeliveryDate": copy.deepcopy(invoice_header_area["issued_date"]["value"])  # suppose identical with invoice date. Format: `YYYY-MM-DD`
             },
             "cbc_TaxPointDate": str(tmp_cbc_TaxPointDate),
-            "cbc_InvoiceTypeCode": invoice_type_code.value,  # ......
+            "cbc_InvoiceTypeCode": invoice_type_code.value,  # not subject of Excel file, got from parameter value. Known when call function
             # TODO: ... ... ...
             # can use `tmp_reusable_items["invoice_issdate_asdate"]` as datatime object
 
@@ -626,7 +626,6 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
                 },
                 "cbc_LineExtensionAmount": _item_total,
                 "LineVatAmount": None if _item_total is None else _item_VAT,  # line VAT calculation is subject of some Amount existence
-                "cbc_InvoiceTypeCode": invoice_type-code.value,  # not subject of Excel file, got from parameter value. Known when call function
             }
         }
         _invoice_items_area_json_format.append(_line_info["cac_InvoiceLine"])
