@@ -913,7 +913,7 @@ def build_meta_info_key(
         ("cac_PaymentMeans", "cac:PaymentMeans"),
         ("cbc_PaymentMeansCode", "cbc:PaymentMeansCode"),
         ("cbc_TaxPointDate", "cbc:TaxPointDate"),  # date when VAT becomes eligible for payment
-        ("cbc_InvoiceTypeCode"", "cbc:InvoiceTypeCode"),  # invoice type (regular, return, canceling, ...)
+        ("cbc_InvoiceTypeCode", "cbc:InvoiceTypeCode"),  # invoice type (regular, return, canceling, ...)
     ]
     return copy.deepcopy(_tmp_meta_info)
 
