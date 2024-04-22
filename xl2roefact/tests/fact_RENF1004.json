@@ -195,7 +195,7 @@
                 }
             ]
         },
-        "cbc_Note": "proccesed @2024-04-22T15:29:56.527310+00:00 with xl2roefact",
+        "cbc_Note": "proccesed @2024-04-22T15:31:52.304271+00:00 with xl2roefact",
         "cac_PaymentMeans": {
             "cbc_PaymentMeansCode": 1
         },
@@ -208,7 +208,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...file CRC (uniquely identify the invoice file used)",
-        "last_processing_time": "2024-04-22T15:29:56.526897+00:00",
+        "last_processing_time": "2024-04-22T15:31:52.303841+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,
