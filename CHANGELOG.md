@@ -52,9 +52,9 @@
     * [x] `240413_01` updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for `PyPi` availability in project description
 * ... delete `xl2roefact/tests...` specs / helper file
 * ... test and clean code
-* ... `InvoiceTypeCode-param` make a choose application  parameter.
+* ... `InvoiceTypeCode-app-param` make a choose application  parameter.
   Values to be taken from `sys_settings` module, object `InvoiceType`
-* ... ... ...
+* ... `InvoiceTypeCode-func-param` make `xl2roefact.rdinv()` parameter `invoice_type-code` parameter with default value `InvoiceTypesEnum.NORMALA`
 
 
 ### `0.6rc0` system database and parameters 
