@@ -89,11 +89,9 @@ def settings(
 
 @app_cli.command()
 def xl2json(
-    #FIXME code for `invoice_type_code` parameter
-    invoice_type_code: Annotated[
+    invoice_type: Annotated[
         InvoiceTypesEnum, typer.Option(case_sensitive=False)
     ] = InvoiceTypesEnum.NORMALA,
-    #FIXME ... ... ... code ends hede
     file_name: Annotated[
         str,
         typer.Argument(
@@ -138,7 +136,7 @@ def xl2json(
 
     Args:
 
-        `invoice_type_code`: invoice type (for exaple regular invoice or storno) as this info is not usually subject of Excel file. Default to `NORMALA` (code 380)
+        `invoice_type_code`: invoice type (for exaple regular invoice or storno) as this info is not usually subject of Excel file. Default to `380` (regular / usual invoice)
         `file_name`: files to process (wildcards allowed).
         `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
         `owner_datafile`: File to read invoice supplier (owner) data instead Excel.
@@ -162,7 +160,7 @@ def xl2json(
         if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
             full_path_owner_datafile = hier_get_data_file(owner_datafile)
             if full_path_owner_datafile:
-                invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose, owner_datafile=full_path_owner_datafile)  #FIXME to send param `invoice_type_code=invoice_type_code`
+                invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose, owner_datafile=full_path_owner_datafile)  #FIXME to send param `invoice_type_code=invoice_type`
             else:
                 print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
                 return  # just exit...
