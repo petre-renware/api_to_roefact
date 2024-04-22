@@ -328,7 +328,7 @@ Detalii suplimentare despre formatul JSON se gasesc in documentaţia *[Referinta
 
 ## Referinta dezvoltare software
 
-Documentatia *["Referinta dezvoltare software"](./doc/README_xl2roefact_library.md)* ofera detail necesare pentru utilizarea bibliotecii sursa in dezvoltari specifice, extindere si integrare cu alte sisteme.
+Documentatia **["Referinta dezvoltare software"](./doc/README_xl2roefact_library.md)** ofera detail necesare pentru utilizarea bibliotecii sursa in dezvoltari specifice, extindere si integrare cu alte sisteme.
 
 
 
@@ -336,8 +336,7 @@ Documentatia *["Referinta dezvoltare software"](./doc/README_xl2roefact_library.
 ## Date identificare
 
 * part number (p/n): `0000-0095-xl2roefact`
-* producator si copyright: RENWare Software Systems
-* author: Petre Iordanescu (petre.iordanescu@gmail.com)
+* producator si copyright: RENWare Software Systems (referinte detalii tehnice: Petre Iordanescu, *petre.iordanescu@gmail.com*)
 
 
 
