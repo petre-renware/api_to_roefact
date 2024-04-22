@@ -30,8 +30,7 @@ from xl2roefact.wrxml import wrxml  # status #FIXME: not yet started
 from xl2roefact.chkxml import chkxml  # status #FIXME: not yet started
 from xl2roefact.ldxml import ldxml  # status #FIXME: not yet started
 from xl2roefact.chkisld import chkisld  # status #FIXME: not yet started
-from xl2roefact import sys_settings
-
+from xl2roefact.sys_settings import InvoiceTypesEnum
 
 
 """ CLI builder section.
@@ -90,6 +89,11 @@ def settings(
 
 @app_cli.command()
 def xl2json(
+    #FIXME code for `invoice_type_code` parameter
+    invoice_type_code: Annotated[
+        InvoiceTypesEnum, typer.Option(case_sensitive=False)
+    ] = InvoiceTypesEnum.NORMALA,
+    #FIXME ... ... ... code ends hede
     file_name: Annotated[
         str,
         typer.Argument(
@@ -133,7 +137,8 @@ def xl2json(
     """Extract data from an Excel file (save data to JSON format file with the same name as original file but `.json` extension).
 
     Args:
-    
+
+        `invoice_type_code`: invoice type (for exaple regular invoice or storno) as this info is not usually subject of Excel file. Default to `NORMALA` (code 380)
         `file_name`: files to process (wildcards allowed).
         `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
         `owner_datafile`: File to read invoice supplier (owner) data instead Excel.
@@ -157,7 +162,7 @@ def xl2json(
         if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
             full_path_owner_datafile = hier_get_data_file(owner_datafile)
             if full_path_owner_datafile:
-                invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose, owner_datafile=full_path_owner_datafile)
+                invoice_datadict = rdinv(file_to_process=invoice_to_process, debug_info=verbose, owner_datafile=full_path_owner_datafile)  #FIXME to send param `invoice_type_code=invoice_type_code`
             else:
                 print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
                 return  # just exit...
