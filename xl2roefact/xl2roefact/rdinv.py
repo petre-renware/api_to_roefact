@@ -380,9 +380,6 @@ def rdinv(
             "cbc_InvoiceTypeCode": str(invoice_type_code.value),  # not subject of Excel file, got from parameter value. Known when call function
             # TODO: ... ... ...
             # can use `tmp_reusable_items["invoice_issdate_asdate"]` as datatime object
-
-
-            
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
