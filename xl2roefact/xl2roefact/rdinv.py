@@ -78,7 +78,7 @@ def rdinv(
     file_to_process: str,
     invoice_worksheet_name: str = None,
     *,
-    invoice_type-code: InvoiceTypesEnum, # = InvoiceTypesEnum.NORMALA,
+    invoice_type_code: InvoiceTypesEnum = InvoiceTypesEnum.NORMALA,
     debug_info: bool = False,
     owner_datafile: Path = None
 ) -> dict:
