@@ -203,7 +203,7 @@
             "cbc_ActualDeliveryDate": "2023-08-28"
         },
         "cbc_TaxPointDate": "2023-09-25",
-        "cbc_InvoiceTypeCode": "380"
+        "cbc_InvoiceTypeCode": "fake"
     },
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
