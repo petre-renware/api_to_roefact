@@ -6,7 +6,7 @@
 #
 
 extra:  # NOTE: components version used as Jinja fields in site markdown docs
-    INVOICEtoROefact_version: "0.6rc0"  # last release "0.6.dev1"
+    INVOICEtoROefact_version: "0.6rc1"  # last release "0.6rc0"
     xl2roefact_version: "0.6rc0" # last release "0.5.4"
     web2roefact_version: "n/a"
     invoice_template_version: "0.1.20"
