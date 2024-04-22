@@ -150,8 +150,6 @@ def xl2json(
     list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
     if verbose:
         print(f"[yellow]DEBUG note:[/] list object with files to process: [green]{list_of_files_to_process}[/]")
-    print(f"********* {invoice_type=}") #FIXME dbg drop me 
-    sys.exit() #FIXME dbg drop me 
     for a_file in list_of_files_to_process:
         if verbose:
             print(f"[yellow]DEBUG note:[/] to process now: [green]{a_file}[/]")
