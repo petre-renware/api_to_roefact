@@ -21,14 +21,11 @@
 
 * ---[ FUTURE NEW APP COMMANDS ]---:
     * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-    * `xl2json` - crt_wip... (last upd @ 240219piu_a)
+    * `xl2json` - 99% closed
     * `json2xml` - see module WRXML,
     * `json2pdf` - new module. tbd..,
     * `xml2roefact` - see module LDXML
     * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-
-* ---[ Plan for `rdinv` module ]---:
-        * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
 -->
 
 
@@ -53,7 +50,7 @@
 * `InvoiceTypeCode-app-param` make `invoice_type_code` choose-type app parameter
 * `InvoiceTypeCode-func-param` make `xl2roefact.rdinv()` parameter `invoice_type_code` parameter with default value `InvoiceTypesEnum.NORMALA`
 
-### `0.6rc0` system database and parameters 
+### `0.6rc0` system database and parameters
 
 * `0.6rc0+240420` build and publish release:
     1. update versions for `xl2roefact` and `invoicetoroefact`
@@ -63,16 +60,16 @@
     6. site build & publish
 * `sys_settings-invoice-type` populated "system database" with allowed invoice types
     * created `InvoiceTypes` dictionary with allowed invoice types
-    * created `InvoiceTypesEnum` as Enum to be used by CLI app parameter (dinamically generated from previous data object)
+    * created `InvoiceTypesEnum` as Enum to be used by CLI app parameter (dynamically generated from previous data object)
 * `sys_settings-module` created `xl2roefact/sys_settings.py` component dedicated to system settings (ie, not user configurable but only developers; is intended that later versions to use also a database for)
 * `cbc_TaxPointDate` will be set to 25 of next month from invoice issued month
 * `cbc_DueDate` search `invoice_header_area` ref `PATTERN_FOR_DUE_DATE` pattern. Use found data if not None or default it to `invoice_header_area["issued_date"]["value"] + DUE_DATE_DAYS` if None found
-* `PATTERN_FOR_DUE_DATE` update `config_settings.py` & `app_settings.yml`, create `PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]` 
+* `PATTERN_FOR_DUE_DATE` update `config_settings.py` & `app_settings.yml`, create `PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]`
 * `inv-issdate-todate` upd `rdinv` for final json dict convert & local save invoice issued date in `datetime` format to--> `tmp_reusable_items["invoice_issdate_asdate"]`
 * `cac_Delivery` set as invoice issued date
 * `cac_PaymentMeans` will be set to `1` supposing is unknown at invoicing issuing date
 * `DEFAULT_DUE_DATE_DAYS` new app config parameter with default value 30 days
-* `cbc_Note` set to "proccesed @`{date_time_now}` with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time
+* `cbc_Note` set to "processed @`{date_time_now}` with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time
 * `init-work` set site & xl2roefact versions to `0.6rc1`
 
 ### `0.6.dev1` code missing XML tags
