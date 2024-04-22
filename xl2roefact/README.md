@@ -328,7 +328,7 @@ Detalii suplimentare despre formatul JSON se gasesc in documentaţia *[Referinta
 
 ## Referinta dezvoltare software
 
-Documentatia *["Referinta dezvoltare software"](./doc/README_xl2roefact_library.html)* ofera detail necesare pentru utilizarea bibliotecii sursa in dezvoltari specifice, extindere si integrare cu alte sisteme.
+Documentatia *["Referinta dezvoltare software"](./doc/README_xl2roefact_library.md)* ofera detail necesare pentru utilizarea bibliotecii sursa in dezvoltari specifice, extindere si integrare cu alte sisteme.
 
 
 
