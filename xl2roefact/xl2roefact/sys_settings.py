@@ -27,6 +27,7 @@ from enum import Enum
 # WARNING: object records hardly impact invoice VAT calculation and recognition
 InvoiceTypes = dict(
     NORMALA = "380",  # regular invoice (RO: factura normala) type (ie, not intra-community for example)
+    Xxx = "xxx",
     # ... more invoice types here in future (v > 0.6)
 )
 
