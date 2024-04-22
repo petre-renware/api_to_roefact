@@ -89,7 +89,7 @@ def settings(
 
 @app_cli.command()
 def xl2json(
-    invoice_type: InvoiceTypesEnum  = InvoiceTypesEnum.NORMALA.value,
+    invoice_type: InvoiceTypesEnum  = InvoiceTypesEnum(NORMALA),
     file_name: Annotated[
         str,
         typer.Argument(
