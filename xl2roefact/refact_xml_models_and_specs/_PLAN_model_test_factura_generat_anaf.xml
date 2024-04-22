@@ -12,7 +12,7 @@
     <cbc:IssueDate>2013-11-17</cbc:IssueDate>  #NOTE DONE / RDY
     <cbc:DueDate>2023-11-21</cbc:DueDate>  #NOTE DONE / RDY
     <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>  #NOTE DONE / RDY
-    <cbc:Note>test generat 2023-11-21</cbc:Note>  #TODO tbd...
+    <cbc:Note>test generat 2023-11-21</cbc:Note>  #NOTE DONE / RDY
     <cbc:TaxPointDate>2013-11-20</cbc:TaxPointDate>  #NOTE DONE / RDY
     <cbc:DocumentCurrencyCode>RON</cbc:DocumentCurrencyCode>  #NOTE DONE / RDY
 
