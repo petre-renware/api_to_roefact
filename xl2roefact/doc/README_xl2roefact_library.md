@@ -28,8 +28,8 @@ These components assure the basic elementary-raw processing of information. Thei
 
 These are the components that assure and make possible system configurablitity at user level.
 
-* `config_settings` define system settings & parameters mainly used in invoice info / data detection and extract from invoice Excel format file
-
+* `config_settings` *USER level configuration* - define application settings & parameters mainly used in invoice info / data detection and extract from invoice Excel format file
+* `sys_settings` *SYSTEM level configuration* - define system parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective)
 
 ### Presentation components
 
