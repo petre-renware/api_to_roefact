@@ -90,7 +90,7 @@ An [example of JSON generated file is available here](./invoice_json_model_.md)
 
 
 ## Sysyem database and parameters
-System database is an object that interface library components with physical stores of paretrs and data requred by system and its applications.
+System database is an object that interface library components with physical stores of parameters and data requred by system and its applications.
 
 Sometimes it can contain both physical and logical interfaces one example being *InvoiceTypes*  which consists of:
 
