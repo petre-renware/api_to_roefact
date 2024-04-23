@@ -1,13 +1,23 @@
 """System database and parameters.
 
-This module IS NOT intended to be modified by end users or administrators.
-Only development stuff can alter this database because application code must be updated accordingly.
+This module acts as an "ORM" between `xl2roefact` system and different data objects. It contains:
 
-* NOTE for updaters: because dependencies, code sections should follow strict enumerated order in comments
+* tinny physical data objects (Section 1.)
+* logical data objects (Section 2.)
+* interfaces to external data objects as files or other specialized systems (Section 2.)
+
+Notes:
+
+* "Sections 1, sl , ..." organization of code even is just a pure visual one, is recommended to be respected and followed it being intended to increase code readability and latter maintainability.
+* IMPORTANT to keep in mind: This module IS NOT intended to be modified by end users or administrators. Only development stuff can alter this database because application code must be updated accordingly.
+* for updaters remark: because dependencies, code sections should follow strict enumerated order in comments
+
+References:
 
 * copyright: (c) 2024 RENWare Software Systems
 * author: Petre Iordanescu (petre.iordanescu@gmail.com)
 """
+
 
 from pathlib import Path
 import os
@@ -19,7 +29,8 @@ from .libutils import hier_get_data_file
 from enum import Enum
 
 
-#--- 1. DATABASE section ----
+"""Section 1. DATABASE in-module physical store
+"""
 
 # Object that keep allowed InvoiceType codes:
 # - `key`: displayed type to choose
@@ -31,7 +42,10 @@ InvoiceTypes = dict(
 )
 
 
-#--- 2. PARAMETERS section ---
+
+
+"""Section 2. INTERFACES & LOGICAL data
+"""
 
 # Enumeration used by CLI app for invoice typrs argument / option
 InvoiceTypesEnum = Enum("InvoiceTypesEnum", InvoiceTypes)

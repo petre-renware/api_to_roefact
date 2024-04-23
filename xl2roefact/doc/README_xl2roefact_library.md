@@ -24,8 +24,8 @@ These components assure the basic elementary-raw processing of information. Thei
 ### Configuration components
 These are the components that assure and make possible system configurablitity at user level.
 
-* `config_settings` *USER level configuration* - define application settings & parameters mainly used in invoice info / data detection and extract from invoice Excel format file
-* `sys_settings` *SYSTEM level configuration* - define system parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective)
+* `config_settings` *USER level* configuration - define application settings & parameters mainly used in invoice info / data detection and extract from invoice Excel format file
+* `sys_settings` *SYSTEM level* configuration - system database and parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective) - details in section [Sysyem database and parameters](#sysyem-database-and-parameters)
 
 ### Presentation components
 These components are high level layers that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.
@@ -42,7 +42,7 @@ These components are high level layers that make sysyem usable in various forms 
 Library can be installed using 2 methods:
 
 * install from PyPi
-* install from distribution packages
+* install from site archive of distribution packages
 
 ### Install from PyPi
 The library installation can be done using standard Python instruments:
@@ -86,6 +86,18 @@ Cheile de la primul nivel contin:
 
 An [example of JSON generated file is available here](./invoice_json_model_.md)
 
+
+
+
+## Sysyem database and parameters
+System database is an object that interface library components with physical stores of parameters and data requred by system and its applications.
+
+Sometimes it can contain both physical and logical interfaces one example being *InvoiceTypes*  which consists of:
+
+* `InvoiceTypes: dict` the physical store of invoice types name and codes
+* `InvoiceTypesEnum: Enum` the logical object with invoice types implemented as standard Python enumeration (`enum`)
+
+This let open the possibility that in future versions to "externalize" physical data-objects to other systems or distinct files, but letting small / tinny physical data-objects to stay in `sys_settings.py` module.
 
 
 

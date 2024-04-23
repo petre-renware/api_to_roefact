@@ -681,17 +681,26 @@ div.download-btn {
 <p><a id="sys_settings"></a></p>
 <h1 id="sys_settings">sys_settings</h1>
 <p>System database and parameters.</p>
-<p>This module IS NOT intended to be modified by end users or administrators.
-Only development stuff can alter this database because application code must be updated accordingly.</p>
+<p>This module acts as an "ORM" between <code>xl2roefact</code> system and different data objects. It contains:</p>
 <ul>
-<li>
-<p>NOTE for updaters: because dependencies, code sections should follow strict enumerated order in comments</p>
-</li>
-<li>
-<p>copyright: (c) 2024 RENWare Software Systems</p>
-</li>
+<li>tinny physical data objects (Section 1.)</li>
+<li>logical data objects (Section 2.)</li>
+<li>interfaces to external data objects as files or other specialized systems (Section 2.)</li>
+</ul>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>"Sections 1, sl , ..." organization of code even is just a pure visual one, is recommended to be respected and followed it being intended to increase code readability and latter maintainability.</li>
+<li>IMPORTANT to keep in mind: This module IS NOT intended to be modified by end users or administrators. Only development stuff can alter this database because application code must be updated accordingly.</li>
+<li>for updaters remark: because dependencies, code sections should follow strict enumerated order in comments</li>
+</ul>
+<p><strong>References</strong>:</p>
+<ul>
+<li>copyright: (c) 2024 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
+<p><a id="sys_settings.InvoiceTypes"></a></p>
+<h4 id="invoicetypes">InvoiceTypes</h4>
+<p>Section 2. INTERFACES &amp; LOGICAL data</p>
 <p><a id="ldxml"></a></p>
 <h1 id="ldxml">ldxml</h1>
 <p>ldxml: modul de incarcare a facturii in sistemul ANAF E-Factura</p>

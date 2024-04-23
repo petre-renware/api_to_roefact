@@ -369,7 +369,7 @@ def rdinv(
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
             # mostly "administrative" structure. For details see CHANGELOG of `0.6rc0 & 0.6rc1`
-            "cbc_Note": f"proccesed @{datetime.now(timezone.utc).isoformat()} with xl2roefact",
+            "cbc_Note": f"generated @{datetime.now(timezone.utc).isoformat()} with xl2roefact by RENware Software Systems",
             "cac_PaymentMeans": {
                 "cbc_PaymentMeansCode": 1  #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
             },

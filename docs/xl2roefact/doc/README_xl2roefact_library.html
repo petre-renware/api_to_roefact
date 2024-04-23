@@ -377,6 +377,11 @@ div.download-btn {
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#sysyem-database-and-parameters">
+    Sysyem database and parameters
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#api-refrence">
     API Refrence
   </a>
@@ -630,6 +635,11 @@ div.download-btn {
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#sysyem-database-and-parameters">
+    Sysyem database and parameters
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#api-refrence">
     API Refrence
   </a>
@@ -666,6 +676,7 @@ div.download-btn {
 </ul>
 </li>
 <li><a href="#aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii</a></li>
+<li><a href="#sysyem-database-and-parameters">Sysyem database and parameters</a></li>
 <li><a href="#api-refrence">API Refrence</a></li>
 <li><a href="#download-xl2roefact-library">Download xl2roefact library</a></li>
 </ul>
@@ -685,8 +696,8 @@ div.download-btn {
 <h3 id="configuration-components">Configuration components</h3>
 <p>These are the components that assure and make possible system configurablitity at user level.</p>
 <ul>
-<li><code>config_settings</code> <em>USER level configuration</em> - define application settings &amp; parameters mainly used in invoice info / data detection and extract from invoice Excel format file</li>
-<li><code>sys_settings</code> <em>SYSTEM level configuration</em> - define system parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective)</li>
+<li><code>config_settings</code> <em>USER level</em> configuration - define application settings &amp; parameters mainly used in invoice info / data detection and extract from invoice Excel format file</li>
+<li><code>sys_settings</code> <em>SYSTEM level</em> configuration - system database and parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective) - details in section <a href="#sysyem-database-and-parameters">Sysyem database and parameters</a></li>
 </ul>
 <h3 id="presentation-components">Presentation components</h3>
 <p>These components are high level layers that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.</p>
@@ -700,7 +711,7 @@ div.download-btn {
 <p>Library can be installed using 2 methods:</p>
 <ul>
 <li>install from PyPi</li>
-<li>install from distribution packages</li>
+<li>install from site archive of distribution packages</li>
 </ul>
 <h3 id="install-from-pypi">Install from PyPi</h3>
 <p>The library installation can be done using standard Python instruments:</p>
@@ -729,6 +740,14 @@ div.download-btn {
 <li><strong><code>excel_original_data</code></strong> - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel</li>
 </ul>
 <p>An <a href="invoice_json_model_.html">example of JSON generated file is available here</a></p>
+<h2 id="sysyem-database-and-parameters">Sysyem database and parameters</h2>
+<p>System database is an object that interface library components with physical stores of parameters and data requred by system and its applications.</p>
+<p>Sometimes it can contain both physical and logical interfaces one example being <em>InvoiceTypes</em>  which consists of:</p>
+<ul>
+<li><code>InvoiceTypes: dict</code> the physical store of invoice types name and codes</li>
+<li><code>InvoiceTypesEnum: Enum</code> the logical object with invoice types implemented as standard Python enumeration (<code>enum</code>)</li>
+</ul>
+<p>This let open the possibility that in future versions to "externalize" physical data-objects to other systems or distinct files, but letting small / tinny physical data-objects to stay in <code>sys_settings.py</code> module.</p>
 <h2 id="api-refrence"><a href="https://invoicetoroefact.renware.eu/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html">API Refrence</a></h2>
 <!--NOTE: reference using in-profect document
 [API Reference](./wrapper_810.05a-xl2roefact_DLD_specs.md)
