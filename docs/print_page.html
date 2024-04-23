@@ -2051,7 +2051,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 <p>An <a href="#xl2roefact-doc-invoice_json_model_">example of JSON generated file is available here</a></p>
 <h2 id="xl2roefact-doc-readme_xl2roefact_library-sysyem-database-and-parameters">Sysyem database and parameters</h2>
-<p>System database is an object that interface library components with physical stores of paretrs and data requred by system and its applications.</p>
+<p>System database is an object that interface library components with physical stores of parameters and data requred by system and its applications.</p>
 <p>Sometimes it can contain both physical and logical interfaces one example being <em>InvoiceTypes</em>  which consists of:</p>
 <ul>
 <li><code>InvoiceTypes: dict</code> the physical store of invoice types name and codes</li>
@@ -2090,7 +2090,10 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 </li>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__main__">__main__</a></li>
-<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-sys_settings">sys_settings</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-sys_settings">sys_settings</a><ul>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-invoicetypes">InvoiceTypes</a></li>
+</ul>
+</li>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-ldxml">ldxml</a></li>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-wrxml">wrxml</a></li>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rdinv">rdinv</a><ul>
@@ -2279,17 +2282,26 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><a id="sys_settings"></a></p>
 <h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-sys_settings">sys_settings</h1>
 <p>System database and parameters.</p>
-<p>This module IS NOT intended to be modified by end users or administrators.
-Only development stuff can alter this database because application code must be updated accordingly.</p>
+<p>This module acts as an "ORM" between <code>xl2roefact</code> system and different data objects. It contains:</p>
 <ul>
-<li>
-<p>NOTE for updaters: because dependencies, code sections should follow strict enumerated order in comments</p>
-</li>
-<li>
-<p>copyright: (c) 2024 RENWare Software Systems</p>
-</li>
+<li>tinny physical data objects (Section 1.)</li>
+<li>logical data objects (Section 2.)</li>
+<li>interfaces to external data objects as files or other specialized systems (Section 2.)</li>
+</ul>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>"Sections 1, sl , ..." organization of code even is just a pure visual one, is recommended to be respected and followed it being intended to increase code readability and latter maintainability.</li>
+<li>IMPORTANT to keep in mind: This module IS NOT intended to be modified by end users or administrators. Only development stuff can alter this database because application code must be updated accordingly.</li>
+<li>for updaters remark: because dependencies, code sections should follow strict enumerated order in comments</li>
+</ul>
+<p><strong>References</strong>:</p>
+<ul>
+<li>copyright: (c) 2024 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
+<p><a id="sys_settings.InvoiceTypes"></a></p>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-invoicetypes">InvoiceTypes</h4>
+<p>Section 2. INTERFACES &amp; LOGICAL data</p>
 <p><a id="ldxml"></a></p>
 <h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-ldxml">ldxml</h1>
 <p>ldxml: modul de incarcare a facturii in sistemul ANAF E-Factura</p>
@@ -4088,7 +4100,7 @@ Public License instead of this License.  But first, please read
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... site rebuild &amp; publish</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... example JSON schema update</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... short note about allowed invoice type (<code>cbc_InvoiceTypeCode</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>doc-sys-settings-feat</code> short note about allowed invoice type (<code>cbc_InvoiceTypeCode</code>)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>doc-sys-settings-feat</code> in xl2roefact library doc, ie "Referinta dezvoltare sofrware" (<code>README_xl2roefact_library.md</code>) explain how manage system settings using <code>sys_config.py</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>for-developers-section</code> introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing <code>README_xl2roefact_library.md</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>site-0.6.dev1</code> restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view</li>
