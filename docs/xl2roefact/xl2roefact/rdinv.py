@@ -35,6 +35,7 @@ from .libutils import find_str_in_list
 from .libutils import dict_sum_by_key
 from .libutils import invoice_taxes_summary
 from .libutils import hier_get_data_file
+from .sys_settings import InvoiceTypesEnum
 from . import config_settings  # application configuration parameters
 
 __all__ = ["rdinv"]  # limit what symbols to be available when import all/full module as `from xl2roefact.rdinv import *`
@@ -77,6 +78,7 @@ def rdinv(
     file_to_process: str,
     invoice_worksheet_name: str = None,
     *,
+    invoice_type_code: InvoiceTypesEnum = InvoiceTypesEnum.NORMALA,
     debug_info: bool = False,
     owner_datafile: Path = None
 ) -> dict:
@@ -88,8 +90,9 @@ def rdinv(
 
         `file_to_process`: the invoice file (exact file with path).
         `invoice_worksheet_name`: the worksheet containing invoice, optional, defaults to first found worksheet.
+        `invoice_type_code`:  code of invoice type, for example "380" for regular.
         `debug_info`: key only, show debugging information, default `False`.
-        `owner_datafile`: specify a file to read supplier data from, default `None` meaning to read supplier data from Excel file
+        `owner_datafile`: specify a file to read supplier data from, default `None` meaning to read supplier data from Excel file.
 
     Return:
     
@@ -365,7 +368,7 @@ def rdinv(
                 "cbc_TaxAmount": round(sum([i["cbc_TaxAmount"] if i["cbc_TaxAmount"] is not None else 0 for i in tmp_cac_TaxSummary]), 2),
                 "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
             },
-            # remained mostly "administrative" structure values. For details see ISS `0.6rc1`+`code missing XML tags`
+            # mostly "administrative" structure. For details see CHANGELOG of `0.6rc0 & 0.6rc1`
             "cbc_Note": f"proccesed @{datetime.now(timezone.utc).isoformat()} with xl2roefact",
             "cac_PaymentMeans": {
                 "cbc_PaymentMeansCode": 1  #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
@@ -374,11 +377,7 @@ def rdinv(
                 "cbc_ActualDeliveryDate": copy.deepcopy(invoice_header_area["issued_date"]["value"])  # suppose identical with invoice date. Format: `YYYY-MM-DD`
             },
             "cbc_TaxPointDate": str(tmp_cbc_TaxPointDate),
-            # TODO: ... ... ...
-            # can use `tmp_reusable_items["invoice_issdate_asdate"]` as datatime object
-
-
-            
+            "cbc_InvoiceTypeCode": str(invoice_type_code.value),  # not subject of Excel file, got from parameter value. Known when call function
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
@@ -902,7 +901,6 @@ def build_meta_info_key(
         ("cac_PartyTaxScheme", "cac:PartyTaxScheme"),  # specific to supplier
         # codes that are not from Excel file but that need to be present in XML file for RO eFact. Normally exceeds an Excel invoice, being at least for a "mini ERP" system
         ("cbc_DueDate", "cbc:DueDate"),
-        ("cbc_InvoiceTypeCode", "cbc:InvoiceTypeCode"),
         ("cbc_Note", "cbc:Note"),
         ("cbc_TaxPointDate", "cbc:TaxPointDate"),
         ("cac_Delivery", "cac:Delivery"),
@@ -910,6 +908,7 @@ def build_meta_info_key(
         ("cac_PaymentMeans", "cac:PaymentMeans"),
         ("cbc_PaymentMeansCode", "cbc:PaymentMeansCode"),
         ("cbc_TaxPointDate", "cbc:TaxPointDate"),  # date when VAT becomes eligible for payment
+        ("cbc_InvoiceTypeCode", "cbc:InvoiceTypeCode"),  # invoice type (regular, return, canceling, ...)
     ]
     return copy.deepcopy(_tmp_meta_info)
 

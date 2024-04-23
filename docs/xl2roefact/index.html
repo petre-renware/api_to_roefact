@@ -1024,7 +1024,8 @@ cit si la nivel detaliat pentru fiecare comanda
 <h4 id="xl2json">xl2json</h4>
 <p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
 <p>Args:</p>
-<pre><code>`file_name`: files to process (wildcards allowed).
+<pre><code>`invoice_type_code`: invoice type (for exaple regular invoice or storno) as this info is not usually subject of Excel file. Default to `380` (regular / usual invoice)
+`file_name`: files to process (wildcards allowed).
 `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
 `owner_datafile`: File to read invoice supplier (owner) data instead Excel.
 `verbose`: show detailed processing messages". Defaults to `False`.
@@ -1033,7 +1034,8 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact xl2json [OPTIONS] [FILE_NAME]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  [FILE_NAME]                     files to process
+<div class="highlight"><pre><span></span><code>  --invoice-type [380]            [default: 380]
+  [FILE_NAME]                     files to process
                                   (wildcards
                                   allowed)
                                   [default:

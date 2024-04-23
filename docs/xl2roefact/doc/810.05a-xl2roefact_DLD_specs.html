@@ -548,7 +548,7 @@ div.download-btn {
 </code></pre></div></p>
 <p><a id="__version__.__version__"></a></p>
 <h4 id="__version___1">__version__</h4>
-<p>current 0.6rc0, previous 0.5.4</p>
+<p>current 0.6rc1, previous 0.5.4</p>
 <p><a id="__version__.normalized_version"></a></p>
 <h4 id="normalized_version">normalized_version</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">normalized_version</span><span class="p">(</span><span class="n">raw_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
@@ -593,6 +593,7 @@ div.download-btn {
 <h4 id="xl2json">xl2json</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">xl2json</span><span class="p">(</span>
+    <span class="n">invoice_type</span><span class="p">:</span> <span class="n">InvoiceTypesEnum</span> <span class="o">=</span> <span class="n">InvoiceTypesEnum</span><span class="o">.</span><span class="n">NORMALA</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
     <span class="n">file_name</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">str</span><span class="p">,</span> <span class="n">typer</span><span class="o">.</span><span class="n">Argument</span><span class="p">(</span>
             <span class="n">help</span><span class="o">=</span><span class="s2">"files to process (wildcards allowed)"</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">"*.xlsx"</span><span class="p">,</span>
@@ -633,6 +634,7 @@ div.download-btn {
 <p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
 <p><strong>Arguments</strong>:</p>
 <ul>
+<li><code>invoice_type_code</code> - invoice type (for exaple regular invoice or storno) as this info is not usually subject of Excel file. Default to <code>380</code> (regular / usual invoice)</li>
 <li><code>file_name</code> - files to process (wildcards allowed).</li>
 <li><code>files_directory</code> - directory to be used to look for Excel files. Defaults to <code>invoice_files/</code>. NOTE: if default directory does not exists will consider current directory instead</li>
 <li><code>owner_datafile</code> - File to read invoice supplier (owner) data instead Excel.</li>
@@ -741,6 +743,7 @@ Only development stuff can alter this database because application code must be 
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rdinv</span><span class="p">(</span><span class="n">file_to_process</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
           <span class="n">invoice_worksheet_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
           <span class="o">*</span><span class="p">,</span>
+          <span class="n">invoice_type_code</span><span class="p">:</span> <span class="n">InvoiceTypesEnum</span> <span class="o">=</span> <span class="n">InvoiceTypesEnum</span><span class="o">.</span><span class="n">NORMALA</span><span class="p">,</span>
           <span class="n">debug_info</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
           <span class="n">owner_datafile</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
 </code></pre></div>
@@ -750,8 +753,9 @@ Only development stuff can alter this database because application code must be 
 <ul>
 <li><code>file_to_process</code> - the invoice file (exact file with path).</li>
 <li><code>invoice_worksheet_name</code> - the worksheet containing invoice, optional, defaults to first found worksheet.</li>
+<li><code>invoice_type_code</code> - code of invoice type, for example "380" for regular.</li>
 <li><code>debug_info</code> - key only, show debugging information, default <code>False</code>.</li>
-<li><code>owner_datafile</code> - specify a file to read supplier data from, default <code>None</code> meaning to read supplier data from Excel file</li>
+<li><code>owner_datafile</code> - specify a file to read supplier data from, default <code>None</code> meaning to read supplier data from Excel file.</li>
 </ul>
 <p><strong>Returns</strong>:</p>
 <ul>
@@ -1069,7 +1073,7 @@ Only development stuff can alter this database because application code must be 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 20, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 22, 2024</span>
 </small>
 </div>
 </article>

@@ -626,14 +626,11 @@ div.download-btn {
 
 * ---[ FUTURE NEW APP COMMANDS ]---:
     * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-    * `xl2json` - crt_wip... (last upd @ 240219piu_a)
+    * `xl2json` - 99% closed
     * `json2xml` - see module WRXML,
     * `json2pdf` - new module. tbd..,
     * `xml2roefact` - see module LDXML
     * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-
-* ---[ Plan for `rdinv` module ]---:
-        * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
 -->
 <h2 id="06-finalize-json-model-to-contain-all-ro-efact-xml-mandatory-taga">0.6 finalize JSON model to contain all RO eFact XML mandatory taga</h2>
 <ul>
@@ -644,20 +641,20 @@ div.download-btn {
 <h3 id="06rc1-invoice-type-json-xml-tag"><code>0.6rc1</code> invoice type JSON-XML tag</h3>
 <ul>
 <li>... build package version <code>0.6rc1</code></li>
-<li>... <code>app-readme-doc</code> check &amp; update xl2roefact <code>README.md</code>:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... functionalities in this release (JSON schema update)</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... write about invoice type ref <code>cbc_InvoiceTypeCode</code></li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... section "Referinta dezvoltare sofrware" ref how manage some settings if introduce <code>sys_config.py</code> feature (different of <code>app_config</code>)</li>
+<li>... <code>app-readme-doc</code> check &amp; update xl2roefact <code>README.md</code>:</li>
+<li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... site rebuild &amp; publish</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... example JSON schema update</li>
+<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> ... short note about allowed invoice type (<code>cbc_InvoiceTypeCode</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> <code>doc-sys-settings-feat</code> in xl2roefact library doc, ie "Referinta dezvoltare sofrware" (<code>README_xl2roefact_library.md</code>) explain how manage system settings using <code>sys_config.py</code></li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> <code>for-developers-section</code> introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing <code>README_xl2roefact_library.md</code></li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> <code>site-0.6.dev1</code> restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view</li>
 <li class="task-list-item"><label class="task-list-control"><input checked="" disabled="" type="checkbox"><span class="task-list-indicator"></span></input></label> <code>240413_01</code> updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for <code>PyPi</code> availability in project description</li>
 </ul>
 </li>
-<li>... delete <code>xl2roefact/tests...</code> specs / helper file</li>
-<li>... test and clean code</li>
-<li>... <code>InvoiceTypeCode-param</code> make a choose application  parameter.
-  Values to be taken from <code>sys_settings</code> module, object <code>InvoiceType</code></li>
-<li>... ... ...</li>
+<li><code>InvoiceTypeCode-app-param</code> make <code>invoice_type_code</code> choose-type app parameter</li>
+<li><code>InvoiceTypeCode-func-param</code> make <code>xl2roefact.rdinv()</code> parameter <code>invoice_type_code</code> parameter with default value <code>InvoiceTypesEnum.NORMALA</code></li>
 </ul>
 <h3 id="06rc0-system-database-and-parameters"><code>0.6rc0</code> system database and parameters</h3>
 <ul>
@@ -671,18 +668,18 @@ div.download-btn {
 </li>
 <li><code>sys_settings-invoice-type</code> populated "system database" with allowed invoice types<ul>
 <li>created <code>InvoiceTypes</code> dictionary with allowed invoice types</li>
-<li>created <code>InvoiceTypesEnum</code> as Enum to be used by CLI app parameter (dinamically generated from previous data object)</li>
+<li>created <code>InvoiceTypesEnum</code> as Enum to be used by CLI app parameter (dynamically generated from previous data object)</li>
 </ul>
 </li>
 <li><code>sys_settings-module</code> created <code>xl2roefact/sys_settings.py</code> component dedicated to system settings (ie, not user configurable but only developers; is intended that later versions to use also a database for)</li>
 <li><code>cbc_TaxPointDate</code> will be set to 25 of next month from invoice issued month</li>
 <li><code>cbc_DueDate</code> search <code>invoice_header_area</code> ref <code>PATTERN_FOR_DUE_DATE</code> pattern. Use found data if not None or default it to <code>invoice_header_area["issued_date"]["value"] + DUE_DATE_DAYS</code> if None found</li>
-<li><code>PATTERN_FOR_DUE_DATE</code> update <code>config_settings.py</code> &amp; <code>app_settings.yml</code>, create <code>PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]</code> </li>
+<li><code>PATTERN_FOR_DUE_DATE</code> update <code>config_settings.py</code> &amp; <code>app_settings.yml</code>, create <code>PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]</code></li>
 <li><code>inv-issdate-todate</code> upd <code>rdinv</code> for final json dict convert &amp; local save invoice issued date in <code>datetime</code> format to--&gt; <code>tmp_reusable_items["invoice_issdate_asdate"]</code></li>
 <li><code>cac_Delivery</code> set as invoice issued date</li>
 <li><code>cac_PaymentMeans</code> will be set to <code>1</code> supposing is unknown at invoicing issuing date</li>
 <li><code>DEFAULT_DUE_DATE_DAYS</code> new app config parameter with default value 30 days</li>
-<li><code>cbc_Note</code> set to "proccesed @<code>{date_time_now}</code> with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time</li>
+<li><code>cbc_Note</code> set to "processed @<code>{date_time_now}</code> with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time</li>
 <li><code>init-work</code> set site &amp; xl2roefact versions to <code>0.6rc1</code></li>
 </ul>
 <h3 id="06dev1-code-missing-xml-tags"><code>0.6.dev1</code> code missing XML tags</h3>
@@ -789,7 +786,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 22, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 23, 2024</span>
 </small>
 </div>
 </article>
