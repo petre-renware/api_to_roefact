@@ -6,6 +6,8 @@
 
 # Software development reference using xl2roefact python library
 
+![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue)
+
 [TOC]
 
 
