@@ -41,6 +41,7 @@
 
 * ... build package version `0.6rc1`
 * ... `app-readme-doc` check & update xl2roefact `README.md`:
+*   * [ ] ... site rebuild & publish
     * [ ] ... example JSON schema update
     * [ ] ... short note about allowed invoice type (`cbc_InvoiceTypeCode`)
     * [ ] wip... `doc-sys-settings-feat` in xl2roefact library doc, ie "Referinta dezvoltare sofrware" (`README_xl2roefact_library.md`) explain how manage system settings using `sys_config.py`
