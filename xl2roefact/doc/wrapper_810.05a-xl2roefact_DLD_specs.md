@@ -2,6 +2,7 @@
 
 # xl2roefact python library API Reference
 
+![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue)
 
 [TOC]
 
