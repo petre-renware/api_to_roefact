@@ -1794,7 +1794,8 @@ cit si la nivel detaliat pentru fiecare comanda
 <h4 id="xl2roefact-index-xl2json">xl2json</h4>
 <p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
 <p>Args:</p>
-<pre><code>`file_name`: files to process (wildcards allowed).
+<pre><code>`invoice_type_code`: invoice type (for exaple regular invoice or storno) as this info is not usually subject of Excel file. Default to `380` (regular / usual invoice)
+`file_name`: files to process (wildcards allowed).
 `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
 `owner_datafile`: File to read invoice supplier (owner) data instead Excel.
 `verbose`: show detailed processing messages". Defaults to `False`.
@@ -1803,7 +1804,8 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact xl2json [OPTIONS] [FILE_NAME]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  [FILE_NAME]                     files to process
+<div class="highlight"><pre><span></span><code>  --invoice-type [380]            [default: 380]
+  [FILE_NAME]                     files to process
                                   (wildcards
                                   allowed)
                                   [default:
@@ -1972,7 +1974,12 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</a><ul>
-<li><a href="#xl2roefact-doc-readme_xl2roefact_library-library-modules">Library modules</a></li>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library-library-components">Library components</a><ul>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library-basic-processing-components">Basic processing components</a></li>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library-configuration-components">Configuration components</a></li>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library-presentation-components">Presentation components</a></li>
+</ul>
+</li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-install-library">Install library</a><ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-install-from-pypi">Install from PyPi</a></li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-install-from-distribution-packages">Install from distribution packages</a></li>
@@ -1985,18 +1992,30 @@ cit si la nivel detaliat pentru fiecare comanda
 </li>
 </ul>
 </div>
-<h2 id="xl2roefact-doc-readme_xl2roefact_library-library-modules">Library modules</h2>
-<p><code>xl2roefact</code> library (package) modules are:</p>
+<h2 id="xl2roefact-doc-readme_xl2roefact_library-library-components">Library components</h2>
+<h3 id="xl2roefact-doc-readme_xl2roefact_library-basic-processing-components">Basic processing components</h3>
+<p>These components assure the basic elementary-raw processing of information. Their interface is pure technical and require basic development knowledge to be used "as is".</p>
 <ul>
 <li><code>rdinv</code> read an Excel file and extract invoice data to a JSON file format</li>
 <li><code>wrxml</code>  write, convert the JSON invoice file to a XML file format, respecting schemes required by <em>RO EFact</em> standard</li>
 <li><code>chkxml</code> check generated XML file</li>
 <li><code>ldxml</code> load an invoice (ie, its XML associated file) to <em>ANAF SPV system</em></li>
 <li><code>chkisld</code> check if an invoice is already loaded in <em>ANAF SPV system</em></li>
-<li><code>config_settings</code> define system settings &amp; parameters mainly used in invoice info / data detection and extract from invoice Excel format file</li>
-<li><code>app_cli</code> contains the code for <code>xl2roefact</code> application command line (CLI) format</li>
 </ul>
-<p>Below is presented the <strong><em>skeleton logic</em></strong> of those modules which and where is relevant <small markdown="1">ie meaning where is not enough obvious from code or code complexity exceed usual limits (<em>for example nore than 100 lines of code per function</em>)</small>. For more technical details and specification regarding modules <a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs">see API Reference</a></p>
+<h3 id="xl2roefact-doc-readme_xl2roefact_library-configuration-components">Configuration components</h3>
+<p>These are the components that assure and make possible system configurablitity at user level.</p>
+<ul>
+<li><code>config_settings</code> <em>USER level configuration</em> - define application settings &amp; parameters mainly used in invoice info / data detection and extract from invoice Excel format file</li>
+<li><code>sys_settings</code> <em>SYSTEM level configuration</em> - define system parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective)</li>
+</ul>
+<h3 id="xl2roefact-doc-readme_xl2roefact_library-presentation-components">Presentation components</h3>
+<p>These components are high level layers that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.</p>
+<ul>
+<li><code>app_cli</code> contains the code for <code>xl2roefact</code> application command line (CLI) format</li>
+<li><code>__main__</code> assures right package "addressing" as Python modele (ie, running as <code>python -m xl2roefact ...</code>)</li>
+<li><code>__version__</code> keeps current system version and helper functions to assure standard and canonical representation of version string</li>
+<li><code>__init__</code> assure friendly exposing of system public objects (and of course classic pytgon role of "package maker")</li>
+</ul>
 <h2 id="xl2roefact-doc-readme_xl2roefact_library-install-library">Install library</h2>
 <p>Library can be installed using 2 methods:</p>
 <ul>
@@ -2004,9 +2023,10 @@ cit si la nivel detaliat pentru fiecare comanda
 <li>install from distribution packages</li>
 </ul>
 <h3 id="xl2roefact-doc-readme_xl2roefact_library-install-from-pypi">Install from PyPi</h3>
-<p>The library installation should be done using standard Python instruments:</p>
-<div class="highlight"><pre><span></span><code>pip install xl2roefact
+<p>The library installation can be done using standard Python instruments:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>xl2roefact
 </code></pre></div>
+<p>This command will install by default the last stable version. For other versions, standard PyPi procedure to  install a specific version must be used.</p>
 <h3 id="xl2roefact-doc-readme_xl2roefact_library-install-from-distribution-packages">Install from distribution packages</h3>
 <p>To install from distribution packages first download the package version intended to install (<a href="#xl2roefact-doc-readme_xl2roefact_library-download-xl2roefact-library">see download section</a>), choose the package type (if you have no special option, then choose <em><code>WHEEL</code></em> format) and install it using <code>pip</code> as any other Python library installation (<em>detailed in Python official documentation</em>).</p>
 <h2 id="xl2roefact-doc-readme_xl2roefact_library-aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii</h2>
@@ -2117,7 +2137,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div></p>
 <p><a id="__version__.__version__"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version___1">__version__</h4>
-<p>current 0.6rc0, previous 0.5.4</p>
+<p>current 0.6rc1, previous 0.5.4</p>
 <p><a id="__version__.normalized_version"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-normalized_version">normalized_version</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">normalized_version</span><span class="p">(</span><span class="n">raw_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
@@ -2162,6 +2182,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2json">xl2json</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">xl2json</span><span class="p">(</span>
+    <span class="n">invoice_type</span><span class="p">:</span> <span class="n">InvoiceTypesEnum</span> <span class="o">=</span> <span class="n">InvoiceTypesEnum</span><span class="o">.</span><span class="n">NORMALA</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
     <span class="n">file_name</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span>
         <span class="nb">str</span><span class="p">,</span> <span class="n">typer</span><span class="o">.</span><span class="n">Argument</span><span class="p">(</span>
             <span class="n">help</span><span class="o">=</span><span class="s2">&quot;files to process (wildcards allowed)&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;*.xlsx&quot;</span><span class="p">,</span>
@@ -2202,6 +2223,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
 <p><strong>Arguments</strong>:</p>
 <ul>
+<li><code>invoice_type_code</code> - invoice type (for exaple regular invoice or storno) as this info is not usually subject of Excel file. Default to <code>380</code> (regular / usual invoice)</li>
 <li><code>file_name</code> - files to process (wildcards allowed).</li>
 <li><code>files_directory</code> - directory to be used to look for Excel files. Defaults to <code>invoice_files/</code>. NOTE: if default directory does not exists will consider current directory instead</li>
 <li><code>owner_datafile</code> - File to read invoice supplier (owner) data instead Excel.</li>
@@ -2310,6 +2332,7 @@ Only development stuff can alter this database because application code must be 
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rdinv</span><span class="p">(</span><span class="n">file_to_process</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
           <span class="n">invoice_worksheet_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
           <span class="o">*</span><span class="p">,</span>
+          <span class="n">invoice_type_code</span><span class="p">:</span> <span class="n">InvoiceTypesEnum</span> <span class="o">=</span> <span class="n">InvoiceTypesEnum</span><span class="o">.</span><span class="n">NORMALA</span><span class="p">,</span>
           <span class="n">debug_info</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
           <span class="n">owner_datafile</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
 </code></pre></div>
@@ -2319,8 +2342,9 @@ Only development stuff can alter this database because application code must be 
 <ul>
 <li><code>file_to_process</code> - the invoice file (exact file with path).</li>
 <li><code>invoice_worksheet_name</code> - the worksheet containing invoice, optional, defaults to first found worksheet.</li>
+<li><code>invoice_type_code</code> - code of invoice type, for example "380" for regular.</li>
 <li><code>debug_info</code> - key only, show debugging information, default <code>False</code>.</li>
-<li><code>owner_datafile</code> - specify a file to read supplier data from, default <code>None</code> meaning to read supplier data from Excel file</li>
+<li><code>owner_datafile</code> - specify a file to read supplier data from, default <code>None</code> meaning to read supplier data from Excel file.</li>
 </ul>
 <p><strong>Returns</strong>:</p>
 <ul>
@@ -4034,14 +4058,11 @@ Public License instead of this License.  But first, please read
 
 * ---[ FUTURE NEW APP COMMANDS ]---:
     * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-    * `xl2json` - crt_wip... (last upd @ 240219piu_a)
+    * `xl2json` - 99% closed
     * `json2xml` - see module WRXML,
     * `json2pdf` - new module. tbd..,
     * `xml2roefact` - see module LDXML
     * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
-
-* ---[ Plan for `rdinv` module ]---:
-        * [ ] ...wip in 0.4... invoice supplier (`<cac:AccountingSupplierParty>`)
 -->
 
 <h2 id="changelog-06-finalize-json-model-to-contain-all-ro-efact-xml-mandatory-taga">0.6 finalize JSON model to contain all RO eFact XML mandatory taga</h2>
@@ -4053,20 +4074,20 @@ Public License instead of this License.  But first, please read
 <h3 id="changelog-06rc1-invoice-type-json-xml-tag"><code>0.6rc1</code> invoice type JSON-XML tag</h3>
 <ul>
 <li>... build package version <code>0.6rc1</code></li>
-<li>... <code>app-readme-doc</code> check &amp; update xl2roefact <code>README.md</code>:<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... functionalities in this release (JSON schema update)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... write about invoice type ref <code>cbc_InvoiceTypeCode</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... section "Referinta dezvoltare sofrware" ref how manage some settings if introduce <code>sys_config.py</code> feature (different of <code>app_config</code>)</li>
+<li>... <code>app-readme-doc</code> check &amp; update xl2roefact <code>README.md</code>:</li>
+<li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... site rebuild &amp; publish</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... example JSON schema update</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ... short note about allowed invoice type (<code>cbc_InvoiceTypeCode</code>)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>doc-sys-settings-feat</code> in xl2roefact library doc, ie "Referinta dezvoltare sofrware" (<code>README_xl2roefact_library.md</code>) explain how manage system settings using <code>sys_config.py</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>for-developers-section</code> introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing <code>README_xl2roefact_library.md</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>site-0.6.dev1</code> restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>240413_01</code> updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for <code>PyPi</code> availability in project description</li>
 </ul>
 </li>
-<li>... delete <code>xl2roefact/tests...</code> specs / helper file</li>
-<li>... test and clean code</li>
-<li>... <code>InvoiceTypeCode-param</code> make a choose application  parameter.
-  Values to be taken from <code>sys_settings</code> module, object <code>InvoiceType</code></li>
-<li>... ... ...</li>
+<li><code>InvoiceTypeCode-app-param</code> make <code>invoice_type_code</code> choose-type app parameter</li>
+<li><code>InvoiceTypeCode-func-param</code> make <code>xl2roefact.rdinv()</code> parameter <code>invoice_type_code</code> parameter with default value <code>InvoiceTypesEnum.NORMALA</code></li>
 </ul>
 <h3 id="changelog-06rc0-system-database-and-parameters"><code>0.6rc0</code> system database and parameters</h3>
 <ul>
@@ -4080,18 +4101,18 @@ Public License instead of this License.  But first, please read
 </li>
 <li><code>sys_settings-invoice-type</code> populated "system database" with allowed invoice types<ul>
 <li>created <code>InvoiceTypes</code> dictionary with allowed invoice types</li>
-<li>created <code>InvoiceTypesEnum</code> as Enum to be used by CLI app parameter (dinamically generated from previous data object)</li>
+<li>created <code>InvoiceTypesEnum</code> as Enum to be used by CLI app parameter (dynamically generated from previous data object)</li>
 </ul>
 </li>
 <li><code>sys_settings-module</code> created <code>xl2roefact/sys_settings.py</code> component dedicated to system settings (ie, not user configurable but only developers; is intended that later versions to use also a database for)</li>
 <li><code>cbc_TaxPointDate</code> will be set to 25 of next month from invoice issued month</li>
 <li><code>cbc_DueDate</code> search <code>invoice_header_area</code> ref <code>PATTERN_FOR_DUE_DATE</code> pattern. Use found data if not None or default it to <code>invoice_header_area["issued_date"]["value"] + DUE_DATE_DAYS</code> if None found</li>
-<li><code>PATTERN_FOR_DUE_DATE</code> update <code>config_settings.py</code> &amp; <code>app_settings.yml</code>, create <code>PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]</code> </li>
+<li><code>PATTERN_FOR_DUE_DATE</code> update <code>config_settings.py</code> &amp; <code>app_settings.yml</code>, create <code>PATTERN_FOR_DUE_DATE = ["scad", "due da", "date due"]</code></li>
 <li><code>inv-issdate-todate</code> upd <code>rdinv</code> for final json dict convert &amp; local save invoice issued date in <code>datetime</code> format to--&gt; <code>tmp_reusable_items["invoice_issdate_asdate"]</code></li>
 <li><code>cac_Delivery</code> set as invoice issued date</li>
 <li><code>cac_PaymentMeans</code> will be set to <code>1</code> supposing is unknown at invoicing issuing date</li>
 <li><code>DEFAULT_DUE_DATE_DAYS</code> new app config parameter with default value 30 days</li>
-<li><code>cbc_Note</code> set to "proccesed @<code>{date_time_now}</code> with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time</li>
+<li><code>cbc_Note</code> set to "processed @<code>{date_time_now}</code> with xl2roefact". Latter this field will be updated with text ref loading to RO-eFact data-time</li>
 <li><code>init-work</code> set site &amp; xl2roefact versions to <code>0.6rc1</code></li>
 </ul>
 <h3 id="changelog-06dev1-code-missing-xml-tags"><code>0.6.dev1</code> code missing XML tags</h3>

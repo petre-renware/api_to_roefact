@@ -10,43 +10,51 @@
 
 
 
-## Library modules
+## Library components
 
-`xl2roefact` library (package) modules are:
+### Basic processing components
+These components assure the basic elementary-raw processing of information. Their interface is pure technical and require basic development knowledge to be used "as is".
 
 * `rdinv` read an Excel file and extract invoice data to a JSON file format
 * `wrxml`  write, convert the JSON invoice file to a XML file format, respecting schemes required by *RO EFact* standard
 * `chkxml` check generated XML file
 * `ldxml` load an invoice (ie, its XML associated file) to *ANAF SPV system*
 * `chkisld` check if an invoice is already loaded in *ANAF SPV system*
-* `config_settings` define system settings & parameters mainly used in invoice info / data detection and extract from invoice Excel format file
+
+### Configuration components
+These are the components that assure and make possible system configurablitity at user level.
+
+* `config_settings` *USER level configuration* - define application settings & parameters mainly used in invoice info / data detection and extract from invoice Excel format file
+* `sys_settings` *SYSTEM level configuration* - define system parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective)
+
+### Presentation components
+These components are high level layers that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.
+
 * `app_cli` contains the code for `xl2roefact` application command line (CLI) format
-
-
-Below is presented the ***skeleton logic*** of those modules which and where is relevant <small markdown="1">ie meaning where is not enough obvious from code or code complexity exceed usual limits (*for example nore than 100 lines of code per function*)</small>. For more technical details and specification regarding modules [see API Reference](./wrapper_810.05a-xl2roefact_DLD_specs.md)
+* `__main__` assures right package "addressing" as Python modele (ie, running as `python -m xl2roefact ...`)
+* `__version__` keeps current system version and helper functions to assure standard and canonical representation of version string
+* `__init__` assure friendly exposing of system public objects (and of course classic pytgon role of "package maker")
 
 
 
 
 ## Install library
-
 Library can be installed using 2 methods:
 
 * install from PyPi
 * install from distribution packages
 
 ### Install from PyPi
+The library installation can be done using standard Python instruments:
 
-The library installation should be done using standard Python instruments:
-
-```
+```bash
 pip install xl2roefact
 ```
 
+This command will install by default the last stable version. For other versions, standard PyPi procedure to  install a specific version must be used.
 
 
 ### Install from distribution packages
-
 To install from distribution packages first download the package version intended to install ([see download section](#download-xl2roefact-library)), choose the package type (if you have no special option, then choose *`WHEEL`* format) and install it using `pip` as any other Python library installation (*detailed in Python official documentation*).
 
 
@@ -54,7 +62,6 @@ To install from distribution packages first download the package version intende
 
 
 ## Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii
-
 Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Structura de baza a acestui fisier este:
 
 
