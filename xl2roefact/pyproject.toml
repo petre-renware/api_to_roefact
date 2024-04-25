@@ -112,7 +112,7 @@ build_sexe = { cmd = [
 ] } # build portable single EXE file
 post_build_sexe = { call = "xl2roefact.libutils:complete_sexe_file" }  # process resulted exe to normalise its name and move to `.../dist/`
 
-build_doc = { shell = "pydoc-markdown -I xl2roefact >doc/810.05a-xl2roefact_DLD_specs.md" }  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
+build_doc = { shell = "pydoc-markdown -I src >doc/810.05a-xl2roefact_DLD_specs.md" }  # build API Reference doc (`xl2roefact/doc/810.05a-xl2roefact_DLD_specs.md`). NOTE: to render a TOC use pydoc option `--render-toc`
 build_all = { composite = [
     "build_wheel",
     "build_msi",
