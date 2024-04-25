@@ -227,7 +227,7 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 
 ### Reguli recomamdate in configurarea aplicatiei pe specificul Excel al facturilor dumneavoastra
 
-{% include './xl2roefact/data/README_app_config_rules.md' %}
+{% include './src/data/README_app_config_rules.md' %}
 
 
 
