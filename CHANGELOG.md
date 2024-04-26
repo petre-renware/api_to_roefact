@@ -38,8 +38,9 @@
 
 ## `0.6` invoice type JSON-XML tag
 * ... site rebuild & publish
+* ... publish on PyPi
 * ... update downloads.md
-* ... xl2roefact build all deliverables
+* `xl2roefact-build` build all `0.6` deliverables
 * `app-readme-doc` check & update xl2roefact `README.md`:
     * [x] example JSON schema update & build + publish site
     * [x] `doc-sys-settings-feat` short note about allowed invoice type (`cbc_InvoiceTypeCode`)
