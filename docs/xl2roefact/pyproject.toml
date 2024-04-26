@@ -70,7 +70,7 @@ GitHub = "https://github.com/petre-renware/api_to_roefact"
 
 
 [project.scripts]  # NOTE: tested 240420: PASS, can run as simple cmd just to have right Python version & dependencies installed
-xl2roefact = "xl2roefact.app_cli:main"
+xl2roefact = "src.app_cli:main"
 
 
 
@@ -81,7 +81,7 @@ build-backend = "pdm.backend"
 
 
 [tool.pdm]
-version = { source = "file", path = "xl2roefact/__version__.py" }
+version = { source = "file", path = "src/__version__.py" }
 distribution = true  # required for PyPi package publishing
 
 
