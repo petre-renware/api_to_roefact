@@ -40,8 +40,8 @@
 * ... site rebuild & publish
 * ... update downloads.md
 * ... xl2roefact build all deliverables
-* ... `app-readme-doc` check & update xl2roefact `README.md`:
-    * [ ] ... example JSON schema update
+* `app-readme-doc` check & update xl2roefact `README.md`:
+    * [x] example JSON schema update & build + publish site
     * [x] `doc-sys-settings-feat` short note about allowed invoice type (`cbc_InvoiceTypeCode`)
     * [x] `doc-sys-settings-feat` in xl2roefact library doc, ie "Referinta dezvoltare sofrware" (`README_xl2roefact_library.md`) explain how manage system settings using `sys_config.py`
     * [x] `for-developers-section` introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing `README_xl2roefact_library.md`
