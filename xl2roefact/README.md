@@ -203,7 +203,7 @@ xl2roefact [COMMAND] --help
 
 <!--#NOTE: next section generate application commands in same style as obtained using `--help` CLI options -->
 ::: mkdocs-typer
-    :module: src.app_cli
+    :module: xl2roefact.src.app_cli
     :command: app_cli
     :prog_name: xl2roefact
     :depth: 2

@@ -9,6 +9,7 @@
         "cbc_ID": "INV-001",
         "cbc_DocumentCurrencyCode": "RON",
         "cbc_IssueDate": "2023-08-28",
+        "cbc_DueDate": "2023-09-27",
         "cac_AccountingCustomerParty": {
             "cac_Party": {
                 "cac_PartyLegalEntity": {
@@ -200,6 +201,15 @@
                 }
             ]
         },
+        "cbc_Note": "generated @2024-04-26T07:07:20.704934+00:00 with xl2roefact by RENware Software Systems",
+        "cac_PaymentMeans": {
+            "cbc_PaymentMeansCode": 1
+        },
+        "cac_Delivery": {
+            "cbc_ActualDeliveryDate": "2023-08-28"
+        },
+        "cbc_TaxPointDate": "2023-09-25",
+        "cbc_InvoiceTypeCode": "380"
     },
     "meta_info": {
         "file": "invoice_json_model_.xlsx",
