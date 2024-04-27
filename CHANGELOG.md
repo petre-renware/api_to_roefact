@@ -32,6 +32,9 @@
 
 ## 0.7 commands as layer 2 of functionalities (based on app CLI commands)
 
+* ... code for this module code: `commands.py`
+* ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
+* ... update doc `README_xl2roefact_library.md` section "Library components" to rflect the new commands layer
 * ...
 * fix `invoicetoroefact.renware.eu` site for 0.6 MSI & EXE downloads
 
