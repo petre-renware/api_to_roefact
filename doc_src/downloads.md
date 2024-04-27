@@ -21,7 +21,6 @@
 
 
 ### xl2roefact pe PyPi  <a id="pachetul-xl2roefact-pe-pypi"></a>
-
 Versiunea de pe pe repository-ul public `PyPi` permite instalarea directa in mediul Python local astfel:
 ```shell
 pip install xl2roefact
@@ -32,7 +31,6 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 ### xl2roefact pachete redistribuibile   <a id="pachetul-xl2roefact-python-library-format-sursa"></a>
-
 <!--NOTE: starting with `0.6rc0` source deliverables are available only on `PyPi` -->
 
 ??? note "0.6"
@@ -40,7 +38,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
     * [`0.6rc0` system database and parameters](https://pypi.org/project/xl2roefact/0.6rc0/)
 
 
-<!-- #TODO; from 240501 drop as deprecated -->
+<!-- #TODO; from 240501 drop these versions as deprecated -->
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
 
 ??? note "0.5"
@@ -85,7 +83,6 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 ### web2roefact pe PyPi   <a id="pachetul-web2roefact-pe-pypi"></a>
-
 Nici o resursa disponibila.
 
 
@@ -102,10 +99,11 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
 ??? note "0.6"
+    *  [`0.6` invoice type JSON-XML tag](../xl2roefact/dist/xl2roefact-0.6-win64.msi)
     * `0.6rc0 system database and parameters` INDISPONIBILA
 
 
-<!-- #TODO; from 240501 drop as deprecated -->
+<!-- #TODO; from 240501 drop these versions as deprecated -->
 
 ??? note "0.5"
     * [`0.5.4` invoice supplier from owner master data](../xl2roefact/dist/xl2roefact-0.5.4-win64.msi){:download}
@@ -135,10 +133,11 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
 
 ??? note "0.6"
+    *  [`0.6` invoice type JSON-XML tag](../xl2roefact/dist/xl2roefact-0.6-win64.exe)
     * `0.6rc0 system database and parameters` INDISPONIBILA
 
 
-<!-- #TODO; from 240501 drop as deprecated -->
+<!-- #TODO; from 240501 drop these versions as deprecated -->
 
 ??? note "0.5"
     * [`0.5.4` invoice supplier from owner master data](../xl2roefact/dist/xl2roefact-0.5.4-win64.exe){:download}
@@ -155,7 +154,6 @@ Nici o resursa disponibila.
 
 
 ### web2roefact kit instalare (win64-msi)   <a id="aplicatia-web2roefact-pachet-instalare-win64-msi"></a>
-
 Nici o resursa disponibila.
 
 
@@ -165,12 +163,10 @@ Nici o resursa disponibila.
 
 
 ## Linux   <a id="format-deb-instalare-linux"></a>
-
 Nici o resursa disponibila.
 
 
 ## MacOS X  <a id="format-instalare-macosx"></a>
-
 Nici o resursa disponibila.
 
 
@@ -197,7 +193,6 @@ Nici o resursa disponibila.
 
 
 ## Sablon fisier configurare a aplicatiei xl2roefact   <a id="sablon-fisier-configurare-a-aplicatiei-xl2roefact"></a>
-
 Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.
 
 Sablonul este in format [YAML](https://yaml.org/) iar informatiile ce trebuiesc descrise sunt explicate individual in comentarii insotitoare.
@@ -223,7 +218,6 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 
 
 ## Sablon fisier cu date furnizor  <a id="sablon-fisier-cu-date-furnizor"></a>
-
 
 [Descarcare aici](./../xl2roefact/doc/owner_datafile_tmeplate.yml){:download}.
 
