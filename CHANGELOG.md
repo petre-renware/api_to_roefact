@@ -36,9 +36,15 @@
 -->
 
 
+
+
+
+
+
+
 ## `0.6` invoice type JSON-XML tag
-* ... site rebuild & publish
-* `upd-dwnlds` update downloads.md
+
+* `upd-dwnlds` update downloads.md. site rebuild & publish
 * `pypi-publish` publish on PyPi
 * `xl2roefact-build` build all `0.6` deliverables
 * `app-readme-doc` check & update xl2roefact `README.md`:
