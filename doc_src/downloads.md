@@ -33,10 +33,14 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 ### xl2roefact pachete redistribuibile   <a id="pachetul-xl2roefact-python-library-format-sursa"></a>
 <!--NOTE: starting with `0.6rc0` source deliverables are available only on `PyPi` -->
 
+<!--future use
+??? note "0.7"
+    * ...
+-->
+
 ??? note "0.6"
     * [`0.6` invoice type JSON-XML tag](https://pypi.org/project/xl2roefact/)
     * [`0.6rc0` system database and parameters](https://pypi.org/project/xl2roefact/0.6rc0/)
-
 
 <!-- #TODO; from 240501 drop these versions as deprecated -->
 <!--NOTE: for each version there is a pair: WHEEL & DIST -->
@@ -98,10 +102,14 @@ Nici o resursa disponibila.
 
 ### xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
-??? note "0.6"
-    *  [`0.6` invoice type JSON-XML tag](../xl2roefact/dist/xl2roefact-0.6-win64.msi)
-    * `0.6rc0 system database and parameters` INDISPONIBILA
+<!--future use
+??? note "0.7"
+    * ...
+-->
 
+??? note "0.6"
+    *  [`0.6` invoice type JSON-XML tag](../xl2roefact/dist/xl2roefact-0.6-win64.msi){:download}
+    * `0.6rc0 system database and parameters` INDISPONIBILA
 
 <!-- #TODO; from 240501 drop these versions as deprecated -->
 
@@ -132,10 +140,14 @@ Nici o resursa disponibila.
 
 ### xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
 
-??? note "0.6"
-    *  [`0.6` invoice type JSON-XML tag](../xl2roefact/dist/xl2roefact-0.6-win64.exe)
-    * `0.6rc0 system database and parameters` INDISPONIBILA
+<!--future use
+??? note "0.7"
+    * ...
+-->
 
+??? note "0.6"
+    *  [`0.6` invoice type JSON-XML tag](../xl2roefact/dist/xl2roefact-0.6-win64.exe){:download}
+    * `0.6rc0 system database and parameters` INDISPONIBILA
 
 <!-- #TODO; from 240501 drop these versions as deprecated -->
 

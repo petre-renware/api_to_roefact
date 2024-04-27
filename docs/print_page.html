@@ -1768,10 +1768,8 @@ cit si la nivel detaliat pentru fiecare comanda
   --install-completion  Install completion for the
                         current shell.
   --show-completion     Show completion for the
-                        current shell, to copy it
-                        or customize the
-                        installation.
-  --help                Show this message and
+                        current shell, to copy it or
+                        customize the installation.
 </code></pre></div>
 <h4 id="xl2roefact-index-about">about</h4>
 <p>Provide a short application description.</p>
@@ -1787,8 +1785,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact settings [OPTIONS]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update
-               rules
+<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update rules
 </code></pre></div>
 <h4 id="xl2roefact-index-xl2json">xl2json</h4>
 <p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
@@ -1805,31 +1802,23 @@ cit si la nivel detaliat pentru fiecare comanda
 <p>Options:</p>
 <div class="highlight"><pre><span></span><code>  --invoice-type [380]            [default: 380]
   [FILE_NAME]                     files to process
-                                  (wildcards
-                                  allowed)
-                                  [default:
-                                  *.xlsx]
+                                  (wildcards allowed)
+                                  [default: *.xlsx]
   -d, --files-directory DIRECTORY
-                                  directory to be
-                                  used to look for
-                                  Excel files (if
-                                  default
-                                  directory does
-                                  not exists will
-                                  consider current
-                                  directory
-                                  instead).
-                                  [default:
+                                  directory to be used
+                                  to look for Excel
+                                  files (if default
+                                  directory does not
+                                  exists will consider
+                                  current directory
+                                  instead).  [default:
                                   invoice_files/]
-  -o, --owner-datafile PATH       File to read
-                                  invoice supplier
-                                  (owner) data
-                                  instead Excel.
+  -o, --owner-datafile PATH       File to read invoice
+                                  supplier (owner)
+                                  data instead Excel.
   -v, --verbose                   show detailed
-                                  processing
-                                  messages
-  --help                          Show this
-                                  message and
+                                  processing messages
+  --help                          Show this message
 </code></pre></div>
 <h2 id="xl2roefact-index-practici-si-regului-referitoare-la-continutul-facturilor-din-excel">Practici si regului referitoare la continutul facturilor din Excel</h2>
 <p>Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".</p>
@@ -3246,6 +3235,11 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <h3 id="doc_src-downloads-xl2roefact-pachete-redistribuibile">xl2roefact pachete redistribuibile   <a id="pachetul-xl2roefact-python-library-format-sursa"></a></h3>
 <!--NOTE: starting with `0.6rc0` source deliverables are available only on `PyPi` -->
 
+<!--future use
+??? note "0.7"
+    * ...
+-->
+
 <details class="note">
 <summary>0.6</summary>
 <ul>
@@ -3313,10 +3307,15 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <p>Nici o resursa disponibila.</p>
 <h2 id="doc_src-downloads-windows-x64">Windows x64   <a id="format-executabil-windows-x64"></a></h2>
 <h3 id="doc_src-downloads-xl2roefact-linie-comanda-kit-instalare-win64-msi">xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a></h3>
+<!--future use
+??? note "0.7"
+    * ...
+-->
+
 <details class="note">
 <summary>0.6</summary>
 <ul>
-<li><a href="xl2roefact/dist/xl2roefact-0.6-win64.msi"><code>0.6</code> invoice type JSON-XML tag</a></li>
+<li><a download="download" href="xl2roefact/dist/xl2roefact-0.6-win64.msi"><code>0.6</code> invoice type JSON-XML tag</a></li>
 <li><code>0.6rc0 system database and parameters</code> INDISPONIBILA</li>
 </ul>
 </details>
@@ -3361,10 +3360,15 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 </ul>
 </details>
 <h3 id="doc_src-downloads-xl2roefact-linie-comanda-executabil-portabil-win64-exe">xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a></h3>
+<!--future use
+??? note "0.7"
+    * ...
+-->
+
 <details class="note">
 <summary>0.6</summary>
 <ul>
-<li><a href="xl2roefact/dist/xl2roefact-0.6-win64.exe"><code>0.6</code> invoice type JSON-XML tag</a></li>
+<li><a download="download" href="xl2roefact/dist/xl2roefact-0.6-win64.exe"><code>0.6</code> invoice type JSON-XML tag</a></li>
 <li><code>0.6rc0 system database and parameters</code> INDISPONIBILA</li>
 </ul>
 </details>
@@ -4049,6 +4053,7 @@ Public License instead of this License.  But first, please read
 <div class="toc">
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
+<li><a href="#changelog-07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands">0.7 commands as layer 2 of functionalities (based on app CLI commands)</a></li>
 <li><a href="#changelog-06-invoice-type-json-xml-tag">0.6 invoice type JSON-XML tag</a><ul>
 <li><a href="#changelog-06rc0-system-database-and-parameters">0.6rc0 system database and parameters</a></li>
 <li><a href="#changelog-06dev1-code-missing-xml-tags">0.6.dev1 code missing XML tags</a></li>
@@ -4089,12 +4094,11 @@ Public License instead of this License.  But first, please read
     * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
 -->
 
-<!--
-## 0.7 commands as layer 2 of functionalities (based on app CLI commands)
-* ...
-* tbd... prep release set all versions
--->
-
+<h2 id="changelog-07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands">0.7 commands as layer 2 of functionalities (based on app CLI commands)</h2>
+<ul>
+<li>...</li>
+<li>fix <code>invoicetoroefact.renware.eu</code> site for 0.6 MSI &amp; EXE downloads</li>
+</ul>
 <h2 id="changelog-06-invoice-type-json-xml-tag"><code>0.6</code> invoice type JSON-XML tag</h2>
 <ul>
 <li><code>upd-dwnlds</code> update downloads.md. site rebuild &amp; publish</li>
