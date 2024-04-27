@@ -9,7 +9,7 @@ Legaturi externe utile:
 * [**Web Site**](https://invoicetoroefact.renware.eu/). (*Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.*)
 * [Pachet *PyPi*](https://pypi.org/project/xl2roefact/)
 * [Surse *GitHub*](https://github.com/petre-renware/api_to_roefact/)
-* [Vedere de ansamblu pachet biblioteca Python](./doc/README_xl2roefact_library.md)
+* [Referinta *dezvoltare software - biblioteca Python*](https://invoicetoroefact.renware.eu/xl2roefact/doc/README_xl2roefact_library.html)
 * [Referinta *API*](https://invoicetoroefact.renware.eu/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html)
 <!--Refrence to source doc. If used like that, then must be resolved with an external tool before generating a complete README.html doc. The `mkdoxs` is able to do that but in `PyPi` published version will be unusable
 (./doc/810.05a-xl2roefact_DLD_specs.md)
@@ -203,7 +203,7 @@ xl2roefact [COMMAND] --help
 
 <!--#NOTE: next section generate application commands in same style as obtained using `--help` CLI options -->
 ::: mkdocs-typer
-    :module: xl2roefact.app_cli
+    :module: xl2roefact.src.app_cli
     :command: app_cli
     :prog_name: xl2roefact
     :depth: 2
@@ -227,7 +227,7 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 
 ### Reguli recomamdate in configurarea aplicatiei pe specificul Excel al facturilor dumneavoastra
 
-{% include './xl2roefact/data/README_app_config_rules.md' %}
+{% include './src/data/README_app_config_rules.md' %}
 
 
 
@@ -311,7 +311,7 @@ Cheile de la primul nivel contin:
     * alte informatii despre fisierul Excel prelucrat (numele, worksheet cu factura, data si ora procesarii, CRC pentru verificare, etc)
 * **`excel_original_data`** - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel
 
-<small markdown="1">Pentru detalii suplimentare despre formatul JSON trebyie consultata componenta referitoare la ***[biblioteca `xl2roefact` destinata dezvoltarii software](./doc/README_xl2roefact_library.md)***.</small>
+Detalii suplimentare despre formatul JSON se gasesc in documentaţia *[Referinta dezvoltare software](./doc/README_xl2roefact_library.md)*.
 
 
 
@@ -326,13 +326,18 @@ Cheile de la primul nivel contin:
 
 
 
+## Referinta dezvoltare software
+
+Documentatia **["Referinta dezvoltare software"](./doc/README_xl2roefact_library.md)** ofera detail necesare pentru utilizarea bibliotecii sursa in dezvoltari specifice, extindere si integrare cu alte sisteme.
+
+
 
 
 ## Date identificare
 
 * part number (p/n): `0000-0095-xl2roefact`
-* producator si copyright: RENWare Software Systems
-* author: Petre Iordanescu (petre.iordanescu@gmail.com)
+* producator si copyright: RENWare Software Systems (referinte detalii tehnice: Petre Iordanescu, *petre.iordanescu@gmail.com*)
+
 
 
 

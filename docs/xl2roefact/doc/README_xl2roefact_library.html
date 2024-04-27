@@ -89,7 +89,7 @@ div.download-btn {
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#xl2roefact-python-library">
+<a class="md-skip" href="#software-development-reference-using-xl2roefact-python-library">
           Skip to content
         </a>
 </div>
@@ -329,9 +329,28 @@ div.download-btn {
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#library-modules">
-    Library modules
+<a class="md-nav__link" href="#library-components">
+    Library components
   </a>
+<nav aria-label="Library components" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basic-processing-components">
+    Basic processing components
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuration-components">
+    Configuration components
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#presentation-components">
+    Presentation components
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#install-library">
@@ -355,6 +374,11 @@ div.download-btn {
 <li class="md-nav__item">
 <a class="md-nav__link" href="#aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">
     Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sysyem-database-and-parameters">
+    Sysyem database and parameters
   </a>
 </li>
 <li class="md-nav__item">
@@ -563,9 +587,28 @@ div.download-btn {
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#library-modules">
-    Library modules
+<a class="md-nav__link" href="#library-components">
+    Library components
   </a>
+<nav aria-label="Library components" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basic-processing-components">
+    Basic processing components
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuration-components">
+    Configuration components
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#presentation-components">
+    Presentation components
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#install-library">
@@ -592,6 +635,11 @@ div.download-btn {
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#sysyem-database-and-parameters">
+    Sysyem database and parameters
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#api-refrence">
     API Refrence
   </a>
@@ -612,45 +660,65 @@ div.download-btn {
 - This is the general technical design for `xl2roefact python library` component
 - The DLD doc is a tech desc of every module, functions
 -->
-<h1 id="xl2roefact-python-library">xl2roefact python library</h1>
+<h1 id="software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</h1>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6-blue"/></p>
 <div class="toc">
 <ul>
-<li><a href="#xl2roefact-python-library">xl2roefact python library</a><ul>
-<li><a href="#library-modules">Library modules</a></li>
+<li><a href="#software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</a><ul>
+<li><a href="#library-components">Library components</a><ul>
+<li><a href="#basic-processing-components">Basic processing components</a></li>
+<li><a href="#configuration-components">Configuration components</a></li>
+<li><a href="#presentation-components">Presentation components</a></li>
+</ul>
+</li>
 <li><a href="#install-library">Install library</a><ul>
 <li><a href="#install-from-pypi">Install from PyPi</a></li>
 <li><a href="#install-from-distribution-packages">Install from distribution packages</a></li>
 </ul>
 </li>
 <li><a href="#aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii</a></li>
+<li><a href="#sysyem-database-and-parameters">Sysyem database and parameters</a></li>
 <li><a href="#api-refrence">API Refrence</a></li>
 <li><a href="#download-xl2roefact-library">Download xl2roefact library</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<h2 id="library-modules">Library modules</h2>
-<p><code>xl2roefact</code> library (package) modules are:</p>
+<h2 id="library-components">Library components</h2>
+<h3 id="basic-processing-components">Basic processing components</h3>
+<p>These components assure the basic elementary-raw processing of information. Their interface is pure technical and require basic development knowledge to be used "as is".</p>
 <ul>
 <li><code>rdinv</code> read an Excel file and extract invoice data to a JSON file format</li>
 <li><code>wrxml</code>  write, convert the JSON invoice file to a XML file format, respecting schemes required by <em>RO EFact</em> standard</li>
 <li><code>chkxml</code> check generated XML file</li>
 <li><code>ldxml</code> load an invoice (ie, its XML associated file) to <em>ANAF SPV system</em></li>
 <li><code>chkisld</code> check if an invoice is already loaded in <em>ANAF SPV system</em></li>
-<li><code>config_settings</code> define system settings &amp; parameters mainly used in invoice info / data detection and extract from invoice Excel format file</li>
-<li><code>app_cli</code> contains the code for <code>xl2roefact</code> application command line (CLI) format</li>
 </ul>
-<p>Below is presented the <strong><em>skeleton logic</em></strong> of those modules which and where is relevant <small markdown="1">ie meaning where is not enough obvious from code or code complexity exceed usual limits (<em>for example nore than 100 lines of code per function</em>)</small>. For more technical details and specification regarding modules <a href="wrapper_810.05a-xl2roefact_DLD_specs.html">see API Reference</a></p>
+<h3 id="configuration-components">Configuration components</h3>
+<p>These are the components that assure and make possible system configurablitity at user level.</p>
+<ul>
+<li><code>config_settings</code> <em>USER level</em> configuration - define application settings &amp; parameters mainly used in invoice info / data detection and extract from invoice Excel format file</li>
+<li><code>sys_settings</code> <em>SYSTEM level</em> configuration - system database and parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective) - details in section <a href="#sysyem-database-and-parameters">Sysyem database and parameters</a></li>
+</ul>
+<h3 id="presentation-components">Presentation components</h3>
+<p>These components are high level layers that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.</p>
+<ul>
+<li><code>app_cli</code> contains the code for <code>xl2roefact</code> application command line (CLI) format</li>
+<li><code>__main__</code> assures right package "addressing" as Python modele (ie, running as <code>python -m xl2roefact ...</code>)</li>
+<li><code>__version__</code> keeps current system version and helper functions to assure standard and canonical representation of version string</li>
+<li><code>__init__</code> assure friendly exposing of system public objects (and of course classic pytgon role of "package maker")</li>
+</ul>
 <h2 id="install-library">Install library</h2>
 <p>Library can be installed using 2 methods:</p>
 <ul>
 <li>install from PyPi</li>
-<li>install from distribution packages</li>
+<li>install from site archive of distribution packages</li>
 </ul>
 <h3 id="install-from-pypi">Install from PyPi</h3>
-<p>The library installation should be done using standard Python instruments:</p>
-<div class="highlight"><pre><span></span><code>pip install xl2roefact
+<p>The library installation can be done using standard Python instruments:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>xl2roefact
 </code></pre></div>
+<p>This command will install by default the last stable version. For other versions, standard PyPi procedure to  install a specific version must be used.</p>
 <h3 id="install-from-distribution-packages">Install from distribution packages</h3>
 <p>To install from distribution packages first download the package version intended to install (<a href="#download-xl2roefact-library">see download section</a>), choose the package type (if you have no special option, then choose <em><code>WHEEL</code></em> format) and install it using <code>pip</code> as any other Python library installation (<em>detailed in Python official documentation</em>).</p>
 <h2 id="aspecte-tehnice-referitoare-la-formatul-fisierului-json-aferent-facturii">Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii</h2>
@@ -673,6 +741,14 @@ div.download-btn {
 <li><strong><code>excel_original_data</code></strong> - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel</li>
 </ul>
 <p>An <a href="invoice_json_model_.html">example of JSON generated file is available here</a></p>
+<h2 id="sysyem-database-and-parameters">Sysyem database and parameters</h2>
+<p>System database is an object that interface library components with physical stores of parameters and data requred by system and its applications.</p>
+<p>Sometimes it can contain both physical and logical interfaces one example being <em>InvoiceTypes</em>  which consists of:</p>
+<ul>
+<li><code>InvoiceTypes: dict</code> the physical store of invoice types name and codes</li>
+<li><code>InvoiceTypesEnum: Enum</code> the logical object with invoice types implemented as standard Python enumeration (<code>enum</code>)</li>
+</ul>
+<p>This let open the possibility that in future versions to "externalize" physical data-objects to other systems or distinct files, but letting small / tinny physical data-objects to stay in <code>sys_settings.py</code> module.</p>
 <h2 id="api-refrence"><a href="https://invoicetoroefact.renware.eu/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html">API Refrence</a></h2>
 <!--NOTE: reference using in-profect document
 [API Reference](./wrapper_810.05a-xl2roefact_DLD_specs.md)
@@ -686,7 +762,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 18, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 23, 2024</span>
 </small>
 </div>
 </article>

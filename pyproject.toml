@@ -1,7 +1,7 @@
 [project]
 name = "INVOICEtoROefact"
-# version = "...""  #NOTE this entry is maintained from `xl2roefact/__version__` file
-dynamic = ["version"]
+version = "2023"  #NOTE this entry is maintained from `xl2roefact/__version__` file
+# dynamic = ["version"]  # for future use / if become needed
 description = "Issued invoices, Excel & Web, import, export & upload to RO E-Fact system"
 authors = [
     { name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com" },
@@ -170,8 +170,10 @@ Repository = "https://github.com/petre-renware/api_to_roefact"
 
 
 [tool.pdm]
-version = { source = "file", path = "__version__.py" }
-distribution = false
+# NOTE here is the sysyem itself composed of more components each with its version. The sysyem itsekf is not versioned @24042
+# Next libmbee is kept just as ref if wil version this project itself in future  
+# version = { source = "file", path = "__version__.py" }
+ldistribution = false
 
 
 

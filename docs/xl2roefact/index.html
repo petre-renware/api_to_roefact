@@ -408,6 +408,11 @@ div.download-btn {
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#referinta-dezvoltare-software">
+    Referinta dezvoltare software
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#date-identificare">
     Date identificare
   </a>
@@ -797,6 +802,11 @@ div.download-btn {
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#referinta-dezvoltare-software">
+    Referinta dezvoltare software
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#date-identificare">
     Date identificare
   </a>
@@ -820,13 +830,13 @@ div.download-btn {
 <article class="md-content__inner md-typeset"><div class="download-btn"><a href="../pdfs/xl2roefact/index.html/index.pdf">Download PDF</a></div>
 <p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact">xl2roefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6rc0-blue"/></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6-blue"/></p>
 <p>Legaturi externe utile:</p>
 <ul>
 <li><a href="https://invoicetoroefact.renware.eu/"><strong>Web Site</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
 <li><a href="https://pypi.org/project/xl2roefact/">Pachet <em>PyPi</em></a></li>
 <li><a href="https://github.com/petre-renware/api_to_roefact/">Surse <em>GitHub</em></a></li>
-<li><a href="doc/README_xl2roefact_library.html">Vedere de ansamblu pachet biblioteca Python</a></li>
+<li><a href="https://invoicetoroefact.renware.eu/xl2roefact/doc/README_xl2roefact_library.html">Referinta <em>dezvoltare software - biblioteca Python</em></a></li>
 <li><a href="https://invoicetoroefact.renware.eu/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html">Referinta <em>API</em></a></li>
 </ul>
 <!--Refrence to source doc. If used like that, then must be resolved with an external tool before generating a complete README.html doc. The `mkdoxs` is able to do that but in `PyPi` published version will be unusable
@@ -989,8 +999,10 @@ cit si la nivel detaliat pentru fiecare comanda
   --install-completion  Install completion for the
                         current shell.
   --show-completion     Show completion for the
-                        current shell, to copy it or
-                        customize the installation.
+                        current shell, to copy it
+                        or customize the
+                        installation.
+  --help                Show this message and
 </code></pre></div>
 <h4 id="about">about</h4>
 <p>Provide a short application description.</p>
@@ -1006,12 +1018,14 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact settings [OPTIONS]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update rules
+<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update
+               rules
 </code></pre></div>
 <h4 id="xl2json">xl2json</h4>
 <p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
 <p>Args:</p>
-<pre><code>`file_name`: files to process (wildcards allowed).
+<pre><code>`invoice_type_code`: invoice type (for exaple regular invoice or storno) as this info is not usually subject of Excel file. Default to `380` (regular / usual invoice)
+`file_name`: files to process (wildcards allowed).
 `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
 `owner_datafile`: File to read invoice supplier (owner) data instead Excel.
 `verbose`: show detailed processing messages". Defaults to `False`.
@@ -1020,24 +1034,33 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact xl2json [OPTIONS] [FILE_NAME]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  [FILE_NAME]                     files to process
-                                  (wildcards allowed)
-                                  [default: *.xlsx]
+<div class="highlight"><pre><span></span><code>  --invoice-type [380]            [default: 380]
+  [FILE_NAME]                     files to process
+                                  (wildcards
+                                  allowed)
+                                  [default:
+                                  *.xlsx]
   -d, --files-directory DIRECTORY
-                                  directory to be used
-                                  to look for Excel
-                                  files (if default
-                                  directory does not
-                                  exists will consider
-                                  current directory
-                                  instead).  [default:
+                                  directory to be
+                                  used to look for
+                                  Excel files (if
+                                  default
+                                  directory does
+                                  not exists will
+                                  consider current
+                                  directory
+                                  instead).
+                                  [default:
                                   invoice_files/]
-  -o, --owner-datafile PATH       File to read invoice
-                                  supplier (owner)
-                                  data instead Excel.
+  -o, --owner-datafile PATH       File to read
+                                  invoice supplier
+                                  (owner) data
+                                  instead Excel.
   -v, --verbose                   show detailed
-                                  processing messages
-  --help                          Show this message
+                                  processing
+                                  messages
+  --help                          Show this
+                                  message and
 </code></pre></div>
 <h2 id="practici-si-regului-referitoare-la-continutul-facturilor-din-excel">Practici si regului referitoare la continutul facturilor din Excel</h2>
 <p>Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".</p>
@@ -1138,7 +1161,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </li>
 <li><strong><code>excel_original_data</code></strong> - informatiile originale din fisierul Excel, asa cum au fost ele identificate si gasite precum si locatia (adresele celulelor). Aceste informatii sunt utile in cazul in care exista neclaritati in urma procesuluicde conversie pentru "a intelege" de unde si cum arata informatiile originale din fisierul Excel</li>
 </ul>
-<p><small markdown="1">Pentru detalii suplimentare despre formatul JSON trebyie consultata componenta referitoare la <strong><em><a href="doc/README_xl2roefact_library.html">biblioteca <code>xl2roefact</code> destinata dezvoltarii software</a></em></strong>.</small></p>
+<p>Detalii suplimentare despre formatul JSON se gasesc in documentaţia <em><a href="doc/README_xl2roefact_library.html">Referinta dezvoltare software</a></em>.</p>
 <h2 id="descarcare-download-aplicatie-xl2roefact-cli">Descarcare (download) aplicatie xl2roefact CLI</h2>
 <ul>
 <li><a href="../doc_src/downloads.html#format-executabil-windows-x64">Pachet instalare aplicatie Windows</a></li>
@@ -1146,11 +1169,12 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><a href="../doc_src/downloads.html#sablon-fisier-configurare-a-aplicatiei-xl2roefact">Model de sablon de configuare</a></li>
 <li><a href="../doc_src/downloads.html#sablon-fisier-cu-date-furnizor">Sablon fisier-date informatii furnizor</a></li>
 </ul>
+<h2 id="referinta-dezvoltare-software">Referinta dezvoltare software</h2>
+<p>Documentatia <strong><a href="doc/README_xl2roefact_library.html">"Referinta dezvoltare software"</a></strong> ofera detail necesare pentru utilizarea bibliotecii sursa in dezvoltari specifice, extindere si integrare cu alte sisteme.</p>
 <h2 id="date-identificare">Date identificare</h2>
 <ul>
 <li>part number (p/n): <code>0000-0095-xl2roefact</code></li>
-<li>producator si copyright: RENWare Software Systems</li>
-<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+<li>producator si copyright: RENWare Software Systems (referinte detalii tehnice: Petre Iordanescu, <em>petre.iordanescu@gmail.com</em>)</li>
 </ul>
 <h2 id="license"><a href="LICENSE" title="download">License</a></h2>
 <h2 id="note">Note</h2>
@@ -1167,7 +1191,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 13, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 26, 2024</span>
 </small>
 </div>
 </article>
