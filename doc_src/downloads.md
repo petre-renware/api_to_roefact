@@ -36,10 +36,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 <!--NOTE: starting with `0.6rc0` source deliverables are available only on `PyPi` -->
 
 ??? note "0.6"
-    * [`0.6` invoice type JSON-XML tag]
-(
-
-)
+    * [`0.6` invoice type JSON-XML tag](https://pypi.org/project/xl2roefact/)
     * [`0.6rc0` system database and parameters](https://pypi.org/project/xl2roefact/0.6rc0/)
 
 
