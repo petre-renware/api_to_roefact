@@ -32,7 +32,7 @@ flowchart TD
     top --- invtmpl
 ```
 
-* __xl2roefact__ ![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue) - procesarea facturilor prin cod / program (development propriu)
+* __xl2roefact__ ![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue) - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)
     * [aplicatie linie comanda](./xl2roefact/README.md)
     * [biblioteca python dezvoltari proprii](xl2roefact/doc/README_xl2roefact_library.md)
 
