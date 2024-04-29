@@ -14,6 +14,21 @@
 
 ## Library components
 
+```mermaid
+flowchart TD
+    top[[xl2roefact]]
+
+    bas[Basic processing components]
+    cfg[Configuration components]
+    present[Presentation components]
+
+    top --- bas
+    top --- cfg
+    top --- present
+```
+
+
+
 ### Basic processing components
 These components assure the basic elementary-raw processing of information. Their interface is pure technical and require basic development knowledge to be used "as is".
 
