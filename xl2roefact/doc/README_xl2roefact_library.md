@@ -19,12 +19,14 @@ flowchart TD
     top[[xl2roefact]]
 
     bas[[Basic processing \n components]]
+    cmds[[Command \n components]]
     cfg[[Configuration \n components]]
     present[[Presentation \n components]]
 
     top --- bas
+    top ---- cmds
     top --- cfg
-    top --- present
+    top ---- present
 ```
 
 
@@ -38,6 +40,16 @@ These components assure the basic elementary-raw processing of information. Thei
 * `ldxml` load an invoice (ie, its XML associated file) to *ANAF SPV system*
 * `chkisld` check if an invoice is already loaded in *ANAF SPV system*
 
+### Command components
+These components are 2nd level layer components desined to implement *user level functionalities*.
+
+* `settings` manage system settings
+* `xl2json` process Excel file and store extracted invoice data in JSON format. *[More details here](./doc/README_xl2roefact_library.md)*.
+* `json2xml` process JSON file and convert it to XML (ROeFact standard compliant)
+* `json2pdf` process JSON file and produce invoice as PDF format
+* `xml2roefact` upload XML format invoice to "SPV RO eFactura"
+
+
 ### Configuration components
 These are the components that assure and make possible system configurablitity at user level.
 
@@ -45,7 +57,7 @@ These are the components that assure and make possible system configurablitity a
 * `sys_settings` *SYSTEM level* configuration - system database and parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective) - details in section [Sysyem database and parameters](#sysyem-database-and-parameters)
 
 ### Presentation components
-These components are high level layers that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.
+These are 2nd level layer components that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.
 
 * `app_cli` contains the code for `xl2roefact` application command line (CLI) format
 * `__main__` assures right package "addressing" as Python modele (ie, running as `python -m xl2roefact ...`)
