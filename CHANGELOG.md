@@ -35,8 +35,7 @@
 * ... code for this module code: `commands.py`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
 * ...
-* `240429piu01` update doc `README_xl2roefact_library.md` section "Library components" to reflect the new commands layer
-  Rebuild site & publish
+* `240429piu01` update doc `README_xl2roefact_library.md` section "Library components" to reflect the new commands layer. Rebuild site & publish
 * fix `invoicetoroefact.renware.eu` site for 0.6 MSI & EXE downloads
 
 
