@@ -340,6 +340,11 @@ div.download-btn {
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#command-components">
+    Command components
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#configuration-components">
     Configuration components
   </a>
@@ -598,6 +603,11 @@ div.download-btn {
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#command-components">
+    Command components
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#configuration-components">
     Configuration components
   </a>
@@ -667,6 +677,7 @@ div.download-btn {
 <li><a href="#software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</a><ul>
 <li><a href="#library-components">Library components</a><ul>
 <li><a href="#basic-processing-components">Basic processing components</a></li>
+<li><a href="#command-components">Command components</a></li>
 <li><a href="#configuration-components">Configuration components</a></li>
 <li><a href="#presentation-components">Presentation components</a></li>
 </ul>
@@ -685,6 +696,18 @@ div.download-btn {
 </ul>
 </div>
 <h2 id="library-components">Library components</h2>
+<pre class="mermaid"><code>flowchart TD
+    top[[xl2roefact]]
+
+    bas[[Basic processing \n components]]
+    cmds[[Command \n components]]
+    cfg[[Configuration \n components]]
+    present[[Presentation \n components]]
+
+    top --- bas
+    top ---- cmds
+    top --- cfg
+    top ---- present</code></pre>
 <h3 id="basic-processing-components">Basic processing components</h3>
 <p>These components assure the basic elementary-raw processing of information. Their interface is pure technical and require basic development knowledge to be used "as is".</p>
 <ul>
@@ -694,6 +717,15 @@ div.download-btn {
 <li><code>ldxml</code> load an invoice (ie, its XML associated file) to <em>ANAF SPV system</em></li>
 <li><code>chkisld</code> check if an invoice is already loaded in <em>ANAF SPV system</em></li>
 </ul>
+<h3 id="command-components">Command components</h3>
+<p>These components are 2nd level layer components desined to implement <em>user level functionalities</em>.</p>
+<ul>
+<li><code>settings</code> manage system settings</li>
+<li><code>xl2json</code> process Excel file and store extracted invoice data in JSON format. <em><a href="./doc/README_xl2roefact_library.md">More details here</a></em>.</li>
+<li><code>json2xml</code> process JSON file and convert it to XML (ROeFact standard compliant)</li>
+<li><code>json2pdf</code> process JSON file and produce invoice as PDF format</li>
+<li><code>xml2roefact</code> upload XML format invoice to "SPV RO eFactura"</li>
+</ul>
 <h3 id="configuration-components">Configuration components</h3>
 <p>These are the components that assure and make possible system configurablitity at user level.</p>
 <ul>
@@ -701,7 +733,7 @@ div.download-btn {
 <li><code>sys_settings</code> <em>SYSTEM level</em> configuration - system database and parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective) - details in section <a href="#sysyem-database-and-parameters">Sysyem database and parameters</a></li>
 </ul>
 <h3 id="presentation-components">Presentation components</h3>
-<p>These components are high level layers that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.</p>
+<p>These are 2nd level layer components that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.</p>
 <ul>
 <li><code>app_cli</code> contains the code for <code>xl2roefact</code> application command line (CLI) format</li>
 <li><code>__main__</code> assures right package "addressing" as Python modele (ie, running as <code>python -m xl2roefact ...</code>)</li>
@@ -762,7 +794,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 27, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 29, 2024</span>
 </small>
 </div>
 </article>

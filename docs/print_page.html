@@ -1384,7 +1384,7 @@
 <pre class="mermaid"><code>flowchart TD
     top[[INVOICEtoROefact \n System]]
 
-    xl2roefact[ xl2roefact \n Componenta locala]
+    xl2roefact[xl2roefact \n Componenta consola \n linie comanda]
     web2roefact[web2roefact \n Componenta web]
     invtmpl[invoice template \n Template factura Excel]
 
@@ -1768,10 +1768,8 @@ cit si la nivel detaliat pentru fiecare comanda
   --install-completion  Install completion for the
                         current shell.
   --show-completion     Show completion for the
-                        current shell, to copy it
-                        or customize the
-                        installation.
-  --help                Show this message and
+                        current shell, to copy it or
+                        customize the installation.
 </code></pre></div>
 <h4 id="xl2roefact-index-about">about</h4>
 <p>Provide a short application description.</p>
@@ -1787,8 +1785,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <div class="highlight"><pre><span></span><code>xl2roefact settings [OPTIONS]
 </code></pre></div>
 <p>Options:</p>
-<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update
-               rules
+<div class="highlight"><pre><span></span><code>  -r, --rules  show settings recommended update rules
 </code></pre></div>
 <h4 id="xl2roefact-index-xl2json">xl2json</h4>
 <p>Extract data from an Excel file (save data to JSON format file with the same name as original file but <code>.json</code> extension).</p>
@@ -1805,31 +1802,23 @@ cit si la nivel detaliat pentru fiecare comanda
 <p>Options:</p>
 <div class="highlight"><pre><span></span><code>  --invoice-type [380]            [default: 380]
   [FILE_NAME]                     files to process
-                                  (wildcards
-                                  allowed)
-                                  [default:
-                                  *.xlsx]
+                                  (wildcards allowed)
+                                  [default: *.xlsx]
   -d, --files-directory DIRECTORY
-                                  directory to be
-                                  used to look for
-                                  Excel files (if
-                                  default
-                                  directory does
-                                  not exists will
-                                  consider current
-                                  directory
-                                  instead).
-                                  [default:
+                                  directory to be used
+                                  to look for Excel
+                                  files (if default
+                                  directory does not
+                                  exists will consider
+                                  current directory
+                                  instead).  [default:
                                   invoice_files/]
-  -o, --owner-datafile PATH       File to read
-                                  invoice supplier
-                                  (owner) data
-                                  instead Excel.
+  -o, --owner-datafile PATH       File to read invoice
+                                  supplier (owner)
+                                  data instead Excel.
   -v, --verbose                   show detailed
-                                  processing
-                                  messages
-  --help                          Show this
-                                  message and
+                                  processing messages
+  --help                          Show this message
 </code></pre></div>
 <h2 id="xl2roefact-index-practici-si-regului-referitoare-la-continutul-facturilor-din-excel">Practici si regului referitoare la continutul facturilor din Excel</h2>
 <p>Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".</p>
@@ -1976,6 +1965,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</a><ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-library-components">Library components</a><ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-basic-processing-components">Basic processing components</a></li>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library-command-components">Command components</a></li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-configuration-components">Configuration components</a></li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-presentation-components">Presentation components</a></li>
 </ul>
@@ -1994,6 +1984,18 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 </div>
 <h2 id="xl2roefact-doc-readme_xl2roefact_library-library-components">Library components</h2>
+<pre class="mermaid"><code>flowchart TD
+    top[[xl2roefact]]
+
+    bas[[Basic processing \n components]]
+    cmds[[Command \n components]]
+    cfg[[Configuration \n components]]
+    present[[Presentation \n components]]
+
+    top --- bas
+    top ---- cmds
+    top --- cfg
+    top ---- present</code></pre>
 <h3 id="xl2roefact-doc-readme_xl2roefact_library-basic-processing-components">Basic processing components</h3>
 <p>These components assure the basic elementary-raw processing of information. Their interface is pure technical and require basic development knowledge to be used "as is".</p>
 <ul>
@@ -2003,6 +2005,15 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>ldxml</code> load an invoice (ie, its XML associated file) to <em>ANAF SPV system</em></li>
 <li><code>chkisld</code> check if an invoice is already loaded in <em>ANAF SPV system</em></li>
 </ul>
+<h3 id="xl2roefact-doc-readme_xl2roefact_library-command-components">Command components</h3>
+<p>These components are 2nd level layer components desined to implement <em>user level functionalities</em>.</p>
+<ul>
+<li><code>settings</code> manage system settings</li>
+<li><code>xl2json</code> process Excel file and store extracted invoice data in JSON format. <em><a href="#xl2roefact-doc-doc-readme_xl2roefact_library.md">More details here</a></em>.</li>
+<li><code>json2xml</code> process JSON file and convert it to XML (ROeFact standard compliant)</li>
+<li><code>json2pdf</code> process JSON file and produce invoice as PDF format</li>
+<li><code>xml2roefact</code> upload XML format invoice to "SPV RO eFactura"</li>
+</ul>
 <h3 id="xl2roefact-doc-readme_xl2roefact_library-configuration-components">Configuration components</h3>
 <p>These are the components that assure and make possible system configurablitity at user level.</p>
 <ul>
@@ -2010,7 +2021,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>sys_settings</code> <em>SYSTEM level</em> configuration - system database and parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective) - details in section <a href="#xl2roefact-doc-readme_xl2roefact_library-sysyem-database-and-parameters">Sysyem database and parameters</a></li>
 </ul>
 <h3 id="xl2roefact-doc-readme_xl2roefact_library-presentation-components">Presentation components</h3>
-<p>These components are high level layers that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.</p>
+<p>These are 2nd level layer components that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.</p>
 <ul>
 <li><code>app_cli</code> contains the code for <code>xl2roefact</code> application command line (CLI) format</li>
 <li><code>__main__</code> assures right package "addressing" as Python modele (ie, running as <code>python -m xl2roefact ...</code>)</li>
@@ -4105,12 +4116,13 @@ Public License instead of this License.  But first, please read
     * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
 -->
 
-<h2 id="changelog-07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands">0.7 commands as layer 2 of functionalities (based on app CLI commands)</h2>
+<h2 id="changelog-07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands"><code>0.7</code> commands as layer 2 of functionalities (based on app CLI commands)</h2>
 <ul>
 <li>... code for this module code: <code>commands.py</code></li>
 <li>... update doc <code>README_xl2roefact_library.md</code> make a small hierarchical diagram with component layers</li>
-<li>... update doc <code>README_xl2roefact_library.md</code> section "Library components" to rflect the new commands layer</li>
 <li>...</li>
+<li><code>240429piu01</code> update doc <code>README_xl2roefact_library.md</code> section "Library components" to reflect the new commands layer
+  Rebuild site &amp; publish</li>
 <li>fix <code>invoicetoroefact.renware.eu</code> site for 0.6 MSI &amp; EXE downloads</li>
 </ul>
 <h2 id="changelog-06-invoice-type-json-xml-tag"><code>0.6</code> invoice type JSON-XML tag</h2>
