@@ -23,7 +23,7 @@ Sistemul **INVOICEtoROefact** ofera urmatoarele componente:
 flowchart TD
     top[[INVOICEtoROefact \n System]]
 
-    xl2roefact[ xl2roefact \n Componenta locala]
+    xl2roefact[xl2roefact \n Componenta consola \n linie comanda]
     web2roefact[web2roefact \n Componenta web]
     invtmpl[invoice template \n Template factura Excel]
 
