@@ -18,9 +18,9 @@
 flowchart TD
     top[[xl2roefact]]
 
-    bas[Basic processing components]
-    cfg[Configuration components]
-    present[Presentation components]
+    bas|[Basic processing \n components]]
+    cfg[[Configuration \n components]]
+    present[[Presentation \n components]]
 
     top --- bas
     top --- cfg
