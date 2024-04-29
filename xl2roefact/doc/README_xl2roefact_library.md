@@ -44,7 +44,7 @@ These components assure the basic elementary-raw processing of information. Thei
 These components are 2nd level layer components desined to implement *user level functionalities*.
 
 * `settings` manage system settings
-* `xl2json` process Excel file and store extracted invoice data in JSON format. *[More details here](./doc/README_xl2roefact_library.md)*.
+* `xl2json` process Excel file and store extracted invoice data in JSON format. *[More detais here](./invoice_json_model_.md)*
 * `json2xml` process JSON file and convert it to XML (ROeFact standard compliant)
 * `json2pdf` process JSON file and produce invoice as PDF format
 * `xml2roefact` upload XML format invoice to "SPV RO eFactura"
