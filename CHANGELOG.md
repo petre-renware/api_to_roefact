@@ -39,7 +39,7 @@
 
 ### `0.7rc0` settings refresh option and app settings reload by request
 
-* ... update downloads, portal
+* update downloads, portal
 * Published on PyPi (`https://pypi.org/project/xl2roefact/0.7rc0/`)
 * updated doc, deliverables
 * `config-settings-main-func` update config_settings module to embed init code under a `main()` function which run @ init but can be latter called also

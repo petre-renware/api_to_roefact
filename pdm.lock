@@ -2078,7 +2078,7 @@ files = [
 
 [[package]]
 name = "xl2roefact"
-version = "0.6"
+version = "0.7rc0"
 requires_python = "<3.12,>=3.9"
 editable = true
 path = "./xl2roefact"

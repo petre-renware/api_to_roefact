@@ -514,7 +514,7 @@ div.download-btn {
 <article class="md-content__inner md-typeset"><div class="download-btn"><a href="../../pdfs/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html/wrapper_810.05a-xl2roefact_DLD_specs.pdf">Download PDF</a></div>
 <!-- this doc is a wrapper intended just to create a better Table of Contents that one created by `pydoc` in built document -->
 <h1 id="xl2roefact-python-library-api-reference">xl2roefact python library API Reference</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6-blue"/></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue"/></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-python-library-api-reference">xl2roefact python library API Reference</a></li>
@@ -565,8 +565,8 @@ div.download-btn {
 </li>
 <li><a href="#config_settings">config_settings</a><ul>
 <li><a href="#default_due_date_days">DEFAULT_DUE_DATE_DAYS</a></li>
-<li><a href="#python_object">python_object</a></li>
 <li><a href="#rules_content">rules_content</a></li>
+<li><a href="#load">load</a></li>
 </ul>
 </li>
 <li><a href="#data">data</a></li>
@@ -595,7 +595,7 @@ div.download-btn {
 </code></pre></div></p>
 <p><a id="__version__.__version__"></a></p>
 <h4 id="__version___1">__version__</h4>
-<p>current 0.6, previous 0.6rc0</p>
+<p>current 0.7rc0, previous 0.6</p>
 <p><a id="__version__.normalized_version"></a></p>
 <h4 id="normalized_version">normalized_version</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">normalized_version</span><span class="p">(</span><span class="n">raw_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
@@ -1116,12 +1116,14 @@ div.download-btn {
 <p><strong>NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de</strong></p>
 <p>__  comanda <code>xl2json</code> reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)__</p>
 <hr/>
-<p><a id="config_settings.python_object"></a></p>
-<h4 id="python_object">python_object</h4>
-<p>suppose no settings loaded</p>
 <p><a id="config_settings.rules_content"></a></p>
 <h4 id="rules_content">rules_content</h4>
-<p>initialize with empty string to show nothing in case is a problem with file reading</p>
+<p><code>rules_content</code> public variable to be use as "mini help" by <code>settings -r</code> command of application</p>
+<p><a id="config_settings.load"></a></p>
+<h4 id="load">load</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load</span><span class="p">()</span>
+</code></pre></div>
+<p>Read and load settings from external data file.</p>
 <p><a id="data"></a></p>
 <h1 id="data">data</h1>
 <hr/>
