@@ -1384,7 +1384,7 @@
 <pre class="mermaid"><code>flowchart TD
     top[[INVOICEtoROefact \n System]]
 
-    xl2roefact[ xl2roefact \n Componenta locala]
+    xl2roefact[xl2roefact \n Componenta consola \n linie comanda]
     web2roefact[web2roefact \n Componenta web]
     invtmpl[invoice template \n Template factura Excel]
 
@@ -1393,10 +1393,12 @@
     top --- invtmpl</code></pre>
 <ul>
 <li>
-<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.6-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
+<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /> - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)</p>
 <ul>
-<li><a href="#xl2roefact-index">aplicatie linie comanda</a></li>
-<li><a href="#xl2roefact-doc-readme_xl2roefact_library">biblioteca python dezvoltari proprii</a></li>
+<li><strong><a href="#xl2roefact-index">xl2roefact consola</a></strong> aplicatie linie comanda CLI</li>
+<li><strong><a href="#xl2roefact-doc-readme_xl2roefact_library">xl2roefact developer</a></strong> biblioteca sursa python dezvoltari proprii</li>
+<li><strong>xl2roefact desktop</strong> ...in curind ... aplicatie desktop GUI</li>
+<li><strong>xl2roefact mobile</strong> ...in curind... aplicatie pentru mobile Android si iOS</li>
 </ul>
 </li>
 <li>
@@ -1442,10 +1444,10 @@
 <p>Sistemul ofera urmatoarele componente:</p>
 <ul>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></strong>  <img alt="Static Badge" src="https://img.shields.io/badge/version-0.6-blue" /> - procesarea facturilor in mod linie de comanda</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></strong>  <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /> - procesarea facturilor in mod linie de comanda</p>
 </li>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.6-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
 </li>
 <li>
 <p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-web2roefact">web2roefact</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-n/a-blue" /> - procesarea facturilor din interfara web</p>
@@ -1597,7 +1599,7 @@
                         </h1>
                         <section class="print-page" id="xl2roefact-index"><p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact-index-xl2roefact">xl2roefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /></p>
 <p>Legaturi externe utile:</p>
 <ul>
 <li><a href="https://invoicetoroefact.renware.eu/"><strong>Web Site</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
@@ -1970,12 +1972,13 @@ cit si la nivel detaliat pentru fiecare comanda
 -->
 
 <h1 id="xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</a><ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-library-components">Library components</a><ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-basic-processing-components">Basic processing components</a></li>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library-command-components">Command components</a></li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-configuration-components">Configuration components</a></li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-presentation-components">Presentation components</a></li>
 </ul>
@@ -1994,6 +1997,18 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 </div>
 <h2 id="xl2roefact-doc-readme_xl2roefact_library-library-components">Library components</h2>
+<pre class="mermaid"><code>flowchart TD
+    top[[xl2roefact]]
+
+    bas[[Basic processing \n components]]
+    cmds[[Command \n components]]
+    cfg[[Configuration \n components]]
+    present[[Presentation \n components]]
+
+    top --- bas
+    top ---- cmds
+    top --- cfg
+    top ---- present</code></pre>
 <h3 id="xl2roefact-doc-readme_xl2roefact_library-basic-processing-components">Basic processing components</h3>
 <p>These components assure the basic elementary-raw processing of information. Their interface is pure technical and require basic development knowledge to be used "as is".</p>
 <ul>
@@ -2003,6 +2018,15 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>ldxml</code> load an invoice (ie, its XML associated file) to <em>ANAF SPV system</em></li>
 <li><code>chkisld</code> check if an invoice is already loaded in <em>ANAF SPV system</em></li>
 </ul>
+<h3 id="xl2roefact-doc-readme_xl2roefact_library-command-components">Command components</h3>
+<p>These components are 2nd level layer components desined to implement <em>user level functionalities</em>.</p>
+<ul>
+<li><code>settings</code> manage system settings</li>
+<li><code>xl2json</code> process Excel file and store extracted invoice data in JSON format. <em><a href="#xl2roefact-doc-invoice_json_model_">More detais here</a></em></li>
+<li><code>json2xml</code> process JSON file and convert it to XML (ROeFact standard compliant)</li>
+<li><code>json2pdf</code> process JSON file and produce invoice as PDF format</li>
+<li><code>xml2roefact</code> upload XML format invoice to "SPV RO eFactura"</li>
+</ul>
 <h3 id="xl2roefact-doc-readme_xl2roefact_library-configuration-components">Configuration components</h3>
 <p>These are the components that assure and make possible system configurablitity at user level.</p>
 <ul>
@@ -2010,7 +2034,7 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>sys_settings</code> <em>SYSTEM level</em> configuration - system database and parameters, not changeable at user level in current application usage (changing these parameters needs code updating to make them effective) - details in section <a href="#xl2roefact-doc-readme_xl2roefact_library-sysyem-database-and-parameters">Sysyem database and parameters</a></li>
 </ul>
 <h3 id="xl2roefact-doc-readme_xl2roefact_library-presentation-components">Presentation components</h3>
-<p>These components are high level layers that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.</p>
+<p>These are 2nd level layer components that make sysyem usable in various forms such as command line console application, daemon / server that runs in background and can be called from local or remote clients, library interfaces (for extensions and custom development) that hide low level technical execution details.</p>
 <ul>
 <li><code>app_cli</code> contains the code for <code>xl2roefact</code> application command line (CLI) format</li>
 <li><code>__main__</code> assures right package "addressing" as Python modele (ie, running as <code>python -m xl2roefact ...</code>)</li>
@@ -2069,7 +2093,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul></section><section class="print-page" id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs"><!-- this doc is a wrapper intended just to create a better Table of Contents that one created by `pydoc` in built document -->
 
 <h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2roefact-python-library-api-reference">xl2roefact python library API Reference</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.6-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2roefact-python-library-api-reference">xl2roefact python library API Reference</a></li>
@@ -2120,8 +2144,8 @@ cit si la nivel detaliat pentru fiecare comanda
 </li>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-config_settings">config_settings</a><ul>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-default_due_date_days">DEFAULT_DUE_DATE_DAYS</a></li>
-<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-python_object">python_object</a></li>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rules_content">rules_content</a></li>
+<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-load">load</a></li>
 </ul>
 </li>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-data">data</a></li>
@@ -2150,7 +2174,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div></p>
 <p><a id="__version__.__version__"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version___1">__version__</h4>
-<p>current 0.6, previous 0.6rc0</p>
+<p>current 0.7rc0, previous 0.6</p>
 <p><a id="__version__.normalized_version"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-normalized_version">normalized_version</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">normalized_version</span><span class="p">(</span><span class="n">raw_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
@@ -2671,12 +2695,14 @@ cit si la nivel detaliat pentru fiecare comanda
 <p><strong>NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de</strong></p>
 <p>__  comanda <code>xl2json</code> reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)__</p>
 <hr />
-<p><a id="config_settings.python_object"></a></p>
-<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-python_object">python_object</h4>
-<p>suppose no settings loaded</p>
 <p><a id="config_settings.rules_content"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-rules_content">rules_content</h4>
-<p>initialize with empty string to show nothing in case is a problem with file reading</p>
+<p><code>rules_content</code> public variable to be use as "mini help" by <code>settings -r</code> command of application</p>
+<p><a id="config_settings.load"></a></p>
+<h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-load">load</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load</span><span class="p">()</span>
+</code></pre></div>
+<p>Read and load settings from external data file.</p>
 <p><a id="data"></a></p>
 <h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-data">data</h1></section><h1 class='nav-section-title-end'>Ended: xl2roefact python library</h1>
                         <h1 class='nav-section-title' id='section-invoice-template'>
@@ -3247,9 +3273,15 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <!--NOTE: starting with `0.6rc0` source deliverables are available only on `PyPi` -->
 
 <details class="note">
+<summary>0.7</summary>
+<ul>
+<li><a href="https://pypi.org/project/xl2roefact/0.7rc0/"><code>0.7rc0</code> settings refresh option and app settings reload by request</a></li>
+</ul>
+</details>
+<details class="note">
 <summary>0.6</summary>
 <ul>
-<li><a href="https://pypi.org/project/xl2roefact/"><code>0.6</code> invoice type JSON-XML tag</a></li>
+<li><a href="https://pypi.org/project/xl2roefact/0.6"><code>0.6</code> invoice type JSON-XML tag</a></li>
 <li><a href="https://pypi.org/project/xl2roefact/0.6rc0/"><code>0.6rc0</code> system database and parameters</a></li>
 </ul>
 </details>
@@ -3259,54 +3291,54 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.5</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.4-py3-none-any.whl"><code>0.5.4</code> invoice supplier from owner master data WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.4.tar.gz"><code>0.5.4</code> invoice supplier from owner master data DIST</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.3rc1-py3-none-any.whl"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.3rc1.tar.gz"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming DIST</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl"><code>0.5.3rc0</code> invoice supplier from Excel WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.3rc0.tar.gz"><code>0.5.3rc0</code> invoice supplier from Excel DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.4-py3-none-any.whl" title="download"><code>0.5.4</code> invoice supplier from owner master data WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.4.tar.gz" title="download"><code>0.5.4</code> invoice supplier from owner master data DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.3rc1-py3-none-any.whl" title="download"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.3rc1.tar.gz" title="download"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.3rc0-py3-none-any.whl" title="download"><code>0.5.3rc0</code> invoice supplier from Excel WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.3rc0.tar.gz" title="download"><code>0.5.3rc0</code> invoice supplier from Excel DIST</a></li>
 </ul>
 </details>
 <details class="note">
 <summary>0.4</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.1.dev1-py3-none-any.whl"><code>0.4.1.dev1</code> fix sEXE bug from v(0.4.1.dev0) version WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.1.dev1.tar.gz"><code>0.4.1.dev1</code> fix sEXE bug from v(0.4.1.dev0) version DIST</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.1.dev0-py3-none-any.whl"><code>0.4.1.dev0</code> xl2roefact include a data directory in package WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.1.dev0.tar.gz"><code>0.4.1.dev0</code> xl2roefact include a data directory in package DIST</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.0.dev2-py3-none-any.whl"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.0.dev2.tar.gz"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules DIST</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.0.dev1-py3-none-any.whl"><code>0.4.0.dev1</code> fixed <code>xl2roefact</code> CLI app version addressing WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.0.dev1.tar.gz"><code>0.4.0.dev1</code> fixed <code>xl2roefact</code> CLI app version addressing DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.1.dev1-py3-none-any.whl" title="download"><code>0.4.1.dev1</code> fix sEXE bug from v(0.4.1.dev0) version WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.1.dev1.tar.gz" title="download"><code>0.4.1.dev1</code> fix sEXE bug from v(0.4.1.dev0) version DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.1.dev0-py3-none-any.whl" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.1.dev0.tar.gz" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev2-py3-none-any.whl" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev2.tar.gz" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev1-py3-none-any.whl" title="download"><code>0.4.0.dev1</code> fixed <code>xl2roefact</code> CLI app version addressing WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev1.tar.gz" title="download"><code>0.4.0.dev1</code> fixed <code>xl2roefact</code> CLI app version addressing DIST</a></li>
 </ul>
 </details>
 <details class="note">
 <summary>0.3</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.3.1b1-py3-none-any.whl"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list] WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.3.1b1.tar.gz"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list] DIST</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.3.1b0-py3-none-any.whl"><code>0.3.1b</code> xl2roefact documentation fixes WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.3.1b0.tar.gz"><code>0.3.1b</code> xl2roefact documentation fixes DIST</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.3.0b0-py3-none-any.whl"><code>0.3.0b</code> xl2roefact invoice taxes summary WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.3.0b0.tar.gz"><code>0.3.0b</code> xl2roefact invoice taxes summary DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.1b1-py3-none-any.whl" title="download"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list] WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.1b1.tar.gz" title="download"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list] DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.1b0-py3-none-any.whl" title="download"><code>0.3.1b</code> xl2roefact documentation fixes WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.1b0.tar.gz" title="download"><code>0.3.1b</code> xl2roefact documentation fixes DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.0b0-py3-none-any.whl" title="download"><code>0.3.0b</code> xl2roefact invoice taxes summary WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.0b0.tar.gz" title="download"><code>0.3.0b</code> xl2roefact invoice taxes summary DIST</a></li>
 </ul>
 </details>
 <details class="note">
 <summary>0.2</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.2.1b0-py3-none-any.whl"><code>0.2.1b</code> invoice values summary WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.2.1b0.tar.gz"><code>0.2.1b</code> invoice values summary DIST</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl"><code>0.2.0b</code> invoice customer info-optional items (bank, email, reg-com, phone) WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.2.0b0.tar.gz"><code>0.2.0b</code> invoice customer info-optional items (bank, email, reg-com, phone) DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.2.1b0-py3-none-any.whl" title="download"><code>0.2.1b</code> invoice values summary WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.2.1b0.tar.gz" title="download"><code>0.2.1b</code> invoice values summary DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.2.0b0-py3-none-any.whl" title="download"><code>0.2.0b</code> invoice customer info-optional items (bank, email, reg-com, phone) WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.2.0b0.tar.gz" title="download"><code>0.2.0b</code> invoice customer info-optional items (bank, email, reg-com, phone) DIST</a></li>
 </ul>
 </details>
 <details class="note">
 <summary>0.1</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.1.22b0-py3-none-any.whl"><code>0.1.22b</code> application interface improvements WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.1.22b0.tar.gz"><code>0.1.22b</code> application interface improvements DIST</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.1.20-py3-none-any.whl"><code>0.1.20.dev</code> invoice customer address WHEEL</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.1.20.tar.gz"><code>0.1.20.dev</code> invoice customer address DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.22b0-py3-none-any.whl" title="download"><code>0.1.22b</code> application interface improvements WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.22b0.tar.gz" title="download"><code>0.1.22b</code> application interface improvements DIST</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.20-py3-none-any.whl" title="download"><code>0.1.20.dev</code> invoice customer address WHEEL</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.20.tar.gz" title="download"><code>0.1.20.dev</code> invoice customer address DIST</a></li>
 </ul>
 </details>
 <h3 id="doc_src-downloads-web2roefact-pe-pypi">web2roefact pe PyPi   <a id="pachetul-web2roefact-pe-pypi"></a></h3>
@@ -3314,9 +3346,15 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <h2 id="doc_src-downloads-windows-x64">Windows x64   <a id="format-executabil-windows-x64"></a></h2>
 <h3 id="doc_src-downloads-xl2roefact-linie-comanda-kit-instalare-win64-msi">xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a></h3>
 <details class="note">
+<summary>0.7</summary>
+<ul>
+<li><a href="xl2roefact/dist/xl2roefact-0.7rc0-win64.msi" title="download"><code>0.7rc0</code> settings refresh option and app settings reload by request</a></li>
+</ul>
+</details>
+<details class="note">
 <summary>0.6</summary>
 <ul>
-<li><a href="xl2roefact/dist/xl2roefact-0.6-win64.msi"><code>0.6</code> invoice type JSON-XML tag</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.6-win64.msi" title="download"><code>0.6</code> invoice type JSON-XML tag</a></li>
 <li><code>0.6rc0 system database and parameters</code> INDISPONIBILA</li>
 </ul>
 </details>
@@ -3325,46 +3363,52 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.5</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.4-win64.msi"><code>0.5.4</code> invoice supplier from owner master data</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.3rc1-win64.msi"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi"><code>0.5.3rc0</code> invoice supplier from Excel</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.4-win64.msi" title="download"><code>0.5.4</code> invoice supplier from owner master data</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.3rc1-win64.msi" title="download"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.3rc0-win64.msi" title="download"><code>0.5.3rc0</code> invoice supplier from Excel</a></li>
 </ul>
 </details>
 <details class="note">
 <summary>0.4</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.1.dev1-win64.msi"><code>0.4.1.dev1</code> fix sEXE bug from v(0.4.1.dev0) version</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.msi"><code>0.4.1.dev0</code> xl2roefact include a data directory in package</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.msi"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.1.dev1-win64.msi" title="download"><code>0.4.1.dev1</code> fix sEXE bug from v(0.4.1.dev0) version</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.msi" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.msi" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules</a></li>
 </ul>
 </details>
 <details class="note">
 <summary>0.3</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.3.1b1-win64.msi"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list]</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.3.1b0-win64.msi"><code>0.3.1b</code> xl2roefact documentation fixes</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.3.0b0-win64.msi"><code>0.3.0b</code> xl2roefact invoice taxes summary</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.1b1-win64.msi" title="download"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list]</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.1b0-win64.msi" title="download"><code>0.3.1b</code> xl2roefact documentation fixes</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.0b0-win64.msi" title="download"><code>0.3.0b</code> xl2roefact invoice taxes summary</a></li>
 </ul>
 </details>
 <details class="note">
 <summary>0.2</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.2.1b0-win64.msi"><code>0.2.1b</code> xl2roefact invoice values summary</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.2.0b0-win64.msi"><code>0.2.0b</code> invoice customer info-optional items (bank, email, reg-com, phone)</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.2.1b0-win64.msi" title="download"><code>0.2.1b</code> xl2roefact invoice values summary</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.2.0b0-win64.msi" title="download"><code>0.2.0b</code> invoice customer info-optional items (bank, email, reg-com, phone)</a></li>
 </ul>
 </details>
 <details class="note">
 <summary>0.1</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi"><code>0.1.22b</code> application interface improvements</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.1.20-win64.msi"><code>0.1.20.dev</code> invoice customer address</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.22b0-win64.msi" title="download"><code>0.1.22b</code> application interface improvements</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.1.20-win64.msi" title="download"><code>0.1.20.dev</code> invoice customer address</a></li>
 </ul>
 </details>
 <h3 id="doc_src-downloads-xl2roefact-linie-comanda-executabil-portabil-win64-exe">xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a></h3>
 <details class="note">
+<summary>0.7</summary>
+<ul>
+<li><a href="xl2roefact/dist/xl2roefact-0.7rc0-win64.exe" title="download"><code>0.7rc0</code> settings refresh option and app settings reload by request</a></li>
+</ul>
+</details>
+<details class="note">
 <summary>0.6</summary>
 <ul>
-<li><a href="xl2roefact/dist/xl2roefact-0.6-win64.exe"><code>0.6</code> invoice type JSON-XML tag</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.6-win64.exe" title="download"><code>0.6</code> invoice type JSON-XML tag</a></li>
 <li><code>0.6rc0 system database and parameters</code> INDISPONIBILA</li>
 </ul>
 </details>
@@ -3373,23 +3417,23 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.5</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.4-win64.exe"><code>0.5.4</code> invoice supplier from owner master data</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.3rc1-win64.exe"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe"><code>0.5.3rc0</code> invoice supplier from Excel</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.4-win64.exe" title="download"><code>0.5.4</code> invoice supplier from owner master data</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.3rc1-win64.exe" title="download"><code>0.5.3rc1</code> fix invoice JSON key "cac:Party" naming</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.5.3rc0-win64.exe" title="download"><code>0.5.3rc0</code> invoice supplier from Excel</a></li>
 </ul>
 </details>
 <details class="note">
 <summary>0.4</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.1.dev1-win64.exe"><code>0.4.1.dev1</code> fix sEXE bug from v(0.4.1.dev0) version</a></li>
-<li><strong><em>known bug DO NOT USE</em></strong> <a download="download" href="xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.exe"><code>0.4.1.dev0</code> xl2roefact include a data directory in package</a></li>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.exe"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.1.dev1-win64.exe" title="download"><code>0.4.1.dev1</code> fix sEXE bug from v(0.4.1.dev0) version</a></li>
+<li><strong><em>known bug DO NOT USE</em></strong> <a href="xl2roefact/dist/xl2roefact-0.4.1.dev0-win64.exe" title="download"><code>0.4.1.dev0</code> xl2roefact include a data directory in package</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.4.0.dev2-win64.exe" title="download"><code>0.4.0.dev2</code> externalize recommended rules for updating app setting rules</a></li>
 </ul>
 </details>
 <details class="note">
 <summary>0.3</summary>
 <ul>
-<li><a download="download" href="xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list]</a></li>
+<li><a href="xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe" title="download"><code>0.3.1b1</code> fixed bug JSON-&gt;["Invoice"]["cac_InvoiceLine"] list[list]</a></li>
 </ul>
 </details>
 <h3 id="doc_src-downloads-web2roefact-kit-instalare-win64-msi">web2roefact kit instalare (win64-msi)   <a id="aplicatia-web2roefact-pachet-instalare-win64-msi"></a></h3>
@@ -3402,9 +3446,9 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>Format XLSX Office Excel</summary>
 <ul>
-<li><a download="download" href="excel_invoice_template/invoice_template_CU_tva.xlsx"><code>0.1.20</code> office Excel XLSX</a></li>
-<li><a download="download" href="excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip"><code>0.1.20</code> arhiva ZIP</a></li>
-<li><a download="download" href="excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip"><code>0.1.11</code> arhiva ZIP</a></li>
+<li><a href="excel_invoice_template/invoice_template_CU_tva.xlsx" title="download"><code>0.1.20</code> office Excel XLSX</a></li>
+<li><a href="excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip" title="download"><code>0.1.20</code> arhiva ZIP</a></li>
+<li><a href="excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip" title="download"><code>0.1.11</code> arhiva ZIP</a></li>
 </ul>
 </details>
 <h2 id="doc_src-downloads-sablon-fisier-configurare-a-aplicatiei-xl2roefact">Sablon fisier configurare a aplicatiei xl2roefact   <a id="sablon-fisier-configurare-a-aplicatiei-xl2roefact"></a></h2>
@@ -3419,11 +3463,11 @@ De asemenea este util a fi citite si recomandarile date in pagina de descriere a
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Sablon de fisier</p>
-<p>Urmarind <a download="download" href="xl2roefact/xl2roefact/data/app_settings.yml">acest link puteti descarca un sablon de fisier de configurare</a>.
+<p>Urmarind <a href="xl2roefact/xl2roefact/data/app_settings.yml" title="download">acest link puteti descarca un sablon de fisier de configurare</a>.
 De mentionat ca acest sablon este pre-completat cu situatii deja intilnite in practica, el fiind chiar sablonul implicit folosit de aplicatie.</p>
 </div>
 <h2 id="doc_src-downloads-sablon-fisier-cu-date-furnizor">Sablon fisier cu date furnizor  <a id="sablon-fisier-cu-date-furnizor"></a></h2>
-<p><a download="download" href="xl2roefact/doc/owner_datafile_tmeplate.yml">Descarcare aici</a>.</p></section><h1 class='nav-section-title-end'>Ended: Help</h1>
+<p><a href="xl2roefact/doc/owner_datafile_tmeplate.yml" title="download">Descarcare aici</a>.</p></section><h1 class='nav-section-title-end'>Ended: Help</h1>
                         <h1 class='nav-section-title' id='section-about'>
                             About <a class='headerlink' href='#section-about' title='Permanent link'>↵</a>
                         </h1>
@@ -4049,6 +4093,10 @@ Public License instead of this License.  But first, please read
 <div class="toc">
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
+<li><a href="#changelog-07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands">0.7 commands as layer 2 of functionalities (based on app CLI commands)</a><ul>
+<li><a href="#changelog-07rc0-settings-refresh-option-and-app-settings-reload-by-request">0.7rc0 settings refresh option and app settings reload by request</a></li>
+</ul>
+</li>
 <li><a href="#changelog-06-invoice-type-json-xml-tag">0.6 invoice type JSON-XML tag</a><ul>
 <li><a href="#changelog-06rc0-system-database-and-parameters">0.6rc0 system database and parameters</a></li>
 <li><a href="#changelog-06dev1-code-missing-xml-tags">0.6.dev1 code missing XML tags</a></li>
@@ -4089,12 +4137,21 @@ Public License instead of this License.  But first, please read
     * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
 -->
 
-<!--
-## 0.7 commands as layer 2 of functionalities (based on app CLI commands)
-* ...
-* tbd... prep release set all versions
--->
-
+<h2 id="changelog-07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands"><code>0.7</code> commands as layer 2 of functionalities (based on app CLI commands)</h2>
+<ul>
+<li>... code for this module code: <code>commands.py</code></li>
+<li>... update doc <code>README_xl2roefact_library.md</code> make a small hierarchical diagram with component layers</li>
+<li>...upd versions...</li>
+</ul>
+<h3 id="changelog-07rc0-settings-refresh-option-and-app-settings-reload-by-request"><code>0.7rc0</code> settings refresh option and app settings reload by request</h3>
+<ul>
+<li>update downloads, portal</li>
+<li>Published on PyPi (<code>https://pypi.org/project/xl2roefact/0.7rc0/</code>)</li>
+<li>updated doc, deliverables</li>
+<li><code>config-settings-main-func</code> update config_settings module to embed init code under a <code>main()</code> function which run @ init but can be latter called also</li>
+<li><code>240429piu01</code> update doc <code>README_xl2roefact_library.md</code> section "Library components" to reflect the new commands layer. Rebuild site &amp; publish</li>
+<li>fix <code>invoicetoroefact.renware.eu</code> site for 0.6 MSI &amp; EXE downloads</li>
+</ul>
 <h2 id="changelog-06-invoice-type-json-xml-tag"><code>0.6</code> invoice type JSON-XML tag</h2>
 <ul>
 <li><code>upd-dwnlds</code> update downloads.md. site rebuild &amp; publish</li>
@@ -4104,7 +4161,7 @@ Public License instead of this License.  But first, please read
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> example JSON schema update &amp; build + publish site</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>doc-sys-settings-feat</code> short note about allowed invoice type (<code>cbc_InvoiceTypeCode</code>)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>doc-sys-settings-feat</code> in xl2roefact library doc, ie "Referinta dezvoltare sofrware" (<code>README_xl2roefact_library.md</code>) explain how manage system settings using <code>sys_config.py</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>for-developers-section</code> introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing <code>README_xl2roefact_library.md</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>for-dvelopers-section</code> introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing <code>README_xl2roefact_library.md</code></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>site-0.6.dev1</code> restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>240413_01</code> updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for <code>PyPi</code> availability in project description</li>
 </ul>

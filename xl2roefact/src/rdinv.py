@@ -495,7 +495,7 @@ def get_excel_data_at_label(
                         if len(check_for) > 1:
                             check_for = ' '.join(check_for.split()[1:])  # clean and keep all string except first word
                         else:
-                            chech_for = ""
+                            check_for = ""
                         if __check_value(check_for):
                             value_found = check_for
                             index_of_value_found = label_location
@@ -770,7 +770,7 @@ def get_merged_cells_tobe_changed(
         _crt_range_START_ROW = _crt_range.bounds[1]
         _crt_range_END_ROW = _crt_range.bounds[3]
         # traverse merged range for all cells in / set flags for first entry and when to completly break loop
-        _first_entry = True;
+        _first_entry = True
         _full_break = False
         for c in range(_crt_range_START_COL, _crt_range_END_COL + 1):  # traverse all COLS ...
             for r in range(_crt_range_START_ROW, _crt_range_END_ROW + 1):  # traverse all ROWS ...

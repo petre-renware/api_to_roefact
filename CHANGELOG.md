@@ -29,11 +29,22 @@
 -->
 
 
-<!--
-## 0.7 commands as layer 2 of functionalities (based on app CLI commands)
-* ...
-* tbd... prep release set all versions
--->
+
+## `0.7` commands as layer 2 of functionalities (based on app CLI commands)
+
+* ... code for this module code: `commands.py`
+* ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
+* ...upd versions...
+
+
+### `0.7rc0` settings refresh option and app settings reload by request
+
+* update downloads, portal
+* Published on PyPi (`https://pypi.org/project/xl2roefact/0.7rc0/`)
+* updated doc, deliverables
+* `config-settings-main-func` update config_settings module to embed init code under a `main()` function which run @ init but can be latter called also
+* `240429piu01` update doc `README_xl2roefact_library.md` section "Library components" to reflect the new commands layer. Rebuild site & publish
+* fix `invoicetoroefact.renware.eu` site for 0.6 MSI & EXE downloads
 
 
 
@@ -51,7 +62,7 @@
     * [x] example JSON schema update & build + publish site
     * [x] `doc-sys-settings-feat` short note about allowed invoice type (`cbc_InvoiceTypeCode`)
     * [x] `doc-sys-settings-feat` in xl2roefact library doc, ie "Referinta dezvoltare sofrware" (`README_xl2roefact_library.md`) explain how manage system settings using `sys_config.py`
-    * [x] `for-developers-section` introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing `README_xl2roefact_library.md`
+    * [x] `for-dvelopers-section` introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing `README_xl2roefact_library.md`
     * [x] `site-0.6.dev1` restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view
     * [x] `240413_01` updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for `PyPi` availability in project description
 * xl2roefact change version
@@ -98,10 +109,6 @@
     * updated xl2roefact python requirement, relaxed to `>=3.10`
     * updated site version to `0.6.1dev0` to mark in progress work
     * installed `chromium` on dev server
-
-
-
-
 
 
 

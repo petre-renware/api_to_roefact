@@ -23,7 +23,7 @@ Sistemul **INVOICEtoROefact** ofera urmatoarele componente:
 flowchart TD
     top[[INVOICEtoROefact \n System]]
 
-    xl2roefact[ xl2roefact \n Componenta locala]
+    xl2roefact[xl2roefact \n Componenta consola \n linie comanda]
     web2roefact[web2roefact \n Componenta web]
     invtmpl[invoice template \n Template factura Excel]
 
@@ -32,9 +32,11 @@ flowchart TD
     top --- invtmpl
 ```
 
-* __xl2roefact__ ![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue) - procesarea facturilor prin cod / program (development propriu)
-    * [aplicatie linie comanda](./xl2roefact/README.md)
-    * [biblioteca python dezvoltari proprii](xl2roefact/doc/README_xl2roefact_library.md)
+* __xl2roefact__ ![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue) - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)
+    * **[xl2roefact consola](./xl2roefact/README.md)** aplicatie linie comanda CLI
+    * **[xl2roefact developer](xl2roefact/doc/README_xl2roefact_library.md)** biblioteca sursa python dezvoltari proprii
+    * **xl2roefact desktop** ...in curind ... aplicatie desktop GUI
+    * **xl2roefact mobile** ...in curind... aplicatie pentru mobile Android si iOS
 
 * __web2roefact__ ![Static Badge](https://img.shields.io/badge/version-{{ web2roefact_version }}-blue) - procesarea facturilor din interfara web  <!--#TODO link tbd -->
 
