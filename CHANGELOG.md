@@ -39,7 +39,8 @@
 
 ### `0.7rc0` settings refresh option and app settings reload by request
 
-* ... update doc, deliverables, downloads, portal
+* ... downloads, portal
+* ... update doc, deliverables
 * `config-settings-main-func` update config_settings module to embed init code under a `main()` function which run @ init but can be latter called also
 * `240429piu01` update doc `README_xl2roefact_library.md` section "Library components" to reflect the new commands layer. Rebuild site & publish
 * fix `invoicetoroefact.renware.eu` site for 0.6 MSI & EXE downloads
