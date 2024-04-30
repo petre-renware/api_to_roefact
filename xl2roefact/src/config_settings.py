@@ -191,11 +191,9 @@ PATTERN_FOR_DUE_DATE = [
 ]
 
 
-
-
-# ------- NOTE: the following code runs unconditionally at module import
-
-# section to read settings from external data file
+def main():
+    """Read and load settings from external data file.
+    """
 file_to_use = hier_get_data_file("app_settings.yml")
 python_object = None  # suppose no settings loaded
 if file_to_use:
@@ -214,3 +212,5 @@ rules_file = hier_get_data_file("README_app_config_rules.md")
 rules_content = Markdown(rules_file.read_text())
 
 
+# ------- NOTE: the following code runs unconditionally at module import
+main()
