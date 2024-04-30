@@ -33,8 +33,10 @@ flowchart TD
 ```
 
 * __xl2roefact__ ![Static Badge](https://img.shields.io/badge/version-{{ xl2roefact_version }}-blue) - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)
-    * [aplicatie linie comanda](./xl2roefact/README.md)
-    * [biblioteca python dezvoltari proprii](xl2roefact/doc/README_xl2roefact_library.md)
+    * **[xl2roefact consola](./xl2roefact/README.md)** aplicatie linie comanda CLI
+    * **[xl2roefact developer](xl2roefact/doc/README_xl2roefact_library.md)** biblioteca sursa python dezvoltari proprii
+    * **xl2roefact desktop** ...in curind ... aplicatie desktop GUI
+    * **xl2roefact mobile** ...in curind... aplicatie pentru mobile Android si iOS
 
 * __web2roefact__ ![Static Badge](https://img.shields.io/badge/version-{{ web2roefact_version }}-blue) - procesarea facturilor din interfara web  <!--#TODO link tbd -->
 
