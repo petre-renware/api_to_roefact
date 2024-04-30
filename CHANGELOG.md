@@ -34,7 +34,7 @@
 
 * ... code for this module code: `commands.py`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
-* ...
+* ...upd versions...
 
 
 ### `0.7rc0` settings refresh option and app settings reload by request
