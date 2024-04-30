@@ -191,6 +191,12 @@ PATTERN_FOR_DUE_DATE = [
 ]
 
 
+# prepare `rules_content` public variable to be use as "mini help" by `settings -r` command of application
+rules_content = ""  # initialize with empty string to show nothing in case is a problem with file reading
+rules_file = hier_get_data_file("README_app_config_rules.md")
+rules_content = Markdown(rules_file.read_text())
+
+
 def main():
     """Read and load settings from external data file.
     """
@@ -205,12 +211,9 @@ def main():
         locals().update(python_object)
     else:  # if nothing or wrong read from previous method, settings applied will remain to values hard-coded in this module
         print("***INFO: Application settings loaded from application code (default settings).")
-    
-    # prepare `rules_content` public variable to be use as "mini help" by `settings -r` command of application
-    rules_content = ""  # initialize with empty string to show nothing in case is a problem with file reading
-    rules_file = hier_get_data_file("README_app_config_rules.md")
-    rules_content = Markdown(rules_file.read_text())
-    
+
+
+
 
 # ------- NOTE: the following code runs unconditionally at module import
 main()
