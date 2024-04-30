@@ -191,8 +191,7 @@ PATTERN_FOR_DUE_DATE = [
 ]
 
 
-# prepare `rules_content` public variable to be use as "mini help" by `settings -r` command of application
-rules_content = ""  # initialize with empty string to show nothing in case is a problem with file reading
+rules_content = ""  # `rules_content` public variable to be use as "mini help" by `settings -r` command of application
 rules_file = hier_get_data_file("README_app_config_rules.md")
 rules_content = Markdown(rules_file.read_text())
 
