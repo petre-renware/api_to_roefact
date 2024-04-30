@@ -196,7 +196,7 @@ rules_file = hier_get_data_file("README_app_config_rules.md")
 rules_content = Markdown(rules_file.read_text())
 
 
-def main():
+def load():
     """Read and load settings from external data file.
     """
     file_to_use = hier_get_data_file("app_settings.yml")
@@ -215,4 +215,4 @@ def main():
 
 
 # ------- NOTE: the following code runs unconditionally at module import
-main()
+load()
