@@ -22,7 +22,7 @@
 
 import packaging.utils
 
-__version__ = "0.6"  # current 0.6, previous 0.6rc0
+__version__ = "0.7rc0"  # current 0.7rc0, previous 0.6
 
 
 def normalized_version(
