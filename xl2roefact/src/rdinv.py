@@ -852,7 +852,7 @@ def build_meta_info_key(
         "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
         "xsi:schemaLocation": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"
     }
-    _tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str) #TODO subject of documentation update
+    _tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)
         ("cac_InvoiceLine", "cac:InvoiceLine"),
         ("cac_Item", "cac:Item"),
         ("cac_ClassifiedTaxCategory", "cac:ClassifiedTaxCategory"),
