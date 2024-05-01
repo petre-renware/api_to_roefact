@@ -38,14 +38,13 @@
 * ... ... ...
 
 
+
 ### `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs
 
-* tbd... upd DLD, publish PyPi, upd downloads.md, site
-* tbd... build only wheel deliverable because just source library is impacted
-* tbd... review TODOs, keep only those that are future features and move them to ROADMAP
-* ... upd versions before start work
-* ...
-
+* tbd... 4. upd DLD, publish PyPi, upd downloads.md, site
+* tbd... 3. build only wheel deliverable because just source library is impacted
+* 2. review TODOs, keep only those that are future features and move them to ROADMAP
+* 1. upd versions before start work
 
 ### `0.7rc0` settings refresh option and app settings reload by request
 

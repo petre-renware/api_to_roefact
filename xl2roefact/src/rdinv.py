@@ -381,29 +381,18 @@ def rdinv(
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
-            invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE ready, test PASS @ 231205 by [piu]
-            invoice_header_area = copy.deepcopy(invoice_header_area),  # NOTE ready, test PASS @ 2440326 by [piu]
-            invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO wip... TBD-(cac_TaxTotal) / RDY-(cac_LegalMonetaryTotal
+            invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE: ready, test PASS @ 231205 by [piu]
+            invoice_header_area = copy.deepcopy(invoice_header_area),  # NOTE: ready, test PASS @ 2440326 by [piu]
+            invoice_footer_area = copy.deepcopy(invoice_footer_area)   # NOTE: nothing to set here now (version 0.7). Let for future features
         ),
     }
     #
     # write `invoice` dict to file `f-JSON`
-    """ useful notes ref `f-JSON`:
-        - ref `f-JSON` file, see doc: `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#vedere-de-ansamblu-a-solutiei`
-        - create `f-JSON` filename as Excel filename but with json extention
-        - helpers:
-                - os.path.split() gets @[0] directory & @[1] filename
-                - os.path.splitext() @[0] filename w/o ext, @[1] extention woth dot char included
-        - TODO: @231217 - writing a JSON file should be subject of option bool parameter in rdinv() with default value `True`
-    """
     _fjson_filename = os.path.splitext(os.path.basename(file_to_process))[0] + ".json"
     _fjson_fileobject = os.path.join(os.path.split(file_to_process)[0], _fjson_filename)
     with open(_fjson_fileobject, 'w', encoding='utf-8') as _f:
         json.dump(invoice, _f, ensure_ascii = False, indent = 4)
     print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
-
-    #TODO check for more TODOs, clean &&-->
-    #TODO wip...(@231125) TRANSFORM JSON FILE from Excel (row,col) format in a relational one (but respecting ROefact tags from used scheme)
 
     return copy.deepcopy(invoice)
 
@@ -561,8 +550,7 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
             if _col_index is None: # did not find a suitable column to represent number, so return None probably raising an error
                 _vat_percent = DEFAULT_VAT_PERCENT if _item_quantity else None  # see #NOTE-1
             else:
-                #TODO check_what_is_here_and_if_actual [@231202]:  `_vat_percent` calculation should also consider a simplified invoice where only VAT value is specificed AND THEN SHOULD BE CALCULATED AS_IS in document (see "acciza line on REN... invoice")
-                _vat_percent = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_VAT_PERCENT if _item_quantity else None)  # see #TODO-1 check it considering previous comment
+                _vat_percent = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_VAT_PERCENT if _item_quantity else None)
                 _vat_percent = None if (str(_vat_percent).split() == "") else (float(_vat_percent) if isnumber(str(_vat_percent)) else None)  # finally make it None if remained empty string
 
         if True:  # ---- find item description / name ==> (`cbc_Name`)
@@ -663,9 +651,8 @@ def get_invoice_items_area(
         print(f"[red]***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - \"{wks_name}\" in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
         return False
 
-    #TODO test if list has more items (ie, that means more item tables that will need to be consolidated)
+    # if list has more items (which is abnormal for an usual invoice) then preserve only first one
     if isinstance(invoice_items_area, list) and len(invoice_items_area) > 0:
-        # NOTE `invoice_items_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
         invoice_items_area = invoice_items_area[0]  # will suppose found just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
 
     """ CLEANING & CLEARING section
@@ -837,7 +824,7 @@ def build_meta_info_key(
     _tmp_meta_info = dict()
 
     _tmp_meta_info["file"] = os.path.basename(excel_file_to_process)
-    _tmp_meta_info["file_CRC"] = "...file CRC (uniquely identify the invoice file used)"  #TODO to be done... #NOTE this calculation should be done as last step after final XLSX file writing
+    _tmp_meta_info["file_CRC"] = "...n/a in current version. Contains file CRC to identify source invoice file"  #TODO to be done... #NOTE this calculation should be done as last step after final XLSX file writing
     _tmp_meta_info["last_processing_time"] = datetime.now(timezone.utc).isoformat()  # set to ISO 8601 format
     _tmp_meta_info["invoice_worksheet"] = invoice_worksheet_name
     _tmp_meta_info["invoice_max_rows"] = ws_size[0]
@@ -852,7 +839,7 @@ def build_meta_info_key(
         "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
         "xsi:schemaLocation": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"
     }
-    _tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str) #TODO subject of documentation update
+    _tmp_meta_info["map_JSONkeys_XMLtags"] = [  # list of tuple(JSONkey: str, XMLtag: str)
         ("cac_InvoiceLine", "cac:InvoiceLine"),
         ("cac_Item", "cac:Item"),
         ("cac_ClassifiedTaxCategory", "cac:ClassifiedTaxCategory"),
