@@ -824,7 +824,7 @@ def build_meta_info_key(
     _tmp_meta_info = dict()
 
     _tmp_meta_info["file"] = os.path.basename(excel_file_to_process)
-    _tmp_meta_info["file_CRC"] = "...file CRC (uniquely identify the invoice file used)"  #TODO to be done... #NOTE this calculation should be done as last step after final XLSX file writing
+    _tmp_meta_info["file_CRC"] = "...n/a in current version. Contains file CRC to identify source invoice file"  #TODO to be done... #NOTE this calculation should be done as last step after final XLSX file writing
     _tmp_meta_info["last_processing_time"] = datetime.now(timezone.utc).isoformat()  # set to ISO 8601 format
     _tmp_meta_info["invoice_worksheet"] = invoice_worksheet_name
     _tmp_meta_info["invoice_max_rows"] = ws_size[0]
