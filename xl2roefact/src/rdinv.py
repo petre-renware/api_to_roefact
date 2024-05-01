@@ -651,9 +651,8 @@ def get_invoice_items_area(
         print(f"[red]***FATAL ERROR - Cannot find any candidate to for invoice ITEMS. Worksheet - \"{wks_name}\" in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
         return False
 
-    #TODO test if list has more items (ie, that means more item tables that will need to be consolidated)
+    # if list has more items (which is abnormal for an usual invoice) then preserve only first one
     if isinstance(invoice_items_area, list) and len(invoice_items_area) > 0:
-        # NOTE `invoice_items_area` dictionary with keys: "keyrows", "keycols" and "data" (self explanatory)
         invoice_items_area = invoice_items_area[0]  # will suppose found just one AND retain only first one (index [0]) - SEE AFTER TEST with RENware invoice...
 
     """ CLEANING & CLEARING section
