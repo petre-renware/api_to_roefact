@@ -32,10 +32,18 @@
 
 ## `0.7` commands as layer 2 of functionalities (based on app CLI commands)
 
-* ... code for this module code: `commands.py`
-* ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
-* ...upd versions...
+* tbd... code for this module code: `commands.py`
+* tbd... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
+* ... upd versions before start work
+* ... ... ...
 
+
+### `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs
+
+* tbd... 4. upd DLD, publish PyPi, upd downloads.md, site
+* tbd... 3. build only wheel deliverable because just source library is impacted
+* 2. review TODOs, keep only those that are future features and move them to ROADMAP
+* 1. upd versions before start work
 
 ### `0.7rc0` settings refresh option and app settings reload by request
 
