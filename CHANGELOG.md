@@ -37,11 +37,9 @@
 * ... upd versions before start work
 * ... ... ...
 
-
-
 ### `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs
 
-* tbd... 4. upd DLD, publish PyPi, upd downloads.md, site
+* 4. publish PyPi, upd downloads.md, site
 * 3. build only wheel deliverable because only source library is impacted
 * 2. review TODOs, keep only those that are future features and move them to ROADMAP
 * 1. upd versions before start work
