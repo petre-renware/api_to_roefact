@@ -1393,7 +1393,7 @@
     top --- invtmpl</code></pre>
 <ul>
 <li>
-<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /> - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)</p>
+<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc1-blue" /> - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)</p>
 <ul>
 <li><strong><a href="#xl2roefact-index">xl2roefact consola</a></strong> aplicatie linie comanda CLI</li>
 <li><strong><a href="#xl2roefact-doc-readme_xl2roefact_library">xl2roefact developer</a></strong> biblioteca sursa python dezvoltari proprii</li>
@@ -1444,10 +1444,10 @@
 <p>Sistemul ofera urmatoarele componente:</p>
 <ul>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></strong>  <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /> - procesarea facturilor in mod linie de comanda</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact">xl2roefact</a></strong>  <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc1-blue" /> - procesarea facturilor in mod linie de comanda</p>
 </li>
 <li>
-<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
+<p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-xl2roefact-python-library">xl2roefact Python library</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc1-blue" /> - procesarea facturilor prin cod / program (development propriu)</p>
 </li>
 <li>
 <p><strong><a href="#doc_src-810-dsgn-810.05a-system_components-web2roefact">web2roefact</a></strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-n/a-blue" /> - procesarea facturilor din interfara web</p>
@@ -1599,7 +1599,7 @@
                         </h1>
                         <section class="print-page" id="xl2roefact-index"><p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact-index-xl2roefact">xl2roefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc1-blue" /></p>
 <p>Legaturi externe utile:</p>
 <ul>
 <li><a href="https://invoicetoroefact.renware.eu/"><strong>Web Site</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
@@ -1767,9 +1767,11 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div>
 <p>Options:</p>
 <div class="highlight"><pre><span></span><code>  -V, --version         show application version
-  --install-completion  Install completion for the current shell.
-  --show-completion     Show completion for the current shell, to copy
-                        it or customize the installation.
+  --install-completion  Install completion for the
+                        current shell.
+  --show-completion     Show completion for the
+                        current shell, to copy it or
+                        customize the installation.
 </code></pre></div>
 <h4 id="xl2roefact-index-about">about</h4>
 <p>Provide a short application description.</p>
@@ -1801,17 +1803,24 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div>
 <p>Options:</p>
 <div class="highlight"><pre><span></span><code>  --invoice-type [380]            [default: 380]
-  [FILE_NAME]                     files to process (wildcards allowed)
+  [FILE_NAME]                     files to process
+                                  (wildcards allowed)
                                   [default: *.xlsx]
   -d, --files-directory DIRECTORY
-                                  directory to be used to look for
-                                  Excel files (if default directory
-                                  does not exists will consider
-                                  current directory instead).
-                                  [default: invoice_files/]
-  -o, --owner-datafile PATH       File to read invoice supplier
-                                  (owner) data instead Excel.
-  -v, --verbose                   show detailed processing messages
+                                  directory to be used
+                                  to look for Excel
+                                  files (if default
+                                  directory does not
+                                  exists will consider
+                                  current directory
+                                  instead).  [default:
+                                  invoice_files/]
+  -o, --owner-datafile PATH       File to read invoice
+                                  supplier (owner)
+                                  data instead Excel.
+  -v, --verbose                   show detailed
+                                  processing messages
+  --help                          Show this message
 </code></pre></div>
 <h2 id="xl2roefact-index-practici-si-regului-referitoare-la-continutul-facturilor-din-excel">Practici si regului referitoare la continutul facturilor din Excel</h2>
 <p>Acest capitol se refera la modul in care este "tratat" continutul fisierului Excel cu factura, mai exact la modalitatea in care informatia facturii este cautata, identificata si gasita in scopul de a fi salvata in oricare din formatele de "factura electronica / E-Fact".</p>
@@ -1952,7 +1961,7 @@ cit si la nivel detaliat pentru fiecare comanda
 -->
 
 <h1 id="xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc1-blue" /></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</a><ul>
@@ -2073,7 +2082,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul></section><section class="print-page" id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs"><!-- this doc is a wrapper intended just to create a better Table of Contents that one created by `pydoc` in built document -->
 
 <h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2roefact-python-library-api-reference">xl2roefact python library API Reference</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc1-blue" /></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2roefact-python-library-api-reference">xl2roefact python library API Reference</a></li>
@@ -2154,7 +2163,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div></p>
 <p><a id="__version__.__version__"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version___1">__version__</h4>
-<p>current 0.7rc0, previous 0.6</p>
+<p>current 0.7rc1, previous 0.7rc0</p>
 <p><a id="__version__.normalized_version"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-normalized_version">normalized_version</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">normalized_version</span><span class="p">(</span><span class="n">raw_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
@@ -3255,6 +3264,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.7</summary>
 <ul>
+<li><a href="https://pypi.org/project/xl2roefact/0.7rc1/"><code>0.7rc1</code> review &amp; clean <code>xl2roefact.rdinv</code> module of TODOs</a>    </li>
 <li><a href="https://pypi.org/project/xl2roefact/0.7rc0/"><code>0.7rc0</code> settings refresh option and app settings reload by request</a></li>
 </ul>
 </details>
@@ -3328,6 +3338,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.7</summary>
 <ul>
+<li><code>0.7rc1</code> review &amp; clean <code>xl2roefact.rdinv</code> module of TODOs - INDISPONIBILA</li>
 <li><a href="xl2roefact/dist/xl2roefact-0.7rc0-win64.msi" title="download"><code>0.7rc0</code> settings refresh option and app settings reload by request</a></li>
 </ul>
 </details>
@@ -3335,7 +3346,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <summary>0.6</summary>
 <ul>
 <li><a href="xl2roefact/dist/xl2roefact-0.6-win64.msi" title="download"><code>0.6</code> invoice type JSON-XML tag</a></li>
-<li><code>0.6rc0 system database and parameters</code> INDISPONIBILA</li>
+<li><code>0.6rc0 system database and parameters</code> - INDISPONIBILA</li>
 </ul>
 </details>
 <!-- #TODO; from 240501 drop these versions as deprecated -->
@@ -3382,6 +3393,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe <em><a href="h
 <details class="note">
 <summary>0.7</summary>
 <ul>
+<li><code>0.7rc1</code> review &amp; clean <code>xl2roefact.rdinv</code> module of TODOs - INDISPONIBILA</li>
 <li><a href="xl2roefact/dist/xl2roefact-0.7rc0-win64.exe" title="download"><code>0.7rc0</code> settings refresh option and app settings reload by request</a></li>
 </ul>
 </details>
@@ -4074,6 +4086,7 @@ Public License instead of this License.  But first, please read
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
 <li><a href="#changelog-07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands">0.7 commands as layer 2 of functionalities (based on app CLI commands)</a><ul>
+<li><a href="#changelog-07rc1-review-clean-xl2roefactrdinv-module-of-todos">0.7rc1 review &amp; clean xl2roefact.rdinv module of TODOs</a></li>
 <li><a href="#changelog-07rc0-settings-refresh-option-and-app-settings-reload-by-request">0.7rc0 settings refresh option and app settings reload by request</a></li>
 </ul>
 </li>
@@ -4119,13 +4132,37 @@ Public License instead of this License.  But first, please read
 
 <h2 id="changelog-07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands"><code>0.7</code> commands as layer 2 of functionalities (based on app CLI commands)</h2>
 <ul>
-<li>... code for this module code: <code>commands.py</code></li>
-<li>... update doc <code>README_xl2roefact_library.md</code> make a small hierarchical diagram with component layers</li>
-<li>...upd versions...</li>
+<li>tbd... code for this module code: <code>commands.py</code></li>
+<li>tbd... update doc <code>README_xl2roefact_library.md</code> make a small hierarchical diagram with component layers</li>
+<li>... upd versions before start work</li>
+<li>... ... ...</li>
+</ul>
+<h3 id="changelog-07rc1-review-clean-xl2roefactrdinv-module-of-todos"><code>0.7rc1</code> review &amp; clean <code>xl2roefact.rdinv</code> module of TODOs</h3>
+<ul>
+<li>
+<ol>
+<li>publish PyPi, upd downloads.md, site</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>build only wheel deliverable because only source library is impacted</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>review TODOs, keep only those that are future features and move them to ROADMAP</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>upd versions before start work</li>
+</ol>
+</li>
 </ul>
 <h3 id="changelog-07rc0-settings-refresh-option-and-app-settings-reload-by-request"><code>0.7rc0</code> settings refresh option and app settings reload by request</h3>
 <ul>
-<li>update downloads, portal</li>
+<li>update downloads, site</li>
 <li>Published on PyPi (<code>https://pypi.org/project/xl2roefact/0.7rc0/</code>)</li>
 <li>updated doc, deliverables</li>
 <li><code>config-settings-main-func</code> update config_settings module to embed init code under a <code>main()</code> function which run @ init but can be latter called also</li>
