@@ -35,6 +35,7 @@ In acest mod va fi instalata automat ultima versiune publicata pe *[PyPi](https:
 
 
 ??? note "0.7"
+    * [`0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs](https://pypi.org/project/xl2roefact/0.7rc1/)    
     * [`0.7rc0` settings refresh option and app settings reload by request](https://pypi.org/project/xl2roefact/0.7rc0/)
 
 ??? note "0.6"
@@ -102,11 +103,12 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
 ??? note "0.7"
+    * `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs - INDISPONIBILA
     * [`0.7rc0` settings refresh option and app settings reload by request](../xl2roefact/dist/xl2roefact-0.7rc0-win64.msi "download")
 
 ??? note "0.6"
     *  [`0.6` invoice type JSON-XML tag](../xl2roefact/dist/xl2roefact-0.6-win64.msi "download")
-    * `0.6rc0 system database and parameters` INDISPONIBILA
+    * `0.6rc0 system database and parameters` - INDISPONIBILA
 
 <!-- #TODO; from 240501 drop these versions as deprecated -->
 
@@ -138,6 +140,7 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
 
 ??? note "0.7"
+    * `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs - INDISPONIBILA
     * [`0.7rc0` settings refresh option and app settings reload by request](../xl2roefact/dist/xl2roefact-0.7rc0-win64.exe "download")
 
 ??? note "0.6"
