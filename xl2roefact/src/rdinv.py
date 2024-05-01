@@ -381,9 +381,9 @@ def rdinv(
         },
         "meta_info": copy.deepcopy(meta_info),
         "excel_original_data": dict(
-            invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE ready, test PASS @ 231205 by [piu]
-            invoice_header_area = copy.deepcopy(invoice_header_area),  # NOTE ready, test PASS @ 2440326 by [piu]
-            invoice_footer_area = copy.deepcopy(invoice_footer_area)  #TODO wip... TBD-(cac_TaxTotal) / RDY-(cac_LegalMonetaryTotal
+            invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE: ready, test PASS @ 231205 by [piu]
+            invoice_header_area = copy.deepcopy(invoice_header_area),  # NOTE: ready, test PASS @ 2440326 by [piu]
+            invoice_footer_area = copy.deepcopy(invoice_footer_area)   # NOTE: nothing to set here now (version 0.7). Let for future features
         ),
     }
     #
