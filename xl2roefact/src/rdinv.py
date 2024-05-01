@@ -388,14 +388,6 @@ def rdinv(
     }
     #
     # write `invoice` dict to file `f-JSON`
-    """ useful notes ref `f-JSON`:
-        - ref `f-JSON` file, see doc: `https://apitoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#vedere-de-ansamblu-a-solutiei`
-        - create `f-JSON` filename as Excel filename but with json extention
-        - helpers:
-                - os.path.split() gets @[0] directory & @[1] filename
-                - os.path.splitext() @[0] filename w/o ext, @[1] extention woth dot char included
-        - TODO: @231217 - writing a JSON file should be subject of option bool parameter in rdinv() with default value `True`
-    """
     _fjson_filename = os.path.splitext(os.path.basename(file_to_process))[0] + ".json"
     _fjson_fileobject = os.path.join(os.path.split(file_to_process)[0], _fjson_filename)
     with open(_fjson_fileobject, 'w', encoding='utf-8') as _f:
