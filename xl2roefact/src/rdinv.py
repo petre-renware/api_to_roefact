@@ -550,8 +550,7 @@ def mk_kv_invoice_items_area(invoice_items_area_xl_format) -> dict:
             if _col_index is None: # did not find a suitable column to represent number, so return None probably raising an error
                 _vat_percent = DEFAULT_VAT_PERCENT if _item_quantity else None  # see #NOTE-1
             else:
-                #TODO check_what_is_here_and_if_actual [@231202]:  `_vat_percent` calculation should also consider a simplified invoice where only VAT value is specificed AND THEN SHOULD BE CALCULATED AS_IS in document (see "acciza line on REN... invoice")
-                _vat_percent = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_VAT_PERCENT if _item_quantity else None)  # see #TODO-1 check it considering previous comment
+                _vat_percent = _invoice_items_data_key[_i][_col_index] if (_invoice_items_data_key[_i][_col_index] is not None) else (DEFAULT_VAT_PERCENT if _item_quantity else None)
                 _vat_percent = None if (str(_vat_percent).split() == "") else (float(_vat_percent) if isnumber(str(_vat_percent)) else None)  # finally make it None if remained empty string
 
         if True:  # ---- find item description / name ==> (`cbc_Name`)
