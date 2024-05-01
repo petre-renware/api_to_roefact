@@ -394,9 +394,6 @@ def rdinv(
         json.dump(invoice, _f, ensure_ascii = False, indent = 4)
     print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
 
-    #TODO check for more TODOs, clean &&-->
-    #TODO wip...(@231125) TRANSFORM JSON FILE from Excel (row,col) format in a relational one (but respecting ROefact tags from used scheme)
-
     return copy.deepcopy(invoice)
 
 
