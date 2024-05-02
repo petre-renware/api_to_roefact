@@ -32,7 +32,7 @@
 
 ## `0.7` init commands layer 2 of functionalities
 
-* .. code for this module code: `commands.py`
+* ... move `settings` functionality to `commands/`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
 * ...
 * `init-command-layer` made `commands/` as in-package / layer
