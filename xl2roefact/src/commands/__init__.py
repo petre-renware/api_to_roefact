@@ -1,4 +1,6 @@
-"""in-package designed to implement xl2roefact commands layer
+"""xl2roefact in-package designed to implement commands layer
 
-* Author: Petre Iordanescu, petre.iordanescu@gmail.com, (c) RENware Software Systems
+* Issued: 2024 May
+* Author: Petre Iordanescu, petre.iordanescu@gmail.com
+* (c) RENware Software Systems
 """
