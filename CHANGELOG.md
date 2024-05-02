@@ -30,12 +30,13 @@
 
 
 
-## `0.7` commands as layer 2 of functionalities (based on app CLI commands)
+## `0.7` init commands layer 2 of functionalities
 
-* tbd... code for this module code: `commands.py`
-* tbd... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
-* ... upd versions before start work
-* ... ... ...
+* ... move `settings` functionality to `commands/`
+* ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
+* ...
+* `init-command-layer` made `commands/` as in-package / layer
+* upd versions before start work
 
 ### `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs
 
