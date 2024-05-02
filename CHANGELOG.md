@@ -34,9 +34,9 @@
 
 * .. code for this module code: `commands.py`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
-* ... `ini-command-layer` made `commands/` as in-package / layer
 * ...
-* `upd-ver` upd versions before start work
+* `init-command-layer` made `commands/` as in-package / layer
+* upd versions before start work
 
 ### `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs
 
