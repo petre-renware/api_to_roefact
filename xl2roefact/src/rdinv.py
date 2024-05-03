@@ -406,7 +406,7 @@ def rdinv(
 
     my_debug_info = list()
     my_debug_info.append(console.file.getvalue())
-    debug_info = my_debug_info.copy.deepcopy()  # write out. relevant will be only first item (see parameter docstring to understand the reason of using list)
+    debug_info = my_debug_info.copy()  # write out. relevant will be only first item (see parameter docstring to understand the reason of using list)
     console = Console()  # restore console
     print = console.print  # all prints will takes place from new standard console
     
