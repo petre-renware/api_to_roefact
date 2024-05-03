@@ -116,19 +116,9 @@ def rdinv(
     global DEFAULT_CUSTOMER_COUNTRY
 
     redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
-    #FIXME.drop.this prev_stdout = sys.stdout  # preserve stout whatever it would be to restore it before exiting. Important in multiprocessing situations
     console = Console(file=io.StringIO())
-    ''' SHORT.PLAN:
-      - see if keep anymore io.StringIO redirection
-        instead using console redirection
-      - need to redirect all prints as:
-    print = console.print  # redirect all prints on rich console print
-    '''
     print = console.print
-    if True:  # always redirect all prints to debug_info array
-        my_debug_info = []  # create an empty stdoud info
-        #FIXME.drop.this tmp_stdout = None  # init to be addressable but raise exceptions in most cases
-        #FIXME.temp.dsbld with redirect_stdout(io.StringIO()) as tmp_stdout:
+    if True:
         if True:
             #FIXME ... FROM HERE INDENT
             print(f"*** Module [red]rdinv[/] started at {datetime.now()} to process file [green]{os.path.split(file_to_process)[1]}[/] (full path: {file_to_process})")
@@ -414,10 +404,9 @@ def rdinv(
             print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
             #FIXME ... TO HERE INDENT
 
-    #FIXME.drop.this    my_debug_info.append(tmp_stdout.getvalue().encode('unicode-escape').decode('unicode-escape'))
     my_debug_info.append(console.file.getvalue())
-    # sys.stdout = prev_stdout  # restore stdout
     console = Console()  # restore console
+    print = console.print
     console.print(f"{my_debug_info=}") #FIXME dbg drop
     if redir_stdout:  # silent output
         debug_info = my_debug_info.copy(my_debug_info)
