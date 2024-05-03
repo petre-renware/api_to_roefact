@@ -405,12 +405,14 @@ def rdinv(
             #FIXME ... TO HERE INDENT
 
     my_debug_info.append(console.file.getvalue())
-    debug_info = my_debug_info.copy(my_debug_info) preserve only first item (see parameter docstring to understand the reason of using list)
+    debug_info = my_debug_info.copy(my_debug_info)  # preserve only first item (see parameter docstring to understand the reason of using list)
     console = Console()  # restore console
     print = console.print  # all prints will takes place from new standard console
-    console.print(f"{my_debug_info=}") #FIXME dbg drop
+    
+    print(my_debug_info) #FIXME dbg drop
+    
     if not redir_stdout:  # verbose output
-        console.print(my_debug_info[0])
+        print(my_debug_info[0])
     return copy.deepcopy(invoice)
 
 
