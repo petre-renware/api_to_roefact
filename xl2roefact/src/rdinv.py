@@ -116,13 +116,14 @@ def rdinv(
     global DEFAULT_CUSTOMER_COUNTRY
 
     redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
-    console = Console(file=StringIO())
+    console = Console(file=io.StringIO())
     ''' SHORT.PLAN:
       - see if keep anymore io.StringIO redirection
         instead using console redirection
       - need to redirect all prints as:
-    print = function_stdout print  # redirect all prints on rich console print
+    print = console.print  # redirect all prints on rich console print
     '''
+    print = console.print
     if True:  # always redirect all prints to debug_info array
         my_debug_info = []  # create an empty stdoud info
         tmp_stdout = None  # init to be addressable but raise exceptions in most cases
