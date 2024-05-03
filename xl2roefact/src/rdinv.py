@@ -115,7 +115,7 @@ def rdinv(
     global DEFAULT_SUPPLIER_COUNTRY
     global DEFAULT_CUSTOMER_COUNTRY
 
-    redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
+    redir_stdout = debug_info is not None  # indicate a request to redirect function prints to a list
     console = Console(file=io.StringIO())
     print = console.print  # new print function to use for all print ops regardless you forget or not ==> function will run "silent" if no otherwise requested
     if True:
@@ -406,11 +406,12 @@ def rdinv(
 
     my_debug_info = list()
     my_debug_info.append(console.file.getvalue())
-    debug_info = my_debug_info.copy()  # write out. relevant will be only first item (see parameter docstring to understand the reason of using list)
+    if type(debug_info) == list:  # only in a list can write result otherwise will "not touch" parameter
+        debug_info = my_debug_info.copy()  # write out. relevant will be only first item (see parameter docstring to understand the reason of using list)
     console = Console()  # restore console
     print = console.print  # all prints will takes place from new standard console
     if not redir_stdout:  # verbose output
-        print(debug_info[0])  # use only first item (see parameter docstring to understand the reason of using list)
+        print(my_debug_info[0])  # use only first item (see parameter docstring to understand the reason of using list)
     return copy.deepcopy(invoice)
 
 
