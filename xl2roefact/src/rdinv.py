@@ -410,7 +410,7 @@ def rdinv(
     my_debug_info.append(tmp_stdout.getvalue())
     print(f"{my_debug_info=}") #FIXME dbg drop 
     if redir_stdout:  # silent output
-        debug_info = copy.deepcopy(my_debug_info}
+        debug_info = copy.deepcopy(my_debug_info)
     else:  # verbosed output
         print(f"{debug_info=}")
     return copy.deepcopy(invoice)
