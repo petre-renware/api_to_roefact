@@ -404,15 +404,16 @@ def rdinv(
             print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
             #FIXME ... TO HERE INDENT
 
+    my_debug_info = list()
     my_debug_info.append(console.file.getvalue())
-    debug_info = my_debug_info.copy(my_debug_info)  # preserve only first item (see parameter docstring to understand the reason of using list)
+    debug_info = my_debug_info.copy.deepcopy()  # write out. relevant will be only first item (see parameter docstring to understand the reason of using list)
     console = Console()  # restore console
     print = console.print  # all prints will takes place from new standard console
     
-    print(debug_info) #FIXME dbg drop
+    print(debug_info[0]) #FIXME dbg drop
     
     if not redir_stdout:  # verbose output
-        print(my_debug_info[0])
+        print(debug_info[0])  # use only first item (see parameter docstring to understand the reason of using list)
     return copy.deepcopy(invoice)
 
 
