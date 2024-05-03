@@ -35,6 +35,7 @@
 * ... move `settings` functionality to `commands/`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
 * ...
+* ... `rdinv-wrapped` updated `rdinv.rdinv()` in order to emit all print info in an array of strings if specified, otherwise emmit normally to `stdout` device
 * `init-command-layer` made `commands/` as in-package / layer
 * upd versions before start work
 
