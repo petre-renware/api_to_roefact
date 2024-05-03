@@ -116,7 +116,7 @@ def rdinv(
     global DEFAULT_CUSTOMER_COUNTRY
 
     redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
-    prev_stdout = sys.stdout  # preserve stout whatever it would be to restore it before exiting. Important in multiprocessing situations
+    #FIXME.drop.this prev_stdout = sys.stdout  # preserve stout whatever it would be to restore it before exiting. Important in multiprocessing situations
     console = Console(file=io.StringIO())
     ''' SHORT.PLAN:
       - see if keep anymore io.StringIO redirection
@@ -417,12 +417,12 @@ def rdinv(
     #FIXME.drop.this    my_debug_info.append(tmp_stdout.getvalue().encode('unicode-escape').decode('unicode-escape'))
     my_debug_info.append(console.file.getvalue())
     # sys.stdout = prev_stdout  # restore stdout
-    console = Console(file=prev_stdout)  # restore stdout
-    print(f"{my_debug_info=}") #FIXME dbg drop
+    console = Console()  # restore console
+    console.print(f"{my_debug_info=}") #FIXME dbg drop
     if redir_stdout:  # silent output
         debug_info = my_debug_info.copy(my_debug_info)
     else:  # verbosed output
-        print(my_debug_info[0])
+        console.print(my_debug_info[0])
     return copy.deepcopy(invoice)
 
 
