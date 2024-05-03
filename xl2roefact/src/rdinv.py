@@ -114,7 +114,8 @@ def rdinv(
     global DEFAULT_SUPPLIER_COUNTRY
     global DEFAULT_CUSTOMER_COUNTRY
 
-    if debug_info is not None and type(debug_info) == list:  # redirecd all prints to debug_info array
+    redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
+    if redir_stdout:  # redirect all prints to debug_info array
         ...
     
     print(f"*** Module [red]rdinv[/] started at {datetime.now()} to process file [green]{os.path.split(file_to_process)[1]}[/] (full path: {file_to_process})")
