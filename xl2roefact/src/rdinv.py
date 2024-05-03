@@ -15,7 +15,9 @@ Specifications:
 * IESIRI: fisier format JSON imagine a datelor facturii (cod: `f-JSON`)
 """
 
-import os, sys
+import os
+import sys
+import io
 from datetime import datetime, timezone, tzinfo, timedelta
 from rich import print
 import copy
@@ -79,7 +81,7 @@ def rdinv(
     invoice_worksheet_name: str = None,
     *,
     invoice_type_code: InvoiceTypesEnum = InvoiceTypesEnum.NORMALA,
-    debug_info: bool = False,
+    debug_info: list[str] = None,
     owner_datafile: Path = None
 ) -> dict:
     """read Excel file for invoice data.
@@ -91,7 +93,7 @@ def rdinv(
         `file_to_process`: the invoice file (exact file with path).
         `invoice_worksheet_name`: the worksheet containing invoice, optional, defaults to first found worksheet.
         `invoice_type_code`:  code of invoice type, for example "380" for regular.
-        `debug_info`: key only, show debugging information, default `False`.
+        `debug_info`: ordered list with all print messages issued by function.
         `owner_datafile`: specify a file to read supplier data from, default `None` meaning to read supplier data from Excel file.
 
     Return:
