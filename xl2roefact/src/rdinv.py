@@ -116,6 +116,7 @@ def rdinv(
     global DEFAULT_CUSTOMER_COUNTRY
 
     redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
+    prev_stdout = sys.stdout  # preserve stout whatever it would be to restore it before exiting. Important in multiprocessing situations
     console = Console(file=io.StringIO())
     ''' SHORT.PLAN:
       - see if keep anymore io.StringIO redirection
@@ -123,7 +124,6 @@ def rdinv(
       - need to redirect all prints as:
     print = console.print  # redirect all prints on rich console print
     '''
-    prev_stdout = sys.stdout  # preserve stout whatever it would be to restore it before exiting. Important in multiprocessing situations
     print = console.print
     if True:  # always redirect all prints to debug_info array
         my_debug_info = []  # create an empty stdoud info
