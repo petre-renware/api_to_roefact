@@ -409,7 +409,7 @@ def rdinv(
     console = Console()  # restore console
     print = console.print  # all prints will takes place from new standard console
     
-    print(my_debug_info) #FIXME dbg drop
+    print(debug_info) #FIXME dbg drop
     
     if not redir_stdout:  # verbose output
         print(my_debug_info[0])
