@@ -123,6 +123,7 @@ def rdinv(
       - need to redirect all prints as:
     print = console.print  # redirect all prints on rich console print
     '''
+    original_print = print  # save actual print function whatever it would be to restore it @ finish
     print = console.print
     if True:  # always redirect all prints to debug_info array
         my_debug_info = []  # create an empty stdoud info
@@ -412,8 +413,9 @@ def rdinv(
             print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
             #FIXME ... TO HERE INDENT
 
-    # my_debug_info.append(tmp_stdout.getvalue().encode('unicode-escape').decode('unicode-escape'))
+    #FIXME.drop.this    my_debug_info.append(tmp_stdout.getvalue().encode('unicode-escape').decode('unicode-escape'))
     my_debug_info.append(console.file.getvalue())
+    print = original_print  # restore original print
     print(f"{my_debug_info=}") #FIXME dbg drop
     if redir_stdout:  # silent output
         debug_info = my_debug_info.copy(my_debug_info)
