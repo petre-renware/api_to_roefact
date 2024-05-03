@@ -129,7 +129,7 @@ def rdinv(
         my_debug_info = []  # create an empty stdoud info
         #FIXME.drop.this tmp_stdout = None  # init to be addressable but raise exceptions in most cases
         #FIXME.temp.dsbld with redirect_stdout(io.StringIO()) as tmp_stdout:
-        if True;
+        if True:
             #FIXME ... FROM HERE INDENT
             print(f"*** Module [red]rdinv[/] started at {datetime.now()} to process file [green]{os.path.split(file_to_process)[1]}[/] (full path: {file_to_process})")
             # read Excel file with Invoice data
