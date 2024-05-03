@@ -409,9 +409,6 @@ def rdinv(
     debug_info = my_debug_info.copy()  # write out. relevant will be only first item (see parameter docstring to understand the reason of using list)
     console = Console()  # restore console
     print = console.print  # all prints will takes place from new standard console
-    
-    print(debug_info[0]) #FIXME dbg drop
-    
     if not redir_stdout:  # verbose output
         print(debug_info[0])  # use only first item (see parameter docstring to understand the reason of using list)
     return copy.deepcopy(invoice)
