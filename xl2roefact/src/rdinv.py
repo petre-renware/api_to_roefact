@@ -119,294 +119,293 @@ def rdinv(
     if redir_stdout:  # redirect all prints to debug_info array
         with redirect_stdout(io.StringIO()) as tmp_stdout:
             ...
-            #FIXME moved to final: s = tmp_stdout.getvalue()
 
-#FIXME ... FROM HERE INDENT   
-    print(f"*** Module [red]rdinv[/] started at {datetime.now()} to process file [green]{os.path.split(file_to_process)[1]}[/] (full path: {file_to_process})")
-
-    # read Excel file with Invoice data
-    try:
-        db = xl.readxl(fn=file_to_process)
-    except:
-        print(f"[red]---***FATAL ERROR - Cannot open Excel file {file_to_process} (possible problems: file corrupted, wrong type only XLSX accetpted, file does not exists or was deleted, operating system vilotation) in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
-        return False
-
-    # read the workshet with Invoice data
-    if invoice_worksheet_name is None:  # if parameter `invoice_worksheet_name` not specified try to open first worksheet from Excel worksheets - order is given by worksheets order in Excel file
-        list_of_excel_worksheets = db.ws_names
-        print(f"[yellow]INFO note:[/] `rdinv` module, no worksheet specified, will open first one: [cyan]'{list_of_excel_worksheets[0]}'[/]")
-        invoice_worksheet_name = list_of_excel_worksheets[0]
-
-    try:
-        ws = db.ws(invoice_worksheet_name)
-    except:
-        print(f"[red]***FATAL ERROR - Cannot open Excel specified Worksheet \"{invoice_worksheet_name}\" in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
-        return False
-
-    """#NOTE: section for search of `invoice_items_area: pylightxl.ssd`
-        - main result: `keyword_for_items_table_marker` = string marker to search for in oredr to isolate `invoice_items_area`
-        - other results: `_found_cell_for_invoice_items_area_marker = (row, col, val)`
-    """
-    _tmp_label_info = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER,
-        worksheet=ws,
-        targeted_type=str
-    )
-    if _tmp_label_info["label_value"]:  # only if found a potential cell usable as`invoice_items_area_marker`
-        _found_cell_for_invoice_items_area_marker = (
-            _tmp_label_info["label_location"][0],
-            _tmp_label_info["label_location"][1],
-            _tmp_label_info["label_value"]
-        )  # here you still need to construct `_found_cell_for_invoice_items_area_marker = (row, col, val)` as it is used in prev code (before `231220piu_a` change)
-    else:
-        print(f"[red]***FATAL ERROR - Cannot find a relevant cell where invoice items table start (basically containing string \" crt\"). File processing terminated[/]")
-        return False
-    keyword_for_items_table_marker = _found_cell_for_invoice_items_area_marker[2]
-
-    # detect all cells that should be filled with SYS_FILLED_EMPTY_CELL (these are cells id merged groups where first cell in merged group is relevant (diff from empty))
-    detected_cells_which_will_be_fake_filled = get_merged_cells_tobe_changed(
-        file_to_scan=file_to_process,
-        invoice_worksheet_name=invoice_worksheet_name,
-        keep_cells_of_items_ssd_marker=_found_cell_for_invoice_items_area_marker)  # this call specify to keep unchanged that cells with some description
-    for _cell_index in detected_cells_which_will_be_fake_filled:  # scan all detectected cell and change them
-        _cell_row = _cell_index[0]
-        _cell_col = _cell_index[1]
-        ws.update_index(row = _cell_row, col = _cell_col, val = SYS_FILLED_EMPTY_CELL)
-
-    """#NOTE: section to "solve" `invoice_items_area`. Steps:
-        - process it as Excel format (row & colymns tabular organization)
-        - transform it in "canonical JSON format" (as kv pairs) and update `cac_InvoiceLine` key
-    """
-    # process invoice to detect its items / lines ('invoice_items_area'), clean and extract data
-    invoice_items_area = get_invoice_items_area(
-        worksheet=ws,
-        invoice_items_area_marker=keyword_for_items_table_marker,
-        wks_name=invoice_worksheet_name
-    )
-
-    """#NOTE: section for localize areas: invoice header (`invoice_header_area`) & invoice footer (`invoice_footer_area`)
-        NOTE: its code suppose `invoice_items_area` is already defined (as location). It will be used as reference in "header" & "footer" localization logic
-    """
-    ulc_header = (1, 1)
-    lrc_header = (_found_cell_for_invoice_items_area_marker[0] - 1, ws.size[1],)  # info where header ends: row = from items data table start location `_found_cell_for_invoice_items_area_marker[0]-1` && col = las col of worksheet
-    invoice_header_area = dict(
-        start_cell = ulc_header,
-        end_cell = lrc_header
-    )
-    #
-    _ulc_footer_row = _found_cell_for_invoice_items_area_marker[0] + len(invoice_items_area["keyrows"]) + 1  # this is located at: row = items data table start row  (_found_cell_for_invoice_items_area_marker[0]) + # of items data table rows + 1 (invoice_items_area["data"]) && col = 1
-    _start_cell_val = ws.index(_ulc_footer_row, 1)
-    while (_start_cell_val != "") and (_ulc_footer_row <= ws.size[0]): # but if that cell is not blank repeatedly to go une more row down... (why could happen? because ietms data table header was composed of more rows by merging cells...)
-        _ulc_footer_row += 1
-        _start_cell_val = ws.index(_ulc_footer_row, 1)
-    ulc_footer = (_ulc_footer_row, 1)
-    lrc_footer =( ws.size[0], ws.size[1])  # end of worksheet
-    invoice_footer_area = dict(
-        start_cell = ulc_footer,
-        end_cell = lrc_footer
-    )
-
-    """#NOTE: section to "solve" `invoice_header_area`.
-            The kind of info expected in this area: invoice number,  currency, issued date, supplier data, customer data)
-    """
-    invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
-        invoice_number = None,
-        issued_date = None,
-        currency = None,
-        due_date = None,
-        customer_area = None,
-        supplier_area = None,
-    )
-    _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
-    #
-    # find invoice number ==> `cbc:ID`
-    invoice_number_info = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_INVOICE_NUMBER_LABEL,
-        worksheet=ws,
-        area_to_scan=_area_to_search,
-        targeted_type=str
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
-    #
-    # find invoice currency ==> `cbc:DocumentCurrencyCode`
-    invoice_currency_info = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_INVOICE_CURRENCY_LABEL,
-        worksheet=ws,
-        area_to_scan=_area_to_search,
-        targeted_type=str
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    if (invoice_currency_info["value"] is not None) and (invoice_currency_info["value"] != ""):  # if found a currency MUST CHANGE `DEFAULT_CURRENCY` to be properly used for `invoice_items_area`
-        DEFAULT_CURRENCY = invoice_currency_info["value"]
-    invoice_header_area["currency"] = copy.deepcopy(invoice_currency_info)
-    #
-    # find invoice issued date ==> `cbc:IssueDate`
-    issued_date_info = get_excel_data_at_label(
-        pattern_to_search_for=PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL,
-        worksheet=ws,
-        area_to_scan=_area_to_search,
-        targeted_type=str
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
-    invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
-    #
-    # find invoice due date ==> `cbc_DueDate`
-    due_date_info = get_excel_data_at_label(
-        pattern_to_search_for= PATTERN_FOR_DUE_DATE,
-        worksheet=ws,
-        area_to_scan=_area_to_search,
-        targeted_type=str
-    )  # returned info: `{"value": ..., "location": (row..., col...)}`
-    if due_date_info["value"] is not None:  # if found something then try to clean it in case is intended to be a date-time
-        due_date_info["value"] = due_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
-    else:
-        # convert invoice issued daye to datetime format
-        invoice_issued_date_as_date = datetime.strptime(
-            invoice_header_area["issued_date"]["value"],
-            '%Y-%m-%d'
-        )
-        # apply `DEFAULT_DUE_DATE_DAYS` to invoice issue date and convert it to date isoformat
-        _tmp = invoice_issued_date_as_date + timedelta(days = DEFAULT_DUE_DATE_DAYS)
-        due_date_info["value"] = _tmp.date().isoformat()
-    invoice_header_area["due_date"] = copy.deepcopy(due_date_info)
-    #
-    # get and solve `invoice_header_area` for all CUSTOMER data
-    _ = get_partner_data(
-        partner_type="CUSTOMER",
-        wks=ws,
-        param_invoice_header_area=invoice_header_area
-    )
-    #
-    # get and solve `invoice_header_area` for all SUPPLIER data
-    if owner_datafile is None:  # get supplier data from Excel file
-        _ = get_partner_data(
-            partner_type="SUPPLIER",
-            wks=ws,
-            param_invoice_header_area=invoice_header_area
-        )
-    else:  # get supplier data from `owner-data-file`
-        _ = get_partner_data(
-            partner_type="OWNER",
-            wks=ws,
-            param_invoice_header_area=invoice_header_area,
-            supplier_datafile=owner_datafile
-        )
-    #
-    """#NOTE: section to ( Excel data )--->( JSON ) format preparation and finishing
-        this is required to be after header determination (because CURRENCY could be known here and will impact config param `DEFAULT_CURRENCY`)
-    """
-    # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
-    invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
-
-    # preserve processed Excel file meta information: start address, size.
-    meta_info = build_meta_info_key(
-        excel_file_to_process=file_to_process,
-        invoice_worksheet_name=invoice_worksheet_name,
-        ws_size=tuple(ws.size),
-        keyword_for_items_table_marker=keyword_for_items_table_marker,
-        found_cell=tuple(_found_cell_for_invoice_items_area_marker))
-
-    # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
-    tmp_InvoiceLine_list = [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is list of dicts with keys as XML RO E-Fact standard
-    tmp_reusable_items = dict(
-        cbc_LineExtensionAmount = sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]),
-        LineVatAmount = sum([dict_sum_by_key(i, "LineVatAmount") for i in tmp_InvoiceLine_list]),
-        invoice_issdate_asdate = datetime.strptime(
-            invoice_header_area["issued_date"]["value"],
-            '%Y-%m-%d'
-        ).date()
-    )  # reusable calculations to be used in next code. see details in issue `0.3.0b+240302piu01`
-    tmp_cac_TaxSummary = invoice_taxes_summary(tmp_InvoiceLine_list)  # invoke invoice tax summary calculation
-    # calculate date when VAT becomes eligible (@240417 is 25 of next month after issued month)
-    tmp_cbc_TaxPointDate = tmp_reusable_items["invoice_issdate_asdate"] + timedelta(days = 31)  # 31 days will move one month latter
-    tmp_cbc_TaxPointDate = datetime(
-        tmp_cbc_TaxPointDate.year,
-        tmp_cbc_TaxPointDate.month,
-        25
-    ).date()
-    tmp_cbc_TaxPointDate = tmp_cbc_TaxPointDate.isoformat()
-    invoice = {
-        "Invoice": {
-            "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
-            "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
-            "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
-            "cbc_DueDate": copy.deepcopy(invoice_header_area["due_date"]["value"]),  # invoice due date as `cbc_DueDate`
-            "cac_AccountingCustomerParty": {
-                "cac_Party": {
-                    "cac_PartyLegalEntity": {
-                        "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
-                        "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
-                    },
-                    "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
-                    "cac_Contact": {
-                        "cbc_Telephone": copy.deepcopy(invoice_header_area["customer_area"]["phone"]["value"]),
-                        "cbc_ElectronicMail": copy.deepcopy(invoice_header_area["customer_area"]["email"]["value"]),
-                        "RegCom": copy.deepcopy(invoice_header_area["customer_area"]["reg_com"]["value"]),
-                        "Bank": copy.deepcopy(invoice_header_area["customer_area"]["bank"]["value"]),
-                        "IBAN": copy.deepcopy(invoice_header_area["customer_area"]["IBAN"]["value"]),
-                    },
-                },
-            },
-            "cac_AccountingSupplierParty": {
-                "cac_Party": {
-                    "cac_PartyLegalEntity": {
-                        "cbc_CompanyID": copy.deepcopy(invoice_header_area["supplier_area"]["CUI"]["value"]),
-                        "cbc_RegistrationName": copy.deepcopy(invoice_header_area["supplier_area"]["RegistrationName"]["value"]),
-                    },
-                    "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
-                    "cac_Contact": {
-                        "cbc_Telephone": copy.deepcopy(invoice_header_area["supplier_area"]["phone"]["value"]),
-                        "cbc_ElectronicMail": copy.deepcopy(invoice_header_area["supplier_area"]["email"]["value"]),
-                        "RegCom": copy.deepcopy(invoice_header_area["supplier_area"]["reg_com"]["value"]),
-                        "Bank": copy.deepcopy(invoice_header_area["supplier_area"]["bank"]["value"]),
-                        "IBAN": copy.deepcopy(invoice_header_area["supplier_area"]["IBAN"]["value"]),
-                    },
-                    "cac_PartyTaxScheme": {
-                        "cbc_CompanyID": copy.deepcopy(invoice_header_area["supplier_area"]["CUI"]["value"]),
-                        "cac_TaxScheme": {
-                            "cbc_ID": "VAT"
+            #FIXME ... FROM HERE INDENT   
+            print(f"*** Module [red]rdinv[/] started at {datetime.now()} to process file [green]{os.path.split(file_to_process)[1]}[/] (full path: {file_to_process})")
+        
+            # read Excel file with Invoice data
+            try:
+                db = xl.readxl(fn=file_to_process)
+            except:
+                print(f"[red]---***FATAL ERROR - Cannot open Excel file {file_to_process} (possible problems: file corrupted, wrong type only XLSX accetpted, file does not exists or was deleted, operating system vilotation) in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
+                return False
+        
+            # read the workshet with Invoice data
+            if invoice_worksheet_name is None:  # if parameter `invoice_worksheet_name` not specified try to open first worksheet from Excel worksheets - order is given by worksheets order in Excel file
+                list_of_excel_worksheets = db.ws_names
+                print(f"[yellow]INFO note:[/] `rdinv` module, no worksheet specified, will open first one: [cyan]'{list_of_excel_worksheets[0]}'[/]")
+                invoice_worksheet_name = list_of_excel_worksheets[0]
+        
+            try:
+                ws = db.ws(invoice_worksheet_name)
+            except:
+                print(f"[red]***FATAL ERROR - Cannot open Excel specified Worksheet \"{invoice_worksheet_name}\" in Module [red] RDINV (code-name: `rdinv`). File processing terminated[/]")
+                return False
+        
+            """#NOTE: section for search of `invoice_items_area: pylightxl.ssd`
+                - main result: `keyword_for_items_table_marker` = string marker to search for in oredr to isolate `invoice_items_area`
+                - other results: `_found_cell_for_invoice_items_area_marker = (row, col, val)`
+            """
+            _tmp_label_info = get_excel_data_at_label(
+                pattern_to_search_for=PATTERN_FOR_INVOICE_ITEMS_SUBTABLE_MARKER,
+                worksheet=ws,
+                targeted_type=str
+            )
+            if _tmp_label_info["label_value"]:  # only if found a potential cell usable as`invoice_items_area_marker`
+                _found_cell_for_invoice_items_area_marker = (
+                    _tmp_label_info["label_location"][0],
+                    _tmp_label_info["label_location"][1],
+                    _tmp_label_info["label_value"]
+                )  # here you still need to construct `_found_cell_for_invoice_items_area_marker = (row, col, val)` as it is used in prev code (before `231220piu_a` change)
+            else:
+                print(f"[red]***FATAL ERROR - Cannot find a relevant cell where invoice items table start (basically containing string \" crt\"). File processing terminated[/]")
+                return False
+            keyword_for_items_table_marker = _found_cell_for_invoice_items_area_marker[2]
+        
+            # detect all cells that should be filled with SYS_FILLED_EMPTY_CELL (these are cells id merged groups where first cell in merged group is relevant (diff from empty))
+            detected_cells_which_will_be_fake_filled = get_merged_cells_tobe_changed(
+                file_to_scan=file_to_process,
+                invoice_worksheet_name=invoice_worksheet_name,
+                keep_cells_of_items_ssd_marker=_found_cell_for_invoice_items_area_marker)  # this call specify to keep unchanged that cells with some description
+            for _cell_index in detected_cells_which_will_be_fake_filled:  # scan all detectected cell and change them
+                _cell_row = _cell_index[0]
+                _cell_col = _cell_index[1]
+                ws.update_index(row = _cell_row, col = _cell_col, val = SYS_FILLED_EMPTY_CELL)
+        
+            """#NOTE: section to "solve" `invoice_items_area`. Steps:
+                - process it as Excel format (row & colymns tabular organization)
+                - transform it in "canonical JSON format" (as kv pairs) and update `cac_InvoiceLine` key
+            """
+            # process invoice to detect its items / lines ('invoice_items_area'), clean and extract data
+            invoice_items_area = get_invoice_items_area(
+                worksheet=ws,
+                invoice_items_area_marker=keyword_for_items_table_marker,
+                wks_name=invoice_worksheet_name
+            )
+        
+            """#NOTE: section for localize areas: invoice header (`invoice_header_area`) & invoice footer (`invoice_footer_area`)
+                NOTE: its code suppose `invoice_items_area` is already defined (as location). It will be used as reference in "header" & "footer" localization logic
+            """
+            ulc_header = (1, 1)
+            lrc_header = (_found_cell_for_invoice_items_area_marker[0] - 1, ws.size[1],)  # info where header ends: row = from items data table start location `_found_cell_for_invoice_items_area_marker[0]-1` && col = las col of worksheet
+            invoice_header_area = dict(
+                start_cell = ulc_header,
+                end_cell = lrc_header
+            )
+            #
+            _ulc_footer_row = _found_cell_for_invoice_items_area_marker[0] + len(invoice_items_area["keyrows"]) + 1  # this is located at: row = items data table start row  (_found_cell_for_invoice_items_area_marker[0]) + # of items data table rows + 1 (invoice_items_area["data"]) && col = 1
+            _start_cell_val = ws.index(_ulc_footer_row, 1)
+            while (_start_cell_val != "") and (_ulc_footer_row <= ws.size[0]): # but if that cell is not blank repeatedly to go une more row down... (why could happen? because ietms data table header was composed of more rows by merging cells...)
+                _ulc_footer_row += 1
+                _start_cell_val = ws.index(_ulc_footer_row, 1)
+            ulc_footer = (_ulc_footer_row, 1)
+            lrc_footer =( ws.size[0], ws.size[1])  # end of worksheet
+            invoice_footer_area = dict(
+                start_cell = ulc_footer,
+                end_cell = lrc_footer
+            )
+        
+            """#NOTE: section to "solve" `invoice_header_area`.
+                    The kind of info expected in this area: invoice number,  currency, issued date, supplier data, customer data)
+            """
+            invoice_header_area = invoice_header_area | dict(  # build effective data area & merge localization info from initial dict creation
+                invoice_number = None,
+                issued_date = None,
+                currency = None,
+                due_date = None,
+                customer_area = None,
+                supplier_area = None,
+            )
+            _area_to_search = (invoice_header_area["start_cell"], invoice_header_area["end_cell"])  # this is "global" for this section (corners of `invoice_header_area`)
+            #
+            # find invoice number ==> `cbc:ID`
+            invoice_number_info = get_excel_data_at_label(
+                pattern_to_search_for=PATTERN_FOR_INVOICE_NUMBER_LABEL,
+                worksheet=ws,
+                area_to_scan=_area_to_search,
+                targeted_type=str
+            )  # returned info: `{"value": ..., "location": (row..., col...)}`
+            invoice_header_area["invoice_number"] = copy.deepcopy(invoice_number_info)
+            #
+            # find invoice currency ==> `cbc:DocumentCurrencyCode`
+            invoice_currency_info = get_excel_data_at_label(
+                pattern_to_search_for=PATTERN_FOR_INVOICE_CURRENCY_LABEL,
+                worksheet=ws,
+                area_to_scan=_area_to_search,
+                targeted_type=str
+            )  # returned info: `{"value": ..., "location": (row..., col...)}`
+            if (invoice_currency_info["value"] is not None) and (invoice_currency_info["value"] != ""):  # if found a currency MUST CHANGE `DEFAULT_CURRENCY` to be properly used for `invoice_items_area`
+                DEFAULT_CURRENCY = invoice_currency_info["value"]
+            invoice_header_area["currency"] = copy.deepcopy(invoice_currency_info)
+            #
+            # find invoice issued date ==> `cbc:IssueDate`
+            issued_date_info = get_excel_data_at_label(
+                pattern_to_search_for=PATTERN_FOR_INVOICE_ISSUE_DATE_LABEL,
+                worksheet=ws,
+                area_to_scan=_area_to_search,
+                targeted_type=str
+            )  # returned info: `{"value": ..., "location": (row..., col...)}`
+            issued_date_info["value"] = issued_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
+            invoice_header_area["issued_date"] = copy.deepcopy(issued_date_info)
+            #
+            # find invoice due date ==> `cbc_DueDate`
+            due_date_info = get_excel_data_at_label(
+                pattern_to_search_for= PATTERN_FOR_DUE_DATE,
+                worksheet=ws,
+                area_to_scan=_area_to_search,
+                targeted_type=str
+            )  # returned info: `{"value": ..., "location": (row..., col...)}`
+            if due_date_info["value"] is not None:  # if found something then try to clean it in case is intended to be a date-time
+                due_date_info["value"] = due_date_info["value"].replace("/", "-")  # convert from Excel format: YYYY/MM/DD (ex: 2023/08/28) to required format in XML file is: `YYYY-MM-DD` (ex: 2013-11-17)
+            else:
+                # convert invoice issued daye to datetime format
+                invoice_issued_date_as_date = datetime.strptime(
+                    invoice_header_area["issued_date"]["value"],
+                    '%Y-%m-%d'
+                )
+                # apply `DEFAULT_DUE_DATE_DAYS` to invoice issue date and convert it to date isoformat
+                _tmp = invoice_issued_date_as_date + timedelta(days = DEFAULT_DUE_DATE_DAYS)
+                due_date_info["value"] = _tmp.date().isoformat()
+            invoice_header_area["due_date"] = copy.deepcopy(due_date_info)
+            #
+            # get and solve `invoice_header_area` for all CUSTOMER data
+            _ = get_partner_data(
+                partner_type="CUSTOMER",
+                wks=ws,
+                param_invoice_header_area=invoice_header_area
+            )
+            #
+            # get and solve `invoice_header_area` for all SUPPLIER data
+            if owner_datafile is None:  # get supplier data from Excel file
+                _ = get_partner_data(
+                    partner_type="SUPPLIER",
+                    wks=ws,
+                    param_invoice_header_area=invoice_header_area
+                )
+            else:  # get supplier data from `owner-data-file`
+                _ = get_partner_data(
+                    partner_type="OWNER",
+                    wks=ws,
+                    param_invoice_header_area=invoice_header_area,
+                    supplier_datafile=owner_datafile
+                )
+            #
+            """#NOTE: section to ( Excel data )--->( JSON ) format preparation and finishing
+                this is required to be after header determination (because CURRENCY could be known here and will impact config param `DEFAULT_CURRENCY`)
+            """
+            # transform `invoice_items_area` in "canonical JSON kv pairs format" (NOTE this step is done only for invoice_items_area and is required because this section is "table with more rows", ie, not a simple key-val)
+            invoice_items_as_kv_pairs = mk_kv_invoice_items_area(invoice_items_area_xl_format=invoice_items_area)
+        
+            # preserve processed Excel file meta information: start address, size.
+            meta_info = build_meta_info_key(
+                excel_file_to_process=file_to_process,
+                invoice_worksheet_name=invoice_worksheet_name,
+                ws_size=tuple(ws.size),
+                keyword_for_items_table_marker=keyword_for_items_table_marker,
+                found_cell=tuple(_found_cell_for_invoice_items_area_marker))
+        
+            # build final structure to be returned (`invoice`) - MAIN OBJECTIVE of this function
+            tmp_InvoiceLine_list = [_i for _i in invoice_items_as_kv_pairs],  # `invoice_items_as_kv_pairs` is list of dicts with keys as XML RO E-Fact standard
+            tmp_reusable_items = dict(
+                cbc_LineExtensionAmount = sum([dict_sum_by_key(i, "cbc_LineExtensionAmount") for i in tmp_InvoiceLine_list]),
+                LineVatAmount = sum([dict_sum_by_key(i, "LineVatAmount") for i in tmp_InvoiceLine_list]),
+                invoice_issdate_asdate = datetime.strptime(
+                    invoice_header_area["issued_date"]["value"],
+                    '%Y-%m-%d'
+                ).date()
+            )  # reusable calculations to be used in next code. see details in issue `0.3.0b+240302piu01`
+            tmp_cac_TaxSummary = invoice_taxes_summary(tmp_InvoiceLine_list)  # invoke invoice tax summary calculation
+            # calculate date when VAT becomes eligible (@240417 is 25 of next month after issued month)
+            tmp_cbc_TaxPointDate = tmp_reusable_items["invoice_issdate_asdate"] + timedelta(days = 31)  # 31 days will move one month latter
+            tmp_cbc_TaxPointDate = datetime(
+                tmp_cbc_TaxPointDate.year,
+                tmp_cbc_TaxPointDate.month,
+                25
+            ).date()
+            tmp_cbc_TaxPointDate = tmp_cbc_TaxPointDate.isoformat()
+            invoice = {
+                "Invoice": {
+                    "cbc_ID": copy.deepcopy(invoice_header_area["invoice_number"]["value"]),  # invoice number as `cbc_ID`
+                    "cbc_DocumentCurrencyCode": copy.deepcopy(invoice_header_area["currency"]["value"]),  # invoice currency as `cbc_DocumentCurrencyCode`
+                    "cbc_IssueDate": copy.deepcopy(invoice_header_area["issued_date"]["value"]),  # invoice issue date as `cbc_IssueDate`
+                    "cbc_DueDate": copy.deepcopy(invoice_header_area["due_date"]["value"]),  # invoice due date as `cbc_DueDate`
+                    "cac_AccountingCustomerParty": {
+                        "cac_Party": {
+                            "cac_PartyLegalEntity": {
+                                "cbc_CompanyID": copy.deepcopy(invoice_header_area["customer_area"]["CUI"]["value"]),
+                                "cbc_RegistrationName": copy.deepcopy(invoice_header_area["customer_area"]["RegistrationName"]["value"]),
+                            },
+                            "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
+                            "cac_Contact": {
+                                "cbc_Telephone": copy.deepcopy(invoice_header_area["customer_area"]["phone"]["value"]),
+                                "cbc_ElectronicMail": copy.deepcopy(invoice_header_area["customer_area"]["email"]["value"]),
+                                "RegCom": copy.deepcopy(invoice_header_area["customer_area"]["reg_com"]["value"]),
+                                "Bank": copy.deepcopy(invoice_header_area["customer_area"]["bank"]["value"]),
+                                "IBAN": copy.deepcopy(invoice_header_area["customer_area"]["IBAN"]["value"]),
+                            },
                         },
                     },
+                    "cac_AccountingSupplierParty": {
+                        "cac_Party": {
+                            "cac_PartyLegalEntity": {
+                                "cbc_CompanyID": copy.deepcopy(invoice_header_area["supplier_area"]["CUI"]["value"]),
+                                "cbc_RegistrationName": copy.deepcopy(invoice_header_area["supplier_area"]["RegistrationName"]["value"]),
+                            },
+                            "cac_PostalAddress": copy.deepcopy(invoice_header_area["customer_area"]["PostalAddress"]),
+                            "cac_Contact": {
+                                "cbc_Telephone": copy.deepcopy(invoice_header_area["supplier_area"]["phone"]["value"]),
+                                "cbc_ElectronicMail": copy.deepcopy(invoice_header_area["supplier_area"]["email"]["value"]),
+                                "RegCom": copy.deepcopy(invoice_header_area["supplier_area"]["reg_com"]["value"]),
+                                "Bank": copy.deepcopy(invoice_header_area["supplier_area"]["bank"]["value"]),
+                                "IBAN": copy.deepcopy(invoice_header_area["supplier_area"]["IBAN"]["value"]),
+                            },
+                            "cac_PartyTaxScheme": {
+                                "cbc_CompanyID": copy.deepcopy(invoice_header_area["supplier_area"]["CUI"]["value"]),
+                                "cac_TaxScheme": {
+                                    "cbc_ID": "VAT"
+                                },
+                            },
+                        },
+                    },
+                    "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list)[0],  # keep only 1st entry because from creating process resulted list(list)) first one being redundant
+                    "cac_LegalMonetaryTotal": {
+                        "cbc_LineExtensionAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
+                        "cbc_TaxExclusiveAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
+                        "cbc_TaxInclusiveAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
+                        "cbc_PayableAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
+                    },
+                    "cac_TaxTotal": {
+                        "cbc_TaxAmount": round(sum([i["cbc_TaxAmount"] if i["cbc_TaxAmount"] is not None else 0 for i in tmp_cac_TaxSummary]), 2),
+                        "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
+                    },
+                    # mostly "administrative" structure. For details see CHANGELOG of `0.6rc0 & 0.6rc1`
+                    "cbc_Note": f"generated @{datetime.now(timezone.utc).isoformat()} with xl2roefact by RENware Software Systems",
+                    "cac_PaymentMeans": {
+                        "cbc_PaymentMeansCode": 1  #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
+                    },
+                    "cac_Delivery": {
+                        "cbc_ActualDeliveryDate": copy.deepcopy(invoice_header_area["issued_date"]["value"])  # suppose identical with invoice date. Format: `YYYY-MM-DD`
+                    },
+                    "cbc_TaxPointDate": str(tmp_cbc_TaxPointDate),
+                    "cbc_InvoiceTypeCode": str(invoice_type_code.value),  # not subject of Excel file, got from parameter value. Known when call function
                 },
-            },
-            "cac_InvoiceLine": copy.deepcopy(tmp_InvoiceLine_list)[0],  # keep only 1st entry because from creating process resulted list(list)) first one being redundant
-            "cac_LegalMonetaryTotal": {
-                "cbc_LineExtensionAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
-                "cbc_TaxExclusiveAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"], 2),
-                "cbc_TaxInclusiveAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
-                "cbc_PayableAmount": round(tmp_reusable_items["cbc_LineExtensionAmount"] + tmp_reusable_items["LineVatAmount"], 2),
-            },
-            "cac_TaxTotal": {
-                "cbc_TaxAmount": round(sum([i["cbc_TaxAmount"] if i["cbc_TaxAmount"] is not None else 0 for i in tmp_cac_TaxSummary]), 2),
-                "cac_TaxSubtotal": copy.deepcopy(tmp_cac_TaxSummary),
-            },
-            # mostly "administrative" structure. For details see CHANGELOG of `0.6rc0 & 0.6rc1`
-            "cbc_Note": f"generated @{datetime.now(timezone.utc).isoformat()} with xl2roefact by RENware Software Systems",
-            "cac_PaymentMeans": {
-                "cbc_PaymentMeansCode": 1  #NOTE ? do not know if simple Excel processing can give this info - NEEED ERP
-            },
-            "cac_Delivery": {
-                "cbc_ActualDeliveryDate": copy.deepcopy(invoice_header_area["issued_date"]["value"])  # suppose identical with invoice date. Format: `YYYY-MM-DD`
-            },
-            "cbc_TaxPointDate": str(tmp_cbc_TaxPointDate),
-            "cbc_InvoiceTypeCode": str(invoice_type_code.value),  # not subject of Excel file, got from parameter value. Known when call function
-        },
-        "meta_info": copy.deepcopy(meta_info),
-        "excel_original_data": dict(
-            invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE: ready, test PASS @ 231205 by [piu]
-            invoice_header_area = copy.deepcopy(invoice_header_area),  # NOTE: ready, test PASS @ 2440326 by [piu]
-            invoice_footer_area = copy.deepcopy(invoice_footer_area)   # NOTE: nothing to set here now (version 0.7). Let for future features
-        ),
-    }
-    #
-    # write `invoice` dict to file `f-JSON`
-    _fjson_filename = os.path.splitext(os.path.basename(file_to_process))[0] + ".json"
-    _fjson_fileobject = os.path.join(os.path.split(file_to_process)[0], _fjson_filename)
-    with open(_fjson_fileobject, 'w', encoding='utf-8') as _f:
-        json.dump(invoice, _f, ensure_ascii = False, indent = 4)
-    print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
-
-    #FIXME ... TO HERE INDENT
-    
+                "meta_info": copy.deepcopy(meta_info),
+                "excel_original_data": dict(
+                    invoice_items_area = copy.deepcopy(invoice_items_area),  # NOTE: ready, test PASS @ 231205 by [piu]
+                    invoice_header_area = copy.deepcopy(invoice_header_area),  # NOTE: ready, test PASS @ 2440326 by [piu]
+                    invoice_footer_area = copy.deepcopy(invoice_footer_area)   # NOTE: nothing to set here now (version 0.7). Let for future features
+                ),
+            }
+            #
+            # write `invoice` dict to file `f-JSON`
+            _fjson_filename = os.path.splitext(os.path.basename(file_to_process))[0] + ".json"
+            _fjson_fileobject = os.path.join(os.path.split(file_to_process)[0], _fjson_filename)
+            with open(_fjson_fileobject, 'w', encoding='utf-8') as _f:
+                json.dump(invoice, _f, ensure_ascii = False, indent = 4)
+            print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
+        
+            #FIXME ... TO HERE INDENT
+            
     debug_info.append(tmp_stdout.getvalue())
     print(f"{debug_info=}") #FIXME dbg drop me
     return copy.deepcopy(invoice)
