@@ -414,7 +414,7 @@ def rdinv(
 
     # my_debug_info.append(tmp_stdout.getvalue().encode('unicode-escape').decode('unicode-escape'))
     my_debug_info.append(console.file.getvalue())
-    # print(f"{my_debug_info=}") #FIXME dbg drop
+    print(f"{my_debug_info=}") #FIXME dbg drop
     if redir_stdout:  # silent output
         debug_info = my_debug_info.copy(my_debug_info)
     else:  # verbosed output
