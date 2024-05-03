@@ -115,9 +115,13 @@ def rdinv(
     global DEFAULT_CUSTOMER_COUNTRY
 
     redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
+    debug_info = []  # empty stdoud info
     if redir_stdout:  # redirect all prints to debug_info array
-        ...
-    
+        with redirect_stdout(io.StringIO()) as tmp_stdout:
+            ...
+            #FIXME moved to final: s = tmp_stdout.getvalue()
+
+#FIXME ... FROM HERE INDENT   
     print(f"*** Module [red]rdinv[/] started at {datetime.now()} to process file [green]{os.path.split(file_to_process)[1]}[/] (full path: {file_to_process})")
 
     # read Excel file with Invoice data
@@ -401,6 +405,10 @@ def rdinv(
         json.dump(invoice, _f, ensure_ascii = False, indent = 4)
     print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
 
+    #FIXME ... TO HERE INDENT
+    
+    debug_info.append(tmp_stdout.getvalue())
+    print(f"{debug_info=}") #FIXME dbg drop me
     return copy.deepcopy(invoice)
 
 
