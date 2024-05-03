@@ -412,7 +412,7 @@ def rdinv(
     if redir_stdout:  # silent output
         debug_info = my_debug_info.copy(my_debug_info)
     else:  # verbosed output
-        print(my_debug_info)
+        print(my_debug_info[0])
     return copy.deepcopy(invoice)
 
 
