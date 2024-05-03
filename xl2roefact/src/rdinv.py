@@ -116,7 +116,7 @@ def rdinv(
     global DEFAULT_CUSTOMER_COUNTRY
 
     redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
-    function_stdout = Console()
+    console = Console()
     ''' SHORT.PLAN:
       - see if keep anymore io.StringIO redirection
         instead using console redirection
