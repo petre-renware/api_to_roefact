@@ -115,8 +115,9 @@ def rdinv(
     global DEFAULT_CUSTOMER_COUNTRY
 
     redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
-    debug_info = []  # empty stdoud info
-    if redir_stdout:  # redirect all prints to debug_info array
+    if True:  # always redirect all prints to debug_info array
+        my_debug_info = []  # create an empty stdoud info
+        tmp_stdout = None  # if not use
         with redirect_stdout(io.StringIO()) as tmp_stdout:
             ...
 
@@ -406,8 +407,11 @@ def rdinv(
         
             #FIXME ... TO HERE INDENT
             
-    debug_info.append(tmp_stdout.getvalue())
-    print(f"{debug_info=}") #FIXME dbg drop me
+    my_debug_info.append(tmp_stdout.getvalue())
+    if redir_stdout:  # silent output
+        debug_info = copy.deepcopy(my_debug_info)
+    else:  # verbosed output
+        print(f"{debug_info=}")
     return copy.deepcopy(invoice)
 
 
