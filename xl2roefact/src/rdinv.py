@@ -20,8 +20,9 @@ import sys
 import io
 from contextlib import redirect_stdout
 from datetime import datetime, timezone, tzinfo, timedelta
-from rich import print
 import copy
+#FIXME.drop.after.240503.test: from rich import print
+from rich.console import Console
 from rich.pretty import pprint
 from string import ascii_lowercase
 import json
@@ -115,13 +116,19 @@ def rdinv(
     global DEFAULT_CUSTOMER_COUNTRY
 
     redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
+    function_stdout = Console()
+    ''' SHORT.PLAN:
+      - see if keep anymore io.StringIO redirection
+        instead using console redirection
+      - need to redirect all prints as:
+    print = function_stdout print  # redirect all prints on rich console print
+    '''
     if True:  # always redirect all prints to debug_info array
         my_debug_info = []  # create an empty stdoud info
-        tmp_stdout = None  # if not use
+        tmp_stdout = None  # init to be addressable but raise exceptions in most cases
         with redirect_stdout(io.StringIO()) as tmp_stdout:
             #FIXME ... FROM HERE INDENT
             print(f"*** Module [red]rdinv[/] started at {datetime.now()} to process file [green]{os.path.split(file_to_process)[1]}[/] (full path: {file_to_process})")
-
             # read Excel file with Invoice data
             try:
                 db = xl.readxl(fn=file_to_process)
