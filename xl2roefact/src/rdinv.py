@@ -117,7 +117,7 @@ def rdinv(
 
     redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
     console = Console(file=io.StringIO())
-    print = console.print
+    print = console.print  # new print function to use for all print ops regardless you forget or not ==> function will run "silent" if no otherwise requested
     if True:
         if True:
             #FIXME ... FROM HERE INDENT
@@ -405,12 +405,11 @@ def rdinv(
             #FIXME ... TO HERE INDENT
 
     my_debug_info.append(console.file.getvalue())
+    debug_info = my_debug_info.copy(my_debug_info) preserve only first item (see parameter docstring to understand the reason of using list)
     console = Console()  # restore console
-    print = console.print
+    print = console.print  # all prints will takes place from new standard console
     console.print(f"{my_debug_info=}") #FIXME dbg drop
-    if redir_stdout:  # silent output
-        debug_info = my_debug_info.copy(my_debug_info)
-    else:  # verbosed output
+    if not redir_stdout:  # verbose output
         console.print(my_debug_info[0])
     return copy.deepcopy(invoice)
 
