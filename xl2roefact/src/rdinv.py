@@ -116,7 +116,7 @@ def rdinv(
     global DEFAULT_CUSTOMER_COUNTRY
 
     redir_stdout = debug_info is not None and type(debug_info) == list  # indicate a request to redirect function prints to a list
-    console = Console()
+    console = Console(file=StringIO())
     ''' SHORT.PLAN:
       - see if keep anymore io.StringIO redirection
         instead using console redirection
@@ -411,7 +411,8 @@ def rdinv(
             print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
             #FIXME ... TO HERE INDENT
 
-    my_debug_info.append(tmp_stdout.getvalue().encode('unicode-escape').decode('unicode-escape'))
+    # my_debug_info.append(tmp_stdout.getvalue().encode('unicode-escape').decode('unicode-escape'))
+    my_debug_info.append(console.file.getvalue())
     # print(f"{my_debug_info=}") #FIXME dbg drop
     if redir_stdout:  # silent output
         debug_info = my_debug_info.copy(my_debug_info)
