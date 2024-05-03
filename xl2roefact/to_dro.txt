@@ -1,0 +1,1526 @@
+***INFO: Application settings loaded from file.
+*** Application xl2roefact launched at 2024-05-03 17:31:16.821739
+INFO note: files to process: 
+/home/petre/api_to_roefact/xl2roefact/tests/*.xlsx
+╭───────────────── Traceback (most recent call last) ──────────────────╮
+│ /home/petre/api_to_roefact/xl2roefact/src/app_cli.py:171 in xl2json  │
+│                                                                      │
+│   168 │   │   │   │   print(f"[red]ERROR: Owner data file ([cyan]{ow │
+│   169 │   │   │   │   return  # just exit...                         │
+│   170 │   │   else:                                                  │
+│ ❱ 171 │   │   │   invoice_datadict = rdinv(                          │
+│   172 │   │   │   │   invoice_type_code=invoice_type,                │
+│   173 │   │   │   │   file_to_process=invoice_to_process,            │
+│   174 │   │   │   │   debug_info=verbose                             │
+│                                                                      │
+│ ╭───────────────────────────── locals ─────────────────────────────╮ │
+│ │                   a_file = PosixPath('/home/petre/api_to_roefac… │ │
+│ │                file_name = '*.xlsx'                              │ │
+│ │          files_directory = PosixPath('/home/petre/api_to_roefac… │ │
+│ │       invoice_to_process = PosixPath('/home/petre/api_to_roefac… │ │
+│ │             invoice_type = <InvoiceTypesEnum.NORMALA: '380'>     │ │
+│ │ list_of_files_to_process = [                                     │ │
+│ │                            │                                     │ │
+│ │                            PosixPath('/home/petre/api_to_roefac… │ │
+│ │                            │                                     │ │
+│ │                            PosixPath('/home/petre/api_to_roefac… │ │
+│ │                            ]                                     │ │
+│ │           owner_datafile = None                                  │ │
+│ │     tmp_files_to_process = PosixPath('/home/petre/api_to_roefac… │ │
+│ │                  verbose = False                                 │ │
+│ ╰──────────────────────────────────────────────────────────────────╯ │
+│                                                                      │
+│ /home/petre/api_to_roefact/xl2roefact/src/rdinv.py:407 in rdinv      │
+│                                                                      │
+│    404 │   │   │   print(f"[yellow]INFO note:[/] `rdinv` module, wri │
+│    405 │   │   │   #FIXME ... TO HERE INDENT                         │
+│    406 │                                                             │
+│ ❱  407 │   my_debug_info.append(console.file.getvalue())             │
+│    408 │   debug_info = my_debug_info.copy(my_debug_info)  # preserv │
+│    409 │   console = Console()  # restore console                    │
+│    410 │   print = console.print  # all prints will takes place from │
+│                                                                      │
+│ ╭───────────────────────────── locals ─────────────────────────────╮ │
+│ │                             _ = None                             │ │
+│ │               _area_to_search = ((1, 1), (28, 8))                │ │
+│ │                     _cell_col = 3                                │ │
+│ │                   _cell_index = (32, 3)                          │ │
+│ │                     _cell_row = 32                               │ │
+│ │                            _f = <_io.TextIOWrapper               │ │
+│ │                                 name='/home/petre/api_to_roefac… │ │
+│ │                                 mode='w' encoding='utf-8'>       │ │
+│ │               _fjson_filename = 'Fact_Petrom_11017969.json'      │ │
+│ │             _fjson_fileobject = '/home/petre/api_to_roefact/xl2… │ │
+│ │ _found_cell_for_invoice_items_… (29, 1, 'No. crt.')              │ │
+│ │                               =                                  │ │
+│ │               _start_cell_val = ''                               │ │
+│ │                          _tmp = datetime.datetime(2023, 11, 16,  │ │
+│ │                                 0, 0)                            │ │
+│ │               _tmp_label_info = {                                │ │
+│ │                                 │   'value': 'Denumirea lucrarii │ │
+│ │                                 (Request description)',          │ │
+│ │                                 │   'location': (29, 2),         │ │
+│ │                                 │   'label_value': 'No. crt.',   │ │
+│ │                                 │   'label_location': (29, 1)    │ │
+│ │                                 }                                │ │
+│ │               _ulc_footer_row = 34                               │ │
+│ │                       console = <console width=72 None>          │ │
+│ │                            db = pylightxl.Database               │ │
+│ │                    debug_info = False                            │ │
+│ │ detected_cells_which_will_be_f… (                                │ │
+│ │                               = │   (30, 8),                     │ │
+│ │                                 │   (30, 5),                     │ │
+│ │                                 │   (36, 2),                     │ │
+│ │                                 │   (36, 3),                     │ │
+│ │                                 │   (36, 4),                     │ │
+│ │                                 │   (36, 5),                     │ │
+│ │                                 │   (36, 6),                     │ │
+│ │                                 │   (36, 7),                     │ │
+│ │                                 │   (36, 8),                     │ │
+│ │                                 │   (31, 3),                     │ │
+│ │                                 │   ... +33                      │ │
+│ │                                 )                                │ │
+│ │                 due_date_info = {                                │ │
+│ │                                 │   'value': '2023-11-16',       │ │
+│ │                                 │   'location': (None, None),    │ │
+│ │                                 │   'label_value': None,         │ │
+│ │                                 │   'label_location': None       │ │
+│ │                                 }                                │ │
+│ │               file_to_process = PosixPath('/home/petre/api_to_r… │ │
+│ │                       invoice = {                                │ │
+│ │                                 │   'Invoice': {                 │ │
+│ │                                 │   │   'cbc_ID': '11017969',    │ │
+│ │                                 │   │                            │ │
+│ │                                 'cbc_DocumentCurrencyCode':      │ │
+│ │                                 'RON',                           │ │
+│ │                                 │   │   'cbc_IssueDate':         │ │
+│ │                                 '2023-10-17',                    │ │
+│ │                                 │   │   'cbc_DueDate':           │ │
+│ │                                 '2023-11-16',                    │ │
+│ │                                 │   │                            │ │
+│ │                                 'cac_AccountingCustomerParty': { │ │
+│ │                                 │   │   │   'cac_Party': {       │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac_PartyLegalEntity': {        │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_CompanyID': 'RO1590082',    │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_RegistrationName': 'OMV     │ │
+│ │                                 Petrom S.A.'                     │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac_PostalAddress': {           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_StreetName': 'Coralilor Nr. │ │
+│ │                                 22',                             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_CityName': '',              │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_PostalZone': 'Postal        │ │
+│ │                                 013329',                         │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_Country': {                 │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cbc_IdentificationCode': 'RO'   │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'cac_Contact': { │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_Telephone': None,           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_ElectronicMail': None,      │ │
+│ │                                 │   │   │   │   │   'RegCom':    │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   │   'Bank':      │ │
+│ │                                 'Comerciala Romana',             │ │
+│ │                                 │   │   │   │   │   'IBAN': None │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   }                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │                            │ │
+│ │                                 'cac_AccountingSupplierParty': { │ │
+│ │                                 │   │   │   'cac_Party': {       │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac_PartyLegalEntity': {        │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_CompanyID': 'RO1590082',    │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_RegistrationName': 'OMV     │ │
+│ │                                 Petrom S.A.'                     │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac_PostalAddress': {           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_StreetName': 'Coralilor Nr. │ │
+│ │                                 22',                             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_CityName': '',              │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_PostalZone': 'Postal        │ │
+│ │                                 013329',                         │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_Country': {                 │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cbc_IdentificationCode': 'RO'   │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'cac_Contact': { │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_Telephone': None,           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_ElectronicMail': None,      │ │
+│ │                                 │   │   │   │   │   'RegCom':    │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   │   'Bank':      │ │
+│ │                                 'Comerciala Romana',             │ │
+│ │                                 │   │   │   │   │   'IBAN': None │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac_PartyTaxScheme': {          │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_CompanyID': 'RO1590082',    │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_TaxScheme': {               │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cbc_ID': 'VAT'                  │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   }                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'cac_InvoiceLine': [     │ │
+│ │                                 │   │   │   {                    │ │
+│ │                                 │   │   │   │   'cbc_ID': '1',   │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_InvoicedQuantity': 1,       │ │
+│ │                                 │   │   │   │   'cbc_unitCode':  │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   'cac_Item': {    │ │
+│ │                                 │   │   │   │   │   'cbc_Name':  │ │
+│ │                                 'Inlocuit conducta PSI coloana   │ │
+│ │                                 C2 DAV.',                        │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cbc_Percent': 0.19,             │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cac_TaxScheme': {               │ │
+│ │                                 │   │   │   │   │   │   │        │ │
+│ │                                 'cbc_ID': 'VAT'                  │ │
+│ │                                 │   │   │   │   │   │   }        │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'cac_Price': {   │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_PriceAmount': 42756.08,     │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_currencyID': 'RON'          │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_LineExtensionAmount':       │ │
+│ │                                 42756.08,                        │ │
+│ │                                 │   │   │   │   'LineVatAmount': │ │
+│ │                                 8123.66                          │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   {                    │ │
+│ │                                 │   │   │   │   'cbc_ID':        │ │
+│ │                                 '1.NOTE-a',                      │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_InvoicedQuantity': None,    │ │
+│ │                                 │   │   │   │   'cbc_unitCode':  │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   'cac_Item': {    │ │
+│ │                                 │   │   │   │   │   'cbc_Name':  │ │
+│ │                                 'SES 8105685514',                │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cbc_Percent': None,             │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cac_TaxScheme': {               │ │
+│ │                                 │   │   │   │   │   │   │        │ │
+│ │                                 'cbc_ID': None                   │ │
+│ │                                 │   │   │   │   │   │   }        │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'cac_Price': {   │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_PriceAmount': None,         │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_currencyID': None           │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_LineExtensionAmount': None, │ │
+│ │                                 │   │   │   │   'LineVatAmount': │ │
+│ │                                 None                             │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   {                    │ │
+│ │                                 │   │   │   │   'cbc_ID': '2',   │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_InvoicedQuantity': 1,       │ │
+│ │                                 │   │   │   │   'cbc_unitCode':  │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   'cac_Item': {    │ │
+│ │                                 │   │   │   │   │   'cbc_Name':  │ │
+│ │                                 'Acciza de test (2%)',           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cbc_Percent': 0.0,              │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cac_TaxScheme': {               │ │
+│ │                                 │   │   │   │   │   │   │        │ │
+│ │                                 'cbc_ID': 'VAT'                  │ │
+│ │                                 │   │   │   │   │   │   }        │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'cac_Price': {   │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_PriceAmount':               │ │
+│ │                                 855.1216000000001,               │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_currencyID': 'RON'          │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_LineExtensionAmount':       │ │
+│ │                                 855.12,                          │ │
+│ │                                 │   │   │   │   'LineVatAmount': │ │
+│ │                                 0.0                              │ │
+│ │                                 │   │   │   }                    │ │
+│ │                                 │   │   ],                       │ │
+│ │                                 │   │                            │ │
+│ │                                 'cac_LegalMonetaryTotal': {      │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cbc_LineExtensionAmount':       │ │
+│ │                                 43611.0,                         │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cbc_TaxExclusiveAmount':        │ │
+│ │                                 43611.0,                         │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cbc_TaxInclusiveAmount':        │ │
+│ │                                 51734.0,                         │ │
+│ │                                 │   │   │   'cbc_PayableAmount': │ │
+│ │                                 51734.0                          │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'cac_TaxTotal': {        │ │
+│ │                                 │   │   │   'cbc_TaxAmount':     │ │
+│ │                                 8123.66,                         │ │
+│ │                                 │   │   │   'cac_TaxSubtotal': [ │ │
+│ │                                 │   │   │   │   {                │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_TaxableAmount': 42756.08,   │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_TaxAmount': 8123.66,        │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_TaxCategory': {             │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   │   │   │        │ │
+│ │                                 'cbc_Percent': 0.19,             │ │
+│ │                                 │   │   │   │   │   │   │        │ │
+│ │                                 'cac_TaxScheme': {               │ │
+│ │                                 │   │   │   │   │   │   │   │    │ │
+│ │                                 'cbc_ID': 'VAT'                  │ │
+│ │                                 │   │   │   │   │   │   │   }    │ │
+│ │                                 │   │   │   │   │   │   },       │ │
+│ │                                 │   │   │   │   │   │   'ID':    │ │
+│ │                                 'S'                              │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   {                │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_TaxableAmount': None,       │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_TaxAmount': None,           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_TaxCategory': {             │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   │   │   │        │ │
+│ │                                 'cbc_Percent': None,             │ │
+│ │                                 │   │   │   │   │   │   │        │ │
+│ │                                 'cac_TaxScheme': {               │ │
+│ │                                 │   │   │   │   │   │   │   │    │ │
+│ │                                 'cbc_ID': None                   │ │
+│ │                                 │   │   │   │   │   │   │   }    │ │
+│ │                                 │   │   │   │   │   │   },       │ │
+│ │                                 │   │   │   │   │   │   'ID':    │ │
+│ │                                 'S'                              │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   {                │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_TaxableAmount': 855.12,     │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_TaxAmount': 0.0,            │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_TaxCategory': {             │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   │   │   │        │ │
+│ │                                 'cbc_Percent': 0.0,              │ │
+│ │                                 │   │   │   │   │   │   │        │ │
+│ │                                 'cac_TaxScheme': {               │ │
+│ │                                 │   │   │   │   │   │   │   │    │ │
+│ │                                 'cbc_ID': 'VAT'                  │ │
+│ │                                 │   │   │   │   │   │   │   }    │ │
+│ │                                 │   │   │   │   │   │   },       │ │
+│ │                                 │   │   │   │   │   │   'ID':    │ │
+│ │                                 'S'                              │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   ]                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'cbc_Note': 'generated   │ │
+│ │                                 @2024-05-03T17:31:16.880429+00:… │ │
+│ │                                 with xl2roefact by RENware       │ │
+│ │                                 Software '+7,                    │ │
+│ │                                 │   │   ... +4                   │ │
+│ │                                 │   },                           │ │
+│ │                                 │   'meta_info': {               │ │
+│ │                                 │   │   'file':                  │ │
+│ │                                 'Fact_Petrom_11017969.xlsx',     │ │
+│ │                                 │   │   'file_CRC': '...n/a in   │ │
+│ │                                 current version. Contains file   │ │
+│ │                                 CRC to identify source invoice   │ │
+│ │                                 file',                           │ │
+│ │                                 │   │   'last_processing_time':  │ │
+│ │                                 '2024-05-03T17:31:16.880060+00:… │ │
+│ │                                 │   │   'invoice_worksheet':     │ │
+│ │                                 'Factura(Invoice)',              │ │
+│ │                                 │   │   'invoice_max_rows': 49,  │ │
+│ │                                 │   │   'invoice_max_cols': 8,   │ │
+│ │                                 │   │                            │ │
+│ │                                 'items_table_start_marker': 'No. │ │
+│ │                                 crt.',                           │ │
+│ │                                 │   │                            │ │
+│ │                                 'items_table_start_cell': (      │ │
+│ │                                 │   │   │   29,                  │ │
+│ │                                 │   │   │   1                    │ │
+│ │                                 │   │   ),                       │ │
+│ │                                 │   │   'invoice_XML_schemes': { │ │
+│ │                                 │   │   │   'xmlns':             │ │
+│ │                                 'urn:oasis:names:specification:… │ │
+│ │                                 │   │   │   'xmlns:cbc':         │ │
+│ │                                 'urn:oasis:names:specification:… │ │
+│ │                                 │   │   │   'xmlns:cac':         │ │
+│ │                                 'urn:oasis:names:specification:… │ │
+│ │                                 │   │   │   'xmlns:ns4':         │ │
+│ │                                 'urn:oasis:names:specification:… │ │
+│ │                                 │   │   │   'xmlns:xsi':         │ │
+│ │                                 'http://www.w3.org/2001/XMLSche… │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'xsi:schemaLocation':            │ │
+│ │                                 'urn:oasis:names:specification:… │ │
+│ │                                 http://docs.oasis-open.or'+48    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'map_JSONkeys_XMLtags':  │ │
+│ │                                 [                                │ │
+│ │                                 │   │   │   (                    │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac_InvoiceLine',               │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac:InvoiceLine'                │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   (                    │ │
+│ │                                 │   │   │   │   'cac_Item',      │ │
+│ │                                 │   │   │   │   'cac:Item'       │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   (                    │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac_ClassifiedTaxCategory',     │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac:ClassifiedTaxCategory'      │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   (                    │ │
+│ │                                 │   │   │   │   'cac_TaxScheme', │ │
+│ │                                 │   │   │   │   'cac:TaxScheme'  │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   (                    │ │
+│ │                                 │   │   │   │   'cac_Price',     │ │
+│ │                                 │   │   │   │   'cac:Price'      │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   (                    │ │
+│ │                                 │   │   │   │   'cbc_ID',        │ │
+│ │                                 │   │   │   │   'cbc:ID'         │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   (                    │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_InvoicedQuantity',          │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc:InvoicedQuantity'           │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   (                    │ │
+│ │                                 │   │   │   │   'cbc_unitCode',  │ │
+│ │                                 │   │   │   │   'cbc:unitCode'   │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   (                    │ │
+│ │                                 │   │   │   │   'cbc_Name',      │ │
+│ │                                 │   │   │   │   'cbc:Name'       │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   (                    │ │
+│ │                                 │   │   │   │   'cbc_Percent',   │ │
+│ │                                 │   │   │   │   'cbc:Percent'    │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   ... +45              │ │
+│ │                                 │   │   ]                        │ │
+│ │                                 │   },                           │ │
+│ │                                 │   'excel_original_data': {     │ │
+│ │                                 │   │   'invoice_items_area': {  │ │
+│ │                                 │   │   │   'keyrows': [         │ │
+│ │                                 │   │   │   │   1,               │ │
+│ │                                 │   │   │   │   '1.NOTE-a',      │ │
+│ │                                 │   │   │   │   2                │ │
+│ │                                 │   │   │   ],                   │ │
+│ │                                 │   │   │   'keycols': [         │ │
+│ │                                 │   │   │   │   'Denumirea       │ │
+│ │                                 lucrarii                         │ │
+│ │                                 (Request description)',          │ │
+│ │                                 │   │   │   │   'Cantitatea      │ │
+│ │                                 (Quantity)',                     │ │
+│ │                                 │   │   │   │   'Pret unitar     │ │
+│ │                                 (Unit price)',                   │ │
+│ │                                 │   │   │   │   'Cota TVA (VAT   │ │
+│ │                                 %)',                             │ │
+│ │                                 │   │   │   │   'Valoare fara    │ │
+│ │                                 TVA (Value without VAT)',        │ │
+│ │                                 │   │   │   │   'Valoare TVA     │ │
+│ │                                 (Value VAT)'                     │ │
+│ │                                 │   │   │   ],                   │ │
+│ │                                 │   │   │   'data': [            │ │
+│ │                                 │   │   │   │   [                │ │
+│ │                                 │   │   │   │   │   'Inlocuit    │ │
+│ │                                 conducta PSI coloana C2 DAV.',   │ │
+│ │                                 │   │   │   │   │   1,           │ │
+│ │                                 │   │   │   │   │   42756.08,    │ │
+│ │                                 │   │   │   │   │   0.19,        │ │
+│ │                                 │   │   │   │   │   42756.08,    │ │
+│ │                                 │   │   │   │   │   8123.6552    │ │
+│ │                                 │   │   │   │   ],               │ │
+│ │                                 │   │   │   │   [                │ │
+│ │                                 │   │   │   │   │   'SES         │ │
+│ │                                 8105685514',                     │ │
+│ │                                 │   │   │   │   │   '',          │ │
+│ │                                 │   │   │   │   │   '',          │ │
+│ │                                 │   │   │   │   │   '',          │ │
+│ │                                 │   │   │   │   │   '',          │ │
+│ │                                 │   │   │   │   │   ''           │ │
+│ │                                 │   │   │   │   ],               │ │
+│ │                                 │   │   │   │   [                │ │
+│ │                                 │   │   │   │   │   'Acciza de   │ │
+│ │                                 test (2%)',                      │ │
+│ │                                 │   │   │   │   │   1,           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 855.1216000000001,               │ │
+│ │                                 │   │   │   │   │   0,           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 855.1216000000001,               │ │
+│ │                                 │   │   │   │   │   0            │ │
+│ │                                 │   │   │   │   ]                │ │
+│ │                                 │   │   │   ]                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'invoice_header_area': { │ │
+│ │                                 │   │   │   'start_cell': (      │ │
+│ │                                 │   │   │   │   1,               │ │
+│ │                                 │   │   │   │   1                │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'end_cell': (        │ │
+│ │                                 │   │   │   │   28,              │ │
+│ │                                 │   │   │   │   8                │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'invoice_number': {  │ │
+│ │                                 │   │   │   │   'value':         │ │
+│ │                                 '11017969',                      │ │
+│ │                                 │   │   │   │   'location': (    │ │
+│ │                                 │   │   │   │   │   10,          │ │
+│ │                                 │   │   │   │   │   6            │ │
+│ │                                 │   │   │   │   ),               │ │
+│ │                                 │   │   │   │   'label_value':   │ │
+│ │                                 'Nr. Facturii',                  │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'label_location': (              │ │
+│ │                                 │   │   │   │   │   10,          │ │
+│ │                                 │   │   │   │   │   5            │ │
+│ │                                 │   │   │   │   )                │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   'issued_date': {     │ │
+│ │                                 │   │   │   │   'value':         │ │
+│ │                                 '2023-10-17',                    │ │
+│ │                                 │   │   │   │   'location': (    │ │
+│ │                                 │   │   │   │   │   11,          │ │
+│ │                                 │   │   │   │   │   6            │ │
+│ │                                 │   │   │   │   ),               │ │
+│ │                                 │   │   │   │   'label_value':   │ │
+│ │                                 'Data Factura',                  │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'label_location': (              │ │
+│ │                                 │   │   │   │   │   11,          │ │
+│ │                                 │   │   │   │   │   5            │ │
+│ │                                 │   │   │   │   )                │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   'currency': {        │ │
+│ │                                 │   │   │   │   'value': 'RON',  │ │
+│ │                                 │   │   │   │   'location': (    │ │
+│ │                                 │   │   │   │   │   28,          │ │
+│ │                                 │   │   │   │   │   8            │ │
+│ │                                 │   │   │   │   ),               │ │
+│ │                                 │   │   │   │   'label_value':   │ │
+│ │                                 'Currency: RON',                 │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'label_location': (              │ │
+│ │                                 │   │   │   │   │   28,          │ │
+│ │                                 │   │   │   │   │   8            │ │
+│ │                                 │   │   │   │   )                │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   'due_date': {        │ │
+│ │                                 │   │   │   │   'value':         │ │
+│ │                                 '2023-11-16',                    │ │
+│ │                                 │   │   │   │   'location': (    │ │
+│ │                                 │   │   │   │   │   None,        │ │
+│ │                                 │   │   │   │   │   None         │ │
+│ │                                 │   │   │   │   ),               │ │
+│ │                                 │   │   │   │   'label_value':   │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'label_location': None           │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   'customer_area': {   │ │
+│ │                                 │   │   │   │   'area_info': {   │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 'OMV Petrom S.A.',               │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   (8, 2),  │ │
+│ │                                 │   │   │   │   │   │   (        │ │
+│ │                                 │   │   │   │   │   │   │   18,  │ │
+│ │                                 │   │   │   │   │   │   │   3    │ │
+│ │                                 │   │   │   │   │   │   )        │ │
+│ │                                 │   │   │   │   │   )            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'CUI': {         │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 'RO1590082',                     │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   10,      │ │
+│ │                                 │   │   │   │   │   │   2        │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': 'C.U.I.           │ │
+│ │                                 RO1590082',                      │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': (              │ │
+│ │                                 │   │   │   │   │   │   10,      │ │
+│ │                                 │   │   │   │   │   │   2        │ │
+│ │                                 │   │   │   │   │   )            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'RegistrationName': {            │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 'OMV Petrom S.A.',               │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   8,       │ │
+│ │                                 │   │   │   │   │   │   2        │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': 'n/a',            │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': 'n/a'          │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'PostalAddress': │ │
+│ │                                 {                                │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_StreetName': 'Coralilor Nr. │ │
+│ │                                 22',                             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_CityName': '',              │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_PostalZone': 'Postal        │ │
+│ │                                 013329',                         │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_Country': {                 │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cbc_IdentificationCode': 'RO'   │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'reg_com': {     │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   None,    │ │
+│ │                                 │   │   │   │   │   │   None     │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': None,             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': None           │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'bank': {        │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 'Comerciala Romana',             │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   16,      │ │
+│ │                                 │   │   │   │   │   │   2        │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': 'Banca Comerciala │ │
+│ │                                 Romana',                         │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': (              │ │
+│ │                                 │   │   │   │   │   │   16,      │ │
+│ │                                 │   │   │   │   │   │   2        │ │
+│ │                                 │   │   │   │   │   )            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'IBAN': {        │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   None,    │ │
+│ │                                 │   │   │   │   │   │   None     │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': None,             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': None           │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'phone': {       │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   None,    │ │
+│ │                                 │   │   │   │   │   │   None     │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': None,             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': None           │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'email': {       │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   None,    │ │
+│ │                                 │   │   │   │   │   │   None     │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': None,             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': None           │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   'supplier_area': {   │ │
+│ │                                 │   │   │   │   'area_info': {   │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 'OMV Petrom S.A.',               │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   (8, 2),  │ │
+│ │                                 │   │   │   │   │   │   (        │ │
+│ │                                 │   │   │   │   │   │   │   18,  │ │
+│ │                                 │   │   │   │   │   │   │   3    │ │
+│ │                                 │   │   │   │   │   │   )        │ │
+│ │                                 │   │   │   │   │   )            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'CUI': {         │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 'RO1590082',                     │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   10,      │ │
+│ │                                 │   │   │   │   │   │   2        │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': 'C.U.I.           │ │
+│ │                                 RO1590082',                      │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': (              │ │
+│ │                                 │   │   │   │   │   │   10,      │ │
+│ │                                 │   │   │   │   │   │   2        │ │
+│ │                                 │   │   │   │   │   )            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'RegistrationName': {            │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 'OMV Petrom S.A.',               │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   8,       │ │
+│ │                                 │   │   │   │   │   │   2        │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': 'n/a',            │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': 'n/a'          │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'PostalAddress': │ │
+│ │                                 {                                │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_StreetName': 'Coralilor Nr. │ │
+│ │                                 22',                             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_CityName': '',              │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_PostalZone': 'Postal        │ │
+│ │                                 013329',                         │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_Country': {                 │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cbc_IdentificationCode': 'RO'   │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'reg_com': {     │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   None,    │ │
+│ │                                 │   │   │   │   │   │   None     │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': None,             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': None           │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'bank': {        │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 'Comerciala Romana',             │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   16,      │ │
+│ │                                 │   │   │   │   │   │   2        │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': 'Banca Comerciala │ │
+│ │                                 Romana',                         │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': (              │ │
+│ │                                 │   │   │   │   │   │   16,      │ │
+│ │                                 │   │   │   │   │   │   2        │ │
+│ │                                 │   │   │   │   │   )            │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'IBAN': {        │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   None,    │ │
+│ │                                 │   │   │   │   │   │   None     │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': None,             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': None           │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'phone': {       │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   None,    │ │
+│ │                                 │   │   │   │   │   │   None     │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': None,             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': None           │ │
+│ │                                 │   │   │   │   },               │ │
+│ │                                 │   │   │   │   'email': {       │ │
+│ │                                 │   │   │   │   │   'value':     │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   │   'location':  │ │
+│ │                                 (                                │ │
+│ │                                 │   │   │   │   │   │   None,    │ │
+│ │                                 │   │   │   │   │   │   None     │ │
+│ │                                 │   │   │   │   │   ),           │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_value': None,             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'label_location': None           │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   }                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'invoice_footer_area': { │ │
+│ │                                 │   │   │   'start_cell': (      │ │
+│ │                                 │   │   │   │   34,              │ │
+│ │                                 │   │   │   │   1                │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'end_cell': (        │ │
+│ │                                 │   │   │   │   49,              │ │
+│ │                                 │   │   │   │   8                │ │
+│ │                                 │   │   │   )                    │ │
+│ │                                 │   │   }                        │ │
+│ │                                 │   }                            │ │
+│ │                                 }                                │ │
+│ │         invoice_currency_info = {                                │ │
+│ │                                 │   'value': 'RON',              │ │
+│ │                                 │   'location': (28, 8),         │ │
+│ │                                 │   'label_value': 'Currency:    │ │
+│ │                                 RON',                            │ │
+│ │                                 │   'label_location': (28, 8)    │ │
+│ │                                 }                                │ │
+│ │           invoice_footer_area = {                                │ │
+│ │                                 │   'start_cell': (34, 1),       │ │
+│ │                                 │   'end_cell': (49, 8)          │ │
+│ │                                 }                                │ │
+│ │           invoice_header_area = {                                │ │
+│ │                                 │   'start_cell': (1, 1),        │ │
+│ │                                 │   'end_cell': (28, 8),         │ │
+│ │                                 │   'invoice_number': {          │ │
+│ │                                 │   │   'value': '11017969',     │ │
+│ │                                 │   │   'location': (10, 6),     │ │
+│ │                                 │   │   'label_value': 'Nr.      │ │
+│ │                                 Facturii',                       │ │
+│ │                                 │   │   'label_location': (      │ │
+│ │                                 │   │   │   10,                  │ │
+│ │                                 │   │   │   5                    │ │
+│ │                                 │   │   )                        │ │
+│ │                                 │   },                           │ │
+│ │                                 │   'issued_date': {             │ │
+│ │                                 │   │   'value': '2023-10-17',   │ │
+│ │                                 │   │   'location': (11, 6),     │ │
+│ │                                 │   │   'label_value': 'Data     │ │
+│ │                                 Factura',                        │ │
+│ │                                 │   │   'label_location': (      │ │
+│ │                                 │   │   │   11,                  │ │
+│ │                                 │   │   │   5                    │ │
+│ │                                 │   │   )                        │ │
+│ │                                 │   },                           │ │
+│ │                                 │   'currency': {                │ │
+│ │                                 │   │   'value': 'RON',          │ │
+│ │                                 │   │   'location': (28, 8),     │ │
+│ │                                 │   │   'label_value':           │ │
+│ │                                 'Currency: RON',                 │ │
+│ │                                 │   │   'label_location': (      │ │
+│ │                                 │   │   │   28,                  │ │
+│ │                                 │   │   │   8                    │ │
+│ │                                 │   │   )                        │ │
+│ │                                 │   },                           │ │
+│ │                                 │   'due_date': {                │ │
+│ │                                 │   │   'value': '2023-11-16',   │ │
+│ │                                 │   │   'location': (            │ │
+│ │                                 │   │   │   None,                │ │
+│ │                                 │   │   │   None                 │ │
+│ │                                 │   │   ),                       │ │
+│ │                                 │   │   'label_value': None,     │ │
+│ │                                 │   │   'label_location': None   │ │
+│ │                                 │   },                           │ │
+│ │                                 │   'customer_area': {           │ │
+│ │                                 │   │   'area_info': {           │ │
+│ │                                 │   │   │   'value': 'OMV Petrom │ │
+│ │                                 S.A.',                           │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   (8, 2),          │ │
+│ │                                 │   │   │   │   (18, 3)          │ │
+│ │                                 │   │   │   )                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'CUI': {                 │ │
+│ │                                 │   │   │   'value':             │ │
+│ │                                 'RO1590082',                     │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   10,              │ │
+│ │                                 │   │   │   │   2                │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value':       │ │
+│ │                                 'C.U.I. RO1590082',              │ │
+│ │                                 │   │   │   'label_location': (  │ │
+│ │                                 │   │   │   │   10,              │ │
+│ │                                 │   │   │   │   2                │ │
+│ │                                 │   │   │   )                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'RegistrationName': {    │ │
+│ │                                 │   │   │   'value': 'OMV Petrom │ │
+│ │                                 S.A.',                           │ │
+│ │                                 │   │   │   'location': (8, 2),  │ │
+│ │                                 │   │   │   'label_value':       │ │
+│ │                                 'n/a',                           │ │
+│ │                                 │   │   │   'label_location':    │ │
+│ │                                 'n/a'                            │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'PostalAddress': {       │ │
+│ │                                 │   │   │   'cbc_StreetName':    │ │
+│ │                                 'Coralilor Nr. 22',              │ │
+│ │                                 │   │   │   'cbc_CityName': '',  │ │
+│ │                                 │   │   │   'cbc_PostalZone':    │ │
+│ │                                 'Postal 013329',                 │ │
+│ │                                 │   │   │   'cac_Country': {     │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_IdentificationCode': 'RO'   │ │
+│ │                                 │   │   │   }                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'reg_com': {             │ │
+│ │                                 │   │   │   'value': None,       │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   None,            │ │
+│ │                                 │   │   │   │   None             │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value': None, │ │
+│ │                                 │   │   │   'label_location':    │ │
+│ │                                 None                             │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'bank': {                │ │
+│ │                                 │   │   │   'value': 'Comerciala │ │
+│ │                                 Romana',                         │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   16,              │ │
+│ │                                 │   │   │   │   2                │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value':       │ │
+│ │                                 'Banca Comerciala Romana',       │ │
+│ │                                 │   │   │   'label_location': (  │ │
+│ │                                 │   │   │   │   16,              │ │
+│ │                                 │   │   │   │   2                │ │
+│ │                                 │   │   │   )                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'IBAN': {                │ │
+│ │                                 │   │   │   'value': None,       │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   None,            │ │
+│ │                                 │   │   │   │   None             │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value': None, │ │
+│ │                                 │   │   │   'label_location':    │ │
+│ │                                 None                             │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'phone': {               │ │
+│ │                                 │   │   │   'value': None,       │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   None,            │ │
+│ │                                 │   │   │   │   None             │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value': None, │ │
+│ │                                 │   │   │   'label_location':    │ │
+│ │                                 None                             │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'email': {               │ │
+│ │                                 │   │   │   'value': None,       │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   None,            │ │
+│ │                                 │   │   │   │   None             │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value': None, │ │
+│ │                                 │   │   │   'label_location':    │ │
+│ │                                 None                             │ │
+│ │                                 │   │   }                        │ │
+│ │                                 │   },                           │ │
+│ │                                 │   'supplier_area': {           │ │
+│ │                                 │   │   'area_info': {           │ │
+│ │                                 │   │   │   'value': 'OMV Petrom │ │
+│ │                                 S.A.',                           │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   (8, 2),          │ │
+│ │                                 │   │   │   │   (18, 3)          │ │
+│ │                                 │   │   │   )                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'CUI': {                 │ │
+│ │                                 │   │   │   'value':             │ │
+│ │                                 'RO1590082',                     │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   10,              │ │
+│ │                                 │   │   │   │   2                │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value':       │ │
+│ │                                 'C.U.I. RO1590082',              │ │
+│ │                                 │   │   │   'label_location': (  │ │
+│ │                                 │   │   │   │   10,              │ │
+│ │                                 │   │   │   │   2                │ │
+│ │                                 │   │   │   )                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'RegistrationName': {    │ │
+│ │                                 │   │   │   'value': 'OMV Petrom │ │
+│ │                                 S.A.',                           │ │
+│ │                                 │   │   │   'location': (8, 2),  │ │
+│ │                                 │   │   │   'label_value':       │ │
+│ │                                 'n/a',                           │ │
+│ │                                 │   │   │   'label_location':    │ │
+│ │                                 'n/a'                            │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'PostalAddress': {       │ │
+│ │                                 │   │   │   'cbc_StreetName':    │ │
+│ │                                 'Coralilor Nr. 22',              │ │
+│ │                                 │   │   │   'cbc_CityName': '',  │ │
+│ │                                 │   │   │   'cbc_PostalZone':    │ │
+│ │                                 'Postal 013329',                 │ │
+│ │                                 │   │   │   'cac_Country': {     │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_IdentificationCode': 'RO'   │ │
+│ │                                 │   │   │   }                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'reg_com': {             │ │
+│ │                                 │   │   │   'value': None,       │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   None,            │ │
+│ │                                 │   │   │   │   None             │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value': None, │ │
+│ │                                 │   │   │   'label_location':    │ │
+│ │                                 None                             │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'bank': {                │ │
+│ │                                 │   │   │   'value': 'Comerciala │ │
+│ │                                 Romana',                         │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   16,              │ │
+│ │                                 │   │   │   │   2                │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value':       │ │
+│ │                                 'Banca Comerciala Romana',       │ │
+│ │                                 │   │   │   'label_location': (  │ │
+│ │                                 │   │   │   │   16,              │ │
+│ │                                 │   │   │   │   2                │ │
+│ │                                 │   │   │   )                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'IBAN': {                │ │
+│ │                                 │   │   │   'value': None,       │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   None,            │ │
+│ │                                 │   │   │   │   None             │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value': None, │ │
+│ │                                 │   │   │   'label_location':    │ │
+│ │                                 None                             │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'phone': {               │ │
+│ │                                 │   │   │   'value': None,       │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   None,            │ │
+│ │                                 │   │   │   │   None             │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value': None, │ │
+│ │                                 │   │   │   'label_location':    │ │
+│ │                                 None                             │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'email': {               │ │
+│ │                                 │   │   │   'value': None,       │ │
+│ │                                 │   │   │   'location': (        │ │
+│ │                                 │   │   │   │   None,            │ │
+│ │                                 │   │   │   │   None             │ │
+│ │                                 │   │   │   ),                   │ │
+│ │                                 │   │   │   'label_value': None, │ │
+│ │                                 │   │   │   'label_location':    │ │
+│ │                                 None                             │ │
+│ │                                 │   │   }                        │ │
+│ │                                 │   }                            │ │
+│ │                                 }                                │ │
+│ │   invoice_issued_date_as_date = datetime.datetime(2023, 10, 17,  │ │
+│ │                                 0, 0)                            │ │
+│ │            invoice_items_area = {                                │ │
+│ │                                 │   'keyrows': [                 │ │
+│ │                                 │   │   1,                       │ │
+│ │                                 │   │   '1.NOTE-a',              │ │
+│ │                                 │   │   2                        │ │
+│ │                                 │   ],                           │ │
+│ │                                 │   'keycols': [                 │ │
+│ │                                 │   │   'Denumirea lucrarii      │ │
+│ │                                 (Request description)',          │ │
+│ │                                 │   │   'Cantitatea (Quantity)', │ │
+│ │                                 │   │   'Pret unitar (Unit       │ │
+│ │                                 price)',                         │ │
+│ │                                 │   │   'Cota TVA (VAT %)',      │ │
+│ │                                 │   │   'Valoare fara TVA (Value │ │
+│ │                                 without VAT)',                   │ │
+│ │                                 │   │   'Valoare TVA (Value      │ │
+│ │                                 VAT)'                            │ │
+│ │                                 │   ],                           │ │
+│ │                                 │   'data': [                    │ │
+│ │                                 │   │   [                        │ │
+│ │                                 │   │   │   'Inlocuit conducta   │ │
+│ │                                 PSI coloana C2 DAV.',            │ │
+│ │                                 │   │   │   1,                   │ │
+│ │                                 │   │   │   42756.08,            │ │
+│ │                                 │   │   │   0.19,                │ │
+│ │                                 │   │   │   42756.08,            │ │
+│ │                                 │   │   │   8123.6552            │ │
+│ │                                 │   │   ],                       │ │
+│ │                                 │   │   [                        │ │
+│ │                                 │   │   │   'SES 8105685514',    │ │
+│ │                                 │   │   │   '',                  │ │
+│ │                                 │   │   │   '',                  │ │
+│ │                                 │   │   │   '',                  │ │
+│ │                                 │   │   │   '',                  │ │
+│ │                                 │   │   │   ''                   │ │
+│ │                                 │   │   ],                       │ │
+│ │                                 │   │   [                        │ │
+│ │                                 │   │   │   'Acciza de test      │ │
+│ │                                 (2%)',                           │ │
+│ │                                 │   │   │   1,                   │ │
+│ │                                 │   │   │   855.1216000000001,   │ │
+│ │                                 │   │   │   0,                   │ │
+│ │                                 │   │   │   855.1216000000001,   │ │
+│ │                                 │   │   │   0                    │ │
+│ │                                 │   │   ]                        │ │
+│ │                                 │   ]                            │ │
+│ │                                 }                                │ │
+│ │     invoice_items_as_kv_pairs = [                                │ │
+│ │                                 │   {                            │ │
+│ │                                 │   │   'cbc_ID': '1',           │ │
+│ │                                 │   │   'cbc_InvoicedQuantity':  │ │
+│ │                                 1,                               │ │
+│ │                                 │   │   'cbc_unitCode': None,    │ │
+│ │                                 │   │   'cac_Item': {            │ │
+│ │                                 │   │   │   'cbc_Name':          │ │
+│ │                                 'Inlocuit conducta PSI coloana   │ │
+│ │                                 C2 DAV.',                        │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   'cbc_Percent':   │ │
+│ │                                 0.19,                            │ │
+│ │                                 │   │   │   │   'cac_TaxScheme': │ │
+│ │                                 {                                │ │
+│ │                                 │   │   │   │   │   'cbc_ID':    │ │
+│ │                                 'VAT'                            │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   }                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'cac_Price': {           │ │
+│ │                                 │   │   │   'cbc_PriceAmount':   │ │
+│ │                                 42756.08,                        │ │
+│ │                                 │   │   │   'cbc_currencyID':    │ │
+│ │                                 'RON'                            │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │                            │ │
+│ │                                 'cbc_LineExtensionAmount':       │ │
+│ │                                 42756.08,                        │ │
+│ │                                 │   │   'LineVatAmount': 8123.66 │ │
+│ │                                 │   },                           │ │
+│ │                                 │   {                            │ │
+│ │                                 │   │   'cbc_ID': '1.NOTE-a',    │ │
+│ │                                 │   │   'cbc_InvoicedQuantity':  │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   'cbc_unitCode': None,    │ │
+│ │                                 │   │   'cac_Item': {            │ │
+│ │                                 │   │   │   'cbc_Name': 'SES     │ │
+│ │                                 8105685514',                     │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   'cbc_Percent':   │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   'cac_TaxScheme': │ │
+│ │                                 {                                │ │
+│ │                                 │   │   │   │   │   'cbc_ID':    │ │
+│ │                                 None                             │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   }                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'cac_Price': {           │ │
+│ │                                 │   │   │   'cbc_PriceAmount':   │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   'cbc_currencyID':    │ │
+│ │                                 None                             │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │                            │ │
+│ │                                 'cbc_LineExtensionAmount': None, │ │
+│ │                                 │   │   'LineVatAmount': None    │ │
+│ │                                 │   },                           │ │
+│ │                                 │   {                            │ │
+│ │                                 │   │   'cbc_ID': '2',           │ │
+│ │                                 │   │   'cbc_InvoicedQuantity':  │ │
+│ │                                 1,                               │ │
+│ │                                 │   │   'cbc_unitCode': None,    │ │
+│ │                                 │   │   'cac_Item': {            │ │
+│ │                                 │   │   │   'cbc_Name': 'Acciza  │ │
+│ │                                 de test (2%)',                   │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   'cbc_Percent':   │ │
+│ │                                 0.0,                             │ │
+│ │                                 │   │   │   │   'cac_TaxScheme': │ │
+│ │                                 {                                │ │
+│ │                                 │   │   │   │   │   'cbc_ID':    │ │
+│ │                                 'VAT'                            │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   }                    │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   'cac_Price': {           │ │
+│ │                                 │   │   │   'cbc_PriceAmount':   │ │
+│ │                                 855.1216000000001,               │ │
+│ │                                 │   │   │   'cbc_currencyID':    │ │
+│ │                                 'RON'                            │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │                            │ │
+│ │                                 'cbc_LineExtensionAmount':       │ │
+│ │                                 855.12,                          │ │
+│ │                                 │   │   'LineVatAmount': 0.0     │ │
+│ │                                 │   }                            │ │
+│ │                                 ]                                │ │
+│ │           invoice_number_info = {                                │ │
+│ │                                 │   'value': '11017969',         │ │
+│ │                                 │   'location': (10, 6),         │ │
+│ │                                 │   'label_value': 'Nr.          │ │
+│ │                                 Facturii',                       │ │
+│ │                                 │   'label_location': (10, 5)    │ │
+│ │                                 }                                │ │
+│ │             invoice_type_code = <InvoiceTypesEnum.NORMALA:       │ │
+│ │                                 '380'>                           │ │
+│ │        invoice_worksheet_name = 'Factura(Invoice)'               │ │
+│ │              issued_date_info = {                                │ │
+│ │                                 │   'value': '2023-10-17',       │ │
+│ │                                 │   'location': (11, 6),         │ │
+│ │                                 │   'label_value': 'Data         │ │
+│ │                                 Factura',                        │ │
+│ │                                 │   'label_location': (11, 5)    │ │
+│ │                                 }                                │ │
+│ │  keyword_for_items_table_marker 'No. crt.'                       │ │
+│ │                               =                                  │ │
+│ │      list_of_excel_worksheets = ['Factura(Invoice)']             │ │
+│ │                    lrc_footer = (49, 8)                          │ │
+│ │                    lrc_header = (28, 8)                          │ │
+│ │                     meta_info = {                                │ │
+│ │                                 │   'file':                      │ │
+│ │                                 'Fact_Petrom_11017969.xlsx',     │ │
+│ │                                 │   'file_CRC': '...n/a in       │ │
+│ │                                 current version. Contains file   │ │
+│ │                                 CRC to identify source invoice   │ │
+│ │                                 file',                           │ │
+│ │                                 │   'last_processing_time':      │ │
+│ │                                 '2024-05-03T17:31:16.880060+00:… │ │
+│ │                                 │   'invoice_worksheet':         │ │
+│ │                                 'Factura(Invoice)',              │ │
+│ │                                 │   'invoice_max_rows': 49,      │ │
+│ │                                 │   'invoice_max_cols': 8,       │ │
+│ │                                 │   'items_table_start_marker':  │ │
+│ │                                 'No. crt.',                      │ │
+│ │                                 │   'items_table_start_cell': (  │ │
+│ │                                 │   │   29,                      │ │
+│ │                                 │   │   1                        │ │
+│ │                                 │   ),                           │ │
+│ │                                 │   'invoice_XML_schemes': {     │ │
+│ │                                 │   │   'xmlns':                 │ │
+│ │                                 'urn:oasis:names:specification:… │ │
+│ │                                 │   │   'xmlns:cbc':             │ │
+│ │                                 'urn:oasis:names:specification:… │ │
+│ │                                 │   │   'xmlns:cac':             │ │
+│ │                                 'urn:oasis:names:specification:… │ │
+│ │                                 │   │   'xmlns:ns4':             │ │
+│ │                                 'urn:oasis:names:specification:… │ │
+│ │                                 │   │   'xmlns:xsi':             │ │
+│ │                                 'http://www.w3.org/2001/XMLSche… │ │
+│ │                                 │   │   'xsi:schemaLocation':    │ │
+│ │                                 'urn:oasis:names:specification:… │ │
+│ │                                 http://docs.oasis-open.or'+48    │ │
+│ │                                 │   },                           │ │
+│ │                                 │   'map_JSONkeys_XMLtags': [    │ │
+│ │                                 │   │   (                        │ │
+│ │                                 │   │   │   'cac_InvoiceLine',   │ │
+│ │                                 │   │   │   'cac:InvoiceLine'    │ │
+│ │                                 │   │   ),                       │ │
+│ │                                 │   │   (                        │ │
+│ │                                 │   │   │   'cac_Item',          │ │
+│ │                                 │   │   │   'cac:Item'           │ │
+│ │                                 │   │   ),                       │ │
+│ │                                 │   │   (                        │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cac_ClassifiedTaxCategory',     │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cac:ClassifiedTaxCategory'      │ │
+│ │                                 │   │   ),                       │ │
+│ │                                 │   │   (                        │ │
+│ │                                 │   │   │   'cac_TaxScheme',     │ │
+│ │                                 │   │   │   'cac:TaxScheme'      │ │
+│ │                                 │   │   ),                       │ │
+│ │                                 │   │   (                        │ │
+│ │                                 │   │   │   'cac_Price',         │ │
+│ │                                 │   │   │   'cac:Price'          │ │
+│ │                                 │   │   ),                       │ │
+│ │                                 │   │   ('cbc_ID', 'cbc:ID'),    │ │
+│ │                                 │   │   (                        │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cbc_InvoicedQuantity',          │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cbc:InvoicedQuantity'           │ │
+│ │                                 │   │   ),                       │ │
+│ │                                 │   │   (                        │ │
+│ │                                 │   │   │   'cbc_unitCode',      │ │
+│ │                                 │   │   │   'cbc:unitCode'       │ │
+│ │                                 │   │   ),                       │ │
+│ │                                 │   │   (                        │ │
+│ │                                 │   │   │   'cbc_Name',          │ │
+│ │                                 │   │   │   'cbc:Name'           │ │
+│ │                                 │   │   ),                       │ │
+│ │                                 │   │   (                        │ │
+│ │                                 │   │   │   'cbc_Percent',       │ │
+│ │                                 │   │   │   'cbc:Percent'        │ │
+│ │                                 │   │   ),                       │ │
+│ │                                 │   │   ... +45                  │ │
+│ │                                 │   ]                            │ │
+│ │                                 }                                │ │
+│ │                owner_datafile = None                             │ │
+│ │                         print = <bound method Console.print of   │ │
+│ │                                 <console width=72 None>>         │ │
+│ │                  redir_stdout = False                            │ │
+│ │            tmp_cac_TaxSummary = [                                │ │
+│ │                                 │   {                            │ │
+│ │                                 │   │   'cbc_TaxableAmount':     │ │
+│ │                                 42756.08,                        │ │
+│ │                                 │   │   'cbc_TaxAmount':         │ │
+│ │                                 8123.66,                         │ │
+│ │                                 │   │   'cac_TaxCategory': {     │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   'cbc_Percent':   │ │
+│ │                                 0.19,                            │ │
+│ │                                 │   │   │   │   'cac_TaxScheme': │ │
+│ │                                 {                                │ │
+│ │                                 │   │   │   │   │   'cbc_ID':    │ │
+│ │                                 'VAT'                            │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   'ID': 'S'            │ │
+│ │                                 │   │   }                        │ │
+│ │                                 │   },                           │ │
+│ │                                 │   {                            │ │
+│ │                                 │   │   'cbc_TaxableAmount':     │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   'cbc_TaxAmount': None,   │ │
+│ │                                 │   │   'cac_TaxCategory': {     │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   'cbc_Percent':   │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   │   'cac_TaxScheme': │ │
+│ │                                 {                                │ │
+│ │                                 │   │   │   │   │   'cbc_ID':    │ │
+│ │                                 None                             │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   'ID': 'S'            │ │
+│ │                                 │   │   }                        │ │
+│ │                                 │   },                           │ │
+│ │                                 │   {                            │ │
+│ │                                 │   │   'cbc_TaxableAmount':     │ │
+│ │                                 855.12,                          │ │
+│ │                                 │   │   'cbc_TaxAmount': 0.0,    │ │
+│ │                                 │   │   'cac_TaxCategory': {     │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   'cbc_Percent':   │ │
+│ │                                 0.0,                             │ │
+│ │                                 │   │   │   │   'cac_TaxScheme': │ │
+│ │                                 {                                │ │
+│ │                                 │   │   │   │   │   'cbc_ID':    │ │
+│ │                                 'VAT'                            │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   'ID': 'S'            │ │
+│ │                                 │   │   }                        │ │
+│ │                                 │   }                            │ │
+│ │                                 ]                                │ │
+│ │          tmp_cbc_TaxPointDate = '2023-11-25'                     │ │
+│ │          tmp_InvoiceLine_list = (                                │ │
+│ │                                 │   [                            │ │
+│ │                                 │   │   {                        │ │
+│ │                                 │   │   │   'cbc_ID': '1',       │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cbc_InvoicedQuantity': 1,       │ │
+│ │                                 │   │   │   'cbc_unitCode':      │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   'cac_Item': {        │ │
+│ │                                 │   │   │   │   'cbc_Name':      │ │
+│ │                                 'Inlocuit conducta PSI coloana   │ │
+│ │                                 C2 DAV.',                        │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_Percent': 0.19,             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_TaxScheme': {               │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cbc_ID': 'VAT'                  │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   'cac_Price': {       │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_PriceAmount': 42756.08,     │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_currencyID': 'RON'          │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cbc_LineExtensionAmount':       │ │
+│ │                                 42756.08,                        │ │
+│ │                                 │   │   │   'LineVatAmount':     │ │
+│ │                                 8123.66                          │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   {                        │ │
+│ │                                 │   │   │   'cbc_ID':            │ │
+│ │                                 '1.NOTE-a',                      │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cbc_InvoicedQuantity': None,    │ │
+│ │                                 │   │   │   'cbc_unitCode':      │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   'cac_Item': {        │ │
+│ │                                 │   │   │   │   'cbc_Name': 'SES │ │
+│ │                                 8105685514',                     │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_Percent': None,             │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_TaxScheme': {               │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cbc_ID': None                   │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   'cac_Price': {       │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_PriceAmount': None,         │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_currencyID': None           │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cbc_LineExtensionAmount': None, │ │
+│ │                                 │   │   │   'LineVatAmount':     │ │
+│ │                                 None                             │ │
+│ │                                 │   │   },                       │ │
+│ │                                 │   │   {                        │ │
+│ │                                 │   │   │   'cbc_ID': '2',       │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cbc_InvoicedQuantity': 1,       │ │
+│ │                                 │   │   │   'cbc_unitCode':      │ │
+│ │                                 None,                            │ │
+│ │                                 │   │   │   'cac_Item': {        │ │
+│ │                                 │   │   │   │   'cbc_Name':      │ │
+│ │                                 'Acciza de test (2%)',           │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cac_ClassifiedTaxCategory': {   │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cbc_Percent': 0.0,              │ │
+│ │                                 │   │   │   │   │                │ │
+│ │                                 'cac_TaxScheme': {               │ │
+│ │                                 │   │   │   │   │   │            │ │
+│ │                                 'cbc_ID': 'VAT'                  │ │
+│ │                                 │   │   │   │   │   }            │ │
+│ │                                 │   │   │   │   }                │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │   'cac_Price': {       │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_PriceAmount':               │ │
+│ │                                 855.1216000000001,               │ │
+│ │                                 │   │   │   │                    │ │
+│ │                                 'cbc_currencyID': 'RON'          │ │
+│ │                                 │   │   │   },                   │ │
+│ │                                 │   │   │                        │ │
+│ │                                 'cbc_LineExtensionAmount':       │ │
+│ │                                 855.12,                          │ │
+│ │                                 │   │   │   'LineVatAmount': 0.0 │ │
+│ │                                 │   │   }                        │ │
+│ │                                 │   ],                           │ │
+│ │                                 )                                │ │
+│ │            tmp_reusable_items = {                                │ │
+│ │                                 │   'cbc_LineExtensionAmount':   │ │
+│ │                                 43611.0,                         │ │
+│ │                                 │   'LineVatAmount': 8123.0,     │ │
+│ │                                 │   'invoice_issdate_asdate':    │ │
+│ │                                 datetime.date(2023, 10, 17)      │ │
+│ │                                 }                                │ │
+│ │                    ulc_footer = (34, 1)                          │ │
+│ │                    ulc_header = (1, 1)                           │ │
+│ │                            ws = pylightxl.Database.Worksheet     │ │
+│ ╰──────────────────────────────────────────────────────────────────╯ │
+╰──────────────────────────────────────────────────────────────────────╯
+NameError: name 'my_debug_info' is not defined
