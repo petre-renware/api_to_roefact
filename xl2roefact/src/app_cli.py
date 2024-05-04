@@ -143,7 +143,6 @@ def xl2json(
     """
     console = Console()
     console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
-    
     # prep Excel files to rocess as requested in command line (NOTE: if default directory does not exists will consider current directory instead)
     tmp_files_to_process = Path(files_directory)
     if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
@@ -151,12 +150,8 @@ def xl2json(
         console.print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
     console.print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
     list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
-    #if verbose:
-    #    console.print(f"[yellow]DEBUG note:[/] list object with files to process: [green]{list_of_files_to_process}[/]")
     # process Excel files
     for a_file in list_of_files_to_process:
-        #if verbose:
-        #    console.print(f"[yellow]DEBUG note:[/] to process now: [green]{a_file}[/]")
         rdinv_run_messages = ["no message"]  # here will collect rdinv running messages and if verbose is True will print
         invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `files_directory` is already contained in)
         # prep for owner data acquiring from external data-file or from Excel
@@ -180,6 +175,7 @@ def xl2json(
                 file_to_process=invoice_to_process,
                 debug_info=rdinv_run_messages
             )
+            console.print(f"--> {rdinv_run_messages=}") #FIXME dbg drop me
             if verbose:
                 console.print(rdinv_run_messages[0])
         
