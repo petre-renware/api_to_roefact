@@ -22,6 +22,7 @@ from datetime import datetime
 from rich import print
 from rich.pretty import pprint
 from rich.markdown import Markdown
+from rich.console import Console
 # xl2roefact specific libraries
 from .libutils import hier_get_data_file
 from . import config_settings as configs  # configuration elements to use with `settings` command
@@ -140,20 +141,21 @@ def xl2json(
         `owner_datafile`: File to read invoice supplier (owner) data instead Excel.
         `verbose`: show detailed processing messages". Defaults to `False`.
     """
-    print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
+    console = Console()
+    console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
     # process files as requested in command line (NOTE: if default directory does not exists will consider current directory instead)
     tmp_files_to_process = Path(files_directory)
     if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
         tmp_files_to_process = Path(".").absolute()
-        print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
-    print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
+        console.print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
+    console.print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
     list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
     if verbose:
-        print(f"[yellow]DEBUG note:[/] list object with files to process: [green]{list_of_files_to_process}[/]")
+        console.print(f"[yellow]DEBUG note:[/] list object with files to process: [green]{list_of_files_to_process}[/]")
     for a_file in list_of_files_to_process:
         if verbose:
-            print(f"[yellow]DEBUG note:[/] to process now: [green]{a_file}[/]")
-        #
+            console.print(f"[yellow]DEBUG note:[/] to process now: [green]{a_file}[/]")
+        rdinv_run_messages = ["no message"]  # here will collect rdinv running messages and if verbose is True will print
         invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `files_directory` is already contained in)
         if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
             full_path_owner_datafile = hier_get_data_file(owner_datafile)
@@ -161,25 +163,28 @@ def xl2json(
                 invoice_datadict = rdinv(
                     invoice_type_code=invoice_type,
                     file_to_process=invoice_to_process,
-                    debug_info=verbose,
+                    debug_info=rdinv_run_messages,
                     owner_datafile=full_path_owner_datafile
                 )
+                if verbose:
+                    console.print(rdinv_run_messages[0])
             else:
-                print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
+                console.print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
                 return  # just exit...
         else:
             invoice_datadict = rdinv(
                 invoice_type_code=invoice_type,
                 file_to_process=invoice_to_process,
+                debug_info=rdinv_run_messages,
                 debug_info=verbose
             )
+            if verbose:
+                console.print(rdinv_run_messages[0])
+        
         if not invoice_datadict:
-            print(f"[yellow]INFO note:[/] last step returned an error and process could be incomplete. Please review previous messages.")
-        #
-        if verbose:
-            print(f"[yellow]DEBUG note:[/] `xl2roefact` module, content of resulted `invoice` data dictionary:")
-            pprint(invoice_datadict)
-            print()
+            console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
+        
+        console.print(f"*** Application [red]xl2roefact[/] finished at {datetime.now()}")
 
 
 
