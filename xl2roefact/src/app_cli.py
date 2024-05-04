@@ -165,7 +165,8 @@ def xl2json(
                     owner_datafile=full_path_owner_datafile
                 )
                 if verbose:
-                    console.print(rdinv_run_messages[0])
+                    for msg in rdinv_run_messages:
+                        console.print(msg)
             else:
                 console.print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
                 return  # just exit...
@@ -176,7 +177,8 @@ def xl2json(
                 debug_info=rdinv_run_messages
             )
             if verbose:
-                console.print(rdinv_run_messages[0])
+                for msg in rdinv_run_messages:
+                    console.print(msg)
         
         console.print(f"--> {rdinv_run_messages=}") #FIXME dbg drop me
         if not invoice_datadict:
