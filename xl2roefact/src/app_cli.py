@@ -143,7 +143,8 @@ def xl2json(
     """
     console = Console()
     console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
-    # process files as requested in command line (NOTE: if default directory does not exists will consider current directory instead)
+    
+    # prep Excel files to rocess as requested in command line (NOTE: if default directory does not exists will consider current directory instead)
     tmp_files_to_process = Path(files_directory)
     if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
         tmp_files_to_process = Path(".").absolute()
@@ -152,11 +153,13 @@ def xl2json(
     list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
     if verbose:
         console.print(f"[yellow]DEBUG note:[/] list object with files to process: [green]{list_of_files_to_process}[/]")
+    # process Excel files
     for a_file in list_of_files_to_process:
         if verbose:
             console.print(f"[yellow]DEBUG note:[/] to process now: [green]{a_file}[/]")
         rdinv_run_messages = ["no message"]  # here will collect rdinv running messages and if verbose is True will print
         invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `files_directory` is already contained in)
+        # prep for owner data acquiring from external data-file or from Excel
         if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
             full_path_owner_datafile = hier_get_data_file(owner_datafile)
             if full_path_owner_datafile:
@@ -175,16 +178,15 @@ def xl2json(
             invoice_datadict = rdinv(
                 invoice_type_code=invoice_type,
                 file_to_process=invoice_to_process,
-                debug_info=rdinv_run_messages,
-                debug_info=verbose
+                debug_info=rdinv_run_messages
             )
             if verbose:
                 console.print(rdinv_run_messages[0])
         
         if not invoice_datadict:
             console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
-        
         console.print(f"*** Application [red]xl2roefact[/] finished at {datetime.now()}")
+        return
 
 
 
