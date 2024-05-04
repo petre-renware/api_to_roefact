@@ -839,7 +839,7 @@ files = [
 
 [[package]]
 name = "mkdocs-include-markdown-plugin"
-version = "6.0.5"
+version = "6.0.6"
 requires_python = ">=3.8"
 summary = "Mkdocs Markdown includer plugin."
 groups = ["default"]
@@ -848,8 +848,8 @@ dependencies = [
     "wcmatch<9,>=8",
 ]
 files = [
-    {file = "mkdocs_include_markdown_plugin-6.0.5-py3-none-any.whl", hash = "sha256:db41aa1937a618afa3497616f457d4e51d9123b13b2034bb15505ff9ce061f86"},
-    {file = "mkdocs_include_markdown_plugin-6.0.5.tar.gz", hash = "sha256:ad10779cf0dc4ff180aaa0079163271877b3c2fd31e36d5579854fe1d4b0d1ae"},
+    {file = "mkdocs_include_markdown_plugin-6.0.6-py3-none-any.whl", hash = "sha256:7ccafbaa412c1e5d3510c4aff46d1fe64c7a810c01dace4c636253d1aa5bc193"},
+    {file = "mkdocs_include_markdown_plugin-6.0.6.tar.gz", hash = "sha256:7c80258b2928563c75cc057a7b9a0014701c40804b1b6aa290f3b4032518b43c"},
 ]
 
 [[package]]
@@ -2078,7 +2078,7 @@ files = [
 
 [[package]]
 name = "xl2roefact"
-version = "0.7rc1"
+version = "0.7.dev0"
 requires_python = "<3.12,>=3.9"
 editable = true
 path = "./xl2roefact"

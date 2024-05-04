@@ -503,10 +503,10 @@ div.download-btn {
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands">
-    0.7 commands as layer 2 of functionalities (based on app CLI commands)
+<a class="md-nav__link" href="#07-init-commands-layer-2-of-functionalities">
+    0.7 init commands layer 2 of functionalities
   </a>
-<nav aria-label="0.7 commands as layer 2 of functionalities (based on app CLI commands)" class="md-nav">
+<nav aria-label="0.7 init commands layer 2 of functionalities" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#07rc1-review-clean-xl2roefactrdinv-module-of-todos">
@@ -566,10 +566,10 @@ div.download-btn {
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands">
-    0.7 commands as layer 2 of functionalities (based on app CLI commands)
+<a class="md-nav__link" href="#07-init-commands-layer-2-of-functionalities">
+    0.7 init commands layer 2 of functionalities
   </a>
-<nav aria-label="0.7 commands as layer 2 of functionalities (based on app CLI commands)" class="md-nav">
+<nav aria-label="0.7 init commands layer 2 of functionalities" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#07rc1-review-clean-xl2roefactrdinv-module-of-todos">
@@ -620,7 +620,7 @@ div.download-btn {
 <div class="toc">
 <ul>
 <li><a href="#changelog">CHANGELOG</a><ul>
-<li><a href="#07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands">0.7 commands as layer 2 of functionalities (based on app CLI commands)</a><ul>
+<li><a href="#07-init-commands-layer-2-of-functionalities">0.7 init commands layer 2 of functionalities</a><ul>
 <li><a href="#07rc1-review-clean-xl2roefactrdinv-module-of-todos">0.7rc1 review &amp; clean xl2roefact.rdinv module of TODOs</a></li>
 <li><a href="#07rc0-settings-refresh-option-and-app-settings-reload-by-request">0.7rc0 settings refresh option and app settings reload by request</a></li>
 </ul>
@@ -664,12 +664,15 @@ div.download-btn {
     * `xml2roefact` - see module LDXML
     * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
 -->
-<h2 id="07-commands-as-layer-2-of-functionalities-based-on-app-cli-commands"><code>0.7</code> commands as layer 2 of functionalities (based on app CLI commands)</h2>
+<h2 id="07-init-commands-layer-2-of-functionalities"><code>0.7</code> init commands layer 2 of functionalities</h2>
 <ul>
-<li>tbd... code for this module code: <code>commands.py</code></li>
-<li>tbd... update doc <code>README_xl2roefact_library.md</code> make a small hierarchical diagram with component layers</li>
-<li>... upd versions before start work</li>
-<li>... ... ...</li>
+<li>... move <code>settings</code> functionality to <code>commands/</code></li>
+<li>... update doc <code>README_xl2roefact_library.md</code> make a small hierarchical diagram with component layers</li>
+<li>... ... ... consider <code>0.7rc2</code> release here...</li>
+<li>... update <code>app_cli.xl2json</code> to write function out at verbose or otherwise ()not verbose) just its print messages. Also eliminate the JSON printing when verbose because no more debug necessary at this moment</li>
+<li><code>rdinv-silent</code> updated <code>rdinv.rdinv()</code> in order to run "in silent" and to emit all print info in a specified parameter not None, or (if parameter is None or not specified) emmit normally to <code>stdout</code> device</li>
+<li><code>init-command-layer</code> made <code>commands/</code> as in-package / layer</li>
+<li>upd versions before start work</li>
 </ul>
 <h3 id="07rc1-review-clean-xl2roefactrdinv-module-of-todos"><code>0.7rc1</code> review &amp; clean <code>xl2roefact.rdinv</code> module of TODOs</h3>
 <ul>
@@ -852,7 +855,7 @@ div.download-btn {
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 1, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 3, 2024</span>
 </small>
 </div>
 </article>
