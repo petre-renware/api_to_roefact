@@ -148,7 +148,9 @@ def xl2json(
     if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
         tmp_files_to_process = Path(".").absolute()
         console.print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
-    console.print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
+    if verbose:
+        console.print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
+        console.print()
     list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
     # process Excel files list
     for a_file in list_of_files_to_process:
