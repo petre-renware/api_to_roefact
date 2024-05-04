@@ -34,8 +34,13 @@
 
 * ... move `settings` functionality to `commands/`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
-* ... ... ... consider `0.7rc2` release here...
-* ... update `app_cli.xl2json` to write function out at verbose or otherwise ()not verbose) just its print messages. Also eliminate the JSON printing when verbose because no more debug necessary at this moment
+
+### `0.7rc2` updated console application to run in  silent or vebosed
+
+* ... update doc and site
+* ... build all deliverable
+* ... review & update DLD doc
+* wip... update `app_cli.xl2json` to write function out at verbose or otherwise ()not verbose) just its print messages. Also eliminate the JSON printing when verbose because no more debug necessary at this moment
 * `rdinv-silent` updated `rdinv.rdinv()` in order to run "in silent" and to emit all print info in a specified parameter not None, or (if parameter is None or not specified) emmit normally to `stdout` device
 * `init-command-layer` made `commands/` as in-package / layer
 * upd versions before start work
