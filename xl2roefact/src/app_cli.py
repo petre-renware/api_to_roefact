@@ -183,7 +183,7 @@ def xl2json(
         console.print(f"--> {rdinv_run_messages=}") #FIXME dbg drop me
         if not invoice_datadict:
             console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
-        console.print(f"*** Application [red]xl2roefact[/] finished at {datetime.now()}")
+    console.print(f"*** Application [red]xl2roefact[/] finished at {datetime.now()}")
     return
 
 
