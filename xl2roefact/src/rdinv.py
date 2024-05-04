@@ -401,7 +401,7 @@ def rdinv(
     print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
     #
     # prepare verbosable output as requested by parameter `debug_info` (see function parameters docstring)
-    my_debug_info = list()
+    #FIXME.drop.this my_debug_info = list()
     my_debug_info.append(console.file.getvalue())
     if type(debug_info) == list:  # only in a list can write result otherwise will "not touch" parameter
         debug_info = my_debug_info.copy()  # write out. relevant will be only first item (see parameter docstring to understand the reason of using list)
