@@ -401,10 +401,10 @@ def rdinv(
     print(f"[yellow]INFO note:[/] `rdinv` module, written invoice JSON data to: [green]{_fjson_fileobject}[/]")
     #
     # prepare verbosable output as requested by parameter `debug_info` (see function parameters docstring)
-    my_debug_info = list()
+    my_debug_info = list()  # local list to print if verbosed output (no list parameter sent)
     my_debug_info.append(console.file.getvalue())
     if type(debug_info) == list:  # only in a list can write result otherwise will "not touch" parameter
-        debug_info = my_debug_info.copy()  # write out. relevant will be only first item (see parameter docstring to understand the reason of using list)
+        debug_info.append(console.file.getvalue())  # write out to parameter
     console = Console()  # restore console
     print = console.print  # all prints will takes place from new standard console
     if not redir_stdout:  # verbose output
