@@ -28,11 +28,8 @@ pip install xl2roefact
 In acest mod va fi instalata automat ultima versiune stabila publicata pe *[PyPi](https://pypi.org/project/xl2roefact/)*. Accesati linkul anterior pentru a putea accesa alte versiuni publicate pe *PyPi* si modul de instalare a acestora.
 
 
-
-
 ### xl2roefact pachete redistribuibile   <a id="pachetul-xl2roefact-python-library-format-sursa"></a>
 <!--NOTE: starting with `0.6rc0` source deliverables are available only on `PyPi` -->
-
 
 ??? note "0.7"
     * [`0.7rc2` updated console application to run in  silent or vebosed](https://pypi.org/project/xl2roefact/0.7rc2/)
@@ -85,14 +82,8 @@ In acest mod va fi instalata automat ultima versiune stabila publicata pe *[PyPi
     * [`0.1.20.dev` invoice customer address DIST](../xl2roefact/dist/xl2roefact-0.1.20.tar.gz "download")
 
 
-
-
 ### web2roefact pe PyPi   <a id="pachetul-web2roefact-pe-pypi"></a>
 Nici o resursa disponibila.
-
-
-
-
 
 
 
@@ -138,10 +129,10 @@ Nici o resursa disponibila.
     * [`0.1.20.dev` invoice customer address](../xl2roefact/dist/xl2roefact-0.1.20-win64.msi "download")
 
 
-
 ### xl2roefact linie comanda executabil portabil (win64-exe)   <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
 
 ??? note "0.7"
+    * [`0.7rc2` updated console application to run in  silent or vebosed](../xl2roefact/dist/xl2roefact-0.7rc2-win64.exe "download")
     * `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs - INDISPONIBILA
     * [`0.7rc0` settings refresh option and app settings reload by request](../xl2roefact/dist/xl2roefact-0.7rc0-win64.exe "download")
 
@@ -172,16 +163,12 @@ Nici o resursa disponibila.
 
 
 
-
-
 ## Linux   <a id="format-deb-instalare-linux"></a>
 Nici o resursa disponibila.
 
 
 ## MacOS X  <a id="format-instalare-macosx"></a>
 Nici o resursa disponibila.
-
-
 
 
 
@@ -200,10 +187,6 @@ Nici o resursa disponibila.
 
 
 
-
-
-
-
 ## Sablon fisier configurare a aplicatiei xl2roefact   <a id="sablon-fisier-configurare-a-aplicatiei-xl2roefact"></a>
 Sablonul permite configurarea aplicatiei prin modificarea fragmentelor de text care trebuiesc cautate in fisierul Excel pentru identificarea diverselor informatii aferente facturii.
 
@@ -216,13 +199,10 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 !!! info "Fisiere de configurare multiple"
     De retinut ca acest fisier este considerat (daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.
 
-!!! tip "Sablon de fisier"
-    Urmarind [acest link puteti descarca un sablon de fisier de configurare](./../xl2roefact/xl2roefact/data/app_settings.yml "download").
-    De mentionat ca acest sablon este pre-completat cu situatii deja intilnite in practica, el fiind chiar sablonul implicit folosit de aplicatie.
+* [Descarcare sablon de fisier de configurare](./../xl2roefact/xl2roefact/data/app_settings.yml "download")
 
-
-
-
+!!! tip "Continutul sablonolui"
+    De mentionat ca acest sablon este pre-completat cu situatii curent intilnite in practica, el fiind chiar sablonul implicit folosit de aplicatie.
 
 
 
@@ -231,7 +211,7 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 
 ## Sablon fisier cu date furnizor  <a id="sablon-fisier-cu-date-furnizor"></a>
 
-[Descarcare aici](./../xl2roefact/doc/owner_datafile_tmeplate.yml "download").
+* [Descarcare fisier cu date furnizor](./../xl2roefact/doc/owner_datafile_tmeplate.yml "download")
 
 
 
