@@ -168,7 +168,7 @@
                 }
             ]
         },
-        "cbc_Note": "generated @2024-05-06T03:19:09.003169+00:00 with xl2roefact by RENware Software Systems",
+        "cbc_Note": "generated @2024-05-06T15:19:12.204306+00:00 with xl2roefact by RENware Software Systems",
         "cac_PaymentMeans": {
             "cbc_PaymentMeansCode": 1
         },
@@ -181,7 +181,7 @@
     "meta_info": {
         "file": "Fact_Petrom_11017969.xlsx",
         "file_CRC": "...n/a in current version. Contains file CRC to identify source invoice file",
-        "last_processing_time": "2024-05-06T03:19:09.002798+00:00",
+        "last_processing_time": "2024-05-06T15:19:12.203939+00:00",
         "invoice_worksheet": "Factura(Invoice)",
         "invoice_max_rows": 49,
         "invoice_max_cols": 8,
