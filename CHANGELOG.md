@@ -37,10 +37,9 @@
 
 ### `0.7rc2` updated console application to run in  silent or vebosed
 
-* ... update doc and site
-* ... build all deliverable
-* ... review & update DLD doc
-* `app_cli.xl2json` updated to write function out at verbose or otherwise ()not verbose) just its print messages. Also eliminate the JSON printing when verbose because no more debug necessary at this moment
+* update doc and site
+* review & update DLD doc, build all deliverables
+* `app_cli.xl2json` updated to write function out at verbose or otherwise (ie, not verbose) just its print messages. Also eliminate the JSON printing when verbose because no more debug necessary at this moment
 * `rdinv-silent` updated `rdinv.rdinv()` in order to run "in silent" and to emit all print info in a specified parameter not None, or (if parameter is None or not specified) emmit normally to `stdout` device
 * `init-command-layer` made `commands/` as in-package / layer
 * upd versions before start work
