@@ -30,12 +30,19 @@
 
 
 
-## `0.7` commands as layer 2 of functionalities (based on app CLI commands)
+## `0.7` init commands layer 2 of functionalities
 
-* tbd... code for this module code: `commands.py`
-* tbd... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
-* ... upd versions before start work
-* ... ... ...
+* ... move `settings` functionality to `commands/`
+* ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
+
+### `0.7rc2` updated console application to run in  silent or vebosed
+
+* updated downloads.md & built site
+* review & update DLD doc, build all deliverables and publish on PyPi
+* `app_cli.xl2json` updated to write function out at verbose or otherwise (ie, not verbose) just its print messages. Also eliminate the JSON printing when verbose because no more debug necessary at this moment
+* `rdinv-silent` updated `rdinv.rdinv()` in order to run "in silent" and to emit all print info in a specified parameter not None, or (if parameter is None or not specified) emmit normally to `stdout` device
+* `init-command-layer` made `commands/` as in-package / layer
+* upd versions before start work
 
 ### `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs
 
