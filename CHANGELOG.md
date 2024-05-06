@@ -37,8 +37,7 @@
 
 ### `0.7rc2` updated console application to run in  silent or vebosed
 
-* ... build site
-* ... update downloads.md
+* ... updated downloads.md & built site
 * review & update DLD doc, build all deliverables and publish on PyPi
 * `app_cli.xl2json` updated to write function out at verbose or otherwise (ie, not verbose) just its print messages. Also eliminate the JSON printing when verbose because no more debug necessary at this moment
 * `rdinv-silent` updated `rdinv.rdinv()` in order to run "in silent" and to emit all print info in a specified parameter not None, or (if parameter is None or not specified) emmit normally to `stdout` device
