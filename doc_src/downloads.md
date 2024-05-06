@@ -104,6 +104,7 @@ Nici o resursa disponibila.
 ### xl2roefact linie comanda kit instalare (win64-msi)   <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
 ??? note "0.7"
+    * [`0.7rc2` updated console application to run in  silent or vebosed](../xl2roefact/dist/xl2roefact-0.7rc2-win64.msi "download")
     * `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs - INDISPONIBILA
     * [`0.7rc0` settings refresh option and app settings reload by request](../xl2roefact/dist/xl2roefact-0.7rc0-win64.msi "download")
 
