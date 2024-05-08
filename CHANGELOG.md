@@ -35,6 +35,7 @@
 * ... move `settings` functionality to `commands/`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
 * ... uodate version
+* `upd-site` updated sitem left side navigator to better reflect the new features / system architecture
 * `fix-site` 0.7rc2 downloads.md, link to "Descarcare sablon de fisier de configurare"
 
 ### `0.7rc2` updated console application to run in  silent or vebosed

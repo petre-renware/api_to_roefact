@@ -26,16 +26,20 @@ nav:
         - web2roefact: doc_src/wip.md  #TODO...tbd...
         - xl2roefact python library: xl2roefact/doc/README_xl2roefact_library.md
         - invoice template: excel_invoice_template/README.md
-    - xl2roefact:
+    - xl2roefact consola:
         - Descriere: xl2roefact/README.md
         - Referinta CLI: xl2roefact/index.html#comenzile-aplicatiei  #NOTE: DO NOT CHANGE it. Doesn't work with reference to `.md#...` (with hash to ID...)
         - License: xl2roefact/LICENSE
-    - web2roefact:
-        - Descriere: doc_src/wip.md  #TODO...tbd...
-    - xl2roefact python library:
+    - xl2roefact developer:
         - Descriere:  xl2roefact/doc/README_xl2roefact_library.md
         - Referinta API: xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.md
         - License: xl2roefact/LICENSE
+    - xl2roefact  desktop:
+        - Descriere: doc_src/wip.md  #TODO...tbd...
+    - xl2roefact  mobile:
+        - Descriere: doc_src/wip.md  #TODO...tbd...
+    - web2roefact:
+        - Descriere: doc_src/wip.md  #TODO...tbd...
     - invoice template:
         - Descriere: excel_invoice_template/README.md
         - License: excel_invoice_template/LICENSE
