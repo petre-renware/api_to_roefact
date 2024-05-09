@@ -1,16 +1,11 @@
-# INHERIT ext ref: `https://www.mkdocs.org/user-guide/configuration/#configuration-inheritance`
-# note that is possible to inherit more files. See external reference for details
-INHERIT: ./versions.yml  # starting with `0.4.1.dev0` this inherit replace `extra` section ref system components version
-
 # NOTE: starting with `0.4.1.dev0` this section is obtained from `INHERIT: ./versions.yml`
 # extra:
 #    xl2roefact_version: "0.4.1.dev0"
 #    web2roefact_version: "n/a"
 #    invoice_template_version: "0.1.20"
 #    INVOICEtoROefact_version: "0.4.1.dev0"
-
-
-
+# INHERIT components versions from external files (helper ref: `https://www.mkdocs.org/user-guide/configuration/#configuration-inheritance`)
+INHERIT: ./versions.yml  # starting with `0.4.1.dev0` this inherit replace `extra` section ref system components version
 site_name: INVOICEtoROefact
 site_author: 'Petre Iordanescu, RENware Software Systems, petre.iordanescu@gmail.com'
 copyright: 'Copyright (c) RENware Software Systems'
@@ -21,23 +16,19 @@ nav:
     # ---- core functionalities
     - INVOICEtoROefact:
         - Acasa: README.md
-        - Componentele sistemului: doc_src/810-DSGN/810.05a-system_components.md
-        - xl2roefact: xl2roefact/README.md
-        - web2roefact: doc_src/wip.md  #TODO...tbd...
-        - xl2roefact python library: xl2roefact/doc/README_xl2roefact_library.md
-        - invoice template: excel_invoice_template/README.md
-    - xl2roefact consola:
-        - Descriere: xl2roefact/README.md
-        - Referinta CLI: xl2roefact/index.html#comenzile-aplicatiei  #NOTE: DO NOT CHANGE it. Doesn't work with reference to `.md#...` (with hash to ID...)
-        - License: xl2roefact/LICENSE
-    - xl2roefact developer:
-        - Descriere:  xl2roefact/doc/README_xl2roefact_library.md
-        - Referinta API: xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.md
-        - License: xl2roefact/LICENSE
-    - xl2roefact  desktop:
-        - Descriere: doc_src/wip.md  #TODO...tbd...
-    - xl2roefact  mobile:
-        - Descriere: doc_src/wip.md  #TODO...tbd...
+    - xl2roefact:
+        - aplicatie consola:
+            - Descriere: xl2roefact/README.md
+            - Referinta CLI: xl2roefact/index.html#comenzile-aplicatiei  #NOTE: DO NOT CHANGE it. Doesn't work with reference to `.md#...` (with hash to ID...)
+            - License: xl2roefact/LICENSE
+        - componenta developer:
+            - Descriere:  xl2roefact/doc/README_xl2roefact_library.md
+            - Referinta API: xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.md
+            - License: xl2roefact/LICENSE
+        - aplicatie desktop:
+            - Descriere: doc_src/wip.md  #TODO...tbd...
+        - aplicatie mobile:
+            - Descriere: doc_src/wip.md  #TODO...tbd...
     - web2roefact:
         - Descriere: doc_src/wip.md  #TODO...tbd...
     - invoice template:
