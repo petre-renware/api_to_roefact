@@ -37,6 +37,7 @@
 * ... uodate version
 * ... `xl2roeracft-refactor`
     * ... update all doc refrences to settings & iwner data-files
+    * updated PDM scripts and made package from src/ directory (created __init__.py)
     * refactored xl2roefact source files
 * `upd-site` updated sitem left side navigator to better reflect the new features / system architecture
 * `fix-site` 0.7rc2 downloads.md, link to "Descarcare sablon de fisier de configurare"
