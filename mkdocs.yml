@@ -169,10 +169,14 @@ theme:
         - navigation.tracking
         - navigation.tabs.sticky
         - navigation.path
+        - content.code.copy
         #- toc.integrate  #NOTE [piu] integrates all navigation only in left nav bar
     palette:
         primary: black # see https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/ for other color options
         accent: blue
+    font:
+        text: Open Sans
+        code: Fira Code
     icon:
         admonition:
             note: fontawesome/solid/note-sticky
