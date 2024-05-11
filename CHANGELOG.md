@@ -38,6 +38,7 @@
 * ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github.
 * ... `xl2roefact-refactor`
     * ... ck & update all doc refrences to settings & iwner data-files
+    * fixed `xl2roefact` command `xl2json` option `-o`, set ver to `.dev`, rebuilt dld doc and site
     * reverted to flat package structure, without src/ directory but only xl2roefact/
     * updated PDM scripts and made package from src/ directory (created __init__.py)
     * refactored xl2roefact source files
