@@ -115,7 +115,7 @@ def xl2json(
         typer.Option(
             "--owner-datafile", "-o",
             exists=False,
-            file_okay=False,
+            file_okay=True,
             dir_okay=False,
             writable=False,
             readable=True,

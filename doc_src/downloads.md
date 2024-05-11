@@ -199,7 +199,7 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 !!! info "Fisiere de configurare multiple"
     De retinut ca acest fisier este considerat (daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.
 
-* [Descarcare sablon de fisier de configurare](./../xl2roefact/src/data/app_settings.yml "download")
+* [Descarcare sablon de fisier de configurare](./../xl2roefact/xl2roefact/data/app_settings.yml "download")
 
 !!! tip "Continutul sablonolui"
     De mentionat ca acest sablon este pre-completat cu situatii curent intilnite in practica, el fiind chiar sablonul implicit folosit de aplicatie.

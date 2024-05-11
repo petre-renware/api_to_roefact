@@ -1354,7 +1354,7 @@
     top --- invtmpl</code></pre>
 <ul>
 <li>
-<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2-blue" /> - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)</p>
+<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2.dev0-blue" /> - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)</p>
 <ul>
 <li><strong><a href="#xl2roefact-index">xl2roefact consola</a></strong> aplicatie linie comanda CLI</li>
 <li><strong><a href="#xl2roefact-doc-readme_xl2roefact_library">xl2roefact developer</a></strong> biblioteca sursa python dezvoltari proprii</li>
@@ -1391,7 +1391,7 @@
                         </h2>
                         <section class="print-page" id="xl2roefact-index"><p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact-index-xl2roefact">xl2roefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2.dev0-blue" /></p>
 <p>Legaturi externe utile:</p>
 <ul>
 <li><a href="https://invoicetoroefact.renware.eu/"><strong>Web Site</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
@@ -1601,7 +1601,7 @@ cit si la nivel detaliat pentru fiecare comanda
                                   does not exists will consider
                                   current directory instead).
                                   [default: invoice_files/]
-  -o, --owner-datafile PATH       File to read invoice supplier
+  -o, --owner-datafile FILE       File to read invoice supplier
                                   (owner) data instead Excel.
   -v, --verbose                   show detailed processing messages
 </code></pre></div>
@@ -1738,7 +1738,7 @@ cit si la nivel detaliat pentru fiecare comanda
 -->
 
 <h1 id="xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2.dev0-blue" /></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</a><ul>
@@ -1859,7 +1859,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul></section><section class="print-page" id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs"><!-- this doc is a wrapper intended just to create a better Table of Contents that one created by `pydoc` in built document -->
 
 <h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2roefact-python-library-api-reference">xl2roefact python library API Reference</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2.dev0-blue" /></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2roefact-python-library-api-reference">xl2roefact python library API Reference</a></li>
@@ -1915,7 +1915,6 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul>
 </li>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-data">data</a></li>
-<li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-commands">commands</a></li>
 </ul>
 </div>
 <p><a id="__version__"></a></p>
@@ -1941,7 +1940,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div></p>
 <p><a id="__version__.__version__"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-__version___1">__version__</h4>
-<p>current 0.7rc2, previous 0.7rc1</p>
+<p>current 0.7rc2.dev0, previous 0.7rc2</p>
 <p><a id="__version__.normalized_version"></a></p>
 <h4 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-normalized_version">normalized_version</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">normalized_version</span><span class="p">(</span><span class="n">raw_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
@@ -2011,7 +2010,7 @@ cit si la nivel detaliat pentru fiecare comanda
             <span class="s2">&quot;--owner-datafile&quot;</span><span class="p">,</span>
             <span class="s2">&quot;-o&quot;</span><span class="p">,</span>
             <span class="n">exists</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">file_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">file_okay</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
             <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">writable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">readable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -2475,14 +2474,6 @@ cit si la nivel detaliat pentru fiecare comanda
 <p>xl2roefact in-package designed to implement <strong>data layer</strong></p>
 <ul>
 <li>Issued: 2024 March</li>
-<li>Author: Petre Iordanescu, petre.iordanescu@gmail.com</li>
-<li>(c) RENware Software Systems</li>
-</ul>
-<p><a id="commands"></a></p>
-<h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-commands">commands</h1>
-<p>xl2roefact in-package designed to implement <strong>commands layer</strong></p>
-<ul>
-<li>Issued: 2024 May</li>
 <li>Author: Petre Iordanescu, petre.iordanescu@gmail.com</li>
 <li>(c) RENware Software Systems</li>
 </ul></section><h1 class='nav-section-title-end'>Ended: componenta developer</h1>
@@ -3263,7 +3254,7 @@ De asemenea este util a fi citite si recomandarile date in pagina de descriere a
 <p>De retinut ca acest fisier este considerat (daca exista) cel din directorul curent de unde lansati aplicatia. Deci daca v-ati creat mai multe directoare de lucru (de exemplu pentru clienti diferiti) puteti crea fisiere de configurare specifice, cite unul in fiecare director.</p>
 </div>
 <ul>
-<li><a href="xl2roefact/src/data/app_settings.yml" title="download">Descarcare sablon de fisier de configurare</a></li>
+<li><a href="xl2roefact/xl2roefact/data/app_settings.yml" title="download">Descarcare sablon de fisier de configurare</a></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Continutul sablonolui</p>
@@ -3948,7 +3939,16 @@ Public License instead of this License.  But first, please read
 <ul>
 <li>... move <code>settings</code> functionality to <code>commands/</code></li>
 <li>... update doc <code>README_xl2roefact_library.md</code> make a small hierarchical diagram with component layers</li>
-<li>... uodate version</li>
+<li>... update version</li>
+<li>... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github.</li>
+<li>... <code>xl2roefact-refactor</code><ul>
+<li>... ck &amp; update all doc refrences to settings &amp; iwner data-files</li>
+<li>fixed <code>xl2roefact</code> command <code>xl2json</code> option <code>-o</code>, set ver to <code>.dev</code>, rebuilt dld doc and site</li>
+<li>reverted to flat package structure, without src/ directory but only xl2roefact/</li>
+<li>updated PDM scripts and made package from src/ directory (created <strong>init</strong>.py)</li>
+<li>refactored xl2roefact source files</li>
+</ul>
+</li>
 <li><code>upd-site</code> updated sitem left side navigator to better reflect the new features / system architecture</li>
 <li><code>fix-site</code> 0.7rc2 downloads.md, link to "Descarcare sablon de fisier de configurare"</li>
 </ul>

@@ -30,11 +30,28 @@
 
 
 
-## `0.7` init commands layer 2 of functionalities
+## `0.8` 
 
+* OR ... init commands layer 2 of functionalities
+* OR ... make `json2xml`
 * ... move `settings` functionality to `commands/`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
-* ... uodate version
+* ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github
+
+
+
+
+
+## `0.7` fixed xl2roefact package
+
+* ... update downloads.md ref 0.7 dlvbs & reorganize it with 1st level components: xl2roefact, web2roefact, invoice template, miscellaneous (config tmpl 4 example)
+* ... build & publish deliverables
+* ... update version
+* `xl2roefact-refactor`
+    * fixed `xl2roefact` command `xl2json` option `-o`, set ver to `.dev`, rebuilt dld doc and site
+    * reverted to flat package structure, without src/ directory but only xl2roefact/
+    * updated PDM scripts and made package from src/ directory (created __init__.py)
+    * refactored xl2roefact source files
 * `upd-site` updated sitem left side navigator to better reflect the new features / system architecture
 * `fix-site` 0.7rc2 downloads.md, link to "Descarcare sablon de fisier de configurare"
 

@@ -20,7 +20,7 @@ from cx_Freeze import setup, Executable
 build_options = {
     "packages": [],
     "include_files": [
-        ("src/data/", "src/data/")
+        ("src/xk2roefact/data/", "src/xk2roefact/data/")
     ],
     "excludes": [],
 }
