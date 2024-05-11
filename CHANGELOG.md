@@ -34,9 +34,11 @@
 
 * ... move `settings` functionality to `commands/`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
-* ... uodate version
+* ... update version
+* ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github.
 * ... `xl2roeracft-refactor`
-    * ... update all doc refrences to settings & iwner data-files
+    * ... ck & update all doc refrences to settings & iwner data-files
+    * reverted to flat package structure, without src/ directory but only xl2roefact/
     * updated PDM scripts and made package from src/ directory (created __init__.py)
     * refactored xl2roefact source files
 * `upd-site` updated sitem left side navigator to better reflect the new features / system architecture

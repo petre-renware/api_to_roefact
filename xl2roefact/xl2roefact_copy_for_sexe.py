@@ -16,7 +16,7 @@ Specifications:
 """
 
 
-from src.xl2roefact import app_cli
+from xl2roefact import app_cli
 
 
 if __name__ == "__main__":

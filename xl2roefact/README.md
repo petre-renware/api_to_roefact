@@ -203,7 +203,7 @@ xl2roefact [COMMAND] --help
 
 <!--#NOTE: next section generate application commands in same style as obtained using `--help` CLI options -->
 ::: mkdocs-typer
-    :module: xl2roefact.src.app_cli
+    :module: xl2roefact.app_cli
     :command: app_cli
     :prog_name: xl2roefact
     :depth: 2
@@ -227,7 +227,7 @@ Utilizarea sablonului de factura Excel ce este livrat impreuna cu aplicatia **ES
 
 ### Reguli recomamdate in configurarea aplicatiei pe specificul Excel al facturilor dumneavoastra
 
-{% include './src/data/README_app_config_rules.md' %}
+{% include './xl2roefact/data/README_app_config_rules.md' %}
 
 
 
