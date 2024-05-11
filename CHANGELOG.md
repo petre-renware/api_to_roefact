@@ -46,7 +46,7 @@
 
 * ... update downloads.md ref 0.7 dlvbs & reorganize it with 1st level components: xl2roefact, web2roefact, invoice template, miscellaneous (config tmpl 4 example)
 * ... build & publish deliverables
-* ... update version
+* update version & site
 * `xl2roefact-refactor`
     * fixed `xl2roefact` command `xl2json` option `-o`, set ver to `.dev`, rebuilt dld doc and site
     * reverted to flat package structure, without src/ directory but only xl2roefact/

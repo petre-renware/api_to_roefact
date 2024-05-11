@@ -1354,7 +1354,7 @@
     top --- invtmpl</code></pre>
 <ul>
 <li>
-<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2.dev0-blue" /> - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)</p>
+<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.7-blue" /> - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)</p>
 <ul>
 <li><strong><a href="#xl2roefact-index">xl2roefact consola</a></strong> aplicatie linie comanda CLI</li>
 <li><strong><a href="#xl2roefact-doc-readme_xl2roefact_library">xl2roefact developer</a></strong> biblioteca sursa python dezvoltari proprii</li>
@@ -1391,7 +1391,7 @@
                         </h2>
                         <section class="print-page" id="xl2roefact-index"><p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact-index-xl2roefact">xl2roefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2.dev0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7-blue" /></p>
 <p>Legaturi externe utile:</p>
 <ul>
 <li><a href="https://invoicetoroefact.renware.eu/"><strong>Web Site</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
@@ -1738,7 +1738,7 @@ cit si la nivel detaliat pentru fiecare comanda
 -->
 
 <h1 id="xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2.dev0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7-blue" /></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</a><ul>
@@ -1859,7 +1859,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul></section><section class="print-page" id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs"><!-- this doc is a wrapper intended just to create a better Table of Contents that one created by `pydoc` in built document -->
 
 <h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2roefact-python-library-api-reference">xl2roefact python library API Reference</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7rc2.dev0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.7-blue" /></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2roefact-python-library-api-reference">xl2roefact python library API Reference</a></li>
@@ -3889,7 +3889,8 @@ Public License instead of this License.  But first, please read
 <div class="toc">
 <ul>
 <li><a href="#changelog-changelog">CHANGELOG</a><ul>
-<li><a href="#changelog-07-init-commands-layer-2-of-functionalities">0.7 init commands layer 2 of functionalities</a><ul>
+<li><a href="#changelog-08">0.8</a></li>
+<li><a href="#changelog-07-fixed-xl2roefact-package">0.7 fixed xl2roefact package</a><ul>
 <li><a href="#changelog-07rc2-updated-console-application-to-run-in-silent-or-vebosed">0.7rc2 updated console application to run in  silent or vebosed</a></li>
 <li><a href="#changelog-07rc1-review-clean-xl2roefactrdinv-module-of-todos">0.7rc1 review &amp; clean xl2roefact.rdinv module of TODOs</a></li>
 <li><a href="#changelog-07rc0-settings-refresh-option-and-app-settings-reload-by-request">0.7rc0 settings refresh option and app settings reload by request</a></li>
@@ -3935,14 +3936,20 @@ Public License instead of this License.  But first, please read
     * chk for other commands from doc `https://invoicetoroefact.renware.eu/commercial_agreement/110-SRE-api_to_roefact_requirements.html#componenta-xl2roefact`
 -->
 
-<h2 id="changelog-07-init-commands-layer-2-of-functionalities"><code>0.7</code> init commands layer 2 of functionalities</h2>
+<h2 id="changelog-08"><code>0.8</code></h2>
 <ul>
+<li>OR ... init commands layer 2 of functionalities</li>
+<li>OR ... make <code>json2xml</code></li>
 <li>... move <code>settings</code> functionality to <code>commands/</code></li>
 <li>... update doc <code>README_xl2roefact_library.md</code> make a small hierarchical diagram with component layers</li>
-<li>... update version</li>
-<li>... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github.</li>
-<li>... <code>xl2roefact-refactor</code><ul>
-<li>... ck &amp; update all doc refrences to settings &amp; iwner data-files</li>
+<li>... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github</li>
+</ul>
+<h2 id="changelog-07-fixed-xl2roefact-package"><code>0.7</code> fixed xl2roefact package</h2>
+<ul>
+<li>... update downloads.md ref 0.7 dlvbs &amp; reorganize it with 1st level components: xl2roefact, web2roefact, invoice template, miscellaneous (config tmpl 4 example)</li>
+<li>... build &amp; publish deliverables</li>
+<li>update version &amp; site</li>
+<li><code>xl2roefact-refactor</code><ul>
 <li>fixed <code>xl2roefact</code> command <code>xl2json</code> option <code>-o</code>, set ver to <code>.dev</code>, rebuilt dld doc and site</li>
 <li>reverted to flat package structure, without src/ directory but only xl2roefact/</li>
 <li>updated PDM scripts and made package from src/ directory (created <strong>init</strong>.py)</li>
