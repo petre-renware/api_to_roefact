@@ -36,7 +36,7 @@
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
 * ... update version
 * ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github.
-* ... `xl2roeracft-refactor`
+* ... `xl2roefact-refactor`
     * ... ck & update all doc refrences to settings & iwner data-files
     * reverted to flat package structure, without src/ directory but only xl2roefact/
     * updated PDM scripts and made package from src/ directory (created __init__.py)
