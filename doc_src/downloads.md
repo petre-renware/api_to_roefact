@@ -12,7 +12,9 @@
     Se recomanda a folosi aceste versiuni doar pentru dezvoltari proprii sau integrari cu alte sisteme.
 
 
-# Descarcare resurse (downloads)
+
+
+# xl2roefact - resurse pentru descarcare (downloads)
 
 <!--NOTE: intentionally start with Heading-1 and no TOC in this doc -->
 
@@ -80,10 +82,6 @@ In acest mod va fi instalata automat ultima versiune stabila publicata pe *[PyPi
     * [`0.1.22b` application interface improvements DIST](../xl2roefact/dist/xl2roefact-0.1.22b0.tar.gz "download")
     * [`0.1.20.dev` invoice customer address WHEEL](../xl2roefact/dist/xl2roefact-0.1.20-py3-none-any.whl "download")
     * [`0.1.20.dev` invoice customer address DIST](../xl2roefact/dist/xl2roefact-0.1.20.tar.gz "download")
-
-
-### web2roefact pe PyPi   <a id="pachetul-web2roefact-pe-pypi"></a>
-Nici o resursa disponibila.
 
 
 
@@ -208,6 +206,8 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 
 
 
+
++++ 0.6
 
 ## Sablon fisier cu date furnizor  <a id="sablon-fisier-cu-date-furnizor"></a>
 
