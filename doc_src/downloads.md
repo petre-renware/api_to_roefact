@@ -12,8 +12,7 @@
     Se recomanda a folosi aceste versiuni doar pentru dezvoltari proprii sau integrari cu alte sisteme.
 
 
-# xl2roefact<br>
-Descarcare resurse (downloads)
+# xl2roefact - resurse pentru descarcare (downloads)
 
 <!--NOTE: intentionally start with Heading-1 and no TOC in this doc -->
 
