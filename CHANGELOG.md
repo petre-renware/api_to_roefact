@@ -30,14 +30,22 @@
 
 
 
-## `0.7` init commands layer 2 of functionalities
+## `0.8` 
 
+* OR ... init commands layer 2 of functionalities
+* OR ... make `json2xml`
 * ... move `settings` functionality to `commands/`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
+* ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github
+
+
+
+
+
+## `0.7` fixed xl2roefact package
+
 * ... update version
-* ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github.
-* ... `xl2roefact-refactor`
-    * ... ck & update all doc refrences to settings & iwner data-files
+* `xl2roefact-refactor`
     * fixed `xl2roefact` command `xl2json` option `-o`, set ver to `.dev`, rebuilt dld doc and site
     * reverted to flat package structure, without src/ directory but only xl2roefact/
     * updated PDM scripts and made package from src/ directory (created __init__.py)
