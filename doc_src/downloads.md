@@ -12,6 +12,8 @@
     Se recomanda a folosi aceste versiuni doar pentru dezvoltari proprii sau integrari cu alte sisteme.
 
 
+
+
 # xl2roefact - resurse pentru descarcare (downloads)
 
 <!--NOTE: intentionally start with Heading-1 and no TOC in this doc -->
@@ -204,6 +206,8 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 
 
 
+
++++ 0.6
 
 ## Sablon fisier cu date furnizor  <a id="sablon-fisier-cu-date-furnizor"></a>
 
