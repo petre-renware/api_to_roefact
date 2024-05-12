@@ -4,7 +4,9 @@
 
 
 
-# Sablon template factura   <a id="sablon-template-factura"></a>
+# Sablon template factura. Resurse pentru descarcare
+<a id="sablon-template-factura"></a>
+
 
 ??? note "Format XLSX Office Excel"
     * [`0.1.20` office Excel XLSX](../excel_invoice_template/invoice_template_CU_tva.xlsx "download")
