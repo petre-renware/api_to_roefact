@@ -12,7 +12,30 @@
     Se recomanda a folosi aceste versiuni doar pentru dezvoltari proprii sau integrari cu alte sisteme.
 
 
+# Descarcare resurse {resources download)
 
+[TOC]
+
+
+## xl2roefact
+...
+
+## web2roefact
+...
+
+## Sablon template factura   <a id="sablon-template-factura"></a>
+...
+
+## Sablon fisier configurare a aplicatiei xl2roefact   <a id="sablon-fisier-configurare-a-aplicatiei-xl2roefact"></a>
+...
+
+## Sablon fisier cu date furnizor  <a id="sablon-fisier-cu-date-furnizor"></a>
+...
+
+
+
+<!--#FIXME drop from here -->
+---
 
 # xl2roefact - resurse pentru descarcare (downloads)
 
