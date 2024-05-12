@@ -2,18 +2,16 @@
 <small>**RENware Software Systems**</small>
 
 <!--NOTE: fisier in lucru.
-- De pastrat numai ce tine de xl2roefact
 - De corectat caile directoarelor din linkuri
 - De reorganizat structura + headere
 - !!! Referintele "a-tags" trebuiesc tinute
 -->
 
-
-
-
 # xl2roefact - resurse pentru descarcare (downloads)
 
-<!--NOTE: intentionally start with Heading-1 and no TOC in this doc -->
+[TOC]
+
+
 
 
 ## Formate sursa biblioteca Python
