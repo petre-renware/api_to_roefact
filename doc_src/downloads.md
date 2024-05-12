@@ -32,7 +32,7 @@
 
 
 ## web2roefact
-...
+Indisponibila in aceasta versiune.
 
 
 
@@ -50,9 +50,11 @@
 
 
 
++++ 0.6
 
 ## Sablon fisier cu date furnizor  <a id="sablon-fisier-cu-date-furnizor"></a>
-...
+
+* [Descarcare fisier](./../xl2roefact/doc/owner_datafile_tmeplate.yml "download") 
 
 
 
