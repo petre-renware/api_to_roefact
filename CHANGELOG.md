@@ -45,7 +45,11 @@
 ## `0.7` fixed xl2roefact package
 
 * ... update downloads.md ref 0.7 dlvbs & reorganize it with 1st level components: xl2roefact, web2roefact, invoice template, miscellaneous (config tmpl 4 example)
-* ... build & publish deliverables
+  #NOTE.ATTN to new strcture of downloads doc
+* ... build & publish deliverables,
+* break `doc_src/downloads.md` letting it as *master* and making specialized download pages in `xl2roedact/doc/package_downloads.md` and `excel_invoice_template/package_downloads.md`:
+    * [ ] ... update new downloads files for existing deliverabkes
+    * [x] created directories structure & empty files
 * update version & site
 * `xl2roefact-refactor`
     * fixed `xl2roefact` command `xl2json` option `-o`, set ver to `.dev`, rebuilt dld doc and site
