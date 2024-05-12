@@ -1,15 +1,12 @@
 
 <small>**RENware Software Systems**</small>
 
-<!--NOTE: DISCLAIMER -->
-
-!!! warning "Versiuni END OF LIFE"
-    Versiunile `<= 0.5` nu vor mai fi intretinute si nici disponibile incepind de la 01-May-2024 (*end of life*).
-
-!!! warning "Versiunile development"
-    Versiunile ce contin in codul / numarul lor acronimul `dev` sunt considerate versiuni elaborate in faza de dezvoltare software.
-    Aceste versiuni sunt functionale dar testate doar cu date de test si nu cu date de business.
-    Se recomanda a folosi aceste versiuni doar pentru dezvoltari proprii sau integrari cu alte sisteme.
+<!--NOTE: fisier in lucru.
+- De pastrat numai ce tine de xl2roefact
+- De corectat caile directoarelor din linkuri
+- De reorganizat structura + headere
+- !!! Referintele "a-tags" trebuiesc tinute
+-->
 
 
 
@@ -154,31 +151,8 @@ In acest mod va fi instalata automat ultima versiune stabila publicata pe *[PyPi
     * [`0.3.1b1` fixed bug JSON->["Invoice"]["cac_InvoiceLine"] list[list]](../xl2roefact/dist/xl2roefact-0.3.1b1-win64.exe "download")
 
 
-### web2roefact kit instalare (win64-msi)   <a id="aplicatia-web2roefact-pachet-instalare-win64-msi"></a>
-Nici o resursa disponibila.
 
 
-
-
-
-## Linux   <a id="format-deb-instalare-linux"></a>
-Nici o resursa disponibila.
-
-
-## MacOS X  <a id="format-instalare-macosx"></a>
-Nici o resursa disponibila.
-
-
-
-
-
-
-## Sablon template factura   <a id="sablon-template-factura"></a>
-
-??? note "Format XLSX Office Excel"
-    * [`0.1.20` office Excel XLSX](../excel_invoice_template/invoice_template_CU_tva.xlsx "download")
-    * [`0.1.20` arhiva ZIP](../excel_invoice_template/released_packages/0.1.20-excel_invoice_template.zip "download")
-    * [`0.1.11` arhiva ZIP](../excel_invoice_template/released_packages/0.1.11-excel_invoice_template.zip "download")
 
 
 
@@ -207,7 +181,6 @@ Pentru a beneficia de cobfigurarile facute de dumneavoastra trebuie sa creati un
 
 
 
-+++ 0.6
 
 ## Sablon fisier cu date furnizor  <a id="sablon-fisier-cu-date-furnizor"></a>
 
