@@ -20,20 +20,23 @@ nav:
         - aplicatie consola:
             - Descriere: xl2roefact/README.md
             - Referinta CLI: xl2roefact/index.html#comenzile-aplicatiei  #NOTE: DO NOT CHANGE it. Doesn't work with reference to `.md#...` (with hash to ID...)
-            - License: xl2roefact/LICENSE
+            - Licenta: xl2roefact/LICENSE
         - componenta developer:
             - Descriere:  xl2roefact/doc/README_xl2roefact_library.md
             - Referinta API: xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.md
-            - License: xl2roefact/LICENSE
+            - Licenta: xl2roefact/LICENSE
         - aplicatie desktop:
             - Descriere: doc_src/wip.md  #TODO...tbd...
         - aplicatie mobile:
             - Descriere: doc_src/wip.md  #TODO...tbd...
+        - Descarcare resurse: xl2roefact/doc/package_downloads.md
     - web2roefact:
         - Descriere: doc_src/wip.md  #TODO...tbd...
+        - Descarcare resurse: doc_src/wip.md  #TODO...tbd...
     - invoice template:
         - Descriere: excel_invoice_template/README.md
-        - License: excel_invoice_template/LICENSE
+        - Licenta: excel_invoice_template/LICENSE
+        - Descarcare resurse: excel_invoice_template/package_downloads.md
     # ---- support functionalities
     - Help:
         - Manuale web2roefact:
