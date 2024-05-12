@@ -1,11 +1,6 @@
 
 <small>**RENware Software Systems**</small>
 
-<!--NOTE: fisier in lucru.
-- De corectat caile directoarelor din linkuri
-- De reorganizat structura + headere
-- !!! Referintele "a-tags" trebuiesc tinute
--->
 
 # xl2roefact - resurse pentru descarcare (downloads)
 
