@@ -289,6 +289,7 @@ invoice_files/
 
 
 
+
 ## Aspecte tehnice referitoare la formatul fisierului JSON aferent facturii
 
 Acest fisier este cel generat de catre aplicatie in urma executiei acesteia cu comanda `xl2json`. Formatul JSON are urmatoarra structura de baza:
@@ -314,14 +315,6 @@ Cheile de la primul nivel contin:
 Detalii suplimentare despre formatul JSON se gasesc in documentaţia *[Referinta dezvoltare software](./doc/README_xl2roefact_library.md)*.
 
 
-
-
-## Descarcare (download) aplicatie xl2roefact CLI
-
-* [Pachet instalare aplicatie Windows](../doc_src/downloads.md#format-executabil-windows-x64)
-* [Pachet instalare script Python](../doc_src/downloads.md#format-biblioteca-python)
-* [Model de sablon de configuare](../doc_src/downloads.md#sablon-fisier-configurare-a-aplicatiei-xl2roefact)
-* [Sablon fisier-date informatii furnizor](../doc_src/downloads.md#sablon-fisier-cu-date-furnizor)
 
 
 
