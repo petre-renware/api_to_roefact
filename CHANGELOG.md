@@ -21,7 +21,7 @@
 
 * ---[ FUTURE NEW APP COMMANDS ]---:
     * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-    * `xl2json` - 99% closed
+    * `xl2json` - closed
     * `json2xml` - see module WRXML,
     * `json2pdf` - new module. tbd..,
     * `xml2roefact` - see module LDXML
@@ -44,8 +44,9 @@
 
 ## `0.7` fixed xl2roefact package
 
-* ... update downloads.md ref 0.7 dlvbs & reorganize it with 1st level components: xl2roefact, web2roefact, invoice template, miscellaneous (config tmpl 4 example)
-  #NOTE.ATTN to new strcture of downloads doc
+* ... update downloads.md ref 0.7 dlvbs & reorganize it with 1st level components: xl2roefact, web2roefact, invoice template, miscellaneous (config tmpl 4 example):
+    * ATTN new structure & locations of download docs
+    * remove & clean links for  versions <= 0.5.*
 * ... build & publish deliverables
 * build & publish site with new downloads structure
 * `brk-doc_src/downloads.md` letting it as *master* and making specialized download pages in `xl2roedact/doc/package_downloads.md` and `excel_invoice_template/package_downloads.md`:
