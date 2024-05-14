@@ -46,7 +46,8 @@
 
 * ... update downloads.md ref 0.7 dlvbs & reorganize it with 1st level. Follow:
     * ref new structure & locations of download docs
-    * [ ] ... links: add `0.7` & remove all `<= *0.5*`
+    * [x] links: add `0.7`
+    * [ ] ... remove all links `<= *0.5*`
     * [x] removed all deliverables `<= *0.5*`
 * build & publish deliverables + site
 * build & publish site with new downloads structure
