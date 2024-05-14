@@ -46,8 +46,8 @@
 
 * ... update downloads.md ref 0.7 dlvbs & reorganize it with 1st level. Follow:
     * ref new structure & locations of download docs
-    * [ ] ... remove & clean links for `versions <= 0.5*`
-    * [x] removed all deliverables `version <= 0.5*`
+    * [ ] ... links: add `0.7` & remove all `<= *0.5*`
+    * [x] removed all deliverables `<= *0.5*`
 * build & publish deliverables + site
 * build & publish site with new downloads structure
 * `brk-doc_src/downloads.md` letting it as *master* and making specialized download pages in `xl2roedact/doc/package_downloads.md` and `excel_invoice_template/package_downloads.md`:
