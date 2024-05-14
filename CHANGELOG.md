@@ -21,7 +21,7 @@
 
 * ---[ FUTURE NEW APP COMMANDS ]---:
     * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-    * `xl2json` - 99% closed
+    * `xl2json` - closed
     * `json2xml` - see module WRXML,
     * `json2pdf` - new module. tbd..,
     * `xml2roefact` - see module LDXML
@@ -29,11 +29,68 @@
 -->
 
 
-<!--
-## 0.7 commands as layer 2 of functionalities (based on app CLI commands)
-* ...
-* tbd... prep release set all versions
--->
+
+## `0.8` 
+
+* OR ... init commands layer 2 of functionalities
+* OR ... make `json2xml`
+* ... move `settings` functionality to `commands/`
+* ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
+* ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github
+
+
+
+
+
+
+
+
+## `0.7` clean xl2roefact package and invoice JSON
+
+* `update downloads` ref 0.7 dlvbs & reorganize it with 1st level. Follow:
+    * ref new structure & locations of download docs
+    * [x] update master downloads.md ref old versions drop
+    * [x] links: add `0.7`
+    * [x] remove all links `<= *0.5*`
+    * [x] removed all deliverables `<= *0.5*`
+* build & publish deliverables + site
+* build & publish site with new downloads structure
+* `brk-doc_src/downloads.md` letting it as *master* and making specialized download pages in `xl2roedact/doc/package_downloads.md` and `excel_invoice_template/package_downloads.md`:
+    * [x] updated new downloads files for existing deliverabkes
+    * [x] created directories structure & empty files
+* update version & site
+* `xl2roefact-refactor`
+    * fixed `xl2roefact` command `xl2json` option `-o`, set ver to `.dev`, rebuilt dld doc and site
+    * reverted to flat package structure, without src/ directory but only xl2roefact/
+    * updated PDM scripts and made package from src/ directory (created __init__.py)
+    * refactored xl2roefact source files
+* `upd-site` updated sitem left side navigator to better reflect the new features / system architecture
+* `fix-site` 0.7rc2 downloads.md, link to "Descarcare sablon de fisier de configurare"
+
+### `0.7rc2` updated console application to run in  silent or vebosed
+
+* updated downloads.md & built site
+* review & update DLD doc, build all deliverables and publish on PyPi
+* `app_cli.xl2json` updated to write function out at verbose or otherwise (ie, not verbose) just its print messages. Also eliminate the JSON printing when verbose because no more debug necessary at this moment
+* `rdinv-silent` updated `rdinv.rdinv()` in order to run "in silent" and to emit all print info in a specified parameter not None, or (if parameter is None or not specified) emmit normally to `stdout` device
+* `init-command-layer` made `commands/` as in-package / layer
+* upd versions before start work
+
+### `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs
+
+* 4. publish PyPi, upd downloads.md, site
+* 3. build only wheel deliverable because only source library is impacted
+* 2. review TODOs, keep only those that are future features and move them to ROADMAP
+* 1. upd versions before start work
+
+### `0.7rc0` settings refresh option and app settings reload by request
+
+* update downloads, site
+* Published on PyPi (`https://pypi.org/project/xl2roefact/0.7rc0/`)
+* updated doc, deliverables
+* `config-settings-main-func` update config_settings module to embed init code under a `main()` function which run @ init but can be latter called also
+* `240429piu01` update doc `README_xl2roefact_library.md` section "Library components" to reflect the new commands layer. Rebuild site & publish
+* fix `invoicetoroefact.renware.eu` site for 0.6 MSI & EXE downloads
 
 
 
@@ -51,7 +108,7 @@
     * [x] example JSON schema update & build + publish site
     * [x] `doc-sys-settings-feat` short note about allowed invoice type (`cbc_InvoiceTypeCode`)
     * [x] `doc-sys-settings-feat` in xl2roefact library doc, ie "Referinta dezvoltare sofrware" (`README_xl2roefact_library.md`) explain how manage system settings using `sys_config.py`
-    * [x] `for-developers-section` introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing `README_xl2roefact_library.md`
+    * [x] `for-dvelopers-section` introduce a new section "Referinta dezvoltare sofrware" to group existing and all new things ref xl2roefact library. Reference to existing `README_xl2roefact_library.md`
     * [x] `site-0.6.dev1` restructured whole design presentation for a better view of its architecture: updated from a pure technical view to end-user technical view
     * [x] `240413_01` updated "API Reference" bullet link (from begging of doc) to point directly to published site as intended for `PyPi` availability in project description
 * xl2roefact change version
@@ -98,10 +155,6 @@
     * updated xl2roefact python requirement, relaxed to `>=3.10`
     * updated site version to `0.6.1dev0` to mark in progress work
     * installed `chromium` on dev server
-
-
-
-
 
 
 

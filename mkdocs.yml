@@ -1,16 +1,11 @@
-# INHERIT ext ref: `https://www.mkdocs.org/user-guide/configuration/#configuration-inheritance`
-# note that is possible to inherit more files. See external reference for details
-INHERIT: ./versions.yml  # starting with `0.4.1.dev0` this inherit replace `extra` section ref system components version
-
 # NOTE: starting with `0.4.1.dev0` this section is obtained from `INHERIT: ./versions.yml`
 # extra:
 #    xl2roefact_version: "0.4.1.dev0"
 #    web2roefact_version: "n/a"
 #    invoice_template_version: "0.1.20"
 #    INVOICEtoROefact_version: "0.4.1.dev0"
-
-
-
+# INHERIT components versions from external files (helper ref: `https://www.mkdocs.org/user-guide/configuration/#configuration-inheritance`)
+INHERIT: ./versions.yml  # starting with `0.4.1.dev0` this inherit replace `extra` section ref system components version
 site_name: INVOICEtoROefact
 site_author: 'Petre Iordanescu, RENware Software Systems, petre.iordanescu@gmail.com'
 copyright: 'Copyright (c) RENware Software Systems'
@@ -21,24 +16,27 @@ nav:
     # ---- core functionalities
     - INVOICEtoROefact:
         - Acasa: README.md
-        - Componentele sistemului: doc_src/810-DSGN/810.05a-system_components.md
-        - xl2roefact: xl2roefact/README.md
-        - web2roefact: doc_src/wip.md  #TODO...tbd...
-        - xl2roefact python library: xl2roefact/doc/README_xl2roefact_library.md
-        - invoice template: excel_invoice_template/README.md
     - xl2roefact:
-        - Descriere: xl2roefact/README.md
-        - Referinta CLI: xl2roefact/index.html#comenzile-aplicatiei  #NOTE: DO NOT CHANGE it. Doesn't work with reference to `.md#...` (with hash to ID...)
-        - License: xl2roefact/LICENSE
+        - aplicatie consola:
+            - Descriere: xl2roefact/README.md
+            - Referinta CLI: xl2roefact/index.html#comenzile-aplicatiei  #NOTE: DO NOT CHANGE it. Doesn't work with reference to `.md#...` (with hash to ID...)
+            - Licenta: xl2roefact/LICENSE
+        - componenta developer:
+            - Descriere:  xl2roefact/doc/README_xl2roefact_library.md
+            - Referinta API: xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.md
+            - Licenta: xl2roefact/LICENSE
+        - aplicatie desktop:
+            - Descriere: doc_src/wip.md  #TODO...tbd...
+        - aplicatie mobile:
+            - Descriere: doc_src/wip.md  #TODO...tbd...
+        - Descarcare resurse: xl2roefact/doc/package_downloads.md
     - web2roefact:
         - Descriere: doc_src/wip.md  #TODO...tbd...
-    - xl2roefact python library:
-        - Descriere:  xl2roefact/doc/README_xl2roefact_library.md
-        - Referinta API: xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.md
-        - License: xl2roefact/LICENSE
+        - Descarcare resurse: doc_src/wip.md  #TODO...tbd...
     - invoice template:
         - Descriere: excel_invoice_template/README.md
-        - License: excel_invoice_template/LICENSE
+        - Licenta: excel_invoice_template/LICENSE
+        - Descarcare resurse: excel_invoice_template/package_downloads.md
     # ---- support functionalities
     - Help:
         - Manuale web2roefact:
@@ -174,10 +172,14 @@ theme:
         - navigation.tracking
         - navigation.tabs.sticky
         - navigation.path
+        - content.code.copy
         #- toc.integrate  #NOTE [piu] integrates all navigation only in left nav bar
     palette:
         primary: black # see https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/ for other color options
         accent: blue
+    font:
+        text: Open Sans
+        code: Fira Code
     icon:
         admonition:
             note: fontawesome/solid/note-sticky

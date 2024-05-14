@@ -51,15 +51,9 @@ Continutul informational al facturii nu trebuie nici confundat si nici mixat cu 
 
 
 
-## Descarcare (download) sablon factura
-
-* [office Excel XLSX](../doc_src/downloads.md#sablon-template-factura)
 
 
-
-
-
-## [License](./LICENSE "download")
+## [Licenta](./LICENSE "download")
 
 
 
