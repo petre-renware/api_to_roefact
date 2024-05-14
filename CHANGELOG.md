@@ -21,7 +21,7 @@
 
 * ---[ FUTURE NEW APP COMMANDS ]---:
     * `config` - set `config_settings.py` variables (make it INTERACTIVELY using `Rich prompt`)
-    * `xl2json` - 99% closed
+    * `xl2json` - closed
     * `json2xml` - see module WRXML,
     * `json2pdf` - new module. tbd..,
     * `xml2roefact` - see module LDXML
@@ -30,10 +30,42 @@
 
 
 
-## `0.7` init commands layer 2 of functionalities
+## `0.8` 
 
+* OR ... init commands layer 2 of functionalities
+* OR ... make `json2xml`
 * ... move `settings` functionality to `commands/`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
+* ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github
+
+
+
+
+
+
+
+
+## `0.7` clean xl2roefact package and invoice JSON
+
+* `update downloads` ref 0.7 dlvbs & reorganize it with 1st level. Follow:
+    * ref new structure & locations of download docs
+    * [x] update master downloads.md ref old versions drop
+    * [x] links: add `0.7`
+    * [x] remove all links `<= *0.5*`
+    * [x] removed all deliverables `<= *0.5*`
+* build & publish deliverables + site
+* build & publish site with new downloads structure
+* `brk-doc_src/downloads.md` letting it as *master* and making specialized download pages in `xl2roedact/doc/package_downloads.md` and `excel_invoice_template/package_downloads.md`:
+    * [x] updated new downloads files for existing deliverabkes
+    * [x] created directories structure & empty files
+* update version & site
+* `xl2roefact-refactor`
+    * fixed `xl2roefact` command `xl2json` option `-o`, set ver to `.dev`, rebuilt dld doc and site
+    * reverted to flat package structure, without src/ directory but only xl2roefact/
+    * updated PDM scripts and made package from src/ directory (created __init__.py)
+    * refactored xl2roefact source files
+* `upd-site` updated sitem left side navigator to better reflect the new features / system architecture
+* `fix-site` 0.7rc2 downloads.md, link to "Descarcare sablon de fisier de configurare"
 
 ### `0.7rc2` updated console application to run in  silent or vebosed
 
