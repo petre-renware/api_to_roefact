@@ -19,7 +19,7 @@ Versiunea de pe pe repository-ul public `PyPi` permite instalarea directa in med
 ```shell
 pip install xl2roefact
 ```
-In acest mod va fi instalata automat ultima versiune stabila publicata pe *[PyPi](https://pypi.org/project/xl2roefact/)*. Accesati linkul anterior pentru a putea accesa alte versiuni publicate pe *PyPi* si modul de instalare a acestora.
+In acest mod va fi instalata automat *ultima versiune stabila* publicata pe *[PyPi](https://pypi.org/project/xl2roefact/)*. Accesati linkul anterior pentru a putea accesa alte versiuni publicate pe *PyPi* si modul de instalare a acestora.
 
 
 ### xl2roefact pachete sursa versiuni anterioare
@@ -27,6 +27,7 @@ In acest mod va fi instalata automat ultima versiune stabila publicata pe *[PyPi
 <!--NOTE: starting with `0.6rc0` source deliverables are available only on `PyPi` -->
 
 ??? note "0.7"
+    * [`0.7` clean xl2roefact package and invoice JSON](pip install xl2roefact==0.7)
     * [`0.7rc2` updated console application to run in  silent or vebosed](https://pypi.org/project/xl2roefact/0.7rc2/)
     * [`0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs](https://pypi.org/project/xl2roefact/0.7rc1/)    
     * [`0.7rc0` settings refresh option and app settings reload by request](https://pypi.org/project/xl2roefact/0.7rc0/)
