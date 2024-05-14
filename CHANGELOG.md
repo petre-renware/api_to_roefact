@@ -48,7 +48,7 @@
     * ref new structure & locations of download docs
     * [ ] ... update master downloads.md ref old versions drop
     * [x] links: add `0.7`
-    * [ ] ... remove all links `<= *0.5*`
+    * [x] remove all links `<= *0.5*`
     * [x] removed all deliverables `<= *0.5*`
 * build & publish deliverables + site
 * build & publish site with new downloads structure
