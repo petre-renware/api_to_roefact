@@ -89,7 +89,7 @@ In acest mod va fi instalata automat *ultima versiune stabila* publicata pe *[Py
 <a id="aplicatia-xl2roefact-linie-comanda-pachet-instalare-win64-msi"></a>
 
 ??? note "0.7"
-    * [`0.7` clean xl2roefact package and invoice JSON](xl2roefact-0.7-win64.msi "download")
+    * [`0.7` clean xl2roefact package and invoice JSON](../dist/xl2roefact-0.7-win64.msi "download")
     * [`0.7rc2` updated console application to run in  silent or vebosed](../dist/xl2roefact-0.7rc2-win64.msi "download")
     * `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs - INDISPONIBILA
     * [`0.7rc0` settings refresh option and app settings reload by request](../dist/xl2roefact-0.7rc0-win64.msi "download")
@@ -128,7 +128,7 @@ In acest mod va fi instalata automat *ultima versiune stabila* publicata pe *[Py
 <a id="aplicatia-xl2roefact-linie-comanda-executabil-portabil-win64-exe"></a>
 
 ??? note "0.7"
-    * [`0.7` clean xl2roefact package and invoice JSON](xl2roefact-0.7-win64.exe "download")
+    * [`0.7` clean xl2roefact package and invoice JSON](../dist/xl2roefact-0.7-win64.exe "download")
     * [`0.7rc2` updated console application to run in  silent or vebosed](../dist/xl2roefact-0.7rc2-win64.exe "download")
     * `0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs - INDISPONIBILA
     * [`0.7rc0` settings refresh option and app settings reload by request](../dist/xl2roefact-0.7rc0-win64.exe "download")
