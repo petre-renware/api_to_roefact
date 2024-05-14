@@ -27,7 +27,7 @@ In acest mod va fi instalata automat *ultima versiune stabila* publicata pe *[Py
 <!--NOTE: starting with `0.6rc0` source deliverables are available only on `PyPi` -->
 
 ??? note "0.7"
-    * [`0.7` clean xl2roefact package and invoice JSON](pip install xl2roefact==0.7)
+    * [`0.7` clean xl2roefact package and invoice JSON](https://pypi.org/project/xl2roefact/0.7/)
     * [`0.7rc2` updated console application to run in  silent or vebosed](https://pypi.org/project/xl2roefact/0.7rc2/)
     * [`0.7rc1` review & clean `xl2roefact.rdinv` module of TODOs](https://pypi.org/project/xl2roefact/0.7rc1/)    
     * [`0.7rc0` settings refresh option and app settings reload by request](https://pypi.org/project/xl2roefact/0.7rc0/)
