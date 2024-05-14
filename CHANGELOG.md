@@ -44,9 +44,9 @@
 
 ## `0.7` clean xl2roefact package and invoice JSON
 
-* ... update downloads.md ref 0.7 dlvbs & reorganize it with 1st level. Follow:
+* `update downloads` ref 0.7 dlvbs & reorganize it with 1st level. Follow:
     * ref new structure & locations of download docs
-    * [ ] ... update master downloads.md ref old versions drop
+    * [x] update master downloads.md ref old versions drop
     * [x] links: add `0.7`
     * [x] remove all links `<= *0.5*`
     * [x] removed all deliverables `<= *0.5*`
