@@ -47,6 +47,7 @@
 
 * ... test by local installation and run script
 * ... make only WHEEL deliverables: build, PyPi publish, upd dowloads, build site
+* created `gitupd_tags.sh` to update all local tags keeping only remote ones & made it execurable
 * updated versions
 * BUGFIX updated `xl2roefact.setup.py` entry point for `xl2roefact` to correct to `xl2roefact.app_cli...` from `src.app_cli...`
 
