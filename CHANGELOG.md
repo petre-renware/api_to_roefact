@@ -30,14 +30,14 @@
 
 
 
-## `0.8` 
+## `0.8` invoice XML output
 
 * OR ... init commands layer 2 of functionalities
 * OR ... make `json2xml`
 * ... move `settings` functionality to `commands/`
 * ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
 * ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github
-
+* BUG... FIXME: update `xl2roefact.setup.py` entry point for `xl2roefact` to correct to `xl2roefact.app_cli...` from `src.app_cli...`
 
 
 
