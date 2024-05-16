@@ -26,6 +26,9 @@ In acest mod va fi instalata automat *ultima versiune stabila* publicata pe *[Py
 <a id="pachetul-xl2roefact-python-library-format-sursa"></a>
 <!--NOTE: starting with `0.6rc0` source deliverables are available only on `PyPi` -->
 
+??? note "0.8"
+    * [`0.8` BUGFIX xl2roefact entry point](https://pypi.org/project/xl2roefact/0.8/)
+
 ??? note "0.7"
     * [`0.7` clean xl2roefact package and invoice JSON](https://pypi.org/project/xl2roefact/0.7/)
     * [`0.7rc2` updated console application to run in  silent or vebosed](https://pypi.org/project/xl2roefact/0.7rc2/)
