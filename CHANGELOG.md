@@ -45,7 +45,7 @@
 
 ## `0.8` BUGFIX xl2roefact entry point
 
-* ... upd xl2roefact dowloads & build site
+* upd xl2roefact dowloads & build site
 * make WHEEL deliverables: build, PyPi publish
 * created `gitupd_tags.sh` to update all local tags keeping only remote ones & made it execurable
 * updated versions
