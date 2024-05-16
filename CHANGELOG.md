@@ -45,7 +45,8 @@
 
 ## `0.8` BUGFIX xl2roefact entry point
 
-* make WHEEL deliverables: build, PyPi publish, upd dowloads, build site
+* ... upd xl2roefact dowloads & build site
+* make WHEEL deliverables: build, PyPi publish
 * created `gitupd_tags.sh` to update all local tags keeping only remote ones & made it execurable
 * updated versions
 * BUGFIX updated `xl2roefact.setup.py` entry point for `xl2roefact` to correct to `xl2roefact.app_cli...` from `src.app_cli...`
