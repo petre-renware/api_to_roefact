@@ -30,7 +30,7 @@
 
 
 
-## `0.8` 
+## ... `0.9` invoice XML output
 
 * OR ... init commands layer 2 of functionalities
 * OR ... make `json2xml`
@@ -39,6 +39,17 @@
 * ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github
 
 
+
+
+
+
+## `0.8` BUGFIX xl2roefact entry point
+
+* upd xl2roefact dowloads & build site
+* make WHEEL deliverables: build, PyPi publish
+* created `gitupd_tags.sh` to update all local tags keeping only remote ones & made it execurable
+* updated versions
+* BUGFIX updated `xl2roefact.setup.py` entry point for `xl2roefact` to correct to `xl2roefact.app_cli...` from `src.app_cli...`
 
 
 
