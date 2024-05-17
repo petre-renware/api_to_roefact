@@ -54,7 +54,7 @@
         * `xl2roefact-client` (aka console client)
         * `web2roefact` (aka web client UI front end)* components
     * ...more...
-* ver... update version to `0.9.dev0`
+* update version to `0.9.dev0`
 
 
 
