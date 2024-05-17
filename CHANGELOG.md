@@ -30,13 +30,31 @@
 
 
 
-## ... `0.9` invoice XML output
+<!--   ## tbd.nxt... `0.10` invoice XML output
+* make `json2xml`  -->
 
-* OR ... init commands layer 2 of functionalities
-* OR ... make `json2xml`
-* ... move `settings` functionality to `commands/`
-* ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
-* ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github
+
+
+
+
+
+## `0.9` init commands layer 2 of functionalities
+
+* ... move `xl2json` functionality to `l2_commands.py`
+* ... move `settings` functionality to `l2_commands.py`
+* doc... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
+* ver... upd versions to _xxx_
+* ... create `commands.py` to accommodate *layer 2 commands functionalities*. Objectives:
+    — #NOTE: this task desc is subject of module docstring
+    * create an environment wheree a xl2roefact can be run in *session or interactivelly mode*
+    * session parameters: persist commands run parameters in user profile (directory of `os.%userprofile%` or Linux `~/.profile`)
+    * group all layer 2 commands for future:
+        - #NOTE: subject of diagram update in `README_xl2roefact_library.md` (see also doc... nxt issue)
+        * `xl2roefactd` (aka server)
+        * `xl2roefact-client` (aka console client)
+        * `web2roefact` (aka web client UI front end)* components
+    * ...more...
+* ver... update version to `0.9.dev0`
 
 
 
