@@ -44,7 +44,7 @@
 * ... move `settings` functionality to `l2_commands.py`
 * doc... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
 * ver... upd versions to _xxx_
-* ... create `commands.py` to accommodate *layer 2 commands functionalities*. Objectives:
+* ... `main-code` create `commands.py` to accommodate *layer 2 commands functionalities*. Objectives:
     — #NOTE: this task desc is subject of module docstring
     * create an environment wheree a xl2roefact can be run in *session or interactivelly mode*
     * session parameters: persist commands run parameters in user profile (directory of `os.%userprofile%` or Linux `~/.profile`)
