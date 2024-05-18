@@ -53,14 +53,16 @@ class Commands:
     invoice_type: InvoiceTypesEnum = InvoiceTypesEnum.NORMALA.value
     files_directory: Path =  "invoice_files/"
     owner_datafile: Path = None
+    verbosity: bool = False
 
     
-    def __init__(self,
-        *,  # `*` to accept only named parameters. elipsis as default values help to make difference between a sent parameter (even with None) and a not sent one
+    def __init__(
+        self, *,  # elipsis as default values help to make difference between a sent parameter (even with None) and a not sent one
         file_name: str = ...,
         invoice_type: InvoiceTypesEnum = ...,
         files_directory: Path = ...,
-        owner_datafile: Path = ...
+        owner_datafile: Path = ...,
+        verbosity: bool = ...
         # TODO: need more patams from other commands ? 
     ):
         """Default session data variables.
@@ -73,12 +75,13 @@ class Commands:
         ... #FIXME code here
 
     
-    def session_data(self,
-        *,  # `*` to accept only named parameters. elipsis as default values help to make difference between a sent parameter (even with None) and a not sent one
+    def session_data(
+        self, *,  # elipsis as default values help to make difference between a sent parameter (even with None) and a not sent one
         file_name: str = ...,
         invoice_type: InvoiceTypesEnum = ...,
         files_directory: Path = ...,
-        owner_datafile: Path = ...
+        owner_datafile: Path = ...,
+        verbosity: bool = ...
         # TODO: need more patams from other commands ? 
     ) -> bool:
         """Keep grouped session data as class instance variables.
@@ -97,4 +100,38 @@ class Commands:
         return True  # normal end with job done
 
 
+    @classmethod
+    def version(cls) -> str:
+        """return the version of xl2roefact that is used by this class
+        """
+        return normalized_version()
 
+
+    def xl2json(
+        self,
+        ...
+    ) -> ...:
+        """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
+
+        Args;
+            `...`: ...
+
+        Return:
+            `...`: ...
+        """
+        ...  # TODO: code.me
+
+
+    def settings(
+        self,
+        ...
+    ) -> ...:
+        """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
+
+        Args;
+            `...`: ...
+
+        Return:
+            `...`: ...
+        """
+        ...  # TODO: code.me
