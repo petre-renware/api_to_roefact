@@ -22,6 +22,7 @@ from __version__ import __doc__ as app_logo
 from __version__ import normalized_version as normalized_version
 
 # general libraries
+from dataclasses import dataclass
 import typer
 import os
 import sys
@@ -44,6 +45,17 @@ from chkisld import chkisld  # status #FIXME: not yet started
 from sys_settings import InvoiceTypesEnum
 
 
+@dataclass
+class SessionDataDefinition:
+    """define session data used in class `Commands`
+    """
+    file_name: str
+    invoice_type: InvoiceTypesEnum
+    files_directory: Path
+    owner_datafile: Path
+    verbosity: bool
+
+
 class Commands:
     """xl2roefact commands interface.
 
@@ -57,19 +69,19 @@ class Commands:
 
     # default session data values (used when no other data is provided)
     # default values are only for "clear known" variables
-    default_data = dict(
-        file_name: str = "*.xlsx",
-        invoice_type: InvoiceTypesEnum = InvoiceTypesEnum.NORMALA.value,
-        files_directory: Path =  "invoice_files/",
-        owner_datafile: Path = None,
-        verbosity: bool = False
+    default_data = SessionDataDefinition(
+        file_name = "*.xlsx",
+        invoice_type = InvoiceTypesEnum.NORMALA.value,
+        files_directory =  "invoice_files/",
+        owner_datafile = None,
+        verbosity = False
     )
 
     
     def __init__(self):  #FIXME test.me
         """Init session data variables with default values.
         """
-        self.session_data = copy.deepcopy(default_data)
+        self.session_data = dataclasses.replace(default_data)
 
     
     def session_data(
