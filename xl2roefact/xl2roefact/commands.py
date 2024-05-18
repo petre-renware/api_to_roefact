@@ -109,7 +109,7 @@ class Commands:
 
     def xl2json(
         self,
-        ...
+        tbd  #TODO: rest of params
     ) -> ...:
         """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
 
@@ -124,7 +124,7 @@ class Commands:
 
     def settings(
         self,
-        ...
+        tbd  #TODO: rest of params
     ) -> ...:
         """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
 
