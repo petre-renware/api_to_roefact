@@ -18,3 +18,23 @@ a(p=None)
 
 print("call with p = 444")
 a(444)
+
+
+
+print("test if elipsis (`...`) is diffrent of None")
+b = ...
+n = None
+t1 = bool(b == n)
+t2 = bool(b is n)
+print(f"test equal: {t1}")
+print(f"test equal identity: {t2}")
+
+
+
+
+
+ 
+
+
+
+
