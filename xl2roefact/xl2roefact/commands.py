@@ -50,7 +50,7 @@ class Commands:
 
     # default sessions data values (used when no other data is provided and in all cases when a value is needed but is not known)
     file_name: str = "*.xlsx"
-    invoice_type: InvoiceTypesEnum = ...
+    invoice_type: InvoiceTypesEnum = InvoiceTypesEnum.NORMALA.value
     files_directory: Path =  "invoice_files/"
     owner_datafile: Path = None
 
