@@ -64,7 +64,7 @@ class Commands:
         `version`: return the version of `xl2roefact` used by this class
         `settings`: implement command with the same name
         `xl2json`: implement command with the same name
-        ... #TODO: other commands short description
+        `command_n`: other commands short description
     """
 
     # default session data values (used when no other data is provided)
