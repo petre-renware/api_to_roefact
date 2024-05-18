@@ -34,7 +34,6 @@ from rich.pretty import pprint
 from rich.markdown import Markdown
 from rich.console import Console
 # xl2roefact specific libraries
-#............
 from libutils import hier_get_data_file
 import config_settings as configs  # configuration elements to use with `settings` command
 from rdinv import rdinv  # status #TODO: wip...
@@ -63,7 +62,7 @@ class Commands:
     def __init__(self):  #FIXME test.me
         """Init session data variables with default values.
         """
-        self.session_data copy.deepcopy(default_data)
+        self.session_data = copy.deepcopy(default_data)
 
     
     def session_data(
