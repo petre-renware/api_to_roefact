@@ -55,12 +55,25 @@ class Commands:
     owner_datafile: Path = None
 
     
-    def __init__(
+    def __init__(self,
+        *,  # `*` to accept only named parameters. elipsis as default values help to make difference between a sent parameter (even with None) and a not sent one
+        file_name: str = ...,
+        invoice_type: InvoiceTypesEnum = ...,
+        files_directory: Path = ...,
+        owner_datafile: Path = ...
+        # TODO: need more patams from other commands ? 
     ):
         """Default session data variables.
         """
-        
-    def session_data(
+        #FIXME code here or drop me when clear plan specs
+        '''#TODO plan
+        - for None or not specified params init their instance value with class default values
+        - otherwise call `self.session_data(...parametrs...)`
+        '''
+        ... #FIXME code here
+
+    
+    def session_data(self,
         *,  # `*` to accept only named parameters. elipsis as default values help to make difference between a sent parameter (even with None) and a not sent one
         file_name: str = ...,
         invoice_type: InvoiceTypesEnum = ...,
@@ -80,7 +93,7 @@ class Commands:
         Return:
             `bool`: specify if operation was terminated normally
         """
-        ...
+        ...  #FIXME code here
         return True  # normal end with job done
 
 
