@@ -49,31 +49,21 @@ class Commands:
     """xl2roefact commands interface.
     """
 
-    # class variables for default session data values (used when no other data is provided and in all cases when a value is needed but is not known)
-    file_name: str = "*.xlsx"
-    invoice_type: InvoiceTypesEnum = InvoiceTypesEnum.NORMALA.value
-    files_directory: Path =  "invoice_files/"
-    owner_datafile: Path = None
-    verbosity: bool = False
+    # class variable for default session data values (used when no other data is provided)
+    # enumerated below are "clear known" variables but can contain any supplementary ones as required in new versions or as "temp-s" at run time
+    default_data = dict(
+        file_name: str = "*.xlsx",
+        invoice_type: InvoiceTypesEnum = InvoiceTypesEnum.NORMALA.value,
+        files_directory: Path =  "invoice_files/",
+        owner_datafile: Path = None,
+        verbosity: bool = False
+    )
 
     
-    def __init__(
-        self, *,  # elipsis as default values help to make difference between a sent parameter (even with None) and a not sent one
-        file_name: str = ...,
-        invoice_type: InvoiceTypesEnum = ...,
-        files_directory: Path = ...,
-        owner_datafile: Path = ...,
-        verbosity: bool = ...
-        # TODO: need more patams from other commands ? 
-    ):
-        """Default session data variables.
+    def __init__(self):  #FIXME test.me
+        """Init session data variables with default values.
         """
-        #FIXME code here or drop me when clear plan specs
-        '''#TODO plan
-        - for None or not specified params init their instance value with class default values
-        - otherwise call `self.session_data(...parametrs...)`
-        '''
-        ... #FIXME code here
+        self.session_data copy.deepcopy(default_data)
 
     
     def session_data(
@@ -102,7 +92,7 @@ class Commands:
 
 
     @classmethod
-    def version(cls) -> str:
+    def version(cls) -> str:  #FIXME test.me
         """return the version of xl2roefact that is used by this class
         """
         return xl2roefact_version
@@ -136,3 +126,20 @@ class Commands:
             `...`: ...
         """
         ...  # TODO: code.me
+
+
+
+
+
+    #
+    # utility internal / not public class objects
+    #
+    @classmethod
+    def get_var_name(cls, var):  #FIXME test.me
+        """Return a variable defined in class as string of its name.
+        """
+        for name, value in locals().items():
+            if value is var:
+                return name
+
+
