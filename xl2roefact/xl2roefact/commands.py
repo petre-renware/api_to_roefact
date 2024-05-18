@@ -17,9 +17,9 @@ Identification:
 """
 
 # version objects
-from . import __version__
-from .__version__ import __doc__ as app_logo
-from .__version__ import normalized_version as normalized_version
+import __version__ as xl2roefact_version
+#from .__version__ import __doc__ as app_logo
+#from .__version__ import normalized_version as normalized_version
 
 # general libraries
 import typer
@@ -104,7 +104,8 @@ class Commands:
     def version(cls) -> str:
         """return the version of xl2roefact that is used by this class
         """
-        return normalized_version()
+        #return normalized_version()
+        return xl2roefact_version
 
 
     def xl2json(
