@@ -84,7 +84,7 @@ class Commands:
         """Keep grouped session data as class instance variables.
         
         Persist instance variables for relevant parameters:
-        * if a parameter is not sent at call, then it is ok eft unchanged
+        * if a parameter is not sent at call, then it is left unchanged
         * if a parameter is sent with `None` value, then it is loaded with corresponding default value (from class variable)        
 
         Args;
