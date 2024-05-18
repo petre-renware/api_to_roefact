@@ -18,9 +18,9 @@ Identification:
 
 #TODO get all imports from app_clu. see what keep here...
 # version objects
-from . import __version__
-#from .__version__ import __doc__ as app_logo
-#from .__version__ import normalized_version as normalized_version
+#from . import __version__
+from .__version__ import __doc__ as app_logo
+from .__version__ import normalized_version as normalized_version
 
 # general libraries
 import typer
