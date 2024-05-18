@@ -48,7 +48,7 @@ class Commands:
     """xl2roefact commands interface.
     """
 
-    # default sessions data values (used when no other data is provided and in all cases when a value is needed but is not known)
+    # class variables for default session data values (used when no other data is provided and in all cases when a value is needed but is not known)
     file_name: str = "*.xlsx"
     invoice_type: InvoiceTypesEnum = InvoiceTypesEnum.NORMALA.value
     files_directory: Path =  "invoice_files/"
@@ -61,63 +61,26 @@ class Commands:
         """
         
     def session_data(
-        *,  # accept only named parameters
-        file_name: str = None,
-        invoice_type: InvoiceTypesEnum = None,
-        files_directory: Path = None,
-        owner_datafile: Path = None
-        #TODO: need more patams from other commands ? 
+        *,  # `*` to accept only named parameters. elipsis as default values help to make difference between a sent parameter (even with None) and a not sent one
+        file_name: str = ...,
+        invoice_type: InvoiceTypesEnum = ...,
+        files_directory: Path = ...,
+        owner_datafile: Path = ...
+        # TODO: need more patams from other commands ? 
     ) -> bool:
         """Keep grouped session data as class instance variables.
-        Persist instance variables for relevant parameters (ie, not `None`)
-        """
         
-        '''data params of xl2json from app_cli. keep all
-            
-    invoice_type: InvoiceTypesEnum  = InvoiceTypesEnum.NORMALA.value,
-    file_name: Annotated[
-        str,
-        typer.Argument(
-            help="files to process (wildcards allowed)"
-        )
-    ] = "*.xlsx",
-    
-    files_directory: Annotated[
-        Path,
-        typer.Option(
-            "--files-directory", "-d",
-            exists=False,
-            file_okay=False,
-            dir_okay=True,
-            writable=True,
-            readable=True,
-            resolve_path=True,
-            help="directory to be used to look for Excel files (if default directory does not exists will consider current directory instead)."
-        ),
-    ] = "invoice_files/",
-    
-    owner_datafile: Annotated[
-        Path,
-        typer.Option(
-            "--owner-datafile", "-o",
-            exists=False,
-            file_okay=True,
-            dir_okay=False,
-            writable=False,
-            readable=True,
-            resolve_path=False,
-            help="File to read invoice supplier (owner) data instead Excel."
-        ),
-    ] = None,
-    
-    verbose: Annotated[
-        bool,
-        typer.Option(
-            "--verbose", "-v",
-            help="show detailed processing messages"
-        ),
-    ] = False
-        '''
+        Persist instance variables for relevant parameters:
+        * if a parameter is not sent at call, then it is ok eft unchanged
+        * if a parameter is sent with `None` value, then it is loaded with corresponding default value (from class variable)        
+
+        Args;
+            `data_item`: these are all data items required to be kept as reusable session data
+
+        Return:
+            `bool`: specify if operation was terminated normally
+        """
+        ...
         return True  # normal end with job done
 
 
