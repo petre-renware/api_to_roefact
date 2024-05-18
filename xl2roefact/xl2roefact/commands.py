@@ -91,7 +91,7 @@ class Commands:
         * if a parameter is not sent at call, then it is left unchanged
         * if a parameter is sent with `None` value, then it is loaded with corresponding default value (from class variable)        
 
-        Args;
+        Args:
             `data_item`: these are all data items required to be kept as reusable session data
 
         Return:
@@ -114,7 +114,7 @@ class Commands:
     ) -> ...:
         """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
 
-        Args;
+        Args:
             `...`: ...
 
         Return:
@@ -129,7 +129,7 @@ class Commands:
     ) -> ...:
         """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
 
-        Args;
+        Args:
             `...`: ...
 
         Return:
