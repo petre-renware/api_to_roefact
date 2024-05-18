@@ -36,7 +36,7 @@ from rich.console import Console
 # xl2roefact specific libraries
 #............
 from libutils import hier_get_data_file
-from config_settings as configs  # configuration elements to use with `settings` command
+import config_settings as configs  # configuration elements to use with `settings` command
 from rdinv import rdinv  # status #TODO: wip...
 from wrxml import wrxml  # status #FIXME: not yet started
 from chkxml import chkxml  # status #FIXME: not yet started
