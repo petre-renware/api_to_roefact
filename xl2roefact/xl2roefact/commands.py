@@ -46,10 +46,17 @@ from sys_settings import InvoiceTypesEnum
 
 class Commands:
     """xl2roefact commands interface.
+
+    Methods:
+        `session_data`: persist session data parameters sent to any command at its call in instance variables
+        `version`: return the version of `xl2roefact` used by this class
+        `settings`: implement command with the same name
+        `xl2json`: implement command with the same name
+        ... #TODO: other commands short description
     """
 
-    # class variable for default session data values (used when no other data is provided)
-    # enumerated below are "clear known" variables but can contain any supplementary ones as required in new versions or as "temp-s" at run time
+    # default session data values (used when no other data is provided)
+    # default values are only for "clear known" variables
     default_data = dict(
         file_name: str = "*.xlsx",
         invoice_type: InvoiceTypesEnum = InvoiceTypesEnum.NORMALA.value,
@@ -71,14 +78,16 @@ class Commands:
         invoice_type: InvoiceTypesEnum = ...,
         files_directory: Path = ...,
         owner_datafile: Path = ...,
-        verbosity: bool = ...
-        # TODO: need more patams from other commands ? 
+        verbosity: bool = ...,
+        #TODO: more patams from other commands
+        **args
     ) -> bool:
         """Keep grouped session data as class instance variables.
         
         Persist instance variables for relevant parameters:
         * if a parameter is not sent at call, then it is left unchanged
-        * if a parameter is sent with `None` value, then it is loaded with corresponding default value (from class variable)        
+        * if a parameter is sent with `None` value, then it is loaded with corresponding default value (from class variable)
+        * *note* ref `**args`: other parametrs / data "not in specs" parameters but which need to be used by more commands in same session
 
         Args:
             `data_item`: these are all data items required to be kept as reusable session data
@@ -92,7 +101,7 @@ class Commands:
 
     @classmethod
     def version(cls) -> str:  #FIXME test.me
-        """return the version of xl2roefact that is used by this class
+        """return the version of `xl2roefact` used by this class
         """
         return xl2roefact_version
 
