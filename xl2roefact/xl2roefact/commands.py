@@ -1,4 +1,4 @@
-"""Layer 2 commands implementation.
+"""Layer 2 **commands** implementation.
 
 Objectives:
 
@@ -8,7 +8,6 @@ Objectives:
     * `xl2roefactd` (aka server)
     * `xl2roefact-client` (aka console client)
     * `web2roefact` (aka web client UI front end)* components
-
 
 Identification:
 
@@ -46,15 +45,21 @@ from .sys_settings import InvoiceTypesEnum
 
 
 class Commands:
-    """...
+    """xl2roefact commands interface.
     """
 
+    # default sessions data values (used when no other data is provided and in all cases when a value is needed but is not known)
+    file_name: str = "*.xlsx"
+    invoice_type: InvoiceTypesEnum = ...
+    files_directory: Path =  "invoice_files/"
+    owner_datafile: Path = None
+
+    
     def __init__(
     ):
         """Default session data variables.
         """
         
-
     def session_data(
         *,  # accept only named parameters
         file_name: str = None,
