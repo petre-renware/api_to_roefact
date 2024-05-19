@@ -17,9 +17,9 @@ Identification:
 """
 
 # version objects
-import __version__ as xl2roefact_version
-from __version__ import __doc__ as app_logo
-from __version__ import normalized_version as normalized_version
+from .__version__ import __version__ as xl2roefact_version
+from .__version__ import __doc__ as app_logo
+from .__version__ import normalized_version as normalized_version
 
 # general libraries
 from dataclasses import dataclass
@@ -34,26 +34,27 @@ from datetime import datetime
 from rich.pretty import pprint
 from rich.markdown import Markdown
 from rich.console import Console
+
 # xl2roefact specific libraries
-from libutils import hier_get_data_file
-import config_settings as configs  # configuration elements to use with `settings` command
-from rdinv import rdinv  # status #TODO: wip...
-from wrxml import wrxml  # status #FIXME: not yet started
-from chkxml import chkxml  # status #FIXME: not yet started
-from ldxml import ldxml  # status #FIXME: not yet started
-from chkisld import chkisld  # status #FIXME: not yet started
-from sys_settings import InvoiceTypesEnum
+from .libutils import hier_get_data_file
+from . import config_settings as configs  # configuration elements to use with `settings` command
+from .rdinv import rdinv  # status #TODO: wip...
+from .wrxml import wrxml  # status #FIXME: not yet started
+from .chkxml import chkxml  # status #FIXME: not yet started
+from .ldxml import ldxml  # status #FIXME: not yet started
+from .chkisld import chkisld  # status #FIXME: not yet started
+from .sys_settings import InvoiceTypesEnum
 
 
 @dataclass
-class SessionDataDefinition:
+class SessionDataType:
     """define session data used in class `Commands`
     """
-    file_name: str
-    invoice_type: InvoiceTypesEnum
-    files_directory: Path
-    owner_datafile: Path
-    verbosity: bool
+    file_name: str = None
+    invoice_type: InvoiceTypesEnum = None
+    files_directory: Path = None
+    owner_datafile: Path = None
+    verbosity: bool = None
 
 
 class Commands:
@@ -69,7 +70,7 @@ class Commands:
 
     # default session data values (used when no other data is provided)
     # default values are only for "clear known" variables
-    default_data = SessionDataDefinition(
+    default_data = SessionDataType(
         file_name = "*.xlsx",
         invoice_type = InvoiceTypesEnum.NORMALA.value,
         files_directory =  "invoice_files/",
@@ -91,7 +92,7 @@ class Commands:
         files_directory: Path = ...,
         owner_datafile: Path = ...,
         verbosity: bool = ...,
-        #TODO: more patams from other commands
+        #TODO: more params from other commands
         **args
     ) -> bool:
         """Keep grouped session data as class instance variables.
@@ -107,7 +108,10 @@ class Commands:
         Return:
             `bool`: specify if operation was terminated normally
         """
-        ...  #FIXME code here
+        # test if parameter sent to update its value
+        ... #FIXME code here
+        # otherwise (not sent) ignore it (ket unchanged / untouched)
+        ... #FIXME code here
         return True  # normal end with job done
 
 
