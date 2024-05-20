@@ -83,7 +83,7 @@ class Commands:
     def __init__(self):
         """Init session data variables with default values.
         """
-        self.session_data = dataclasses.replace(Commands.default_data)
+        self.session_data = dataclasses.replace(__class__.default_data)
 
     
     def session_data(
