@@ -21,7 +21,8 @@ from .__version__ import __version__ as xl2roefact_version
 from .__version__ import __doc__ as app_logo
 from .__version__ import normalized_version as normalized_version
 
-# general libraries
+# general librarie
+import dataclasses
 from dataclasses import dataclass
 import typer
 import os
@@ -82,7 +83,7 @@ class Commands:
     def __init__(self):  #FIXME test.me
         """Init session data variables with default values.
         """
-        self.session_data = dataclasses.replace(default_data)
+        self.session_data = dataclasses.replace(Commands.default_data)
 
     
     def session_data(
