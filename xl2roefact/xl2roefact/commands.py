@@ -18,16 +18,31 @@ Identification:
 
 # version objects
 from .__version__ import __version__ as xl2roefact_version
-from .__version__ import normalized_version as normalized_version
+#FIXME.drop.id.unused... from .__version__ import normalized_version as normalized_version
 
 # general librarie
 import dataclasses
 from dataclasses import dataclass
 from pathlib import Path
-#FIXME.ck&drop from rich import print
-
+#FIXME.drop.id.unused... from rich import print
+from typing import Optional
+from datetime import datetime
+from rich import print
+from rich.pretty import pprint
+from rich.markdown import Markdown
+from rich.console import Console
+# xl2roefact specific libraries
+from .libutils import hier_get_data_file
+from . import config_settings as configs  # configuration elements to use with `settings` command
+from .rdinv import rdinv  # status #TODO: wip...
+from .wrxml import wrxml  # status #FIXME: not yet started
+from .chkxml import chkxml  # status #FIXME: not yet started
+from .ldxml import ldxml  # status #FIXME: not yet started
+from .chkisld import chkisld  # status #FIXME: not yet started
 # xl2roefact specific libraries
 from .sys_settings import InvoiceTypesEnum
+
+
 
 
 @dataclass
