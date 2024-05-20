@@ -80,7 +80,7 @@ class Commands:
     )
 
     
-    def __init__(self):  #FIXME test.me
+    def __init__(self):
         """Init session data variables with default values.
         """
         self.session_data = dataclasses.replace(Commands.default_data)
