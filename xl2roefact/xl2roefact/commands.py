@@ -87,7 +87,7 @@ class Commands:
         """Set session data.
         
         Rules:
-        * session data is kept as class-instance variables. This will be useful for "interactive" or "web" editions
+        * session data is kept as class-instance variables. This will use for "interactive" or "web" editions
         * if a parameter is not sent at call, then it is left unchanged
         * any other sent value is saved as instance variable
         * elipsis as default parametrs values help to make difference between a sent parameter (even with None) and a not sent one
@@ -96,13 +96,26 @@ class Commands:
             `all_item`: more instances = all data items required to be kept as reusable session data
 
         Return:
-            `bool`: specify if operation was terminated normally
+            `bool`: any change was made
         """
-        # test if parameter sent to update its value
-        ... #FIXME code here
-        # otherwise (not sent) ignore it (ket unchanged / untouched)
-        ... #FIXME code here
-        return True  # normal end with job done
+        #FIXME.test.next.code
+        ret_code = False
+        if file_name != ...:
+            self.file_name = file_name
+            ret_code = True
+        if invoice_type != ...:
+            seelf.invoice_type = invoice_type
+            ret_code = True
+        if files_directory != ...:
+            self.files_directory = files_directory
+            ret_code = True
+        if owner_datafile != ...:
+            self.owner_datafile = owner_datafile
+            ret_code = True
+        if verbosity != ...:
+            self.verbosity = verbosity
+            ret_code = True
+        return ret_code
 
 
     def session_data_reset(self):
