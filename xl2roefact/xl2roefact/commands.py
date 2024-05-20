@@ -18,32 +18,15 @@ Identification:
 
 # version objects
 from .__version__ import __version__ as xl2roefact_version
-from .__version__ import __doc__ as app_logo
 from .__version__ import normalized_version as normalized_version
 
 # general librarie
 import dataclasses
 from dataclasses import dataclass
-import typer
-import os
-import sys
-from typing_extensions import Annotated
 from pathlib import Path
-from typing import Optional
-from datetime import datetime
 #FIXME.ck&drop from rich import print
-from rich.pretty import pprint
-from rich.markdown import Markdown
-from rich.console import Console
 
 # xl2roefact specific libraries
-from .libutils import hier_get_data_file
-from . import config_settings as configs  # configuration elements to use with `settings` command
-from .rdinv import rdinv  # status #TODO: wip...
-from .wrxml import wrxml  # status #FIXME: not yet started
-from .chkxml import chkxml  # status #FIXME: not yet started
-from .ldxml import ldxml  # status #FIXME: not yet started
-from .chkisld import chkisld  # status #FIXME: not yet started
 from .sys_settings import InvoiceTypesEnum
 
 
