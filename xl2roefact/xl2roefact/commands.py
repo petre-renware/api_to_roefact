@@ -32,7 +32,7 @@ from .sys_settings import InvoiceTypesEnum
 
 @dataclass
 class SessionDataType:
-    """define session data used in class `Commands`
+    """Define session data used in class `Commands`
     """
     file_name: str = None
     invoice_type: InvoiceTypesEnum = None
@@ -42,18 +42,10 @@ class SessionDataType:
 
 
 class Commands:
-    """xl2roefact commands interface.
-
-    Methods:
-        `session_data`: persist session data parameters sent to any command at its call in instance variables
-        `version`: return the version of `xl2roefact` used by this class
-        `settings`: implement command with the same name
-        `xl2json`: implement command with the same name
-        `command_n`: other commands short description
+    """xl2roefact commands layer implementation.
     """
 
-    # default session data values (used when no other data is provided)
-    # default values are only for "clear known" variables
+    # Default session data values (used when no other data is provided). Default values are only for "clear known" variables
     default_data = SessionDataType(
         file_name = "*.xlsx",
         invoice_type = InvoiceTypesEnum.NORMALA.value,
@@ -69,25 +61,24 @@ class Commands:
         self.session_data = dataclasses.replace(__class__.default_data)
 
     
-    def session_data(
-        self, *,  # elipsis as default values help to make difference between a sent parameter (even with None) and a not sent one
+    def session_data_set(
+        self, *,
         file_name: str = ...,
         invoice_type: InvoiceTypesEnum = ...,
         files_directory: Path = ...,
         owner_datafile: Path = ...,
-        verbosity: bool = ...,
-        #TODO: more params from other commands
-        **args
+        verbosity: bool = ...
     ) -> bool:
-        """Keep grouped session data as class instance variables.
+        """Set session data.
         
-        Persist instance variables for relevant parameters:
+        Rules:
+        * session data is kept as class-instance variables. This will be useful for "interactive" or "web" editions
         * if a parameter is not sent at call, then it is left unchanged
-        * if a parameter is sent with `None` value, then it is loaded with corresponding default value (from class variable)
-        * *note* ref `**args`: other parametrs / data "not in specs" parameters but which need to be used by more commands in same session
-
+        * any other sent value is saved as instance variable
+        * elipsis as default parametrs values help to make difference between a sent parameter (even with None) and a not sent one
+        
         Args:
-            `data_item`: these are all data items required to be kept as reusable session data
+            `all_item`: more instances = all data items required to be kept as reusable session data
 
         Return:
             `bool`: specify if operation was terminated normally
