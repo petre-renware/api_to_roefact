@@ -73,9 +73,9 @@ class Commands:
     def __init__(self):
         """Init session data variables with default values.
         """
-        self.session_data = dataclasses.replace(__class__.default_data)
+        self.session_data_reset()
 
-    
+
     def session_data_set(
         self, *,
         file_name: str = ...,
@@ -104,6 +104,12 @@ class Commands:
         ... #FIXME code here
         return True  # normal end with job done
 
+
+    def session_data_reset(self):
+        """Resset session data to defaults.
+        """
+        self.session_data = dataclasses.replace(__class__.default_data)
+    
 
     @classmethod
     def version(cls) -> str:  #FIXME test.me
