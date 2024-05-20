@@ -18,24 +18,19 @@ Identification:
 
 # version objects
 from .__version__ import __version__ as xl2roefact_version
-from .__version__ import __doc__ as app_logo
-from .__version__ import normalized_version as normalized_version
+#FIXME.drop.id.unused... from .__version__ import normalized_version as normalized_version
 
 # general librarie
 import dataclasses
 from dataclasses import dataclass
-import typer
-import os
-import sys
-from typing_extensions import Annotated
 from pathlib import Path
+#FIXME.drop.id.unused... from rich import print
 from typing import Optional
 from datetime import datetime
-#FIXME.ck&drop from rich import print
+from rich import print
 from rich.pretty import pprint
 from rich.markdown import Markdown
 from rich.console import Console
-
 # xl2roefact specific libraries
 from .libutils import hier_get_data_file
 from . import config_settings as configs  # configuration elements to use with `settings` command
@@ -44,12 +39,15 @@ from .wrxml import wrxml  # status #FIXME: not yet started
 from .chkxml import chkxml  # status #FIXME: not yet started
 from .ldxml import ldxml  # status #FIXME: not yet started
 from .chkisld import chkisld  # status #FIXME: not yet started
+# xl2roefact specific libraries
 from .sys_settings import InvoiceTypesEnum
+
+
 
 
 @dataclass
 class SessionDataType:
-    """define session data used in class `Commands`
+    """Define session data used in class `Commands`
     """
     file_name: str = None
     invoice_type: InvoiceTypesEnum = None
@@ -59,18 +57,10 @@ class SessionDataType:
 
 
 class Commands:
-    """xl2roefact commands interface.
-
-    Methods:
-        `session_data`: persist session data parameters sent to any command at its call in instance variables
-        `version`: return the version of `xl2roefact` used by this class
-        `settings`: implement command with the same name
-        `xl2json`: implement command with the same name
-        `command_n`: other commands short description
+    """xl2roefact commands layer implementation. [Details here](../doc/README_xl2roefact_library.md)
     """
 
-    # default session data values (used when no other data is provided)
-    # default values are only for "clear known" variables
+    # Default session data values (used when no other data is provided). Default values are only for "clear known" variables
     default_data = SessionDataType(
         file_name = "*.xlsx",
         invoice_type = InvoiceTypesEnum.NORMALA.value,
@@ -83,28 +73,27 @@ class Commands:
     def __init__(self):
         """Init session data variables with default values.
         """
-        self.session_data = dataclasses.replace(__class__.default_data)
+        self.session_data_reset()
 
-    
-    def session_data(
-        self, *,  # elipsis as default values help to make difference between a sent parameter (even with None) and a not sent one
+
+    def session_data_set(
+        self, *,
         file_name: str = ...,
         invoice_type: InvoiceTypesEnum = ...,
         files_directory: Path = ...,
         owner_datafile: Path = ...,
-        verbosity: bool = ...,
-        #TODO: more params from other commands
-        **args
+        verbosity: bool = ...
     ) -> bool:
-        """Keep grouped session data as class instance variables.
+        """Set session data.
         
-        Persist instance variables for relevant parameters:
+        Rules:
+        * session data is kept as class-instance variables. This will be useful for "interactive" or "web" editions
         * if a parameter is not sent at call, then it is left unchanged
-        * if a parameter is sent with `None` value, then it is loaded with corresponding default value (from class variable)
-        * *note* ref `**args`: other parametrs / data "not in specs" parameters but which need to be used by more commands in same session
-
+        * any other sent value is saved as instance variable
+        * elipsis as default parametrs values help to make difference between a sent parameter (even with None) and a not sent one
+        
         Args:
-            `data_item`: these are all data items required to be kept as reusable session data
+            `all_item`: more instances = all data items required to be kept as reusable session data
 
         Return:
             `bool`: specify if operation was terminated normally
@@ -115,6 +104,12 @@ class Commands:
         ... #FIXME code here
         return True  # normal end with job done
 
+
+    def session_data_reset(self):
+        """Resset session data to defaults.
+        """
+        self.session_data = dataclasses.replace(__class__.default_data)
+    
 
     @classmethod
     def version(cls) -> str:  #FIXME test.me
