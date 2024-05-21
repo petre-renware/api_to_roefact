@@ -69,7 +69,7 @@ class Commands:
         verbosity = False
     )
 
-    
+
     def __init__(self):
         """Init session data variables with default values.
         """
@@ -85,13 +85,13 @@ class Commands:
         verbosity: bool = ...
     ) -> bool:
         """Set session data.
-        
+
         Rules:
         * session data is kept as class-instance variables. This will use for "interactive" or "web" editions
         * if a parameter is not sent at call, then it is left unchanged
         * any other sent value is saved as instance variable
         * elipsis as default parametrs values help to make difference between a sent parameter (even with None) and a not sent one
-        
+
         Args:
             `all_item`: more instances = all data items required to be kept as reusable session data
 
@@ -104,7 +104,7 @@ class Commands:
             self.file_name = file_name
             ret_code = True
         if invoice_type != ...:
-            seelf.invoice_type = invoice_type
+            self.invoice_type = invoice_type
             ret_code = True
         if files_directory != ...:
             self.files_directory = files_directory
@@ -122,7 +122,7 @@ class Commands:
         """Resset session data to defaults.
         """
         self.session_data = dataclasses.replace(__class__.default_data)
-    
+
 
     @classmethod
     def version(cls) -> str:  #FIXME test.me
