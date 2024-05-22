@@ -109,19 +109,19 @@ class Commands:
         #FIXME.test.next.code
         ret_code = False
         if file_name != ...:
-            self.file_name = file_name
+            self.session_data.file_name = file_name
             ret_code = True
         if invoice_type != ...:
-            self.invoice_type = invoice_type
+            self.session_data.invoice_type = invoice_type
             ret_code = True
         if files_directory != ...:
-            self.files_directory = files_directory
+            self.session_data.files_directory = files_directory
             ret_code = True
         if owner_datafile != ...:
-            self.owner_datafile = owner_datafile
+            self.session_data.owner_datafile = owner_datafile
             ret_code = True
         if verbosity != ...:
-            self.verbosity = verbosity
+            self.session_data.verbosity = verbosity
             ret_code = True
         return ret_code
 
@@ -141,11 +141,11 @@ class Commands:
 
     def xl2json(
         self,
-        invoice_type: InvoiceTypesEnum  = "...",
-        file_name: str = "...",
-        files_directory: Path = "...",
-        owner_datafile: Path = "...",
-        verbose: bool = "..."
+        param_invoice_type: InvoiceTypesEnum  = "...",
+        param_file_name: str = "...",
+        param_files_directory: Path = "...",
+        param_owner_datafile: Path = "...",
+        param_verbose: bool = "..."
     ) -> bool:  #FIXME what returns? at least: console messages & execution state (ie, did or not something)
         """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
 
@@ -159,15 +159,17 @@ class Commands:
         Return:
             `...`: ...
         """
-        # TODO; for not specified parameters get default values from session data...
+        # TODO; for not specified parameters get default values from session_data in function local vars (for uniform access)
         if invoice_type == "...":  # get params from session data
-            invoice_type = self.invoice_type if invoice_type == "..." else invoice_type
+            invoice_type = self.session_data.invoice_type if param_invoice_type == "..." else param_invoice_type
         else:  # save param to session data (helps to avoid parameters repeating in same session)
-            self.invoice_type = invoice_type
+            self.session_data.invoice_type = invoice_type
+        
+        
+        
         #TODO: repeat above code for all params...
         ...
         #FIXME: imported code starts here
-        invoice_type = default_data.invoice_type if invoice_type == "..." else invoice_type
         console = Console() #TODO: redirect out to a file a variable to collect and return it at finish...
         console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
         # prep Excel files to rocess as requested in command line (NOTE: if default directory does not exists will consider current directory instead)
