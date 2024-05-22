@@ -133,18 +133,29 @@ class Commands:
 
     def xl2json(
         self,
-        tbd  #TODO: rest of params
-    ) -> ...:
+        invoice_type: InvoiceTypesEnum  = "...",
+        file_name: str = "...",
+        files_directory: Path = "...",
+        owner_datafile: Path = "...",
+        verbose: bool = "..."
+    ) -> ...:  #FIXME what returns? at least: console messages & execution state (ie, did or not something)
         """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
 
         Args:
-            `...`: ...
+            `invoice_type_code`: invoice type (for example regular invoice or storno) as this info is not usually subject of Excel file. Default to `380` (regular / usual invoice)
+            `file_name`: files to process (wildcards allowed).
+            `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
+            `owner_datafile`: File to read invoice supplier (owner) data instead Excel.
+            `verbose`: show detailed processing messages". Defaults to `False`.
 
         Return:
             `...`: ...
         """
-        ...  #FIXME: imported code starts here
-        console = Console()
+        # TODO; for not specified parameters get default values from session data...
+        if invoice_type == "...":  # TODO: repeat for all params...
+            ...
+        #FIXME: imported code starts here
+        console = Console() #TODO: redirect out to a file a variable to collect and return it at finish...
         console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
         # prep Excel files to rocess as requested in command line (NOTE: if default directory does not exists will consider current directory instead)
         tmp_files_to_process = Path(files_directory)
@@ -186,8 +197,7 @@ class Commands:
                         console.print(msg)
             if not invoice_datadict:
                 console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
-        # work finished
-        ...  #FIXME: imported code ends here
+        #FIXME: imported code ends here
         
 
 
