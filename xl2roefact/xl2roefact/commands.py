@@ -144,49 +144,49 @@ class Commands:
             `...`: ...
         """
         ...  #FIXME: imported code starts here
-    console = Console()
-    console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
-    # prep Excel files to rocess as requested in command line (NOTE: if default directory does not exists will consider current directory instead)
-    tmp_files_to_process = Path(files_directory)
-    if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
-        tmp_files_to_process = Path(".").absolute()
-        console.print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
-    if verbose:
-        console.print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
-        console.print()
-    list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
-    # process Excel files list
-    for a_file in list_of_files_to_process:
-        rdinv_run_messages = list()  # this will collect rdinv running messages and if verbose is True will print
-        invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `files_directory` is already contained in)
-        # prep for owner data acquiring from external data-file or from Excel
-        if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
-            full_path_owner_datafile = hier_get_data_file(owner_datafile)
-            if full_path_owner_datafile:
+        console = Console()
+        console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
+        # prep Excel files to rocess as requested in command line (NOTE: if default directory does not exists will consider current directory instead)
+        tmp_files_to_process = Path(files_directory)
+        if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
+            tmp_files_to_process = Path(".").absolute()
+            console.print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
+        if verbose:
+            console.print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
+            console.print()
+        list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
+        # process Excel files list
+        for a_file in list_of_files_to_process:
+            rdinv_run_messages = list()  # this will collect rdinv running messages and if verbose is True will print
+            invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `files_directory` is already contained in)
+            # prep for owner data acquiring from external data-file or from Excel
+            if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
+                full_path_owner_datafile = hier_get_data_file(owner_datafile)
+                if full_path_owner_datafile:
+                    invoice_datadict = rdinv(
+                        invoice_type_code=invoice_type,
+                        file_to_process=invoice_to_process,
+                        debug_info=rdinv_run_messages,
+                        owner_datafile=full_path_owner_datafile
+                    )
+                    if verbose:
+                        for msg in rdinv_run_messages:
+                            console.print(msg)
+                else:
+                    console.print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
+                    return  # just exit...
+            else:
                 invoice_datadict = rdinv(
                     invoice_type_code=invoice_type,
                     file_to_process=invoice_to_process,
-                    debug_info=rdinv_run_messages,
-                    owner_datafile=full_path_owner_datafile
+                    debug_info=rdinv_run_messages
                 )
                 if verbose:
                     for msg in rdinv_run_messages:
                         console.print(msg)
-            else:
-                console.print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
-                return  # just exit...
-        else:
-            invoice_datadict = rdinv(
-                invoice_type_code=invoice_type,
-                file_to_process=invoice_to_process,
-                debug_info=rdinv_run_messages
-            )
-            if verbose:
-                for msg in rdinv_run_messages:
-                    console.print(msg)
-        if not invoice_datadict:
-            console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
-    # work finished
+            if not invoice_datadict:
+                console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
+        # work finished
         ...  #FIXME: imported code ends here
         
 
