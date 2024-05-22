@@ -70,18 +70,10 @@ class Commands:
     )
 
 
-    def __init__(
-        self, *,
-        file_name: str = ...,
-        invoice_type: InvoiceTypesEnum = ...,
-        files_directory: Path = ...,
-        owner_datafile: Path = ...,
-        verbosity: bool = ...
-    ):
+    def __init__(self):
         """Init session data variables with default values.
         """
         self.session_data_reset()  # get default values
-        self.session_data_set(file_name, invoice_type, files_directory, owner_datafile, verbosity)  # replace session data with what was sent if was sent...
 
 
     def session_data_set(
