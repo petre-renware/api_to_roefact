@@ -70,10 +70,18 @@ class Commands:
     )
 
 
-    def __init__(self):
+    def __init__(
+        self, *,
+        file_name: str = ...,
+        invoice_type: InvoiceTypesEnum = ...,
+        files_directory: Path = ...,
+        owner_datafile: Path = ...,
+        verbosity: bool = ...
+    ):
         """Init session data variables with default values.
         """
-        self.session_data_reset()
+        self.session_data_reset()  # get default values
+        self.session_data_set(file_name, invoice_type, files_directory, owner_datafile, verbosity)  # replace session data with what was sent if was sent...
 
 
     def session_data_set(
@@ -138,7 +146,7 @@ class Commands:
         files_directory: Path = "...",
         owner_datafile: Path = "...",
         verbose: bool = "..."
-    ) -> ...:  #FIXME what returns? at least: console messages & execution state (ie, did or not something)
+    ) -> bool:  #FIXME what returns? at least: console messages & execution state (ie, did or not something)
         """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
 
         Args:
@@ -152,10 +160,12 @@ class Commands:
             `...`: ...
         """
         # TODO; for not specified parameters get default values from session data...
-        #TODO: repeat for all params... 
-        invoice_type = default_data.invoice_type if invoice_type == "..." else invoice_type
-        #FIXME: imported code starts here
-        # iinvoice_type = default_data.invoice_type if invoice_type == "..." else invoice_type
+        if invoice_type == "...":  # get params from session data
+            invoice_type = self.invoice_type if invoice_type == "..." else invoice_type
+        else:  # save param to session data (helps to avoid parameters repeating in same session)
+            self.invoice_type = invoice_type
+        #TODO: repeat above code for all params...
+        ...
         #FIXME: imported code starts here
         invoice_type = default_data.invoice_type if invoice_type == "..." else invoice_type
         console = Console() #TODO: redirect out to a file a variable to collect and return it at finish...
