@@ -1,0 +1,791 @@
+{
+    "Invoice": {
+        "cbc_ID": "RENF-1004",
+        "cbc_DocumentCurrencyCode": "RON",
+        "cbc_IssueDate": "2023-08-28",
+        "cbc_DueDate": "2023-09-27",
+        "cac_AccountingCustomerParty": {
+            "cac_Party": {
+                "cac_PartyLegalEntity": {
+                    "cbc_CompanyID": "17753763",
+                    "cbc_RegistrationName": "CONNECTIONS CONSULT SRL"
+                },
+                "cac_PostalAddress": {
+                    "cbc_StreetName": "",
+                    "cbc_CityName": "Bucureşti Sectorul 1, Strada: BUZEŞTI, Nr. 71, Etaj 7 si 8, tara: Romania",
+                    "cbc_PostalZone": "",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
+                },
+                "cac_Contact": {
+                    "cbc_Telephone": null,
+                    "cbc_ElectronicMail": null,
+                    "RegCom": "J40/11864/06.07.2005",
+                    "Bank": "BCR Ag Sala Palatului",
+                    "IBAN": "RO65 RNCB 0080 0056 9790 0001"
+                }
+            }
+        },
+        "cac_AccountingSupplierParty": {
+            "cac_Party": {
+                "cac_PartyLegalEntity": {
+                    "cbc_CompanyID": "42561459",
+                    "cbc_RegistrationName": "REN-CONSULTING SOFT ACTIVITY SRL"
+                },
+                "cac_PostalAddress": {
+                    "cbc_StreetName": "",
+                    "cbc_CityName": "Bucureşti Sectorul 1, Strada: BUZEŞTI, Nr. 71, Etaj 7 si 8, tara: Romania",
+                    "cbc_PostalZone": "",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
+                },
+                "cac_Contact": {
+                    "cbc_Telephone": "0744-68.48.76",
+                    "cbc_ElectronicMail": "renware.systems@gmail.com",
+                    "RegCom": "J40/5662/2020",
+                    "Bank": "Banca Transilvania",
+                    "IBAN": "RO29 BTRL RONC RT05 5704 8601"
+                },
+                "cac_PartyTaxScheme": {
+                    "cbc_CompanyID": "42561459",
+                    "cac_TaxScheme": {
+                        "cbc_ID": "VAT"
+                    }
+                }
+            }
+        },
+        "cac_InvoiceLine": [
+            {
+                "cbc_ID": "1",
+                "cbc_InvoicedQuantity": 3.5,
+                "cbc_unitCode": "buc",
+                "cac_Item": {
+                    "cbc_Name": "Elaborare documentatie tehnica aplicatie NEXGEN.AI",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": 0.19,
+                        "cac_TaxScheme": {
+                            "cbc_ID": "VAT"
+                        }
+                    }
+                },
+                "cac_Price": {
+                    "cbc_PriceAmount": 11111.5,
+                    "cbc_currencyID": "RON"
+                },
+                "cbc_LineExtensionAmount": 38890.25,
+                "LineVatAmount": 7389.15
+            },
+            {
+                "cbc_ID": "1.NOTE-a",
+                "cbc_InvoicedQuantity": null,
+                "cbc_unitCode": null,
+                "cac_Item": {
+                    "cbc_Name": "conf Comanda 1/30.06.2023, Contract 3662.1/ 30.06.2023",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": null,
+                        "cac_TaxScheme": {
+                            "cbc_ID": null
+                        }
+                    }
+                },
+                "cac_Price": {
+                    "cbc_PriceAmount": null,
+                    "cbc_currencyID": null
+                },
+                "cbc_LineExtensionAmount": null,
+                "LineVatAmount": null
+            },
+            {
+                "cbc_ID": "1.NOTE-b",
+                "cbc_InvoicedQuantity": null,
+                "cbc_unitCode": null,
+                "cac_Item": {
+                    "cbc_Name": "si PV acceptanta 1/24.08.2023",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": null,
+                        "cac_TaxScheme": {
+                            "cbc_ID": null
+                        }
+                    }
+                },
+                "cac_Price": {
+                    "cbc_PriceAmount": null,
+                    "cbc_currencyID": null
+                },
+                "cbc_LineExtensionAmount": null,
+                "LineVatAmount": null
+            },
+            {
+                "cbc_ID": "1.NOTE-c",
+                "cbc_InvoicedQuantity": null,
+                "cbc_unitCode": null,
+                "cac_Item": {
+                    "cbc_Name": "'*** valoare 3000EUR la curs BNR",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": null,
+                        "cac_TaxScheme": {
+                            "cbc_ID": null
+                        }
+                    }
+                },
+                "cac_Price": {
+                    "cbc_PriceAmount": null,
+                    "cbc_currencyID": null
+                },
+                "cbc_LineExtensionAmount": null,
+                "LineVatAmount": null
+            },
+            {
+                "cbc_ID": "2",
+                "cbc_InvoicedQuantity": 1,
+                "cbc_unitCode": "",
+                "cac_Item": {
+                    "cbc_Name": "Acciza 1%",
+                    "cac_ClassifiedTaxCategory": {
+                        "cbc_Percent": null,
+                        "cac_TaxScheme": {
+                            "cbc_ID": null
+                        }
+                    }
+                },
+                "cac_Price": {
+                    "cbc_PriceAmount": 111.115,
+                    "cbc_currencyID": "RON"
+                },
+                "cbc_LineExtensionAmount": 111.11,
+                "LineVatAmount": 0.0
+            }
+        ],
+        "cac_LegalMonetaryTotal": {
+            "cbc_LineExtensionAmount": 39001.0,
+            "cbc_TaxExclusiveAmount": 39001.0,
+            "cbc_TaxInclusiveAmount": 46390.0,
+            "cbc_PayableAmount": 46390.0
+        },
+        "cac_TaxTotal": {
+            "cbc_TaxAmount": 7389.15,
+            "cac_TaxSubtotal": [
+                {
+                    "cbc_TaxableAmount": 38890.25,
+                    "cbc_TaxAmount": 7389.15,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": 0.19,
+                            "cac_TaxScheme": {
+                                "cbc_ID": "VAT"
+                            }
+                        },
+                        "ID": "S"
+                    }
+                },
+                {
+                    "cbc_TaxableAmount": null,
+                    "cbc_TaxAmount": null,
+                    "cac_TaxCategory": {
+                        "cac_ClassifiedTaxCategory": {
+                            "cbc_Percent": null,
+                            "cac_TaxScheme": {
+                                "cbc_ID": null
+                            }
+                        },
+                        "ID": "S"
+                    }
+                }
+            ]
+        },
+        "cbc_Note": "generated @2024-05-23T03:56:01.040022+00:00 with xl2roefact by RENware Software Systems",
+        "cac_PaymentMeans": {
+            "cbc_PaymentMeansCode": 1
+        },
+        "cac_Delivery": {
+            "cbc_ActualDeliveryDate": "2023-08-28"
+        },
+        "cbc_TaxPointDate": "2023-09-25",
+        "cbc_InvoiceTypeCode": "380"
+    },
+    "meta_info": {
+        "file": "tst_fact_test.xlsx",
+        "file_CRC": "...n/a in current version. Contains file CRC to identify source invoice file",
+        "last_processing_time": "2024-05-23T03:56:01.039503+00:00",
+        "invoice_worksheet": "FACTURA FINALA",
+        "invoice_max_rows": 31,
+        "invoice_max_cols": 9,
+        "items_table_start_marker": "#",
+        "items_table_start_cell": [
+            20,
+            1
+        ],
+        "invoice_XML_schemes": {
+            "xmlns": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+            "xmlns:cbc": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
+            "xmlns:cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+            "xmlns:ns4": "urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2",
+            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+            "xsi:schemaLocation": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd"
+        },
+        "map_JSONkeys_XMLtags": [
+            [
+                "cac_InvoiceLine",
+                "cac:InvoiceLine"
+            ],
+            [
+                "cac_Item",
+                "cac:Item"
+            ],
+            [
+                "cac_ClassifiedTaxCategory",
+                "cac:ClassifiedTaxCategory"
+            ],
+            [
+                "cac_TaxScheme",
+                "cac:TaxScheme"
+            ],
+            [
+                "cac_Price",
+                "cac:Price"
+            ],
+            [
+                "cbc_ID",
+                "cbc:ID"
+            ],
+            [
+                "cbc_InvoicedQuantity",
+                "cbc:InvoicedQuantity"
+            ],
+            [
+                "cbc_unitCode",
+                "cbc:unitCode"
+            ],
+            [
+                "cbc_Name",
+                "cbc:Name"
+            ],
+            [
+                "cbc_Percent",
+                "cbc:Percent"
+            ],
+            [
+                "cbc_PriceAmount",
+                "cbc:PriceAmount"
+            ],
+            [
+                "cbc_currencyID",
+                "cbc:currencyID"
+            ],
+            [
+                "cbc_LineExtensionAmount",
+                "cbc:LineExtensionAmount"
+            ],
+            [
+                "cbc_DocumentCurrencyCode",
+                "cbc:DocumentCurrencyCode"
+            ],
+            [
+                "cbc_IssueDate",
+                "cbc:IssueDate"
+            ],
+            [
+                "cbc_DueDate",
+                "cbc:DueDate"
+            ],
+            [
+                "cac_AccountingCustomerParty",
+                "cac:AccountingCustomerParty"
+            ],
+            [
+                "cac_Party",
+                "cac:Party"
+            ],
+            [
+                "cac_PartyLegalEntity",
+                "cac:PartyLegalEntity"
+            ],
+            [
+                "cbc_CompanyID",
+                "cbc:CompanyID"
+            ],
+            [
+                "cbc_RegistrationName",
+                "cbc:RegistrationName"
+            ],
+            [
+                "cac_PostalAddress",
+                "cac:PostalAddress"
+            ],
+            [
+                "cbc_StreetName",
+                "cbc:StreetName"
+            ],
+            [
+                "cbc_CityName",
+                "cbc:CityName"
+            ],
+            [
+                "cbc_PostalZone",
+                "cbc:PostalZone"
+            ],
+            [
+                "cac_Country",
+                "cac:Country"
+            ],
+            [
+                "cbc_IdentificationCode",
+                "cbc:IdentificationCode"
+            ],
+            [
+                "LineVatAmount",
+                null
+            ],
+            [
+                "cac_Contact",
+                "cac:Contact"
+            ],
+            [
+                "cbc_Telephone",
+                "cbc:Telephone"
+            ],
+            [
+                "cbc_ElectronicMail",
+                "cbc:ElectronicMail"
+            ],
+            [
+                "RegCom",
+                null
+            ],
+            [
+                "Bank",
+                null
+            ],
+            [
+                "IBAN",
+                null
+            ],
+            [
+                "cac_LegalMonetaryTotal",
+                "cac:LegalMonetaryTotal"
+            ],
+            [
+                "cbc_LineExtensionAmount",
+                "cbc:LineExtensionAmount"
+            ],
+            [
+                "cbc_TaxExclusiveAmount",
+                "cbc:TaxExclusiveAmount"
+            ],
+            [
+                "cbc_TaxInclusiveAmount",
+                "cbc:TaxInclusiveAmount"
+            ],
+            [
+                "cbc_PayableAmount",
+                "cbc:PayableAmount"
+            ],
+            [
+                "cac_TaxTotal",
+                "cac:TaxTotal"
+            ],
+            [
+                "cbc_TaxAmount",
+                "cbc:TaxAmount"
+            ],
+            [
+                "cac_TaxSubtotal",
+                "cac:TaxSubtotal"
+            ],
+            [
+                "cbc_TaxableAmount",
+                "cbc:TaxableAmount"
+            ],
+            [
+                "cac_TaxCategory",
+                "cac:TaxCategory"
+            ],
+            [
+                "cac_AccountingSupplierParty",
+                "cac:AccountingSupplierParty"
+            ],
+            [
+                "cac_PartyTaxScheme",
+                "cac:PartyTaxScheme"
+            ],
+            [
+                "cbc_DueDate",
+                "cbc:DueDate"
+            ],
+            [
+                "cbc_Note",
+                "cbc:Note"
+            ],
+            [
+                "cbc_TaxPointDate",
+                "cbc:TaxPointDate"
+            ],
+            [
+                "cac_Delivery",
+                "cac:Delivery"
+            ],
+            [
+                "cbc_ActualDeliveryDate",
+                "cbc:ActualDeliveryDate"
+            ],
+            [
+                "cac_PaymentMeans",
+                "cac:PaymentMeans"
+            ],
+            [
+                "cbc_PaymentMeansCode",
+                "cbc:PaymentMeansCode"
+            ],
+            [
+                "cbc_TaxPointDate",
+                "cbc:TaxPointDate"
+            ],
+            [
+                "cbc_InvoiceTypeCode",
+                "cbc:InvoiceTypeCode"
+            ]
+        ]
+    },
+    "excel_original_data": {
+        "invoice_items_area": {
+            "keyrows": [
+                1,
+                "1.NOTE-a",
+                "1.NOTE-b",
+                "1.NOTE-c",
+                2
+            ],
+            "keycols": [
+                "Denumire produse sau servicii",
+                "UM",
+                "Cant",
+                "Pret unitar",
+                "Valoare fara TVA",
+                "Cota TVA",
+                "Valoare TVA"
+            ],
+            "data": [
+                [
+                    "Elaborare documentatie tehnica aplicatie NEXGEN.AI",
+                    "buc",
+                    3.5,
+                    11111.5,
+                    38890.25,
+                    0.19,
+                    7389.15
+                ],
+                [
+                    "conf Comanda 1/30.06.2023, Contract 3662.1/ 30.06.2023",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "si PV acceptanta 1/24.08.2023",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "'*** valoare 3000EUR la curs BNR",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "Acciza 1%",
+                    "",
+                    1,
+                    111.115,
+                    111.12,
+                    "",
+                    0
+                ]
+            ]
+        },
+        "invoice_header_area": {
+            "start_cell": [
+                1,
+                1
+            ],
+            "end_cell": [
+                19,
+                9
+            ],
+            "invoice_number": {
+                "value": "RENF-1004",
+                "location": [
+                    5,
+                    3
+                ],
+                "label_value": "Numar factura:",
+                "label_location": [
+                    5,
+                    2
+                ]
+            },
+            "issued_date": {
+                "value": "2023-08-28",
+                "location": [
+                    6,
+                    3
+                ],
+                "label_value": "Data:",
+                "label_location": [
+                    6,
+                    2
+                ]
+            },
+            "currency": {
+                "value": "RON",
+                "location": [
+                    6,
+                    9
+                ],
+                "label_value": "Moneda:",
+                "label_location": [
+                    6,
+                    8
+                ]
+            },
+            "due_date": {
+                "value": "2023-09-27",
+                "location": [
+                    null,
+                    null
+                ],
+                "label_value": null,
+                "label_location": null
+            },
+            "customer_area": {
+                "area_info": {
+                    "value": "Client",
+                    "location": [
+                        [
+                            8,
+                            5
+                        ],
+                        [
+                            17,
+                            6
+                        ]
+                    ]
+                },
+                "CUI": {
+                    "value": "17753763",
+                    "location": [
+                        11,
+                        6
+                    ],
+                    "label_value": "CIF:",
+                    "label_location": [
+                        11,
+                        5
+                    ]
+                },
+                "RegistrationName": {
+                    "value": "CONNECTIONS CONSULT SRL",
+                    "location": [
+                        9,
+                        5
+                    ],
+                    "label_value": "n/a",
+                    "label_location": "n/a"
+                },
+                "PostalAddress": {
+                    "cbc_StreetName": "",
+                    "cbc_CityName": "Bucureşti Sectorul 1, Strada: BUZEŞTI, Nr. 71, Etaj 7 si 8, tara: Romania",
+                    "cbc_PostalZone": "",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
+                },
+                "reg_com": {
+                    "value": "J40/11864/06.07.2005",
+                    "location": [
+                        10,
+                        6
+                    ],
+                    "label_value": "Reg. com.:     ",
+                    "label_location": [
+                        10,
+                        5
+                    ]
+                },
+                "bank": {
+                    "value": "BCR Ag Sala Palatului",
+                    "location": [
+                        16,
+                        6
+                    ],
+                    "label_value": "Banca:",
+                    "label_location": [
+                        16,
+                        5
+                    ]
+                },
+                "IBAN": {
+                    "value": "RO65 RNCB 0080 0056 9790 0001",
+                    "location": [
+                        17,
+                        6
+                    ],
+                    "label_value": "Cont:",
+                    "label_location": [
+                        17,
+                        5
+                    ]
+                },
+                "phone": {
+                    "value": null,
+                    "location": [
+                        null,
+                        null
+                    ],
+                    "label_value": "Tel:",
+                    "label_location": [
+                        15,
+                        5
+                    ]
+                },
+                "email": {
+                    "value": null,
+                    "location": [
+                        null,
+                        null
+                    ],
+                    "label_value": "Email:",
+                    "label_location": [
+                        14,
+                        5
+                    ]
+                }
+            },
+            "supplier_area": {
+                "area_info": {
+                    "value": "Furnizor",
+                    "location": [
+                        [
+                            8,
+                            2
+                        ],
+                        [
+                            17,
+                            3
+                        ]
+                    ]
+                },
+                "CUI": {
+                    "value": "42561459",
+                    "location": [
+                        11,
+                        3
+                    ],
+                    "label_value": "CIF:",
+                    "label_location": [
+                        11,
+                        2
+                    ]
+                },
+                "RegistrationName": {
+                    "value": "REN-CONSULTING SOFT ACTIVITY SRL",
+                    "location": [
+                        9,
+                        2
+                    ],
+                    "label_value": "n/a",
+                    "label_location": "n/a"
+                },
+                "PostalAddress": {
+                    "cbc_StreetName": "Nicolae Titulescu, nr 81-87, Bucureşti, Sector 1",
+                    "cbc_CityName": "",
+                    "cbc_PostalZone": "",
+                    "cac_Country": {
+                        "cbc_IdentificationCode": "RO"
+                    }
+                },
+                "reg_com": {
+                    "value": "J40/5662/2020",
+                    "location": [
+                        10,
+                        3
+                    ],
+                    "label_value": "Reg. com.: ",
+                    "label_location": [
+                        10,
+                        2
+                    ]
+                },
+                "bank": {
+                    "value": "Banca Transilvania",
+                    "location": [
+                        16,
+                        3
+                    ],
+                    "label_value": "Banca:",
+                    "label_location": [
+                        16,
+                        2
+                    ]
+                },
+                "IBAN": {
+                    "value": "RO29 BTRL RONC RT05 5704 8601",
+                    "location": [
+                        17,
+                        3
+                    ],
+                    "label_value": "Cont:",
+                    "label_location": [
+                        17,
+                        2
+                    ]
+                },
+                "phone": {
+                    "value": "0744-68.48.76",
+                    "location": [
+                        15,
+                        3
+                    ],
+                    "label_value": "Tel:",
+                    "label_location": [
+                        15,
+                        2
+                    ]
+                },
+                "email": {
+                    "value": "renware.systems@gmail.com",
+                    "location": [
+                        14,
+                        3
+                    ],
+                    "label_value": "Email:",
+                    "label_location": [
+                        14,
+                        2
+                    ]
+                }
+            }
+        },
+        "invoice_footer_area": {
+            "start_cell": [
+                26,
+                1
+            ],
+            "end_cell": [
+                31,
+                9
+            ]
+        }
+    }
+}
