@@ -1,4 +1,4 @@
-"""Layer 2 **commands** implementation.
+"""*Layer 2 commands* implementation.
 
 Objectives:
 
@@ -99,7 +99,6 @@ class Commands:
         Return:
             `bool`: any change was made
         """
-        #FIXME.test.next.code
         ret_code = False
         if file_name != ...:
             self.session_data.file_name = file_name
@@ -126,7 +125,7 @@ class Commands:
 
 
     @classmethod
-    def version(cls) -> str:  #FIXME test.me
+    def version(cls) -> str:
         """return the version of `xl2roefact` used by this class
         """
         return xl2roefact_version
@@ -175,7 +174,6 @@ class Commands:
             verbose = self.session_data.verbose
         else:
             self.session_data.verbose = verbose
-        print(f"***TEST DATA RECVD;\n{self.session_data=}") #FIXME drop.me as dbg
         #
         # core function process
         console = Console() #TODO: redirect out to a file a variable to collect and return it at finish...
