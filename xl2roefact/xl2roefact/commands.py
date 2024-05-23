@@ -53,7 +53,7 @@ class SessionDataType:
     invoice_type: InvoiceTypesEnum = None
     files_directory: Path = None
     owner_datafile: Path = None
-    verbosity: bool = None
+    verbose: bool = None
 
 
 class Commands:
@@ -63,16 +63,17 @@ class Commands:
     # Default session data values (used when no other data is provided). Default values are only for "clear known" variables
     default_data = SessionDataType(
         file_name = "*.xlsx",
-        invoice_type = InvoiceTypesEnum.NORMALA.value,
+        invoice_type = InvoiceTypesEnum.NORMALA,
         files_directory =  "invoice_files/",
         owner_datafile = None,
-        verbosity = False
+        verbose = False
     )
 
 
     def __init__(self):
         """Init session data variables with default values.
         """
+        self.session_data = SessionDataType()
         self.session_data_reset()  # get default values
 
 
@@ -82,7 +83,7 @@ class Commands:
         invoice_type: InvoiceTypesEnum = ...,
         files_directory: Path = ...,
         owner_datafile: Path = ...,
-        verbosity: bool = ...
+        verbose: bool = ...
     ) -> bool:
         """Set session data.
 
@@ -112,8 +113,8 @@ class Commands:
         if owner_datafile != ...:
             self.session_data.owner_datafile = owner_datafile
             ret_code = True
-        if verbosity != ...:
-            self.session_data.verbosity = verbosity
+        if verbose != ...:
+            self.session_data.verbose = verbose
             ret_code = True
         return ret_code
 
@@ -133,11 +134,11 @@ class Commands:
 
     def xl2json(
         self,
-        invoice_type: InvoiceTypesEnum  = "...",
-        file_name: str = "...",
-        files_directory: Path = "...",
-        owner_datafile: Path = "...",
-        verbose: bool = "..."
+        invoice_type: InvoiceTypesEnum  = ...,
+        file_name: str = ...,
+        files_directory: Path = ...,
+        owner_datafile: Path = ...,
+        verbose: bool = ...
     ) -> bool:  #FIXME what returns? at least: console messages & execution state (ie, did or not something)
         """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
 
@@ -174,6 +175,7 @@ class Commands:
             verbose = self.session_data.verbose
         else:
             self.session_data.verbose = verbose
+        print(f"***TEST DATA RECVD;\n{self.session_data=}") #FIXME drop.me as dbg
         #
         # core function process
         console = Console() #TODO: redirect out to a file a variable to collect and return it at finish...
