@@ -99,19 +99,19 @@ class Commands:
             `bool`: any change was made
         """
         ret_code = False
-        if file_name != ...:
+        if file_name is not ...:
             self.session_data.file_name = file_name
             ret_code = True
-        if invoice_type != ...:
+        if invoice_type is not ...:
             self.session_data.invoice_type = invoice_type
             ret_code = True
-        if files_directory != ...:
+        if files_directory is not ...:
             self.session_data.files_directory = files_directory
             ret_code = True
-        if owner_datafile != ...:
+        if owner_datafile is not ...:
             self.session_data.owner_datafile = owner_datafile
             ret_code = True
-        if verbose != ...:
+        if verbose is not ...:
             self.session_data.verbose = verbose
             ret_code = True
         return ret_code
@@ -153,27 +153,27 @@ class Commands:
         # for not specified parameters get default values from session_data:
         #     - IF any parameter == ...:  get params from session data
         #     - ELSE: save param to session data (helps to avoid parameters repeating in same session) 
-        if invoice_type == ...:
+        if invoice_type is ...:
             invoice_type = self.session_data.invoice_type
         else:
             #... self.session_data.invoice_type = invoice_type
             self.session_data_set(invoice_type)
-        if file_name == ...:
+        if file_name is ...:
             file_name = self.session_data.file_name
         else:
             #... self.session_data.file_name = file_name
             self.session_data_set(file_name)
-        if files_directory == ...:
+        if files_directory is ...:
             files_directory = self.session_data.files_directory
         else:
             #... self.session_data.files_directory = files_directory
             self.session_data_set(files_directory)
-        if owner_datafile == ...:
+        if owner_datafile is ...:
             owner_datafile = self.session_data.owner_datafile
         else:
             #... self.session_data.owner_datafile = owner_datafile
             self.session_data_set(owner_datafile)
-        if verbose == ...:
+        if verbose is ...:
             verbose = self.session_data.verbose
         else:
             #... self.session_data.verbose = verbose
