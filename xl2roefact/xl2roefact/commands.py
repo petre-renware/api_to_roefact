@@ -157,27 +157,27 @@ class Commands:
             invoice_type = self.session_data.invoice_type
         else:
             #... self.session_data.invoice_type = invoice_type
-            self.session_data_set(invoice_type)
+            self.session_data_set(invoice_type = invoice_type)
         if file_name is ...:
             file_name = self.session_data.file_name
         else:
             #... self.session_data.file_name = file_name
-            self.session_data_set(file_name)
+            self.session_data_set(file_name = file_name)
         if files_directory is ...:
             files_directory = self.session_data.files_directory
         else:
             #... self.session_data.files_directory = files_directory
-            self.session_data_set(files_directory)
+            self.session_data_set(files_directory = files_directory)
         if owner_datafile is ...:
             owner_datafile = self.session_data.owner_datafile
         else:
             #... self.session_data.owner_datafile = owner_datafile
-            self.session_data_set(owner_datafile)
+            self.session_data_set(owner_datafile = owner_datafile)
         if verbose is ...:
             verbose = self.session_data.verbose
         else:
             #... self.session_data.verbose = verbose
-            self.session_data_set(verbose)
+            self.session_data_set(verbose = verbose)
         #
         # core function process
         console = Console() #TODO: redirect out to a file a variable to collect and return it at finish...
