@@ -1,8 +1,8 @@
-"""*Layer 2 commands* implementation.
+"""*Layer 2 commands* API implementation.
 
 Objectives:
 
-* create an environment wheree a xl2roefact can be run in *session or interactivelly mode*
+* create an environment where a xl2roefact can be run in *session or interactivelly mode*
 * session parameters: persist commands run parameters in user profile (directory of `os.%userprofile%` or Linux `~/.profile`)
 * group all layer 2 commands for:
     * `xl2roefactd` (aka server)
@@ -24,7 +24,6 @@ from .__version__ import __version__ as xl2roefact_version
 import dataclasses
 from dataclasses import dataclass
 from pathlib import Path
-#FIXME.drop.id.unused... from rich import print
 from typing import Optional
 from datetime import datetime
 from rich import print
@@ -152,28 +151,33 @@ class Commands:
             `...`: ...
         """
         # for not specified parameters get default values from session_data:
-        #     - if a_parameter == ...:  get params from session data
-        #     - esle: save param to session data (helps to avoid parameters repeating in same session) 
+        #     - IF any parameter == ...:  get params from session data
+        #     - ELSE: save param to session data (helps to avoid parameters repeating in same session) 
         if invoice_type == ...:
             invoice_type = self.session_data.invoice_type
         else:
-            self.session_data.invoice_type = invoice_type
+            #... self.session_data.invoice_type = invoice_type
+            session_data_set(invoice_type)
         if file_name == ...:
             file_name = self.session_data.file_name
         else:
-            self.session_data.file_name = file_name
+            #... self.session_data.file_name = file_name
+            session_data_set(file_name)
         if files_directory == ...:
             files_directory = self.session_data.files_directory
         else:
-            self.session_data.files_directory = files_directory
+            #... self.session_data.files_directory = files_directory
+            session_data_set(files_directory)
         if owner_datafile == ...:
             owner_datafile = self.session_data.owner_datafile
         else:
-            self.session_data.owner_datafile = owner_datafile
+            #... self.session_data.owner_datafile = owner_datafile
+            session_data_set(owner_datafile)
         if verbose == ...:
             verbose = self.session_data.verbose
         else:
-            self.session_data.verbose = verbose
+            #... self.session_data.verbose = verbose
+            session_data_set(verbose)
         #
         # core function process
         console = Console() #TODO: redirect out to a file a variable to collect and return it at finish...
