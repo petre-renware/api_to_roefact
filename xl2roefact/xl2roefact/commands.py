@@ -151,7 +151,7 @@ class Commands:
             `...`: ...
         """
         # for not specified parameters get default values from session_data:
-        #     - IF any parameter == ...:  get params from session data
+        #     - IF any parameter is `...`: get params from session data
         #     - ELSE: save param to session data (helps to avoid parameters repeating in same session) 
         if invoice_type is ...:
             invoice_type = self.session_data.invoice_type
