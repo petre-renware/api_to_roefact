@@ -195,35 +195,9 @@ class Commands:
             full_path_owner_datafile = None
             if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
                 full_path_owner_datafile = hier_get_data_file(owner_datafile)
-                if full_path_owner_datafile:
-                    ... #FIXME code in dropping => remain else
-                    '''
-                    invoice_datadict = rdinv(
-                        invoice_type_code=invoice_type,
-                        file_to_process=invoice_to_process,
-                        debug_info=rdinv_run_messages,
-                        owner_datafile=full_path_owner_datafile
-                    )
-                    if verbose:
-                        for msg in rdinv_run_messages:
-                            console.print(msg)
-                    '''
-                else:
+                if not full_path_owner_datafile or full_path_owner_datafile is None:
                     console.print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
                     return  # just exit...
-            else:
-                ... #FIXME code in dropping => branch useless
-                '''
-                invoice_datadict = rdinv(
-                    invoice_type_code=invoice_type,
-                    file_to_process=invoice_to_process,
-                    debug_info=rdinv_run_messages
-                )
-                if verbose:
-                    for msg in rdinv_run_messages:
-                        console.print(msg)
-                '''
-            ... #FIXME mvd code
             invoice_datadict = rdinv(
                 invoice_type_code=invoice_type,
                 file_to_process=invoice_to_process,
@@ -233,7 +207,6 @@ class Commands:
             if verbose:
                 for msg in rdinv_run_messages:
                     console.print(msg)
-            ... #FIXME mvd code
             if not invoice_datadict:
                 console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
         # end of core function process
