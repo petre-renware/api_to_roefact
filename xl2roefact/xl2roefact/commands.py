@@ -1,8 +1,8 @@
-"""*Layer 2 commands* implementation.
+"""*Layer 2 commands* API implementation.
 
 Objectives:
 
-* create an environment wheree a xl2roefact can be run in *session or interactivelly mode*
+* create an environment where a xl2roefact can be run in *session or interactivelly mode*
 * session parameters: persist commands run parameters in user profile (directory of `os.%userprofile%` or Linux `~/.profile`)
 * group all layer 2 commands for:
     * `xl2roefactd` (aka server)
@@ -24,7 +24,6 @@ from .__version__ import __version__ as xl2roefact_version
 import dataclasses
 from dataclasses import dataclass
 from pathlib import Path
-#FIXME.drop.id.unused... from rich import print
 from typing import Optional
 from datetime import datetime
 from rich import print
@@ -100,19 +99,19 @@ class Commands:
             `bool`: any change was made
         """
         ret_code = False
-        if file_name != ...:
+        if file_name is not ...:
             self.session_data.file_name = file_name
             ret_code = True
-        if invoice_type != ...:
+        if invoice_type is not ...:
             self.session_data.invoice_type = invoice_type
             ret_code = True
-        if files_directory != ...:
+        if files_directory is not ...:
             self.session_data.files_directory = files_directory
             ret_code = True
-        if owner_datafile != ...:
+        if owner_datafile is not ...:
             self.session_data.owner_datafile = owner_datafile
             ret_code = True
-        if verbose != ...:
+        if verbose is not ...:
             self.session_data.verbose = verbose
             ret_code = True
         return ret_code
@@ -138,7 +137,7 @@ class Commands:
         files_directory: Path = ...,
         owner_datafile: Path = ...,
         verbose: bool = ...
-    ) -> bool:  #FIXME what returns? at least: console messages & execution state (ie, did or not something)
+    ) -> dict:
         """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
 
         Args:
@@ -149,32 +148,36 @@ class Commands:
             `verbose`: show detailed processing messages". Defaults to `False`.
 
         Return:
-            `...`: ...
+            `dict`: ...tbd; *status* (HTML style), *Invoice key* of generated JSON 
         """
         # for not specified parameters get default values from session_data:
-        #     - if a_parameter == ...:  get params from session data
-        #     - esle: save param to session data (helps to avoid parameters repeating in same session) 
-        if invoice_type == ...:
+        #     - IF any parameter is `...`: get params from session data
+        #     - ELSE: save param to session data (helps to avoid parameters repeating in same session) 
+        if invoice_type is ...:
             invoice_type = self.session_data.invoice_type
         else:
-            self.session_data.invoice_type = invoice_type
-        if file_name == ...:
+            self.session_data_set(invoice_type = invoice_type)
+
+        if file_name is ...:
             file_name = self.session_data.file_name
         else:
-            self.session_data.file_name = file_name
-        if files_directory == ...:
+            self.session_data_set(file_name = file_name)
+
+        if files_directory is ...:
             files_directory = self.session_data.files_directory
         else:
-            self.session_data.files_directory = files_directory
-        if owner_datafile == ...:
+            self.session_data_set(files_directory = files_directory)
+
+        if owner_datafile is ...:
             owner_datafile = self.session_data.owner_datafile
         else:
-            self.session_data.owner_datafile = owner_datafile
-        if verbose == ...:
+            self.session_data_set(owner_datafile = owner_datafile)
+
+        if verbose is ...:
             verbose = self.session_data.verbose
         else:
-            self.session_data.verbose = verbose
-        #
+            self.session_data_set(verbose = verbose)
+        
         # core function process
         console = Console() #TODO: redirect out to a file a variable to collect and return it at finish...
         console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
@@ -210,7 +213,13 @@ class Commands:
             if not invoice_datadict:
                 console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
         # end of core function process
-        return ... #TODO see what you defined for return ...
+
+        # compose result to return
+        response = dict(
+            status = 200,  #FIXME TODO: chk all errs possible to stop process, if owner data file, ...
+            invoice = invoice_datadict  #FIXME TODO: extract only "Invoice" key
+        )
+        return response
 
 
     def settings(
