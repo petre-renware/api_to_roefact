@@ -24,7 +24,9 @@ from .__version__ import __version__ as xl2roefact_version
 import dataclasses
 from dataclasses import dataclass
 from pathlib import Path
+
 from typing import Optional, Any
+
 from datetime import datetime
 from rich import print
 from rich.pretty import pprint
