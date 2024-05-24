@@ -24,29 +24,38 @@ from .__version__ import __version__ as xl2roefact_version
 import dataclasses
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+
+from typing import Optional, Any
+
 from datetime import datetime
 from rich import print
 from rich.pretty import pprint
 from rich.markdown import Markdown
 from rich.console import Console
+from collections import deque
+
 # xl2roefact specific libraries
 from .libutils import hier_get_data_file
 from . import config_settings as configs  # configuration elements to use with `settings` command
-from .rdinv import rdinv  # status #TODO: wip...
-from .wrxml import wrxml  # status #FIXME: not yet started
-from .chkxml import chkxml  # status #FIXME: not yet started
-from .ldxml import ldxml  # status #FIXME: not yet started
-from .chkisld import chkisld  # status #FIXME: not yet started
-# xl2roefact specific libraries
+from .rdinv import rdinv
 from .sys_settings import InvoiceTypesEnum
 
 
 
 
 @dataclass
+class CommandResult:
+    """Define the result of a command.
+    """
+    status_code: int = None
+    status_text: str = None
+    result: Any = None
+    stdout_text: str = None
+    stdout_html: str = None
+
+@dataclass
 class SessionDataType:
-    """Define session data used in class `Commands`
+    """Define session data used in class `Commands`.
     """
     file_name: str = None
     invoice_type: InvoiceTypesEnum = None
@@ -56,7 +65,7 @@ class SessionDataType:
 
 
 class Commands:
-    """xl2roefact commands layer implementation. [Details here](../doc/README_xl2roefact_library.md)
+    """xl2roefact commands layer implementation. [Details here](../doc/README_xl2roefact_library.md).
     """
 
     # Default session data values (used when no other data is provided). Default values are only for "clear known" variables
@@ -67,6 +76,9 @@ class Commands:
         owner_datafile = None,
         verbose = False
     )
+
+    # Session results usable  only as instance variable
+    session_results: deque[CommandResult] = deque()
 
 
     def __init__(self):
