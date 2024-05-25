@@ -25,7 +25,7 @@ import dataclasses
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Any
-from datetime import datetime
+from datetime import datetime, timezone, tzinfo, timedelta
 from rich import print
 from rich.pretty import pprint
 from rich.markdown import Markdown
@@ -86,7 +86,7 @@ class Commands:
         rslt = CommandResult(
             status_code = 200,
             status_timestamp = datetime.now(timezone.utc).isoformat(),
-            status_text = "xlroefact session started"
+            status_text = "xl2roefact session started"
         )
         self.session_results.append(rslt)          
 
@@ -233,7 +233,7 @@ class Commands:
         response = CommandResult(
             status_code = 200,
             status_timestamp = datetime.now(timezone.utc).isoformat(),
-            status_text = "xlroefact session started",
+            status_text = "xl2json session started",
             result = invoice_datadict,  #FIXME TODO: extract only "Invoice" key
             stdout_text = "...tbd",  #FIXME wip...
             stdout_html = "...tbd",  #FIXME wip...
