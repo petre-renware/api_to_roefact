@@ -82,10 +82,10 @@ class Commands:
         """
         self.session_data = SessionDataType()
         self.session_data_reset()  # get default values
-        self.session_results: = deque()
+        self.session_results = deque()
         rslt = CommandResult(
-            status_code = 200
-            status_timestamp = datetime.now(timezone.utc).isoformat()
+            status_code = 200,
+            status_timestamp = datetime.now(timezone.utc).isoformat(),
             status_text = "xlroefact session started"
         )
         self.session_results.append(rslt)          
@@ -243,8 +243,7 @@ class Commands:
 
 
     def results_stack_pop(
-        self,
-        ...
+        self #FIXME ...more params here ? ...
     ) -> dict:
         """Get last result dictionary from stack WITHOUT drooping it.
 
