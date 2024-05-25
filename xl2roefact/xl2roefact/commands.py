@@ -24,9 +24,7 @@ from .__version__ import __version__ as xl2roefact_version
 import dataclasses
 from dataclasses import dataclass
 from pathlib import Path
-
 from typing import Optional, Any
-
 from datetime import datetime
 from rich import print
 from rich.pretty import pprint
@@ -48,6 +46,7 @@ class CommandResult:
     """Define the result of a command.
     """
     status_code: int = None
+    status_timestamp: str = None
     status_text: str = None
     result: Any = None
     stdout_text: str = None
@@ -77,15 +76,19 @@ class Commands:
         verbose = False
     )
 
-    # Session results usable  only as instance variable
-    session_results: deque[CommandResult] = deque()
-
 
     def __init__(self):
         """Init session data variables with default values.
         """
         self.session_data = SessionDataType()
         self.session_data_reset()  # get default values
+        self.session_results: = deque()
+        rslt = CommandResult(
+            status_code = 200
+            status_timestamp = datetime.now(timezone.utc).isoformat()
+            status_text = "xlroefact session started"
+        )
+        self.session_results.append(rslt)          
 
 
     def session_data_set(
@@ -160,7 +163,7 @@ class Commands:
             `verbose`: show detailed processing messages". Defaults to `False`.
 
         Return:
-            `dict`: ...tbd; *status* (HTML style), *Invoice key* of generated JSON 
+            `dict`: command execution result (also preserved in session results stack)
         """
         # for not specified parameters get default values from session_data:
         #     - IF any parameter is `...`: get params from session data
@@ -227,11 +230,31 @@ class Commands:
         # end of core function process
 
         # compose result to return
-        response = dict(
-            status = 200,  #FIXME TODO: chk all errs possible to stop process, if owner data file, ...
-            invoice = invoice_datadict  #FIXME TODO: extract only "Invoice" key
+        response = CommandResult(
+            status_code = 200,
+            status_timestamp = datetime.now(timezone.utc).isoformat(),
+            status_text = "xlroefact session started",
+            result = invoice_datadict,  #FIXME TODO: extract only "Invoice" key
+            stdout_text = "...tbd",  #FIXME wip...
+            stdout_html = "...tbd",  #FIXME wip...
         )
+        self.session_results.append(response)
         return response
+
+
+    def results_stack_pop(
+        self,
+        ...
+    ) -> dict:
+        """Get last result dictionary from stack WITHOUT drooping it.
+
+        Args:
+            `...`: tbd...
+
+        Reeturn:
+            `dict`: last result
+        """
+        ... #TODO code here... also 
 
 
     def settings(
