@@ -195,7 +195,7 @@
                 }
             ]
         },
-        "cbc_Note": "generated @2024-05-25T16:08:26.332625+00:00 with xl2roefact by RENware Software Systems",
+        "cbc_Note": "generated @2024-05-26T03:39:57.430734+00:00 with xl2roefact by RENware Software Systems",
         "cac_PaymentMeans": {
             "cbc_PaymentMeansCode": 1
         },
@@ -208,7 +208,7 @@
     "meta_info": {
         "file": "fact_RENF1004.xlsx",
         "file_CRC": "...n/a in current version. Contains file CRC to identify source invoice file",
-        "last_processing_time": "2024-05-25T16:08:26.332163+00:00",
+        "last_processing_time": "2024-05-26T03:39:57.430186+00:00",
         "invoice_worksheet": "FACTURA FINALA",
         "invoice_max_rows": 31,
         "invoice_max_cols": 9,

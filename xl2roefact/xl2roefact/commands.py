@@ -86,9 +86,10 @@ class Commands:
         rslt = CommandResult(
             status_code = 200,
             status_timestamp = datetime.now(timezone.utc).isoformat(),
-            status_text = "xl2roefact session started"
+            status_text = "xl2json command started"
         )
         self.session_results.append(rslt)          
+        self.response = CommandResult()  # prepare an ampty result to be used by/in command execution
 
 
     def session_data_set(
@@ -152,7 +153,7 @@ class Commands:
         files_directory: Path = ...,
         owner_datafile: Path = ...,
         verbose: bool = ...
-    ) -> dict:
+    ) -> bool:
         """read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data
 
         Args:
@@ -163,7 +164,7 @@ class Commands:
             `verbose`: show detailed processing messages". Defaults to `False`.
 
         Return:
-            `dict`: command execution result (also preserved in session results stack)
+            `bool`: True if command executed without errors. If return in False, the kasr result should be inspected to see error status and text (method `results_stack_pop()`)
         """
         # for not specified parameters get default values from session_data:
         #     - IF any parameter is `...`: get params from session data
@@ -200,8 +201,10 @@ class Commands:
         tmp_files_to_process = Path(files_directory)
         if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
             tmp_files_to_process = Path(".").absolute()
+            #FIXME prepare self.response code and text 
             console.print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
         if verbose:
+            #FIXME prepare self.response code and text
             console.print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
             console.print()
         list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
@@ -215,7 +218,8 @@ class Commands:
                 full_path_owner_datafile = hier_get_data_file(owner_datafile)
                 if not full_path_owner_datafile or full_path_owner_datafile is None:
                     console.print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
-                    return  # just exit...
+                    #FIXME prepare self.response variable, enque it and then return
+                    return False  # just exit...
             invoice_datadict = rdinv(
                 invoice_type_code=invoice_type,
                 file_to_process=invoice_to_process,
@@ -227,19 +231,19 @@ class Commands:
                     console.print(msg)
             if not invoice_datadict:
                 console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
+                #FIXME mark in a way to set upper print text in queued self.response instead of existing agnostic msg ?
         # end of core function process
 
         # compose result to return
-        response = CommandResult(
-            status_code = 200,
-            status_timestamp = datetime.now(timezone.utc).isoformat(),
-            status_text = "xl2json session started",
-            result = invoice_datadict,  #FIXME TODO: extract only "Invoice" key
-            stdout_text = "...tbd",  #FIXME wip...
-            stdout_html = "...tbd",  #FIXME wip...
-        )
-        self.session_results.append(response)
-        return response
+        self.response.status_code = 200
+        self.response.status_timestamp = datetime.now(timezone.utc).isoformat()
+        self.response.status_text = "xl2json command terminated"
+        self.response.result = invoice_datadict  #FIXME TODO: extract only "Invoice" key
+        self.response.stdout_text = "...tbd"  #FIXME wip...
+        self.response.stdout_html = "...tbd"  #FIXME wip...
+
+        self.session_results.append(self.response)
+        return True
 
 
     def results_stack_pop(
