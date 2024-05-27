@@ -21,6 +21,7 @@ from .__version__ import __version__ as xl2roefact_version
 #FIXME.drop.id.unused... from .__version__ import normalized_version as normalized_version
 
 # general librarie
+import copy
 import dataclasses
 from dataclasses import dataclass
 from pathlib import Path
@@ -268,18 +269,28 @@ class Commands:
         return
 
 
-    def results_stack_pop(
-        self #FIXME ...more params here ? ...
-    ) -> dict:
+    def get_last_result(self) -> dict[CommandResult]:
         """Get last result dictionary from stack WITHOUT drooping it.
 
-        Args:
-            `...`: tbd...
+        Reeturn:
+            `CommandResult`: last result as dictionary
+        """
+        tmp = self.session_results.pop()  # pop() method remove the item get, so ...
+        self.session_results.append(tmp)  # ...put it back
+        return dataclasses.asdict(tmp)
+
+
+    def pop_session_results(self) -> list[CommandResult]:
+        """Get all session results as dictionary.
 
         Reeturn:
-            `dict`: last result
+            `CommandResult`: list with all session result as dictionary
         """
-        ... #TODO code here... also 
+        rslt = list()
+        for i in self.session_results:  # traversal is in insertion order (ie, from first to last enqueued item)
+            rslt.append(dataclasses.asdict(i))
+        self.session_results.clear()  # empty session results queue
+        return rslt
 
 
     def settings(
