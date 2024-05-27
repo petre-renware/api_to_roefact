@@ -21,6 +21,7 @@ from .__version__ import __version__ as xl2roefact_version
 #FIXME.drop.id.unused... from .__version__ import normalized_version as normalized_version
 
 # general librarie
+import copy
 import dataclasses
 from dataclasses import dataclass
 from pathlib import Path
