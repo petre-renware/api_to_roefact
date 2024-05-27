@@ -290,7 +290,7 @@ class Commands:
         for i in self.session_results:
             rslt.append(dataclasses.asdict(i))
         self.session_results.clear()  # empty session results queue
-        return rslt.reverse()
+        return rslt #FIXME.SET.BACK .reverse()
 
 
     def settings(
