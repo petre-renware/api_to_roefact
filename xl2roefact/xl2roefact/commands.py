@@ -268,7 +268,7 @@ class Commands:
         return
 
 
-    def results_stack_get(self) -> dict[CommandResult]:
+    def get_last_result(self) -> dict[CommandResult]:
         """Get last result dictionary from stack WITHOUT drooping it.
 
         Reeturn:
@@ -277,6 +277,19 @@ class Commands:
         tmp = self.session_results.pop()  # pop() method remove the item get, so ...
         self.session_results.append(tmp)  # ...put it back
         return dataclasses.asdict(tmp)
+
+
+    def get_session_results(self) -> list[CommandResult]:
+        """Get all session results as dictionary.
+
+        Reeturn:
+            `CommandResult`: list with all session result as dictionary
+        """
+        rslt = list()
+        for i in self.session_results:
+            tmp = self.session_results.pop()
+            rslt = copy.deepcopy([dataclasses.asdict(tmp)].extend(rslt))
+        return rslt
 
 
     def settings(
