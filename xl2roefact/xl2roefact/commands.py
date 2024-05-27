@@ -288,7 +288,7 @@ class Commands:
         """
         rslt = list()
         for i in self.session_results:
-            tmp = self.session_results.pop()
+            tmp = copy.deepcopy(self.session_results.pop())
             rslt = copy.deepcopy([dataclasses.asdict(tmp)].extend(rslt))
         return rslt
 
