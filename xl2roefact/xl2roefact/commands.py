@@ -287,10 +287,10 @@ class Commands:
             `CommandResult`: list with all session result as dictionary
         """
         rslt = list()
-        for i in self.session_results:
+        for i in self.session_results:  # traversal is in insertion order (ie, from first to last enqueued item)
             rslt.append(dataclasses.asdict(i))
         self.session_results.clear()  # empty session results queue
-        return rslt #FIXME.SET.BACK .reverse()
+        return rslt
 
 
     def settings(
