@@ -280,7 +280,7 @@ class Commands:
         return dataclasses.asdict(tmp)
 
 
-    def get_session_results(self) -> list[CommandResult]:
+    def pop_session_results(self) -> list[CommandResult]:
         """Get all session results as dictionary.
 
         Reeturn:
@@ -288,8 +288,8 @@ class Commands:
         """
         rslt = list()
         for i in self.session_results:
-            tmp = self.session_results.pop()
-            rslt.append(dataclasses.asdict(tmp))
+            rslt.append(dataclasses.asdict(i))
+        self.session_results.clear()  # empty session results queue
         return rslt.reverse()
 
 
