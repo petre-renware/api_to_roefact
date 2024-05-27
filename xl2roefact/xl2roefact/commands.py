@@ -268,18 +268,15 @@ class Commands:
         return
 
 
-    def results_stack_pop(
-        self #FIXME ...more params here ? ...
-    ) -> dict:
+    def results_stack_get(self) -> dict[CommandResult]:
         """Get last result dictionary from stack WITHOUT drooping it.
 
-        Args:
-            `...`: tbd...
-
         Reeturn:
-            `dict`: last result
+            `CommandResult`: last result as dictionary
         """
-        ... #TODO code here... also 
+        tmp = self.session_results.pop()  # pop() method remove the item get, so ...
+        self.session_results.append(tmp)  # ...put it back
+        return dataclasses.asdict(tmp)
 
 
     def settings(
