@@ -288,9 +288,9 @@ class Commands:
         """
         rslt = list()
         for i in self.session_results:
-            tmp = copy.deepcopy(self.session_results.pop())
-            rslt = copy.deepcopy([dataclasses.asdict(tmp)].extend(rslt))
-        return rslt
+            tmp = self.session_results.pop()
+            rslt.append(dataclasses.asdict(tmp))
+        return rslt.reverse()
 
 
     def settings(
