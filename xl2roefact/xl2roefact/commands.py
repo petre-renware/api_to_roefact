@@ -75,20 +75,25 @@ class Commands:
         owner_datafile = None,
         verbose = False
     )
+    # default rich.Console variable designed to collect all session stdout prints
+    console: Console = Console(record=True)
 
 
     def __init__(self):
         """Init session data variables with default values.
         """
+        #FIXME.drop.this.after.tst self.console = __class__.console  # initialize a new console
         self.session_data = SessionDataType()
         self.session_data_reset()  # get default values
         self.session_results = deque()
+        ... #FIXME this should use meanwhile built interfaces
         rslt = CommandResult(
             status_code = 200,
             status_timestamp = datetime.now(timezone.utc).isoformat(),
             status_text = "xl2json command started"
         )
         self.session_results.append(rslt)          
+        ... #FIXME ..end if section that should be changed to new interfaces
         self.response = CommandResult()  # prepare an ampty result to be used by/in command execution
 
 
@@ -173,40 +178,36 @@ class Commands:
             invoice_type = self.session_data.invoice_type
         else:
             self.session_data_set(invoice_type = invoice_type)
-
         if file_name is ...:
             file_name = self.session_data.file_name
         else:
             self.session_data_set(file_name = file_name)
-
         if files_directory is ...:
             files_directory = self.session_data.files_directory
         else:
             self.session_data_set(files_directory = files_directory)
-
         if owner_datafile is ...:
             owner_datafile = self.session_data.owner_datafile
         else:
             self.session_data_set(owner_datafile = owner_datafile)
-
         if verbose is ...:
             verbose = self.session_data.verbose
         else:
             self.session_data_set(verbose = verbose)
-        
+
         # core function process
-        console = Console() #TODO: redirect out to a file a variable to collect and return it at finish...
-        console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
+        self.console = __class__.console  # set a fresh Console variable usable for this method (ie, command) execution
+        self.console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
         # prep Excel files to rocess as requested in command line (NOTE: if default directory does not exists will consider current directory instead)
         tmp_files_to_process = Path(files_directory)
         if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
             tmp_files_to_process = Path(".").absolute()
             #FIXME prepare self.response code and text 
-            console.print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
+            self.console.print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
         if verbose:
             #FIXME prepare self.response code and text
-            console.print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
-            console.print()
+            self.console.print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
+            self.console.print()
         list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
         # process Excel files list
         for a_file in list_of_files_to_process:
@@ -217,7 +218,7 @@ class Commands:
             if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
                 full_path_owner_datafile = hier_get_data_file(owner_datafile)
                 if not full_path_owner_datafile or full_path_owner_datafile is None:
-                    console.print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
+                    self.console.print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
                     #FIXME prepare self.response variable, enque it and then return
                     return False  # just exit...
             invoice_datadict = rdinv(
@@ -228,22 +229,43 @@ class Commands:
             )
             if verbose:
                 for msg in rdinv_run_messages:
-                    console.print(msg)
+                    self.console.print(msg)
             if not invoice_datadict:
-                console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
+                self.console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
                 #FIXME mark in a way to set upper print text in queued self.response instead of existing agnostic msg ?
         # end of core function process
 
-        # compose result to return
-        self.response.status_code = 200
+        # compose result before exiting
+        self.response_out(
+            status_code = 200,
+            status_text = "xl2json command terminated",
+            status_result = invoice_datadict  #FIXME TODO: extract only "Invoice" key
+        )
+        return True
+
+
+    def response_out( #FIXME TODO: wip...@ 240527 06:00
+        self, *,
+        status_code = 200,
+        status_text = "undefined",
+        status_result = "undefined",
+    ):
+        """Prepare and enque a response. This is designed to be in-class used and not for public interface.
+        Arguments are min of what to be enqueued. Other ibformation are constructed local.
+        """
+        self.response.status_code = status_code
         self.response.status_timestamp = datetime.now(timezone.utc).isoformat()
-        self.response.status_text = "xl2json command terminated"
-        self.response.result = invoice_datadict  #FIXME TODO: extract only "Invoice" key
+        self.response.status_text = status_text
+        self.response.result = status_result
+        '''... #FIXME wip... 
+        - get recorded in self.console
+        - use export console interface `https://rich.readthedocs.io/en/stable/console.html#capturing-output` 
+        '''
         self.response.stdout_text = "...tbd"  #FIXME wip...
         self.response.stdout_html = "...tbd"  #FIXME wip...
-
+        ... #FIXME wip...
         self.session_results.append(self.response)
-        return True
+        return
 
 
     def results_stack_pop(
