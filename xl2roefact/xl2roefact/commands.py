@@ -258,12 +258,10 @@ class Commands:
         self.response.status_timestamp = datetime.now(timezone.utc).isoformat()
         self.response.status_text = status_text
         self.response.result = status_result
-        ... #FIXME test.me ... 
         tmp_console_plain = self.console.export_text(clear=False, styles=False)  # get console up here keeping it as plain text
         tmp_console_styled = self.console.export_html(clear=False, inline_styles=True)  # get console up here keeping it as strong styled text
         self.response.stdout_text = tmp_console_plain
         self.response.stdout_html = tmp_console_styled
-        ... #FIXME test up here ...
         self.session_results.append(self.response)
         return
 
