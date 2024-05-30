@@ -258,13 +258,10 @@ class Commands:
         self.response.status_timestamp = datetime.now(timezone.utc).isoformat()
         self.response.status_text = status_text
         self.response.result = status_result
-        '''... #FIXME wip... 
-        - get recorded in self.console
-        - use export console interface `https://rich.readthedocs.io/en/stable/console.html#capturing-output` 
-        '''
-        self.response.stdout_text = "...tbd"  #FIXME wip...
-        self.response.stdout_html = "...tbd"  #FIXME wip...
-        ... #FIXME wip...
+        tmp_console_plain = self.console.export_text(clear=False, styles=False)  # get console up here keeping it as plain text
+        tmp_console_styled = self.console.export_html(clear=False, inline_styles=True)  # get console up here keeping it as strong styled text
+        self.response.stdout_text = tmp_console_plain
+        self.response.stdout_html = tmp_console_styled
         self.session_results.append(self.response)
         return
 
@@ -284,7 +281,7 @@ class Commands:
         """Get all session results as dictionary.
 
         Reeturn:
-            `CommandResult`: list with all session result as dictionary
+            `CommandResult`: list with all session results as dictionary
         """
         rslt = list()
         for i in self.session_results:  # traversal is in insertion order (ie, from first to last enqueued item)
