@@ -12,7 +12,7 @@ python -m pip install pdm >NUL
 python -m pdm install >NUL
 
 echo ****** build DLD documentation
-rem pdm run build_doc
+pdm run build_doc
 
 
 
