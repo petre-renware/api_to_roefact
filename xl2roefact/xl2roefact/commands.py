@@ -65,7 +65,7 @@ class SessionDataType:
 
 
 class Commands:
-    """xl2roefact commands layer implementation. [Details here](../doc/README_xl2roefact_library.md).
+    """xl2roefact commands layer implementation. [Descriere generala layer si componenta.](../doc/README_xl2roefact_library.md).
     """
 
     # Default session data values (used when no other data is provided). Default values are only for "clear known" variables
