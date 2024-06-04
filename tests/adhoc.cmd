@@ -11,9 +11,8 @@ cd xl2roefact
 python -m pip install pdm >NUL
 python -m pdm install >NUL
 
+echo ****** build DLD documentation
 rem pdm run build_doc
 
-echo Show app version on SEXE run
-.\dist\xl2roefact-0.5.4-win64.exe -V
 
 
