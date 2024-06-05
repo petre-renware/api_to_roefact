@@ -48,12 +48,12 @@ class CommandResult:
     After each method execution all "prints" and status information stated by method in its execution (ie, which was saved) will be contained in.
 
     Fields:
-    * `status_code`: type `int`. Status code as used by HTTP standard returned codes (200 for success)
-    * `status_timestamp`: type `str`. Timestamp of information in UTC ISO format
-    * `status_text`: type `str`. Short text of this result set. Normally used to display a brief message note associated to code (for example "404 Not found")
-    * `result`: type `Any`. The effective result information returned by method as core result of execution. Depending on method, this is a *Python specific structure*, scalar, basic or complex one
-    * `stdout_text`: type `str`. Collected console "prints" output in text format. Normally a standard print() of this value will reproduce the exact console output if method would be "raw executed" in development mode
-    * `stdout_html`: type `str`. the same as `stdout_text` but in HTML format ready to be sent "as is" to a browser (its a COMPLETE and FULL HTML doc). Used if pages together with other elements it is recommended to isolate it with distinct `div` and `iframe` tags
+    * `status_code`: `int`. Status code as used by HTTP standard returned codes (200 for success)
+    * `status_timestamp`: `str`. Timestamp of information in UTC ISO format
+    * `status_text`: `str`. Short text of this result set. Normally used to display a brief message note associated to code (for example "404 Not found")
+    * `result`: `Any`. The effective result information returned by method as core result of execution. Depending on method, this is a *Python specific structure*, scalar, basic or complex one
+    * `stdout_text`: `str`. Collected console "prints" output in text format. Normally a standard print() of this value will reproduce the exact console output if method would be "raw executed" in development mode
+    * `stdout_html`: `str`. the same as `stdout_text` but in HTML format ready to be sent "as is" to a browser (its a COMPLETE and FULL HTML doc). Used if pages together with other elements it is recommended to isolate it with distinct `div` and `iframe` tags
     """
     status_code: int = None
     status_timestamp: str = None
