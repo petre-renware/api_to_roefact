@@ -65,6 +65,14 @@ class CommandResult:
 @dataclass
 class SessionDataType:
     """Define session data used in class `Commands`.
+    These data objects mainly represents almost all parameters 
+    encountered in console application and that are suspect to 
+    be reusable when "chain more commands" iin the same session 
+    and is desirable to keep last values.
+    
+    Also in web applications is normal to not ask for parameters 
+    already entered by an end user and to preserve last entered values 
+    at least as default ones.
     """
     file_name: str = None
     invoice_type: InvoiceTypesEnum = None
