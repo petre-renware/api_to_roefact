@@ -48,12 +48,12 @@ class CommandResult:
     After each method execution all "prints" and status information stated by method in its execution (ie, which was saved) will be contained in.
 
     Fields:
-    * `status_code`: `int`. Status code as used by HTTP standard returned codes (200 for success)
-    * `status_timestamp`: `str`. Timestamp of information in UTC ISO format
-    * `status_text`: `str`. Short text of this result set. Normally used to display a brief message note associated to code (for example "404 Not found")
-    * `result`: `Any`. The effective result information returned by method as core result of execution. Depending on method, this is a *Python specific structure*, scalar, basic or complex one
-    * `stdout_text`: `str`. Collected console "prints" output in text format. Normally a standard print() of this value will reproduce the exact console output if method would be "raw executed" in development mode
-    * `stdout_html`: `str`. the same as `stdout_text` but in HTML format ready to be sent "as is" to a browser (its a COMPLETE and FULL HTML doc). Used if pages together with other elements it is recommended to isolate it with distinct `div` and `iframe` tags
+    * `status_code`: `int` Status code as used by HTTP standard returned codes (200 for success)
+    * `status_timestamp`: `str` Timestamp of information in UTC ISO format
+    * `status_text`: `str` Short text of this result set. Normally used to display a brief message note associated to code (for example "404 Not found")
+    * `result`: `Any` The effective result information returned by method as core result of execution. Depending on method, this is a *Python specific structure*, scalar, basic or complex one
+    * `stdout_text`: `str` Collected console "prints" output in text format. Normally a standard print() of this value will reproduce the exact console output if method would be "raw executed" in development mode
+    * `stdout_html`: `str` the same as `stdout_text` but in HTML format ready to be sent "as is" to a browser (its a COMPLETE and FULL HTML doc). Used if pages together with other elements it is recommended to isolate it with distinct `div` and `iframe` tags
     """
     status_code: int = None
     status_timestamp: str = None
@@ -102,7 +102,7 @@ class Commands:
             status_timestamp = datetime.now(timezone.utc).isoformat(),
             status_text = "xl2json command started"
         )
-        self.session_results.append(rslt)          
+        self.session_results.append(rslt)
         ... #FIXME ..end if section that should be changed to new interfaces
         self.response = CommandResult()  # prepare an ampty result to be used by/in command execution
 
@@ -183,7 +183,7 @@ class Commands:
         """
         # for not specified parameters get default values from session_data:
         #     - IF any parameter is `...`: get params from session data
-        #     - ELSE: save param to session data (helps to avoid parameters repeating in same session) 
+        #     - ELSE: save param to session data (helps to avoid parameters repeating in same session)
         if invoice_type is ...:
             invoice_type = self.session_data.invoice_type
         else:
@@ -212,7 +212,7 @@ class Commands:
         tmp_files_to_process = Path(files_directory)
         if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
             tmp_files_to_process = Path(".").absolute()
-            #FIXME prepare self.response code and text 
+            #FIXME prepare self.response code and text
             self.console.print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
         if verbose:
             #FIXME prepare self.response code and text
