@@ -107,7 +107,7 @@ class Commands:
         self.response = CommandResult()  # prepare an ampty result to be used by/in command execution
         self.response_out(
             status_code = 200,
-            status_text = "xl2json command started"
+            status_text = "xl2json command started",
             status_result = None
         )
 
