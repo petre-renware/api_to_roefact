@@ -43,9 +43,8 @@
 * tbd... move `xl2json` functionality to `l2_commands.py`
 * tbd... move `settings` functionality to `l2_commands.py`
 * tbd... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
-* tbd... upd versions to `0.9b0`
-* ... `upd-DLD` upd all `xl2json` docstring and generate new DLD doc
-* ... `main-code-cls` close `xl2json` method by prep status result before owner file not valid exiting & close all open TODO_FIXME issues
+* `upd-DLD` upd all `xl2json` docstring and generate new DLD doc
+* `main-code-cls` close `xl2json` method by prep status result before owner file not valid exiting & close all open TODO_FIXME issues
 * `main-code-ini` create `commands.py` to accommodate *layer 2 commands functionalities*
 * update version to `0.9.dev0`
 
