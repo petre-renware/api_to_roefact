@@ -554,7 +554,7 @@ div.download-btn {
 <article class="md-content__inner md-typeset"><div class="download-btn"><a href="../../pdfs/xl2roefact/doc/wrapper_810.05a-xl2roefact_DLD_specs.html/wrapper_810.05a-xl2roefact_DLD_specs.pdf">Download PDF</a></div>
 <!-- this doc is a wrapper intended just to create a better Table of Contents that one created by `pydoc` in built document -->
 <h1 id="xl2roefact-python-library-api-reference">xl2roefact python library API Reference</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.8-blue"/></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.9.dev0-blue"/></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-python-library-api-reference">xl2roefact python library API Reference</a></li>
@@ -568,12 +568,8 @@ div.download-btn {
 </ul>
 </li>
 <li><a href="#ldxml">ldxml</a></li>
-<li><a href="#chkxml">chkxml</a></li>
-<li><a href="#wrxml">wrxml</a></li>
-<li><a href="#config_settings">config_settings</a><ul>
-<li><a href="#default_due_date_days">DEFAULT_DUE_DATE_DAYS</a></li>
-<li><a href="#rules_content">rules_content</a></li>
-<li><a href="#load">load</a></li>
+<li><a href="#sys_settings">sys_settings</a><ul>
+<li><a href="#invoicetypes">InvoiceTypes</a></li>
 </ul>
 </li>
 <li><a href="#rdinv">rdinv</a><ul>
@@ -586,29 +582,51 @@ div.download-btn {
 <li><a href="#get_partner_data">get_partner_data</a></li>
 </ul>
 </li>
-<li><a href="#sys_settings">sys_settings</a><ul>
-<li><a href="#invoicetypes">InvoiceTypes</a></li>
+<li><a href="#chkisld">chkisld</a></li>
+<li><a href="#__init__">__init__</a><ul>
+<li><a href="#__version__">__version__</a></li>
+</ul>
+</li>
+<li><a href="#wrxml">wrxml</a></li>
+<li><a href="#__main__">__main__</a></li>
+<li><a href="#config_settings">config_settings</a><ul>
+<li><a href="#default_due_date_days">DEFAULT_DUE_DATE_DAYS</a></li>
+<li><a href="#rules_content">rules_content</a></li>
+<li><a href="#load">load</a></li>
+</ul>
+</li>
+<li><a href="#commands">commands</a><ul>
+<li><a href="#commandresult-objects">CommandResult Objects</a></li>
+<li><a href="#sessiondatatype-objects">SessionDataType Objects</a></li>
+<li><a href="#commands-objects">Commands Objects</a><ul>
+<li><a href="#__init___1">__init__</a></li>
+<li><a href="#session_data_set">session_data_set</a></li>
+<li><a href="#session_data_reset">session_data_reset</a></li>
+<li><a href="#version">version</a></li>
+<li><a href="#xl2json">xl2json</a></li>
+<li><a href="#response_out">response_out</a></li>
+<li><a href="#get_last_result">get_last_result</a></li>
+<li><a href="#pop_session_results">pop_session_results</a></li>
+<li><a href="#get_var_name">get_var_name</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#app_cli">app_cli</a><ul>
 <li><a href="#about">about</a></li>
 <li><a href="#settings">settings</a></li>
-<li><a href="#xl2json">xl2json</a></li>
+<li><a href="#xl2json_1">xl2json</a></li>
 <li><a href="#called_when_no_command">called_when_no_command</a></li>
 <li><a href="#run">run</a></li>
 </ul>
 </li>
-<li><a href="#__init__">__init__</a><ul>
-<li><a href="#__version__">__version__</a></li>
-</ul>
-</li>
-<li><a href="#__main__">__main__</a></li>
+<li><a href="#chkxml">chkxml</a></li>
+<li><a href="#_tst_dropme2">_tst_dropme2</a></li>
 <li><a href="#__version___1">__version__</a><ul>
 <li><a href="#__version___2">__version__</a></li>
 <li><a href="#normalized_version">normalized_version</a></li>
 </ul>
 </li>
-<li><a href="#chkisld">chkisld</a></li>
 <li><a href="#data">data</a></li>
 </ul>
 </div>
@@ -730,63 +748,29 @@ div.download-btn {
 <li>INTRARI: fisier <code>f-XML</code></li>
 <li>IESIRI: raport cu validarea si identificatorul incarcarii</li>
 </ul>
-<p><a id="chkxml"></a></p>
-<h1 id="chkxml">chkxml</h1>
-<p>chkxml: modul de validare a facturii in sistemul ANAF E-Factura</p>
-<p>Identification:</p>
+<p><a id="sys_settings"></a></p>
+<h1 id="sys_settings">sys_settings</h1>
+<p>System database and parameters.</p>
+<p>This module acts as an "ORM" between <code>xl2roefact</code> system and different data objects. It contains:</p>
 <ul>
-<li>code-name: <code>chkxml</code></li>
-<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>tinny physical data objects (Section 1.)</li>
+<li>logical data objects (Section 2.)</li>
+<li>interfaces to external data objects as files or other specialized systems (Section 2.)</li>
+</ul>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>"Sections 1, sl , ..." organization of code even is just a pure visual one, is recommended to be respected and followed it being intended to increase code readability and latter maintainability.</li>
+<li>IMPORTANT to keep in mind: This module IS NOT intended to be modified by end users or administrators. Only development stuff can alter this database because application code must be updated accordingly.</li>
+<li>for updaters remark: because dependencies, code sections should follow strict enumerated order in comments</li>
+</ul>
+<p><strong>References</strong>:</p>
+<ul>
+<li>copyright: (c) 2024 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
-<p>Specifications:</p>
-<ul>
-<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
-<li>INTRARI: fisier <code>f-XML</code></li>
-<li>IESIRI: raport cu eventualele erori de validare</li>
-</ul>
-<p><a id="wrxml"></a></p>
-<h1 id="wrxml">wrxml</h1>
-<p>wrxml: modul de generare a fisierului format XML</p>
-<p>Identification:</p>
-<ul>
-<li>code-name: <code>wrxml</code></li>
-<li>copyright: (c) 2023 RENWare Software Systems</li>
-<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
-</ul>
-<p>Specifications:</p>
-<ul>
-<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
-<li>INTRARI: fisier <code>f-JSON</code></li>
-<li>IESIRI: fisier format XML conform cerintelor si sistemului ANAF E-Factura (cod: <code>f-XML</code>)</li>
-</ul>
-<p><a id="config_settings"></a></p>
-<h1 id="config_settings">config_settings</h1>
-<p>Configuration and setting parameters.</p>
-<p>Regulile recomandate se gasessc in documentul (recommended rules are in document <code>xl2roefact/data/README_app_config_rules.md</code>)</p>
-<p>Public objects:</p>
-<ul>
-<li><code>rules_content</code>: contains the rules text (rendered)</li>
-</ul>
-<p>Info:</p>
-<ul>
-<li>copyright: (c) 2023 RENWare Software Systems</li>
-<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
-</ul>
-<p><a id="config_settings.DEFAULT_DUE_DATE_DAYS"></a></p>
-<h4 id="default_due_date_days">DEFAULT_DUE_DATE_DAYS</h4>
-<hr/>
-<p><strong>NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de</strong></p>
-<p>__  comanda <code>xl2json</code> reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)__</p>
-<hr/>
-<p><a id="config_settings.rules_content"></a></p>
-<h4 id="rules_content">rules_content</h4>
-<p><code>rules_content</code> public variable to be use as "mini help" by <code>settings -r</code> command of application</p>
-<p><a id="config_settings.load"></a></p>
-<h4 id="load">load</h4>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load</span><span class="p">()</span>
-</code></pre></div>
-<p>Read and load settings from external data file.</p>
+<p><a id="sys_settings.InvoiceTypes"></a></p>
+<h4 id="invoicetypes">InvoiceTypes</h4>
+<p>Section 2. INTERFACES &amp; LOGICAL data</p>
 <p><a id="rdinv"></a></p>
 <h1 id="rdinv">rdinv</h1>
 <p>rdinv: modul de procesare a fisierului Excel ce contine factura si colectare a datelor aferente.</p>
@@ -973,29 +957,232 @@ div.download-btn {
 <ul>
 <li><code>None</code> - all data is produced directly in parameters as side effect</li>
 </ul>
-<p><a id="sys_settings"></a></p>
-<h1 id="sys_settings">sys_settings</h1>
-<p>System database and parameters.</p>
-<p>This module acts as an "ORM" between <code>xl2roefact</code> system and different data objects. It contains:</p>
+<p><a id="chkisld"></a></p>
+<h1 id="chkisld">chkisld</h1>
+<p>chkisld: modul de verificare a starii de incarcare a unei facturi emise</p>
+<p>Identification:</p>
 <ul>
-<li>tinny physical data objects (Section 1.)</li>
-<li>logical data objects (Section 2.)</li>
-<li>interfaces to external data objects as files or other specialized systems (Section 2.)</li>
-</ul>
-<p><strong>Notes</strong>:</p>
-<ul>
-<li>"Sections 1, sl , ..." organization of code even is just a pure visual one, is recommended to be respected and followed it being intended to increase code readability and latter maintainability.</li>
-<li>IMPORTANT to keep in mind: This module IS NOT intended to be modified by end users or administrators. Only development stuff can alter this database because application code must be updated accordingly.</li>
-<li>for updaters remark: because dependencies, code sections should follow strict enumerated order in comments</li>
-</ul>
-<p><strong>References</strong>:</p>
-<ul>
-<li>copyright: (c) 2024 RENWare Software Systems</li>
+<li>code-name: <code>chkisld</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
-<p><a id="sys_settings.InvoiceTypes"></a></p>
-<h4 id="invoicetypes">InvoiceTypes</h4>
-<p>Section 2. INTERFACES &amp; LOGICAL data</p>
+<p>Specifications:</p>
+<ul>
+<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
+<li>INTRARI: fisier <code>f-XLSX</code> sau numarul / cheia / codul facturii</li>
+<li>IESIRI: valoarea echivalent <code>TRUE</code> daca factura a fost deja incarcata sau valoare echivalent <code>FALSE</code> daca factura nu a fost incarcata</li>
+</ul>
+<p><a id="__init__"></a></p>
+<h1 id="__init__">__init__</h1>
+<p><a id="__init__.__version__"></a></p>
+<h4 id="__version__">__version__</h4>
+<p>default conversion takes place over xl2roefact actual version</p>
+<p><a id="wrxml"></a></p>
+<h1 id="wrxml">wrxml</h1>
+<p>wrxml: modul de generare a fisierului format XML</p>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>wrxml</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Specifications:</p>
+<ul>
+<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
+<li>INTRARI: fisier <code>f-JSON</code></li>
+<li>IESIRI: fisier format XML conform cerintelor si sistemului ANAF E-Factura (cod: <code>f-XML</code>)</li>
+</ul>
+<p><a id="__main__"></a></p>
+<h1 id="__main__">__main__</h1>
+<p><strong>xl2roefact.<strong>main</strong></strong>: Python package standard file to assure run as <code>python -m xl2roefact</code>.</p>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>__main__</code></li>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p>Deployments:</p>
+<ul>
+<li>Windows:  MSI installer with EXE application.</li>
+<li>Linux: <code>xl2roefact</code> executable shell as wrapper for <code>xl2roefact.py</code>.</li>
+</ul>
+<p>Specifications:</p>
+<ul>
+<li>command general format: <code>python -m xl2roefact [OPTIONS] COMMAND [ARGS]...</code>.</li>
+<li>help: <code>python -m xl2roefact --help</code>.</li>
+</ul>
+<p><a id="config_settings"></a></p>
+<h1 id="config_settings">config_settings</h1>
+<p>Configuration and setting parameters.</p>
+<p>Regulile recomandate se gasessc in documentul (recommended rules are in document <code>xl2roefact/data/README_app_config_rules.md</code>)</p>
+<p>Public objects:</p>
+<ul>
+<li><code>rules_content</code>: contains the rules text (rendered)</li>
+</ul>
+<p>Info:</p>
+<ul>
+<li>copyright: (c) 2023 RENWare Software Systems</li>
+<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p><a id="config_settings.DEFAULT_DUE_DATE_DAYS"></a></p>
+<h4 id="default_due_date_days">DEFAULT_DUE_DATE_DAYS</h4>
+<hr/>
+<p><strong>NOTE: "pattern-uri" (sabloane) de identificare si regasire a datelor folositi de</strong></p>
+<p>__  comanda <code>xl2json</code> reprezentind functionalitatea de extragere a datelor din Excel si exportul lor in formatul JSON (modulul `rdinv)__</p>
+<hr/>
+<p><a id="config_settings.rules_content"></a></p>
+<h4 id="rules_content">rules_content</h4>
+<p><code>rules_content</code> public variable to be use as "mini help" by <code>settings -r</code> command of application</p>
+<p><a id="config_settings.load"></a></p>
+<h4 id="load">load</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load</span><span class="p">()</span>
+</code></pre></div>
+<p>Read and load settings from external data file.</p>
+<p><a id="commands"></a></p>
+<h1 id="commands">commands</h1>
+<p><em>Layer 2 commands</em> API implementation.</p>
+<p>Objectives:</p>
+<ul>
+<li>create an environment where a xl2roefact can be run in <em>session or interactivelly mode</em></li>
+<li>session parameters: persist commands run parameters in user profile (directory of <code>os.%userprofile%</code> or Linux <code>~/.profile</code>)</li>
+<li>group all layer 2 commands for:<ul>
+<li><code>xl2roefactd</code> (aka server)</li>
+<li><code>xl2roefact-client</code> (aka console client)</li>
+<li><code>web2roefact</code> (aka web client UI front end)* components</li>
+</ul>
+</li>
+</ul>
+<p>Identification:</p>
+<ul>
+<li>code-name: <code>commands</code></li>
+<li>Copyright: (c) 2024 RENware Software Systema</li>
+<li>Author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
+</ul>
+<p><a id="commands.CommandResult"></a></p>
+<h2 id="commandresult-objects">CommandResult Objects</h2>
+<div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">CommandResult</span><span class="p">()</span>
+</code></pre></div>
+<p>Define the result of execution. This structure contains information collected in methods execution.
+After each method execution all "prints" and status information stated by method in its execution (ie, which was saved) will be contained in.</p>
+<p>Fields:
+* <code>status_code</code>: <code>int</code> Status code as used by HTTP standard returned codes (200 for success)
+* <code>status_timestamp</code>: <code>str</code> Timestamp of information in UTC ISO format
+* <code>status_text</code>: <code>str</code> Short text of this result set. Normally used to display a brief message note associated to code (for example "404 Not found")
+* <code>result</code>: <code>Any</code> The effective result information returned by method as core result of execution. Depending on method, this is a <em>Python specific structure</em>, scalar, basic or complex one
+* <code>stdout_text</code>: <code>str</code> Collected console "prints" output in text format. Normally a standard print() of this value will reproduce the exact console output if method would be "raw executed" in development mode
+* <code>stdout_html</code>: <code>str</code> the same as <code>stdout_text</code> but in HTML format ready to be sent "as is" to a browser (its a COMPLETE and FULL HTML doc). Used if pages together with other elements it is recommended to isolate it with distinct <code>div</code> and <code>iframe</code> tags</p>
+<p><a id="commands.SessionDataType"></a></p>
+<h2 id="sessiondatatype-objects">SessionDataType Objects</h2>
+<div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">SessionDataType</span><span class="p">()</span>
+</code></pre></div>
+<p>Define session data used in class <code>Commands</code>.
+These data objects mainly represents almost all parameters 
+encountered in console application and that are suspect to 
+be reusable when "chain more commands" iin the same session 
+and is desirable to keep last values.</p>
+<p>Also in web applications is normal to not ask for parameters 
+already entered by an end user and to preserve last entered values 
+at least as default ones.</p>
+<p><a id="commands.Commands"></a></p>
+<h2 id="commands-objects">Commands Objects</h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Commands</span><span class="p">()</span>
+</code></pre></div>
+<p>xl2roefact commands layer implementation. <a href="README_xl2roefact_library.html">Descriere generala layer si componenta.</a>.</p>
+<p><a id="commands.Commands.__init__"></a></p>
+<h4 id="__init___1">__init__</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">()</span>
+</code></pre></div>
+<p>Init session data variables with default values.</p>
+<p><a id="commands.Commands.session_data_set"></a></p>
+<h4 id="session_data_set">session_data_set</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">session_data_set</span><span class="p">(</span><span class="o">*</span><span class="p">,</span>
+                     <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+                     <span class="n">invoice_type</span><span class="p">:</span> <span class="n">InvoiceTypesEnum</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+                     <span class="n">files_directory</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+                     <span class="n">owner_datafile</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+                     <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+</code></pre></div>
+<p>Set session data.</p>
+<p>Rules:
+* session data is kept as class-instance variables. This will use for "interactive" or "web" editions
+* if a parameter is not sent at call, then it is left unchanged
+* any other sent value is saved as instance variable
+* elipsis as default parametrs values help to make difference between a sent parameter (even with None) and a not sent one</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>all_item</code> - more instances = all data items required to be kept as reusable session data</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>bool</code> - any change was made</li>
+</ul>
+<p><a id="commands.Commands.session_data_reset"></a></p>
+<h4 id="session_data_reset">session_data_reset</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">session_data_reset</span><span class="p">()</span>
+</code></pre></div>
+<p>Resset session data to defaults.</p>
+<p><a id="commands.Commands.version"></a></p>
+<h4 id="version">version</h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">version</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+<p>return the version of <code>xl2roefact</code> used by this class</p>
+<p><a id="commands.Commands.xl2json"></a></p>
+<h4 id="xl2json">xl2json</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">xl2json</span><span class="p">(</span><span class="n">invoice_type</span><span class="p">:</span> <span class="n">InvoiceTypesEnum</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+            <span class="n">files_directory</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+            <span class="n">owner_datafile</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+</code></pre></div>
+<p>read excel invoice and generate a JSON file with invoice data, miscellaneous meta and original Excel found data</p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>invoice_type_code</code> - invoice type (for example regular invoice or storno) as this info is not usually subject of Excel file. Default to <code>380</code> (regular / usual invoice)</li>
+<li><code>file_name</code> - files to process (wildcards allowed).</li>
+<li><code>files_directory</code> - directory to be used to look for Excel files. Defaults to <code>invoice_files/</code>. NOTE: if default directory does not exists will consider current directory instead</li>
+<li><code>owner_datafile</code> - File to read invoice supplier (owner) data instead Excel.</li>
+<li><code>verbose</code> - show detailed processing messages". Defaults to <code>False</code>.</li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>bool</code> - True if command executed without errors. If return in False, the kasr result should be inspected to see error status and text (method <code>results_stack_pop()</code>)</li>
+</ul>
+<p><a id="commands.Commands.response_out"></a></p>
+<h4 id="response_out">response_out</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">response_out</span><span class="p">(</span><span class="o">*</span><span class="p">,</span>
+                 <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                 <span class="n">status_text</span><span class="o">=</span><span class="s2">"undefined"</span><span class="p">,</span>
+                 <span class="n">status_result</span><span class="o">=</span><span class="s2">"undefined"</span><span class="p">)</span>
+</code></pre></div>
+<p>Prepare and enque a response. This is designed to be in-class used and not for public interface.
+Arguments are min of what to be enqueued. Other ibformation are constructed local.</p>
+<p><a id="commands.Commands.get_last_result"></a></p>
+<h4 id="get_last_result">get_last_result</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_last_result</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="n">CommandResult</span><span class="p">]</span>
+</code></pre></div>
+<p>Get last result dictionary from stack WITHOUT drooping it.</p>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>CommandResult</code> - last result as dictionary</li>
+</ul>
+<p><a id="commands.Commands.pop_session_results"></a></p>
+<h4 id="pop_session_results">pop_session_results</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">pop_session_results</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">CommandResult</span><span class="p">]</span>
+</code></pre></div>
+<p>Get all session results as dictionary.</p>
+<p><strong>Returns</strong>:</p>
+<ul>
+<li><code>CommandResult</code> - list with all session results as dictionary</li>
+</ul>
+<p><a id="commands.Commands.get_var_name"></a></p>
+<h4 id="get_var_name">get_var_name</h4>
+<div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">get_var_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+</code></pre></div>
+<p>Return a variable defined in class as string of its name.</p>
 <p><a id="app_cli"></a></p>
 <h1 id="app_cli">app_cli</h1>
 <p>app_cli: the command line application for all xl2roefact functionalities.</p>
@@ -1025,7 +1212,7 @@ div.download-btn {
 <li><code>rules</code> - show recommended rules to follow when change application configurable settings (available in both RO &amp; EN languages). Defaults to <code>False</code>.</li>
 </ul>
 <p><a id="app_cli.xl2json"></a></p>
-<h4 id="xl2json">xl2json</h4>
+<h4 id="xl2json_1">xl2json</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app_cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">xl2json</span><span class="p">(</span>
     <span class="n">invoice_type</span><span class="p">:</span> <span class="n">InvoiceTypesEnum</span> <span class="o">=</span> <span class="n">InvoiceTypesEnum</span><span class="o">.</span><span class="n">NORMALA</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
@@ -1089,30 +1276,23 @@ div.download-btn {
 <p><a id="app_cli.run"></a></p>
 <h4 id="run">run</h4>
 <p>NOTE: for <code>run</code> "reason to be" as copy of <code>app_cli</code> see iss <code>0.1.22b 240216piu_a</code></p>
-<p><a id="__init__"></a></p>
-<h1 id="__init__">__init__</h1>
-<p><a id="__init__.__version__"></a></p>
-<h4 id="__version__">__version__</h4>
-<p>default conversion takes place over xl2roefact actual version</p>
-<p><a id="__main__"></a></p>
-<h1 id="__main__">__main__</h1>
-<p><strong>xl2roefact.<strong>main</strong></strong>: Python package standard file to assure run as <code>python -m xl2roefact</code>.</p>
+<p><a id="chkxml"></a></p>
+<h1 id="chkxml">chkxml</h1>
+<p>chkxml: modul de validare a facturii in sistemul ANAF E-Factura</p>
 <p>Identification:</p>
 <ul>
-<li>code-name: <code>__main__</code></li>
+<li>code-name: <code>chkxml</code></li>
 <li>copyright: (c) 2023 RENWare Software Systems</li>
 <li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
 </ul>
-<p>Deployments:</p>
-<ul>
-<li>Windows:  MSI installer with EXE application.</li>
-<li>Linux: <code>xl2roefact</code> executable shell as wrapper for <code>xl2roefact.py</code>.</li>
-</ul>
 <p>Specifications:</p>
 <ul>
-<li>command general format: <code>python -m xl2roefact [OPTIONS] COMMAND [ARGS]...</code>.</li>
-<li>help: <code>python -m xl2roefact --help</code>.</li>
+<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
+<li>INTRARI: fisier <code>f-XML</code></li>
+<li>IESIRI: raport cu eventualele erori de validare</li>
 </ul>
+<p><a id="_tst_dropme2"></a></p>
+<h1 id="_tst_dropme2">_tst_dropme2</h1>
 <p><a id="__version__"></a></p>
 <h1 id="__version___1">__version__</h1>
 <p><code>xl2roefact</code> version info.
@@ -1136,7 +1316,7 @@ div.download-btn {
 </code></pre></div></p>
 <p><a id="__version__.__version__"></a></p>
 <h4 id="__version___2">__version__</h4>
-<p>current 0.7, previous 0.7rc2</p>
+<p>current 0.9, previous 0.8</p>
 <p><a id="__version__.normalized_version"></a></p>
 <h4 id="normalized_version">normalized_version</h4>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">normalized_version</span><span class="p">(</span><span class="n">raw_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
@@ -1149,21 +1329,6 @@ div.download-btn {
 </ul>
 <p><strong>Returns</strong>:</p>
 <p><code>str:</code> canonical version string</p>
-<p><a id="chkisld"></a></p>
-<h1 id="chkisld">chkisld</h1>
-<p>chkisld: modul de verificare a starii de incarcare a unei facturi emise</p>
-<p>Identification:</p>
-<ul>
-<li>code-name: <code>chkisld</code></li>
-<li>copyright: (c) 2023 RENWare Software Systems</li>
-<li>author: Petre Iordanescu (petre.iordanescu@gmail.com)</li>
-</ul>
-<p>Specifications:</p>
-<ul>
-<li>document cerinte initiale: <code>110-SRE-api_to_roefact_requirements.md</code> section <code>Componenta xl2roefact</code></li>
-<li>INTRARI: fisier <code>f-XLSX</code> sau numarul / cheia / codul facturii</li>
-<li>IESIRI: valoarea echivalent <code>TRUE</code> daca factura a fost deja incarcata sau valoare echivalent <code>FALSE</code> daca factura nu a fost incarcata</li>
-</ul>
 <p><a id="data"></a></p>
 <h1 id="data">data</h1>
 <p>xl2roefact in-package designed to implement <strong>data layer</strong></p>
