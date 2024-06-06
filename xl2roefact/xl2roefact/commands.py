@@ -236,9 +236,14 @@ class Commands:
             if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
                 full_path_owner_datafile = hier_get_data_file(owner_datafile)
                 if not full_path_owner_datafile or full_path_owner_datafile is None:
+                    # exit not having other option (continuing with Excel file is not a choice bacase supplier data from it is not guaranteed to be usable)
                     self.console.print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
-                    #FIXME prepare self.response variable, enque it and then return
-                    return False  # just exit...
+                    self.response_out(
+                        status_code = 400,
+                        status_text = "xl2json Owner data file is not valid or does not exists. Process terminated.",
+                        status_result = None
+                    )
+                    return False          
             invoice_datadict = rdinv(
                 invoice_type_code=invoice_type,
                 file_to_process=invoice_to_process,
