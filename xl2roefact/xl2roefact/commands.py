@@ -303,7 +303,7 @@ class Commands:
         return rslt
 
 
-    """#TODO to be done
+    '''#TODO to be done
     def settings(
         self,
         tbd  #TODO: rest of params
@@ -317,7 +317,7 @@ class Commands:
             `...`: ...
         """
         ...  # TODO: code.me
-    """
+    '''
 
 
 
