@@ -18,7 +18,7 @@ Identification:
 
 # version objects
 from .__version__ import __version__ as xl2roefact_version
-#FIXME.drop.id.unused... from .__version__ import normalized_version as normalized_version
+from .__version__ import normalized_version as normalized_version
 
 # general librarie
 import copy
@@ -104,15 +104,12 @@ class Commands:
         self.session_data = SessionDataType()
         self.session_data_reset()  # get default values
         self.session_results = deque()
-        ... #FIXME this should use meanwhile built interfaces
-        rslt = CommandResult(
-            status_code = 200,
-            status_timestamp = datetime.now(timezone.utc).isoformat(),
-            status_text = "xl2json command started"
-        )
-        self.session_results.append(rslt)
-        ... #FIXME ..end if section that should be changed to new interfaces
         self.response = CommandResult()  # prepare an ampty result to be used by/in command execution
+        self.response_out(
+            status_code = 200,
+            status_text = "xl2json command started"
+            status_result = None
+        )
 
 
     def session_data_set(
@@ -255,9 +252,6 @@ class Commands:
                     self.console.print(msg)
             if not invoice_datadict:
                 self.console.print(f"[yellow]INFO note:[/] last step returned an empty invoice JSON and process could be incomplete. Please review previous messages.")
-                #FIXME mark in a way to set upper print text in queued self.response instead of existing agnostic msg ?
-        # end of core function process
-
         # compose result before exiting
         self.response_out(
             status_code = 200,
