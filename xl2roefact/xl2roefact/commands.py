@@ -209,8 +209,8 @@ class Commands:
             verbose = self.session_data.verbose
         else:
             self.session_data_set(verbose = verbose)
-
-        # core function process
+        # core process
+        invoice_datadict = None
         self.console = __class__.console  # set a fresh Console variable usable for this method (ie, command) execution
         self.console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
         # prep Excel files to rocess as requested in command line (NOTE: if default directory does not exists will consider current directory instead)
@@ -256,7 +256,7 @@ class Commands:
         self.response_out(
             status_code = 200,
             status_text = "xl2json command terminated",
-            status_result = invoice_datadict  #FIXME TODO: extract only "Invoice" key
+            status_result = invoice_datadict  #TODO: extract only "Invoice" key
         )
         return True
 
