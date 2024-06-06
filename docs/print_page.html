@@ -2452,13 +2452,15 @@ cit si la nivel detaliat pentru fiecare comanda
 </code></pre></div>
 <p>Define the result of execution. This structure contains information collected in methods execution.
 After each method execution all "prints" and status information stated by method in its execution (ie, which was saved) will be contained in.</p>
-<p>Fields:
-* <code>status_code</code>: <code>int</code> Status code as used by HTTP standard returned codes (200 for success)
-* <code>status_timestamp</code>: <code>str</code> Timestamp of information in UTC ISO format
-* <code>status_text</code>: <code>str</code> Short text of this result set. Normally used to display a brief message note associated to code (for example "404 Not found")
-* <code>result</code>: <code>Any</code> The effective result information returned by method as core result of execution. Depending on method, this is a <em>Python specific structure</em>, scalar, basic or complex one
-* <code>stdout_text</code>: <code>str</code> Collected console "prints" output in text format. Normally a standard print() of this value will reproduce the exact console output if method would be "raw executed" in development mode
-* <code>stdout_html</code>: <code>str</code> the same as <code>stdout_text</code> but in HTML format ready to be sent "as is" to a browser (its a COMPLETE and FULL HTML doc). Used if pages together with other elements it is recommended to isolate it with distinct <code>div</code> and <code>iframe</code> tags</p>
+<p>Fields:</p>
+<ul>
+<li><code>status_code</code>: <code>int</code> Status code as used by HTTP standard returned codes (200 for success)</li>
+<li><code>status_timestamp</code>: <code>str</code> Timestamp of information in UTC ISO format</li>
+<li><code>status_text</code>: <code>str</code> Short text of this result set. Normally used to display a brief message note associated to code (for example "404 Not found")</li>
+<li><code>result</code>: <code>Any</code> The effective result information returned by method as core result of execution. Depending on method, this is a <em>Python specific structure</em>, scalar, basic or complex one</li>
+<li><code>stdout_text</code>: <code>str</code> Collected console "prints" output in text format. Normally a standard print() of this value will reproduce the exact console output if method would be "raw executed" in development mode</li>
+<li><code>stdout_html</code>: <code>str</code> the same as <code>stdout_text</code> but in HTML format ready to be sent "as is" to a browser (its a COMPLETE and FULL HTML doc). Used if pages together with other elements it is recommended to isolate it with distinct <code>div</code> and <code>iframe</code> tags</li>
+</ul>
 <p><a id="commands.SessionDataType"></a></p>
 <h2 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-sessiondatatype-objects">SessionDataType Objects</h2>
 <div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
@@ -2492,11 +2494,13 @@ at least as default ones.</p>
                      <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <p>Set session data.</p>
-<p>Rules:
-* session data is kept as class-instance variables. This will use for "interactive" or "web" editions
-* if a parameter is not sent at call, then it is left unchanged
-* any other sent value is saved as instance variable
-* elipsis as default parametrs values help to make difference between a sent parameter (even with None) and a not sent one</p>
+<p>Rules:</p>
+<ul>
+<li>session data is kept as class-instance variables. This will use for "interactive" or "web" editions</li>
+<li>if a parameter is not sent at call, then it is left unchanged</li>
+<li>any other sent value is saved as instance variable</li>
+<li>elipsis as default parametrs values help to make difference between a sent parameter (even with None) and a not sent one</li>
+</ul>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>all_item</code> - more instances = all data items required to be kept as reusable session data</li>

@@ -48,6 +48,7 @@ class CommandResult:
     After each method execution all "prints" and status information stated by method in its execution (ie, which was saved) will be contained in.
 
     Fields:
+
     * `status_code`: `int` Status code as used by HTTP standard returned codes (200 for success)
     * `status_timestamp`: `str` Timestamp of information in UTC ISO format
     * `status_text`: `str` Short text of this result set. Normally used to display a brief message note associated to code (for example "404 Not found")
@@ -122,6 +123,7 @@ class Commands:
         """Set session data.
 
         Rules:
+    
         * session data is kept as class-instance variables. This will use for "interactive" or "web" editions
         * if a parameter is not sent at call, then it is left unchanged
         * any other sent value is saved as instance variable
