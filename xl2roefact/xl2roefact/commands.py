@@ -100,7 +100,6 @@ class Commands:
     def __init__(self):
         """Init session data variables with default values.
         """
-        #FIXME.drop.this.after.tst self.console = __class__.console  # initialize a new console
         self.session_data = SessionDataType()
         self.session_data_reset()  # get default values
         self.session_results = deque()
@@ -217,10 +216,8 @@ class Commands:
         tmp_files_to_process = Path(files_directory)
         if not (tmp_files_to_process.exists() and tmp_files_to_process.is_dir()):
             tmp_files_to_process = Path(".").absolute()
-            #FIXME prepare self.response code and text
             self.console.print(f"[dark_orange]WARNING note:[/] Default directory not found. Will consider current directory: [cyan]{tmp_files_to_process}[/].")
         if verbose:
-            #FIXME prepare self.response code and text
             self.console.print(f"[yellow]INFO note:[/] files to process: [cyan]{Path(tmp_files_to_process, file_name)}[/]")
             self.console.print()
         list_of_files_to_process = list(tmp_files_to_process.glob(file_name))  # `glob()` will unify in a list with specified files as pattern
@@ -228,7 +225,7 @@ class Commands:
         for a_file in list_of_files_to_process:
             rdinv_run_messages = list()  # this will collect rdinv running messages and if verbose is True will print
             invoice_to_process = Path("./", a_file)  # current file name to process, starting from current directory (the `files_directory` is already contained in)
-            # prep for owner data acquiring from external data-file or from Excel
+            # prepare for owner data acquiring from external data-file or from Excel
             full_path_owner_datafile = None
             if owner_datafile is not None:  # prep are to call `rdinv()` module with parameter to read supplier data from external file instead Excel
                 full_path_owner_datafile = hier_get_data_file(owner_datafile)
@@ -261,7 +258,7 @@ class Commands:
         return True
 
 
-    def response_out( #FIXME TODO: wip...@ 240527 06:00
+    def response_out(
         self, *,
         status_code = 200,
         status_text = "undefined",
@@ -285,7 +282,7 @@ class Commands:
     def get_last_result(self) -> dict[CommandResult]:
         """Get last result dictionary from stack WITHOUT drooping it.
 
-        Reeturn:
+        Return:
             `CommandResult`: last result as dictionary
         """
         tmp = self.session_results.pop()  # pop() method remove the item get, so ...
@@ -296,7 +293,7 @@ class Commands:
     def pop_session_results(self) -> list[CommandResult]:
         """Get all session results as dictionary.
 
-        Reeturn:
+        Return:
             `CommandResult`: list with all session results as dictionary
         """
         rslt = list()
@@ -306,6 +303,7 @@ class Commands:
         return rslt
 
 
+    """#TODO to be done
     def settings(
         self,
         tbd  #TODO: rest of params
@@ -319,7 +317,7 @@ class Commands:
             `...`: ...
         """
         ...  # TODO: code.me
-
+    """
 
 
 
