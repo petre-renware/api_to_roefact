@@ -238,7 +238,6 @@ class Commands:
                 if not full_path_owner_datafile or full_path_owner_datafile is None:
                     # exit not having other option (continuing with Excel file is not a choice bacase supplier data from it is not guaranteed to be usable)
                     self.console.print(f"[red]ERROR: Owner data file ([cyan]{owner_datafile}[/]) is not valid or does not exists. Process terminated.[/].")
-                    #FIXME test.me
                     self.response_out(
                         status_code = 400,
                         status_text = "xl2json Owner data file is not valid or does not exists. Process terminated.",
