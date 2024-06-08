@@ -1423,7 +1423,7 @@
     top --- invtmpl</code></pre>
 <ul>
 <li>
-<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.9.dev0-blue" /> - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)</p>
+<p><strong>xl2roefact</strong> <img alt="Static Badge" src="https://img.shields.io/badge/version-0.9.dev1-blue" /> - procesarea facturilor din interfata linie de comanda (aplicatie tip consola)</p>
 <ul>
 <li><strong><a href="#xl2roefact-index">xl2roefact consola</a></strong> aplicatie linie comanda CLI</li>
 <li><strong><a href="#xl2roefact-doc-readme_xl2roefact_library">xl2roefact developer</a></strong> biblioteca sursa python dezvoltari proprii</li>
@@ -1460,7 +1460,7 @@
                         </h2>
                         <section class="print-page" id="xl2roefact-index"><p><small><strong>RENware Software Systems</strong></small></p>
 <h1 id="xl2roefact-index-xl2roefact">xl2roefact</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.9.dev0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.9.dev1-blue" /></p>
 <p>Legaturi externe utile:</p>
 <ul>
 <li><a href="https://invoicetoroefact.renware.eu/"><strong>Web Site</strong></a>. (<em>Pentru acces corect la toate referintele din acest document vizitati site-ul dedicat acestui sistem.</em>)</li>
@@ -1820,13 +1820,17 @@ cit si la nivel detaliat pentru fiecare comanda
 -->
 
 <h1 id="xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.9.dev0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.9.dev1-blue" /></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-software-development-reference-using-xl2roefact-python-library">Software development reference using xl2roefact python library</a><ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-library-components">Library components</a><ul>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-basic-processing-components">Basic processing components</a></li>
-<li><a href="#xl2roefact-doc-readme_xl2roefact_library-command-components">Command components</a></li>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library-command-components">Command components</a><ul>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library-session-concept">Session concept</a></li>
+<li><a href="#xl2roefact-doc-readme_xl2roefact_library-layer-organization">Layer organization</a></li>
+</ul>
+</li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-configuration-components">Configuration components</a></li>
 <li><a href="#xl2roefact-doc-readme_xl2roefact_library-presentation-components">Presentation components</a></li>
 </ul>
@@ -1875,6 +1879,29 @@ cit si la nivel detaliat pentru fiecare comanda
 <li><code>json2pdf</code> process JSON file and produce invoice as PDF format</li>
 <li><code>xml2roefact</code> upload XML format invoice to "SPV RO eFactura"</li>
 </ul>
+<h4 id="xl2roefact-doc-readme_xl2roefact_library-session-concept">Session concept</h4>
+<p>This layer use the concept of <strong>session data</strong>, a session representing "all states &amp; information" for a <code>Commands</code> class instance, from its creation until it is destroyed.</p>
+<p>The concept allow to use multiple commands (chain commands) in a session, without need of repeating / specifying parameters send to last command process. This is useful to avoid re-requesting end users for parametrs entry in a <em>web application</em> or <em>console session application</em> (ie, start command and execute multimple commands at a dedicated prompt until a "quit" or similar command).</p>
+<h4 id="xl2roefact-doc-readme_xl2roefact_library-layer-organization">Layer organization</h4>
+<p>This layer consist of the following clases:</p>
+<ul>
+<li>
+<p><code>CommandResult</code> is a dataclass aimed to contain resulted information from commands processing. It contains all needed information in order to be able to render and display it as plain text, rich / enenhanced text or HTML. It contains:</p>
+<ul>
+<li><em>status code</em> (HTTP standard codes)</li>
+<li><em>status short text</em> as "human representation of status code", <em>console output</em> (plain text &amp; HTML)</li>
+<li><em>effective information</em>
+resulted from command processing.</li>
+</ul>
+</li>
+<li>
+<p><code>SessionDataType</code> is a dataclass containg all potential parameters passed to commands and which are subject to be repeated in the same session (to avoid re-entering them by end users and to present them as proposed default values)</p>
+</li>
+<li>
+<p><code>Commands</code> is the final class containing effective methods and session data</p>
+</li>
+</ul>
+<p>For more details see below the <em>API Reference</em> section.</p>
 <h3 id="xl2roefact-doc-readme_xl2roefact_library-configuration-components">Configuration components</h3>
 <p>These are the components that assure and make possible system configurablitity at user level.</p>
 <ul>
@@ -1941,7 +1968,7 @@ cit si la nivel detaliat pentru fiecare comanda
 </ul></section><section class="print-page" id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs"><!-- this doc is a wrapper intended just to create a better Table of Contents that one created by `pydoc` in built document -->
 
 <h1 id="xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2roefact-python-library-api-reference">xl2roefact python library API Reference</h1>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.9.dev0-blue" /></p>
+<p><img alt="Static Badge" src="https://img.shields.io/badge/version-0.9.dev1-blue" /></p>
 <div class="toc">
 <ul>
 <li><a href="#xl2roefact-doc-wrapper_810.05a-xl2roefact_dld_specs-xl2roefact-python-library-api-reference">xl2roefact python library API Reference</a></li>
@@ -4107,7 +4134,7 @@ Public License instead of this License.  But first, please read
 <ul>
 <li>tbd... move <code>xl2json</code> functionality to <code>l2_commands.py</code></li>
 <li>tbd... move <code>settings</code> functionality to <code>l2_commands.py</code></li>
-<li>tbd... update doc <code>README_xl2roefact_library.md</code> make a small hierarchical diagram with component layers</li>
+<li><code>upd-Rdoc</code> update <code>README_xl2roefact_library.md</code> make a small hierarchical diagram with component layers</li>
 <li><code>upd-DLD</code> upd all <code>xl2json</code> docstring and generate new DLD doc</li>
 <li><code>main-code-cls</code> close <code>xl2json</code> method by prep status result before owner file not valid exiting &amp; close all open TODO_FIXME issues</li>
 <li><code>main-code-ini</code> create <code>commands.py</code> to accommodate <em>layer 2 commands functionalities</em></li>

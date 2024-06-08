@@ -7,7 +7,7 @@
 
 extra:  # NOTE: components version used as Jinja fields in site markdown docs
     INVOICEtoROefact_version: "2023"  #FIXME no more used. Consider to drop it
-    xl2roefact_version: "0.9.dev0" # last release "0.8"
+    xl2roefact_version: "0.9.dev1" # last release "0.8"
     web2roefact_version: "n/a"
     invoice_template_version: "0.1.20"
 
