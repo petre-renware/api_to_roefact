@@ -49,15 +49,25 @@ These components are 2nd level layer components desined to implement *user level
 * `json2pdf` process JSON file and produce invoice as PDF format
 * `xml2roefact` upload XML format invoice to "SPV RO eFactura"
 
+#### Session concept
+This layer use the concept of **session data**, a session representing "all states & information" for a `Commands` class instance, from its creation until it is destroyed.
+
+The concept allow to uses multiple commands (chain commands) in a session, without need of repeating / specifying parameters send to last command process. This is useful to avoid re-requesting end users for parametrs entry in a *web application* or *console session application* (ie, start command and execute multimple commands at a dedicated prompt until a "quit" or similar command).
 
 #### Layer organization
-
 This layer consist of the following clases:
 
-* `CommandResult` is a dataclass aimed to contain resulted information from commands processing. It contains all needed information in order to be able to render and display it as plain text, rich / enenhanced text or HTML. Also it contains *status code* (HTTP standard codes)resulted from processing.
-* ...
-* ...
-* ...
+* `CommandResult` is a dataclass aimed to contain resulted information from commands processing. It contains all needed information in order to be able to render and display it as plain text, rich / enenhanced text or HTML. It contains:
+    * *status code* (HTTP standard codes)
+    * *status short text* as "human representation of status code", *console output* (plain text & HTML)
+    * *effective information*
+resulted from command processing.
+
+* `SessionDataType` is a dataclass containg all potential parameters passed to commands and which are subject to be repeated in the same session (to avoid re-entering them by end users and to present them as proposed default values)
+
+* `Commands` is the final class containing effective methods and session data
+
+For more details see below the *API Reference* section.
 
 
 ### Configuration components
