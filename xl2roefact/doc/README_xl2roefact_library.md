@@ -50,6 +50,16 @@ These components are 2nd level layer components desined to implement *user level
 * `xml2roefact` upload XML format invoice to "SPV RO eFactura"
 
 
+#### Layer organization
+
+This layer consist of the following clases:
+
+* `CommandResult` is a dataclass aimed to contain resulted information from commands processing. It contains all needed information in order to be able to render and display it as plain text, rich / enenhanced text or HTML. Also it contains *status code* (HTTP standard codes)resulted from processing.
+* ...
+* ...
+* ...
+
+
 ### Configuration components
 These are the components that assure and make possible system configurablitity at user level.
 
