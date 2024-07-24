@@ -40,8 +40,9 @@
 
 ## `0.9` init commands layer 2 of functionalities
 
-* tbd... move `xl2json` functionality to `l2_commands.py`
-* tbd... move `settings` functionality to `l2_commands.py`
+* ... update version, chk, clean & release it
+* ... move `xl2json` functionality to `l2_commands.py`
+* ... move `settings` functionality to `l2_commands.py`
 * `upd-Rdoc` update `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
 * `upd-DLD` upd all `xl2json` docstring and generate new DLD doc
 * `main-code-cls` close `xl2json` method by prep status result before owner file not valid exiting & close all open TODO_FIXME issues
