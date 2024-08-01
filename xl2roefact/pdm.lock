@@ -864,13 +864,13 @@ files = [
 
 [[package]]
 name = "pdm"
-version = "2.17.1"
+version = "2.17.3"
 requires_python = ">=3.8"
 summary = "A modern Python package and dependency manager supporting the latest PEP standards"
 groups = ["default"]
 dependencies = [
     "blinker",
-    "dep-logic>=0.4.3",
+    "dep-logic>=0.4.4",
     "filelock>=3.13",
     "findpython<1.0.0a0,>=0.6.0",
     "hishel<0.1.0,>=0.0.24",
@@ -894,8 +894,8 @@ dependencies = [
     "virtualenv>=20",
 ]
 files = [
-    {file = "pdm-2.17.1-py3-none-any.whl", hash = "sha256:2ef7bb1424217f267b81e40f9c5326af27a519e9535e3272aa3b454ad5ab096c"},
-    {file = "pdm-2.17.1.tar.gz", hash = "sha256:9e1a28ecca83f3627aa700b1e3d52cd3f82f10fc908ac6499119baf7a3d4ea6c"},
+    {file = "pdm-2.17.3-py3-none-any.whl", hash = "sha256:3cc0fab468d68ce9c52ce1f2f2270ecb5396b23f17be4ac048ca901be88b15f1"},
+    {file = "pdm-2.17.3.tar.gz", hash = "sha256:f49220f225ec71258cbf7148b14a76caeac612745bedab67f9062398ea56a7a5"},
 ]
 
 [[package]]
@@ -911,13 +911,13 @@ files = [
 
 [[package]]
 name = "pip"
-version = "24.1.2"
+version = "24.2"
 requires_python = ">=3.8"
 summary = "The PyPA recommended tool for installing Python packages."
 groups = ["default"]
 files = [
-    {file = "pip-24.1.2-py3-none-any.whl", hash = "sha256:7cd207eed4c60b0f411b444cd1464198fe186671c323b6cd6d433ed80fc9d247"},
-    {file = "pip-24.1.2.tar.gz", hash = "sha256:e5458a0b89f2755e0ee8c0c77613fe5273e05f337907874d64f13171a898a7ff"},
+    {file = "pip-24.2-py3-none-any.whl", hash = "sha256:2cd581cf58ab7fcfca4ce8efa6dcacd0de5bf8d0a3eb9ec927e07405f4d9e2a2"},
+    {file = "pip-24.2.tar.gz", hash = "sha256:5b5e490b5e9cb275c879595064adce9ebd31b854e3e803740b72f9ccf34a45b8"},
 ]
 
 [[package]]
