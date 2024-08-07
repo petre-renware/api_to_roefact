@@ -40,9 +40,11 @@
 
 ## `0.9` init commands layer 2 of functionalities
 
-* ... update version, chk, clean & release it
-* ... move `xl2json` functionality to `l2_commands.py`
-* ... move `settings` functionality to `l2_commands.py`
+* ... clean & release
+* ... update site downloads page (incl `sorceforge.net`)
+* ... update xl2roefact doc, & generate deliverables
+* ... update version to `0.9` (for `xl2roefact/__version__.py` and `/versions.yml`)
+* ... update `xl2json` functionality to `app_cli.py` using new `commands.py` layer 2 module
 * `upd-Rdoc` update `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
 * `upd-DLD` upd all `xl2json` docstring and generate new DLD doc
 * `main-code-cls` close `xl2json` method by prep status result before owner file not valid exiting & close all open TODO_FIXME issues
