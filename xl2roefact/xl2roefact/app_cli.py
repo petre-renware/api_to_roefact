@@ -32,7 +32,7 @@ from .chkxml import chkxml  # status #FIXME: not yet started
 from .ldxml import ldxml  # status #FIXME: not yet started
 from .chkisld import chkisld  # status #FIXME: not yet started
 from .sys_settings import InvoiceTypesEnum
-feom .commands import Commands
+from .commands import Commands
 
 
 """ CLI builder section.
