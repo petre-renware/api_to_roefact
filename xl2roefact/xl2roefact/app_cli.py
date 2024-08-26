@@ -32,6 +32,7 @@ from .chkxml import chkxml  # status #FIXME: not yet started
 from .ldxml import ldxml  # status #FIXME: not yet started
 from .chkisld import chkisld  # status #FIXME: not yet started
 from .sys_settings import InvoiceTypesEnum
+from .commands import Commands
 
 
 """ CLI builder section.
@@ -139,7 +140,7 @@ def xl2json(
         `file_name`: files to process (wildcards allowed).
         `files_directory`: directory to be used to look for Excel files. Defaults to `invoice_files/`. NOTE: if default directory does not exists will consider current directory instead
         `owner_datafile`: File to read invoice supplier (owner) data instead Excel.
-        `verbose`: show detailed processing messages". Defaults to `False`.
+        `verbose`: show detailed processing messages. Defaults to `False`.
     """
     console = Console()
     console.print(f"*** Application [red]xl2roefact[/] launched at {datetime.now()}")
