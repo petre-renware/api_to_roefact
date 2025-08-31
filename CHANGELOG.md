@@ -30,13 +30,28 @@
 
 
 
-## ... `0.9` invoice XML output
+<!--   ## tbd.nxt... `0.10` invoice XML output
+* make `json2xml`  -->
 
-* OR ... init commands layer 2 of functionalities
-* OR ... make `json2xml`
-* ... move `settings` functionality to `commands/`
-* ... update doc `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
-* ... make a PDM script to refresh project tags: drop all and get back from github. These script will drop tags removed from github
+
+
+
+
+
+## `0.9` - ...wip-unreleased...
+Init commands layer 2 of functionalities
+* ... clean & release
+* ... update site downloads page (incl `sorceforge.net`)
+* ... update xl2roefact doc, & generate deliverables
+* ... update version to `0.9` (for `xl2roefact/__version__.py` and `/versions.yml`)
+* ... wip-  update `xl2json` functionality to `app_cli.py` using new `commands.py` layer 2 module
+* ... asap-  publish site as "partially update" as draf @ this development version (**TODO** run PDM to gen xl2roefact doc)
+### `0.9.dev1` - Nov.2024
+* `upd-Rdoc` update `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
+* `upd-DLD` upd all `xl2json` docstring and generate new DLD doc
+* `main-code-cls` close `xl2json` method by prep status result before owner file not valid exiting & close all open TODO_FIXME issues
+* `main-code-ini` create `commands.py` to accommodate *layer 2 commands functionalities*
+* update version to `0.9.dev0`
 
 
 

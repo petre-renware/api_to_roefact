@@ -34,7 +34,7 @@ Results of execution are written on `xl2roefact/tests/` and `stdout` redirected 
 
 ## Run adhoc commands in xl2roefact environment
 
-This automation CI will run any user defined command by **running Windows script `.../xl2roefact/tests/adhoc.cmd`**. Execution context:
+Commit to branch **`adhoc`** and this automation CI will run any user defined command by **running Windows script `.../xl2roefact/tests/adhoc.cmd`**. Execution context:
 
 - workflow; `adhoc-run.yml`
 - trigger event: merge to branch `adhoc`

@@ -17,12 +17,12 @@ Components:
 
 """
 
+from .__version__ import normalized_version
 import sys
 import os
 from rich import print
 from fractions import Fraction
 import copy
-from .__version__ import normalized_version
 from pathlib import Path
 import shutil
 
