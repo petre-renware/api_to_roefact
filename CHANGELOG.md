@@ -38,14 +38,15 @@
 
 
 
-## `0.9` init commands layer 2 of functionalities
-
+## `0.9` - ...wip-unreleased...
+Init commands layer 2 of functionalities
 * ... clean & release
 * ... update site downloads page (incl `sorceforge.net`)
 * ... update xl2roefact doc, & generate deliverables
 * ... update version to `0.9` (for `xl2roefact/__version__.py` and `/versions.yml`)
 * ... wip-  update `xl2json` functionality to `app_cli.py` using new `commands.py` layer 2 module
 * ... asap-  publish site as "partially update" as draf @ this development version (**TODO** run PDM to gen xl2roefact doc)
+### `0.9.dev1` - Nov.2024
 * `upd-Rdoc` update `README_xl2roefact_library.md` make a small hierarchical diagram with component layers
 * `upd-DLD` upd all `xl2json` docstring and generate new DLD doc
 * `main-code-cls` close `xl2json` method by prep status result before owner file not valid exiting & close all open TODO_FIXME issues
